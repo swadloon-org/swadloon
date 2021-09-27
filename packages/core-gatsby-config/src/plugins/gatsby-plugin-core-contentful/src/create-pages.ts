@@ -40,6 +40,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         title
         description
         siteEnv
+        siteVersion
         siteUrl
         languages {
           langs

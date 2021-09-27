@@ -21,7 +21,6 @@ export const GlobalCSSVariables: React.FC<Props> = (props) => {
   const stylesColors = useStyles(styleRefsColors);
   const classNames = getMergedClassname([
     styles.wrapper,
-    styles.wrapper,
     stylesButtons.wrapper,
     stylesColors.wrapper,
   ]);

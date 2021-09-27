@@ -18,7 +18,7 @@ import * as stylesRef from './button.treat';
 type AsType = 'button' | 'a';
 
 type Props = PrimitiveProps<AsType> &
-  Pick<AnchorHTMLAttributes<any>, 'href'> &
+  Pick<AnchorHTMLAttributes<any>, 'href' | 'target'> &
   ButtonHTMLAttributes<any> &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {
     as?: 'button' | 'a' | 'div';

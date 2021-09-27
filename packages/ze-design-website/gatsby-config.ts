@@ -27,6 +27,7 @@ const config: conf.GastbySiteConfig = {
     description: `Ze Design System main website`,
     siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
+    siteVersion: packageJson.version,
     languages: {
       langs: [common.SITE_LANGUAGES.EN_CA, common.SITE_LANGUAGES.FR_CA],
       defaultLangKey: common.SITE_LANGUAGES.EN_CA,

@@ -14,12 +14,18 @@ const defaultProps: SidebarProps = {
   sidebar: {
     variant: Variant.primary,
   },
+  sidebarMode: 'floating',
 };
 
+/**
+ * Wrapper for sidebar components.
+ */
 export const SidebarBase = React.forwardRef<HTMLElement, Props>(
   (
     {
+      style,
       sidebar = defaultProps.sidebar,
+      sidebarMode = defaultProps.sidebarMode,
       sidebarOpened,
       onClickMenuButton,
       onClickBackdrop,
@@ -39,12 +45,21 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
     /**
      * Content
      */
-    const contentClassnames = getMergedClassname([contentClassName, styles.content]);
+    const contentClassnames = getMergedClassname([contentClassName]);
+
+    if (sidebarMode === 'hanging') {
+      return (
+        <nav ref={ref} style={style} className={styles.hanging}>
+          <Stack className={contentClassnames}>{children}</Stack>
+        </nav>
+      );
+    }
 
     return (
       <SidebarContainer
         as={'nav'}
         ref={ref}
+        style={style}
         sidebarOpened={sidebarOpened}
         onClickBackdrop={onClickBackdrop}
         disableBodyScroll={true}

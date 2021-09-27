@@ -8,6 +8,15 @@ import { CustomBlockVariantComponents } from '../blocks/block.props';
 export type FooterProps = PrimitiveProps<'footer'> & {
   /** footer data */
   footer?: FooterAPI;
+  /**
+   * Pass className that will be applied to the content element
+   */
+  contentClassName?: string;
+  /**
+   * Pass a css width to override the max content width
+   * @default cssTheme.layout.var.contentWidth.desktopMaxWidth
+   */
+  contentMaxWidth?: string;
 };
 
 /**

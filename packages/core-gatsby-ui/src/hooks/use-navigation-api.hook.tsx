@@ -1,10 +1,20 @@
-import { NavComponent, NavigationAPI } from '@newrade/core-website-api';
+import { NavigationAPI } from '@newrade/core-website-api';
+import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
 import { graphql, useStaticQuery } from 'gatsby';
+import { useMemo } from 'react';
+import { GatsbyPageNode } from '..';
 import { useI18next } from '../i18next/use-i18next.hook';
 import {
   getNavigationAPIFromPageNodes,
   GetNavigationAPIOptions,
 } from '../utilities/navigation-api.utilities';
+
+type NavigationQuery = PartialOrNull<{
+  pages: {
+    nodes: GatsbyPageNode[];
+    totalCount: number;
+  };
+}>;
 
 const query = graphql`
   query Navigation {
@@ -57,19 +67,14 @@ const query = graphql`
  * This hooks has support for i18n translation and localization and must be used within a I18nextContext Context
  */
 export function useNavigationAPI(options: GetNavigationAPIOptions): NavigationAPI {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<NavigationQuery>(query);
   const { t } = useI18next();
 
-  if (!options.pageNodes?.length) {
-    return {
-      id: options.navigationName,
-      name: options.navigationName,
-      label: '',
-      component: NavComponent.sidebar,
-      links: [],
-      subNavigation: [],
+  return useMemo(() => {
+    const mergedOptions: GetNavigationAPIOptions = {
+      ...options,
+      pageNodes: data?.pages?.nodes as GatsbyPageNode[],
     };
-  }
-
-  return getNavigationAPIFromPageNodes(options);
+    return getNavigationAPIFromPageNodes(mergedOptions);
+  }, [options, data?.pages?.nodes]);
 }

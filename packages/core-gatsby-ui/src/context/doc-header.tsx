@@ -1,11 +1,10 @@
-import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
 import {
   Badge,
   Cluster,
   Heading,
   Hr,
-  Label,
   Paragraph,
   Stack,
   Tag,
@@ -41,14 +40,14 @@ export const DocHeader = ({ props }: Props) => {
   const renderComponentInfos = componentVersion || componentStatus || componentTests;
 
   return (
-    <Stack gap={['24px']}>
-      {subject ? (
+    <Stack gap={[cssTheme.sizing.var.x4, '24px', '24px']}>
+      {/* {subject ? (
         <Label
           variant={LABEL_SIZE.small}
           variantStyle={TEXT_STYLE.boldUppercase}
           variantLevel={Variant.tertiary}
         >{`${subject.toUpperCase()}`}</Label>
-      ) : null}
+      ) : null} */}
 
       <Heading>{title}</Heading>
 

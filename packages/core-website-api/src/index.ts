@@ -11,6 +11,7 @@ export * from './api/company-info.api';
 export * from './api/content-types.api';
 export * from './api/footer.api';
 export * from './api/link.api';
+export * from './api/breadcrumbs.api';
 export * from './api/media-collection-v2.api';
 export * from './api/media-collection.api';
 export * from './api/media.api';

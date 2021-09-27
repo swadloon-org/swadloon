@@ -13,6 +13,7 @@ export enum FooterLayout {
   enterprise = 'enterprise',
   simple = 'simple',
   social = 'social',
+  docs = 'docs',
 }
 
 export type FooterAPI = PartialOrNull<{

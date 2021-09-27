@@ -27,3 +27,11 @@ sudo scutil --set ComputerName "mac-phil"
 sudo scutil --set LocalHostName "mac-phil"
 sudo scutil --set HostName "mac-phil"
 ```
+
+## Tools
+
+### Raycast
+
+```bash
+brew install --cask raycast
+```

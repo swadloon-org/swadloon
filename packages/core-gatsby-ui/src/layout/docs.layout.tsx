@@ -1,28 +1,31 @@
 import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
-  GatsbyMarkdownFilePageContext,
-  SOURCE_INSTANCE_NAME,
-} from '@newrade/core-gatsb-config/config';
-import {
-  BoxV2,
-  DesktopDocsSideBar,
-  Heading,
   Link,
   Main,
   MainWrapper,
-  Stack,
+  useIntersectionObserver,
+  useIsSSR,
   useTreatTheme,
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui';
-import { NavComponent, SidebarLayout } from '@newrade/core-website-api';
+import {
+  CompanyInfoAPI,
+  FooterLayout,
+  NavigationAPI,
+  SidebarLayout,
+} from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
-import React, { ReactNode } from 'react';
-import { useNavigationAPI } from '../hooks/use-navigation-api.hook';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
+import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
+import { FooterDocs } from '../footers/footer-docs';
 import { GatsbyLink } from '../links/gatsby-link';
 import { NavbarDocs } from '../navbar/navbar-docs';
+import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 
 /**
@@ -33,35 +36,64 @@ const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard')
     components.SidebarStandard,
 });
 
+/**
+ * Custom props to control the layout
+ */
+type Props = {
+  companyInfo?: CompanyInfoAPI;
+  navigation?: NavigationAPI;
+  footerNavigation?: NavigationAPI;
+  navbarNavigation?: NavigationAPI;
+};
+
+/**
+ * Gatsby layout props, it receives the same props as a page component
+ * with our custom page context.
+ *
+ * Additionally, it has custom props to configure how the layout renders
+ */
 export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
-> & {};
+> &
+  Props;
 
+/**
+ * Gatsby layout component meant to render documentation pages
+ *
+ * Features:
+ *  - navbar component with logo, tag, search theme switcher and links on the top right
+ *  - sidebar with nested navigation links
+ */
 export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const { cssTheme } = useTreatTheme();
+  const isSSR = useIsSSR();
+  const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
 
-  // Todo `locales` should prob be passed by the parent
+  /**
+   * CompanyInfo
+   */
 
-  const navigationDocs = useNavigationAPI({
-    navigationName: 'Docs navigation',
-    navigationComponent: NavComponent.sidebar,
-    includeLocales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
-  });
+  const companyInfo = props.companyInfo;
 
-  const navigationCoreDocs = useNavigationAPI({
-    navigationName: 'Docs navigation',
-    navigationComponent: NavComponent.sidebar,
-    includeLocales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
-  });
+  /**
+   * Navigation
+   */
 
-  const navigation =
-    props.pageContext?.sourceInstance === SOURCE_INSTANCE_NAME.DOCS
-      ? navigationDocs
-      : navigationCoreDocs;
+  const navigation = props.navigation;
+  const footerNavigation = props.footerNavigation;
+  const navbarNavigation = props.navbarNavigation;
+
+  /**
+   * Breadcrumbs
+   */
+
+  const BreadcrumbsPortal = () =>
+    isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
 
   /**
    * Sidebar
    */
+
   const [sidebarOpened, setSidebarOpened] = useSidebarState({ initial: false });
 
   function handleClickMenuButton(event: React.MouseEvent) {
@@ -88,101 +120,84 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const tag =
     props.location?.pathname && /core-docs/gi.test(props.location?.pathname) ? 'core docs' : 'docs';
 
+  const footerRef = useRef<HTMLDivElement | null>(null);
+  const threshold = useRef([...Array(200).keys()].map((a) => a / 200));
+  const entry = useIntersectionObserver(footerRef, { threshold: threshold.current });
+  const isVisible = !!entry?.isIntersecting;
+  const [navbarPosition, setNavbarPosition] = useState('');
+
+  useEffect(() => {
+    if (entry && entry.rootBounds) {
+      const bottom =
+        entry.rootBounds.height - entry.boundingClientRect.bottom + entry.boundingClientRect.height;
+      setNavbarPosition(`${bottom > 0 ? bottom : 0}px`);
+    }
+  }, [isVisible, entry, entry?.boundingClientRect.bottom, entry?.boundingClientRect.height]);
+
+  /**
+   * Footer
+   */
+
+  const contentWidth = [
+    cssTheme.layout.var.sidebarWidth,
+    cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
+    cssTheme.layout.var.asideWidth,
+    cssTheme.layout.var.contentMargins,
+    cssTheme.layout.var.contentMargins,
+  ];
+  const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
+
   return (
     <MainWrapper>
+      {/* Navbars */}
       <NavbarDocs
         tagText={tag}
         HomeLink={HomeLink}
-        maxWidth={'100%'}
+        maxWidth={contentMaxWidth}
         MenuLinks={MenuLinks}
         onClickMenuButton={handleClickMenuButton}
         menuOpened={sidebarOpened}
         enableLayoutModeButton={false}
       ></NavbarDocs>
 
-      <LazySidebarStandard
+      {isSSR ? null : (
+        <LazySidebarStandard
+          sidebar={{
+            name: 'Docs Sidebar',
+            layout: SidebarLayout.standard,
+            navigation,
+            companyInfo: {},
+            version: props.pageContext?.siteMetadata?.siteVersion,
+          }}
+          sidebarOpened={sidebarOpened}
+          onClickMenuButton={handleClickMenuButton}
+          onClickBackdrop={handleClickMenuButton}
+          activePathname={props.location?.pathname}
+          HomeLink={<GatsbyLink to={'/'} />}
+        ></LazySidebarStandard>
+      )}
+
+      {/* Desktop sidebar */}
+      <SidebarDocsDesktop
         sidebar={{
           name: 'Docs Sidebar',
           layout: SidebarLayout.standard,
+          navigation,
+          companyInfo: {},
+          version: props.pageContext?.siteMetadata?.siteVersion,
+        }}
+        style={{
+          bottom: navbarPosition,
         }}
         sidebarOpened={sidebarOpened}
         onClickMenuButton={handleClickMenuButton}
         onClickBackdrop={handleClickMenuButton}
         activePathname={props.location?.pathname}
         HomeLink={<GatsbyLink to={'/'} />}
-      ></LazySidebarStandard>
-
-      <DesktopDocsSideBar>
-        <BoxV2
-          style={{ flexDirection: 'column' }}
-          padding={[cssTheme.sizing.var.x4, 0, cssTheme.sizing.var.x7]}
-          justifyContent={['flex-start']}
-          alignItems={['stretch']}
-        >
-          <Stack gap={[cssTheme.sizing.var.x4]}>
-            <Heading variant={HEADING.h3}>Documentation</Heading>
-
-            <Stack>
-              {navigation.subNavigation?.map((nav, index) => {
-                return (
-                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    <div>{nav?.label}</div>
-                    {/* {item.items?.length ? (
-                      <DesktopDocsItemGroup
-                        label={item.displayName || item.name || 'Design System'}
-                      >
-                        {item.items?.length ? (
-                          <Stack>
-                            {item.items?.map((item, itemIndex) => {
-                              const status = item.frontmatter?.status;
-                              const version = item.frontmatter?.version;
-                              const deprecated = item.frontmatter?.deprecated;
-
-                              return (
-                                <DesktopDocsSidebarItem
-                                  key={itemIndex}
-                                  active={item.path === props.location?.pathname}
-                                  AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                                >
-                                  <span style={{ marginRight: 4 }}>
-                                    {item.displayName || item.name}
-                                  </span>{' '}
-                                  {version ? (
-                                    <Tag
-                                      size={TagSize.small}
-                                      variant={Variant.tertiary}
-                                    >{`${version}`}</Tag>
-                                  ) : null}{' '}
-                                  {status ? (
-                                    <Tag
-                                      size={TagSize.small}
-                                      variant={Variant.secondary}
-                                    >{`${status.toUpperCase()}`}</Tag>
-                                  ) : null}{' '}
-                                </DesktopDocsSidebarItem>
-                              );
-                            })}
-                          </Stack>
-                        ) : null}
-                      </DesktopDocsItemGroup>
-                    ) : (
-                      <SidebarItem
-                        active={item.path === props.location?.pathname}
-                        AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                      >
-                        {item.displayName || item.name}
-                      </SidebarItem>
-                    )} */}
-                  </Stack>
-                );
-              })}
-            </Stack>
-          </Stack>
-        </BoxV2>
-      </DesktopDocsSideBar>
+      ></SidebarDocsDesktop>
 
       <Main
-        contentPadding={true}
+        contentPadding={false}
         navbarPadding={true}
         desktopSidebarPadding={true}
         desktopAsidePadding={true}
@@ -190,6 +205,19 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       >
         <ViewportProvider context={viewportContext}>{props.children}</ViewportProvider>
       </Main>
+
+      <FooterDocs
+        ref={footerRef}
+        footer={{
+          name: 'Docs Sidebar',
+          layout: FooterLayout.standard,
+          navigation: footerNavigation,
+          companyInfo,
+          version: props.pageContext?.siteMetadata?.siteVersion,
+        }}
+        colorMode={'reversed'}
+        contentMaxWidth={contentMaxWidth}
+      ></FooterDocs>
     </MainWrapper>
   );
 };

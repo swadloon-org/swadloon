@@ -1,14 +1,10 @@
 import { Theme } from '@newrade/core-react-ui';
-import { styleMap } from 'treat';
+import { style } from 'treat';
 
-export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
-  aside: {
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    backgroundColor: 'transparent',
-    maxHeight: '100vh',
-    minHeight: '100vh',
-    padding: '1em',
-  },
+export const content = style(({ cssTheme, theme }: Theme) => ({
+  // needed for anchor to be able to scroll to links
+  // that are too close to the bottom of the page
+  paddingBottom: `40vh`,
+
+  paddingTop: cssTheme.sizing.var.x5,
 }));

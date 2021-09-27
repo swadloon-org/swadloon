@@ -1,7 +1,6 @@
-import { MdxFrontmatter } from './site-mdx-frontmatter';
-import { GatsbySiteLanguages } from './site-languages';
-import { GatsbySiteMetadata } from './site-metadata';
 import { Node } from 'gatsby';
+import { MdxFrontmatter } from './site-mdx-frontmatter';
+import { GatsbySiteMetadata } from './site-metadata';
 
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -71,12 +70,7 @@ export type MdxHeadingMdx = {
   depth?: Maybe<Scalars['Int']>;
 };
 
-export type GatsbyNodeSiteMetadataFragment = Pick<
-  GatsbySiteMetadata,
-  'title' | 'description' | 'siteEnv' | 'siteUrl'
-> & {
-  languages: GatsbySiteLanguages;
-};
+export type GatsbyNodeSiteMetadataFragment = GatsbySiteMetadata;
 
 export type GatsbyNodeSrcPagesFilesQuery = {
   allFile: { nodes: Array<{ id: string; absolutePath: string }> };

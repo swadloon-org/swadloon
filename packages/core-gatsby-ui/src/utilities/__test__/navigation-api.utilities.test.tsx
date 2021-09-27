@@ -167,6 +167,7 @@ describe(`navigation api utilities`, () => {
         pageNodes: pageNodes,
         includeLocales: [SITE_LANGUAGES.FR_CA],
         excludePaths: ['/ignored/'],
+        includedPaths: [],
       });
 
       expect(filteredPageNodes).toEqual([
@@ -179,6 +180,26 @@ describe(`navigation api utilities`, () => {
           },
           id: 'SitePage /fr-CA/docs/',
           path: '/fr-CA/docs/',
+        },
+      ]);
+
+      const filteredPageNodesInclude = getFilteredPageNodes({
+        pageNodes: pageNodes,
+        includeLocales: [SITE_LANGUAGES.EN],
+        excludePaths: [],
+        includedPaths: ['/docs/'],
+      });
+
+      expect(filteredPageNodesInclude).toEqual([
+        {
+          id: 'SitePage /docs/',
+          path: '/docs/',
+          context: {
+            siteMetadata,
+            id: '1',
+            name: 'en.index',
+            locale: SITE_LANGUAGES.EN,
+          },
         },
       ]);
     });

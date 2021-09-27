@@ -16,6 +16,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
+import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { DesignSystemFooter } from '../layout/design-system-footer';
 import { Aside } from '../navigation/aside';
 import * as styleRefs from './docs.treat';
@@ -65,7 +66,7 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const { styles } = useStyles(styleRefs);
+  const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
   return (
@@ -106,11 +107,14 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
+
       <Center
         maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth}
-        style={{ paddingBottom: `60vh` }}
+        className={styles.content}
       >
-        <Stack gap={[cssTheme.sizing.var.x3]}>
+        <Stack gap={[cssTheme.sizing.var.x4]}>
+          <BreadcrumbsDocs />
+
           <MarkdownCSS>
             <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
           </MarkdownCSS>

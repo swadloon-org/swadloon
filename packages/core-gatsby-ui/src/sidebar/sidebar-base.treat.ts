@@ -2,7 +2,13 @@ import { Theme } from '@newrade/core-react-ui';
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { globalStyle, style } from 'treat';
 
-export const wrapper = style(({ theme, cssTheme }: Theme) => ({
+/**
+ *
+ * Modes
+ *
+ */
+
+export const floating = style(({ theme, cssTheme }: Theme) => ({
   position: 'fixed',
   top: 0,
 
@@ -17,15 +23,36 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   zIndex: cssTheme.layout.zIndex.navBar,
 }));
 
-globalStyle(`${wrapper} *`, ({ theme, cssTheme }: Theme) => ({
+globalStyle(`${floating} *`, ({ theme, cssTheme }: Theme) => ({
   userSelect: 'none',
 }));
 
-/**
- * Sidebar content
- */
-export const content = style(({ cssTheme, theme }: Theme) => ({
-  minHeight: `105vh`,
+export const hanging = style(({ theme, cssTheme }: Theme) => ({
+  position: 'fixed',
+  left: `max(${cssTheme.layout.var.contentMargins}, calc(50% - ${cssTheme.layout.var.sidebarWidth} - ${cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} / 2 - ${cssTheme.sizing.var.x4}))`,
+  bottom: 0,
+  marginTop: cssTheme.sizing.var.x5,
+  marginBottom: cssTheme.sizing.var.x5,
+  width: cssTheme.layout.var.sidebarWidth,
+  top: cssTheme.layout.var.navbarHeight,
+  maxHeight: `calc(100vh)`,
+  display: 'none',
+  '@media': {
+    [cssTheme.layout.media.desktopSmall]: {
+      display: 'inherit',
+    },
+  },
+  zIndex: cssTheme.layout.zIndex.sideBarDesktop,
+  overflowY: 'auto',
+  overflowX: 'hidden',
+
+  color: cssTheme.colors.colorIntents.primaryText,
+
+  WebkitOverflowScrolling: `touch`,
+}));
+
+globalStyle(`${hanging} *`, ({ theme, cssTheme }: Theme) => ({
+  userSelect: 'none',
 }));
 
 /**

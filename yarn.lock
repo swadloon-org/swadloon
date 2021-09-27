@@ -15285,7 +15285,7 @@ gatsby-worker@^0.5.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^3.13.0, gatsby@^3.14.0:
+gatsby@^3.13.1, gatsby@^3.14.0:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.14.0.tgz#06c27464f1a9d044169ec910d0c9d7ef44e0b1d8"
   integrity sha512-ikXoVZ9LQO9lZBxVvQxrYkjhX1zz9/7/Iv/6WCt/UPdgYCWCKc6GWOqlbLKmjShM0fBxJHfjmiahNxuTzJIZsw==
@@ -24613,6 +24613,11 @@ react-router@6.0.0-beta.0:
   integrity sha512-VgMdfpVcmFQki/LZuLh8E/MNACekDetz4xqft+a6fBZvvJnVqKbLqebF7hyoawGrV1HcO5tVaUang2Og4W2j1Q==
   dependencies:
     prop-types "^15.7.2"
+
+react-schemaorg@^1.3.1:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-schemaorg/-/react-schemaorg-1.3.3.tgz#c249810db84f526e6fb8cfdfee69855635546019"
+  integrity sha512-yPoJgw05+QsK+T3CvBY4gtBw5HpHYyNi5EqPUbYlOFcw/+rzKdOAWyxufmBZ6RCQ3dWK1drNXURhwApDi44pwA==
 
 react-side-effect@^2.1.0:
   version "2.1.1"

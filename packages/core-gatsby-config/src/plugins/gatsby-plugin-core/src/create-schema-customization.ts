@@ -41,6 +41,8 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       siteEnv: String
       siteUrl: String
       siteRepositoryUrl: String
+      siteVersion: String
+      siteCopyright: String
       languages: SiteLanguages
     }
 

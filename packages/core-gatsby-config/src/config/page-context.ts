@@ -9,7 +9,7 @@ import { MdxFrontmatter } from './site-mdx-frontmatter';
  */
 export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFragment> = {
   /**
-   * Contains general info about the Gatsby site.
+   * Contains static information about the Gatsby site.
    */
   siteMetadata?: SiteMetadataType;
   /**

@@ -5,7 +5,7 @@ export const wrapper = style((theme: Theme) => ({
   display: 'inherit',
 }));
 
-globalStyle(`${wrapper}`, ({ theme, cssTheme }: Theme) => {
+globalStyle(`:root, ${wrapper}`, ({ theme, cssTheme }: Theme) => {
   const { sizing, layout } = cssTheme;
   return {
     /**

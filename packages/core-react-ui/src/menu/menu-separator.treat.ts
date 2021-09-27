@@ -1,5 +1,6 @@
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { Theme } from '../design-system';
+import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
@@ -9,3 +10,7 @@ export const styles = {
     height: `10px`,
   })),
 };
+
+globalStyle(`${globalThemeReversedSelector} ${styles.wrapper}`, ({ theme, cssTheme }: Theme) => ({
+  borderColor: cssTheme.colors.colors.grey[600],
+}));

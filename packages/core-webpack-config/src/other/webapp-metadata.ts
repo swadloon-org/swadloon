@@ -6,5 +6,6 @@ export type WebAppMetadata = Record<string, unknown> & {
   siteEnv: DeployEnvType;
   siteUrl: string;
   siteRepositoryUrl?: string;
+  siteVersion?: string;
   languages: 'en';
 };

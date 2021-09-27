@@ -12,6 +12,14 @@ export type SidebarProps = PrimitiveProps<'nav'> & {
    */
   sidebar?: SidebarAPI;
   /**
+   * How the sidebar is placed in the layout
+   * @description
+   *  - floating: on top of all component, on the left side
+   *  - docked:  under the navbar, always open on desktop
+   *  - hanging: floats near the main content
+   */
+  sidebarMode?: 'floating' | 'docked' | 'hanging';
+  /**
    * State of the sidebar
    */
   sidebarOpened?: boolean;

@@ -13,6 +13,7 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
   includeLocales: [SITE_LANGUAGES.EN],
   sortOrderItems: [],
   sortOrderDirectories: [],
+  includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
   translate: (key) => (key ? key : ''),
@@ -46,10 +47,18 @@ export type GetNavigationAPIOptions = {
    */
   sortOrderDirectories?: string[];
   /**
-   * Excluded paths
+   * Included paths or patterns
+   * @example '/core-docs/'
+   */
+  includedPaths?: (string | RegExp)[];
+  /**
+   * Excluded paths or patterns
+   * If both includedPaths and excludePaths are specified
+   * excludePaths is applied after includedPaths
+   *
    * @example '/404'
    */
-  excludePaths?: string[];
+  excludePaths?: (string | RegExp)[];
   /**
    * Words to transform to UPPERCASE
    */
@@ -92,7 +101,12 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
     //
     sortOrderItems: mergedOptions.sortOrderItems.map((item) => getNormalizedPath(item)),
     sortOrderDirectories: mergedOptions.sortOrderDirectories.map((item) => getNormalizedPath(item)),
-    excludePaths: mergedOptions.excludePaths.map((item) => getNormalizedPath(item)),
+    excludePaths: mergedOptions.excludePaths.map((pattern) =>
+      typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
+    ),
+    includedPaths: mergedOptions.excludePaths.map((pattern) =>
+      typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
+    ),
   } as Required<GetNavigationAPIOptions>;
 
   const {
@@ -180,9 +194,46 @@ export function getNormalizedPath(name?: string | null) {
  * or have paths that should be excluded
  */
 export function getFilteredPageNodes(
-  options: Pick<Required<GetNavigationAPIOptions>, 'pageNodes' | 'includeLocales' | 'excludePaths'>
+  options: Pick<
+    Required<GetNavigationAPIOptions>,
+    'pageNodes' | 'includeLocales' | 'excludePaths' | 'includedPaths'
+  >
 ) {
   const filteredPageNodes = options.pageNodes
+    //
+    // find pages that matches includedPaths
+    //
+    .filter((node) => {
+      if (!options.includedPaths.length) {
+        return true;
+      }
+      return options.includedPaths.some((pattern) => {
+        if (!node.path) {
+          return false;
+        }
+        if (typeof pattern === 'object') {
+          return pattern.test(node.path);
+        }
+        return getNormalizedPath(pattern) === getNormalizedPath(node.path);
+      });
+    })
+    //
+    // remove ignored paths
+    //
+    .filter((node) => {
+      if (!options.excludePaths.length) {
+        return true;
+      }
+      return !options.excludePaths.some((pattern) => {
+        if (!node.path) {
+          return false;
+        }
+        if (typeof pattern === 'object') {
+          return !pattern.test(node.path);
+        }
+        return getNormalizedPath(pattern) === getNormalizedPath(node.path);
+      });
+    })
     //
     // remove 404 pages
     //
@@ -204,16 +255,7 @@ export function getFilteredPageNodes(
       }
 
       return false;
-    })
-    //
-    // remove ignored paths
-    //
-    .filter(
-      (node) =>
-        !options.excludePaths?.find(
-          (item) => getNormalizedPath(item) === getNormalizedPath(node.path)
-        )
-    );
+    });
 
   return filteredPageNodes;
 }
@@ -511,6 +553,10 @@ function getCompletePath(paths?: string[]): string {
   return `/${paths.join('/')}/`;
 }
 
+/**
+ * Retun a path without the leading locale prefix
+ * @example fr-ca.index.md => index.md
+ */
 export function getPageNodeNameWithoutLocale(name?: string | null) {
   if (!name) {
     return '';

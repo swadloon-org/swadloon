@@ -2,11 +2,15 @@ import { PartialOrNull } from '../utilities';
 
 export type CompanyInfoAPI = PartialOrNull<{
   /**
-   * The name and description of the tag type'
+   * The company name
    */
   companyName: string;
+  /**
+   * Short description of the company
+   */
   description: string;
   linkedinPageURL: string;
+  githubPageURL: string;
   facebookPageURL: string;
   instagramPageURL: string;
   twitterPageURL: string;
