@@ -28,7 +28,7 @@
     "lerna:build": "lerna run build",
     "lerna:build:postinstall": "lerna run build:postinstall --parallel",
     "lerna:clean": "lerna run clean",
-    "lerna:depcheck": "lerna exec 'nr depcheck' --concurrency=1",
+    "lerna:depcheck": "lerna exec 'yarn nr depcheck' --concurrency=1",
     "lerna:ls-lint": "lerna exec --concurrency=1 ls-lint",
     "lerna:start": "lerna run start --parallel",
     "lerna:test": "lerna run test",
