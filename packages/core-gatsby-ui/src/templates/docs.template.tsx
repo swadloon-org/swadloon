@@ -17,7 +17,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
-import { DesignSystemFooter } from '../layout/design-system-footer';
+import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
 import * as styleRefs from './docs.treat';
 
@@ -116,10 +116,16 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           <BreadcrumbsDocs />
 
           <MarkdownCSS>
-            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+            <MDXRenderer {...{ ...props, theme, cssTheme }}>
+              {props.data.file?.childMdx?.body as string}
+            </MDXRenderer>
           </MarkdownCSS>
 
-          <DesignSystemFooter />
+          <DocsPageFooter
+            editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}
+            nextPageLabel={props.data.file?.childMdx?.frontmatter?.nextPageLabel}
+            nextPageUrl={props.data.file?.childMdx?.frontmatter?.nextPageUrl}
+          />
         </Stack>
       </Center>
 

@@ -136,8 +136,13 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
         return navigation;
       }
 
-      // split node path into each part
-      const pageNodePathParts = pageNode.path.split('/').filter((part) => !!part.length);
+      const pageNodePathParts = pageNode.path
+        // split node path into each part
+        .split('/')
+        // remove the locale prefix (e.g. ['fr', 'page'] => ['page'])
+        .filter((part) => !includeLocales.find((locale) => locale === part))
+        // remove empty parts
+        .filter((part) => !!part.length);
 
       if (!pageNodePathParts.length) {
         return navigation;
@@ -160,7 +165,6 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
         nav: navigation,
         linkEntry: {
           name: pageNodeContext?.name,
-          label: formattedPageTitle,
           page: {
             name: pageNodeContext?.name,
             title: formattedPageTitle,
@@ -461,10 +465,15 @@ export function setNavigationLinkAtPath({
   linkEntry?: LinkAPI;
   options: Required<GetNavigationAPIOptions>;
 }): NavigationAPI {
-  // take the parts up to the parent
-  const parentPathParts = paths.slice(0, paths.length - 1);
-  const currentPathLast = paths.slice(paths.length - 1).join('');
-  const currentPathParts = paths;
+  //
+  // for a path /docs/design/page
+  //
+  const currentPathParts = paths; // ['docs', 'design', 'page']
+  const parentPathParts = paths.slice(0, paths.length - 1); // ['docs', 'design']
+  const parentPathPart = paths.slice(paths.length - 2, paths.length - 1); // ['design']
+  const parentPathPartName = parentPathPart.join(''); // 'design'
+  const currentPathPart = paths.slice(paths.length - 1); // ['page']
+  const currentPathLast = currentPathPart.join(''); // 'page'
 
   const currentPath = getCompletePath(currentPathParts);
   const currentPathName = currentPathParts.join('');
@@ -473,7 +482,9 @@ export function setNavigationLinkAtPath({
 
   const newLinkEntry: LinkAPI = {
     name: currentPathLast,
-    label: options.formatLabel(currentPathLast),
+    label: linkEntryIsIndex
+      ? options.formatLabel(options.translate('overview'))
+      : options.formatLabel(currentPathLast),
     type: LinkType.internalPage,
     page: {
       name: currentPathLast,
@@ -506,7 +517,7 @@ export function setNavigationLinkAtPath({
       nav,
       navigationEntry: {
         name: newLinkEntry.name,
-        label: options.formatLabel(currentPathLast),
+        label: options.formatLabel(parentPathPartName),
         links: [newLinkEntry],
       },
       options,

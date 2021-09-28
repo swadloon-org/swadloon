@@ -1,5 +1,10 @@
-import { Variant } from '@newrade/core-design-system';
-import { GatsbyLink, NavbarStandard } from '@newrade/core-gatsby-ui/src';
+import {
+  FooterStandard,
+  GatsbyLink,
+  NavbarStandard,
+  useI18next,
+} from '@newrade/core-gatsby-ui/src';
+import { LayoutDocsProps } from '@newrade/core-gatsby-ui/src/layout/docs.layout';
 import {
   Main,
   MainWrapper,
@@ -9,28 +14,40 @@ import {
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import { NavbarLayout } from '@newrade/core-website-api';
-import { PageProps } from 'gatsby';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import { navbarNavigation } from '../navigation/navigation';
-import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
-type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
+type LayoutProps = LayoutDocsProps;
 
 export const Layout: React.FC<LayoutProps> = (props) => {
   const isSSR = useIsSSR();
 
   /**
+   * Translation
+   */
+
+  const { getTranslatedObject } = useI18next();
+
+  /**
    * Styles & animations
    */
+
   const { cssTheme } = useTreatTheme();
   const styles = useStyles(styleRefs);
 
   /**
+   * Navigation
+   */
+
+  const navbar = props.navbar;
+  const sidebar = props.sidebar;
+  const footer = props.footer;
+
+  /**
    * Sidebar
    */
+
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(false);
 
   function handleClickMenuButton(event: React.MouseEvent) {
@@ -44,12 +61,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <MainWrapper {...commonProps}>
       <NavbarStandard
-        navbar={{
-          name: 'Navbar',
-          variant: Variant.primaryReversed,
-          layout: NavbarLayout.standard,
-          navigation: navbarNavigation,
-        }}
+        navbar={navbar}
         HomeLink={<GatsbyLink to={'/'} />}
         onClickMenuButton={handleClickMenuButton}
       ></NavbarStandard>
@@ -64,7 +76,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
 
       <Main minHeight={true}>{props.children}</Main>
 
-      <Footer />
+      <FooterStandard footer={footer}></FooterStandard>
     </MainWrapper>
   );
 };

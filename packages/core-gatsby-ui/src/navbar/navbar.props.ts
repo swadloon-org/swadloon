@@ -22,6 +22,14 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
    */
   HomeLink?: React.ReactNode;
   /**
+   * Allow to override the max-width of the content
+   */
+  maxWidth?: string;
+  /**
+   * Text to put in a tag next to the logo
+   */
+  tagText?: string;
+  /**
    * Handle the menu button event
    */
   onClickMenuButton?: (event: React.MouseEvent) => void;

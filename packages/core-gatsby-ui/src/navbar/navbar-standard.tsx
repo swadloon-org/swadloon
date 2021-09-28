@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
   ButtonIcon,
   ButtonSize,
@@ -14,6 +15,7 @@ import {
   Link,
   Logo,
   MenuSeparator,
+  Tag,
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
@@ -36,6 +38,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
       className,
       navbar,
       HomeLink,
+      tagText,
       currentLanguage,
       languages,
       onChangeLang,
@@ -50,7 +53,8 @@ export const NavbarStandard = React.forwardRef<any, Props>(
     /**
      * Languages
      */
-    const { t, getAlternativeLang } = useI18next();
+
+    const { t, getAlternativeLang, changeLanguage } = useI18next();
     const alternativeLanguage = getAlternativeLang();
 
     const commonProps = useCommonProps({
@@ -68,9 +72,21 @@ export const NavbarStandard = React.forwardRef<any, Props>(
     const navigation = navbar?.navigation;
     const navbarNavigation = navigation?.component === NavComponent.navbar ? navigation : null;
 
+    function renderLinks(links: LinkAPI[]) {
+      return (
+        <>
+          {links?.map((link, id) => {
+            return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
+          })}
+        </>
+      );
+    }
+
     return (
       <NavbarBase navbar={navbar} ref={ref} contentClassName={styles.content} {...commonProps}>
-        {/* Mobile */}
+        {/*
+         * Mobile
+         */}
 
         {/* Menu button */}
         <Button
@@ -98,10 +114,12 @@ export const NavbarStandard = React.forwardRef<any, Props>(
         </BoxV2>
 
         {/* Language link */}
-        {alternativeLanguage && onChangeLang ? (
+        {alternativeLanguage?.lang && onChangeLang ? (
           <Link
             className={styles.lang}
-            onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+            onClick={(event: React.MouseEvent) =>
+              onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+            }
           >
             {alternativeLanguage.label}
           </Link>
@@ -112,18 +130,29 @@ export const NavbarStandard = React.forwardRef<any, Props>(
          */}
 
         {/* Standard logo & link */}
-        <BoxV2
-          draggable={false}
-          aria-label={'Home'}
+        <Cluster
+          alignItems={['center']}
+          gap={[cssTheme.sizing.var.x2]}
           className={styles.logoDesktopWrapper}
-          justifyContent={['center']}
-          padding={[cssTheme.sizing.var.x2, 0]}
-          AsElement={HomeLink}
         >
-          <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
-        </BoxV2>
+          <BoxV2
+            draggable={false}
+            aria-label={'Home'}
+            alignItems={['center']}
+            justifyContent={['center']}
+            padding={[cssTheme.sizing.var.x2, 0]}
+            AsElement={HomeLink}
+          >
+            {/* Logo as a link to the home page */}
+            <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
+          </BoxV2>
+
+          {/* Optional tag next to the logo */}
+          {tagText ? <Tag variant={Variant.primaryReversed}>{tagText}</Tag> : null}
+        </Cluster>
 
         <div className={styles.navLinksDesktop}>
+          {navbarNavigation?.links ? renderLinks(navbarNavigation?.links as LinkAPI[]) : null}
           {navbarNavigation?.subNavigation?.map((subNav, subNavIndex) => {
             if (!subNav) {
               return null;
@@ -140,9 +169,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
                   key={subNavIndex}
                   gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
                 >
-                  {links?.map((link, id) => {
-                    return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
-                  })}
+                  {renderLinks(links as LinkAPI[])}
                 </Cluster>
               </Cluster>
             );
@@ -160,11 +187,13 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           ></Button>
 
           {/* Language link */}
-          {alternativeLanguage && onChangeLang ? (
+          {alternativeLanguage?.lang && onChangeLang ? (
             <Link
               variantSize={PARAGRAPH_SIZE.small}
               className={styles.langDesktop}
-              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+              onClick={(event: React.MouseEvent) =>
+                onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+              }
             >
               {alternativeLanguage.label}
             </Link>

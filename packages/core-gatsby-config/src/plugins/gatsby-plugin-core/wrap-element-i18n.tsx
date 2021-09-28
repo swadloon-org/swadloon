@@ -1,4 +1,3 @@
-// @ts-ignore'@newrade/core-gatsby-ui/src
 import { I18nextContext } from '@newrade/core-gatsby-ui/src/i18next/i18next-context';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 /**

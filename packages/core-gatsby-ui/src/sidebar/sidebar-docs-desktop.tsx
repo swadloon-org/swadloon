@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   Hr,
@@ -163,10 +164,12 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         {/* Bottom */}
         <div className={styles.footer}>
           {/* Language link */}
-          {alternativeLanguage && onChangeLang ? (
+          {alternativeLanguage?.lang && onChangeLang ? (
             <Link
               variantSize={PARAGRAPH_SIZE.small}
-              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+              onClick={(event: React.MouseEvent) =>
+                onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+              }
             >
               {alternativeLanguage.label}
             </Link>

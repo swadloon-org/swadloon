@@ -9,7 +9,7 @@ import { CompanyInfoAPI } from './company-info.api';
  */
 export enum SidebarLayout {
   standard = 'standard',
-  documentation = 'documentation',
+  docs = 'docs',
 }
 
 export type SidebarAPI = PartialOrNull<{

@@ -22,7 +22,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
+import { BlockAPI, LinkAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import {
   IoLogoFacebook,
@@ -59,6 +59,42 @@ export const FooterDocs = React.forwardRef<any, Props>(
     const githubURL = footer?.companyInfo?.githubPageURL;
     const navigation = footer?.navigation;
     const footerNavigation = navigation?.component === NavComponent.footer ? navigation : null;
+
+    /**
+     * Navigation
+     */
+
+    function renderLinks(links?: LinkAPI[] | null) {
+      return (
+        <>
+          {links?.map((link, id) => {
+            if (link?.type === LinkType.externalUrl) {
+              return (
+                <Link
+                  key={id}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  href={link?.url || ' '}
+                  variantIcon={LinkIcon.right}
+                  Icon={<IconComp name={ICON.OPEN}></IconComp>}
+                >
+                  {link?.label || link?.url || ' '}
+                </Link>
+              );
+            }
+
+            return (
+              <Link
+                key={id}
+                variantSize={PARAGRAPH_SIZE.small}
+                AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
+              >
+                {link?.label || ' '}
+              </Link>
+            );
+          })}
+        </>
+      );
+    }
 
     /**
      * Social links
@@ -215,31 +251,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
                   key={id}
                   gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
                 >
-                  {links?.map((link, id) => {
-                    if (link?.type === LinkType.externalUrl) {
-                      return (
-                        <Link
-                          key={id}
-                          variantSize={PARAGRAPH_SIZE.small}
-                          href={link?.url || ' '}
-                          variantIcon={LinkIcon.right}
-                          Icon={<IconComp name={ICON.OPEN}></IconComp>}
-                        >
-                          {link?.label || link?.url || ' '}
-                        </Link>
-                      );
-                    }
-
-                    return (
-                      <Link
-                        key={id}
-                        variantSize={PARAGRAPH_SIZE.small}
-                        AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
-                      >
-                        {link?.label || ' '}
-                      </Link>
-                    );
-                  })}
+                  {renderLinks(links as LinkAPI[])}
                 </Stack>
               </Stack>
             );

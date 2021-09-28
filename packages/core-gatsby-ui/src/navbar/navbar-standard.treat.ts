@@ -93,7 +93,7 @@ export const logoDesktopWrapper = style(({ theme, cssTheme }: Theme) => ({
 
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {
-      display: 'initial',
+      display: 'grid',
     },
   },
 }));

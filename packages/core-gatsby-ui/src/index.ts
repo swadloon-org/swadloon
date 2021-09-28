@@ -13,6 +13,7 @@ export * from './footers/footer.props';
 export * from './hooks/use-design-system-layout.hook';
 export * from './hooks/use-design-system-navigation-data.hook';
 export * from './hooks/use-reach-router-location.hook';
+export * from './hooks/use-navigation-api.hook';
 export * from './i18next/i18next-context';
 export * from './i18next/locales';
 export * from './i18next/use-i18next.hook';

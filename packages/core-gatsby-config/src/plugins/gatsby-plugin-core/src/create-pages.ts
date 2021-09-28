@@ -255,12 +255,17 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       );
     }
 
+    /**
+     * Allow to set a custom template for design system pages
+     *
+     * Right now we use the docs template (design-system-page.template.tsx is not created in core-gatsby-ui)
+     */
     if (!designSystemPageTemplate) {
       try {
-        await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
+        await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
         designSystemPageTemplate = path.resolve(
-          `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
+          `../core-gatsby-ui/src/templates/docs.template.tsx`
         );
       } catch (error: any) {
         reporter.panic(

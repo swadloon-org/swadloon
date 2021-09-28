@@ -1,4 +1,5 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
+import { GatsbyPageAlternateLocale } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import { NavigateOptions } from '@reach/router';
@@ -7,11 +8,22 @@ import { useContext } from 'react';
 import { Namespace, useTranslation, UseTranslationOptions } from 'react-i18next';
 import { I18nextContext, LANGUAGE_KEY } from './i18next-context';
 
+type AlternatePageLocale = GatsbyPageAlternateLocale;
+
 export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
   const { i18n, t, ready } = useTranslation(ns, options);
   const context = useContext(I18nextContext);
 
   const { routed, defaultLanguage } = context;
+
+  const translate = (key?: string | null) => {
+    if (!key) {
+      return '';
+    }
+    return t(key as any, {
+      lng: context.language,
+    });
+  };
 
   const getLanguagePath = (language: string) => {
     return removeLocaleExtension(language) !== removeLocaleExtension(defaultLanguage)
@@ -25,29 +37,34 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
     return gatsbyNavigate(link, options);
   };
 
+  /**
+   * Update the i18n config with the changed language and ask Gatsby to navigate
+   */
   const changeLanguage = ({
     language,
     to,
     alternateLocales,
     options,
+    fallbackToHomePage = true,
   }: {
     language: string;
     to?: string;
-    alternateLocales?: {
-      locale: SITE_LANGUAGES;
-      path: string;
-    }[];
+    alternateLocales?: AlternatePageLocale[];
     options?: NavigateOptions<{}>;
+    fallbackToHomePage?: boolean;
   }) => {
-    const alternatePageForLocale = alternateLocales?.find(
-      (alternatePage) =>
-        alternatePage.locale === language ||
-        getLangSimpleCode(alternatePage.locale) === getLangSimpleCode(language)
-    );
+    const alternatePageForLocale = getAlternativePageForLocale(language, alternateLocales);
+
+    const alternatePageForLocaleFound = alternatePageForLocale && alternatePageForLocale.path;
+
+    if (!alternatePageForLocaleFound && !fallbackToHomePage) {
+      // if fallbackToHomePage is false, do nothing
+      return;
+    }
 
     const path = to
       ? `${to}${window.location.search}`
-      : alternatePageForLocale
+      : alternatePageForLocaleFound
       ? alternatePageForLocale.path
       : `${getLanguagePath(language)}/`; // fallback to home page in the other language
     localStorage.setItem(LANGUAGE_KEY, language);
@@ -57,6 +74,9 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
     return gatsbyNavigate(path, options);
   };
 
+  /**
+   * Return the alternative language configured for the site
+   */
   const getAlternativeLang = () => {
     const alternativeLanguages = context?.languages?.filter(
       (lang) => removeLocaleExtension(lang) !== removeLocaleExtension(context.language)
@@ -67,10 +87,22 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
       : '';
 
     return {
-      lang: alternativeLanguage as SITE_LANGUAGES,
+      lang: alternativeLanguage as SITE_LANGUAGES | null,
       label: alternativeLanguageLabel,
     };
   };
+
+  function getAlternativePageForLocale(
+    language: string | SITE_LANGUAGES,
+    alternateLocales?: AlternatePageLocale[]
+  ) {
+    const alternatePageForLocale = alternateLocales?.find(
+      (alternatePage) =>
+        alternatePage.locale === language ||
+        getLangSimpleCode(alternatePage.locale) === getLangSimpleCode(language)
+    );
+    return alternatePageForLocale;
+  }
 
   function removeLocaleExtension(localeName: string): string {
     return getLangSimpleCode(localeName);
@@ -134,11 +166,14 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
 
   return {
     ...context,
+    language: context.language as SITE_LANGUAGES,
     i18n,
     t,
+    translate,
     ready,
     navigate,
     changeLanguage,
+    getAlternativePageForLocale,
     getAlternativeLang,
     getTranslatedObject,
   };

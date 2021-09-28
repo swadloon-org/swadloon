@@ -40,7 +40,7 @@ type Props = PrimitiveProps & {
    */
   MenuLinks?: React.ReactNode;
   /**
-   * Text to put in the tag next to the logo
+   * Text to put in a tag next to the logo
    */
   tagText?: string;
   /**

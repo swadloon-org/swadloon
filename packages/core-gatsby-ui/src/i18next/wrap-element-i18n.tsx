@@ -11,12 +11,16 @@ import { I18nextContext } from './i18next-context';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 
-export const WrapElementWithi18N: React.FC<
-  Pick<WrapPageElementBrowserArgs, 'props'> & {
-    i18nOptions?: InitOptions;
-    children: React.ReactNode;
-  }
-> = ({ props, i18nOptions, children }) => {
+type WrapElementWithI18NProps = Pick<WrapPageElementBrowserArgs, 'props'> & {
+  i18nOptions?: InitOptions;
+  children: React.ReactNode;
+};
+
+export const WrapElementWithi18N: React.FC<WrapElementWithI18NProps> = ({
+  props,
+  i18nOptions,
+  children,
+}) => {
   const pageProps = props as Props;
 
   const pageLang = pageProps.pageContext.locale || SITE_LANGUAGES.EN;
@@ -62,6 +66,12 @@ export const WrapElementWithi18N: React.FC<
         {children}
       </I18nextContext.Provider>
     </I18nextProvider>
+  );
+};
+
+export const withI18nWrapper = (i18nOptions: InitOptions) => {
+  return (props: WrapElementWithI18NProps) => (
+    <WrapElementWithi18N {...props}>{}</WrapElementWithi18N>
   );
 };
 

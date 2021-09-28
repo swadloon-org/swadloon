@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
   ButtonIcon,
   ButtonSize,
@@ -136,11 +137,13 @@ export const SidebarStandard = React.forwardRef<any, Props>(
         {/* Bottom */}
         <div className={styles.bottom}>
           {/* Language link */}
-          {alternativeLanguage && onChangeLang ? (
+          {alternativeLanguage?.lang && onChangeLang ? (
             <Link
               variantSize={PARAGRAPH_SIZE.small}
               className={styles.lang}
-              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+              onClick={(event: React.MouseEvent) =>
+                onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+              }
             >
               {alternativeLanguage.label}
             </Link>
