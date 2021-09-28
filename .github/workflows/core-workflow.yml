@@ -36,8 +36,6 @@ env:
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
 
-
-
 jobs:
   build-test:
     runs-on: ubuntu-latest
