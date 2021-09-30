@@ -6,6 +6,10 @@ import * as styleRefs from './main.treat';
 
 type Props = PrimitiveProps & {
   /**
+   * Sticky layout allows a sidebar and an aside component to be next to the main centered content
+   */
+  stickyLayout?: boolean;
+  /**
    * Offset the content to account for the sidebar (on desktop only)
    */
   desktopSidebarPadding?: boolean;
@@ -42,6 +46,7 @@ export const Main: React.FC<Props> = ({
   className,
   navbarPadding,
   contentPadding,
+  stickyLayout = false,
   desktopSidebarPadding,
   desktopAsidePadding,
   minHeight,
@@ -59,6 +64,7 @@ export const Main: React.FC<Props> = ({
       styles.wrapper,
       navbarPadding ? styles.navbar : '',
       contentPadding ? styles.contentPadding : '',
+      stickyLayout ? styles.stickyLayout : '',
       desktopSidebarPadding ? styles.desktopSidebar : '',
       desktopAsidePadding ? styles.desktopAside : '',
       minHeight ? styles.minHeight : '',

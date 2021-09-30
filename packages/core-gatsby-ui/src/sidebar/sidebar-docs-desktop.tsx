@@ -132,15 +132,20 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     return (
       <SidebarBase
         sidebar={sidebar}
-        sidebarMode={'hanging'}
+        sidebarMode={'sticky'}
         ref={ref}
         contentClassName={styles.wrapper}
         {...commonProps}
       >
         {/* Header */}
-        <div className={styles.header} style={{ display: 'none' }}>
+        <div className={styles.header}>
+          <Hr />
+
+          {/* Title */}
+          {/* <Label variant={LABEL_SIZE.medium}>Documentation</Label> */}
+
           {/* Search box */}
-          <InputWrapper>
+          <InputWrapper style={{ display: 'none' }}>
             <InputLabel htmlFor={'sidebar-docs-search'} hidden={true}>
               Search
             </InputLabel>

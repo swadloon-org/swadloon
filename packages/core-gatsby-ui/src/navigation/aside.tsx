@@ -1,5 +1,5 @@
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { BoxV2, Label, Link, Stack } from '@newrade/core-react-ui';
+import { BoxV2, Label, Link, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { formatAnchorId } from '@newrade/core-react-ui/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
@@ -23,6 +23,7 @@ type Props = {
 };
 
 export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
+  const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
   const renderedItems = props.items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
@@ -34,7 +35,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
 
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
-      <Stack as={'nav'} className={styles.wrapper}>
+      <Stack as={'nav'} gap={[cssTheme.sizing.var.x1]}>
         <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
           {t('inThisPage')}
         </Label>

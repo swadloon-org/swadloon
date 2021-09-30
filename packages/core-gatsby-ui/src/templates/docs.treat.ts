@@ -6,5 +6,8 @@ export const content = style(({ cssTheme, theme }: Theme) => ({
   // that are too close to the bottom of the page
   paddingBottom: `40vh`,
 
-  paddingTop: cssTheme.sizing.var.x5,
+  paddingTop: cssTheme.sizing.var.x4,
+
+  // prevent the content to overflow the parent
+  overflowX: 'hidden',
 }));

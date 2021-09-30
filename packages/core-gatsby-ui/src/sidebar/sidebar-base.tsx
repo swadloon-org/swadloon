@@ -47,6 +47,14 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
      */
     const contentClassnames = getMergedClassname([contentClassName]);
 
+    if (sidebarMode === 'sticky') {
+      return (
+        <nav ref={ref} style={style} className={styles.sticky}>
+          <Stack className={contentClassnames}>{children}</Stack>
+        </nav>
+      );
+    }
+
     if (sidebarMode === 'hanging') {
       return (
         <nav ref={ref} style={style} className={styles.hanging}>

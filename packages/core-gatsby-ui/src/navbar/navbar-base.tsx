@@ -21,6 +21,7 @@ export const NavbarBase = React.forwardRef<HTMLElement, Props>(
     {
       contentClassName,
       navbar = defaultProps.navbar,
+      navbarMode = 'fixed',
       maxWidth,
       currentLanguage,
       languages,
@@ -74,7 +75,12 @@ export const NavbarBase = React.forwardRef<HTMLElement, Props>(
       <Primitive
         ref={ref}
         variant={variant}
-        classNames={[styles.wrapper, variantClass, isReversed ? globalThemeReversed : '']}
+        classNames={[
+          styles.wrapper,
+          styles[navbarMode],
+          variantClass,
+          isReversed ? globalThemeReversed : '',
+        ]}
         AsElement={
           <Center
             as={'nav'}

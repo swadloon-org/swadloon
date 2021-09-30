@@ -77,6 +77,9 @@ F19::Run https://facebook.com
 ; Pasting
 #v::Send, ^v
 
+; Pasting with shift
+#+v::Send, ^+v
+
 ; Cutting
 #x::Send, ^x
 

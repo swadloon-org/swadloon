@@ -3,7 +3,6 @@ import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/g
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
-  position: 'fixed',
   top: 0,
 
   display: 'grid',
@@ -19,6 +18,20 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
 
 globalStyle(`${wrapper} *`, ({ theme, cssTheme }: Theme) => ({
   userSelect: 'none',
+}));
+
+/**
+ *
+ * Modes
+ *
+ */
+
+export const fixed = style(({ theme, cssTheme }: Theme) => ({
+  position: 'fixed',
+}));
+
+export const normal = style(({ theme, cssTheme }: Theme) => ({
+  position: 'static',
 }));
 
 /**

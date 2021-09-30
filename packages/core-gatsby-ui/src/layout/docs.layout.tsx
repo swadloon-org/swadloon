@@ -2,14 +2,7 @@ import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
-import {
-  Main,
-  MainWrapper,
-  Theme,
-  useEventListener,
-  useIsSSR,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Main, MainWrapper, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useRef, useState } from 'react';
@@ -150,26 +143,41 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   /** Update sidebar position with the footer */
 
   const footerRef = useRef<HTMLDivElement | null>(null);
-  const [navbarPosition, setNavbarPosition] = useState('');
-  useEventListener<'scroll'>(
-    'scroll',
-    (event) => {
-      if (isSSR) {
-        return;
-      }
-      const footerElement = footerRef.current;
-      if (!footerElement) {
-        return;
-      }
-      const windowHeight = window.document.documentElement.clientHeight;
-      const { height: footerHeight, bottom: footerBottom } = footerElement.getBoundingClientRect();
-      const sidebarBottomPosition = windowHeight - footerBottom + footerHeight;
-      setNavbarPosition(`${sidebarBottomPosition > 0 ? sidebarBottomPosition : 0}px`);
-    },
-    {
-      passive: true,
-    }
-  );
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+
+  const [navbarPosition, setNavbarPosition] = useState({ top: '', bottom: '' });
+
+  // useEventListener<'scroll'>(
+  //   'scroll',
+  //   (event) => {
+  //     if (isSSR) {
+  //       return;
+  //     }
+  //     const footerElement = footerRef.current;
+  //     if (!footerElement) {
+  //       return;
+  //     }
+  //     const navbarElement = navbarRef.current;
+  //     if (!navbarElement) {
+  //       return;
+  //     }
+  //     const windowHeight = window.document.documentElement.clientHeight;
+  //     const { height: footerHeight, bottom: footerBottom } = footerElement.getBoundingClientRect();
+  //     const { bottom: navbarBottom } = navbarElement.getBoundingClientRect();
+  //     const sidebarBottomPosition = windowHeight - footerBottom + footerHeight;
+  //     const sidebarTopPosition = navbarBottom;
+  //     setNavbarPosition({
+  //       top:
+  //         sidebarBottomPosition > 0
+  //           ? 'auto'
+  //           : `${sidebarTopPosition > 0 ? sidebarTopPosition : 0}px`,
+  //       bottom: `${sidebarBottomPosition > 0 ? sidebarBottomPosition : 0}px`,
+  //     });
+  //   },
+  //   {
+  //     passive: true,
+  //   }
+  // );
 
   /**
    * Layout
@@ -191,10 +199,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 
   return (
-    <MainWrapper>
+    <MainWrapper preventOverflowX={false}>
       {/* Navbars */}
       <NavbarStandard
+        ref={navbarRef}
         navbar={navbar}
+        navbarMode={'normal'}
         colorMode={'reversed'}
         HomeLink={<GatsbyLink to={'/'} />}
         maxWidth={contentMaxWidth}
@@ -227,30 +237,30 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         ></LazySidebarStandard>
       )}
 
-      {/* Desktop sidebar */}
-      <SidebarDocsDesktop
-        sidebar={sidebar}
-        style={{
-          bottom: navbarPosition,
-        }}
-        activePathname={props.location?.pathname}
-      ></SidebarDocsDesktop>
-
       <Main
         contentPadding={false}
-        navbarPadding={true}
+        navbarPadding={false}
+        stickyLayout={true}
         minHeight={true}
-        desktopSidebarPadding={layoutMode === 'centered'}
-        desktopAsidePadding={layoutMode === 'centered'}
+        // desktopSidebarPadding={layoutMode === 'centered'}
+        // desktopAsidePadding={layoutMode === 'centered'}
         style={
           layoutMode === 'centered'
-            ? {}
+            ? {
+                maxWidth: contentMaxWidth,
+              }
             : {
                 // @ts-ignore
                 '--layout-content-width-desktop-docs-max-width': `100%`,
               }
         }
       >
+        {/* Desktop sidebar */}
+        <SidebarDocsDesktop
+          sidebar={sidebar}
+          activePathname={props.location?.pathname}
+        ></SidebarDocsDesktop>
+
         <MDXProvider
           components={{
             ThemeWrapper: (props: any) => (
