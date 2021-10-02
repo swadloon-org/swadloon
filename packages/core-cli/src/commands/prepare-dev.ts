@@ -2,6 +2,7 @@ import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import debug from 'debug';
 import { NS } from '../utilities/log.utilities';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 /**
  * To be used with preconstruct
@@ -24,7 +25,7 @@ export default class PrepareDev extends Command {
     this.log('running preconstruct dev command');
 
     spawnSync(`yarn preconstruct dev`, {
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: 'inherit',
       env: process.env,
     });

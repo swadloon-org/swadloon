@@ -60,7 +60,7 @@ export default class CleanNodeModules extends Command {
     // bash sucks 👎
     // spawnSync(`git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d`, {
     //   cwd: '.',
-    //   shell: true,
+    //   shell: getShellForPlatform(),
     //   stdio: 'inherit',
     //   env: process.env,
     // });

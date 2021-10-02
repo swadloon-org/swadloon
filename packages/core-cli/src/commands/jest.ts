@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 export default class Jest extends Command {
   log = debugInstance(`${NS}:jest`);
@@ -31,7 +32,7 @@ export default class Jest extends Command {
     this.log(`running: ${command}`);
 
     const cmd = spawnSync(command, {
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: ['inherit', 'inherit', 'pipe'], // jest only uses stderr as output https://github.com/facebook/jest/issues/5064
       env: process.env,
     });

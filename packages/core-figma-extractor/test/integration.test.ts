@@ -2,12 +2,13 @@ import { spawnSync } from 'child_process';
 import { extract } from '../src/extract';
 import fs from 'fs';
 import path from 'path';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 describe(`${extract} command`, () => {
   it('should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341)', () => {
     const cmd = spawnSync(`yarn nr figma-sync --test`, {
       cwd: process.cwd(),
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: ['inherit', 'inherit', 'inherit'],
       env: process.env,
     });

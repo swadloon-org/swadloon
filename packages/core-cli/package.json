@@ -25,6 +25,7 @@
     "/oclif.manifest.json"
   ],
   "scripts": {
+    "build": "yarn prepack",
     "clean": "rimraf -rf lib/** && yarn postpack && rimraf -f *.tsbuildinfo",
     "postpack": "rimraf -f oclif.manifest.json",
     "prepack": "rimraf -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",

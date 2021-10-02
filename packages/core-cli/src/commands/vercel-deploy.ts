@@ -4,6 +4,7 @@ import { NS } from '../utilities/log.utilities';
 import * as t from 'io-ts';
 import { loadDotEnv } from '@newrade/core-utils';
 import { spawnSync } from 'child_process';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -50,7 +51,7 @@ export default class VercelDeploy extends Command {
     // use yarn to use the locally installed vercel-cli
     spawnSync(`yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm`, {
       cwd: '.',
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: 'inherit',
       env: env,
     });

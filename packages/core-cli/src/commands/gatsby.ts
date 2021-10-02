@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { spawn } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 export default class Gatsby extends Command {
   log = debugInstance(`${NS}:gatsby`);
@@ -37,7 +38,7 @@ export default class Gatsby extends Command {
     this.log(`running: ${command}`);
 
     const cmd = spawn(command, {
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: ['inherit', 'pipe', 'pipe'],
       env: process.env,
     });

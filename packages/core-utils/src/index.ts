@@ -9,3 +9,4 @@ export * from './node-env';
 export * from './protocol-env';
 export * from './testing-env';
 export * from './url-utilities';
+export * from './shell.utilities';

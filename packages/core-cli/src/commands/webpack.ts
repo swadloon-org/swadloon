@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { getShellForPlatform } from '@newrade/core-utils';
 
 export default class Webpack extends Command {
   log = debugInstance(`${NS}:webpack`);
@@ -29,7 +30,7 @@ export default class Webpack extends Command {
     this.log(`running: ${command}`);
 
     const cmd = spawnSync(command, {
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: ['inherit', 'inherit', 'pipe'],
       env: process.env,
     });
