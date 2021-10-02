@@ -6,7 +6,6 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',
     gridAutoFlow: 'column',
-    height: '100%',
     gap: 'var(--mobile-gap)' as Property.Gap,
     alignItems: 'var(--mobile-align-items)' as Property.AlignContent,
     justifyContent: 'var(--mobile-justify-content)' as Property.JustifyContent,

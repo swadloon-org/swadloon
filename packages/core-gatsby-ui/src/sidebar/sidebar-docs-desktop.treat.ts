@@ -1,10 +1,17 @@
 import { style } from 'treat';
 import { Theme } from '@newrade/core-react-ui';
 
-export const base = style(({ theme, cssTheme }: Theme) => ({}));
+export const base = style(({ theme, cssTheme }: Theme) => ({
+  display: 'none',
+
+  '@media': {
+    [cssTheme.layout.media.desktopSmall]: {
+      display: 'grid',
+    },
+  },
+}));
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
-  display: 'none',
   rowGap: cssTheme.sizing.var.x2,
   gridTemplateColumns: `1fr`,
   gridTemplateRows: `auto 1fr auto`,
@@ -19,6 +26,9 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
       display: 'grid',
     },
   },
+
+  // let the navigation scroll, not the whole component
+  overflow: 'hidden',
 }));
 
 export const header = style(({ theme, cssTheme }: Theme) => ({
@@ -26,12 +36,12 @@ export const header = style(({ theme, cssTheme }: Theme) => ({
   width: `100%`,
   gridTemplateColumns: `1fr`,
   gridAutoFlow: 'row',
-  gap: cssTheme.sizing.var.x5,
+  gap: cssTheme.sizing.var.x3,
   alignContent: 'flex-start',
   justifyContent: 'flex-start',
   justifyItems: 'flex-start',
   alignItems: 'center',
-  padding: `0px ${cssTheme.sizing.var.x3} 0px 0px`,
+  padding: `${cssTheme.sizing.var.x0} 0px 0px 0px`,
 }));
 
 export const navigationWrapper = style(({ theme, cssTheme }: Theme) => ({

@@ -165,7 +165,7 @@ describe(`navigation api utilities`, () => {
 
       const filteredPageNodes = getFilteredPageNodes({
         pageNodes: pageNodes,
-        includeLocales: [SITE_LANGUAGES.FR_CA],
+        locale: SITE_LANGUAGES.FR_CA,
         excludePaths: ['/ignored/'],
         includedPaths: [],
       });
@@ -185,7 +185,7 @@ describe(`navigation api utilities`, () => {
 
       const filteredPageNodesInclude = getFilteredPageNodes({
         pageNodes: pageNodes,
-        includeLocales: [SITE_LANGUAGES.EN],
+        locale: SITE_LANGUAGES.EN,
         excludePaths: [],
         includedPaths: ['/docs/'],
       });
@@ -209,6 +209,7 @@ describe(`navigation api utilities`, () => {
     it('should create a single sub nav', () => {
       const result = setNavigationAtPath({
         paths: [],
+        pageLocale: SITE_LANGUAGES.EN,
         nav: { name: 'test' },
         options: defaultOptions,
       });
@@ -222,6 +223,7 @@ describe(`navigation api utilities`, () => {
     it('should create a sub navigation at the correct level', () => {
       const result = setNavigationAtPath({
         paths: ['a', 'b'],
+        pageLocale: SITE_LANGUAGES.EN,
         nav: {
           name: 'test',
         },
@@ -271,6 +273,7 @@ describe(`navigation api utilities`, () => {
           name: 'custom',
           label: 'Custom',
         },
+        pageLocale: SITE_LANGUAGES.EN,
         options: defaultOptions,
       });
       const expected: NavigationAPI = {
@@ -316,6 +319,7 @@ describe(`navigation api utilities`, () => {
         navigationEntry: {
           name: 'custom',
         },
+        pageLocale: SITE_LANGUAGES.EN,
         options: defaultOptions,
       });
       const expected: NavigationAPI = {
@@ -356,6 +360,7 @@ describe(`navigation api utilities`, () => {
             },
           ],
         },
+        pageLocale: SITE_LANGUAGES.EN,
         options: defaultOptions,
       });
       const expected: NavigationAPI = {
@@ -461,7 +466,7 @@ describe(`navigation api utilities`, () => {
             links: [
               {
                 name: 'en.index',
-                label: 'Docs',
+                label: 'Overview',
                 type: LinkType.internalPage,
                 page: {
                   title: 'Docs',
@@ -496,7 +501,7 @@ describe(`navigation api utilities`, () => {
 
       const pageNodes: PartialOrNull<GatsbyPageNode>[] = [
         {
-          path: '/help/',
+          path: '/fr/help/',
           context: {
             siteMetadata,
             name: 'fr.help',
@@ -510,6 +515,7 @@ describe(`navigation api utilities`, () => {
             siteMetadata,
             name: 'index',
             displayName: 'Overview',
+            locale: SITE_LANGUAGES.EN,
           },
         },
         {
@@ -518,6 +524,16 @@ describe(`navigation api utilities`, () => {
             siteMetadata,
             name: 'index',
             displayName: 'Overview',
+            locale: SITE_LANGUAGES.EN,
+          },
+        },
+        {
+          path: '/fr/design-system/',
+          context: {
+            siteMetadata,
+            locale: SITE_LANGUAGES.FR,
+            name: 'fr.index',
+            displayName: `Vue d'ensemble`,
           },
         },
         {
@@ -526,6 +542,7 @@ describe(`navigation api utilities`, () => {
             siteMetadata,
             name: 'index',
             displayName: 'Overview',
+            locale: SITE_LANGUAGES.EN,
           },
         },
         {
@@ -534,44 +551,17 @@ describe(`navigation api utilities`, () => {
             siteMetadata,
             name: 'buttons',
             displayName: 'Buttons',
+            locale: SITE_LANGUAGES.EN,
           },
         },
       ];
 
-      const expected: NavigationAPI = {
+      const expectedEN: NavigationAPI = {
         name: 'test',
         component: NavComponent.sidebar,
         path: '/',
-        links: [
-          {
-            name: 'fr.help',
-            label: 'Help',
-            type: LinkType.internalPage,
-            page: {
-              name: 'fr.help',
-              title: 'Help',
-              slug: '/help/',
-            },
-          },
-        ],
+        links: [],
         subNavigation: [
-          {
-            name: 'index',
-            label: 'Docs',
-            path: '/docs/',
-            links: [
-              {
-                name: 'index',
-                label: 'Overview',
-                type: LinkType.internalPage,
-                page: {
-                  name: 'index',
-                  title: 'Overview',
-                  slug: '/docs/',
-                },
-              },
-            ],
-          },
           {
             name: 'design-system',
             label: 'Design System',
@@ -618,17 +608,80 @@ describe(`navigation api utilities`, () => {
               },
             ],
           },
+          {
+            name: 'index',
+            label: 'Docs',
+            path: '/docs/',
+            links: [
+              {
+                name: 'index',
+                label: 'Overview',
+                type: LinkType.internalPage,
+                page: {
+                  name: 'index',
+                  title: 'Overview',
+                  slug: '/docs/',
+                },
+              },
+            ],
+          },
         ],
       };
 
-      const navigation = getNavigationAPIFromPageNodes({
+      const navigationEN = getNavigationAPIFromPageNodes({
         navigationName: 'test',
         navigationComponent: NavComponent.sidebar,
-        includeLocales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.FR],
+        locale: SITE_LANGUAGES.EN,
         pageNodes: pageNodes,
       });
 
-      expect(navigation).toEqual(expected);
+      expect(navigationEN).toEqual(expectedEN);
+
+      const expectedFR: NavigationAPI = {
+        name: 'test',
+        component: NavComponent.sidebar,
+        path: '/',
+        links: [
+          {
+            name: 'fr.help',
+            label: 'Help',
+            type: LinkType.internalPage,
+            page: {
+              name: 'fr.help',
+              title: 'Help',
+              slug: '/fr/help/',
+            },
+          },
+        ],
+        subNavigation: [
+          {
+            name: 'fr.index',
+            label: 'Design system',
+            path: '/fr/design-system/',
+            links: [
+              {
+                name: 'fr.index',
+                label: `Vue d'ensemble`,
+                type: LinkType.internalPage,
+                page: {
+                  name: 'fr.index',
+                  title: `Vue d'ensemble`,
+                  slug: '/fr/design-system/',
+                },
+              },
+            ],
+          },
+        ],
+      };
+
+      const navigationFR = getNavigationAPIFromPageNodes({
+        navigationName: 'test',
+        navigationComponent: NavComponent.sidebar,
+        locale: SITE_LANGUAGES.FR,
+        pageNodes: pageNodes,
+      });
+
+      expect(navigationFR).toEqual(expectedFR);
     });
   });
 });

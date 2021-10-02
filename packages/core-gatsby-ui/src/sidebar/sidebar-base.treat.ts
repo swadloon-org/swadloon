@@ -14,14 +14,21 @@ export const sticky = style(({ theme, cssTheme }: Theme) => ({
   marginTop: cssTheme.sizing.var.x4,
   marginBottom: cssTheme.sizing.var.x3,
 
-  display: 'grid',
+  display: 'none',
   alignItems: 'stretch',
   width: '100%',
-  maxHeight: `calc(100vh - ${cssTheme.sizing.var.x4} - ${cssTheme.sizing.var.x3})`,
+  gridTemplateRows: '1fr',
+  maxHeight: `calc(100vh - ${cssTheme.sizing.var.x4})`,
 
   color: cssTheme.colors.colorIntents.primaryText,
 
   zIndex: cssTheme.layout.zIndex.sideBarDesktop,
+
+  '@media': {
+    [cssTheme.layout.media.desktopSmall]: {
+      display: 'grid',
+    },
+  },
 }));
 
 export const floating = style(({ theme, cssTheme }: Theme) => ({

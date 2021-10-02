@@ -1,10 +1,12 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { LABEL_SIZE, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
+  Cluster,
   Hr,
   InputLabel,
   InputText,
   InputWrapper,
+  Label,
   Link,
   Paragraph,
   Stack,
@@ -76,9 +78,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
      */
 
     const version = sidebar?.version;
-    const copyright = sidebar?.companyInfo?.copyright;
     const formattedVersion = version ? (/^v/gi.test(version) ? version : `v${version}`) : '';
-    const copyrightAndVersion = [copyright, formattedVersion].filter((str) => !!str).join(' – ');
 
     /**
      * Filtering
@@ -139,10 +139,16 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
       >
         {/* Header */}
         <div className={styles.header}>
-          <Hr />
+          <Cluster gap={[cssTheme.sizing.var.x1]}>
+            {/* Title */}
+            <Label variant={LABEL_SIZE.medium}>Documentation</Label>
+            {/* Version */}
+            <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
+              {formattedVersion}
+            </Paragraph>
+          </Cluster>
 
-          {/* Title */}
-          {/* <Label variant={LABEL_SIZE.medium}>Documentation</Label> */}
+          <Hr />
 
           {/* Search box */}
           <InputWrapper style={{ display: 'none' }}>
@@ -179,15 +185,6 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
               {alternativeLanguage.label}
             </Link>
           ) : null}
-
-          <Hr />
-
-          {/* Copyright and Version */}
-          <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
-            {copyrightAndVersion}
-          </Paragraph>
-
-          <Hr />
         </div>
       </SidebarBase>
     );

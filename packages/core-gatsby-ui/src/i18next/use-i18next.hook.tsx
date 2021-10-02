@@ -16,13 +16,13 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
 
   const { routed, defaultLanguage } = context;
 
-  const translate = (key?: string | null) => {
+  const translate = (key?: string | null, language?: SITE_LANGUAGES | string | null) => {
     if (!key) {
       return '';
     }
     return t(key as any, {
-      lng: context.language,
-    });
+      lng: language ? language : context.language,
+    }) as string;
   };
 
   const getLanguagePath = (language: string) => {

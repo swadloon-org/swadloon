@@ -69,12 +69,6 @@ export const WrapElementWithi18N: React.FC<WrapElementWithI18NProps> = ({
   );
 };
 
-export const withI18nWrapper = (i18nOptions: InitOptions) => {
-  return (props: WrapElementWithI18NProps) => (
-    <WrapElementWithi18N {...props}>{}</WrapElementWithi18N>
-  );
-};
-
 const i18n = i18next.createInstance();
 
 function initi18nInstance(options: InitOptions) {

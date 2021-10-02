@@ -60,19 +60,18 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
    * Translation
    */
 
-  const { getTranslatedObject, language } = useI18next();
+  const { language } = useI18next();
 
   /**
    * Navigation
    */
 
   const pagePathname = pageProps.path;
-  console.log(pagePathname);
 
   const navigation = useNavigationAPI({
     navigationName: 'Website',
     navigationComponent: NavComponent.navbar,
-    includeLocales: [language],
+    locale: language,
   });
 
   const navbar: NavbarAPI = {
@@ -85,14 +84,19 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
     },
   };
 
+  const sidebarNavigationForCurrentpage = getSubNavigationForPath({
+    path: pagePathname,
+    navigations: navigation.subNavigation,
+  });
+
   const sidebar: SidebarAPI = {
     name: 'Sidebar',
     layout: SidebarLayout.docs,
     navigation: {
-      ...getSubNavigationForPath('/core-docs/', navigation.subNavigation),
+      ...sidebarNavigationForCurrentpage,
       component: NavComponent.sidebar,
     },
-    version: pageProps.pageContext.siteMetadata.siteVersion,
+    version: pageProps.pageContext.siteMetadata?.siteVersion,
   };
 
   const footer: FooterAPI = {
@@ -103,7 +107,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
       ...navigation,
       component: NavComponent.footer,
     },
-    version: pageProps.pageContext.siteMetadata.siteVersion,
+    version: pageProps.pageContext.siteMetadata?.siteVersion,
     companyInfo,
   };
 

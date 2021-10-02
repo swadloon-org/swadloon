@@ -2,11 +2,12 @@ import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
-import { Main, MainWrapper, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import { Main, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { useStyles } from 'react-treat';
 import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
@@ -16,6 +17,7 @@ import { GatsbyLink } from '../links/gatsby-link';
 import { NavbarStandard } from '../navbar/navbar-standard';
 import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
+import * as styleRefs from './docs.layout.treat';
 
 /**
  * Sidebar
@@ -75,6 +77,8 @@ export type LayoutDocsProps = Partial<
  */
 export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const { cssTheme } = useTreatTheme();
+  const styles = useStyles(styleRefs);
+
   const isSSR = useIsSSR();
   const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
 
@@ -113,8 +117,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    */
 
   const navbar = props.navbar;
-  const sidebar = props.sidebar;
   const footer = props.footer;
+
+  const sidebar: SidebarAPI = {
+    ...props.sidebar,
+  };
 
   /**
    * Breadcrumbs
@@ -199,7 +206,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 
   return (
-    <MainWrapper preventOverflowX={false}>
+    <div className={styles.mainWrapper}>
       {/* Navbars */}
       <NavbarStandard
         ref={navbarRef}
@@ -240,7 +247,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       <Main
         contentPadding={false}
         navbarPadding={false}
-        stickyLayout={true}
+        className={styles.main}
         minHeight={true}
         // desktopSidebarPadding={layoutMode === 'centered'}
         // desktopAsidePadding={layoutMode === 'centered'}
@@ -283,6 +290,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         colorMode={'reversed'}
         contentMaxWidth={contentMaxWidth}
       ></FooterDocs>
-    </MainWrapper>
+    </div>
   );
 };
