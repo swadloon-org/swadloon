@@ -2,7 +2,7 @@
   "settings": {
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
-    "typescript.tsdk": "newrade/node_modules/typescript/lib",
+    "typescript.tsdk": "newrade-core/node_modules/typescript/lib",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {

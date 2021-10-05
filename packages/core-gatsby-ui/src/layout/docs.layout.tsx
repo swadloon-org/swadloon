@@ -6,9 +6,7 @@ import { Main, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { useStyles } from 'react-treat';
-import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
@@ -87,6 +85,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    */
 
   const { treatThemeRef, theme, themeClassname } = props;
+  const injectThemeWrapper = treatThemeRef && theme && themeClassname;
 
   /**
    * Translation
@@ -127,8 +126,8 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    * Breadcrumbs
    */
 
-  const BreadcrumbsPortal = () =>
-    isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
+  // const BreadcrumbsPortal = () =>
+  //   isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
 
   /**
    * Navbar
@@ -239,7 +238,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
           sidebarOpened={sidebarOpened}
           onClickMenuButton={handleClickMenuButton}
           onClickBackdrop={handleClickMenuButton}
-          activePathname={props.location?.pathname}
+          activePathname={props.path}
           HomeLink={<GatsbyLink to={'/'} />}
         ></LazySidebarStandard>
       )}
@@ -263,22 +262,23 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         }
       >
         {/* Desktop sidebar */}
-        <SidebarDocsDesktop
-          sidebar={sidebar}
-          activePathname={props.location?.pathname}
-        ></SidebarDocsDesktop>
+        <SidebarDocsDesktop sidebar={sidebar} activePathname={props.path}></SidebarDocsDesktop>
 
         <MDXProvider
-          components={{
-            ThemeWrapper: (props: any) => (
-              <ThemeWrapper
-                treatThemeRef={treatThemeRef}
-                theme={theme}
-                themeClassname={themeClassname}
-                {...props}
-              />
-            ),
-          }}
+          components={
+            injectThemeWrapper
+              ? {
+                  ThemeWrapper: (props: any) => (
+                    <ThemeWrapper
+                      treatThemeRef={treatThemeRef}
+                      theme={theme}
+                      themeClassname={themeClassname}
+                      {...props}
+                    />
+                  ),
+                }
+              : undefined
+          }
         >
           {props.children}
         </MDXProvider>

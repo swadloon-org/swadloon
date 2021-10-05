@@ -6,6 +6,8 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   flexDirection: 'column',
   width: '100%',
   maxWidth: '100%',
+  overflow: 'hidden', // prevent markdown content from breaking the layout
+  paddingTop: '2px', // add a small padding on top to prevent clipping top text
 }));
 
 /**
@@ -169,8 +171,6 @@ globalStyle(`${wrapper} a svg path`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '2em',
-  borderCollapse: 'separate',
-  width: '100%',
 }));
 
 /**

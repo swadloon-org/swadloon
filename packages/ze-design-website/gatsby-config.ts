@@ -44,7 +44,7 @@ const config: conf.GastbySiteConfig = {
         short_name: `Ze DS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#6061EC`,
+        theme_color: `rgb(17, 17, 19)`,
         display: `standalone`,
         icon: `../ze-design-system/src/assets/logos/logo-favicon.svg`,
         include_favicon: false, // see page template

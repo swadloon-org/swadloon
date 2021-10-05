@@ -8,7 +8,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
-import React, { AnchorHTMLAttributes, useState } from 'react';
+import React, { AnchorHTMLAttributes, useEffect, useState } from 'react';
 import { IoChevronDownOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './sidebar-docs-desktop-group.treat';
@@ -17,6 +17,7 @@ type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     label?: string;
+    isOpen?: boolean;
   };
 
 export const SidebarDocsDesktopGroup: React.FC<Props> = ({
@@ -26,6 +27,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   as,
   AsElement,
   label,
+  isOpen,
   ...props
 }) => {
   const { theme, cssTheme } = useTreatTheme();
@@ -37,17 +39,27 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
     classNames: [styles.wrapper],
     ...props,
   });
-  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const [localIsOpened, setLocalIsOpened] = useState<boolean | undefined>(undefined);
 
   function handleOnClick(event: React.MouseEvent) {
-    setIsOpened(!isOpened);
+    if (!localIsOpened) {
+      setLocalIsOpened(true);
+      return;
+    }
+
+    setLocalIsOpened(!localIsOpened);
   }
+
+  useEffect(() => {
+    // override local if parent changes
+    setLocalIsOpened(isOpen);
+  }, [isOpen]);
 
   return (
     <Stack {...commonProps}>
       <Cluster onClick={handleOnClick} className={styles.group} justifyContent={['flex-start']}>
         <IoChevronDownOutline
-          className={getMergedClassname([styles.icon, isOpened && styles.iconOpened])}
+          className={getMergedClassname([styles.icon, localIsOpened ? styles.iconOpened : ''])}
         />
 
         <Label
@@ -59,7 +71,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
         </Label>
       </Cluster>
 
-      {isOpened ? <div className={styles.children}>{props.children}</div> : null}
+      {localIsOpened ? <div className={styles.children}>{props.children}</div> : null}
     </Stack>
   );
 };

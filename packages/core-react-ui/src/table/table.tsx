@@ -15,13 +15,15 @@ const defaultProps: Props = {
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
 export const Table: React.FC<Props> = React.memo(({ className, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
+  const styles = useStyles(stylesRef);
 
   const type = 'table';
 
-  return React.createElement(type, {
+  const Table = React.createElement(type, {
     className: `${className || ''} ${styles.table}
-    }`,
+  }`,
     ...props,
   });
+
+  return <div className={styles.wrapper}>{Table}</div>;
 });

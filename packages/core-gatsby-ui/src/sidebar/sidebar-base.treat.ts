@@ -12,7 +12,7 @@ export const sticky = style(({ theme, cssTheme }: Theme) => ({
   position: 'sticky',
   top: cssTheme.sizing.var.x4,
   marginTop: cssTheme.sizing.var.x4,
-  marginBottom: cssTheme.sizing.var.x3,
+  marginBottom: 0,
 
   display: 'none',
   alignItems: 'stretch',

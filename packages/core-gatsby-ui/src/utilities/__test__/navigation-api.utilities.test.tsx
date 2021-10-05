@@ -7,6 +7,7 @@ import {
   getFilteredPageNodes,
   getNavigationAPIFromPageNodes,
   getNavigationForPath,
+  isPathActive,
   setNavigationAtPath,
   setNavigationLinkAtPath,
 } from '../navigation-api.utilities';
@@ -682,6 +683,28 @@ describe(`navigation api utilities`, () => {
       });
 
       expect(navigationFR).toEqual(expectedFR);
+    });
+  });
+
+  describe(`${isPathActive.name}`, () => {
+    it('should return whether the path matches or partially match a pathname', () => {
+      expect(isPathActive('/fr/design-system/', '/fr/design-system/')).toEqual({
+        match: true,
+        partial: false,
+        exact: true,
+      });
+
+      expect(isPathActive('/design-system/', '/design-system/buttons/')).toEqual({
+        match: true,
+        partial: true,
+        exact: false,
+      });
+
+      expect(isPathActive('/buttons/', '/design-system/buttons/')).toEqual({
+        match: true,
+        partial: true,
+        exact: false,
+      });
     });
   });
 });

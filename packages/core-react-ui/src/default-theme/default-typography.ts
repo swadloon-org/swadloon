@@ -204,15 +204,15 @@ export const defaultTypography: Typography = {
     },
     mobile: {
       medium: {
-        capHeight: 13,
+        fontSize: 16,
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        fontSize: 14,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 10,
         lineGap: 12,
       },
     },

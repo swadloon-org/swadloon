@@ -29,6 +29,7 @@ export const SidebarsStandard: React.FC<Props> = (props) => {
     <div style={{ height: '600px', transform: 'translate3d(0,0,0)' }}>
       <LazySidebarStandard
         sidebarOpened={sidebarOpened}
+        disableBodyScroll={false}
         onClickMenuButton={handleSidebar}
         onClickBackdrop={handleSidebar}
       ></LazySidebarStandard>

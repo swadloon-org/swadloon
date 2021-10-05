@@ -25,6 +25,10 @@ export type SidebarProps = PrimitiveProps<'nav'> & {
    */
   sidebarOpened?: boolean;
   /**
+   * Disable body scroll when the sidebar is opened
+   */
+  disableBodyScroll?: boolean;
+  /**
    * active route
    */
   activePathname?: string;

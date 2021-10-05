@@ -14,6 +14,7 @@ const defaultProps: SidebarProps = {
   sidebar: {
     variant: Variant.primary,
   },
+  disableBodyScroll: true,
   sidebarMode: 'floating',
 };
 
@@ -29,6 +30,7 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
       sidebar = defaultProps.sidebar,
       sidebarMode = defaultProps.sidebarMode,
       sidebarOpened,
+      disableBodyScroll = defaultProps.disableBodyScroll,
       onClickMenuButton,
       onClickBackdrop,
       contentClassName,
@@ -73,7 +75,7 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
         ref={ref}
         sidebarOpened={sidebarOpened}
         onClickBackdrop={onClickBackdrop}
-        disableBodyScroll={true}
+        disableBodyScroll={disableBodyScroll}
         {...commonProps}
       >
         <Stack className={contentClassnames}>{children}</Stack>

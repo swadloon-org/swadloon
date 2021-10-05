@@ -18,7 +18,8 @@ import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
-import { LinkRenderer } from '../links/link-renderer';
+import { GatsbyLink } from '../links/gatsby-link';
+import { isPathActive } from '../utilities/navigation-api.utilities';
 import { SidebarBase } from './sidebar-base';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
@@ -72,6 +73,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
 
     const navigation = sidebar?.navigation;
     const sidebarNavigation = navigation;
+    const navigationPath = sidebarNavigation?.path;
 
     /**
      * Copyright and version
@@ -96,9 +98,15 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
       return (
         <>
           {links?.map((link, id) => {
+            const linkActive = isPathActive(link?.page?.slug, activePathname);
+
             return (
-              <SidebarDocsDesktopItem key={id} active={link?.page?.slug === activePathname}>
-                <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>
+              <SidebarDocsDesktopItem
+                key={id}
+                active={linkActive.match && linkActive.exact}
+                AsElement={<GatsbyLink noStyles={true} to={link?.page?.slug || '/'} />}
+              >
+                {link?.label || ' '}
               </SidebarDocsDesktopItem>
             );
           })}
@@ -116,11 +124,12 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         }
 
         const links = subNav.links;
+        const subNavOpened = isPathActive(subNav.path, activePathname);
 
         return (
           <Stack key={subNavIndex} gap={[`0px`]}>
             {subNav.label ? (
-              <SidebarDocsDesktopGroup label={subNav.label}>
+              <SidebarDocsDesktopGroup label={subNav.label} isOpen={subNavOpened.partial}>
                 {LinksRenderer(links as LinkAPI[])}
               </SidebarDocsDesktopGroup>
             ) : null}

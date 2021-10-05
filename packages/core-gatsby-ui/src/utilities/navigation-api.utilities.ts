@@ -11,8 +11,8 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
   navigationName: '',
   navigationComponent: NavComponent.navbar,
   locale: SITE_LANGUAGES.EN,
-  sortOrderItems: [/overview/gi],
-  sortOrderDirectories: [/overview/gi],
+  sortOrderDirectories: [/guides/gi, /design/gi, /build/gi, /deploy/gi, /reference/gi],
+  sortOrderItems: [/overview/gi, /get started/gi, /license/gi],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
@@ -58,13 +58,13 @@ export type GetNavigationAPIOptions = {
    */
   locale?: SITE_LANGUAGES;
   /**
-   * Sort order for leafs navigation items
-   */
-  sortOrderItems?: (string | RegExp)[];
-  /**
    * Sort order for directories
    */
   sortOrderDirectories?: (string | RegExp)[];
+  /**
+   * Sort order for leafs navigation items
+   */
+  sortOrderItems?: (string | RegExp)[];
   /**
    * Included paths or patterns
    * @example '/core-docs/'
@@ -796,4 +796,38 @@ function getNameWithUppercaseWords({ name, words }: { name?: string; words?: str
     .split(' ')
     .map((part) => (wordsToFind.includes(lower(part)) ? part.toUpperCase() : part))
     .join(' ');
+}
+
+/**
+ * Check if a path matches or partially matches a given location.pathname
+ * /fr/design-system/path with /fr/design-system/
+ * return { match: true, partial: true  }
+ */
+export function isPathActive(
+  path?: string | null,
+  pathname?: string | null
+): { match: boolean; partial: boolean; exact: boolean } {
+  if (!path) {
+    return {
+      match: false,
+      partial: false,
+      exact: false,
+    };
+  }
+  if (!pathname) {
+    return {
+      match: false,
+      partial: false,
+      exact: false,
+    };
+  }
+  const match = new RegExp(path).test(pathname);
+  const partial = pathname !== path;
+  const exact = pathname === path;
+
+  return {
+    match,
+    partial,
+    exact,
+  };
 }

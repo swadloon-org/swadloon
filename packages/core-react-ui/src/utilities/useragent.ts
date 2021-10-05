@@ -14,12 +14,16 @@ export const isIOS = isIOSType() || getIPad13();
 
 function isIOSType() {
   const nav = getNavigatorInstance();
+  const iOSDevices = ['iPhone', 'iPad', 'iPod'];
 
   if (!(nav && nav.platform)) {
     return false;
   }
 
-  if (['iPhone', 'iPad', 'iPod'].indexOf(nav.platform) !== -1) {
+  const iosInPlatform = iOSDevices.indexOf(nav.platform) !== -1;
+  const iosInUserAgent = iOSDevices.find((device) => new RegExp(device).test(nav.userAgent));
+
+  if (iosInPlatform || iosInUserAgent) {
     return true;
   }
 

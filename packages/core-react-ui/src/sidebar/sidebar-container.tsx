@@ -45,8 +45,10 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
     const mergedRef = ref;
     // todo merge refs and pass to css animation component
 
-    const [locks, documentListenerAdded] = useBodyScrollLock({
-      disableDocumentScrolling: viewport === VIEWPORT.mobile && disableBodyScroll && sidebarOpened,
+    const enableBodyScrollLock = viewport === VIEWPORT.mobile && disableBodyScroll && sidebarOpened;
+
+    const [locks] = useBodyScrollLock({
+      disableDocumentScrolling: enableBodyScrollLock,
       ref: sideBarRef?.current?.ref,
     });
 
@@ -83,7 +85,7 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
           className={classNames}
           animation={{
             delay: isFirstRender ? 0 : 100,
-            duration: isFirstRender ? 0 : 300,
+            duration: isFirstRender ? 0 : 260,
             name: sidebarOpened ? 'slideInLeftSidebar' : 'slideOutLeftSidebar',
             playState: 'running',
           }}
@@ -99,8 +101,8 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
             isFirstRender ? '' : sidebarOpened ? styles.backdropActive : '',
           ]}
           animation={{
-            delay: isFirstRender ? 0 : 200,
-            duration: isFirstRender ? 0 : 500,
+            delay: isFirstRender ? 0 : 100,
+            duration: isFirstRender ? 0 : 350,
             name: sidebarOpened ? 'fadeIn' : 'fadeOut',
             playState: 'running',
           }}
