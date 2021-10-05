@@ -16,13 +16,18 @@ export type SidebarProps = PrimitiveProps<'nav'> & {
    * @description
    *  - floating: on top of all component, on the left side
    *  - docked:  under the navbar, always open on desktop
-   *  - hanging: floats near the main content
+   *  - hanging: floats (fixed) near the main content
+   *  - sticky: follow normal content flow, with sticky behavior
    */
-  sidebarMode?: 'floating' | 'docked' | 'hanging';
+  sidebarMode?: 'floating' | 'docked' | 'hanging' | 'sticky';
   /**
    * State of the sidebar
    */
   sidebarOpened?: boolean;
+  /**
+   * Disable body scroll when the sidebar is opened
+   */
+  disableBodyScroll?: boolean;
   /**
    * active route
    */

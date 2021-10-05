@@ -3,14 +3,14 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
-    visibility: 'hidden',
-    position: 'fixed',
-    top: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x3})`,
-    left: `calc(50% + ${cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} / 2 + ${cssTheme.sizing.var.x4})`,
-    width: cssTheme.layout.asideWidth,
-    padding: '2em',
+    position: 'sticky',
+    top: cssTheme.sizing.var.x4,
 
-    gap: cssTheme.sizing.var.x1,
+    width: cssTheme.layout.asideWidth,
+    marginTop: cssTheme.sizing.var.x4,
+    marginBottom: cssTheme.sizing.var.x3,
+
+    visibility: 'hidden',
 
     backgroundColor: 'transparent',
 

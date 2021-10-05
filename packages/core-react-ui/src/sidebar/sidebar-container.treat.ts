@@ -10,10 +10,12 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     left: 0,
-    bottom: `-1px`,
-    width: `90vw`,
-    top: `-1px`,
-    maxHeight: `calc(100vh)`,
+    bottom: `-1px`, // fixes 1px line visible on ios
+    width: `85vw`,
+    top: `-1px`, // fixes 1px line visible on ios
+    // forces the backdrop to cover the viewport in iOS 15
+    minHeight: `calc(100vh + 2px)`,
+    maxHeight: `calc(100vh + 2px)`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         width: cssTheme.layout.var.sidebarWidth,
@@ -37,6 +39,8 @@ export const styles = {
   backdrop: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     backgroundColor: `rgba(0,0,0,0.20)`,
+    // forces the backdrop to cover the viewport in iOS 15
+    minHeight: `calc(100vh + 2px)`,
     top: 0,
     bottom: 0,
     left: 0,

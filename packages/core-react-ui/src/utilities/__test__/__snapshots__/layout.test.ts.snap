@@ -44,9 +44,9 @@ Object {
     "tabletOnly": "screen and (min-width: 768px) and (max-width: 1280px)",
   },
   "navbarHeight": Object {
-    "desktop": "80px",
-    "mobile": "60px",
-    "tablet": "60px",
+    "desktop": "64px",
+    "mobile": "56px",
+    "tablet": "56px",
   },
   "sidebarWidth": Object {
     "desktop": "270px",

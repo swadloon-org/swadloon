@@ -12,6 +12,13 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
    */
   navbar?: NavbarAPI;
   /**
+   * How the sidebar is placed in the layout
+   * @description
+   *  - fixed: on top of all component, fixed on the top
+   *  - normal:  will be positioned like the rest of the content (position static)
+   */
+  navbarMode?: 'fixed' | 'normal';
+  /**
    * Used to set the close or menu icon
    */
   menuOpened?: boolean;
@@ -21,6 +28,14 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
    *  <NavBar ... HomeLink={<GatsbyLink to={'/'} />} />
    */
   HomeLink?: React.ReactNode;
+  /**
+   * Allow to override the max-width of the content
+   */
+  maxWidth?: string;
+  /**
+   * Text to put in a tag next to the logo
+   */
+  tagText?: string;
   /**
    * Handle the menu button event
    */

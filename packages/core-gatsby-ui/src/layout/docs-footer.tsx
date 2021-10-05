@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system-footer.treat';
+import * as styleRefs from './docs-footer.treat';
 
 type Props = PrimitiveProps & {
   editPageUrl?: string;
@@ -17,7 +17,7 @@ type Props = PrimitiveProps & {
   nextPageUrl?: string;
 };
 
-export const DesignSystemFooter: React.FC<Props> = ({
+export const DocsPageFooter: React.FC<Props> = ({
   id,
   style,
   className,

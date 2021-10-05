@@ -1,23 +1,42 @@
-import { SITE_LANGUAGES } from '@newrade/core-common';
+import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui';
 import { LinkAPI, LinkType, NavComponent, NavigationAPI, PageAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
-import { kebab, title } from 'case';
+import { kebab, lower, title } from 'case';
 import { GatsbyPageNode } from './gatsby-page-node';
 
 export const defaultOptions: Required<GetNavigationAPIOptions> = {
   pageNodes: [],
   navigationName: '',
   navigationComponent: NavComponent.navbar,
-  includeLocales: [SITE_LANGUAGES.EN],
-  sortOrderItems: [],
-  sortOrderDirectories: [],
+  locale: SITE_LANGUAGES.EN,
+  sortOrderDirectories: [/guides/gi, /design/gi, /build/gi, /deploy/gi, /reference/gi],
+  sortOrderItems: [/overview/gi, /get started/gi, /license/gi],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
-  translate: (key) => (key ? key : ''),
-  formatLabel: (label) => (label ? title(label) : ''),
+  translate: (key, language) => {
+    if (key !== 'overview') {
+      return key || '';
+    }
+    if (getLangSimpleCode(language) === SITE_LANGUAGE_SHORT.FR) {
+      return `Vue d'ensemble`;
+    }
+    return `Overview`;
+  },
+  formatLabel: (name, language, uppercaseWords) => {
+    const lang = getLangSimpleCode(language);
+    if (lang === SITE_LANGUAGE_SHORT.FR) {
+      if (!name) {
+        return '';
+      }
+      const firstLetterCap = [name.slice(0, 1).toUpperCase(), name.slice(1)].join('');
+      return getNameWithUppercaseWords({ name: firstLetterCap, words: uppercaseWords });
+    }
+    const titleLabel = title(name || '');
+    return getNameWithUppercaseWords({ name: titleLabel, words: uppercaseWords });
+  },
 };
 
 export type GetNavigationAPIOptions = {
@@ -35,17 +54,17 @@ export type GetNavigationAPIOptions = {
    */
   pageNodes?: PartialOrNull<GatsbyPageNode>[];
   /**
-   * Include only the listed locales
+   * Include only the listed locale
    */
-  includeLocales?: SITE_LANGUAGES[];
-  /**
-   * Sort order for leafs navigation items
-   */
-  sortOrderItems?: string[];
+  locale?: SITE_LANGUAGES;
   /**
    * Sort order for directories
    */
-  sortOrderDirectories?: string[];
+  sortOrderDirectories?: (string | RegExp)[];
+  /**
+   * Sort order for leafs navigation items
+   */
+  sortOrderItems?: (string | RegExp)[];
   /**
    * Included paths or patterns
    * @example '/core-docs/'
@@ -66,11 +85,15 @@ export type GetNavigationAPIOptions = {
   /**
    * Translate function (is executed before formatLabel)
    */
-  translate?: (key?: string | null) => string;
+  translate?: (key?: string | null, language?: SITE_LANGUAGES) => string;
   /**
    * Format function applied to label or name if label does not exist
    */
-  formatLabel?: (name?: string | null) => string;
+  formatLabel?: (
+    name?: string | null,
+    language?: SITE_LANGUAGES,
+    uppercaseWords?: string[]
+  ) => string;
 };
 
 /**
@@ -97,14 +120,18 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
   const validatedOptions = {
     ...mergedOptions,
     //
-    // normalize sort orders
+    // normalize sort orders and exclude/include patterns (for string only)
     //
-    sortOrderItems: mergedOptions.sortOrderItems.map((item) => getNormalizedPath(item)),
-    sortOrderDirectories: mergedOptions.sortOrderDirectories.map((item) => getNormalizedPath(item)),
+    sortOrderItems: mergedOptions.sortOrderItems.map((pattern) =>
+      typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
+    ),
+    sortOrderDirectories: mergedOptions.sortOrderDirectories.map((pattern) =>
+      typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
+    ),
     excludePaths: mergedOptions.excludePaths.map((pattern) =>
       typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
     ),
-    includedPaths: mergedOptions.excludePaths.map((pattern) =>
+    includedPaths: mergedOptions.includedPaths.map((pattern) =>
       typeof pattern === 'string' ? getNormalizedPath(pattern) : pattern
     ),
   } as Required<GetNavigationAPIOptions>;
@@ -113,7 +140,7 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
     navigationName,
     navigationComponent,
     pageNodes,
-    includeLocales,
+    locale,
     sortOrderItems,
     sortOrderDirectories,
     excludePaths,
@@ -125,7 +152,7 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
   //
   // filter out unwanted pages and locales
   //
-  const filteredPageNodes = getFilteredPageNodes(mergedOptions);
+  const filteredPageNodes = getFilteredPageNodes(validatedOptions);
 
   //
   // build tree navigation structure
@@ -136,8 +163,8 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
         return navigation;
       }
 
-      // split node path into each part
-      const pageNodePathParts = pageNode.path.split('/').filter((part) => !!part.length);
+      const pageLocale = pageNode.context?.locale || SITE_LANGUAGES.EN;
+      const pageNodePathParts = getPathParts({ path: pageNode.path });
 
       if (!pageNodePathParts.length) {
         return navigation;
@@ -145,22 +172,21 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
 
       const pageNodeContext = pageNode.context as PartialOrNull<GatsbyMarkdownFilePageContext>;
 
-      const formattedPageTitle = formatLabel(
-        translate(
-          getPageNodeNameWithoutLocale(
-            pageNodeContext?.frontmatter?.title ||
-              pageNodeContext?.displayName ||
-              pageNodeContext?.name
-          )
-        )
-      );
+      const formattedPageTitle =
+        pageNodeContext?.frontmatter?.title ||
+        pageNodeContext?.displayName ||
+        formatLabel(
+          translate(getPageNodeNameWithoutLocale(pageNodeContext?.name), pageLocale),
+          pageLocale,
+          uppercaseWords
+        );
 
       setNavigationLinkAtPath({
         paths: pageNodePathParts,
         nav: navigation,
+        pageLocale,
         linkEntry: {
           name: pageNodeContext?.name,
-          label: formattedPageTitle,
           page: {
             name: pageNodeContext?.name,
             title: formattedPageTitle,
@@ -170,16 +196,137 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
         options: validatedOptions,
       });
 
-      return navigation;
+      const sortedNavigation = getSortedNavigation(navigation, validatedOptions);
+
+      return sortedNavigation;
     },
     {
       name: navigationName,
       component: navigationComponent,
-      path: '/',
+      path: `/`,
       links: [],
       subNavigation: [],
     } as NavigationAPI
   );
+}
+
+/**
+ * Create a LinkAPI object in a navigation tree at a specific path
+ */
+export function setNavigationLinkAtPath({
+  paths,
+  nav,
+  pageLocale,
+  linkEntry,
+  options,
+}: {
+  paths: string[];
+  nav: NavigationAPI;
+  pageLocale: SITE_LANGUAGES;
+  linkEntry?: LinkAPI;
+  options: Required<GetNavigationAPIOptions>;
+}): NavigationAPI {
+  //
+  // for a path /fr/docs/design/page
+  //
+  const localePath = [paths[0]].find((path) => path === getLangSimpleCode(pageLocale)); // 'fr'
+  const pathsWithoutLocale = localePath ? paths.slice(1) : paths; // ['fr', 'docs', 'design', 'page-name']
+  const currentPathParts = pathsWithoutLocale;
+  const parentPathParts = pathsWithoutLocale.slice(0, pathsWithoutLocale.length - 1); // ['docs', 'design']
+  const parentPathPart = pathsWithoutLocale.slice(
+    pathsWithoutLocale.length - 2,
+    pathsWithoutLocale.length - 1
+  ); // ['design']
+  const parentPathPartName = parentPathPart.join(''); // 'design'
+  const currentPathPart = pathsWithoutLocale.slice(pathsWithoutLocale.length - 1); // ['page-name']
+  const currentPathLast = currentPathPart.join('').replace(/-/g, ' '); // 'page-name' => 'page name'
+
+  const currentPath = getCompletePath(currentPathParts);
+  const currentPathName = currentPathParts.join('');
+  const linkEntryIsIndex = linkEntry && linkEntry.name && /index/gi.test(linkEntry.name);
+  const { foundNav, foundLink, foundPage } = getNavigationForPath(parentPathParts, [nav]);
+
+  // composes format and translate
+  const translateAndFormat = (
+    name?: string | null | undefined,
+    language?: SITE_LANGUAGES | undefined
+  ) => {
+    return options.formatLabel(options.translate(name, language), language, options.uppercaseWords);
+  };
+
+  const newLinkEntry: LinkAPI = {
+    name: currentPathLast,
+    label: linkEntryIsIndex
+      ? translateAndFormat('overview', pageLocale)
+      : translateAndFormat(currentPathLast, pageLocale),
+    type: LinkType.internalPage,
+    page: {
+      name: currentPathLast,
+      ...linkEntry?.page,
+      slug: currentPath,
+    },
+    ...linkEntry,
+  };
+
+  // if the navigation level does not exist, create it
+  // and insert the link
+  if (!foundNav) {
+    if (linkEntryIsIndex) {
+      // if a link is an index, create a sub navigation
+      setNavigationAtPath({
+        paths,
+        localePath,
+        nav,
+        pageLocale,
+        navigationEntry: {
+          name: newLinkEntry.name,
+          label: translateAndFormat(currentPathLast, pageLocale),
+          links: [newLinkEntry],
+        },
+        options,
+      });
+      return nav;
+    }
+
+    setNavigationAtPath({
+      paths: parentPathParts,
+      localePath,
+      nav,
+      navigationEntry: {
+        name: newLinkEntry.name,
+        label: translateAndFormat(parentPathPartName, pageLocale),
+        links: [newLinkEntry],
+      },
+      pageLocale,
+      options,
+    });
+    return nav;
+  }
+
+  if (linkEntryIsIndex) {
+    setNavigationAtPath({
+      paths: currentPathParts,
+      localePath,
+      nav,
+      navigationEntry: {
+        name: newLinkEntry.name,
+        label: translateAndFormat(currentPathLast, pageLocale),
+        links: [newLinkEntry],
+      },
+      pageLocale,
+      options,
+    });
+    return nav;
+  }
+
+  if (!foundNav.links) {
+    foundNav.links = [];
+  }
+
+  // otherwise just insert the new link in the links
+  foundNav.links.push(newLinkEntry);
+
+  return nav;
 }
 
 export function getNormalizedPath(name?: string | null) {
@@ -196,7 +343,7 @@ export function getNormalizedPath(name?: string | null) {
 export function getFilteredPageNodes(
   options: Pick<
     Required<GetNavigationAPIOptions>,
-    'pageNodes' | 'includeLocales' | 'excludePaths' | 'includedPaths'
+    'pageNodes' | 'locale' | 'excludePaths' | 'includedPaths'
   >
 ) {
   const filteredPageNodes = options.pageNodes
@@ -242,15 +389,18 @@ export function getFilteredPageNodes(
     // keep page in specified locale
     //
     .filter((node) => {
-      if (!(options.includeLocales && node.context?.locale)) {
-        return node;
+      if (!options.locale?.length) {
+        return true;
       }
 
-      const pageLocaleIsIgnored = options.includeLocales.find(
-        (locale) => getLangSimpleCode(locale) === getLangSimpleCode(node.context?.locale)
-      );
+      if (!node.context?.locale) {
+        return true;
+      }
 
-      if (pageLocaleIsIgnored) {
+      const pageLocaledIsIncluded =
+        getLangSimpleCode(options.locale) === getLangSimpleCode(node.context?.locale);
+
+      if (pageLocaledIsIncluded) {
         return true;
       }
 
@@ -258,6 +408,128 @@ export function getFilteredPageNodes(
     });
 
   return filteredPageNodes;
+}
+
+/**
+ * Recursively sort navigation and links according to
+ * their position in `sortOrderDirectories` and `sortOrderItems`
+ */
+export function getSortedNavigation(
+  navigation: NavigationAPI,
+  options: Pick<
+    Required<GetNavigationAPIOptions>,
+    'pageNodes' | 'sortOrderDirectories' | 'sortOrderItems'
+  >
+): NavigationAPI {
+  return {
+    ...navigation,
+    links: navigation.links?.length ? navigation.links.sort(sortLinkPredicate) : navigation.links,
+    subNavigation: navigation.subNavigation?.length
+      ? navigation.subNavigation
+          .sort(sortNavigationPredicate)
+          .map((subNav) => getSortedNavigation(subNav as NavigationAPI, options))
+      : navigation.subNavigation,
+  };
+
+  function sortLinkPredicate(a?: LinkAPI | null, b?: LinkAPI | null) {
+    if (!options.sortOrderDirectories) {
+      return 0;
+    }
+
+    if (!a) {
+      return 0;
+    }
+
+    if (!b) {
+      return 0;
+    }
+
+    const linkAIdentifier = getNormalizedPath(a.label || a.name || a.page?.title);
+    const linkBIdentifier = getNormalizedPath(b.label || b.name || b.page?.title);
+
+    function getPageIndex(pageIdentifier?: string | null) {
+      return options.sortOrderItems.findIndex((pattern) => {
+        if (!pageIdentifier) {
+          return -1;
+        }
+        return typeof pattern === 'object'
+          ? pattern.test(pageIdentifier)
+          : pattern === pageIdentifier;
+      });
+    }
+
+    const indexA = getPageIndex(linkAIdentifier);
+    const indexB = getPageIndex(linkBIdentifier);
+
+    // if not found in the sorting list, just order by name
+    if (indexA === -1 && indexB === -1) {
+      return linkAIdentifier > linkBIdentifier ? 1 : -1;
+    }
+
+    if (indexA === indexB) {
+      return 0;
+    }
+
+    if (indexA === -1) {
+      return 1;
+    }
+
+    if (indexB === -1) {
+      return -1;
+    }
+
+    return indexA > indexB ? 1 : -1;
+  }
+
+  function sortNavigationPredicate(a?: NavigationAPI | null, b?: NavigationAPI | null) {
+    if (!options.sortOrderDirectories) {
+      return 0;
+    }
+
+    if (!a) {
+      return 0;
+    }
+
+    if (!b) {
+      return 0;
+    }
+
+    const pageAIdentifier = getNormalizedPath(a.label || a.name || a.path);
+    const pageBIdentifier = getNormalizedPath(b.label || b.name || b.path);
+
+    function getPageIndex(pageIdentifier?: string | null) {
+      return options.sortOrderDirectories.findIndex((pattern) => {
+        if (!pageIdentifier) {
+          return -1;
+        }
+        return typeof pattern === 'object'
+          ? pattern.test(pageIdentifier)
+          : pattern === pageIdentifier;
+      });
+    }
+
+    const indexA = getPageIndex(pageAIdentifier);
+    const indexB = getPageIndex(pageBIdentifier);
+
+    // if not found in the sorting list, just order by name
+    if (indexA === -1 && indexB === -1) {
+      return pageAIdentifier > pageBIdentifier ? 1 : -1;
+    }
+
+    if (indexA === indexB) {
+      return 0;
+    }
+
+    if (indexA === -1) {
+      return 1;
+    }
+
+    if (indexB === -1) {
+      return -1;
+    }
+
+    return indexA > indexB ? 1 : -1;
+  }
 }
 
 export function getNavigationForPath(
@@ -328,13 +600,17 @@ export function getNavigationForPath(
 export function setNavigationAtPath({
   nav,
   navigationEntry,
+  pageLocale,
   paths,
+  localePath,
   currentLevel = 1,
   options,
 }: {
   nav: NavigationAPI;
   navigationEntry?: NavigationAPI;
+  pageLocale: SITE_LANGUAGES;
   paths: string[];
+  localePath?: string;
   currentLevel?: number;
   options: Required<GetNavigationAPIOptions>;
 }): NavigationAPI {
@@ -347,15 +623,26 @@ export function setNavigationAtPath({
     return nav;
   }
 
+  // composes format and translate
+  const translateAndFormat = (
+    name?: string | null | undefined,
+    language?: SITE_LANGUAGES | undefined
+  ) => options.formatLabel(options.translate(name, language), language, options.uppercaseWords);
+
+  const pathsWithLocale = localePath ? [localePath, ...paths] : paths;
+
   // if the first level (root) does not have a path, create it
   if (currentLevel === 1) {
     return setNavigationAtPath({
       paths,
+      localePath,
       nav: {
         ...nav,
-        path: nav.path ? nav.path : '/',
+        // if provided, insert the locale path before the current navigation path
+        path: nav.path ? (localePath ? `${localePath}/${nav.path}` : nav.path) : '/',
       },
       navigationEntry,
+      pageLocale,
       currentLevel: currentLevel + 1,
       options,
     });
@@ -371,8 +658,10 @@ export function setNavigationAtPath({
   const existingSubnav = getNavigationForPath(currentPathParts, [nav]).foundNav;
   const parentSubnav = getNavigationForPath(parentPathParts, [nav]).foundNav;
 
-  const currentPath = getCompletePath(currentPathParts);
-  const currentPathName = currentPathLast.join('-');
+  const currentPath = getCompletePath(
+    localePath ? [localePath, ...currentPathParts] : currentPathParts
+  );
+  const currentPathName = currentPathLast.join(' ');
 
   // if we are at the final level, insert the navigationEntry
   // otherwise just create a minimal nav entry from the path
@@ -382,13 +671,13 @@ export function setNavigationAtPath({
         path: currentPath,
         ...navigationEntry,
         label: navigationEntry?.label
-          ? navigationEntry.label
-          : options.formatLabel(currentPathName),
+          ? translateAndFormat(navigationEntry.label, pageLocale)
+          : translateAndFormat(currentPathName, pageLocale),
       }
     : {
         name: currentPathName,
         path: currentPath,
-        label: options.formatLabel(currentPathName),
+        label: translateAndFormat(currentPathName, pageLocale),
       };
 
   // if the parent path has been created, add the current part to the subnav
@@ -401,7 +690,7 @@ export function setNavigationAtPath({
     if (existingSubnav) {
       existingSubnav.id = insertedNavigationEntry.id;
       existingSubnav.name = insertedNavigationEntry.name;
-      existingSubnav.label = insertedNavigationEntry.label;
+      existingSubnav.label = translateAndFormat(insertedNavigationEntry.label, pageLocale);
       existingSubnav.component = insertedNavigationEntry.component;
       existingSubnav.tags = existingSubnav.tags
         ? [...existingSubnav.tags, ...(insertedNavigationEntry.tags || [])]
@@ -411,8 +700,10 @@ export function setNavigationAtPath({
         : insertedNavigationEntry.links;
       return setNavigationAtPath({
         paths,
+        localePath,
         nav,
         navigationEntry,
+        pageLocale,
         currentLevel: currentLevel + 1,
         options,
       });
@@ -422,8 +713,10 @@ export function setNavigationAtPath({
 
     return setNavigationAtPath({
       paths,
+      localePath,
       nav,
       navigationEntry,
+      pageLocale,
       currentLevel: currentLevel + 1,
       options,
     });
@@ -440,102 +733,13 @@ export function setNavigationAtPath({
 
   return setNavigationAtPath({
     paths,
+    localePath,
     nav,
     navigationEntry,
+    pageLocale,
     currentLevel: currentLevel + 1,
     options,
   });
-}
-
-/**
- * Create a LinkAPI object in a navigation tree at a specific path
- */
-export function setNavigationLinkAtPath({
-  paths,
-  nav,
-  linkEntry,
-  options,
-}: {
-  paths: string[];
-  nav: NavigationAPI;
-  linkEntry?: LinkAPI;
-  options: Required<GetNavigationAPIOptions>;
-}): NavigationAPI {
-  // take the parts up to the parent
-  const parentPathParts = paths.slice(0, paths.length - 1);
-  const currentPathLast = paths.slice(paths.length - 1).join('');
-  const currentPathParts = paths;
-
-  const currentPath = getCompletePath(currentPathParts);
-  const currentPathName = currentPathParts.join('');
-  const linkEntryIsIndex = linkEntry && linkEntry.name && /index/gi.test(linkEntry.name);
-  const { foundNav, foundLink, foundPage } = getNavigationForPath(parentPathParts, [nav]);
-
-  const newLinkEntry: LinkAPI = {
-    name: currentPathLast,
-    label: options.formatLabel(currentPathLast),
-    type: LinkType.internalPage,
-    page: {
-      name: currentPathLast,
-      ...linkEntry?.page,
-      slug: currentPath,
-    },
-    ...linkEntry,
-  };
-
-  // if the navigation level does not exist, create it
-  // and insert the link
-  if (!foundNav) {
-    if (linkEntryIsIndex) {
-      // if a link is an index, create a sub navigation
-      setNavigationAtPath({
-        paths: currentPathParts,
-        nav,
-        navigationEntry: {
-          name: newLinkEntry.name,
-          label: options.formatLabel(currentPathLast),
-          links: [newLinkEntry],
-        },
-        options,
-      });
-      return nav;
-    }
-
-    setNavigationAtPath({
-      paths: parentPathParts,
-      nav,
-      navigationEntry: {
-        name: newLinkEntry.name,
-        label: options.formatLabel(currentPathLast),
-        links: [newLinkEntry],
-      },
-      options,
-    });
-    return nav;
-  }
-
-  if (linkEntryIsIndex) {
-    setNavigationAtPath({
-      paths: currentPathParts,
-      nav,
-      navigationEntry: {
-        name: newLinkEntry.name,
-        label: options.formatLabel(currentPathLast),
-        links: [newLinkEntry],
-      },
-      options,
-    });
-    return nav;
-  }
-
-  if (!foundNav.links) {
-    foundNav.links = [];
-  }
-
-  // otherwise just insert the new link in the links
-  foundNav.links.push(newLinkEntry);
-
-  return nav;
 }
 
 /**
@@ -562,4 +766,68 @@ export function getPageNodeNameWithoutLocale(name?: string | null) {
     return '';
   }
   return name.replace(/^(.+)\./gi, '');
+}
+
+export function getPathParts({ path }: { path?: string | null }): string[] {
+  if (!path) {
+    return [];
+  }
+  return (
+    path
+      // split node path into each part
+      .split('/')
+      // remove empty parts
+      .filter((part) => !!part.length)
+  );
+}
+
+function getNameWithUppercaseWords({ name, words }: { name?: string; words?: string[] }): string {
+  if (!name) {
+    return '';
+  }
+
+  if (!words?.length) {
+    return name;
+  }
+
+  const wordsToFind = words.map((word) => lower(word));
+
+  return name
+    .split(' ')
+    .map((part) => (wordsToFind.includes(lower(part)) ? part.toUpperCase() : part))
+    .join(' ');
+}
+
+/**
+ * Check if a path matches or partially matches a given location.pathname
+ * /fr/design-system/path with /fr/design-system/
+ * return { match: true, partial: true  }
+ */
+export function isPathActive(
+  path?: string | null,
+  pathname?: string | null
+): { match: boolean; partial: boolean; exact: boolean } {
+  if (!path) {
+    return {
+      match: false,
+      partial: false,
+      exact: false,
+    };
+  }
+  if (!pathname) {
+    return {
+      match: false,
+      partial: false,
+      exact: false,
+    };
+  }
+  const match = new RegExp(path).test(pathname);
+  const partial = pathname !== path;
+  const exact = pathname === path;
+
+  return {
+    match,
+    partial,
+    exact,
+  };
 }

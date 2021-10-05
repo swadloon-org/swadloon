@@ -191,9 +191,20 @@ symlinks, try:
 yarn reset
 ```
 
+## Compatibility with Windows
+
+We have most workflow set to build on linux and Windows runners to catch any
+potential issue with Windows machines. Please open an issue if something isn't
+working for you.
+
 ## License
 
-All `core-*` packages are [MIT licensed](/LICENSE), refer to each package's
-package.json license information for more details.
+All `core-*` packages are [MIT licensed](/LICENSE), please refer to each
+package's package.json license information and each `LICENCE.md` file for more
+details.
+
+## Credits
+
+Todo
 
 ---

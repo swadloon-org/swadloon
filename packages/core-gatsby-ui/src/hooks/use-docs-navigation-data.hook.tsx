@@ -95,6 +95,9 @@ const query = graphql`
   }
 `;
 
+/**
+ * @deprecated please use useNavigationAPI
+ */
 export function useDocsNavigation(
   {
     locales,

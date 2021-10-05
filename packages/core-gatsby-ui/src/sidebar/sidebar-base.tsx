@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { SidebarContainer, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { SidebarContainer, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -14,6 +14,7 @@ const defaultProps: SidebarProps = {
   sidebar: {
     variant: Variant.primary,
   },
+  disableBodyScroll: true,
   sidebarMode: 'floating',
 };
 
@@ -23,10 +24,13 @@ const defaultProps: SidebarProps = {
 export const SidebarBase = React.forwardRef<HTMLElement, Props>(
   (
     {
+      id,
       style,
+      className,
       sidebar = defaultProps.sidebar,
       sidebarMode = defaultProps.sidebarMode,
       sidebarOpened,
+      disableBodyScroll = defaultProps.disableBodyScroll,
       onClickMenuButton,
       onClickBackdrop,
       contentClassName,
@@ -41,15 +45,25 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
      */
     const { cssTheme } = useTreatTheme();
     const styles = useStyles(styleRefs);
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [
+        sidebarMode === 'sticky' ? styles.sticky : '',
+        sidebarMode === 'hanging' ? styles.hanging : '',
+      ],
+      ...props,
+    });
 
     /**
      * Content
      */
     const contentClassnames = getMergedClassname([contentClassName]);
 
-    if (sidebarMode === 'hanging') {
+    if (sidebarMode === 'sticky' || sidebarMode === 'hanging') {
       return (
-        <nav ref={ref} style={style} className={styles.hanging}>
+        <nav ref={ref} {...commonProps}>
           <Stack className={contentClassnames}>{children}</Stack>
         </nav>
       );
@@ -59,10 +73,10 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
       <SidebarContainer
         as={'nav'}
         ref={ref}
-        style={style}
         sidebarOpened={sidebarOpened}
         onClickBackdrop={onClickBackdrop}
-        disableBodyScroll={true}
+        disableBodyScroll={disableBodyScroll}
+        {...commonProps}
       >
         <Stack className={contentClassnames}>{children}</Stack>
       </SidebarContainer>

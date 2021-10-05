@@ -45,7 +45,7 @@ export const Env = t.intersection([
 //   cd ${dotEnvProcess.MASTER_REPO_NAME}`,
 //   {
 //     cwd: '..',
-//     shell: true,
+//     shell: getShellForPlatform(),
 //     stdio: 'inherit',
 //     env: process.env,
 //   }
@@ -55,7 +55,7 @@ export const Env = t.intersection([
 //   `git clone --bare git@${dotEnvProcess.MASTER_GIT_HOST}:${dotEnvProcess.MASTER_REPO_ORG}/${dotEnvProcess.MASTER_REPO_NAME}.git`,
 //   {
 //     cwd: '..',
-//     shell: true,
+//     shell: getShellForPlatform(),
 //     stdio: 'inherit',
 //     env: process.env,
 //   }

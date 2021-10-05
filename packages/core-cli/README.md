@@ -27,7 +27,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.13.0 darwin-arm64 node-v16.5.0
+@newrade/core-cli/1.13.0 win32-x64 node-v16.9.1
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -50,6 +50,7 @@ USAGE
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
 * [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
+* [`nr local-ip [ARGS]`](#nr-local-ip-args)
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
@@ -97,8 +98,6 @@ USAGE
 EXAMPLE
   $ nr depcheck
 ```
-
-_See code: [lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.13.0/lib/commands/depcheck.js)_
 
 ## `nr figma-sync [PATH]`
 
@@ -246,6 +245,18 @@ OPTIONS
 
 EXAMPLE
   $ nr jest
+```
+
+## `nr local-ip [ARGS]`
+
+Print out local machine ip on the connected network
+
+```
+USAGE
+  $ nr local-ip [ARGS]
+
+EXAMPLE
+  $ nr local-ip
 ```
 
 ## `nr micromatch [PATH] [PATTERN]`

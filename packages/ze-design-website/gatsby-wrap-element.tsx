@@ -1,10 +1,22 @@
-import { SITE_LANGUAGES } from '@newrade/core-common';
-import { GatsbyCommonPageContext, SOURCE_INSTANCE_NAME } from '@newrade/core-gatsb-config/config';
-import { useNavigationAPI } from '@newrade/core-gatsby-ui/src/hooks/use-navigation-api.hook';
+import { Variant } from '@newrade/core-design-system';
+import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
+import {
+  getLinksFromTopSubNavigation,
+  getSubNavigationForPath,
+  useI18next,
+  useNavigationAPI,
+} from '@newrade/core-gatsby-ui/src';
 import { WrapElementWithi18N } from '@newrade/core-gatsby-ui/src/i18next/wrap-element-i18n';
-import { LayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system.layout';
 import { LayoutDocs } from '@newrade/core-gatsby-ui/src/layout/docs.layout';
-import { NavComponent } from '@newrade/core-website-api';
+import {
+  FooterAPI,
+  FooterLayout,
+  NavbarAPI,
+  NavbarLayout,
+  NavComponent,
+  SidebarAPI,
+  SidebarLayout,
+} from '@newrade/core-website-api';
 import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
@@ -13,103 +25,138 @@ import { themeClass } from './src/design-system/theme.css';
 import { cssTheme, light, theme } from './src/design-system/theme.treat';
 import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
-import { footerNavigation, navbarNavigation } from './src/navigation/navigation';
 import { ProvidersDocs } from './src/providers/providers-docs';
 import { ProvidersSite } from './src/providers/providers-site';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 
-export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, props }) => {
+/**
+ * Component for Gatsby's 'wrapPageElement'
+ */
+export const WrapElement: React.FC<WrapPageElementBrowserArgs> = (props) => {
+  /**
+   * Translation
+   */
+
+  const i18nOptions = {
+    fallbackLng: 'en',
+    resources: locales,
+  };
+
+  return (
+    <WrapElementWithi18N props={props.props} i18nOptions={i18nOptions}>
+      <WrapElementI18n {...props} />
+    </WrapElementWithi18N>
+  );
+};
+
+/**
+ * Component for Gatsby's 'wrapPageElement' with i18n context
+ */
+export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element, props }) => {
   const pageProps = props as Props;
-  const currentLang = pageProps.pageContext.locale || SITE_LANGUAGES.EN;
+
+  /**
+   * Translation
+   */
+
+  const { language } = useI18next();
 
   /**
    * Navigation
-   *
-   * Footer and Navbar navigation are configured manually
-   *
-   * Pages navigation are generated below ⬇️
    */
 
-  const navigationDocs = useNavigationAPI({
-    navigationName: 'Docs navigation',
-    navigationComponent: NavComponent.sidebar,
-    includedPaths: [/docs/],
-    includeLocales: [currentLang],
+  const pagePathname = pageProps.path;
+  const version = `v${pageProps.pageContext.siteMetadata?.siteVersion}`;
+
+  const navigation = useNavigationAPI({
+    navigationName: 'Website',
+    navigationComponent: NavComponent.navbar,
+    locale: language,
   });
 
-  const navigationCoreDocs = useNavigationAPI({
-    navigationName: 'Docs navigation',
-    navigationComponent: NavComponent.sidebar,
-    includedPaths: [/core-docs/],
-    includeLocales: [currentLang],
+  const navbar: NavbarAPI = {
+    name: 'Navbar',
+    variant: Variant.primaryReversed,
+    layout: NavbarLayout.standard,
+    navigation: {
+      component: NavComponent.navbar,
+      links: getLinksFromTopSubNavigation(navigation.subNavigation),
+    },
+  };
+
+  const sidebarNavigationForCurrentpage = getSubNavigationForPath({
+    path: pagePathname,
+    navigations: navigation.subNavigation,
   });
 
-  const navigation =
-    props.pageContext.sourceInstance === SOURCE_INSTANCE_NAME.DOCS
-      ? navigationDocs.subNavigation?.[0]
-      : navigationCoreDocs.subNavigation?.[0];
+  const sidebarDocs: SidebarAPI = {
+    name: 'Sidebar docs',
+    layout: SidebarLayout.docs,
+    navigation: {
+      ...sidebarNavigationForCurrentpage,
+      component: NavComponent.sidebar,
+    },
+    version,
+  };
+
+  const sidebar: SidebarAPI = {
+    name: 'Sidebar website',
+    layout: SidebarLayout.standard,
+    navigation: {
+      ...navigation,
+      component: NavComponent.sidebar,
+    },
+    version,
+    companyInfo,
+  };
+
+  const footer: FooterAPI = {
+    ...navbar,
+    name: 'Footer',
+    layout: FooterLayout.docs,
+    navigation: {
+      ...navigation,
+      component: NavComponent.footer,
+    },
+    version,
+    companyInfo,
+  };
 
   switch (pageProps.pageContext.layout) {
+    case 'designSystem':
     case 'docs': {
       return (
-        <WrapElementWithi18N
-          props={props}
-          i18nOptions={{
-            fallbackLng: 'en',
-            resources: locales,
-          }}
-        >
-          <ProvidersDocs>
-            <LayoutDocs
-              {...pageProps}
-              companyInfo={companyInfo}
-              navigation={navigation}
-              footerNavigation={footerNavigation}
-              navbarNavigation={navbarNavigation}
-            >
-              {element}
-            </LayoutDocs>
-          </ProvidersDocs>
-        </WrapElementWithi18N>
-      );
-    }
-    case 'designSystem': {
-      return (
-        <WrapElementWithi18N
-          props={props}
-          i18nOptions={{
-            fallbackLng: 'en',
-            resources: locales,
-          }}
-        >
-          <ProvidersDocs>
-            <LayoutDesignSystem
-              themeClassname={themeClass}
-              treatThemeRef={light}
-              theme={{ theme, cssTheme }}
-              {...pageProps}
-            >
-              {element}
-            </LayoutDesignSystem>
-          </ProvidersDocs>
-        </WrapElementWithi18N>
+        <ProvidersDocs>
+          <LayoutDocs
+            {...pageProps}
+            companyInfo={companyInfo}
+            navbar={navbar}
+            sidebar={sidebarDocs}
+            footer={footer}
+            themeClassname={themeClass}
+            treatThemeRef={light}
+            theme={{ theme, cssTheme }}
+          >
+            {element}
+          </LayoutDocs>
+        </ProvidersDocs>
       );
     }
     case 'default':
     default: {
       return (
-        <WrapElementWithi18N
-          props={props}
-          i18nOptions={{
-            fallbackLng: 'en',
-            resources: locales,
-          }}
-        >
-          <ProvidersSite>
-            <Layout {...pageProps}>{element}</Layout>
-          </ProvidersSite>
-        </WrapElementWithi18N>
+        <ProvidersSite>
+          <Layout
+            {...pageProps}
+            companyInfo={companyInfo}
+            navbar={navbar}
+            footer={footer}
+            sidebar={sidebar}
+          >
+            {element}
+          </Layout>
+        </ProvidersSite>
       );
     }
   }

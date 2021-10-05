@@ -78,7 +78,7 @@ jobs:
         run: yarn lerna:ls-lint --scope @newrade/core-cli
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-cli/src/ --ext "ts,tsx"
 
       - name: Run unit tests
         run: yarn lerna:test --scope @newrade/core-cli

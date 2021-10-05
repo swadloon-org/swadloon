@@ -1,3 +1,4 @@
+import { getShellForPlatform } from '@newrade/core-utils';
 import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
@@ -21,7 +22,7 @@ export default class Depcheck extends Command {
     this.log(`running in ${process.cwd()}`);
 
     const command = spawnSync(`yarn depcheck ${args.args || ''}`, {
-      shell: true,
+      shell: getShellForPlatform(),
       stdio: ['inherit', 'pipe', 'pipe'],
       env: process.env,
     });

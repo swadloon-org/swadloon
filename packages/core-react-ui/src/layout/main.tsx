@@ -6,6 +6,10 @@ import * as styleRefs from './main.treat';
 
 type Props = PrimitiveProps & {
   /**
+   * Sticky layout allows a sidebar and an aside component to be next to the main centered content
+   */
+  stickyLayout?: boolean;
+  /**
    * Offset the content to account for the sidebar (on desktop only)
    */
   desktopSidebarPadding?: boolean;

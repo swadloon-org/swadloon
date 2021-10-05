@@ -11,7 +11,7 @@ type Props = {
   initial?: boolean;
   /**
    * Delay after which the sidebar is closed on desktop
-   * @default 300
+   * @default 100
    */
   delayOpen?: number;
   delayClose?: number;
@@ -23,8 +23,8 @@ type Props = {
 
 export function useSidebarState({
   initial = false,
-  delayOpen = 300,
-  delayClose = 300,
+  delayOpen = 100,
+  delayClose = 100,
   autoCloseOnDesktop = true,
 }: Props): [boolean, React.Dispatch<React.SetStateAction<boolean>>] {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(initial);
@@ -53,7 +53,7 @@ export function useSidebarState({
         window.clearTimeout(timeoutSetSidebarFn);
       }
     };
-  }, [viewport, sidebarOpened, delayOpen, delayClose]);
+  }, [viewport, sidebarOpened, delayOpen, delayClose, autoCloseOnDesktop]);
 
   const setSidebarOpenedDelayedFn: (value: React.SetStateAction<boolean>, delay?: number) => void =
     useCallback(

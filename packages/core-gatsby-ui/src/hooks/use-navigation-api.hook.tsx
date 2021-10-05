@@ -1,4 +1,4 @@
-import { NavigationAPI } from '@newrade/core-website-api';
+import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo } from 'react';
@@ -7,6 +7,7 @@ import { useI18next } from '../i18next/use-i18next.hook';
 import {
   getNavigationAPIFromPageNodes,
   GetNavigationAPIOptions,
+  getPathParts,
 } from '../utilities/navigation-api.utilities';
 
 type NavigationQuery = PartialOrNull<{
@@ -68,13 +69,65 @@ const query = graphql`
  */
 export function useNavigationAPI(options: GetNavigationAPIOptions): NavigationAPI {
   const data = useStaticQuery<NavigationQuery>(query);
-  const { t } = useI18next();
+  const { translate, getTranslatedObject, language } = useI18next();
 
   return useMemo(() => {
     const mergedOptions: GetNavigationAPIOptions = {
-      ...options,
       pageNodes: data?.pages?.nodes as GatsbyPageNode[],
+      translate: translate,
+      ...options,
     };
     return getNavigationAPIFromPageNodes(mergedOptions);
-  }, [options, data?.pages?.nodes]);
+  }, [options, translate, data?.pages?.nodes]);
+}
+
+/**
+ * Convert navigation object to links (which implies that each navigation path has a matching page)
+ */
+export function getLinksFromTopSubNavigation(
+  navigations?: PartialOrNull<NavigationAPI[]> | null
+): LinkAPI[] {
+  return navigations
+    ? navigations
+        .filter((navigation) => !!navigation)
+        .map((navigation) => {
+          const nav = navigation as NavigationAPI;
+          return {
+            name: nav.name,
+            label: nav.label,
+            type: LinkType.internalPage,
+            component: LinkComponent.link,
+            page: {
+              name: nav.name,
+              slug: nav.path,
+            },
+          };
+        })
+    : [];
+}
+
+/**
+ * Get a specific navigation based on starting path
+ */
+export function getSubNavigationForPath({
+  path,
+  navigations,
+}: {
+  path: string;
+  navigations?: PartialOrNull<NavigationAPI[]> | null;
+}): NavigationAPI | undefined | null {
+  const pageNodePathParts = getPathParts({ path });
+
+  if (!pageNodePathParts.length) {
+    return undefined;
+  }
+
+  return navigations
+    ? navigations.find((navigation) =>
+        navigation?.path
+          ? // try to find the first part of the path in passed navigation
+            new RegExp(`^${navigation?.path}`, 'i').test(path)
+          : false
+      )
+    : undefined;
 }

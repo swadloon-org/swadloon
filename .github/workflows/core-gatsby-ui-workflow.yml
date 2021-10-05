@@ -72,7 +72,7 @@ jobs:
         run: yarn lerna:ls-lint --scope @newrade/core-gatsby-ui
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-gatsby-ui/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-gatsby-ui/src/ --ext "ts,tsx"
 
       - name: Run unit tests
         run: yarn lerna:test --scope @newrade/core-gatsby-ui

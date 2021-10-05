@@ -118,7 +118,7 @@ export function SectionRenderer<
           Blocks={
             <>
               {blocks.map((block, index) => (
-                <BlockRenderer
+                <BlockRenderer<CustomBlockVariants>
                   blockComponents={blockComponents}
                   key={index}
                   block={block}

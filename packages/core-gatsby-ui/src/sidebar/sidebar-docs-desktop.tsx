@@ -1,9 +1,12 @@
-import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { SITE_LANGUAGES } from '@newrade/core-common';
+import { LABEL_SIZE, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
+  Cluster,
   Hr,
   InputLabel,
   InputText,
   InputWrapper,
+  Label,
   Link,
   Paragraph,
   Stack,
@@ -15,7 +18,8 @@ import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
-import { LinkRenderer } from '../links/link-renderer';
+import { GatsbyLink } from '../links/gatsby-link';
+import { isPathActive } from '../utilities/navigation-api.utilities';
 import { SidebarBase } from './sidebar-base';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
@@ -69,15 +73,14 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
 
     const navigation = sidebar?.navigation;
     const sidebarNavigation = navigation;
+    const navigationPath = sidebarNavigation?.path;
 
     /**
      * Copyright and version
      */
 
     const version = sidebar?.version;
-    const copyright = sidebar?.companyInfo?.copyright;
     const formattedVersion = version ? (/^v/gi.test(version) ? version : `v${version}`) : '';
-    const copyrightAndVersion = [copyright, formattedVersion].filter((str) => !!str).join(' – ');
 
     /**
      * Filtering
@@ -95,9 +98,15 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
       return (
         <>
           {links?.map((link, id) => {
+            const linkActive = isPathActive(link?.page?.slug, activePathname);
+
             return (
-              <SidebarDocsDesktopItem key={id} active={link?.page?.slug === activePathname}>
-                <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>
+              <SidebarDocsDesktopItem
+                key={id}
+                active={linkActive.match && linkActive.exact}
+                AsElement={<GatsbyLink noStyles={true} to={link?.page?.slug || '/'} />}
+              >
+                {link?.label || ' '}
               </SidebarDocsDesktopItem>
             );
           })}
@@ -115,11 +124,12 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         }
 
         const links = subNav.links;
+        const subNavOpened = isPathActive(subNav.path, activePathname);
 
         return (
           <Stack key={subNavIndex} gap={[`0px`]}>
             {subNav.label ? (
-              <SidebarDocsDesktopGroup label={subNav.label}>
+              <SidebarDocsDesktopGroup label={subNav.label} isOpen={subNavOpened.partial}>
                 {LinksRenderer(links as LinkAPI[])}
               </SidebarDocsDesktopGroup>
             ) : null}
@@ -131,15 +141,26 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     return (
       <SidebarBase
         sidebar={sidebar}
-        sidebarMode={'hanging'}
+        sidebarMode={'sticky'}
         ref={ref}
         contentClassName={styles.wrapper}
         {...commonProps}
       >
         {/* Header */}
-        <div className={styles.header} style={{ display: 'none' }}>
+        <div className={styles.header}>
+          <Cluster gap={[cssTheme.sizing.var.x1]}>
+            {/* Title */}
+            <Label variant={LABEL_SIZE.medium}>Documentation</Label>
+            {/* Version */}
+            <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
+              {formattedVersion}
+            </Paragraph>
+          </Cluster>
+
+          <Hr />
+
           {/* Search box */}
-          <InputWrapper>
+          <InputWrapper style={{ display: 'none' }}>
             <InputLabel htmlFor={'sidebar-docs-search'} hidden={true}>
               Search
             </InputLabel>
@@ -163,23 +184,16 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         {/* Bottom */}
         <div className={styles.footer}>
           {/* Language link */}
-          {alternativeLanguage && onChangeLang ? (
+          {alternativeLanguage?.lang && onChangeLang ? (
             <Link
               variantSize={PARAGRAPH_SIZE.small}
-              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+              onClick={(event: React.MouseEvent) =>
+                onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+              }
             >
               {alternativeLanguage.label}
             </Link>
           ) : null}
-
-          <Hr />
-
-          {/* Copyright and Version */}
-          <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
-            {copyrightAndVersion}
-          </Paragraph>
-
-          <Hr />
         </div>
       </SidebarBase>
     );

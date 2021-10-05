@@ -1,5 +1,12 @@
 import debug from 'debug';
 
-export const log = debug('nr:core-react-ui');
-export const logWarn = log.extend('warn');
-export const logError = log.extend('error');
+/**
+ * core-react-ui debug namespace
+ */
+export const NS = 'nr:core-react-ui';
+
+export const debugInstance = debug;
+
+export const log = debugInstance(`${NS}`);
+export const logWarn = debugInstance(`${NS}:warn`);
+export const logError = debugInstance(`${NS}:error`);
