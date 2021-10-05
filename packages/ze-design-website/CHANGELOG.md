@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.2.1...@newrade/ze-design-website@2.3.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** fix gatsby config
+  ([115a637](https://github.com/newrade/newrade-core/commit/115a6374edd2d4a5080c07a881f318d550a8bd00))
+- **core:** fix gatsby related error during build
+  ([bab4df4](https://github.com/newrade/newrade-core/commit/bab4df48d7cd4c2b43157f26319660ef806c7f39))
+- **core:** fix nr command for windows
+  ([8f9a058](https://github.com/newrade/newrade-core/commit/8f9a0584bda6320b432bdc29724cae86b4106335))
+- **core:** fixes for docs layout
+  ([3c354f0](https://github.com/newrade/newrade-core/commit/3c354f07c9b48dd508aa1fd7cdace74fb7a358be))
+- **core:** fixes for gatsby ssr in dev
+  ([6ea2782](https://github.com/newrade/newrade-core/commit/6ea27825a630eb55deefa17da243ddc7f81a1304))
+- **core:** fixes issue with env-cmd on windows
+  ([905cbc7](https://github.com/newrade/newrade-core/commit/905cbc73d01f28b1aca2db2f7596b96317fd047e))
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-cli:** fix std bugs
+  ([038eea7](https://github.com/newrade/newrade-core/commit/038eea7de819a1316e2d638f5594d34dff193e8a))
+- **core-cli:** fixes for windows compatibility
+  ([6c08f00](https://github.com/newrade/newrade-core/commit/6c08f000c22b3bfce2d8ffdf117cc3090080c002))
+- **core-gatsby-ui:** finalize logic for navigation api utilities
+  ([23811da](https://github.com/newrade/newrade-core/commit/23811daa6d2df12209b4d43d098b162a86bf758d))
+- **core-gatsby-ui:** handle cases when siteMetadata is not set
+  ([65fc96d](https://github.com/newrade/newrade-core/commit/65fc96dc789289781da4c13904599ab465421dd4))
+- **core-gatsby-ui:** upgrade gatsby
+  ([fefd2af](https://github.com/newrade/newrade-core/commit/fefd2af022f72ccdbe18dfd7417f5cd9842a6312))
+- **core-react-ui:** fixes for bodyscrolllock for ios 15
+  ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
+
+### Features
+
+- **core:** add new components for docs layout
+  ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
+- **core:** adding updated navigation api hooks and utilities
+  ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
+- **core:** update ze nav with example to switch langs
+  ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
+- **core-gatsby-config:** create plugin for cache in ts files
+  ([3f45fb0](https://github.com/newrade/newrade-core/commit/3f45fb04d5dc7c27d77332e63a286fcb650ed2d4))
+- **core-gatsby-ui:** working on improvements to navigation api hooks and
+  utilities
+  ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.2.0...@newrade/ze-design-website@2.2.1) (2021-09-09)
 
 ### Bug Fixes

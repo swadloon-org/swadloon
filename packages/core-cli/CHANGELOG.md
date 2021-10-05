@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.0...@newrade/core-cli@1.13.1) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** fix gatsby related error during build
+  ([bab4df4](https://github.com/newrade/newrade-core/commit/bab4df48d7cd4c2b43157f26319660ef806c7f39))
+- **core:** fixes for components
+  ([f84cca4](https://github.com/newrade/newrade-core/commit/f84cca4f9753bab261f841a132964c02f8b8c85a))
+- **core:** fixes for gatsby ssr in dev
+  ([6ea2782](https://github.com/newrade/newrade-core/commit/6ea27825a630eb55deefa17da243ddc7f81a1304))
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-cli:** another fix for windows
+  ([91d1393](https://github.com/newrade/newrade-core/commit/91d13939f69eb770ad578e1567d1a00084110560))
+- **core-cli:** fix for jest, add new command for jest watch
+  ([e09c53e](https://github.com/newrade/newrade-core/commit/e09c53e7dbff793f14e19efc205e878a5b1cb425))
+- **core-cli:** fix for webpack wrapper
+  ([afbe2e6](https://github.com/newrade/newrade-core/commit/afbe2e6ab909bf77189a196e9794cbe6c1774b72))
+- **core-cli:** fix gatsby command for deprecation warning
+  ([7667f93](https://github.com/newrade/newrade-core/commit/7667f937b0e49be40f32136ac1aa055d7366cb8e))
+- **core-cli:** fix path of bin for windows
+  ([eb15ad4](https://github.com/newrade/newrade-core/commit/eb15ad4dcdb18223b4cef860478ac4c1a52c00da))
+- **core-cli:** fix std bugs
+  ([038eea7](https://github.com/newrade/newrade-core/commit/038eea7de819a1316e2d638f5594d34dff193e8a))
+- **core-cli:** fixes for windows compatibility
+  ([6c08f00](https://github.com/newrade/newrade-core/commit/6c08f000c22b3bfce2d8ffdf117cc3090080c002))
+- **core-cli:** potential fix for windows issue with oclif
+  ([cf2b71f](https://github.com/newrade/newrade-core/commit/cf2b71f835aad373d92fcefc4141ac74ff3a40d6))
+- **core-cli:** prepack after changes
+  ([523f856](https://github.com/newrade/newrade-core/commit/523f856249636e596a02c7af12f9f33ecca566a1))
+- **core-gatsby-ui:** finalize logic for navigation api utilities
+  ([23811da](https://github.com/newrade/newrade-core/commit/23811daa6d2df12209b4d43d098b162a86bf758d))
+- **core-react-ui:** fixes for bodyscrolllock for ios 15
+  ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.12.0...@newrade/core-cli@1.13.0) (2021-09-09)
 
 ### Bug Fixes

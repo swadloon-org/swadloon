@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.2.1...@newrade/core-gatsby-ui@2.3.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** fix for dev ssr for gatsby
+  ([2e3a32c](https://github.com/newrade/newrade-core/commit/2e3a32cb4ef3ff99ec0ce37980d5e92c516664ba))
+- **core:** fix gatsby related error during build
+  ([bab4df4](https://github.com/newrade/newrade-core/commit/bab4df48d7cd4c2b43157f26319660ef806c7f39))
+- **core:** fix workflows for dependabot + small fix for gatsby-ui
+  ([3f8287d](https://github.com/newrade/newrade-core/commit/3f8287d4c9cac6a8f5a285f69ca6fc1e9b4abb6e))
+- **core:** fixes for components
+  ([f84cca4](https://github.com/newrade/newrade-core/commit/f84cca4f9753bab261f841a132964c02f8b8c85a))
+- **core:** fixes for docs layout
+  ([3c354f0](https://github.com/newrade/newrade-core/commit/3c354f07c9b48dd508aa1fd7cdace74fb7a358be))
+- **core:** fixes for gatsby ssr in dev
+  ([6ea2782](https://github.com/newrade/newrade-core/commit/6ea27825a630eb55deefa17da243ddc7f81a1304))
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-cli:** fixes for windows compatibility
+  ([6c08f00](https://github.com/newrade/newrade-core/commit/6c08f000c22b3bfce2d8ffdf117cc3090080c002))
+- **core-gatsby-ui:** finalize logic for navigation api utilities
+  ([23811da](https://github.com/newrade/newrade-core/commit/23811daa6d2df12209b4d43d098b162a86bf758d))
+- **core-gatsby-ui:** fix missing dep
+  ([6b438b5](https://github.com/newrade/newrade-core/commit/6b438b5135ed1a7c4a8e6eb31ca0567fc5d23eff))
+- **core-gatsby-ui:** fix missing export
+  ([ab17829](https://github.com/newrade/newrade-core/commit/ab178293ae0fb6d045a9d27431f305f8affb61d7))
+- **core-gatsby-ui:** handle cases when siteMetadata is not set
+  ([65fc96d](https://github.com/newrade/newrade-core/commit/65fc96dc789289781da4c13904599ab465421dd4))
+- **core-react-ui:** fixes for bodyscrolllock for ios 15
+  ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
+
+### Features
+
+- **core:** add new components for docs layout
+  ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
+- **core:** adding updated navigation api hooks and utilities
+  ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
+- **core:** update ze nav with example to switch langs
+  ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
+- **core-gatsby-ui:** working on improvements to navigation api hooks and
+  utilities
+  ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.2.0...@newrade/core-gatsby-ui@2.2.1) (2021-09-09)
 
 ### Bug Fixes

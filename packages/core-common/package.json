@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-common",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Commone utilities shared across packages.",
   "author": {
     "email": "info@newrade.ca",

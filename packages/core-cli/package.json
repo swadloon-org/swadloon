@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-cli",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "CLI for various purposes, automate actions, etc.",
   "author": {
     "email": "info@newrade.ca",
@@ -45,8 +45,8 @@
   "dependencies": {
     "@contentful-tools/cli": "^0.7.3",
     "@contentful-tools/store": "^0.7.3",
-    "@newrade/core-figma-extractor": "^1.5.0",
-    "@newrade/core-utils": "^2.2.0",
+    "@newrade/core-figma-extractor": "^1.5.1",
+    "@newrade/core-utils": "^2.3.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/dev-cli": "^1",

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.1...@newrade/core-website-api@1.4.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** fix gatsby related error during build
+  ([bab4df4](https://github.com/newrade/newrade-core/commit/bab4df48d7cd4c2b43157f26319660ef806c7f39))
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+
+### Features
+
+- **core:** add new components for docs layout
+  ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
+- **core:** adding updated navigation api hooks and utilities
+  ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
+- **core-gatsby-ui:** working on improvements to navigation api hooks and
+  utilities
+  ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.0...@newrade/core-website-api@1.3.1) (2021-09-09)
 
 ### Bug Fixes

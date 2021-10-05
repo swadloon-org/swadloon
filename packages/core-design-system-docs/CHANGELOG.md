@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.2.1...@newrade/core-design-system-docs@2.3.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-gatsby-ui:** finalize logic for navigation api utilities
+  ([23811da](https://github.com/newrade/newrade-core/commit/23811daa6d2df12209b4d43d098b162a86bf758d))
+- **core-react-ui:** fixes for bodyscrolllock for ios 15
+  ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
+
+### Features
+
+- **core:** adding updated navigation api hooks and utilities
+  ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.2.0...@newrade/core-design-system-docs@2.2.1) (2021-09-09)
 
 ### Bug Fixes

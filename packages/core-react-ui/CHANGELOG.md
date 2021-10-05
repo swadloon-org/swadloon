@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.1...@newrade/core-react-ui@2.3.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** fix gatsby related error during build
+  ([bab4df4](https://github.com/newrade/newrade-core/commit/bab4df48d7cd4c2b43157f26319660ef806c7f39))
+- **core:** fixes for components
+  ([f84cca4](https://github.com/newrade/newrade-core/commit/f84cca4f9753bab261f841a132964c02f8b8c85a))
+- **core:** fixes for docs layout
+  ([3c354f0](https://github.com/newrade/newrade-core/commit/3c354f07c9b48dd508aa1fd7cdace74fb7a358be))
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-cli:** fixes for windows compatibility
+  ([6c08f00](https://github.com/newrade/newrade-core/commit/6c08f000c22b3bfce2d8ffdf117cc3090080c002))
+- **core-cli:** potential fix for windows issue with oclif
+  ([cf2b71f](https://github.com/newrade/newrade-core/commit/cf2b71f835aad373d92fcefc4141ac74ff3a40d6))
+- **core-gatsby-ui:** finalize logic for navigation api utilities
+  ([23811da](https://github.com/newrade/newrade-core/commit/23811daa6d2df12209b4d43d098b162a86bf758d))
+- **core-react-ui:** fixes for bodyscrolllock for ios 15
+  ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
+
+### Features
+
+- **core:** add new components for docs layout
+  ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
+- **core:** update ze nav with example to switch langs
+  ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
+- **core-gatsby-ui:** working on improvements to navigation api hooks and
+  utilities
+  ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.0...@newrade/core-react-ui@2.2.1) (2021-09-09)
 
 ### Bug Fixes

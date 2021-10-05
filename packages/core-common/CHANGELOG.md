@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.1...@newrade/core-common@1.4.2) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.1](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.0...@newrade/core-common@1.4.1) (2021-08-31)
 
 ### Bug Fixes

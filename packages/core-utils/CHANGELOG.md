@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.2.0...@newrade/core-utils@2.3.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-cli:** fix for webpack wrapper
+  ([afbe2e6](https://github.com/newrade/newrade-core/commit/afbe2e6ab909bf77189a196e9794cbe6c1774b72))
+- **core-cli:** fixes for windows compatibility
+  ([6c08f00](https://github.com/newrade/newrade-core/commit/6c08f000c22b3bfce2d8ffdf117cc3090080c002))
+- **core-cli:** potential fix for windows issue with oclif
+  ([cf2b71f](https://github.com/newrade/newrade-core/commit/cf2b71f835aad373d92fcefc4141ac74ff3a40d6))
+
+### Features
+
+- **core:** adding updated navigation api hooks and utilities
+  ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.1.0...@newrade/core-utils@2.2.0) (2021-09-09)
 
 ### Bug Fixes

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.1.1...@newrade/core-webpack-config@2.2.0) (2021-10-05)
+
+### Bug Fixes
+
+- **core:** update scripts and doc to support windows
+  ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
+- **core-webpack-config:** fix node external issue
+  ([c3d52e6](https://github.com/newrade/newrade-core/commit/c3d52e64d3a937c9c54ee461f14387df738f8b50))
+
+### Features
+
+- **core:** add new components for docs layout
+  ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.1.1](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.1.0...@newrade/core-webpack-config@2.1.1) (2021-09-09)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@newrade/ze-design-system",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Design system configuration package",
   "license": "MIT",
   "main": "dist/newrade-ze-design-system.cjs.js",
@@ -23,11 +23,11 @@
     "*.treat.js"
   ],
   "dependencies": {
-    "@newrade/core-common": "*",
-    "@newrade/core-design-system": "*",
-    "@newrade/core-figma-extractor": "^1.5.0",
-    "@newrade/core-react-ui": "^2.2.1",
+    "@newrade/core-common": "^1.4.2",
+    "@newrade/core-design-system": "^1.14.2",
+    "@newrade/core-figma-extractor": "^1.5.1",
+    "@newrade/core-react-ui": "^2.3.0",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.2.0"
+    "@newrade/core-utils": "^2.3.0"
   }
 }
