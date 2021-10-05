@@ -11,7 +11,7 @@ export const styles = {
     position: 'fixed',
     left: 0,
     bottom: `-1px`, // fixes 1px line visible on ios
-    width: `80vw`,
+    width: `85vw`,
     top: `-1px`, // fixes 1px line visible on ios
     // forces the backdrop to cover the viewport in iOS 15
     minHeight: `calc(100vh + 2px)`,

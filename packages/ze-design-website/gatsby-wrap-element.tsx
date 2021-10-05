@@ -67,6 +67,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
    */
 
   const pagePathname = pageProps.path;
+  const version = `v${pageProps.pageContext.siteMetadata?.siteVersion}`;
 
   const navigation = useNavigationAPI({
     navigationName: 'Website',
@@ -89,14 +90,25 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
     navigations: navigation.subNavigation,
   });
 
-  const sidebar: SidebarAPI = {
-    name: 'Sidebar',
+  const sidebarDocs: SidebarAPI = {
+    name: 'Sidebar docs',
     layout: SidebarLayout.docs,
     navigation: {
       ...sidebarNavigationForCurrentpage,
       component: NavComponent.sidebar,
     },
-    version: pageProps.pageContext.siteMetadata?.siteVersion,
+    version,
+  };
+
+  const sidebar: SidebarAPI = {
+    name: 'Sidebar website',
+    layout: SidebarLayout.standard,
+    navigation: {
+      ...navigation,
+      component: NavComponent.sidebar,
+    },
+    version,
+    companyInfo,
   };
 
   const footer: FooterAPI = {
@@ -107,7 +119,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
       ...navigation,
       component: NavComponent.footer,
     },
-    version: pageProps.pageContext.siteMetadata?.siteVersion,
+    version,
     companyInfo,
   };
 
@@ -120,7 +132,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
             {...pageProps}
             companyInfo={companyInfo}
             navbar={navbar}
-            sidebar={sidebar}
+            sidebar={sidebarDocs}
             footer={footer}
             themeClassname={themeClass}
             treatThemeRef={light}
@@ -135,7 +147,13 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
     default: {
       return (
         <ProvidersSite>
-          <Layout {...pageProps} companyInfo={companyInfo} navbar={navbar} footer={footer}>
+          <Layout
+            {...pageProps}
+            companyInfo={companyInfo}
+            navbar={navbar}
+            footer={footer}
+            sidebar={sidebar}
+          >
             {element}
           </Layout>
         </ProvidersSite>

@@ -78,7 +78,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   const isSSR = useIsSSR();
-  const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
 
   /**
    * Styles and theming
@@ -90,7 +89,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   /**
    * Translation
    */
-
+  const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
   const { t, changeLanguage, getTranslatedObject, getAlternativePageForLocale } = useI18next();
   const alternatePageForLocale = getAlternativePageForLocale(
     currentLang,
@@ -133,8 +132,13 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    * Navbar
    */
 
-  const tagText =
-    props.location?.pathname && /core-docs/gi.test(props.location?.pathname) ? 'core docs' : 'docs';
+  const tagText = props.location?.pathname
+    ? /core-docs/gi.test(props.location?.pathname)
+      ? 'core docs'
+      : /design-system/gi.test(props.location?.pathname)
+      ? 'design system'
+      : 'docs'
+    : '';
 
   /**
    * Sidebar
