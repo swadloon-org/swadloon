@@ -110,7 +110,10 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       }
     }
 
-    if (githubContext.eventName === 'pull_request') {
+    if (
+      githubContext.eventName === 'pull_request' ||
+      githubContext.eventName === 'pull_request_target'
+    ) {
       core.debug(`Current branch ref: ${env.GITHUB_HEAD_REF_SLUG}`);
       core.debug(`Target branch: ${env.GITHUB_BASE_REF_SLUG}`);
 
