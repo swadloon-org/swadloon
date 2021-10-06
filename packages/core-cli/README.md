@@ -50,6 +50,7 @@ USAGE
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
 * [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
+* [`nr lerna-version [ARGS]`](#nr-lerna-version-args)
 * [`nr local-ip [ARGS]`](#nr-local-ip-args)
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
@@ -268,6 +269,23 @@ EXAMPLE
 ```
 
 _See code: [lib/commands/jest-watch.js](https://github.com/newrade/newrade-core/blob/v1.13.1/lib/commands/jest-watch.js)_
+
+## `nr lerna-version [ARGS]`
+
+Wrapper for lerna version command, allowing to run version on specific packages
+
+```
+USAGE
+  $ nr lerna-version [ARGS]
+
+OPTIONS
+  --packages=packages  (required) packages glob to be included in lerna version bump, e.g. packages/*
+
+EXAMPLE
+  $ nr lerna-version
+```
+
+_See code: [lib/commands/lerna-version.js](https://github.com/newrade/newrade-core/blob/v1.13.1/lib/commands/lerna-version.js)_
 
 ## `nr local-ip [ARGS]`
 

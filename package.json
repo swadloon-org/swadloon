@@ -17,7 +17,7 @@
   "scripts": {
     "build": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "build:postinstall": "yarn lerna:build:postinstall",
-    "changelog": "lerna version --conventional-commits --no-push",
+    "changelog": "nr lerna-version '--conventional-commits --no-push'",
     "clean": "yarn lerna:clean",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
@@ -41,7 +41,7 @@
     "postinstall": "patch-package && yarn preconstruct:dev && yarn build:postinstall && yarn link:core-cli",
     "preconstruct:dev": "preconstruct dev",
     "push": "git push --follow-tags",
-    "release": "env-cmd -x lerna version --conventional-commits --create-release github",
+    "release": "env-cmd -x nr lerna-version '--conventional-commits --create-release github'",
     "release:test": "env-cmd -x echo $GH_TOKEN",
     "reset": "rimraf -rf ./node_modules packages/**/node_modules && yarn",
     "start": "yarn lerna:start --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
