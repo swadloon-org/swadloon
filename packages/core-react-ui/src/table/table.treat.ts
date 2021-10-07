@@ -7,7 +7,7 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const table = style(({ theme, cssTheme }: Theme) => ({
-  width: 'max-content',
+  width: 'auto',
   borderWidth: '0px',
   borderStyle: 'solid',
   borderCollapse: 'separate',

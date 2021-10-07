@@ -28,87 +28,90 @@ type Props = PrimitiveProps<'div' | 'nav'> & {
 /**
  * Sidebar container that handles animation and events
  */
-export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
-  (
-    { id, style, className, sidebarOpened, disableBodyScroll, onClickBackdrop, as, ...props },
-    ref
-  ) => {
-    const { styles } = useStyles(styleRefs);
-    const { viewport } = useViewportBreakpoint();
-    const isFirstRender = useFirstRender();
-    const classNames = getMergedClassname([className, styles.wrapper]);
+export const SidebarContainer = React.memo(
+  React.forwardRef<HTMLElement, Props>(
+    (
+      { id, style, className, sidebarOpened, disableBodyScroll, onClickBackdrop, as, ...props },
+      ref
+    ) => {
+      const { styles } = useStyles(styleRefs);
+      const { viewport } = useViewportBreakpoint();
+      const isFirstRender = useFirstRender();
+      const classNames = getMergedClassname([className, styles.wrapper]);
 
-    /**
-     * Animation
-     */
-    const sideBarRef = useRef<CSSAnimationHandle>(null);
-    const mergedRef = ref;
-    // todo merge refs and pass to css animation component
+      /**
+       * Animation
+       */
+      const sideBarRef = useRef<CSSAnimationHandle>(null);
+      const mergedRef = ref;
+      // todo merge refs and pass to css animation component
 
-    const enableBodyScrollLock = viewport === VIEWPORT.mobile && disableBodyScroll && sidebarOpened;
+      const enableBodyScrollLock =
+        viewport === VIEWPORT.mobile && disableBodyScroll && sidebarOpened;
 
-    const [locks] = useBodyScrollLock({
-      disableDocumentScrolling: enableBodyScrollLock,
-      ref: sideBarRef?.current?.ref,
-    });
+      const [locks] = useBodyScrollLock({
+        disableDocumentScrolling: enableBodyScrollLock,
+        ref: sideBarRef?.current?.ref,
+      });
 
-    /**
-     * Gestures
-     */
-    const bindDragGesture = useDrag(
-      (state) => {
-        const [swipeX] = state.swipe;
+      /**
+       * Gestures
+       */
+      const bindDragGesture = useDrag(
+        (state) => {
+          const [swipeX] = state.swipe;
 
-        if (!onClickBackdrop) {
-          return;
+          if (!onClickBackdrop) {
+            return;
+          }
+
+          if (swipeX < 0) {
+            onClickBackdrop(state.event as React.MouseEvent);
+          }
+        },
+        {
+          axis: 'x',
+          swipeDistance: 20,
+          swipeDuration: 2000,
+          swipeVelocity: 0.02,
         }
+      );
 
-        if (swipeX < 0) {
-          onClickBackdrop(state.event as React.MouseEvent);
-        }
-      },
-      {
-        axis: 'x',
-        swipeDistance: 20,
-        swipeDuration: 2000,
-        swipeVelocity: 0.02,
-      }
-    );
+      return (
+        <>
+          {/* Sidebar and content */}
+          <CSSAnimation
+            {...bindDragGesture()}
+            ref={sideBarRef}
+            style={style}
+            className={classNames}
+            animation={{
+              delay: isFirstRender ? 0 : 100,
+              duration: isFirstRender ? 0 : 260,
+              name: sidebarOpened ? 'slideInLeftSidebar' : 'slideOutLeftSidebar',
+              playState: 'running',
+            }}
+            as={'nav'}
+          >
+            {props.children}
+          </CSSAnimation>
 
-    return (
-      <>
-        {/* Sidebar and content */}
-        <CSSAnimation
-          {...bindDragGesture()}
-          ref={sideBarRef}
-          style={style}
-          className={classNames}
-          animation={{
-            delay: isFirstRender ? 0 : 100,
-            duration: isFirstRender ? 0 : 260,
-            name: sidebarOpened ? 'slideInLeftSidebar' : 'slideOutLeftSidebar',
-            playState: 'running',
-          }}
-          as={'nav'}
-        >
-          {props.children}
-        </CSSAnimation>
-
-        {/* Backdrop */}
-        <CSSAnimation
-          classNames={[
-            styles.backdrop,
-            isFirstRender ? '' : sidebarOpened ? styles.backdropActive : '',
-          ]}
-          animation={{
-            delay: isFirstRender ? 0 : 100,
-            duration: isFirstRender ? 0 : 350,
-            name: sidebarOpened ? 'fadeIn' : 'fadeOut',
-            playState: 'running',
-          }}
-          onClick={onClickBackdrop}
-        ></CSSAnimation>
-      </>
-    );
-  }
+          {/* Backdrop */}
+          <CSSAnimation
+            classNames={[
+              styles.backdrop,
+              isFirstRender ? '' : sidebarOpened ? styles.backdropActive : '',
+            ]}
+            animation={{
+              delay: isFirstRender ? 0 : 100,
+              duration: isFirstRender ? 0 : 350,
+              name: sidebarOpened ? 'fadeIn' : 'fadeOut',
+              playState: 'running',
+            }}
+            onClick={onClickBackdrop}
+          ></CSSAnimation>
+        </>
+      );
+    }
+  )
 );

@@ -1,17 +1,27 @@
 import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
+import { HEADING } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
-import { MainDocs, MainDocsWrapper, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  Heading,
+  MainDocs,
+  MainDocsWrapper,
+  scrollIntoView,
+  Theme,
+  useIsSSR,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useStyles } from 'react-treat';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
+import { MDXProps } from '../mdx/mdx-components';
 import { NavbarStandard } from '../navbar/navbar-standard';
 import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
@@ -121,6 +131,19 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     ...props.sidebar,
   };
 
+  useEffect(() => {
+    if (!isSSR) {
+      console.log(window.location.hash);
+      if (window.location.hash) {
+        scrollIntoView({
+          id: window.location.hash,
+        });
+      }
+    }
+
+    return () => {};
+  }, [isSSR]);
+
   /**
    * Breadcrumbs
    */
@@ -208,6 +231,40 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   ];
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 
+  const mainStyle: React.CSSProperties =
+    layoutMode === 'centered'
+      ? {
+          // @ts-ignore
+          '--max-content-width': contentMaxWidth,
+        }
+      : {
+          // @ts-ignore
+          '--layout-content-width-desktop-docs-max-width': `100%`,
+        };
+
+  /**
+   * MDX Components
+   */
+
+  const mdxComponents = {
+    h1: (props: MDXProps) => <Heading enableAnchorSign={true} {...props} />,
+    h2: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h2} {...props} />,
+    h3: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h3} {...props} />,
+    h4: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+    h5: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+    h6: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+    ThemeWrapper: injectThemeWrapper
+      ? (props: any) => (
+          <ThemeWrapper
+            treatThemeRef={treatThemeRef}
+            theme={theme}
+            themeClassname={themeClassname}
+            {...props}
+          />
+        )
+      : undefined,
+  };
+
   return (
     <MainDocsWrapper className={styles.mainWrapper}>
       {/* Navbars */}
@@ -247,42 +304,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         ></LazySidebarStandard>
       )}
 
-      <MainDocs
-        contentPadding={false}
-        navbarPadding={false}
-        minHeight={true}
-        style={
-          layoutMode === 'centered'
-            ? {
-                maxWidth: contentMaxWidth,
-              }
-            : {
-                // @ts-ignore
-                '--layout-content-width-desktop-docs-max-width': `100%`,
-              }
-        }
-      >
+      <MainDocs contentPadding={false} navbarPadding={false} minHeight={true} style={mainStyle}>
         {/* Desktop sidebar */}
         <SidebarDocsDesktop sidebar={sidebar} activePathname={props.path}></SidebarDocsDesktop>
 
-        <MDXProvider
-          components={
-            injectThemeWrapper
-              ? {
-                  ThemeWrapper: (props: any) => (
-                    <ThemeWrapper
-                      treatThemeRef={treatThemeRef}
-                      theme={theme}
-                      themeClassname={themeClassname}
-                      {...props}
-                    />
-                  ),
-                }
-              : undefined
-          }
-        >
-          {props.children}
-        </MDXProvider>
+        <MDXProvider components={mdxComponents}>{props.children}</MDXProvider>
       </MainDocs>
 
       <FooterDocs

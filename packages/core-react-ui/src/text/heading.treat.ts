@@ -70,23 +70,22 @@ export const enableAnchor = style(({ theme, cssTheme }: Theme) => ({
 globalStyle(`${wrapper} .mdx-anchor-target`, ({ cssTheme, theme }: Theme) => ({
   visibility: 'hidden',
   userSelect: 'none',
+  scrollSnapMarginTop: '40px', // ios only
+  scrollMarginTop: '40px',
   width: 0,
 }));
 
 globalStyle(`:target`, {
   display: 'block',
   position: 'relative',
-  top: '-100px',
+  top: '-40px',
   visibility: 'hidden',
 });
 
 globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
   visibility: 'hidden',
-
-  position: 'absolute',
-  left: '-0.9em',
-  top: '50%',
   fontSize: '1em',
+  marginLeft: '0.3em',
 }));
 
 globalStyle(`${wrapper}.mdx-anchor-sign-enable .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({

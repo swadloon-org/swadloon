@@ -1,12 +1,8 @@
 /// <reference types="@newrade/core-types/src/github-slugger" />
 
-import GithubSlugger from 'github-slugger';
 import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-
-function getFormattedId(value?: string | null): string {
-  return GithubSlugger.slug(value || '');
-}
+import { getFormattedAnchorId } from '../utilities/text.utilities';
 
 /**
  * Hook to reduce component boilerplate. Takes care of normalizing id, classNames and styles.
@@ -26,7 +22,7 @@ export function useCommonProps<As extends AsTypes = 'div'>({
     /**
      * Normalize ids
      */
-    id: id ? getFormattedId(id) : undefined,
+    id: id ? getFormattedAnchorId(id) : undefined,
     /**
      * Merge supplied style with the ones passed from the parent
      */

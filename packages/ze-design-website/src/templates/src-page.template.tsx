@@ -26,7 +26,7 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
             props.pageContext.siteMetadata?.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
-          description: `No description provided`,
+          description: `${props.pageContext.siteMetadata?.description || ''}`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
           lang: props.pageContext.locale,

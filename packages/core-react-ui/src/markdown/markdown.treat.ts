@@ -10,8 +10,8 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   overflow: 'hidden',
   // add a small padding on top and bottom to prevent text
   // clipping (due to capzise precide text measurements)
-  paddingTop: '3px',
-  paddingBott: '3px',
+  paddingTop: '7px',
+  paddingBottom: '7px',
 }));
 
 /**
