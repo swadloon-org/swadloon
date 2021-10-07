@@ -29,7 +29,7 @@
     "import-content": "contentful space import",
     "run-migration": "env-cmd -x node -r ts-node/register src/run-migration.ts",
     "test": "nr jest",
-    "test:watch": "nr jest --watch"
+    "test:watch": "nr jest-watch"
   },
   "dependencies": {
     "@newrade/core-design-system": "^1.14.2",

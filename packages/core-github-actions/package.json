@@ -23,7 +23,7 @@
     "clean": "rimraf -rf lib/** && rimraf -f *.tsbuildinfo",
     "start": "tsc --noEmit --watch --preserveWatchOutput",
     "test": "nr jest",
-    "test:watch": "nr jest --watch",
+    "test:watch": "nr jest-watch",
     "typecheck": "tsc --noEmit",
     "webpack": "nr webpack --config webpack.prod.config.ts"
   },
