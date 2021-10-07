@@ -43,6 +43,8 @@ export * from './layout/cluster';
 export * from './layout/grid';
 export * from './layout/main';
 export * from './layout/main-wrapper';
+export * from './layout/main-docs';
+export * from './layout/main-docs-wrapper';
 export * from './layout/stack';
 export * from './layout/switcher';
 export * from './list-item/list-item';

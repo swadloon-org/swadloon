@@ -1,3 +1,6 @@
+/**
+ * @deprecated please use NavigationAPI instead
+ */
 export type NavItemAPI = {
   /**
    * Raw node name of the item or dir

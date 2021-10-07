@@ -6,8 +6,12 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   flexDirection: 'column',
   width: '100%',
   maxWidth: '100%',
-  overflow: 'hidden', // prevent markdown content from breaking the layout
-  paddingTop: '2px', // add a small padding on top to prevent clipping top text
+  // prevent markdown content from breaking the layout
+  overflow: 'hidden',
+  // add a small padding on top and bottom to prevent text
+  // clipping (due to capzise precide text measurements)
+  paddingTop: '3px',
+  paddingBott: '3px',
 }));
 
 /**

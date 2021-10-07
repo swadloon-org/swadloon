@@ -47,7 +47,7 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const { styles } = useStyles(styleRefs);
+  const styles = useStyles(styleRefs);
 
   return (
     <>

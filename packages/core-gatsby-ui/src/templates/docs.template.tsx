@@ -3,7 +3,6 @@ import {
   MarkdownTemplateQuery,
 } from '@newrade/core-gatsb-config/config';
 import {
-  Center,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
@@ -42,6 +41,8 @@ export const markdownTemplateQuery = graphql`
           published
           status
           slug
+          layout
+          template
           deprecated
           editPageUrl
           nextPageLabel
@@ -108,26 +109,28 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
 
-      <Center
-        maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth}
+      <Stack
+        gap={[cssTheme.sizing.var.x4]}
         className={styles.content}
+        style={{
+          // @ts-ignore
+          maxWidth: cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
+        }}
       >
-        <Stack gap={[cssTheme.sizing.var.x4]}>
-          <BreadcrumbsDocs />
+        <BreadcrumbsDocs />
 
-          <MarkdownCSS>
-            <MDXRenderer {...{ ...props, theme, cssTheme }}>
-              {props.data.file?.childMdx?.body as string}
-            </MDXRenderer>
-          </MarkdownCSS>
+        <MarkdownCSS>
+          <MDXRenderer {...{ ...props, theme, cssTheme }}>
+            {props.data.file?.childMdx?.body as string}
+          </MDXRenderer>
+        </MarkdownCSS>
 
-          <DocsPageFooter
-            editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}
-            nextPageLabel={props.data.file?.childMdx?.frontmatter?.nextPageLabel}
-            nextPageUrl={props.data.file?.childMdx?.frontmatter?.nextPageUrl}
-          />
-        </Stack>
-      </Center>
+        <DocsPageFooter
+          editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}
+          nextPageLabel={props.data.file?.childMdx?.frontmatter?.nextPageLabel}
+          nextPageUrl={props.data.file?.childMdx?.frontmatter?.nextPageUrl}
+        />
+      </Stack>
 
       <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>

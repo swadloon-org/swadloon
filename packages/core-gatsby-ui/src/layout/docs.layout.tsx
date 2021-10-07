@@ -2,7 +2,7 @@ import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
-import { Main, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import { MainDocs, MainDocsWrapper, Theme, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useRef, useState } from 'react';
@@ -209,7 +209,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 
   return (
-    <div className={styles.mainWrapper}>
+    <MainDocsWrapper className={styles.mainWrapper}>
       {/* Navbars */}
       <NavbarStandard
         ref={navbarRef}
@@ -247,13 +247,10 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         ></LazySidebarStandard>
       )}
 
-      <Main
+      <MainDocs
         contentPadding={false}
         navbarPadding={false}
-        className={styles.main}
         minHeight={true}
-        // desktopSidebarPadding={layoutMode === 'centered'}
-        // desktopAsidePadding={layoutMode === 'centered'}
         style={
           layoutMode === 'centered'
             ? {
@@ -286,7 +283,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         >
           {props.children}
         </MDXProvider>
-      </Main>
+      </MainDocs>
 
       <FooterDocs
         ref={footerRef}
@@ -294,6 +291,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         colorMode={'reversed'}
         contentMaxWidth={contentMaxWidth}
       ></FooterDocs>
-    </div>
+    </MainDocsWrapper>
   );
 };

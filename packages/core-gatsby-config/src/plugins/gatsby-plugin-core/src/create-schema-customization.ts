@@ -60,6 +60,9 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       published: String
       status: String
       slug: String
+      layout: String
+      template: String
+      locale: String
       deprecated: String
       editPageUrl: String
       nextPageLabel: String

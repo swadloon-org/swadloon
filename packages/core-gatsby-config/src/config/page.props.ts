@@ -62,7 +62,7 @@ export enum PageTemplate {
    */
   markdownDoc = 'markdownDoc',
   /**
-   * Special page template for pages writter in .mdx
+   * Special page template for pages written in .mdx?
    */
   markdownPage = 'markdownPage',
   /**
