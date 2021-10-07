@@ -6,7 +6,7 @@ import * as t from 'io-ts';
 import path from 'path';
 import { CommonEnvType } from './common-env';
 import { logEnvVariables } from './log-env-variables';
-import { PathReporter } from './reporter';
+import { PathReporter } from '../io-ts/reporter';
 
 const log = debug('nr:env');
 

@@ -1,4 +1,4 @@
-import { getAppHost, getAppUrl } from '../url-utilities';
+import { getAppHost, getAppUrl } from '../url/url-utilities';
 
 describe(`url-utilities`, () => {
   describe(`${getAppHost.name}`, () => {
