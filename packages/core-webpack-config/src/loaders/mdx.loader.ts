@@ -88,6 +88,13 @@ export const rehypeSlugPlugin = [rehypeSlug, {}];
 /**
  * rehype plugin to automatically add links to headings (h1-h6).
  * @see https://github.com/rehypejs/rehype-autolink-headings
+ *
+ * - behavior:
+ *  'prepend' — inject link before the heading text
+ *  'append' — inject link after the heading text
+ *  'wrap' — wrap the whole heading text with the link
+ *  'before' — insert link before the heading
+ *  'after' — insert link after the heading
  */
 export const rehypeAutoLinkHeadingsPlugin = [
   rehypeAutolinkHeadings,
@@ -99,7 +106,7 @@ export const rehypeAutoLinkHeadingsPlugin = [
       properties: { className: ['mdx-anchor-pound'] },
       children: [{ type: 'text', value: '#' }],
     },
-    // behavior: 'wrap', // If behavior is wrap, then content is ignored.
+    behavior: 'append', // if behavior is wrap, then content is ignored.
   },
 ];
 

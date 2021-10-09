@@ -803,10 +803,24 @@ function getNameWithUppercaseWords({ name, words }: { name?: string; words?: str
  * /fr/design-system/path with /fr/design-system/
  * return { match: true, partial: true  }
  */
-export function isPathActive(
-  path?: string | null,
-  pathname?: string | null
-): { match: boolean; partial: boolean; exact: boolean } {
+export function isPathActive({
+  path,
+  pathname,
+  prefix,
+}: {
+  /**
+   * The path to test
+   */
+  path?: string | null;
+  /**
+   * The current complete pathname
+   */
+  pathname?: string | null;
+  /**
+   * An optional prefix path to remove from the comparision
+   */
+  prefix?: string | null;
+}): { match: boolean; partial: boolean; exact: boolean } {
   if (!path) {
     return {
       match: false,
@@ -821,9 +835,11 @@ export function isPathActive(
       exact: false,
     };
   }
-  const match = new RegExp(path).test(pathname);
-  const partial = pathname !== path;
-  const exact = pathname === path;
+  const pathToMatch = prefix ? path.replace(prefix, '/') : path;
+  const pathnameToMatch = prefix ? pathname.replace(prefix, '/') : pathname;
+  const match = new RegExp(pathToMatch).test(pathnameToMatch);
+  const partial = pathnameToMatch !== pathToMatch;
+  const exact = pathnameToMatch === pathToMatch;
 
   return {
     match,

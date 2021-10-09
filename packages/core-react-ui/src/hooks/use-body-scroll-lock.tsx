@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useIsSSR } from '..';
 import { debugInstance, NS } from '../utilities/log.utilities';
 import { isIOS } from '../utilities/useragent';
 
@@ -57,6 +58,8 @@ export function useBodyScrollLock({
   /** not used */
   let previousBodyPaddingRightRef = useRef<string | undefined>(undefined);
   let previousBodyPaddingRight = previousBodyPaddingRightRef.current;
+
+  const isSSR = useIsSSR();
 
   /**
    *
@@ -129,7 +132,6 @@ export function useBodyScrollLock({
     });
 
   const isIosDevice = isIOS;
-  log(`device is iOS: ${isIosDevice}`);
 
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
   const isTargetElementTotallyScrolled = (targetElement: any): boolean =>
@@ -144,6 +146,10 @@ export function useBodyScrollLock({
    */
 
   useEffect(() => {
+    if (isSSR) {
+      return;
+    }
+
     if (!target) {
       return;
     }

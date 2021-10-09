@@ -115,6 +115,8 @@ export type GatsbyNodeMarkdownFilesQuery = {
                 | 'published'
                 | 'status'
                 | 'slug'
+                | 'layout'
+                | 'template'
                 | 'deprecated'
                 | 'editPageUrl'
                 | 'nextPageLabel'

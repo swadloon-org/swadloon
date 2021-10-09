@@ -687,23 +687,57 @@ describe(`navigation api utilities`, () => {
   });
 
   describe(`${isPathActive.name}`, () => {
-    it('should return whether the path matches or partially match a pathname', () => {
-      expect(isPathActive('/fr/design-system/', '/fr/design-system/')).toEqual({
+    it('should have an exact match', () => {
+      expect(
+        isPathActive({
+          path: '/fr/design-system/',
+          pathname: '/fr/design-system/',
+        })
+      ).toEqual({
         match: true,
         partial: false,
         exact: true,
       });
+    });
 
-      expect(isPathActive('/design-system/', '/design-system/buttons/')).toEqual({
+    it('should have a partial match', () => {
+      expect(
+        isPathActive({
+          path: '/fr/',
+          pathname: '/fr/design-system/',
+        })
+      ).toEqual({
         match: true,
         partial: true,
         exact: false,
       });
+    });
 
-      expect(isPathActive('/buttons/', '/design-system/buttons/')).toEqual({
+    it('should have a partial match with prefix', () => {
+      expect(
+        isPathActive({
+          path: '/fr/',
+          pathname: '/fr/design-system/',
+          prefix: '/fr/',
+        })
+      ).toEqual({
         match: true,
         partial: true,
         exact: false,
+      });
+    });
+
+    it('should have a match with prefix', () => {
+      expect(
+        isPathActive({
+          path: '/fr/design-system/',
+          pathname: '/fr/design-system/',
+          prefix: '/fr/',
+        })
+      ).toEqual({
+        match: true,
+        partial: false,
+        exact: true,
       });
     });
   });

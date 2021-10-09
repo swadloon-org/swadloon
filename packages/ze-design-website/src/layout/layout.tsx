@@ -23,10 +23,13 @@ import * as styleRefs from './layout.treat';
 /**
  * Sidebar
  */
-const LazySidebarStandard = loadable(() => import('@newrade/core-gatsby-ui/src'), {
-  resolveComponent: (components: typeof import('@newrade/core-gatsby-ui/src')) =>
-    components.SidebarStandard,
-});
+const LazySidebarStandard = loadable(
+  () => import(/* webpackExports: ["SidebarStandard"] */ '@newrade/core-gatsby-ui/src'),
+  {
+    resolveComponent: (components: typeof import('@newrade/core-gatsby-ui/src')) =>
+      components.SidebarStandard,
+  }
+);
 
 type LayoutProps = LayoutDocsProps;
 

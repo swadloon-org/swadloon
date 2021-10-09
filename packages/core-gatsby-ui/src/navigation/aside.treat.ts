@@ -15,7 +15,7 @@ export const styles = {
     backgroundColor: 'transparent',
 
     '@media': {
-      [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium}px)`]: {
+      [cssTheme.layout.media.desktopSmall]: {
         visibility: 'visible',
       },
     },

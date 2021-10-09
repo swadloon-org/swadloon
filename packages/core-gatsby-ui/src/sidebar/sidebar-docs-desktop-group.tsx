@@ -18,6 +18,7 @@ type Props = PrimitiveProps &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     label?: string;
     isOpen?: boolean;
+    pathname?: string;
   };
 
 export const SidebarDocsDesktopGroup: React.FC<Props> = ({
@@ -28,6 +29,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   AsElement,
   label,
   isOpen,
+  pathname,
   ...props
 }) => {
   const { theme, cssTheme } = useTreatTheme();
@@ -53,7 +55,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   useEffect(() => {
     // override local if parent changes
     setLocalIsOpened(isOpen);
-  }, [isOpen]);
+  }, [isOpen, pathname]);
 
   return (
     <Stack {...commonProps}>
@@ -64,7 +66,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
 
         <Label
           variantStyle={TEXT_STYLE.bold}
-          variant={LABEL_SIZE.medium}
+          variant={LABEL_SIZE.small}
           variantLevel={Variant.primary}
         >
           {label}

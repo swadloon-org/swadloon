@@ -5,6 +5,7 @@ import { GatsbyNode, Page } from 'gatsby';
 import path from 'path';
 import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-context';
+import { PageTemplate, PAGE_TEMPLATE } from '../../../config/page.props';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,
@@ -15,12 +16,14 @@ import {
   getFullPageNodePath,
   getLangSimpleCode,
   getLayoutForSourceInstance,
+  getLayoutFromFrontmatterLayout,
   getLocaleFromPath,
   getLocalePath,
   getMatchingPageLocales,
   getPageFormattedName,
   getPathForSourceInstance,
   getTemplateForSourceInstance,
+  getTemplateFromFrontmatter,
   MatchingPageOutput,
   remoteExtension,
   removeLocalePrefix,
@@ -136,6 +139,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
                 published
                 status
                 slug
+                layout
+                template
                 deprecated
                 editPageUrl
                 nextPageLabel
@@ -285,6 +290,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       }
 
       const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
+
       // for file src/docs/section/en.readme.mdx
 
       // 'docs'
@@ -319,14 +325,20 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         }
       );
 
-      const layout = getLayoutForSourceInstance(sourceInstance);
-      const template = getTemplateForSourceInstance(sourceInstance);
+      // check if the page has frontmatter.layout set, if so
+      // verify it and return, othewise fallback to getting it with `sourceInstance`
+      const layout =
+        getLayoutFromFrontmatterLayout(node.childMdx?.frontmatter?.layout) ||
+        getLayoutForSourceInstance(sourceInstance);
+      // check if the page has frontmatter.layout set, if so
+      // verify it and return, othewise fallback to getting it with `sourceInstance`
+      const template =
+        getTemplateFromFrontmatter(node.childMdx?.frontmatter?.template) ||
+        getTemplateForSourceInstance(sourceInstance);
+      // if the template is known, return the correct component template path for the page othewise fallback to getting it with sourceInstance
+      // verify it and return, othewise fallback to getting it with `sourceInstance`
       const component =
-        sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
-          ? markdownPageTemplate
-          : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
-          ? designSystemPageTemplate
-          : markdownDocsTemplate;
+        getComponentForTemplate(template) || getComponentForSourceInstanceName(sourceInstance);
 
       reporter.info(
         `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(
@@ -421,6 +433,38 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
 
       createPage<GatsbyMarkdownFilePageContext>(page);
     });
+
+    function getComponentForTemplate(template?: PAGE_TEMPLATE | null) {
+      if (!template) {
+        return undefined;
+      }
+
+      switch (template) {
+        case PageTemplate.default:
+        case PageTemplate.blogPost: // not supported yet
+        case PageTemplate.markdownPage: {
+          return markdownPageTemplate;
+        }
+        case PageTemplate.markdownDoc: {
+          return markdownDocsTemplate;
+        }
+        case PageTemplate.designSystem: {
+          return designSystemPageTemplate;
+        }
+        case PageTemplate.contentfulPage: // handled in another plugin
+        default: {
+          return undefined;
+        }
+      }
+    }
+
+    function getComponentForSourceInstanceName(sourceInstanceName: SOURCE_INSTANCE_NAME) {
+      return sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
+        ? markdownPageTemplate
+        : sourceInstanceName === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
+        ? designSystemPageTemplate
+        : markdownDocsTemplate;
+    }
   } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
     reporter.panic(error);

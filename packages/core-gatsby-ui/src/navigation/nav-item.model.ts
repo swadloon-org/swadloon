@@ -1,5 +1,8 @@
 import { MdxFrontmatter } from '@newrade/core-gatsb-config/config';
 
+/**
+ * @deprecated please use NavigationAPI instead
+ */
 export type NavItem = {
   /**
    * Raw node name of the item or dir

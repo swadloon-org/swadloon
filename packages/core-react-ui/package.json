@@ -24,7 +24,7 @@
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev",
     "test": "nr jest",
-    "test:watch": "nr jest --watch",
+    "test:watch": "nr jest-watch",
     "tsc:build": "tsc --build",
     "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose",
     "webpack": "TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack",

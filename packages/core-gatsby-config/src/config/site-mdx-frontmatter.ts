@@ -2,6 +2,8 @@
  * All properties supported in markdown frontmatter
  */
 
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
+
 export type MdxFrontmatter = {
   /**
    * The title of the document
@@ -39,6 +41,14 @@ export type MdxFrontmatter = {
    * @default 'published'
    */
   status?: 'published' | 'draft';
+  /**
+   * Each page can be rendered using a specific layout
+   */
+  layout: PAGE_LAYOUT;
+  /**
+   * Each page can be rendered using a specific template
+   */
+  template: PAGE_TEMPLATE;
   /**
    * Relative url for the document
    * @example /fr/page-name/

@@ -7,7 +7,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
 import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
-import { formatAnchorId } from '../utilities/text.utilities';
+import { getFormattedAnchorId } from '../utilities/text.utilities';
 import * as stylesRef from './heading.treat';
 
 type Props = PrimitiveProps &
@@ -90,7 +90,9 @@ export const Heading = React.memo(
       usePreventPinchZoom(ref.current);
 
       const child = children ? children : defaultChildrenString;
-      const renderedId = formatAnchorId(id ? id : typeof children === 'string' ? children : '');
+      const renderedId = getFormattedAnchorId(
+        id ? id : typeof children === 'string' ? children : ''
+      );
 
       return React.createElement(
         type,

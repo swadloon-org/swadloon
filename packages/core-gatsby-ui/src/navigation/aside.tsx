@@ -1,6 +1,14 @@
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { BoxV2, Label, Link, Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { formatAnchorId } from '@newrade/core-react-ui/utilities';
+import {
+  BoxV2,
+  Label,
+  Link,
+  scrollIntoView,
+  Stack,
+  useIsSSR,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
+import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -23,6 +31,7 @@ type Props = {
 };
 
 export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
+  const isSSR = useIsSSR();
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
   const renderedItems = props.items?.filter(filterItemDepthPredicate);
@@ -33,6 +42,22 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
     return null;
   }
 
+  function handleClick(event: React.MouseEvent<HTMLElement>) {
+    if (!event.target) {
+      return;
+    }
+
+    const linkHref = event.currentTarget.getAttribute('href');
+    if (!linkHref) {
+      return;
+    }
+
+    scrollIntoView({
+      id: linkHref,
+      event,
+    });
+  }
+
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} gap={[cssTheme.sizing.var.x1]}>
@@ -41,8 +66,8 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
         </Label>
         <ul className={styles.linksWrapper}>
           {renderedItems?.map((item, index, items) => {
-            const href = `#${formatAnchorId(item?.value)}`;
-            const selected = formatAnchorId(item?.value) === currentId;
+            const href = `#${getFormattedAnchorId(item?.value)}`;
+            const selected = getFormattedAnchorId(item?.value) === currentId;
             const hasItemAfter = !!items?.[index + 1];
             return (
               <li
@@ -70,7 +95,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
                 className={`${styles.link} ${selected ? styles.linkSelected : ''} ${
                   hasItemAfter ? styles.linkAfter : ''
                 }`}
-                key={formatAnchorId(item?.value)}
+                key={getFormattedAnchorId(item?.value)}
               >
                 <Link
                   draggable={false}
@@ -80,6 +105,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
                   variantSize={PARAGRAPH_SIZE.small}
                   href={href}
                   id={`aside-link-${item?.value}`}
+                  onClick={handleClick}
                 >
                   {item?.value}
                 </Link>
@@ -112,7 +138,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
 
       const selector = items
         .filter(filterItemDepthPredicate)
-        .map((item) => `[id="${formatAnchorId(item?.value)}"]`)
+        .map((item) => `[id="${getFormattedAnchorId(item?.value)}"]`)
         .join(',');
 
       const elements = document.querySelectorAll<HTMLElement>(selector);
@@ -120,7 +146,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
 
       const handleScroll = () => {
         elementsArray.every((element, index, elements) => {
-          // check the curren element
+          // check the current element
           if (element.offsetTop + 20 <= window.scrollY) {
             // check the next element, if it satisfy the condition, continue, otherwise we have found the right id
             const nextElement = elements?.[index + 1];

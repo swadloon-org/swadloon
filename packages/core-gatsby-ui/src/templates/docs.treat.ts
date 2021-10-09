@@ -1,5 +1,5 @@
 import { Theme } from '@newrade/core-react-ui';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 export const content = style(({ cssTheme, theme }: Theme) => ({
   // needed for anchor to be able to scroll to links

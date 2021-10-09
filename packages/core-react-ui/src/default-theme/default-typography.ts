@@ -236,11 +236,11 @@ export const defaultTypography: Typography = {
         lineGap: 12,
       },
       small: {
-        fontSize: 13,
+        fontSize: 14,
         lineGap: 12,
       },
       xSmall: {
-        fontSize: 11,
+        fontSize: 12,
         lineGap: 12,
       },
     },

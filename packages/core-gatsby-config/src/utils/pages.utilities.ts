@@ -1,9 +1,9 @@
 import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
-import { capital, lower, title } from 'case';
+import { camel, capital, lower, title } from 'case';
 import { Page } from 'gatsby';
 import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
 import { GatsbyMarkdownFilePageContext, GatsbyPageAlternateLocale } from '../config/page-context';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
+import { PageLayout, PageTemplate, PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
 
 export const patternLocaleInPath =
   /\/?(?:(?<locale>[a-z]{2}(?:(?:-|_)[a-z]{0,2})?)\.)?(?<name>[a-z-_]+)(?<extension>\.(?:tsx|md|mdx))?\/?$/i;
@@ -260,6 +260,56 @@ export function getLayoutForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_N
     }
     default: {
       return 'default';
+    }
+  }
+}
+
+/**
+ * Get the template from frontmatter data
+ */
+export function getTemplateFromFrontmatter(
+  template?: PAGE_TEMPLATE | string | null
+): PAGE_TEMPLATE | undefined {
+  if (!template) {
+    return undefined;
+  }
+
+  switch (camel(template)) {
+    case PageTemplate.blogPost:
+    case PageTemplate.markdownDoc:
+    case PageTemplate.markdownPage:
+    case PageTemplate.designSystem:
+    case PageTemplate.contentfulPage: {
+      return template as PAGE_TEMPLATE;
+    }
+    default: {
+      return undefined;
+    }
+  }
+}
+
+/**
+ * Get the template from frontmatter data
+ */
+export function getLayoutFromFrontmatterLayout(
+  layout?: PAGE_LAYOUT | string | null
+): PAGE_LAYOUT | undefined {
+  if (!layout) {
+    return undefined;
+  }
+
+  switch (camel(layout)) {
+    case PageLayout.blog:
+    case PageLayout.blogPost:
+    case PageLayout.portfolio:
+    case PageLayout.portfolioProject:
+    case PageLayout.docs:
+    case PageLayout.designSystem:
+    case PageLayout.blog: {
+      return layout as PAGE_LAYOUT;
+    }
+    default: {
+      return undefined;
     }
   }
 }

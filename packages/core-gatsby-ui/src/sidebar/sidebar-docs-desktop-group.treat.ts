@@ -6,7 +6,7 @@ export const styles = {
     padding: `0 ${cssTheme.sizing.var.x3} 0 0`,
   })),
   group: style(({ cssTheme, theme }: Theme) => ({
-    padding: `${cssTheme.sizing.var.x2} 0`,
+    padding: `calc(1.25 * ${cssTheme.sizing.var.x1}) 0`,
     cursor: 'pointer',
     userSelect: 'none',
   })),

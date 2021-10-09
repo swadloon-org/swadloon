@@ -1,5 +1,5 @@
 import * as t from 'io-ts';
-import { TextBoolean } from './boolean-env';
+import { TextBoolean } from '../env/boolean-env';
 
 /**
  * Typed representation of the .env file for Gatsby sites.
