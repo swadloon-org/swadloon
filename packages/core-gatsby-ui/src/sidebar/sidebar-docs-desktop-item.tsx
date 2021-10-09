@@ -9,6 +9,7 @@ type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     active?: boolean;
+    level?: 0 | 1;
   };
 
 export const SidebarDocsDesktopItem: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
   style,
   className,
   active,
+  level = 0,
   as,
   AsElement,
   ...props
@@ -32,6 +34,13 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
   const ref = useRef<HTMLButtonElement>(null);
   usePreventPinchZoom(ref.current);
 
+  /**
+   * Levels
+   */
+
+  type LevelStyle = `level${typeof level}`;
+  const levelStyle: LevelStyle = `level${level}`;
+
   const WrapperElement = AsElement
     ? React.cloneElement(
         AsElement as React.ReactElement,
@@ -39,7 +48,11 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
         <div {...commonProps}>
           <Label
             variantStyle={TEXT_STYLE.normal}
-            className={getMergedClassname([styles.link, active && styles.linkActive])}
+            className={getMergedClassname([
+              styles.link,
+              styles[levelStyle],
+              active && styles.linkActive,
+            ])}
           >
             {props.children}
           </Label>
@@ -55,7 +68,11 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
     <div {...commonProps}>
       <Label
         variantStyle={TEXT_STYLE.normal}
-        className={getMergedClassname([styles.link, active && styles.linkActive])}
+        className={getMergedClassname([
+          styles.link,
+          styles[levelStyle],
+          active && styles.linkActive,
+        ])}
       >
         {props.children}
       </Label>

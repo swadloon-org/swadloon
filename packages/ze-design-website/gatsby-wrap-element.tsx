@@ -17,7 +17,7 @@ import {
   SidebarAPI,
   SidebarLayout,
 } from '@newrade/core-website-api';
-import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
+// import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import { companyInfo } from './src/data/company-info';

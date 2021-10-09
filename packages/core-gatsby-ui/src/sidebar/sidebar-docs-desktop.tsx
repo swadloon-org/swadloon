@@ -11,6 +11,8 @@ import {
   Paragraph,
   Stack,
   useCommonProps,
+  useEventListener,
+  useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { LinkAPI, NavigationAPI } from '@newrade/core-website-api/src';
@@ -19,7 +21,7 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
-import { isPathActive } from '../utilities/navigation-api.utilities';
+import { getPathParts, isPathActive } from '../utilities/navigation-api.utilities';
 import { SidebarBase } from './sidebar-base';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
@@ -50,6 +52,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     },
     ref
   ) => {
+    const isSSR = useIsSSR();
     const styles = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
@@ -73,7 +76,31 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
 
     const navigation = sidebar?.navigation;
     const sidebarNavigation = navigation;
-    const navigationPath = sidebarNavigation?.path;
+    const baseNavigationPath = sidebarNavigation?.path;
+    const baseNavigationPathParts = getPathParts({ path: baseNavigationPath });
+    const pathnameParts = getPathParts({ path: activePathname }).filter(
+      (part) => !baseNavigationPathParts.find((basePart) => basePart === part)
+    );
+
+    /**
+     * Scroll management
+     */
+    const [isScrollSticky, setIsScrollSticky] = useState(false);
+    useEventListener<'scroll'>(
+      'scroll',
+      (event) => {
+        if (isSSR) {
+          return;
+        }
+        const isSticky = window.scrollY >= theme.layout.navbarHeight.desktop;
+        if (isScrollSticky !== isSticky) {
+          setIsScrollSticky(isSticky);
+        }
+      },
+      {
+        passive: true,
+      }
+    );
 
     /**
      * Copyright and version
@@ -94,17 +121,30 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
      * Rendering
      */
 
-    function LinksRenderer(links?: PartialOrNull<LinkAPI>[] | null) {
+    function LinksRenderer(links?: PartialOrNull<LinkAPI>[] | null, level?: number) {
       return (
         <>
           {links?.map((link, id) => {
-            const linkActive = isPathActive(link?.page?.slug, activePathname);
+            const linkActive = isPathActive({
+              path: link?.page?.slug,
+              pathname: activePathname,
+            });
 
             return (
               <SidebarDocsDesktopItem
                 key={id}
                 active={linkActive.match && linkActive.exact}
-                AsElement={<GatsbyLink noStyles={true} to={link?.page?.slug || '/'} />}
+                style={{
+                  // @ts-ignore
+                  '--sidebar-docs-desktop-item-icon': level && level >= 1 ? `16px` : '0px',
+                }}
+                level={level !== undefined ? (level as 0) : 0}
+                AsElement={
+                  <GatsbyLink
+                    noStyles={true}
+                    to={`${link?.page?.slug || '/'}${isScrollSticky ? '#main-docs' : ''}`}
+                  />
+                }
               >
                 {link?.label || ' '}
               </SidebarDocsDesktopItem>
@@ -124,13 +164,27 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         }
 
         const links = subNav.links;
-        const subNavOpened = isPathActive(subNav.path, activePathname);
+        // only consider the subnav path without the base one
+        const subNavPath = getPathParts({ path: subNav.path }).filter(
+          (part) => !baseNavigationPathParts.find((basePart) => basePart === part)
+        );
+        const subNavPathOnly = subNavPath[0] || '/';
+        // split the pathname and consider the first parent
+        const pathnameParent = pathnameParts.find((part) => subNavPath[0]) || '/';
+        const subNavOpened = isPathActive({
+          path: subNavPathOnly,
+          pathname: pathnameParent,
+        });
 
         return (
           <Stack key={subNavIndex} gap={[`0px`]}>
             {subNav.label ? (
-              <SidebarDocsDesktopGroup label={subNav.label} isOpen={subNavOpened.partial}>
-                {LinksRenderer(links as LinkAPI[])}
+              <SidebarDocsDesktopGroup
+                label={subNav.label}
+                isOpen={subNavOpened.exact}
+                pathname={activePathname}
+              >
+                {LinksRenderer(links as LinkAPI[], 1)}
               </SidebarDocsDesktopGroup>
             ) : null}
           </Stack>
@@ -176,7 +230,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         <div className={styles.navigationWrapper}>
           {/* Navigation items */}
           <div className={styles.navigation}>
-            {NavRenderer({ navs: [sidebarNavigation] as NavigationAPI[] })}
+            {LinksRenderer(sidebarNavigation?.links as LinkAPI[], 0)}
             {NavRenderer({ navs: sidebarNavigation?.subNavigation as NavigationAPI[] })}
           </div>
         </div>

@@ -133,7 +133,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
 
   useEffect(() => {
     if (!isSSR) {
-      console.log(window.location.hash);
       if (window.location.hash) {
         scrollIntoView({
           id: window.location.hash,
@@ -304,7 +303,13 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         ></LazySidebarStandard>
       )}
 
-      <MainDocs contentPadding={false} navbarPadding={false} minHeight={true} style={mainStyle}>
+      <MainDocs
+        id={'main-docs'}
+        style={mainStyle}
+        contentPadding={false}
+        navbarPadding={false}
+        minHeight={true}
+      >
         {/* Desktop sidebar */}
         <SidebarDocsDesktop sidebar={sidebar} activePathname={props.path}></SidebarDocsDesktop>
 
