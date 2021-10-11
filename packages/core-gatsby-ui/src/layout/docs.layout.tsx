@@ -1,4 +1,3 @@
-import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING } from '@newrade/core-design-system';
@@ -24,16 +23,9 @@ import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
 import { NavbarStandard } from '../navbar/navbar-standard';
 import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
+import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import * as styleRefs from './docs.layout.treat';
-
-/**
- * Sidebar
- */
-const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard'), {
-  resolveComponent: (components: typeof import('../sidebar/sidebar-standard')) =>
-    components.SidebarStandard,
-});
 
 /**
  * Custom props to control the layout
@@ -292,16 +284,16 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         enableLayoutModeButton={false}
       ></NavbarDocs> */}
 
-      {isSSR ? null : (
-        <LazySidebarStandard
+      <React.Suspense fallback={''}>
+        <SidebarStandardLazy
           sidebar={sidebar}
           sidebarOpened={sidebarOpened}
           onClickMenuButton={handleClickMenuButton}
           onClickBackdrop={handleClickMenuButton}
           activePathname={props.path}
           HomeLink={<GatsbyLink to={'/'} />}
-        ></LazySidebarStandard>
-      )}
+        ></SidebarStandardLazy>
+      </React.Suspense>
 
       <MainDocs
         id={'main-docs'}

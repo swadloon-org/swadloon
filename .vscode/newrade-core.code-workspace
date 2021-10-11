@@ -73,8 +73,13 @@
     //
     // auto-rename plugins
     //
-    "auto-rename-tag.activationOnLanguage": ["jsx", "tsx", "html", "svg"],
-    "auto-close-tag.activationOnLanguage": ["jsx", "tsx", "html", "svg"]
+    "auto-rename-tag.activationOnLanguage": [
+      "xml",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact"
+    ]
   },
   "extensions": {
     "recommendations": [

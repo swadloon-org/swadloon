@@ -1,5 +1,6 @@
-import loadable from '@loadable/component';
-import React from 'react';
+import { CodeBlockLazy, CodeHighlightLazy } from '@newrade/core-react-ui/code';
+import React, { Suspense } from 'react';
+import { IconsLazy } from '../docs-components/icons.lazy';
 import { mdxComponents, MDXProps } from './mdx-components';
 
 /**
@@ -8,29 +9,24 @@ import { mdxComponents, MDXProps } from './mdx-components';
 export const docsMdxComponents = {
   ...mdxComponents,
   Icons: ({ children, ...props }: MDXProps) => {
-    const Icons = loadable<any>(() => import('../docs-components/icons'), {
-      resolveComponent: (components: typeof import('../docs-components/icons')) => components.Icons,
-    });
-    return <Icons {...props}>{children}</Icons>;
+    return (
+      <Suspense fallback={''}>
+        <IconsLazy {...props}>{children}</IconsLazy>
+      </Suspense>
+    );
   },
   CodeHighlight: ({ children, ...props }: MDXProps) => {
-    const CodeHighlight = loadable(
-      () => import(/* webpackExports: ["CodeHighlight"] */ '@newrade/core-react-ui/code'),
-      {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
-          components.CodeHighlight,
-      }
+    return (
+      <Suspense fallback={''}>
+        <CodeHighlightLazy {...props}>{children}</CodeHighlightLazy>
+      </Suspense>
     );
-    return <CodeHighlight {...props}>{children as string}</CodeHighlight>;
   },
   CodeBlock: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable(
-      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
-      {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
-          components.CodeBlock,
-      }
+    return (
+      <Suspense fallback={''}>
+        <CodeBlockLazy {...props}>{children as string}</CodeBlockLazy>
+      </Suspense>
     );
-    return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
 };

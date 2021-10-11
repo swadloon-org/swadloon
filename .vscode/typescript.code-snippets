@@ -56,6 +56,17 @@
     "body": ["const { styles } = useStyles(styleRefs);"],
     "description": "Insert useStyles() hook for TreatCSS."
   },
+  "reactLazyImport": {
+    "prefix": ["lazyComp"],
+    "body": [
+      "import { lazy } from 'react';",
+      "",
+      "export const $1Lazy = lazy(() =>",
+      "   import('./$2').then((module) => ({ default: module.$1 }))",
+      ");"
+    ],
+    "description": "Insert useStyles() hook for TreatCSS."
+  },
   "treatCSSStyle": {
     "prefix": ["tstyle"],
     "body": ["export const $1 = style((theme: DesignSystem) => ({", "  display: 'block',", "}));"],

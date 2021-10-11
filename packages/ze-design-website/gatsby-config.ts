@@ -56,7 +56,6 @@ const config: conf.GastbySiteConfig = {
     /** template */
     core.getGatsbyPluginReactHelmet(),
     /** js/ts/react */
-    core.getGatsbyPluginLoadableComponents(),
     ...core.getGatsbyPluginTypeScriptConfig(),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,

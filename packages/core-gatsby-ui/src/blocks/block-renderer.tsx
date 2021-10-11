@@ -1,4 +1,3 @@
-import loadable from '@loadable/component';
 import {
   ErrorBoundary,
   Stack,
@@ -14,10 +13,10 @@ import {
   LinkAPI,
 } from '@newrade/core-website-api';
 import debug from 'debug';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, Suspense } from 'react';
 import { useStyles } from 'react-treat';
+import { BlockGoogleMapLazy } from '..';
 import { LinkRenderer } from '../links/link-renderer';
-import { BlockGoogleMapsProps } from './block-google-map';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
@@ -27,17 +26,6 @@ import { BlockRendererProps } from './block.props';
 const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
-
-const BlockGoogleMap = loadable<BlockGoogleMapsProps>(
-  // @ts-ignore
-  () => {
-    return import('./block-google-map');
-  },
-  {
-    resolveComponent: (components: typeof import('./block-google-map')) =>
-      components.BlockGoogleMap,
-  }
-);
 
 /**
  * Renders a block according to its variant (type)
@@ -144,8 +132,14 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       const blockGoogleMaps = block as BlockGoogleMapAPI;
       return (
         <ErrorBoundary>
-          {!isSSR && inView ? (
-            <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
+          {inView ? (
+            <Suspense fallback={<div></div>}>
+              <BlockGoogleMapLazy
+                inView={inView}
+                blockGoogleMaps={blockGoogleMaps}
+                {...commonProps}
+              />
+            </Suspense>
           ) : null}
         </ErrorBoundary>
       );
