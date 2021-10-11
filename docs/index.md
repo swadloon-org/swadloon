@@ -1,46 +1,36 @@
 ---
 subject: Introduction
-title: Documentation Overview - 🏔
+title: Project Overview - 🏔
 description:
-  A collection of methodologies, libraries and utilities to design and build
-  (serverless) website and apps.
+  Our methodology, libraries and utilities to design and build (serverless)
+  website and apps.
 ---
 
 <DocHeader props={props}/>
 
-## Overview
+## Introduction
 
-We ([Newrade](https://newrade.ca/)) maintain an open source stack of
-methodologies, libraries and other utilities that we use to **design**,
-**build**, **deploy** and **monitor** high-quality websites and apps.
+At [Newrade](https://newrade.ca/), we **design**, **build**, **deploy** and
+**monitor** websites and apps for ourselves and for our clients.
 
-The project is organized in 2 main parts:
+Sometimes we design and build projects from the ground up, sometimes we help
+with just a few specific steps along the way.
 
-- **A monorepository** containing all source files, packages, and documentation
-  hosted on Github:
-  [github.com/newrade/newrade-core](https://github.com/newrade/newrade-core)
-- **A reference design system and UI library** called
-  [Ze Design System](http://zedesignsystem.com/)
+Many of our clients needs to start somewhere and we are often asked to give a
+development process to cover every step from an idea to a finished product.
 
-The monorepository and its packages can be use to create your own design system,
-websites and apps.
+In order to make our process **better** and more **open**, we have documented:
 
-> Want to know how to use this project for your own website or apps right away?
-> Skip to the [Get Started](/core-docs/get-started/) section to learn more.
+1. How we work through the development process of building apps and websites to
+   help users achive their goals;
+1. How we build websites and apps using modern tech;
+1. What tech do we use
 
-We will go over **what** this project is, **why** we needed it in the first
-place, **who** is it for and finally **how** it helps to solve some of the
-problems.
+In addition to our development process, we have open sourced packages that we
+use to code our websites and applications, automate our work and support our
+activities.
 
-## Motivation
-
-Designing, developing, deploying and monitoring fully-featured websites and apps
-is not an easy task.
-
-Your company's brand evolves, the tech stacks changes, and your team keep adding
-new features your websites and apps.
-
-### Goals & Non-Goals
+### What is this project for?
 
 With this in mind, we identify our primary goals:
 
@@ -55,6 +45,48 @@ What we don't cover or work with in this project:
   <li data-custom-bullet="⛔️">Databases</li>
   <li data-custom-bullet="⛔️">Business logic</li>
 </ul>
+
+## Development Process
+
+We outline our methodology in our
+[Development Process](/core-docs/development-process/) section.
+
+The project consist of the following parts:
+
+<ul>
+  <li data-custom-bullet="🎭">
+    <strong>Our UX design methodology</strong>
+  </li>
+  <li data-custom-bullet="🎨">
+    <strong>The Ze Design System</strong>
+  </li>
+  <li data-custom-bullet="🎛️">
+    <strong>A React UI library based on our design system</strong>
+  </li>
+  <li data-custom-bullet="💻">
+    <strong>newrade-core</strong> our mono-repo containing all source files, packages, and
+  documentation hosted on Github (<a href={'https://github.com/newrade/newrade-core'}>github.com/newrade/newrade-core</a>)
+  </li>
+</ul>
+
+The monorepository and its packages can be use to create your own design system,
+websites and apps.
+
+## Tech
+
+We describe what tech we use to design and develop applications in the
+[Tech](/core-docs/tech/) section.
+
+## Architecture
+
+To learn about the organization of the monorepo and the role of each package,
+head over to the [Architecture](/core-docs/architecture/) section.
+
+## Licence
+
+All packages, design and associated work in this projet are MIT licensed.
+
+See [LICENSE.md](https://github.com/newrade/newrade-core/blob/master/LICENSE.md)
 
 ### Principles
 
@@ -96,24 +128,3 @@ way to localize all content in different languages.</li>
 documentation needs to present live example of code or design elements and avoid
 using screenshots that are usually out of date pretty quickly.</li>
 </ul>
-
-## Development Process
-
-We outline our methodology in our
-[Development Process](/core-docs/development-process/) section.
-
-## Tech
-
-We describe what tech we use to design and develop applications in the
-[Tech](/core-docs/tech/) section.
-
-## Architecture
-
-To learn about the organization of the monorepo and the role of each package,
-head over to the [Architecture](/core-docs/architecture/) section.
-
-## Licence
-
-All packages, design and associated work in this projet are MIT licensed.
-
-See [LICENSE.md](https://github.com/newrade/newrade-core/blob/master/LICENSE.md)

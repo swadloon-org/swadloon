@@ -1,6 +1,6 @@
 ---
 subject: Core Packages
-title: core-cli
+title: 'core-cli'
 description:
   Internal Oclif CLI for various purposes including automating some tasks in the
   monorepo.

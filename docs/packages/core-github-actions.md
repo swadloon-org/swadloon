@@ -1,6 +1,6 @@
 ---
 subject: Core Packages
-title: core-github-actions
+title: 'core-github-actions'
 description:
   Custom github action writen in TypeScript to automate various tasks in the
   monorepos.

@@ -128,7 +128,7 @@ globalStyle(`${wrapper} > p + table`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(
   `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:is(ul,ol)`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '1.6em',
+    marginTop: '1.7em',
   })
 );
 

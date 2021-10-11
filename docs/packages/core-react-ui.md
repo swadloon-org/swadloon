@@ -1,6 +1,6 @@
 ---
 subject: Core Packages
-title: core-react-ui
+title: 'core-react-ui'
 description: React UI library implementing the Ze Design System.
 tags:
   - ui
