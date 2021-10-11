@@ -27,6 +27,8 @@
   "eslintConfig": {},
   "sideEffects": [
     "*.css",
+    "*.css.ts",
+    "*.css.js",
     "*.treat.ts",
     "*.treat.js"
   ],

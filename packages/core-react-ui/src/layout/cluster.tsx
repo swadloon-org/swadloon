@@ -1,10 +1,9 @@
 import { Property } from 'csstype';
 import React from 'react';
-import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
-import * as styleRefs from './cluster.treat';
+import * as styles from './cluster.css';
 
 type Gap = string;
 
@@ -33,7 +32,6 @@ export const Cluster: React.FC<Props> = ({
   alignItems = ['center'],
   ...props
 } = {}) => {
-  const { styles } = useStyles(styleRefs);
   const [mobileGap, tabletGap, desktopGap] = gap;
   const [mobileJustifyContent, tabletJustifyContent, desktopJustifyContent] = justifyContent;
   const [mobileAlignItems, tabletAlignItems, desktopAlignItems] = alignItems;

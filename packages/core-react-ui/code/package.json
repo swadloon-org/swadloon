@@ -3,6 +3,8 @@
   "module": "dist/newrade-core-react-ui-code.esm.js",
   "sideEffects": [
     "*.css",
+    "*.css.ts",
+    "*.css.js",
     "*.treat.ts",
     "*.treat.js"
   ]

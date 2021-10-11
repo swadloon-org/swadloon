@@ -1,7 +1,12 @@
-import { SIZE, Sizing, SizingSteps, VIEWPORT } from '@newrade/core-design-system';
+import { SIZE, Sizing, SizingRatios, SizingSteps, VIEWPORT } from '@newrade/core-design-system';
 
 export const defaultBaseFontSize = 9;
-export const defaultScalingRatio = 1.618;
+
+export const defaultScalingRatio: SizingRatios = {
+  [VIEWPORT.mobile]: 1.44,
+  [VIEWPORT.tablet]: 1.44,
+  [VIEWPORT.desktop]: 1.618,
+};
 
 export const defaultSizingStepsMobile = {
   [SIZE.x0]: 6,

@@ -11,7 +11,7 @@ import {
   PartialLayout,
 } from '@newrade/core-design-system';
 import { kebab } from 'case';
-import { CSSLayout, LayoutVarNames, LayoutVars } from '../design-system';
+import { CSSLayout, CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system';
 import { defaultPartialLayout } from '../default-theme/default-layout';
 import { cssVar } from './css-variable.utilities';
 import { keys, px } from './utilities';
@@ -64,6 +64,61 @@ export function getCSSLayout(options: Layout): CSSLayout {
     varNames: defaultLayoutVarNames,
     var: defaultLayoutVar,
     zIndex: options.zIndex,
+  };
+}
+
+/**
+ * Transform the Layout object into a CSS compatible one.
+ *
+ * v2:
+ *  - zIndex in string
+ *
+ */
+export function getCSSLayoutV2(options: Layout): CSSLayoutV2 {
+  return {
+    media: getCSSMediaQueries(options.media),
+    breakpoints: keys(options.breakpoints).reduce((previous, current) => {
+      const value = options.breakpoints[current];
+      previous = { ...previous, [current]: px({ value: value }) };
+      return previous;
+    }, {} as Breakpoints<string>),
+    contentMargins: keys(options.contentMargins).reduce((previous, current) => {
+      const value = options.contentMargins[current];
+      previous = { ...previous, [current]: px({ value }) };
+      return previous;
+    }, {} as Layout<string>['contentMargins']),
+    contentWidth: keys(options.contentWidth).reduce((previous, current) => {
+      const value = options.contentWidth[current];
+      previous = { ...previous, [current]: px({ value }) };
+      return previous;
+    }, {} as Layout<string>['contentWidth']),
+    sidebarWidth: keys(options.sidebarWidth).reduce((previous, current) => {
+      const value = options.sidebarWidth[current];
+      previous = { ...previous, [current]: px({ value }) };
+      return previous;
+    }, {} as Layout<string>['sidebarWidth']),
+    navbarHeight: keys(options.navbarHeight).reduce((previous, current) => {
+      const value = options.navbarHeight[current];
+      previous = { ...previous, [current]: px({ value }) };
+      return previous;
+    }, {} as Layout<string>['navbarHeight']),
+    asideWidth: px({ value: options.asideWidth }),
+    footerHeight: keys(options.footerHeight).reduce((previous, current) => {
+      const value = options.footerHeight[current];
+      previous = { ...previous, [current]: px({ value }) };
+      return previous;
+    }, {} as Layout<string>['footerHeight']),
+    varNames: defaultLayoutVarNames,
+    var: defaultLayoutVar,
+    zIndex: {
+      chatBubble: options.zIndex.chatBubble.toString(),
+      notifications: options.zIndex.notifications.toString(),
+      navBar: options.zIndex.navBar.toString(),
+      sideBarMobile: options.zIndex.sideBarMobile.toString(),
+      sideBarDesktop: options.zIndex.sideBarDesktop.toString(),
+      dialog: options.zIndex.dialog.toString(),
+      content: options.zIndex.content.toString(),
+    },
   };
 }
 

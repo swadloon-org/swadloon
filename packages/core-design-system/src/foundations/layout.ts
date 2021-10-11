@@ -1,3 +1,4 @@
+import { NumberType } from '..';
 import { SizeType } from '../types';
 import { ContentMargins, ContentWidths } from './content-width';
 import { MediaQueries } from './media-queries';
@@ -55,10 +56,10 @@ export type PartialLayout<Override extends undefined | string = undefined> = Omi
 /**
  * Breakpoints, commonly used content margins and max widths.
  */
-export interface Layout<Override extends undefined | string = undefined> {
+export type Layout<Override extends undefined | string = undefined> = {
   breakpoints: Breakpoints<Override>;
   contentMargins: ContentMargins<Override>;
-  contentWidth: ContentWidths;
+  contentWidth: ContentWidths<Override>;
   sidebarWidth: {
     [key in VIEWPORT]: SizeType<Override>;
   };
@@ -82,4 +83,25 @@ export interface Layout<Override extends undefined | string = undefined> {
     dialog: number;
     content: number;
   };
-}
+};
+
+/**
+ * Breakpoints, commonly used content margins and max widths.
+ *
+ * v2:
+ *  -zIndez are now string with the Override
+ */
+export type LayoutV2<Override extends undefined | string = undefined> = Omit<
+  Layout<Override>,
+  'zIndex'
+> & {
+  zIndex: {
+    chatBubble: NumberType<Override>;
+    notifications: NumberType<Override>;
+    navBar: NumberType<Override>;
+    sideBarMobile: NumberType<Override>;
+    sideBarDesktop: NumberType<Override>;
+    dialog: NumberType<Override>;
+    content: NumberType<Override>;
+  };
+};
