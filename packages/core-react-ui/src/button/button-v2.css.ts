@@ -8,7 +8,7 @@ const iconPadding = `3em`;
  * Base
  */
 
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { buttonsVars } from '../theme/default-theme.css';
 
 export const base = style({
@@ -42,13 +42,13 @@ export const disabled = style({});
  *
  */
 
-export const primary = composeStyles(
+export const primary = style([
   base,
   style({
     color: buttonsVars.buttons.variants.primary.textColor,
     backgroundColor: buttonsVars.buttons.variants.primary.backgroundColor,
-  })
-);
+  }),
+]);
 
 /**
  *
