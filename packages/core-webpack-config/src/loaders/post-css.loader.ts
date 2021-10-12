@@ -13,6 +13,7 @@ export const postCssLoaderOptions = {
   sourceMap: true,
   ident: 'postcss',
   plugins: [
+    // https://github.com/WolfgangKluge/postcss-media-variables
     postcssMediaVariables(),
     postcssCustomMedia(),
     postcssMediaVariables(),

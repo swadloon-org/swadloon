@@ -4,3 +4,4 @@
 /lib
 /tmp
 !/bin
+/bin/nr
