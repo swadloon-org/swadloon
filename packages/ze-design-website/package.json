@@ -22,7 +22,7 @@
     "serve": "env-cmd -x nr gatsby serve --port \\$APP_PORT --host 0.0.0.0",
     "start": "env-cmd -x nr gatsby develop --verbose --port \\$APP_PORT --host 0.0.0.0",
     "test": "echo ok",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --composite false --incremental false"
   },
   "eslintConfig": {},
   "sideEffects": [

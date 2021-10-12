@@ -8,7 +8,7 @@
     "clean-disabled": "rimraf -rf public/** && rimraf -f *.tsbuildinfo",
     "start": "nr webpack serve --config webpack.dev.config.ts",
     "test-disabled": "echo ok",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --composite false --incremental false"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",

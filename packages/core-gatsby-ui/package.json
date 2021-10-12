@@ -14,7 +14,7 @@
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "test": "nr jest",
     "test:watch": "env-cmd nr jest-watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --composite false --incremental false"
   },
   "sideEffects": [
     "*.css",

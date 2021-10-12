@@ -81,7 +81,7 @@ jobs:
         run: yarn lerna:depcheck --scope @newrade/ze-*
 
       - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/ze-*
+        run: yarn lerna:typecheck --scope @newrade/ze-design-website
 
       - name: Lint (ls-lint) source files (core-docs)
         run: yarn ls-lint
