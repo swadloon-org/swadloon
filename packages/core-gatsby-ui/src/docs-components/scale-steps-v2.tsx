@@ -5,15 +5,15 @@ import { keys } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 import { Placeholder } from './placeholder';
 
-export const ScaleSteps: React.FC<{ steps: SizingSteps<string>['mobile'] }> = ({ steps }) => {
+export const ScaleStepsV2: React.FC<{ steps: SizingSteps<string>['mobile'] }> = ({ steps }) => {
   return (
-    <Stack gap={[sizingCSS.var.x1]}>
+    <Stack gap={[sizingCSS.var.x3]}>
       {keys(steps).map((step) => {
         const varValue = steps[step];
         return (
           <Cluster
             key={step}
-            gap={[sizingCSS.var.x2]}
+            gap={[sizingCSS.var.x3]}
             justifyContent={['flex-start']}
             style={{ maxWidth: `100%`, overflow: `hidden` }}
           >

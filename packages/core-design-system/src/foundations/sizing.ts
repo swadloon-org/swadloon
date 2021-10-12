@@ -19,6 +19,11 @@ export enum SIZE {
 }
 
 /**
+ * Defines in px what a ratio is.
+ */
+export type SizingRatio = number;
+
+/**
  * Defines in px what a sizing step is.
  * @example 9
  */
@@ -29,6 +34,13 @@ export type SizingStep = number;
  */
 export type SizingSteps<Override extends undefined | string = undefined> = {
   [key in VIEWPORT]: { [key in SIZE]: Override extends string ? string : SizingStep };
+};
+
+/**
+ * Ratios for each viewport
+ */
+export type SizingRatios<Override extends undefined | string = undefined> = {
+  [key in VIEWPORT]: Override extends string ? string : SizingRatio;
 };
 
 /**
@@ -49,7 +61,7 @@ export type Sizing<Override extends undefined | string = undefined> = {
    * @see https://alistapart.com/article/more-meaningful-typography/
    * @see https://vimeo.com/17079380
    */
-  ratio: Override extends string ? string : number;
+  ratio: SizingRatios<Override>;
   /**
    * Size values for each step.
    */

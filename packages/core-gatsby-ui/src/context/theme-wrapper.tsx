@@ -11,9 +11,9 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/code';
+import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
 import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, Suspense, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import { mdxComponents } from '../mdx/mdx-components';
 import * as styles from './theme-wrapper.css';
@@ -152,7 +152,11 @@ export const ThemeWrapper = ({
         </TabContent>
 
         <TabContent aria-labelledby={'source'} hidden={activeTabId !== 'source'}>
-          {code ? <CodeBlock filename={filename}>{code}</CodeBlock> : null}
+          {code ? (
+            <Suspense fallback={''}>
+              <CodeBlockLazy filename={filename}>{code}</CodeBlockLazy>
+            </Suspense>
+          ) : null}
         </TabContent>
       </Tabs>
     </div>

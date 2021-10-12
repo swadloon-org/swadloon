@@ -4,6 +4,35 @@ All general changes to the repo or main dependencies will be documented in this
 file. This file is written manually where as other changelogs in `/packages/`
 are automated.
 
+# 2021 Oct Update - #1 - (2021-10)
+
+## Breaking changes
+
+- remove `import loadable from '@loadable/component';` for React v18
+- remove `core.getGatsbyPluginLoadableComponents()`
+- remove `gatsby-plugin-loadable-components-ssr`
+
+## Features
+
+- d
+
+## Fixes
+
+- fixes for auto-rename tag settings
+
+```json
+    //
+    // auto-rename plugins
+    //
+    "auto-rename-tag.activationOnLanguage": [
+      "xml",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact"
+    ]
+```
+
 # 2021 Sept Update - #1 - (2021-09)
 
 ## Breaking changes

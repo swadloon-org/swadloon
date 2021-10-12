@@ -11,8 +11,24 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
   navigationName: '',
   navigationComponent: NavComponent.navbar,
   locale: SITE_LANGUAGES.EN,
-  sortOrderDirectories: [/guides/gi, /design/gi, /build/gi, /deploy/gi, /reference/gi],
-  sortOrderItems: [/overview/gi, /get started/gi, /license/gi],
+  sortOrderDirectories: [
+    /development process/i,
+    /guides/i,
+    /packages/i,
+    /reference/i,
+    /brand/i,
+    /templates/i,
+    /data viz/i,
+    /data visualization/i,
+    /guidelines/i,
+    /animations/i,
+    /components/i,
+    /print/i,
+    /tokens/i,
+    /tools/i,
+    /Content API/i,
+  ],
+  sortOrderItems: [/overview/i, /where to start/i, /get started/i],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
@@ -187,6 +203,7 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
         pageLocale,
         linkEntry: {
           name: pageNodeContext?.name,
+          label: formattedPageTitle,
           page: {
             name: pageNodeContext?.name,
             title: formattedPageTitle,
@@ -254,11 +271,14 @@ export function setNavigationLinkAtPath({
     return options.formatLabel(options.translate(name, language), language, options.uppercaseWords);
   };
 
+  const linkLabel = linkEntryIsIndex
+    ? translateAndFormat('overview', pageLocale)
+    : linkEntry?.label
+    ? linkEntry?.label
+    : translateAndFormat(currentPathLast, pageLocale);
+
   const newLinkEntry: LinkAPI = {
     name: currentPathLast,
-    label: linkEntryIsIndex
-      ? translateAndFormat('overview', pageLocale)
-      : translateAndFormat(currentPathLast, pageLocale),
     type: LinkType.internalPage,
     page: {
       name: currentPathLast,
@@ -266,6 +286,7 @@ export function setNavigationLinkAtPath({
       slug: currentPath,
     },
     ...linkEntry,
+    label: linkLabel,
   };
 
   // if the navigation level does not exist, create it
@@ -421,115 +442,19 @@ export function getSortedNavigation(
     'pageNodes' | 'sortOrderDirectories' | 'sortOrderItems'
   >
 ): NavigationAPI {
+  const links = [...(navigation.links?.length ? navigation.links : [])];
+  links.sort(sortLinkPredicate(options));
+
+  const subNavigation = [...(navigation.subNavigation?.length ? navigation.subNavigation : [])];
+  subNavigation.sort(sortNavigationPredicate(options));
+
   return {
     ...navigation,
-    links: navigation.links?.length ? navigation.links.sort(sortLinkPredicate) : navigation.links,
-    subNavigation: navigation.subNavigation?.length
-      ? navigation.subNavigation
-          .sort(sortNavigationPredicate)
-          .map((subNav) => getSortedNavigation(subNav as NavigationAPI, options))
-      : navigation.subNavigation,
+    links,
+    subNavigation: subNavigation.map((subNav) =>
+      getSortedNavigation(subNav as NavigationAPI, options)
+    ),
   };
-
-  function sortLinkPredicate(a?: LinkAPI | null, b?: LinkAPI | null) {
-    if (!options.sortOrderDirectories) {
-      return 0;
-    }
-
-    if (!a) {
-      return 0;
-    }
-
-    if (!b) {
-      return 0;
-    }
-
-    const linkAIdentifier = getNormalizedPath(a.label || a.name || a.page?.title);
-    const linkBIdentifier = getNormalizedPath(b.label || b.name || b.page?.title);
-
-    function getPageIndex(pageIdentifier?: string | null) {
-      return options.sortOrderItems.findIndex((pattern) => {
-        if (!pageIdentifier) {
-          return -1;
-        }
-        return typeof pattern === 'object'
-          ? pattern.test(pageIdentifier)
-          : pattern === pageIdentifier;
-      });
-    }
-
-    const indexA = getPageIndex(linkAIdentifier);
-    const indexB = getPageIndex(linkBIdentifier);
-
-    // if not found in the sorting list, just order by name
-    if (indexA === -1 && indexB === -1) {
-      return linkAIdentifier > linkBIdentifier ? 1 : -1;
-    }
-
-    if (indexA === indexB) {
-      return 0;
-    }
-
-    if (indexA === -1) {
-      return 1;
-    }
-
-    if (indexB === -1) {
-      return -1;
-    }
-
-    return indexA > indexB ? 1 : -1;
-  }
-
-  function sortNavigationPredicate(a?: NavigationAPI | null, b?: NavigationAPI | null) {
-    if (!options.sortOrderDirectories) {
-      return 0;
-    }
-
-    if (!a) {
-      return 0;
-    }
-
-    if (!b) {
-      return 0;
-    }
-
-    const pageAIdentifier = getNormalizedPath(a.label || a.name || a.path);
-    const pageBIdentifier = getNormalizedPath(b.label || b.name || b.path);
-
-    function getPageIndex(pageIdentifier?: string | null) {
-      return options.sortOrderDirectories.findIndex((pattern) => {
-        if (!pageIdentifier) {
-          return -1;
-        }
-        return typeof pattern === 'object'
-          ? pattern.test(pageIdentifier)
-          : pattern === pageIdentifier;
-      });
-    }
-
-    const indexA = getPageIndex(pageAIdentifier);
-    const indexB = getPageIndex(pageBIdentifier);
-
-    // if not found in the sorting list, just order by name
-    if (indexA === -1 && indexB === -1) {
-      return pageAIdentifier > pageBIdentifier ? 1 : -1;
-    }
-
-    if (indexA === indexB) {
-      return 0;
-    }
-
-    if (indexA === -1) {
-      return 1;
-    }
-
-    if (indexB === -1) {
-      return -1;
-    }
-
-    return indexA > indexB ? 1 : -1;
-  }
 }
 
 export function getNavigationForPath(
@@ -796,6 +721,126 @@ function getNameWithUppercaseWords({ name, words }: { name?: string; words?: str
     .split(' ')
     .map((part) => (wordsToFind.includes(lower(part)) ? part.toUpperCase() : part))
     .join(' ');
+}
+
+export function sortLinkPredicate(
+  options: Pick<Required<GetNavigationAPIOptions>, 'sortOrderDirectories' | 'sortOrderItems'>
+) {
+  return function (a?: LinkAPI | null, b?: LinkAPI | null) {
+    if (!options.sortOrderItems) {
+      return 0;
+    }
+
+    if (!a) {
+      return 0;
+    }
+
+    if (!b) {
+      return 0;
+    }
+
+    const linkAIdentifier = a.label || '';
+    const linkBIdentifier = b.label || '';
+
+    function getPageIndex(pageIdentifier?: string | null) {
+      return options.sortOrderItems.findIndex((pattern) => {
+        if (!pageIdentifier) {
+          return false;
+        }
+        return typeof pattern === 'object'
+          ? pattern.test(pageIdentifier)
+          : pattern === getNormalizedPath(pageIdentifier);
+      });
+    }
+
+    const indexA = getPageIndex(linkAIdentifier);
+    const indexB = getPageIndex(linkBIdentifier);
+    const scoreA = indexA > -1 ? options.sortOrderItems.length - indexA : indexA;
+    const scoreB = indexB > -1 ? options.sortOrderItems.length - indexB : indexB;
+
+    // if A and B are not found in the sorting list, just order by name
+    if (indexA === -1 && indexB === -1) {
+      if (linkAIdentifier === linkBIdentifier) {
+        return 0;
+      }
+      return linkAIdentifier > linkBIdentifier ? 1 : -1;
+    }
+
+    // if A and B found
+    if (indexA > -1 && indexB > -1) {
+      return scoreA > scoreB ? -1 : 1;
+    }
+    // if A is found but not B
+    if (indexA > -1 && indexB === -1) {
+      return -1;
+    }
+    // if B is found and not A, lower A
+    if (indexB > -1 && indexA === -1) {
+      return 1;
+    }
+
+    return 0;
+  };
+}
+
+export function sortNavigationPredicate(
+  options: Pick<Required<GetNavigationAPIOptions>, 'sortOrderDirectories' | 'sortOrderItems'>
+) {
+  return function (a?: NavigationAPI | null, b?: NavigationAPI | null) {
+    if (!options.sortOrderDirectories) {
+      return 0;
+    }
+
+    if (!a) {
+      return 0;
+    }
+
+    if (!b) {
+      return 0;
+    }
+
+    const identifierA = a.label || '';
+    const identifierB = b.label || '';
+
+    function getPageIndex(pageIdentifier?: string | null) {
+      return options.sortOrderDirectories.findIndex((pattern) => {
+        if (!pageIdentifier) {
+          return false;
+        }
+        return typeof pattern === 'object'
+          ? pattern.test(pageIdentifier)
+          : pattern === pageIdentifier;
+      });
+    }
+
+    const indexA = getPageIndex(identifierA);
+    const indexB = getPageIndex(identifierB);
+    const scoreA = indexA > -1 ? options.sortOrderItems.length - indexA : indexA;
+    const scoreB = indexB > -1 ? options.sortOrderItems.length - indexB : indexB;
+
+    // if A and B are not found in the sorting list, just order by name
+    if (indexA === -1 && indexB === -1) {
+      if (identifierA === identifierB) {
+        return 0;
+      }
+      return identifierA > identifierB ? 1 : -1;
+    }
+
+    // if A and B found
+    if (indexA > -1 && indexB > -1) {
+      return scoreA > scoreB ? -1 : 1;
+    }
+    // if A is found but not B
+    if (indexA > -1 && indexB === -1) {
+      return -1;
+    }
+    // if B is found and not A, lower A
+    if (indexB > -1 && indexA === -1) {
+      return 1;
+    }
+
+    return 0;
+  };
 }
 
 /**

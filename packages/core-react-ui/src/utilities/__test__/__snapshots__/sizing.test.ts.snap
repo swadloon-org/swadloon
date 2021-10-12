@@ -3,7 +3,11 @@
 exports[`shadows utilities getCSSSizing should create a valid CSS box-shadow property 1`] = `
 Object {
   "baseFontSize": "9px",
-  "ratio": "1.618",
+  "ratio": Object {
+    "desktop": "1.618",
+    "mobile": "1.44",
+    "tablet": "1.44",
+  },
   "sizes": Object {
     "desktop": Object {
       "x0": "4px",

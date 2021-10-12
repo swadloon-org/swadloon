@@ -1,22 +1,15 @@
-import loadable from '@loadable/component';
 import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import { SidebarLayout } from '@newrade/core-website-api';
 import debug from 'debug';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, Suspense } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { SidebarStandardLazy } from './sidebar-standard.lazy';
 import { SidebarProps, SidebarRendererProps } from './sidebar.props';
 
 const log = debug('nr:core-gatsby-ui:sidebar-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
-
-/**
- * Sidebar
- */
-const LazySidebarStandard = loadable(() => import('./sidebar-standard'), {
-  resolveComponent: (components: typeof import('./sidebar-standard')) => components.SidebarStandard,
-});
 
 /**
  * Component that will render a Sidebar from a Sidebar API object
@@ -69,7 +62,9 @@ export function SidebarRenderer<
      */
     case SidebarLayout.standard: {
       return (
-        <LazySidebarStandard ref={ref} sidebar={sidebar} {...commonProps}></LazySidebarStandard>
+        <Suspense fallback={''}>
+          <SidebarStandardLazy ref={ref} sidebar={sidebar} {...commonProps}></SidebarStandardLazy>
+        </Suspense>
       );
     }
 
