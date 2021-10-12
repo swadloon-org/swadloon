@@ -45,6 +45,10 @@ runs:
           node-version: '16'
           architecture: 'x64'
 
+      - name: Print NodeJS version
+        run: node -v
+        shell: bash
+
       - name: Check NodeJS Options
         run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
         shell: bash
