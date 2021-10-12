@@ -1,4 +1,3 @@
-import loadable from '@loadable/component';
 import {
   HEADING,
   LinkIcon,
@@ -38,9 +37,9 @@ import {
   Tag,
   Title,
 } from '@newrade/core-react-ui';
-import { Code } from '@newrade/core-react-ui/code';
+import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, Suspense } from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { IconBox } from '../docs-components/icon-box';
@@ -200,24 +199,18 @@ export const mdxComponents: Partial<
   pre: (props: MDXProps) => <>{props.children}</>,
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
   code: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(
-      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
-      {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
-          components.CodeBlock,
-      }
+    return (
+      <Suspense fallback={''}>
+        <CodeBlockLazy {...props}>{children as string}</CodeBlockLazy>
+      </Suspense>
     );
-    return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
   CodeBlock: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(
-      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
-      {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
-          components.CodeBlock,
-      }
+    return (
+      <Suspense fallback={''}>
+        <CodeBlockLazy {...props}>{children as string}</CodeBlockLazy>
+      </Suspense>
     );
-    return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
   Code: Code,
 

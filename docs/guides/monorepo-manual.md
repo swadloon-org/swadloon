@@ -1,6 +1,6 @@
 ---
 subject: Reference
-title: Monorepo Manual - 📕
+title: How to Use the Monorepo - 📕
 description:
   How to update a fork from the upstream repo and other useful commands.
 ---

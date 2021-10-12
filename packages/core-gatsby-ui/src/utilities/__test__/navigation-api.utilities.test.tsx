@@ -7,9 +7,12 @@ import {
   getFilteredPageNodes,
   getNavigationAPIFromPageNodes,
   getNavigationForPath,
+  getSortedNavigation,
   isPathActive,
   setNavigationAtPath,
   setNavigationLinkAtPath,
+  sortLinkPredicate,
+  sortNavigationPredicate,
 } from '../navigation-api.utilities';
 
 const siteMetadata = {
@@ -476,6 +479,7 @@ describe(`navigation api utilities`, () => {
                 },
               },
             ],
+            subNavigation: [],
           },
         ],
       };
@@ -606,6 +610,7 @@ describe(`navigation api utilities`, () => {
                     },
                   },
                 ],
+                subNavigation: [],
               },
             ],
           },
@@ -625,6 +630,7 @@ describe(`navigation api utilities`, () => {
                 },
               },
             ],
+            subNavigation: [],
           },
         ],
       };
@@ -671,6 +677,7 @@ describe(`navigation api utilities`, () => {
                 },
               },
             ],
+            subNavigation: [],
           },
         ],
       };
@@ -739,6 +746,142 @@ describe(`navigation api utilities`, () => {
         partial: false,
         exact: true,
       });
+    });
+  });
+
+  describe(`${sortLinkPredicate.name}`, () => {
+    it('should sort links correctly', () => {
+      const links = [
+        {
+          name: 'link 2',
+          label: 'Link 2 ✅',
+        },
+        {
+          name: 'link 1',
+          label: 'Link 1',
+        },
+        {
+          name: 'link 1',
+          label: 'Overview',
+        },
+      ];
+      expect(
+        links.sort(
+          sortLinkPredicate({
+            sortOrderItems: [/overview/i, /link 1/i, /link 2/i],
+          } as any)
+        )
+      ).toEqual([
+        {
+          name: 'link 1',
+          label: 'Overview',
+        },
+        {
+          name: 'link 1',
+          label: 'Link 1',
+        },
+        {
+          name: 'link 2',
+          label: 'Link 2 ✅',
+        },
+      ]);
+    });
+  });
+
+  describe(`${sortNavigationPredicate.name}`, () => {
+    it('should sort navs correctly', () => {
+      const links = [
+        {
+          name: 'link 1',
+          label: 'Another Link',
+        },
+        {
+          name: 'link 2',
+          label: 'Link 2 ✅',
+        },
+        {
+          name: 'link 1',
+          label: 'Link 1',
+        },
+        {
+          name: 'link 1',
+          label: 'Overview',
+        },
+      ];
+      const nav: NavigationAPI = {
+        name: 'name',
+        label: 'Nav 1',
+        links: [...links],
+        subNavigation: [
+          {
+            name: 'name',
+            label: 'sub nav 2',
+            links: [...links],
+            subNavigation: [],
+          },
+          {
+            name: 'name',
+            label: 'sub nav end',
+            links: [...links],
+            subNavigation: [],
+          },
+          {
+            name: 'name',
+            label: 'sub nav 1',
+            links: [...links],
+            subNavigation: [],
+          },
+        ],
+      };
+      const expectedLinks = [
+        {
+          name: 'link 1',
+          label: 'Overview',
+        },
+        {
+          name: 'link 1',
+          label: 'Link 1',
+        },
+        {
+          name: 'link 2',
+          label: 'Link 2 ✅',
+        },
+        {
+          name: 'link 1',
+          label: 'Another Link',
+        },
+      ];
+      const navExpected: NavigationAPI = {
+        name: 'name',
+        label: 'Nav 1',
+        links: [...expectedLinks],
+        subNavigation: [
+          {
+            name: 'name',
+            label: 'sub nav 1',
+            links: [...expectedLinks],
+            subNavigation: [],
+          },
+          {
+            name: 'name',
+            label: 'sub nav 2',
+            links: [...expectedLinks],
+            subNavigation: [],
+          },
+          {
+            name: 'name',
+            label: 'sub nav end',
+            links: [...expectedLinks],
+            subNavigation: [],
+          },
+        ],
+      };
+      expect(
+        getSortedNavigation(nav, {
+          sortOrderDirectories: [/sub nav 1/i, /sub nav 2/i],
+          sortOrderItems: [/overview/i, /link 1/i, /link 2/i],
+        } as any)
+      ).toEqual(navExpected);
     });
   });
 });

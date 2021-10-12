@@ -1,4 +1,4 @@
-import { Breakpoints, ContentWidths, Layout } from '@newrade/core-design-system';
+import { Breakpoints, ContentWidths, Layout, LayoutV2 } from '@newrade/core-design-system';
 
 /**
  * Contains CSS variable names for layout sizes
@@ -21,6 +21,19 @@ export type LayoutVarNames = {
 export type LayoutVars = LayoutVarNames;
 
 export type CSSLayout = Layout<string> & {
+  /**
+   * CSS variable name for each step.
+   * @example `--layout-navbar-height`
+   */
+  varNames: LayoutVarNames;
+  /**
+   * CSS statement to access CSS variables
+   * @example `var(--layout-navbar-height)`
+   */
+  var: LayoutVars;
+};
+
+export type CSSLayoutV2 = LayoutV2<string> & {
   /**
    * CSS variable name for each step.
    * @example `--layout-navbar-height`

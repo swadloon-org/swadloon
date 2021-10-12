@@ -1,9 +1,9 @@
-import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
   FooterStandard,
   GatsbyLink,
   NavbarStandard,
+  SidebarStandardLazy,
   useI18next,
   useSidebarState,
 } from '@newrade/core-gatsby-ui/src';
@@ -16,20 +16,9 @@ import {
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './layout.treat';
-
-/**
- * Sidebar
- */
-const LazySidebarStandard = loadable(
-  () => import(/* webpackExports: ["SidebarStandard"] */ '@newrade/core-gatsby-ui/src'),
-  {
-    resolveComponent: (components: typeof import('@newrade/core-gatsby-ui/src')) =>
-      components.SidebarStandard,
-  }
-);
 
 type LayoutProps = LayoutDocsProps;
 
@@ -94,16 +83,16 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         onChangeLang={handleChangeLanguage}
       ></NavbarStandard>
 
-      {isSSR ? null : (
-        <LazySidebarStandard
+      <Suspense fallback={''}>
+        <SidebarStandardLazy
           sidebar={sidebar}
           sidebarOpened={sidebarOpened}
           onClickMenuButton={handleClickMenuButton}
           onClickBackdrop={handleClickMenuButton}
           activePathname={props.path}
           HomeLink={<GatsbyLink to={'/'} />}
-        ></LazySidebarStandard>
-      )}
+        ></SidebarStandardLazy>
+      </Suspense>
 
       <Main minHeight={true}>{props.children}</Main>
 

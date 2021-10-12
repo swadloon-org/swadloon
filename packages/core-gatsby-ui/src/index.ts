@@ -1,4 +1,5 @@
 export * from './blocks/block-google-map';
+export * from './blocks/block-google-map.lazy';
 export * from './blocks/block-image';
 export * from './blocks/block-image-background';
 export * from './blocks/block-markdown';
@@ -48,6 +49,7 @@ export * from './sidebar/sidebar-docs-desktop-group';
 export * from './sidebar/sidebar-docs-desktop-item';
 export * from './sidebar/sidebar-renderer';
 export * from './sidebar/sidebar-standard';
+export * from './sidebar/sidebar-standard.lazy';
 export * from './sidebar/sidebar.hooks';
 export * from './sidebar/sidebar.props';
 export * from './utilities/gatsby-page-node';

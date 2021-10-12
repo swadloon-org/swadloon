@@ -1,6 +1,6 @@
 ---
 subject: Core Packages
-title: core-gatsby-ui
+title: 'core-gatsby-ui'
 description: React components built for Gatsby sites
 tags:
   - ui

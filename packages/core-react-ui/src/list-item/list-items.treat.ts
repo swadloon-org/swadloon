@@ -4,9 +4,9 @@ import { Theme } from '../design-system';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     listStylePosition: 'inside', // no side effects from the added padding
-    marginBlockStart: '0.5em',
-    marginBlockEnd: '0.5em',
-    marginInlineStart: '0.5em',
+    marginBlockStart: '1.3em',
+    marginBlockEnd: '1.3em',
+    marginInlineStart: '1.3em',
     marginInlineEnd: '0px',
     paddingInlineStart: '0px',
     paddingInlineEnd: '0px',
@@ -28,7 +28,7 @@ globalStyle(`${styles.ul} li[data-custom-bullet]::before`, ({ theme, cssTheme }:
   marginRight: `1em !important`,
   borderRadius: '0ch',
   paddingInline: '0ch',
-  marginInlineEnd: '0.5em',
+  marginInlineEnd: '1.3em',
 }));
 
 globalStyle(`${styles.ul} li[data-custom-bullet=" "]::before`, ({ theme, cssTheme }: Theme) => ({

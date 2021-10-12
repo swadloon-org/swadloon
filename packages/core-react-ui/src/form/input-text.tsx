@@ -1,9 +1,9 @@
-import loadable from '@loadable/component';
 import type { Props as CleaveProps } from 'cleave.js/react/props';
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, Suspense } from 'react';
 import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+import { InputTextCleaveLazy } from './input-text-cleave.lazy';
 import * as styleRefs from './input.treat';
 
 type Props = PrimitiveProps<'input'> &
@@ -11,17 +11,6 @@ type Props = PrimitiveProps<'input'> &
     cleaveProps?: CleaveProps;
     state?: 'rest' | 'error';
   };
-
-const InputTextCleave = loadable(
-  // @ts-ignore
-  () => {
-    return import('./input-text-cleave');
-  },
-  {
-    resolveComponent: (components: typeof import('./input-text-cleave')) =>
-      components.InputTextCleave,
-  }
-);
 
 export const InputText = React.memo(
   React.forwardRef<HTMLInputElement, Props>(function InputText(
@@ -39,16 +28,18 @@ export const InputText = React.memo(
     const renderedId = id || cleaveProps?.id || props.name || '';
 
     const CleaveComp = cleaveProps ? (
-      <InputTextCleave
-        type={cleaveProps.type ? cleaveProps.type : type}
-        // @ts-ignore
-        htmlRef={(htmlRef) => (ref = htmlRef)}
-        id={renderedId}
-        style={style}
-        className={classNames}
-        cleaveProps={cleaveProps}
-        {...props}
-      ></InputTextCleave>
+      <Suspense fallback={''}>
+        <InputTextCleaveLazy
+          type={cleaveProps.type ? cleaveProps.type : type}
+          // @ts-ignore
+          htmlRef={(htmlRef) => (ref = htmlRef)}
+          id={renderedId}
+          style={style}
+          className={classNames}
+          cleaveProps={cleaveProps}
+          {...props}
+        ></InputTextCleaveLazy>
+      </Suspense>
     ) : null;
 
     return CleaveComp ? (

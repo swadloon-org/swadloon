@@ -4,6 +4,7 @@ import { GatsbySiteMetadata } from './site-metadata';
 /**
  * Extends the default Gatsby Config
  * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/flags.ts for flags
+ * v4 flags: https://v4.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/
  */
 export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
   flags?: {
