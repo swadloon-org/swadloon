@@ -2,7 +2,7 @@
 
 exports[`the button component (v2) should render correctly 1`] = `
 <button
-  class="button-v2__1ypu3sr0 button-v2__1ypu3sr4 button-v2__1ypu3sr6"
+  class="button-v2__1ypu3sr5 button-v2__1ypu3sr0 button-v2__1ypu3sr4 button-v2__1ypu3sr7"
   dataicon=""
   datapaddingcollapse="undefined"
 >
