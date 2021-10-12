@@ -42,7 +42,7 @@ runs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.10.0'
+          node-version: '16.11.1'
           architecture: 'arm64'
 
       - name: Print NodeJS version
