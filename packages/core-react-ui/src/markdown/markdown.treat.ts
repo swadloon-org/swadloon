@@ -95,6 +95,11 @@ globalStyle(
   })
 );
 
+// forces sup content to fits parent's font size
+globalStyle(`sup *`, {
+  fontSize: `max(12px, 0.9em) !important`,
+});
+
 /** Paragraphs */
 
 globalStyle(`${wrapper} > p + p, blockquote p + p`, ({ cssTheme, theme }: Theme) => ({
@@ -147,6 +152,13 @@ globalStyle(`${wrapper} > blockquote > blockquote`, ({ cssTheme, theme }: Theme)
   marginTop: '1em',
 }));
 
+/** Footnotes */
+
+// forces sup content to fits parent's font size
+globalStyle(`.footnotes *`, {
+  fontSize: `14px !important`,
+});
+
 /**
  * Details & summary
  */
@@ -176,6 +188,11 @@ globalStyle(`${wrapper} a svg path`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '2em',
 }));
+
+// forces all links to be of the same size as td text content
+globalStyle(`table a`, {
+  fontSize: '1em !important',
+});
 
 /**
  * Medias
@@ -254,18 +271,14 @@ globalStyle(`${wrapper} ul + p + pre`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
-  display: 'inline-block',
-  margin: '0 .1em',
-  padding: '.1em .6em',
-  fontFamily: 'Arial,"Helvetica Neue",Helvetica,sans-serif',
-  fontSize: '11px',
-  lineHeight: '1.5',
-  color: '#424242',
-  // color: cssTheme.colors.grey[1000],
-  textShadow: '0 1px 0 #fff',
-  backgroundColor: '#f3f3f3',
-  border: '1px solid grey',
-  borderRadius: '3px',
-  boxShadow: '0 1px 1px rgba(12,13,14,0.15), inset 0 1px 0 0 #fff',
-  overflowWrap: 'break-word',
+  boxSizing: 'border-box',
+  WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+  fontFamily:
+    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI", "Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol"',
+  borderRadius: '0.25em',
+  backgroundColor: '#EBEBEB',
+  padding: '0.3em 0.5em 0.25em',
+  border: '1px solid #C8C8C8',
+  borderWidth: '1px 1px 2px 1px',
+  fontSize: '0.8em',
 }));

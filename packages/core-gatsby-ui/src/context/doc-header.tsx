@@ -49,7 +49,7 @@ export const DocHeader = ({ props }: Props) => {
         >{`${subject.toUpperCase()}`}</Label>
       ) : null} */}
 
-      <Heading>{title}</Heading>
+      {title ? <Heading>{title}</Heading> : null}
 
       {description ? (
         <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.large}>

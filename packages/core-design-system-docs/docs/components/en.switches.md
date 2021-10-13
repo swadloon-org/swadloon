@@ -17,6 +17,12 @@ import { SwitchesIcons } from '../../src/code/switches-icons.code';
 
 <DocHeader props={props}/>
 
+## States
+
+<ThemeWrapper>
+  <Switches />
+</ThemeWrapper>
+
 ## Features
 
 - 1 variant (primary)
@@ -29,12 +35,6 @@ import { SwitchesIcons } from '../../src/code/switches-icons.code';
 If no visible label is provided (e.g. an icon only button), an alternative text
 label must be provided to identify the control for accessibility. This should be
 added using the `aria-label` prop.
-
-## States
-
-<ThemeWrapper>
-  <Switches />
-</ThemeWrapper>
 
 ## Usage with Icons
 

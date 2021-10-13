@@ -79,6 +79,7 @@ export const ThemeWrapper = ({
     style: {
       ...style,
       backgroundColor: isReversed ? cssTheme.colors.colors.grey[900] : '',
+      backgroundImage: isReversed ? '' : 'linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%)',
     },
     className,
     classNames: [

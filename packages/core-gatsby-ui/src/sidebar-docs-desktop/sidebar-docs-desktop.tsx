@@ -21,12 +21,12 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
+import { SidebarBase } from '../sidebar/sidebar-base';
+import { SidebarProps } from '../sidebar/sidebar.props';
 import { getPathParts, isPathActive } from '../utilities/navigation-api.utilities';
-import { SidebarBase } from './sidebar-base';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
 import * as styleRefs from './sidebar-docs-desktop.treat';
-import { SidebarProps } from './sidebar.props';
 
 type Props = SidebarProps & {};
 

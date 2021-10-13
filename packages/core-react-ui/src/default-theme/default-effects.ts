@@ -1,5 +1,5 @@
-import { BoxShadows, Effects, TextShadows } from '@newrade/core-design-system';
-import { defaultColorsColors } from './default-colors';
+import { BoxShadows, Effects, OutlineShadows, TextShadows } from '@newrade/core-design-system';
+import { defaultColorIntents, defaultColorsColors } from './default-colors';
 
 export const defaultBoxShadows: BoxShadows = {
   light: {
@@ -31,8 +31,28 @@ export const defaultTextShadows: TextShadows = {
   heavy: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 4 } }, // TODO set default
 };
 
+export const defaultOutlineShadows: OutlineShadows = {
+  focus: [
+    {
+      type: 'inset',
+      offsetX: 0,
+      offsetY: 0,
+      blur: 1,
+      color: defaultColorIntents.accessibilityColor,
+    },
+    {
+      type: 'inset',
+      offsetX: 0,
+      offsetY: 0,
+      blur: 1,
+      color: defaultColorIntents.accessibilityColor,
+    },
+  ],
+};
+
 export const defaultEffects: Effects = {
   boxShadows: defaultBoxShadows,
   innerBoxShadows: defaultBoxShadows,
   textShadows: defaultTextShadows,
+  outlineShadows: defaultOutlineShadows,
 };

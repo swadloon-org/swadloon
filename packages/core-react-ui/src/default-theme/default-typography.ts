@@ -168,19 +168,19 @@ export const defaultTypography: Typography = {
     desktop: {
       large: {
         fontSize: 18,
-        lineGap: 16,
+        lineGap: 18,
       },
       medium: {
         fontSize: 16,
-        lineGap: 14,
+        lineGap: 16,
       },
       small: {
         fontSize: 14,
-        lineGap: 12,
+        lineGap: 14,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 10,
+        lineGap: 12,
       },
     },
   },

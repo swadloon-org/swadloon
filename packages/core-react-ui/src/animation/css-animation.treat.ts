@@ -25,6 +25,7 @@ const commonAnimationStyle: Style = {
   animationIterationCount: 'var(--animation-iteration, 1)',
 };
 
+// see https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_Media_Queries_for_Accessibility
 globalStyle(`${styles.wrapper}`, () => ({
   '@media': {
     ['print, (prefers-reduced-motion: reduce)']: {

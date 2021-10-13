@@ -26,6 +26,14 @@ import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code';
 
 <DocHeader props={props}/>
 
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'buttons.code.tsx'} 
+  code={ButtonsCode}>
+  <Buttons />
+</ThemeWrapper>
+
 ## Features
 
 - 3 variants (primary, secondary, tertiary)
@@ -46,14 +54,6 @@ Like most components there are three level of importance for buttons:
 - Primary
 - Secondary
 - Tertiary
-
-<!-- prettier-ignore -->
-<ThemeWrapper 
-  displayControls={true} 
-  filename={'buttons.code.tsx'} 
-  code={ButtonsCode}>
-  <Buttons />
-</ThemeWrapper>
 
 ## Sizes
 

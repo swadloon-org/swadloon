@@ -22,7 +22,7 @@ import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
 import { NavbarStandard } from '../navbar/navbar-standard';
-import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
+import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import * as styleRefs from './docs.layout.treat';

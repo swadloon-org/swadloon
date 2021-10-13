@@ -75,7 +75,8 @@ globalStyle(`${wrapper} .mdx-anchor-target`, ({ cssTheme, theme }: Theme) => ({
   width: 0,
 }));
 
-globalStyle(`:target`, {
+// does not apply to footnotes inserted as sup (in markddown)
+globalStyle(`:target:not(sup)`, {
   display: 'block',
   position: 'relative',
   top: '-40px',

@@ -76,10 +76,39 @@ export const mdxComponents: Partial<
    */
 
   Div: (props: MDXProps) => <div {...props} />,
+  /**
+   * Insert custom Footnotes components
+   * @see https://mdxjs.com/guides/wrapper-customization/
+   * @see https://markmichon.com/advanced-custom-mdx-components#fn-1
+   */
+  wrapper: (props: MDXProps) => {
+    const updatedChildren = React.Children.map(props.children, (child) => {
+      if (typeof child === 'string') {
+        return child;
+      }
+      const element = child as React.ReactElement;
+      if (!element?.props) {
+        return child;
+      }
+      // removes unwanted props in DOM
+      const { className, mdxType, originalType, ...elementProps } = element.props;
+
+      if (element.props.className === 'footnotes') {
+        // since we only have one element that will ever match this
+        // the key doesn't matter, but react will yell without a key.
+        return <div key={1} className={className} {...elementProps}></div>;
+      }
+      return child;
+    });
+    return <>{updatedChildren}</>;
+  },
 
   /**
-   * Heading
+   *
+   * Headings
+   *
    */
+
   Title: Title,
   Heading: Heading,
   h1: (props: MDXProps) => <Heading {...props} />,
@@ -94,9 +123,12 @@ export const mdxComponents: Partial<
   summary: (props: MDXProps) => <Summary {...props} />,
 
   /**
+   *
    * Text content
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
+   *
    */
+
   p: (props: MDXProps) => <Paragraph {...props} readableWidth={true} />,
   a: (props: MDXProps & AnchorHTMLAttributes<any>) => {
     const linkIsExternal = props?.href && /https?:\/\//.test(props.href);
@@ -137,8 +169,11 @@ export const mdxComponents: Partial<
   abbr: (props: MDXProps) => <abbr {...props} />,
 
   /**
+   *
    * Inline text semantics
+   *
    */
+
   b: (props: MDXProps) => (
     <Paragraph
       as={'b'}
@@ -175,8 +210,11 @@ export const mdxComponents: Partial<
   del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
 
   /**
+   *
    * Images & Media
+   *
    */
+
   figcaption: (props: MDXProps) => (
     <figcaption>
       <Paragraph>{props.children}</Paragraph>{' '}
@@ -184,8 +222,11 @@ export const mdxComponents: Partial<
   ),
 
   /**
+   *
    * Table
+   *
    */
+
   table: (props: MDXProps) => <Table {...props} />,
   thead: (props: MDXProps) => <TableHeader {...props} />,
   tbody: (props: MDXProps) => <TableBody {...props} />,
@@ -194,8 +235,11 @@ export const mdxComponents: Partial<
   th: (props: MDXProps) => <TableCellHeader {...props} />,
 
   /**
+   *
    * Code
+   *
    */
+
   pre: (props: MDXProps) => <>{props.children}</>,
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
   code: ({ children, ...props }: MDXProps) => {
@@ -269,5 +313,5 @@ export const mdxComponents: Partial<
 };
 
 export type MDXProps = {
-  children?: React.ReactNode | string | null;
+  children?: React.ReactNode | React.ReactElement | string | null;
 };

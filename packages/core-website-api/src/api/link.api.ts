@@ -9,9 +9,25 @@ export enum LinkType {
 }
 
 export enum LinkComponent {
+  /**
+   * Link renders link (e.g. a <a/> element)
+   */
   link = 'link',
+  /**
+   * Renders a link object as a button component
+   */
   button = 'button',
+  /**
+   * Renders a link object as a button component with an icon
+   */
   buttonIcon = 'buttonIcon',
+  /**
+   * Renders a logo image (vector or raster) as a link
+   */
+  logo = 'logo',
+  /**
+   * Render a menu item (should be contained in a menu navigation object)
+   */
   menuItem = 'menuItem',
 }
 

@@ -1,3 +1,4 @@
+import { AriaRole } from 'react';
 import { PARAGRAPH_SIZE } from '../foundations/typography';
 import { ColorType } from '../types';
 import { BoxStyle } from './box';
@@ -35,9 +36,9 @@ export type LinkProps = Partial<LinkStyleProps>;
 
 export interface LinkStyleProps {
   /**
-   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
-  role: string;
+  role: AriaRole;
   /**
    * icon placement
    */

@@ -10,6 +10,11 @@ export type BoxShadow = {
    */
   blur?: number;
   /**
+   * Type of shadow
+   * @default 'normal'
+   */
+  type?: 'normal' | 'inset';
+  /**
    * Spread value in px.
    */
   spread?: number;
@@ -36,9 +41,9 @@ export type TextShadow = Omit<BoxShadow, 'spread'>;
  * Levels of shadows in the system.
  */
 export type BoxShadows<Override extends undefined | string = undefined> = {
-  light: Override extends string ? string : BoxShadow;
-  medium: Override extends string ? string : BoxShadow;
-  heavy: Override extends string ? string : BoxShadow;
+  light: Override extends string ? string : BoxShadow | BoxShadow[];
+  medium: Override extends string ? string : BoxShadow | BoxShadow[];
+  heavy: Override extends string ? string : BoxShadow | BoxShadow[];
 } & { [key: string]: Override extends string ? string : BoxShadow };
 
 export type TextShadows<Override extends undefined | string = undefined> = {
@@ -46,6 +51,10 @@ export type TextShadows<Override extends undefined | string = undefined> = {
   medium: Override extends string ? string : TextShadow;
   heavy: Override extends string ? string : TextShadow;
 } & { [key: string]: Override extends string ? string : TextShadow };
+
+export type OutlineShadows<Override extends undefined | string = undefined> = {
+  focus: Override extends string ? string : BoxShadow | BoxShadow[];
+};
 
 /**
  * Representation of a background, either a plain background with a color
@@ -68,10 +77,11 @@ export type Overlays = {
 /**
  * Shadows, elevation, blurs and other visual effects.
  */
-export interface Effects<Override extends undefined | string = undefined> {
+export type Effects<Override extends undefined | string = undefined> = {
   boxShadows: BoxShadows<Override>;
   innerBoxShadows: BoxShadows<Override>;
   textShadows: TextShadows<Override>;
+  outlineShadows: OutlineShadows<Override>;
   // TODO
   // overlays: Overlays;
-}
+};

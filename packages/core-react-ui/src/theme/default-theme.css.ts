@@ -1,33 +1,54 @@
-import { Colors, DesignSystem, Sizing } from '@newrade/core-design-system';
+import { Animation, Animations, Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
 import { CSSSizingV2 } from '..';
 import { CSSLayoutV2 } from '../design-system/css-layout';
-import { defaultCSSButtons } from './default-buttons';
-import { defaultCSSColors } from './default-colors';
+import { defaultCSSColors } from './default-css-colors';
+import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSLayout } from './default-css-layout';
 import { defaultCSSLayoutV2 } from './default-css-layout-v2';
 import { defaultCSSSizing } from './default-css-sizing';
+import { defaultCSSEffects } from './default-css-effects';
 
 /**
- * Color Vars
+ * Color
  */
 export const colorVars = createThemeContract<Colors<string>>(defaultCSSColors);
 export const colorCSS = defaultCSSColors;
 
 /**
- * Sizing Vars
+ * Effects
+ */
+
+export const effectsVars = createThemeContract<Effects<string>>(defaultCSSEffects);
+export const effectsCSS = defaultCSSEffects;
+
+/**
+ * Sizing
  */
 export const sizingVars = createThemeContract<CSSSizingV2>(defaultCSSSizing);
 export const sizingCSS = defaultCSSSizing;
 
 /**
- * Layout Vars
+ * Iconography
+ */
+
+/**
+ * Typography
+ */
+
+/**
+ * Layout
  */
 export const layoutVars = createThemeContract<CSSLayoutV2>(defaultCSSLayoutV2);
 export const layoutCSS = defaultCSSLayoutV2;
 
 /**
- * Components Vars
+ * Animation
+ */
+// export const animationVars = createThemeContract<Animations<string>>(defaultCSSLayoutV2);
+
+/**
+ * Components
  */
 type Buttons = Pick<DesignSystem<string>['components'], 'buttons'>;
 export const buttonsVars = createThemeContract<Buttons>(defaultCSSButtons);
@@ -36,9 +57,11 @@ export const buttonsVars = createThemeContract<Buttons>(defaultCSSButtons);
  * Themes
  */
 // @ts-expect-error
-createGlobalTheme(':root', sizingVars, defaultCSSSizing);
-// @ts-expect-error
 createGlobalTheme(':root', colorVars, defaultCSSColors);
+// @ts-expect-error
+createGlobalTheme(':root', effectsVars, defaultCSSEffects);
+// @ts-expect-error
+createGlobalTheme(':root', sizingVars, defaultCSSSizing);
 // @ts-expect-error
 createGlobalTheme(':root', layoutVars, defaultCSSLayout);
 createGlobalTheme(':root', buttonsVars, defaultCSSButtons);
