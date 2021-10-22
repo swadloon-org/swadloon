@@ -105,6 +105,7 @@ jobs:
         run: yarn lerna:build --scope @newrade/ze-design-website
 
       - name: Deploy
+        id: deploy
         if: ${{ env.APP_CI_DEPLOY && matrix.os == 'ubuntu-latest' }}
         uses: amondnet/vercel-action@v20
         with:
@@ -118,5 +119,11 @@ jobs:
           working-directory: ./packages/ze-design-website
           alias-domains: |
             ${{ env.APP_HOST }}
+
+      - name: Lighthouse Check
+        uses: foo-software/lighthouse-check-action@v5.0.0
+        with:
+          urls: steps.deploy.outputs.preview-url
+
 
 

@@ -54,6 +54,24 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
   onChangeLang?: (lang: SITE_LANGUAGES) => void;
 };
 
+export type NavbarModularProps = Omit<
+  NavbarProps,
+  | 'menuOpened'
+  | 'HomeLink'
+  | 'tagText'
+  | 'onClickMenuButton'
+  | 'currentLanguage'
+  | 'languages'
+  | 'onChangeLang'
+> & {
+  left?: React.ReactNode;
+  center?: React.ReactNode;
+  right?: React.ReactNode;
+  leftDesktop?: React.ReactNode;
+  centerDesktop?: React.ReactNode;
+  rightDesktop?: React.ReactNode;
+};
+
 /**
  * Defines a component for each custom layout
  */

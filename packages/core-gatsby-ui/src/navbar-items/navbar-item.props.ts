@@ -1,5 +1,6 @@
 import { LinkProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
+import { LinkAPI } from '@newrade/core-website-api';
 import { AnchorHTMLAttributes } from 'react';
 
 export type NavbarHTMLElements = 'a' | 'div';

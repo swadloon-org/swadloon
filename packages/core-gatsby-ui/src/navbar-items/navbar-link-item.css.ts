@@ -1,4 +1,4 @@
-import { colorVars, effectsVars, layoutVars } from '@newrade/core-react-ui/theme';
+import { colorVars, effectsVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
 
 /**
@@ -45,6 +45,7 @@ export const base = style({
  */
 
 export const rest = style({
+  color: colorVars.colorIntents.primaryText,
   borderBottomColor: `transparent`,
 });
 export const active = style({
@@ -63,6 +64,7 @@ export const disabled = style({});
  * Kinds
  *
  */
+
 export const external = style({
   color: colorVars.colorIntents.primary,
 });
@@ -84,4 +86,34 @@ export const primary = style({});
 export const medium = style({
   padding: `0 16px`,
   height: layoutVars.var.navbarHeight,
+});
+
+/**
+ *
+ * Icons
+ *
+ */
+
+export const icon = style({
+  marginLeft: sizingVars.var.x0,
+  marginBottom: `2px`,
+});
+
+/**
+ *
+ * Logo
+ *
+ */
+
+export const logo = style({
+  height: `calc(0.45 * ${layoutVars.var.navbarHeight})`,
+  maxHeight: 50,
+});
+
+export const logoWrapper = style({
+  display: 'flex',
+  justifySelf: 'flex-start',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
 });

@@ -41,7 +41,7 @@ globalStyle(`:root, ${wrapper}`, ({ theme, cssTheme }: Theme) => {
     [layout.varNames.contentWidth.desktopMaxWidth]: layout.contentWidth.desktopMaxWidth,
     [layout.varNames.contentWidth.desktopDocsMaxWidth]: layout.contentWidth.desktopDocsMaxWidth,
     [layout.varNames.footerHeight]: layout.footerHeight.mobile,
-    [layout.varNames.navbarHeight]: layout.navbarHeight.mobile,
+    // [layout.varNames.navbarHeight]: layout.navbarHeight.mobile,
     [layout.varNames.sidebarWidth]: layout.sidebarWidth.mobile,
 
     /**
@@ -71,7 +71,7 @@ globalStyle(`:root, ${wrapper}`, ({ theme, cssTheme }: Theme) => {
          */
         [layout.varNames.contentMargins]: layout.contentMargins.tablet,
         [layout.varNames.footerHeight]: layout.footerHeight.tablet,
-        [layout.varNames.navbarHeight]: layout.navbarHeight.tablet,
+        // [layout.varNames.navbarHeight]: layout.navbarHeight.tablet,
         [layout.varNames.sidebarWidth]: layout.sidebarWidth.tablet,
       },
       [layout.media.desktopSmall]: {
@@ -95,7 +95,7 @@ globalStyle(`:root, ${wrapper}`, ({ theme, cssTheme }: Theme) => {
          */
         [layout.varNames.contentMargins]: layout.contentMargins.desktop,
         [layout.varNames.footerHeight]: layout.footerHeight.desktop,
-        [layout.varNames.navbarHeight]: layout.navbarHeight.desktop,
+        // [layout.varNames.navbarHeight]: layout.navbarHeight.desktop,
         [layout.varNames.sidebarWidth]: layout.sidebarWidth.desktop,
       },
     },

@@ -1,5 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import {
+  IFrame,
   InputSelect,
   PrimitiveProps,
   Tab,
@@ -79,7 +80,7 @@ export const ThemeWrapper = ({
     style: {
       ...style,
       backgroundColor: isReversed ? cssTheme.colors.colors.grey[900] : '',
-      backgroundImage: isReversed ? '' : 'linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%)',
+      // backgroundImage: isReversed ? '' : 'linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%)',
     },
     className,
     classNames: [
@@ -139,16 +140,18 @@ export const ThemeWrapper = ({
             </div>
           ) : null}
 
-          <div>
-            <TreatProvider theme={treatThemeRef}>
-              <TreatThemeProvider theme={theme}>
-                <GlobalCSSVariables>
-                  <MDXProvider components={mdxComponents}>
-                    <CodeOutline {...commonProps}>{children}</CodeOutline>
-                  </MDXProvider>
-                </GlobalCSSVariables>
-              </TreatThemeProvider>
-            </TreatProvider>
+          <div className={styles.content}>
+            <IFrame title="functional-iframe">
+              <TreatProvider theme={treatThemeRef}>
+                <TreatThemeProvider theme={theme}>
+                  <GlobalCSSVariables>
+                    <MDXProvider components={mdxComponents}>
+                      <CodeOutline {...commonProps}>{children}</CodeOutline>
+                    </MDXProvider>
+                  </GlobalCSSVariables>
+                </TreatThemeProvider>
+              </TreatProvider>
+            </IFrame>
           </div>
         </TabContent>
 

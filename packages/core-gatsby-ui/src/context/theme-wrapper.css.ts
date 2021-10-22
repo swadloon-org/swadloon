@@ -1,4 +1,4 @@
-import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -13,4 +13,8 @@ export const header = style({
   gridTemplateColumns: `repeat(auto-fit, 170px)`,
   padding: `${sizingVars.sizes.desktop.x3}`,
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
+});
+
+export const content = style({
+  maxWidth: `min(calc(100vw - 2 * ${layoutVars.var.contentMargins}), var(--max-content-width))`,
 });

@@ -23,6 +23,7 @@ export * from './hooks/use-network-status';
 export * from './hooks/use-page-visibility.hook';
 export * from './hooks/use-intersection-observer';
 export * from './utilities/location.utilities';
+export * from './iframe/iframe';
 export * from './hooks/use-prevent-long-press';
 export * from './hooks/use-prevent-pinch-zoom';
 export * from './hooks/use-treat-theme';

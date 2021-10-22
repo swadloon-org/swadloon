@@ -6,6 +6,7 @@ description:
 tags:
   - navigation
   - organism
+  - website api
 ---
 
 <!-- CODE IMPORTS -->
@@ -18,10 +19,12 @@ import NavbarsCode from '!!raw-loader!../../src/code/navbars.code.tsx';
 
 <DocHeader props={props}/>
 
-## Navbars
+## Overview
 
 Navbars are on top of the screen and provides content and actions such as
 branding, screen titles and navigation items.
+
+## Components
 
 <!-- prettier-ignore -->
 <ThemeWrapper

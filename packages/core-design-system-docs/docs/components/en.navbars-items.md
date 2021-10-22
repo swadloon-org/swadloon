@@ -9,6 +9,7 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
+import { AllNavbarLinkItems } from '../../src/code/navbar-link-items-all.code';
 import { NavbarLinkItems } from '../../src/code/navbar-link-items.code';
 import NavbarLinkItemsCode from '!!raw-loader!../../src/code/navbar-link-items.code';
 import { NavbarLinkExternalItems } from '../../src/code/navbar-link-external-items.code';
@@ -22,6 +23,11 @@ import NavbarLinkExternalItemsCode from '!!raw-loader!../../src/code/navbar-link
 
 Navbar item components render logos, links, group of links and other elements in
 Navbar components.
+
+<!-- prettier-ignore -->
+<ThemeWrapper>
+  <AllNavbarLinkItems />
+</ThemeWrapper>
 
 ## Link
 

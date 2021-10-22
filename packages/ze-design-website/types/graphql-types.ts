@@ -572,7 +572,6 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
   readonly limit: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
 };
 
 type SitePluginPackageJson = {
@@ -3087,7 +3086,6 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
   readonly limit: Maybe<IntQueryOperatorInput>;
-  readonly name: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPackageJsonFilterInput = {
@@ -3702,7 +3700,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.urlSvgOptions.ref'
   | 'pluginOptions.urlSvgOptions.svgoConfig.plugins'
   | 'pluginOptions.urlSvgOptions.urlLoaderOptions.limit'
-  | 'pluginOptions.urlSvgOptions.urlLoaderOptions.name'
   | 'pluginOptions.createLinkInHead'
   | 'pluginOptions.entryLimit'
   | 'pluginOptions.query'
@@ -4766,6 +4763,11 @@ type DesignSystemLayoutPageQuery = { readonly pages: (
     )> }
   ) };
 
+type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -4801,10 +4803,5 @@ type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: May
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
       & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
     )> }> };
-
-type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
 
 }

@@ -12,11 +12,23 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
   current: string;
   transparent: ColorType<Override>;
 
+  /**
+   *
+   * Primary
+   *
+   */
+
   primary: ColorType<Override>;
   primaryReversed: ColorType<Override>;
 
   secondary: ColorType<Override>;
   secondaryReversed: ColorType<Override>;
+
+  /**
+   *
+   * Text
+   *
+   */
 
   primaryText: ColorType<Override>;
   primaryTextReversed: ColorType<Override>;
@@ -29,6 +41,12 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
 
   disabledText: ColorType<Override>;
   disabledTextReversed: ColorType<Override>;
+
+  /**
+   *
+   * Utility
+   *
+   */
 
   infoText: ColorType<Override>;
   infoAction: ColorType<Override>;
@@ -46,8 +64,20 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
   dangerAction: ColorType<Override>;
   dangerBackground: ColorType<Override>;
 
+  /**
+   *
+   * Backgrounds and elevation
+   *
+   */
+
   background0: ColorType<Override>;
   background1: ColorType<Override>;
   background2: ColorType<Override>;
   backgroundDisabled: ColorType<Override>;
+
+  // elevation0: ColorType<Override>;
+  // elevation1: ColorType<Override>;
+  // elevation2: ColorType<Override>;
+  // elevation3: ColorType<Override>;
+  // elevation4: ColorType<Override>;
 };
