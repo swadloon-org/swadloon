@@ -11,7 +11,9 @@ componentVersion: v1
 
 <!-- prettier-ignore -->
 import { Switches } from '../../src/code/switches.code';
+import SwitchesCode from '!!raw-loader!../../src/code/switches.code';
 import { SwitchesIcons } from '../../src/code/switches-icons.code';
+import SwitchesIconsCode from '!!raw-loader!../../src/code/switches-icons.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -19,7 +21,7 @@ import { SwitchesIcons } from '../../src/code/switches-icons.code';
 
 ## States
 
-<ThemeWrapper>
+<ThemeWrapper autoViewport={false}>
   <Switches />
 </ThemeWrapper>
 
@@ -36,18 +38,22 @@ If no visible label is provided (e.g. an icon only button), an alternative text
 label must be provided to identify the control for accessibility. This should be
 added using the `aria-label` prop.
 
-## Usage with Icons
+## Variants
 
-<ThemeWrapper>
-  <SwitchesIcons />
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true}
+  autoViewport={false}
+  filename={'buttons.code.tsx'} 
+  code={ButtonsCode}>
+  <Switches />
 </ThemeWrapper>
 
-## Sizes
-
-Two sizes are available for switches.
-
-## Reversed Color Mode
-
-<ThemeWrapper reversed={true}>
-  <Switches />
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true}
+  autoViewport={false}
+  filename={'buttons.code.tsx'} 
+  code={ButtonsCode}>
+  <SwitchesIcons />
 </ThemeWrapper>

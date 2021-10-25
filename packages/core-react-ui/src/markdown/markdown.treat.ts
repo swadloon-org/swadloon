@@ -218,10 +218,6 @@ globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1em',
 }));
 
-globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: `100%`,
-}));
-
 /**
  * Code
  */

@@ -8,7 +8,13 @@ type Props = {};
 export const Navbars: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
-  const left = <NavbarLinkItem>Link</NavbarLinkItem>;
+  const left = (
+    <>
+      <NavbarLinkItem>Link</NavbarLinkItem>
+      <NavbarLinkItem>Link</NavbarLinkItem>
+      <NavbarLinkItem>Link</NavbarLinkItem>
+    </>
+  );
 
   return (
     <Stack gap={[sizingVars.var.x4]}>

@@ -25,7 +25,7 @@ Navbar item components render logos, links, group of links and other elements in
 Navbar components.
 
 <!-- prettier-ignore -->
-<ThemeWrapper>
+<ThemeWrapper autoViewport={false}>
   <AllNavbarLinkItems />
 </ThemeWrapper>
 
@@ -34,7 +34,8 @@ Navbar components.
 <!-- prettier-ignore -->
 <ThemeWrapper 
   filename={'navbar-link-items.code.tsx'} 
-  code={NavbarLinkItemsCode}>
+  code={NavbarLinkItemsCode}
+  displayControls={true}>
   <NavbarLinkItems />
 </ThemeWrapper>
 
@@ -66,7 +67,8 @@ label and a border. It uses the primary color to indicate that a link is active.
 <!-- prettier-ignore -->
 <ThemeWrapper 
   filename={'navbar-link-external-items.code.tsx'} 
-  code={NavbarLinkExternalItemsCode}>
+  code={NavbarLinkExternalItemsCode}
+  displayControls={true}>
   <NavbarLinkExternalItems />
 </ThemeWrapper>
 

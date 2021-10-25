@@ -204,29 +204,29 @@ export const defaultTypography: Typography = {
     },
     mobile: {
       medium: {
-        fontSize: 16,
+        fontSize: 18,
         lineGap: 12,
       },
       small: {
-        fontSize: 14,
+        fontSize: 16,
         lineGap: 12,
       },
       xSmall: {
-        fontSize: 10,
+        fontSize: 12,
         lineGap: 12,
       },
     },
     tablet: {
       medium: {
-        capHeight: 13,
+        fontSize: 17,
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        fontSize: 15,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 11,
         lineGap: 12,
       },
     },

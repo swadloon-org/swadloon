@@ -20,7 +20,7 @@ import ButtonsSizesCode from '!!raw-loader!../../src/code/buttons-sizes.code.tsx
 import { ButtonsIcon } from '../../src/code/buttons-icon.code'; 
 import ButtonsIconCode from '!!raw-loader!../../src/code/buttons-icon.code';
 import { ButtonsStates } from '../../src/code/buttons-states.code';
-import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code';
+import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

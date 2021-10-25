@@ -70,15 +70,16 @@ const query = graphql`
 export function useNavigationAPI(options: GetNavigationAPIOptions): NavigationAPI {
   const data = useStaticQuery<NavigationQuery>(query);
   const { translate, getTranslatedObject, language } = useI18next();
+  const memoTranslate = useMemo(() => translate, [translate]);
 
   return useMemo(() => {
     const mergedOptions: GetNavigationAPIOptions = {
       pageNodes: data?.pages?.nodes as GatsbyPageNode[],
-      translate: translate,
+      translate: memoTranslate,
       ...options,
     };
     return getNavigationAPIFromPageNodes(mergedOptions);
-  }, [options, translate, data?.pages?.nodes]);
+  }, [options, memoTranslate, data?.pages?.nodes]);
 }
 
 /**

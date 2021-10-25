@@ -30,7 +30,7 @@ export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, co
   // TODO throttle this
   React.useEffect(() => {
     if (windowGlobal) {
-      windowGlobal.addEventListener('resize', handle);
+      windowGlobal.addEventListener('resize', handle, { passive: true });
     }
     return () => {
       if (windowGlobal) {
