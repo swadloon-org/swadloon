@@ -31,7 +31,7 @@ export function getCSSEffects(options: Effects): Effects<string> {
 }
 
 /**
- * Returns a CSS BoxShadow string with HSL color.
+ * Returns one or more CSS BoxShadow as string with HSL color.
  */
 export function getCSSBoxShadow(options: BoxShadow): string {
   return [
@@ -50,7 +50,9 @@ export function getCSSBoxShadow(options: BoxShadow): string {
             a: 20,
           }
     ),
-  ].join(' ');
+  ]
+    .filter((part) => !!part.length)
+    .join(' ');
 }
 
 /**

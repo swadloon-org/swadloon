@@ -1,13 +1,12 @@
 import { fireEvent } from '@testing-library/dom';
 import React from 'react';
 import { renderTest } from '../../utilities/test-render';
-import { Primitive } from '../primitive';
 import { TestComponent } from './test-component';
 import { TestFormComponent } from './test-form-component';
 
-describe(`the ${Primitive.displayName} component`, () => {
+describe(`the Primitive component`, () => {
   it('should have a display name', () => {
-    expect(TestComponent.displayName).toBe('TestComponent');
+    expect((TestComponent as React.NamedExoticComponent).displayName).toBe('TestComponent');
   });
 
   const testComponentRender = renderTest(

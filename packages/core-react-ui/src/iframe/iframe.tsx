@@ -50,6 +50,9 @@ const IFrameFn: React.FC<Props> = React.memo(
 
     const [isVisible, setIsVisible] = useState(false);
 
+    /**
+     * Imperatively set the iframe height depending on the iframe body element
+     */
     const setIframeHeight = useCallback(
       function setIframeHeight() {
         if (!(iframeElement && iframeDocument && isVisible)) {
@@ -71,10 +74,15 @@ const IFrameFn: React.FC<Props> = React.memo(
         return;
       }
 
+      if (isSsrIframe) {
+        return;
+      }
+
       window.requestIdleCallback(() => {
         setIframeHeight();
       });
     }, [
+      isSsrIframe,
       setIframeHeight,
       viewport,
       isVisible,
@@ -131,6 +139,13 @@ const IFrameFn: React.FC<Props> = React.memo(
       }
     }, [setIframeHeight, isSsrIframe, iframeLinkElements, iframeLinkNodes]);
 
+    /**
+     * Handle iframe onload event
+     */
+    function handleOnLoad() {
+      setIframeHeight();
+    }
+
     const classNames = getMergedClassname([className, styles.iframe]);
 
     return (
@@ -141,6 +156,7 @@ const IFrameFn: React.FC<Props> = React.memo(
         ref={iframeRef}
         width={`100%`}
         sandbox="allow-same-origin"
+        onLoad={handleOnLoad}
         {...props}
       >
         <IFrameHead

@@ -21,7 +21,7 @@ import SwitchesIconsCode from '!!raw-loader!../../src/code/switches-icons.code';
 
 ## States
 
-<ThemeWrapper autoViewport={false}>
+<ThemeWrapper viewportControl={false}>
   <Switches />
 </ThemeWrapper>
 
@@ -43,7 +43,7 @@ added using the `aria-label` prop.
 <!-- prettier-ignore -->
 <ThemeWrapper 
   displayControls={true}
-  autoViewport={false}
+  viewportControl={false}
   filename={'buttons.code.tsx'} 
   code={ButtonsCode}>
   <Switches />
@@ -52,7 +52,7 @@ added using the `aria-label` prop.
 <!-- prettier-ignore -->
 <ThemeWrapper 
   displayControls={true}
-  autoViewport={false}
+  viewportControl={false}
   filename={'buttons.code.tsx'} 
   code={ButtonsCode}>
   <SwitchesIcons />

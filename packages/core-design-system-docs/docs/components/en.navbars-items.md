@@ -21,15 +21,18 @@ import NavbarLinkExternalItemsCode from '!!raw-loader!../../src/code/navbar-link
 
 ## Overview
 
-Navbar item components render logos, links, group of links and other elements in
-Navbar components.
+Navbar item components render logos, links, group of links like menus and other
+elements in Navbar components.
 
 <!-- prettier-ignore -->
-<ThemeWrapper autoViewport={false}>
+<ThemeWrapper viewportControl={false}>
   <AllNavbarLinkItems />
 </ThemeWrapper>
 
 ## Link
+
+`<NavbarLinkItem/>` renders a link to an internal page (relative url) with a
+label and a border. It uses the primary color to indicate that a link is active.
 
 <!-- prettier-ignore -->
 <ThemeWrapper 
@@ -38,9 +41,6 @@ Navbar components.
   displayControls={true}>
   <NavbarLinkItems />
 </ThemeWrapper>
-
-`<NavbarLinkItem/>` renders a link to an internal page (relative url) with a
-label and a border. It uses the primary color to indicate that a link is active.
 
 ### Features
 
@@ -64,6 +64,9 @@ label and a border. It uses the primary color to indicate that a link is active.
 
 ## External Link
 
+The `<NavbarExternalLinkItem/>` component has similar features as the
+`<NavbarLinkItem/>` but for external links.
+
 <!-- prettier-ignore -->
 <ThemeWrapper 
   filename={'navbar-link-external-items.code.tsx'} 
@@ -71,8 +74,6 @@ label and a border. It uses the primary color to indicate that a link is active.
   displayControls={true}>
   <NavbarLinkExternalItems />
 </ThemeWrapper>
-
-Same features as the `<NavbarLinkItem/>` but for external links
 
 ### Features
 
@@ -83,14 +84,34 @@ Same features as the `<NavbarLinkItem/>` but for external links
 
 - Focus outline
 
+---
+
 ## Button
+
+---
 
 ## Toggle Button
 
+---
+
 ## Info
+
+---
 
 ## Logo
 
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  filename={'navbar-link-external-items.code.tsx'} 
+  code={NavbarLinkExternalItemsCode}
+  displayControls={true}>
+  <NavbarLinkExternalItems />
+</ThemeWrapper>
+
 ## Search
 
+---
+
 ## Separator
+
+---

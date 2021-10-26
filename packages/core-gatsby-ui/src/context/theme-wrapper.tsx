@@ -41,11 +41,7 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    * Activate knobs and controls
    */
   displayControls?: boolean;
-  /**
-   * Sets the viewport automatically, false means it will use the available width.
-   * @default true
-   */
-  autoViewport?: boolean;
+
   /**
    * Display mode
    */
@@ -59,7 +55,13 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    */
   code?: string;
   /**
-   * Forces the viewport
+   * Sets the viewport automatically and enable viewport selection
+   * 'false' means it will use the available width.
+   * @default false
+   */
+  viewportControl?: boolean;
+  /**
+   * Forces the viewport to a specific value
    */
   viewport?: VIEWPORT;
 };
@@ -80,7 +82,7 @@ const ThemeWrapperFn = React.memo(
     reversed,
     filename,
     code,
-    autoViewport = true,
+    viewportControl = false,
     viewport,
     ...props
   }: Props) => {
@@ -88,7 +90,7 @@ const ThemeWrapperFn = React.memo(
     const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
     const { viewport: currentViewport } = useViewportBreakpoint();
     const [selectedViewport, setSelectedViewport] = useState<VIEWPORT | undefined>(
-      autoViewport ? (viewport ? viewport : currentViewport) : undefined
+      viewportControl ? (viewport ? viewport : currentViewport) : VIEWPORT.mobile
     );
     const { cssTheme } = useTreatTheme();
 
@@ -177,7 +179,7 @@ const ThemeWrapperFn = React.memo(
                   <option value={'default'}>Default</option>
                 </InputSelect>
 
-                {autoViewport ? (
+                {viewportControl ? (
                   <InputSelect
                     onChange={handleViewportChange}
                     style={{ minWidth: 170 }}

@@ -6,11 +6,27 @@ import { AsTypes, PrimitiveProps } from './primitive.props';
 
 const NAME = 'Primitive';
 
-// augment React's forwardRef to accept generic
+/**
+ * Augment React's forwardRef to accept generic argument
+ */
 declare module 'react' {
+  /**
+   * Forwarded Component that accepts generic props
+   *
+   * Note: It is not possible to have an interface / fn that stays generic while having props like `displayName`
+   *
+   * Workaround: `(as React.NamedExoticComponent)`
+   */
+  type GenericForwardedComponent<T, P = {}> = (
+    props: P & React.RefAttributes<T>
+  ) => React.ReactElement | null;
+
+  /**
+   * Augmentation of the forwardRef function
+   */
   function forwardRef<T, P = {}>(
     render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
-  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
+  ): GenericForwardedComponent<T, P>;
 }
 
 type Props<As extends AsTypes = 'div'> = PrimitiveProps<As> & { variant?: Variant | null };
@@ -54,6 +70,6 @@ function PrimitiveFn<As extends AsTypes = 'div', ElementRef extends Element = an
   return React.createElement(as || 'div', mergedProps);
 }
 
-PrimitiveFn.displayName = NAME;
+(PrimitiveFn as React.NamedExoticComponent).displayName = NAME;
 
 export const Primitive = React.forwardRef(PrimitiveFn);
