@@ -1,4 +1,4 @@
-import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
+import { ICON, LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
 import { IconComp, Label, Primitive, usePreventPinchZoom } from '@newrade/core-react-ui';
 import React, { useRef } from 'react';
 import { NavbarLinkProps } from './navbar-item.props';
@@ -17,8 +17,8 @@ export const NavbarLinkItem: React.FC<Props> = ({
   as = 'a',
   AsElement,
   variant,
-  variantIcon,
-  variantLevel,
+  icon,
+  size = NavbarItemSize.medium,
   SVGLogo,
   ...props
 }) => {
@@ -34,11 +34,12 @@ export const NavbarLinkItem: React.FC<Props> = ({
   const classNames = [
     styles.base,
     styles.hover,
-    styles.medium,
+    size && size === NavbarItemSize.medium ? styles.medium : styles.small,
     linkIsExternal && styles.external,
     active ? styles.active : styles.rest,
     disabled && styles.disabled,
   ];
+  const labelSize = size && size === NavbarItemSize.medium ? LABEL_SIZE.medium : LABEL_SIZE.small;
 
   /**
    *
@@ -73,18 +74,18 @@ export const NavbarLinkItem: React.FC<Props> = ({
       target={linkIsExternal ? '_blank' : undefined}
       role={AsElement || as !== 'a' ? 'link' : ''}
       tabIndex={0}
-      variant={variantLevel}
+      variant={variant}
       {...props}
     >
       {RenderedLogo ? null : (
-        <Label style={{ color: 'inherit' }} variant={LABEL_SIZE.medium}>
+        <Label style={{ color: 'inherit' }} variant={labelSize}>
           {children}
         </Label>
       )}
 
       {RenderedLogo}
 
-      {variantIcon ? <IconComp name={ICON.OPEN} className={styles.icon} /> : null}
+      {icon ? <IconComp name={ICON.OPEN} className={styles.icon} /> : null}
     </Primitive>
   );
 };

@@ -42,8 +42,7 @@ the main sentence or key tagline. While we could use the `<Heading/>` component,
 we decided to separate those larger titles to it's own `<Title/>` component.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
+<ThemeWrapper>
   <Title style={{textAlign: 'center'}}>Big Statement</Title>
   <Heading style={{textAlign: 'center'}}>Subtitle</Heading>
 </ThemeWrapper>
@@ -52,7 +51,7 @@ This allows us to have specific font sizes and styles for both headings and
 their larger siblings that we call titles.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '24px 16px'}}> 
+<ThemeWrapper> 
   <Titles/>
 </ThemeWrapper>
 

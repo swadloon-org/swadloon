@@ -1,13 +1,14 @@
-import { Animation, Animations, Colors, DesignSystem, Effects } from '@newrade/core-design-system';
+import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
-import { CSSSizingV2 } from '..';
+import { CSSSizingV2, CSSTypography } from '..';
 import { CSSLayoutV2 } from '../design-system/css-layout';
-import { defaultCSSColors } from './default-css-colors';
 import { defaultCSSButtons } from './default-css-buttons';
+import { defaultCSSColors } from './default-css-colors';
+import { defaultCSSEffects } from './default-css-effects';
 import { defaultCSSLayout } from './default-css-layout';
 import { defaultCSSLayoutV2 } from './default-css-layout-v2';
 import { defaultCSSSizing } from './default-css-sizing';
-import { defaultCSSEffects } from './default-css-effects';
+import { defaultCSSTypography } from './default-css-typography';
 
 /**
  * Color
@@ -35,6 +36,8 @@ export const sizingCSS = defaultCSSSizing;
 /**
  * Typography
  */
+export const typographyVars = createThemeContract<CSSTypography>(defaultCSSTypography);
+export const typographyCSS = defaultCSSTypography;
 
 /**
  * Layout
@@ -64,4 +67,5 @@ createGlobalTheme(':root', effectsVars, defaultCSSEffects);
 createGlobalTheme(':root', sizingVars, defaultCSSSizing);
 // @ts-expect-error
 createGlobalTheme(':root', layoutVars, defaultCSSLayout);
+// createGlobalTheme(':root', typographyVars, defaultCSSTypography);
 createGlobalTheme(':root', buttonsVars, defaultCSSButtons);

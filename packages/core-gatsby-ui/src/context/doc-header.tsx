@@ -1,15 +1,7 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
-import {
-  Badge,
-  Cluster,
-  Heading,
-  Hr,
-  Paragraph,
-  Stack,
-  Tag,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Badge, Cluster, Heading, Hr, Paragraph, Stack, Tag } from '@newrade/core-react-ui';
+import { sizingVars } from '@newrade/core-react-ui/theme';
 import React from 'react';
 import { useI18next } from '../i18next/use-i18next.hook';
 
@@ -23,7 +15,6 @@ type Props = {
  * Insert document heading, tags and other frontmatter metadata in .md document
  */
 export const DocHeader = ({ props }: Props) => {
-  const { cssTheme } = useTreatTheme();
   const { t } = useI18next();
 
   const status = props?.data?.file?.childMdx?.frontmatter?.status;
@@ -40,7 +31,7 @@ export const DocHeader = ({ props }: Props) => {
   const renderComponentInfos = componentVersion || componentStatus || componentTests;
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x4, '24px', '24px']}>
+    <Stack gap={[sizingVars.var.x4, '24px', '24px']}>
       {/* {subject ? (
         <Label
           variant={LABEL_SIZE.small}
@@ -58,7 +49,7 @@ export const DocHeader = ({ props }: Props) => {
       ) : null}
 
       {renderTags ? (
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
+        <Cluster justifyContent={['flex-start']} gap={[sizingVars.var.x1]} wrap={true}>
           {status ? <Tag variant={Variant.secondary}>{`${status.toUpperCase()}`}</Tag> : null}
 
           {tags?.map((tag, index) => (
@@ -78,8 +69,8 @@ export const DocHeader = ({ props }: Props) => {
       <Hr />
 
       {renderComponentInfos ? (
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Cluster wrap={true} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]}>
+        <Stack gap={[sizingVars.var.x3]}>
+          <Cluster wrap={true} justifyContent={['flex-start']} gap={[sizingVars.var.x1]}>
             {componentVersion ? <Badge name="version" status={componentVersion}></Badge> : null}
 
             {componentStatus ? (

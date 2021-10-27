@@ -88,6 +88,11 @@ export const medium = style({
   height: layoutVars.var.navbarHeight,
 });
 
+export const small = style({
+  padding: `0 16px`,
+  height: layoutVars.var.navbarHeight,
+});
+
 /**
  *
  * Icons
@@ -95,6 +100,8 @@ export const medium = style({
  */
 
 export const icon = style({
+  width: '1em',
+  height: '1em',
   marginLeft: sizingVars.var.x0,
   marginBottom: `2px`,
 });

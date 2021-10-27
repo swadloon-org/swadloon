@@ -120,10 +120,16 @@ jobs:
           alias-domains: |
             ${{ env.APP_HOST }}
 
+      #
+      # @see https://www.foo.software/docs/lighthouse-check-github-action/intro
+      # @see https://www.foo.software/docs/lighthouse-check-github-action/configuration#githubaccesstoken
+      #
       - name: Lighthouse Check
+        if: ${{ env.APP_CI_DEPLOY && matrix.os == 'ubuntu-latest' }}
         uses: foo-software/lighthouse-check-action@v5.0.0
         with:
           urls: ${{ steps.deploy.outputs.preview-url }}
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
 
 
 

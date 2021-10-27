@@ -1,10 +1,11 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
-import capsize, { CapsizeStyles, getCapHeight } from 'capsize';
+import capsize, { CapsizeStyles, CapsizeStylesAsType, FontMetrics, getCapHeight } from 'capsize';
 import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
+import { getCSSFont, getCSSFonts } from './font.utilities';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
 /**
@@ -22,7 +23,7 @@ export function createCSSTextStyle({
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
   return {
-    fontWeight,
+    fontWeight: fontWeight?.toString() || `400`,
     fontStyle,
     letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
     textTransform,
@@ -53,12 +54,6 @@ export function createCSSCapsizeTextStyle({
   }
   const { fontMetrics } = font[0];
 
-  const capsizePx = capsize(
-    fontSize
-      ? ({ fontSize: fontSize, lineGap: lineGap, fontMetrics } as any)
-      : { capHeight: compatibleCapHeight, lineGap, fontMetrics }
-  );
-
   // when fontSize is used instead of capHeight, we get
   // the cap height based on the font size and metrics
   const capHeightNumber = capHeight
@@ -78,16 +73,45 @@ export function createCSSCapsizeTextStyle({
       textTransform,
       textDecoration,
     }),
-    font,
+    font: getCSSFonts(font),
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontSize,
-    capHeight: capHeightNumber,
-    lineGap,
-    capsize: capsizePx,
+    fontSize: fontSize?.toString() || '',
+    capHeight: capHeightNumber?.toString() || '',
+    lineGap: lineGap?.toString() || '',
+    capsize: getCapsizeStyles({ fontSize, lineGap, fontMetrics, capHeight: compatibleCapHeight }),
   };
 }
 
 type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTextStyle;
+
+/**
+ * Converts capsize styles from px to rem.
+ */
+function getCapsizeStyles({
+  capHeight,
+  fontSize,
+  lineGap,
+  fontMetrics,
+}: {
+  capHeight?: number;
+  fontSize?: number;
+  lineGap?: number;
+  fontMetrics: FontMetrics;
+}) {
+  const capsizePx = capsize(
+    // if font size is provided, use it to compute capsize values
+    fontSize
+      ? ({ fontSize: fontSize, lineGap, fontMetrics } as any)
+      : { capHeight, lineGap, fontMetrics }
+  );
+
+  const convertedCapsize: CapsizeStylesAsType<string> = {
+    ...capsizePx,
+    '::before': { ...capsizePx['::before'], height: capsizePx['::before'].height?.toString() },
+    '::after': { ...capsizePx['::after'], height: capsizePx['::after'].height?.toString() },
+  };
+  return convertedCapsize;
+}
 
 /**
  * Converts capsize styles from px to rem.
@@ -190,7 +214,7 @@ export function getCSSFontTextStyles(
     return {};
   }
   return {
-    fontWeight: textStyle.fontWeight as number,
+    fontWeight: textStyle.fontWeight as Property.FontWeight, // we need string to satisfy vanilla extract
     textTransform: textStyle.textTransform as Property.TextTransform,
     fontFamily: textStyle.fontFamily as string,
     fontStyle: textStyle.fontStyle as string,

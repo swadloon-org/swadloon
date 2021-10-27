@@ -65,7 +65,9 @@ export enum TEXT_STYLE {
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in TYPOGRAPHIC_STYLE]: Font[] };
+export type Fonts<Override extends undefined | string = undefined> = {
+  [key in TYPOGRAPHIC_STYLE]: Override extends string ? string : Font[];
+};
 
 /**
  * TODO
@@ -99,11 +101,11 @@ export type TextVariantStyles<Override extends undefined | string> = {
   [key in TEXT_STYLE]?: TextStyle<Override>;
 };
 
-export interface Typography<Override extends undefined | string = undefined> {
+export type Typography<Override extends undefined | string = undefined> = {
   /**
    * Available fonts in the design system.
    */
-  fonts: Fonts;
+  fonts: Fonts<Override>;
 
   /**
    *
@@ -136,4 +138,4 @@ export interface Typography<Override extends undefined | string = undefined> {
     [key in VIEWPORT]: Labels<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
-}
+};

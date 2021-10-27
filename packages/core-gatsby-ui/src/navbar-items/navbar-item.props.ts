@@ -1,6 +1,5 @@
-import { LinkProps } from '@newrade/core-design-system';
+import { NavbarItemProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
-import { LinkAPI } from '@newrade/core-website-api';
 import { AnchorHTMLAttributes } from 'react';
 
 export type NavbarHTMLElements = 'a' | 'div';
@@ -18,5 +17,5 @@ export type NavbarItemStateProps = {
 
 export type NavbarLinkProps = PrimitiveProps<'a'> &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> &
+  NavbarItemProps &
   NavbarItemStateProps;

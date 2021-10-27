@@ -14,6 +14,8 @@ import { NavbarLinkItems } from '../../src/code/navbar-link-items.code';
 import NavbarLinkItemsCode from '!!raw-loader!../../src/code/navbar-link-items.code';
 import { NavbarLinkExternalItems } from '../../src/code/navbar-link-external-items.code';
 import NavbarLinkExternalItemsCode from '!!raw-loader!../../src/code/navbar-link-external-items.code';
+import { NavbarLinkLogoItems } from '../../src/code/navbar-logo-link-items.code';
+import NavbarLinkLogoItemsCode from '!!raw-loader!../../src/code/navbar-logo-link-items.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -102,10 +104,10 @@ The `<NavbarExternalLinkItem/>` component has similar features as the
 
 <!-- prettier-ignore -->
 <ThemeWrapper 
-  filename={'navbar-link-external-items.code.tsx'} 
-  code={NavbarLinkExternalItemsCode}
+  filename={'navbar-logo-link-items.code.tsx'} 
+  code={NavbarLinkLogoItemsCode}
   displayControls={true}>
-  <NavbarLinkExternalItems />
+  <NavbarLinkLogoItems />
 </ThemeWrapper>
 
 ## Search

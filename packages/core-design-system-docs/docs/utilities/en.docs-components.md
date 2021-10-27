@@ -1,7 +1,7 @@
 ---
 title: Docs Components
 tags:
-  - tools
+  - utilities
 ---
 
 <!-- CODE IMPORTS -->

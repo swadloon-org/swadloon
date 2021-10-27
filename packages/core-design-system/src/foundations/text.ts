@@ -1,4 +1,4 @@
-import { CapsizeStyles } from 'capsize';
+import { CapsizeStylesAsType } from 'capsize';
 import { Color } from '../primitives/color';
 import { FontWeightType, LetterSpacingType, TextDecorationType, TextTransformType } from '../types';
 import { Font } from './font';
@@ -33,33 +33,76 @@ export type TextDecoration<ColorType = Color> = {
 };
 
 /**
+ * Augment capsize to fix a typing issue with interface vs type
+ */
+declare module 'capsize' {
+  export type CapsizeStylesAsType<Override extends undefined | string = undefined> = {
+    fontSize: string;
+    lineHeight: string;
+    padding: string;
+    '::before': {
+      content: string;
+      marginTop: string;
+      display: string;
+      height: Override extends string ? string : number;
+    };
+    '::after': {
+      content: string;
+      marginBottom: string;
+      display: string;
+      height: Override extends string ? string : number;
+    };
+  };
+}
+
+/**
  * @see https://seek-oss.github.io/capsize/
  */
 export type CapsizeTextStyle<Override extends undefined | string = undefined> = {
   /**
    * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
    */
-  capHeight?: number;
+  capHeight?: Override extends string ? string : number;
   /**
    * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
    */
-  fontSize?: number;
+  fontSize?: Override extends string ? string : number;
   /**
    * Desired line gap in pixels.
-   * @see https://seek-oss.github.io/capsize/
    */
-  lineGap: number;
+  lineGap: Override extends string ? string : number;
   /**
-   * Cap
+   * Capsize properties (only for CSS)
    */
-  capsize?: Override extends string | undefined ? CapsizeStyles : undefined;
+  capsize?: CapsizeStylesAsType<Override>;
+};
+
+/**
+ * @see https://seek-oss.github.io/capsize/
+ *
+ * @version
+ *  - v2: does not contain the CSS `capsize` properties (instead they will be set in .css.ts files)
+ */
+export type CapsizeTextStyleV2<Override extends undefined | string = undefined> = {
+  /**
+   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
+   */
+  capHeight?: Override extends string ? string : number;
+  /**
+   * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
+   */
+  fontSize?: Override extends string ? string : number;
+  /**
+   * Desired line gap in pixels.
+   */
+  lineGap: Override extends string ? string : number;
 };
 
 export type TextStyle<Override extends undefined | string = undefined> = {
   /**
    * Array of font object that contains information about the typeface.
    */
-  font?: Font[];
+  font?: Override extends string ? string : Font[];
   /**
    * Font family to use.
    *

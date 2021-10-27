@@ -20,8 +20,7 @@ export const TableHeader: React.FC<Props> = React.memo(({ className, ...props })
   const type = 'thead';
 
   return React.createElement(type, {
-    className: `${className || ''} ${styles.thead}
-    }`,
+    className: `${className || ''} ${styles.thead}`,
     ...props,
   });
 });

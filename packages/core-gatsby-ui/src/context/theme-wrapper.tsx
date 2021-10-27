@@ -125,7 +125,7 @@ const ThemeWrapperFn = React.memo(
       setSelectedViewport(value);
     }
 
-    const [activeTabId, setActiveTabId] = useState<string>('example');
+    const [activeTabId, setActiveTabId] = useState<string>('design');
 
     function handleSelectTab(event: React.MouseEvent<HTMLDivElement>) {
       const value = event.currentTarget.id;
@@ -148,8 +148,8 @@ const ThemeWrapperFn = React.memo(
         <Tabs>
           {code ? (
             <TabList>
-              <Tab id={'example'} selected={activeTabId === 'example'} onClick={handleSelectTab}>
-                Example
+              <Tab id={'design'} selected={activeTabId === 'design'} onClick={handleSelectTab}>
+                Design
               </Tab>
 
               <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
@@ -158,7 +158,7 @@ const ThemeWrapperFn = React.memo(
             </TabList>
           ) : null}
 
-          <TabContent aria-labelledby={'example'} hidden={activeTabId !== 'example'}>
+          <TabContent aria-labelledby={'design'} hidden={activeTabId !== 'design'}>
             {displayControls ? (
               <div className={styles.header}>
                 <InputSelect

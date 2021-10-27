@@ -1,6 +1,6 @@
 import { FontMetrics } from 'capsize';
 
-export interface Font {
+export type Font = {
   /**
    * Name of the font or typeface
    * @example 'Helvetica'
@@ -13,4 +13,4 @@ export interface Font {
    * @see https://seek-oss.github.io/capsize/
    */
   fontMetrics: FontMetrics;
-}
+};
