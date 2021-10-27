@@ -21,14 +21,7 @@ export const NavbarLinkItems: React.FC<Props> = (props) => {
         <NavbarLinkItem active={activeLink === 0} onClick={handleClick(0)}></NavbarLinkItem>
         <NavbarLinkItem active={activeLink === 1} onClick={handleClick(1)}></NavbarLinkItem>
         <NavbarLinkItem active={activeLink === 2} onClick={handleClick(2)}></NavbarLinkItem>
-        <NavbarLinkItem
-          href={isSSR ? '/' : window.location.pathname}
-          active={true}
-          onClick={handleClick(3)}
-        >
-          Active Link with href
-        </NavbarLinkItem>
-        <NavbarLinkItem></NavbarLinkItem>
+        <NavbarLinkItem active={false} disabled={true}></NavbarLinkItem>
       </Cluster>
     </Stack>
   );

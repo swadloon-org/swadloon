@@ -30,6 +30,7 @@
     "@newrade/core-utils": "^2.3.0",
     "@newrade/core-webpack-config": "^2.2.0",
     "@newrade/core-website-api": "^1.4.0",
+    "@vanilla-extract/css": "^1.6.3",
     "gatsby": "^3.14.2",
     "gatsby-plugin-image": "^1.14.1",
     "react-icons": "^4.1.0"

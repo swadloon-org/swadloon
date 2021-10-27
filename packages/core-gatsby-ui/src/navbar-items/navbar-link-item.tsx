@@ -12,13 +12,13 @@ type Props = NavbarLinkProps & {
  * @see https://zedesignsystem.com/design-system/components/navbars-items/
  */
 export const NavbarLinkItem: React.FC<Props> = ({
-  active,
-  disabled,
   as = 'a',
   AsElement,
   variant,
-  icon,
   size = NavbarItemSize.medium,
+  active,
+  disabled,
+  icon,
   SVGLogo,
   ...props
 }) => {
@@ -32,12 +32,13 @@ export const NavbarLinkItem: React.FC<Props> = ({
 
   const linkIsExternal = props.href && /https?:\/\//.test(props.href);
   const classNames = [
-    styles.base,
-    styles.hover,
-    size && size === NavbarItemSize.medium ? styles.medium : styles.small,
-    linkIsExternal && styles.external,
-    active ? styles.active : styles.rest,
-    disabled && styles.disabled,
+    styles.navbarItemLink({
+      variant: 'primary',
+      kind: linkIsExternal ? 'external' : 'normal',
+      size: size === NavbarItemSize.medium ? 'medium' : 'small',
+      state: disabled ? 'disabled' : active ? 'active' : 'rest',
+      hover: disabled ? false : true,
+    }),
   ];
   const labelSize = size && size === NavbarItemSize.medium ? LABEL_SIZE.medium : LABEL_SIZE.small;
 

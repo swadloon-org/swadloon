@@ -23,7 +23,6 @@ import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
-import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarStandard } from '../navbar/navbar-standard';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
@@ -288,7 +287,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
        * Navbars
        *
        */}
-      <NavbarModular navbarMode={'normal'} {...navbarItems}></NavbarModular>
+      {/* <NavbarModular navbarMode={'normal'} {...navbarItems}></NavbarModular> */}
 
       <NavbarStandard
         ref={navbarRef}

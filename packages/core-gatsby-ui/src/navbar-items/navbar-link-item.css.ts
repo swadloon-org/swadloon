@@ -1,97 +1,93 @@
+import { disabledStyle, resetButtonStyle } from '@newrade/core-react-ui';
 import { colorVars, effectsVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
-
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 /**
  *
  * Base
  *
  */
 
-export const base = style({
-  position: 'relative',
+export const navbarItemLink = recipe({
+  base: [
+    resetButtonStyle,
+    {
+      position: 'relative',
 
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
 
-  cursor: 'pointer',
-  appearance: 'none',
-  userSelect: 'none',
-  touchAction: 'none',
-  WebkitAppearance: 'none',
-  whiteSpace: 'nowrap', // don't allow wrapping
-  width: 'fit-content',
-  textDecoration: 'none',
-  textDecorationColor: colorVars.colorIntents.primary,
+      touchAction: 'none',
+      whiteSpace: 'nowrap', // don't allow wrapping
+      width: 'fit-content',
+      textDecoration: 'none',
+      textDecorationColor: 'none',
 
-  borderBottom: `2px solid transparent`,
+      borderBottom: `2px solid transparent`,
 
-  transitionProperty: `border-bottom-color, color, box-shadow`,
-  transitionDuration: '200ms',
-  transitionTimingFunction: 'ease-out',
+      transitionProperty: `border-bottom-color, color, box-shadow`,
+      transitionDuration: '200ms',
+      transitionTimingFunction: 'ease-out',
 
-  selectors: {
-    '&:focus': {
-      outline: 'none',
-      boxShadow: effectsVars.outlineShadows.focus,
+      selectors: {
+        '&:focus': {
+          outline: 'none',
+          boxShadow: effectsVars.outlineShadows.focus,
+        },
+      },
+    },
+  ],
+  variants: {
+    /**
+     * Variants
+     */
+    variant: { primary: {} },
+    /**
+     * Kinds
+     */
+    kind: {
+      normal: {},
+      external: { color: colorVars.colorIntents.primary },
+    },
+    /**
+     * Sizes
+     */
+    size: {
+      small: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
+      medium: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
+    },
+    /**
+     * States
+     */
+    state: {
+      rest: { color: colorVars.colorIntents.primaryText, borderBottomColor: `transparent` },
+      active: {
+        color: colorVars.colorIntents.primary,
+        borderBottomColor: colorVars.colorIntents.primary,
+      },
+      disabled: [
+        disabledStyle,
+        {
+          ':focus': {
+            outline: 'none',
+            boxShadow: 'none',
+          },
+        },
+      ],
+    },
+    hover: {
+      true: {
+        ':hover': {
+          color: colorVars.colorIntents.primary,
+        },
+      },
+      false: {},
     },
   },
 });
 
-/**
- *
- * States
- *
- */
-
-export const rest = style({
-  color: colorVars.colorIntents.primaryText,
-  borderBottomColor: `transparent`,
-});
-export const active = style({
-  color: colorVars.colorIntents.primary,
-  borderBottomColor: colorVars.colorIntents.primary,
-});
-export const hover = style({
-  ':hover': {
-    color: colorVars.colorIntents.primary,
-  },
-});
-export const disabled = style({});
-
-/**
- *
- * Kinds
- *
- */
-
-export const external = style({
-  color: colorVars.colorIntents.primary,
-});
-
-/**
- *
- * Variants
- *
- */
-
-export const primary = style({});
-
-/**
- *
- * Sizes
- *
- */
-
-export const medium = style({
-  padding: `0 16px`,
-  height: layoutVars.var.navbarHeight,
-});
-
-export const small = style({
-  padding: `0 16px`,
-  height: layoutVars.var.navbarHeight,
-});
+export type NavbarItemLinkVariants = RecipeVariants<typeof navbarItemLink>;
 
 /**
  *

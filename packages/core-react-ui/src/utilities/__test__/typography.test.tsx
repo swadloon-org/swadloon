@@ -31,7 +31,7 @@ describe('colors utilities', () => {
         baseFontSize: defaultBaseFontSize,
         ...textStyle,
       });
-      expect(textStyleCSS.fontSize).toEqual(textStyle.fontSize);
+      expect(textStyleCSS.fontSize).toEqual(textStyle.fontSize?.toString());
     });
   });
 
