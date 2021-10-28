@@ -28,6 +28,12 @@ import { CSSVariables } from '../../src/code/css-variables.code';
 
 <!-- prettier-ignore -->
 <details>
+  <summary>Typography Variables</summary>
+  <CSSVariables vars={typographyVars} preview={'text'}/>
+</details>
+
+<!-- prettier-ignore -->
+<details>
   <summary>Layout Variables</summary>
   <CSSVariables vars={layoutVars} preview={'raw'}/>
 </details>

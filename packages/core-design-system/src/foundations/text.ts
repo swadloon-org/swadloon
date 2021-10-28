@@ -1,4 +1,3 @@
-import { CapsizeStylesAsType } from 'capsize';
 import { Color } from '../primitives/color';
 import { FontWeightType, LetterSpacingType, TextDecorationType, TextTransformType } from '../types';
 import { Font } from './font';
@@ -33,29 +32,6 @@ export type TextDecoration<ColorType = Color> = {
 };
 
 /**
- * Augment capsize to fix a typing issue with interface vs type
- */
-declare module 'capsize' {
-  export type CapsizeStylesAsType<Override extends undefined | string = undefined> = {
-    fontSize: string;
-    lineHeight: string;
-    padding: string;
-    '::before': {
-      content: string;
-      marginTop: string;
-      display: string;
-      height: Override extends string ? string : number;
-    };
-    '::after': {
-      content: string;
-      marginBottom: string;
-      display: string;
-      height: Override extends string ? string : number;
-    };
-  };
-}
-
-/**
  * @see https://seek-oss.github.io/capsize/
  */
 export type CapsizeTextStyle<Override extends undefined | string = undefined> = {
@@ -74,24 +50,42 @@ export type CapsizeTextStyle<Override extends undefined | string = undefined> = 
   /**
    * Capsize properties (only for CSS)
    */
-  capsize?: CapsizeStylesAsType<Override>;
+  capsize?: CapsizeStyles;
+};
+
+type CapsizeStyles = {
+  fontSize: string;
+  lineHeight: string;
+  '::before': {
+    content: string;
+    marginBottom: string;
+    display: string;
+  };
+  '::after': {
+    content: string;
+    marginTop: string;
+    display: string;
+  };
 };
 
 /**
  * @see https://seek-oss.github.io/capsize/
  *
  * @version
- *  - v2: does not contain the CSS `capsize` properties (instead they will be set in .css.ts files)
+ *  - v2: since we are using vanilla-extract to generate css variables from our tokens,
+ *        we remove the CSS `capsize` properties (instead they will be set in .css.ts files)
  */
 export type CapsizeTextStyleV2<Override extends undefined | string = undefined> = {
-  /**
-   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
-   */
-  capHeight?: Override extends string ? string : number;
   /**
    * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
    */
   fontSize?: Override extends string ? string : number;
+  /**
+   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
+   *
+   * if `fontSize` is set, then capHeight will be computed and set afterwards
+   */
+  capHeight?: Override extends string ? string : number;
   /**
    * Desired line gap in pixels.
    */
@@ -104,7 +98,7 @@ export type TextStyle<Override extends undefined | string = undefined> = {
    */
   font?: Override extends string ? string : Font[];
   /**
-   * Font family to use.
+   * Font family to use, must match the exact name used in the `fontFamily` property
    *
    * @example 'Montserrat-Bold'
    * @default font.name

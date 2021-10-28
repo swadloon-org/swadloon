@@ -1,4 +1,4 @@
 import { defaultTypography } from '../default-theme';
-import { getCSSTypography } from '../utilities/typography.utilities';
+import { getCSSTypographyV2 } from '../utilities/typography-v2.utilities';
 
-export const defaultCSSTypography = getCSSTypography({ ...defaultTypography, baseFontSize: 16 });
+export const defaultCSSTypography = getCSSTypographyV2({ ...defaultTypography, baseFontSize: 16 });

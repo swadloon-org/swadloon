@@ -1,4 +1,10 @@
 /**
+ *
+ * General purposes utility functions
+ *
+ */
+
+/**
  * Wrapper for Objects.keys
  */
 export function keys<T extends object>(object: T) {

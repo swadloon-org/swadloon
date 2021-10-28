@@ -27,7 +27,9 @@
     "dev": "yarn clean && yarn preconstruct dev"
   },
   "dependencies": {
-    "capsize": "^1",
+    "@capsizecss/core": "^3.0.0",
+    "@capsizecss/metrics": "^0.1.0",
+    "@capsizecss/vanilla-extract": "^1.0.0",
     "framer-motion": "^4"
   }
 }

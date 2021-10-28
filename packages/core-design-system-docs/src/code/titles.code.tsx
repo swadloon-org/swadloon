@@ -1,4 +1,4 @@
-import { TITLE } from '@newrade/core-design-system';
+import { TITLE, Variant } from '@newrade/core-design-system';
 import { Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import React from 'react';
@@ -11,7 +11,7 @@ export const Titles: React.FC<Props> = (props) => {
   return (
     <Stack gap={[cssTheme.sizing.var.x3]}>
       {keys(TITLE).map((variant, index) => (
-        <Title key={index} variant={TITLE[variant]}></Title>
+        <Title key={index} variant={TITLE[variant]} variantLevel={Variant.primary}></Title>
       ))}
     </Stack>
   );

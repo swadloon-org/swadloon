@@ -1,5 +1,5 @@
 import { Theme } from '@newrade/core-react-ui';
-import capsize from 'capsize';
+import capsize from '@capsizecss/core';
 import { style } from 'treat';
 
 export const styles = {

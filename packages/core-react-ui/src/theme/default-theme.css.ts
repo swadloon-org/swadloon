@@ -1,6 +1,6 @@
 import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
-import { CSSSizingV2, CSSTypography } from '..';
+import { CSSSizingV2, CSSTypographyV2 } from '..';
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
@@ -36,7 +36,7 @@ export const sizingCSS = defaultCSSSizing;
 /**
  * Typography
  */
-export const typographyVars = createThemeContract<CSSTypography>(defaultCSSTypography);
+export const typographyVars = createThemeContract<CSSTypographyV2>(defaultCSSTypography);
 export const typographyCSS = defaultCSSTypography;
 
 /**
@@ -57,7 +57,7 @@ type Buttons = Pick<DesignSystem<string>['components'], 'buttons'>;
 export const buttonsVars = createThemeContract<Buttons>(defaultCSSButtons);
 
 /**
- * Themes
+ * Creating Default Global Themes
  */
 // @ts-expect-error
 createGlobalTheme(':root', colorVars, defaultCSSColors);
@@ -67,5 +67,6 @@ createGlobalTheme(':root', effectsVars, defaultCSSEffects);
 createGlobalTheme(':root', sizingVars, defaultCSSSizing);
 // @ts-expect-error
 createGlobalTheme(':root', layoutVars, defaultCSSLayout);
-// createGlobalTheme(':root', typographyVars, defaultCSSTypography);
+// @ts-expect-error
+createGlobalTheme(':root', typographyVars, defaultCSSTypography);
 createGlobalTheme(':root', buttonsVars, defaultCSSButtons);

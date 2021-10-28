@@ -1,4 +1,4 @@
-import { FontMetrics } from 'capsize';
+import { FontMetrics } from '@capsizecss/core';
 
 export type Font = {
   /**

@@ -2687,6 +2687,23 @@
   resolved "https://registry.npmjs.org/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz"
   integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
+"@capsizecss/core@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-3.0.0.tgz#81b2fb222bd9716d211e4ddd0dc9cc42f71b4f37"
+  integrity sha512-tJNEWMmhHcU5z6ITAiVNN9z+PCTylybVIJqgX7Ts4zN66fe/W2Fe5UWJCCZIP/5uutsl5fYOaVVHZIjsuTVhBQ==
+
+"@capsizecss/metrics@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-0.1.0.tgz#b80b41d591f223f45745864bdcec5644925c02aa"
+  integrity sha512-Bxla2qjS1zwjM5yJIromRve+Ed02NLLsU0lpBjjI6R3+9Cxa2+P9T2EIjPdiPqhNWOiv8xv0CTinWEOKPn8KIA==
+
+"@capsizecss/vanilla-extract@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@capsizecss/vanilla-extract/-/vanilla-extract-1.0.0.tgz#da05e7643b77e1ba37ea185026bb87becf546187"
+  integrity sha512-/cY34CgCAmuf6SmpgPXmDJaIdJOaRe37MsoeZIeZme4k0F0HFts+poTxq4m8UtBH7LRxpUkfUHDoRO9OYjjVBg==
+  dependencies:
+    "@capsizecss/core" "^3.0.0"
+
 "@ccalamos/gatsby-source-googlemaps-static@^3.1.1":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@ccalamos/gatsby-source-googlemaps-static/-/gatsby-source-googlemaps-static-3.1.1.tgz#9d9da72107e5fd66cdb1d37c8be38bf1da0a7a75"
@@ -9185,13 +9202,6 @@ capital-case@^1.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
-
-capsize@^1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/capsize/-/capsize-1.1.0.tgz#d70f918b5ecadc2390b2a3b3b672ced639907ed6"
-  integrity sha512-tV0weOXxQ9hsbqewiWfGQBXsGzSN/i/w9IGuH+JVySzGOhscTAzeK3N9ZAM3Kf89bWgYot80Za5fSXKi6ZynvA==
-  dependencies:
-    round-to "^4.1.0"
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -25766,11 +25776,6 @@ root-check@^1.0.0:
   dependencies:
     downgrade-root "^1.0.0"
     sudo-block "^1.1.0"
-
-round-to@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/round-to/-/round-to-4.1.0.tgz#148d768d18b2f127f78e6648cb8b0a5943c416bf"
-  integrity sha512-H/4z+4QdWS82iMZ23+5St302Mv2jJws0hUvEogrD6gC8NN6Z5TalDtbg51owCrVy4V/4c8ePvwVLNtlhEfPo5g==
 
 run-async@^2.0.0, run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.1"

@@ -1,17 +1,16 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
-import capsize, { CapsizeStyles, CapsizeStylesAsType, FontMetrics, getCapHeight } from 'capsize';
-import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
+import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
+import { Property } from 'csstype';
 import { Style } from 'treat';
-import { getCSSFont, getCSSFonts } from './font.utilities';
-import { pxStringToNumber, pxStringToRem } from './utilities';
+import { pxStringToNumber } from './utilities';
 
 /**
- * Create a TextStyle using the Capsize utility.
- * @see https://seek-oss.github.io/capsize/
+ *
+ * Text utility functions.
+ *
  */
+
 type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
@@ -30,87 +29,6 @@ export function createCSSTextStyle({
     textDecoration: getCSSTextDecoration(textDecoration),
     // textDecoration: getCSSTextDecoration(),
   };
-}
-
-export function createCSSCapsizeTextStyle({
-  baseFontSize,
-  font,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  letterSpacing,
-  textTransform,
-  textDecoration,
-  capHeight,
-  fontSize,
-  lineGap,
-}: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
-  const compatibleCapHeight: number | undefined = capHeight;
-  if (!font) {
-    throw new AppError({
-      name: ERROR_TYPE.LIB_ERROR,
-      message: 'a text style requires a font to be set',
-    });
-  }
-  const { fontMetrics } = font[0];
-
-  // when fontSize is used instead of capHeight, we get
-  // the cap height based on the font size and metrics
-  const capHeightNumber = capHeight
-    ? capHeight
-    : fontSize !== undefined && fontSize > 0
-    ? (getCapHeight({ fontSize, fontMetrics }) as number)
-    : 16;
-
-  return {
-    ...createCSSTextStyle({
-      baseFontSize,
-      font,
-      fontFamily,
-      fontWeight,
-      fontStyle,
-      letterSpacing,
-      textTransform,
-      textDecoration,
-    }),
-    font: getCSSFonts(font),
-    fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontSize: fontSize?.toString() || '',
-    capHeight: capHeightNumber?.toString() || '',
-    lineGap: lineGap?.toString() || '',
-    capsize: getCapsizeStyles({ fontSize, lineGap, fontMetrics, capHeight: compatibleCapHeight }),
-  };
-}
-
-type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTextStyle;
-
-/**
- * Converts capsize styles from px to rem.
- */
-function getCapsizeStyles({
-  capHeight,
-  fontSize,
-  lineGap,
-  fontMetrics,
-}: {
-  capHeight?: number;
-  fontSize?: number;
-  lineGap?: number;
-  fontMetrics: FontMetrics;
-}) {
-  const capsizePx = capsize(
-    // if font size is provided, use it to compute capsize values
-    fontSize
-      ? ({ fontSize: fontSize, lineGap, fontMetrics } as any)
-      : { capHeight, lineGap, fontMetrics }
-  );
-
-  const convertedCapsize: CapsizeStylesAsType<string> = {
-    ...capsizePx,
-    '::before': { ...capsizePx['::before'], height: capsizePx['::before'].height?.toString() },
-    '::after': { ...capsizePx['::after'], height: capsizePx['::after'].height?.toString() },
-  };
-  return convertedCapsize;
 }
 
 /**
@@ -137,24 +55,7 @@ export function convertLetterSpacingToPercent({
 }
 
 /**
- * Converts capsize styles from px to rem.
- */
-export function convertCapsizeValuesToRem({
-  baseFontSize,
-  capsizePx,
-}: {
-  baseFontSize: number;
-  capsizePx: CapsizeStyles;
-}): CapsizeStyles {
-  return {
-    ...capsizePx,
-    fontSize: pxStringToRem({ value: capsizePx.fontSize, baseFontSize }),
-    lineHeight: pxStringToRem({ value: capsizePx.lineHeight, baseFontSize }),
-  };
-}
-
-/**
- * Converts capsize styles from px to rem.
+ * Convert px letter spacing value to em units
  */
 export function convertLetterSpacingToEM({
   value,

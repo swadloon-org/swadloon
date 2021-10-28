@@ -1,3 +1,4 @@
+import { CapsizeTextStyleV2 } from '..';
 import { Font } from './font';
 import { VIEWPORT } from './layout';
 import { CapsizeTextStyle, TextStyle } from './text';
@@ -70,31 +71,83 @@ export type Fonts<Override extends undefined | string = undefined> = {
 };
 
 /**
- * TODO
+ *
+ * Text styles V1
+ *
+ */
+
+/**
+ * Config for titles, which are 2 additional larger headings
  */
 export type Titles<Override extends undefined | string = undefined> = {
   [key in TITLE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
- * TODO
+ * Config for headings
  */
 export type Headings<Override extends undefined | string = undefined> = {
   [key in HEADING]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
- * TODO
+ * Config for paragraphs
  */
 export type Paragraphs<Override extends undefined | string = undefined> = {
   [key in PARAGRAPH_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
- * TODO
+ * Config for labels
  */
 export type Labels<Override extends undefined | string = undefined> = {
   [key in LABEL_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
+};
+
+/**
+ *
+ * Text styles V2
+ *
+ */
+
+/**
+ * Config for titles, which are 2 additional larger headings
+ *
+ * @version
+ *  -v2: uses CapsizeTextStyleV2 which removes the computed capsize property
+ */
+export type TitlesV2<Override extends undefined | string = undefined> = {
+  [key in TITLE]: CapsizeTextStyleV2<Override> & TextStyle<Override>;
+};
+
+/**
+ * Config for headings
+ *
+ * @version
+ *  -v2: uses CapsizeTextStyleV2 which removes the computed capsize property
+ */
+export type HeadingsV2<Override extends undefined | string = undefined> = {
+  [key in HEADING]: CapsizeTextStyleV2<Override> & TextStyle<Override>;
+};
+
+/**
+ * Config for paragraphs
+ *
+ * @version
+ *  -v2: uses CapsizeTextStyleV2 which removes the computed capsize property
+ */
+export type ParagraphsV2<Override extends undefined | string = undefined> = {
+  [key in PARAGRAPH_SIZE]: CapsizeTextStyleV2<Override> & TextStyle<Override>;
+};
+
+/**
+ * Config for labels
+ *
+ * @version
+ *  -v2: uses CapsizeTextStyleV2 which removes the computed capsize property
+ */
+export type LabelsV2<Override extends undefined | string = undefined> = {
+  [key in LABEL_SIZE]: CapsizeTextStyleV2<Override> & TextStyle<Override>;
 };
 
 export type TextVariantStyles<Override extends undefined | string> = {
@@ -102,6 +155,49 @@ export type TextVariantStyles<Override extends undefined | string> = {
 };
 
 export type Typography<Override extends undefined | string = undefined> = {
+  /**
+   * Available fonts in the design system.
+   */
+  fonts: Fonts<Override>;
+
+  /**
+   *
+   */
+  titles: {
+    [key in VIEWPORT]: Titles<Override>;
+  } &
+    TextStyle<Override>;
+
+  /**
+   * TODO
+   */
+  headings: {
+    [key in VIEWPORT]: Headings<Override>;
+  } &
+    TextStyle<Override>;
+
+  /**
+   * TODO
+   */
+  paragraphs: {
+    [key in VIEWPORT]: Paragraphs<Override>;
+  } &
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
+
+  /**
+   * TODO
+   */
+  labels: {
+    [key in VIEWPORT]: Labels<Override>;
+  } &
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
+};
+
+/**
+ * @version
+ *  - v2: uses version 2 of
+ */
+export type TypographyV2<Override extends undefined | string = undefined> = {
   /**
    * Available fonts in the design system.
    */

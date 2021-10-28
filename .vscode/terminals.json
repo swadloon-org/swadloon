@@ -15,7 +15,7 @@
       "cwd": ".",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "yarn",
       "execute": false
     },
     {

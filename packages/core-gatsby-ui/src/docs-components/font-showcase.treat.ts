@@ -1,6 +1,6 @@
 import { Theme } from '@newrade/core-react-ui';
 import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
-import capsize from 'capsize';
+import capsize from '@capsizecss/core';
 import { style } from 'treat';
 
 export const styles = {

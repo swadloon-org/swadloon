@@ -11,6 +11,7 @@ are automated.
 - remove `import loadable from '@loadable/component';` for React v18
 - remove `core.getGatsbyPluginLoadableComponents()`
 - remove `gatsby-plugin-loadable-components-ssr`
+- upgrade capsize `from 'capsize'` to `from '@capsizecss/core'`
 
 ## Features
 
