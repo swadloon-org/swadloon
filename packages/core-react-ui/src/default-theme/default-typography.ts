@@ -24,7 +24,7 @@ export const defaultTypography: Typography = {
     monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
   },
   titles: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSerifFonts],
+    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     fontWeight: 700,
     mobile: {
       t1: {

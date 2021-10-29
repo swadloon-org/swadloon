@@ -27,7 +27,6 @@ export function createCSSTextStyle({
     letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
     textTransform,
     textDecoration: getCSSTextDecoration(textDecoration),
-    // textDecoration: getCSSTextDecoration(),
   };
 }
 

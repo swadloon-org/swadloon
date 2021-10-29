@@ -1,4 +1,4 @@
-import { createStyleObject, getCapHeight, FontMetrics } from '@capsizecss/core';
+import { createStyleObject, getCapHeight, FontMetrics, precomputeValues } from '@capsizecss/core';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { createCSSTextStyle } from './text.utilities';
@@ -166,9 +166,7 @@ export function createCSSCapsizeTextStyleV2({
     }),
     font: getCSSFonts(font),
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontSize: fontSize?.toString() || '',
-    capHeight: capHeightNumber?.toString() || '',
-    lineGap: lineGap?.toString() || '',
+    capsize: precomputeValues({ capHeight: capHeightNumber, lineGap, fontMetrics }),
   };
 }
 

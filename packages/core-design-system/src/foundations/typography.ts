@@ -64,17 +64,17 @@ export enum TEXT_STYLE {
 }
 
 /**
+ *
+ * V1
+ *
+ */
+
+/**
  * Available fonts in the design system.
  */
 export type Fonts<Override extends undefined | string = undefined> = {
   [key in TYPOGRAPHIC_STYLE]: Override extends string ? string : Font[];
 };
-
-/**
- *
- * Text styles V1
- *
- */
 
 /**
  * Config for titles, which are 2 additional larger headings
@@ -106,9 +106,19 @@ export type Labels<Override extends undefined | string = undefined> = {
 
 /**
  *
- * Text styles V2
+ * V2
  *
  */
+
+/**
+ * Available fonts in the design system.
+ *
+ * @version
+ *  -v2: intead of having fonts information as an array, the css version will just be a string
+ */
+export type FontsV2<Override extends undefined | string = undefined> = {
+  [key in TYPOGRAPHIC_STYLE]: Override extends string ? string : Font[];
+};
 
 /**
  * Config for titles, which are 2 additional larger headings
@@ -160,33 +170,21 @@ export type Typography<Override extends undefined | string = undefined> = {
    */
   fonts: Fonts<Override>;
 
-  /**
-   *
-   */
   titles: {
     [key in VIEWPORT]: Titles<Override>;
   } &
     TextStyle<Override>;
 
-  /**
-   * TODO
-   */
   headings: {
     [key in VIEWPORT]: Headings<Override>;
   } &
     TextStyle<Override>;
 
-  /**
-   * TODO
-   */
   paragraphs: {
     [key in VIEWPORT]: Paragraphs<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 
-  /**
-   * TODO
-   */
   labels: {
     [key in VIEWPORT]: Labels<Override>;
   } &
@@ -195,43 +193,31 @@ export type Typography<Override extends undefined | string = undefined> = {
 
 /**
  * @version
- *  - v2: uses version 2 of
+ *  - v2: uses version 2 of Fonts, Titles, Headings, Paragraphs, Labels
  */
 export type TypographyV2<Override extends undefined | string = undefined> = {
   /**
    * Available fonts in the design system.
    */
-  fonts: Fonts<Override>;
+  fonts: FontsV2<Override>;
 
-  /**
-   *
-   */
   titles: {
-    [key in VIEWPORT]: Titles<Override>;
+    [key in VIEWPORT]: TitlesV2<Override>;
   } &
     TextStyle<Override>;
 
-  /**
-   * TODO
-   */
   headings: {
-    [key in VIEWPORT]: Headings<Override>;
+    [key in VIEWPORT]: HeadingsV2<Override>;
   } &
     TextStyle<Override>;
 
-  /**
-   * TODO
-   */
   paragraphs: {
-    [key in VIEWPORT]: Paragraphs<Override>;
+    [key in VIEWPORT]: ParagraphsV2<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 
-  /**
-   * TODO
-   */
   labels: {
-    [key in VIEWPORT]: Labels<Override>;
+    [key in VIEWPORT]: LabelsV2<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 };

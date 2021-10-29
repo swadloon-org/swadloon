@@ -49,7 +49,9 @@ The Standard Footer include a complete corporate navigation and branding.
 <ThemeWrapper 
   displayControls={true} 
   filename={'footer-standard.code.tsx'} 
-  code={FootersStandardCode}> 
+  code={FootersStandardCode}
+  viewportControl={'true'}
+  viewportOverflowX={'auto'}> 
   <FootersStandard />
 </ThemeWrapper>
 

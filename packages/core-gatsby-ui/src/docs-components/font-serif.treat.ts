@@ -1,12 +1,12 @@
 import { Theme } from '@newrade/core-react-ui';
 import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
-import capsize from '@capsizecss/core';
+import { createStyleObject } from '@capsizecss/core';
 import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),
   lettersSansSerif: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.serif[0].fontMetrics,
       capHeight: 80,
       lineGap: 10,
@@ -15,7 +15,7 @@ export const styles = {
   })),
   paragraphSerif: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontFamily: cssTheme.typography.fonts.serif[0].name,
+    fontFamily: cssTheme.typography.fonts.serif,
   })),
   letters: style(({ theme, cssTheme }: Theme) => ({
     fontWeight: 400,

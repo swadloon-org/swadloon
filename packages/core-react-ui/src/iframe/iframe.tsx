@@ -6,14 +6,15 @@ import { getMergedClassname } from '../utilities';
 import * as styles from './iframe.css';
 
 type Props = IframeHTMLAttributes<HTMLIFrameElement> & {
-  viewport?: VIEWPORT;
+  bodyWidth?: string;
+  viewport?: VIEWPORT | 'auto';
 };
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
  */
 const IFrameFn: React.FC<Props> = React.memo(
-  ({ children, title, viewport, className, ...props }) => {
+  ({ children, title, bodyWidth, viewport, className, ...props }) => {
     const isSsrIframe = useIsSSR();
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const iframeElement = iframeRef.current;
@@ -36,6 +37,7 @@ const IFrameFn: React.FC<Props> = React.memo(
     if (iframeBody) {
       iframeBody.style.backgroundColor = 'white';
       iframeBody.style.height = 'min-content';
+      iframeBody.style.width = bodyWidth || '';
     }
 
     /**
@@ -107,7 +109,13 @@ const IFrameFn: React.FC<Props> = React.memo(
         window.document.querySelectorAll('link[rel="stylesheet"]') as NodeListOf<HTMLLinkElement>
       );
       const newIFrameLinkNodes = newIFrameLinkElements.map((linkElement, linkElementIndex) => (
-        <link key={linkElementIndex} href={linkElement.href} rel={linkElement.rel}></link>
+        <link
+          key={linkElementIndex}
+          href={linkElement.href}
+          rel={linkElement.rel}
+          type="text/css"
+          as="style"
+        ></link>
       ));
 
       if (!newIFrameLinkElements.length) {
@@ -187,6 +195,7 @@ const IFrameHead = React.memo(
     return iframeHead ? createPortal(iframeLinkElements, iframeHead) : null;
   }
 );
+
 const IFrameBody = React.memo(
   ({ children, iframeBody }: { children: React.ReactNode; iframeBody?: HTMLElement }) =>
     iframeBody ? createPortal(children, iframeBody) : null

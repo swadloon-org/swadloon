@@ -13,6 +13,9 @@ import { createCSSCapsizeTextStyle } from './text-capsize.utilities';
 import { createCSSTextStyle } from './text.utilities';
 import { keys } from './utilities';
 
+/**
+ * Create a typography object which properties that are compatible with CSS
+ */
 export function getCSSTypography({
   baseFontSize,
   fonts,

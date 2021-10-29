@@ -21,6 +21,7 @@ import { Titles } from '../../src/code/titles.code';
 import { Headings } from '../../src/code/headings.code';
 import { Labels } from '../../src/code/labels.code';
 import { Paragraphs } from '../../src/code/paragraphs.code';
+import { lorenipsum, lorenipsumShort } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 
 <!-- END CODE IMPORTS -->
 
@@ -29,7 +30,45 @@ import { Paragraphs } from '../../src/code/paragraphs.code';
 ## Overview
 
 Typography starts by setting a foundation of font families and weights to create
-hierarchy using size, colors and line-height.
+hierarchy using font size, colors and line-height.
+
+## Level Variant
+
+Visual importance of text has 3 levels: primary, secondary and tertiary.
+
+<!-- prettier-ignore -->
+<ThemeWrapper viewport={'auto'}> 
+  <Heading variantLevel={'primary'} variant={'h2'}>Title</Heading>
+  <Label variantLevel={'secondary'} variantStyle={'boldUppercase'}>Subtitle</Label>
+  <Paragraph variantLevel={'primary'}>{lorenipsum}</Paragraph>
+  <Paragraph variantLevel={'tertiary'} variant={'small'}>Published 4h ago</Paragraph>
+</ThemeWrapper>
+
+## Responsive Typography
+
+Our typographic system allows for configurable text styles at each viewport
+(mobile, tablet and desktop).
+
+As exemple, titles (which are semantically the same as headings but with a
+larger font size), have to be significantly smaller on mobile compared to
+desktop.
+
+Below the titles for desktop, tablet and mobile respectively:
+
+<!-- prettier-ignore -->
+<ThemeWrapper viewport={'desktop'}>
+  <Titles/>
+</ThemeWrapper>
+
+<!-- prettier-ignore -->
+<ThemeWrapper viewport={'tablet'}>
+  <Titles/>
+</ThemeWrapper>
+
+<!-- prettier-ignore -->
+<ThemeWrapper viewport={'mobile'}>
+  <Titles/>
+</ThemeWrapper>
 
 ## Titles
 
@@ -37,37 +76,31 @@ Titles have the same semantics as Headings but they have significantly larger.
 In a design system headings (h1-h4) are normally sized for articles or blog
 posts, but, there are other area where larger headings are needed.
 
-For example, on landing pages, it is very common to have a larger font size for
-the main sentence or key tagline. While we could use the `<Heading/>` component,
-we decided to separate those larger titles to it's own `<Title/>` component.
-
-<!-- prettier-ignore -->
-<ThemeWrapper>
-  <Title style={{textAlign: 'center'}}>Big Statement</Title>
-  <Heading style={{textAlign: 'center'}}>Subtitle</Heading>
-</ThemeWrapper>
-
-This allows us to have specific font sizes and styles for both headings and
-their larger siblings that we call titles.
-
 <!-- prettier-ignore -->
 <ThemeWrapper> 
   <Titles/>
 </ThemeWrapper>
 
+For example, on landing pages, it is very common to have a larger font size for
+the main sentence or key tagline. While we could use the `<Heading/>` component,
+we decided to separate those larger titles to it's own `<Title/>` component.
+
+This allows us to have specific font sizes and styles for both headings and
+their larger siblings that we call titles.
+
 ## Headings
 
-Headings (h1-h4)
-
-> The HTML `<h1>`–`<h6>` elements represent six levels of section headings.
-> `<h1>` is the highest section level and `<h6>` is the lowest.
->
-> [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
+Headings (h1-h4) are used to indicate the hierachy of a section.
 
 <!-- prettier-ignore -->
 <ThemeWrapper>
   <Headings/>
 </ThemeWrapper>
+
+> The HTML `<h1>`–`<h6>` elements represent six levels of section headings.
+> `<h1>` is the highest section level and `<h6>` is the lowest.
+>
+> [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
 
 ## Paragraphs
 
@@ -80,15 +113,15 @@ Paragraph text comes in 4 sizes and 3 styles (normal, italic and bold).
 
 ## Labels
 
-Labels are used in forms, inside buttons and all other places where short text
-description are needed.
-
-There are 3 sizes of label and 3 styles (bold, uppercase, bold uppercase).
-
 <!-- prettier-ignore -->
 <ThemeWrapper>
   <Labels/>
 </ThemeWrapper>
+
+Labels are used in forms, inside buttons and all other places where short text
+description are needed.
+
+There are 3 sizes of label and 3 styles (bold, uppercase, bold uppercase).
 
 ## Reversed Color Mode
 

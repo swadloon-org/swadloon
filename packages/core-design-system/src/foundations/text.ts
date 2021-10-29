@@ -1,3 +1,4 @@
+import { ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
 import { Color } from '../primitives/color';
 import { FontWeightType, LetterSpacingType, TextDecorationType, TextTransformType } from '../types';
 import { Font } from './font';
@@ -72,25 +73,33 @@ type CapsizeStyles = {
  * @see https://seek-oss.github.io/capsize/
  *
  * @version
- *  - v2: since we are using vanilla-extract to generate css variables from our tokens,
- *        we remove the CSS `capsize` properties (instead they will be set in .css.ts files)
+ *  - v2: since we are using vanilla-extract to generate css variables from our tokens so we use capsize precomputed values for the
+ *        capsize property
  */
-export type CapsizeTextStyleV2<Override extends undefined | string = undefined> = {
-  /**
-   * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
-   */
-  fontSize?: Override extends string ? string : number;
-  /**
-   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
-   *
-   * if `fontSize` is set, then capHeight will be computed and set afterwards
-   */
-  capHeight?: Override extends string ? string : number;
-  /**
-   * Desired line gap in pixels.
-   */
-  lineGap: Override extends string ? string : number;
-};
+export type CapsizeTextStyleV2<Override extends undefined | string = undefined> =
+  Override extends string
+    ? {
+        /**
+         * Precomputed Capsize properties
+         */
+        capsize: ComputedValues;
+      }
+    : {
+        /**
+         * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
+         */
+        fontSize?: Override extends string ? string : number;
+        /**
+         * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
+         *
+         * if `fontSize` is set, then capHeight will be computed and set afterwards
+         */
+        capHeight?: Override extends string ? string : number;
+        /**
+         * Desired line gap in pixels.
+         */
+        lineGap: Override extends string ? string : number;
+      };
 
 export type TextStyle<Override extends undefined | string = undefined> = {
   /**

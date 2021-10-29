@@ -10,13 +10,13 @@ import {
   Theme,
   TreatThemeProvider,
   useCommonProps,
-  useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
 import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
-import React, { ReactNode, Suspense, useState } from 'react';
+import { colorVars } from '@newrade/core-react-ui/theme';
+import type { Property } from 'csstype';
+import React, { ReactNode, Suspense, useRef, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import * as styles from './theme-wrapper.css';
 
@@ -55,16 +55,35 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    */
   code?: string;
   /**
-   * Sets the viewport automatically and enable viewport selection
-   * 'false' means it will use the available width.
+   * Enable viewport selection controls
+   *
    * @default false
    */
   viewportControl?: boolean;
+  /**
+   * Enable or disable scrolling in the x direction
+   *
+   * @default false
+   */
+  viewportOverflowX?: Property.OverflowX;
+  /**
+   * Enable or disable scrolling in the y direction
+   *
+   * @default true
+   */
+  viewportOverflowY?: Property.OverflowY;
+  /**
+   * Viewport will take 100% of the container width
+   * @default true
+   */
+  viewportAutoWidth?: boolean;
   /**
    * Forces the viewport to a specific value
    */
   viewport?: VIEWPORT;
 };
+
+type ThemeWrapperViewportMode = VIEWPORT | 'auto';
 
 /**
  * Inject Treat providers
@@ -83,25 +102,26 @@ const ThemeWrapperFn = React.memo(
     filename,
     code,
     viewportControl = false,
+    viewportOverflowX = 'hidden',
+    viewportOverflowY = 'auto',
+    viewportAutoWidth = true,
     viewport,
     ...props
   }: Props) => {
     const [selectedTheme, setSelectedTheme] = useState<'default' | 'custom'>('custom');
     const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
+    //
+    // the `viewport` prop has precedence on other settings
+    //
     const { viewport: currentViewport } = useViewportBreakpoint();
-    const [selectedViewport, setSelectedViewport] = useState<VIEWPORT | undefined>(
-      viewportControl ? (viewport ? viewport : currentViewport) : VIEWPORT.mobile
+    const [selectedViewport, setSelectedViewport] = useState<ThemeWrapperViewportMode>(
+      viewport ? viewport : viewportAutoWidth ? 'auto' : currentViewport
     );
-    const { cssTheme } = useTreatTheme();
-
-    console.log('render', filename);
-
     const commonProps = useCommonProps({
       id,
       style: {
         ...style,
-        backgroundColor: isReversed ? cssTheme.colors.colors.grey[900] : '',
-        // backgroundImage: isReversed ? '' : 'linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%)',
+        backgroundColor: isReversed ? colorVars.colors.grey[900] : '',
       },
       className,
       classNames: [
@@ -139,9 +159,33 @@ const ThemeWrapperFn = React.memo(
      * iFrame
      *
      */
-    const iframeClassNames = getMergedClassname([
-      selectedViewport ? styles[selectedViewport] : styles.iframeDefaultViewport,
-    ]);
+    // const iframeClassNames = getMergedClassname([styles[selectedViewport]]);
+    const iframeWrapperRef = useRef<HTMLDivElement>(null);
+    function getIframeBodyWidth(selectedViewport: ThemeWrapperViewportMode) {
+      switch (selectedViewport) {
+        //
+        // todo uses variables instead
+        // layoutVars.var.breakpoints.tabletPortrait
+        // layoutVars.var.breakpoints.desktopSmall
+        //
+        default:
+        case 'auto': {
+          return '100%';
+        }
+        case 'mobile': {
+          return `calc(320px + 2 * 32px)`;
+        }
+        case 'tablet': {
+          return `calc(768px + 2 * 32px)`;
+        }
+        case 'desktop': {
+          return `calc(1280px + 2 * 32px)`;
+        }
+      }
+    }
+    const iframeBodyWidth = getIframeBodyWidth(selectedViewport);
+    // const iframeBodyWidth = iframeWrapperRef.current?.getBoundingClientRect().width;
+    // const iframeBodyWidthPx = iframeBodyWidth ? `${iframeBodyWidth}px` : undefined;
 
     return (
       <div className={styles.wrapper}>
@@ -158,6 +202,11 @@ const ThemeWrapperFn = React.memo(
             </TabList>
           ) : null}
 
+          {/**
+           *
+           * Design tab
+           *
+           */}
           <TabContent aria-labelledby={'design'} hidden={activeTabId !== 'design'}>
             {displayControls ? (
               <div className={styles.header}>
@@ -185,9 +234,10 @@ const ThemeWrapperFn = React.memo(
                     style={{ minWidth: 170 }}
                     value={selectedViewport}
                   >
-                    <option value={VIEWPORT.mobile}>Mobile</option>
-                    <option value={VIEWPORT.tablet}>Tablet</option>
+                    <option value={'auto'}>Auto</option>
                     <option value={VIEWPORT.desktop}>Desktop</option>
+                    <option value={VIEWPORT.tablet}>Tablet</option>
+                    <option value={VIEWPORT.mobile}>Mobile</option>
                   </InputSelect>
                 ) : null}
               </div>
@@ -196,11 +246,16 @@ const ThemeWrapperFn = React.memo(
             <div className={styles.content}>
               <TreatProvider theme={treatThemeRef}>
                 <TreatThemeProvider theme={theme}>
-                  <div className={styles.iframeWrapper}>
+                  <div
+                    ref={iframeWrapperRef}
+                    className={styles.iframeWrapper}
+                    style={{ overflowX: viewportOverflowX, overflowY: viewportOverflowY }}
+                  >
                     <IFrame
                       title={filename}
+                      style={{ width: iframeBodyWidth }}
+                      bodyWidth={viewportOverflowX === 'hidden' ? iframeBodyWidth : ''}
                       viewport={selectedViewport}
-                      className={iframeClassNames}
                     >
                       <GlobalCSSVariables>
                         <CodeOutline {...commonProps}>{children}</CodeOutline>
@@ -212,6 +267,11 @@ const ThemeWrapperFn = React.memo(
             </div>
           </TabContent>
 
+          {/**
+           *
+           * Code tab
+           *
+           */}
           <TabContent aria-labelledby={'source'} hidden={activeTabId !== 'source'}>
             {code ? (
               <Suspense fallback={''}>

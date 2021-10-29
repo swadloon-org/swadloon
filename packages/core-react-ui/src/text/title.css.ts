@@ -1,36 +1,34 @@
+import { createTextStyle } from '@capsizecss/vanilla-extract';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { layoutCSS, typographyCSS, typographyVars } from '../theme';
-import { getCapsizeStyles } from '../utilities/text.utilities';
+import { layoutCSS, typographyVars } from '../theme';
+
+export const t1 = createTextStyle(typographyVars.titles.mobile.t1.capsize, {
+  '@media': {
+    [layoutCSS.media.tablet]: typographyVars.titles.tablet.t1.capsize,
+    [layoutCSS.media.desktopSmall]: typographyVars.titles.desktop.t1.capsize,
+  },
+});
+
+export const t2 = createTextStyle(typographyVars.titles.mobile.t2.capsize, {
+  '@media': {
+    [layoutCSS.media.tablet]: typographyVars.titles.tablet.t2.capsize,
+    [layoutCSS.media.desktopSmall]: typographyVars.titles.desktop.t2.capsize,
+  },
+});
 
 export const title = recipe({
   base: [
     {
+      fontFamily: typographyVars.titles.font,
       position: 'relative',
       wordBreak: 'normal',
-      userSelect: 'none', // disable text selection for titles
+      userSelect: 'none',
     },
   ],
-  // for color Variant (see color-text.css.ts)
   variants: {
-    /**
-     * Sizes
-     */
     size: {
-      t1: {
-        fontFamily: typographyVars.titles.mobile.t1.fontFamily,
-        ...getCapsizeStyles({...typographyCSS.titles, fontMetrics: typographyCSS.fonts.}),
-        '@media': {
-          [layoutCSS.media.tablet]: {
-            fontFamily: typographyVars.titles.tablet.t1.fontFamily,
-          },
-          [layoutCSS.media.desktopSmall]: {
-            fontFamily: typographyVars.titles.desktop.t1.fontFamily,
-          },
-        },
-      },
-      t2: {
-        fontFamily: typographyVars.titles.mobile.t2.fontFamily,
-      },
+      t1: t1,
+      t2: t2,
     },
   },
 });

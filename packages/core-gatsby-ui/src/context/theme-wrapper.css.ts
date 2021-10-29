@@ -9,7 +9,7 @@ export const wrapper = style({
 
 export const header = style({
   display: 'grid',
-  gap: sizingVars.sizes.desktop.x2,
+  gap: sizingVars.var.x2,
   gridTemplateColumns: `repeat(auto-fit, 170px)`,
   padding: `${sizingVars.sizes.desktop.x2}`,
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
@@ -31,25 +31,5 @@ export const iframeWrapper = style({
   display: 'grid',
   width: '100%',
   maxWidth: '100%',
-  overflowX: 'auto',
-});
-
-export const iframeDefaultViewport = style({
-  width: '100%',
-  maxWidth: '100%',
-});
-
-export const mobile = style({
-  width: `calc(${layoutVars.var.breakpoints.tabletPortrait} - 1px)`,
-  maxWidth: `calc(${layoutVars.var.breakpoints.tabletPortrait} - 1px)`,
-});
-
-export const tablet = style({
-  width: layoutVars.var.breakpoints.tabletLandscape,
-  maxWidth: layoutVars.var.breakpoints.tabletLandscape,
-});
-
-export const desktop = style({
-  width: layoutVars.var.breakpoints.desktopSmall,
-  maxWidth: layoutVars.var.breakpoints.desktopSmall,
+  backgroundColor: colorVars.colors.grey[25],
 });

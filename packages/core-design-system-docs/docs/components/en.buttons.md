@@ -30,7 +30,8 @@ import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code.t
 <ThemeWrapper 
   displayControls={true} 
   filename={'buttons.code.tsx'} 
-  code={ButtonsCode}>
+  code={ButtonsCode}
+  viewportControl={true}>
   <Buttons />
 </ThemeWrapper>
 

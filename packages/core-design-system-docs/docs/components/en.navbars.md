@@ -30,6 +30,8 @@ branding, screen titles and navigation items.
 <ThemeWrapper
   code={NavbarsCode}
   filename={'navbars.code.tsx'}
-  displayControls={true}>
+  displayControls={true}
+  viewportControl={true}
+  viewportOverflowX={'auto'}>
   <Navbars />
 </ThemeWrapper>

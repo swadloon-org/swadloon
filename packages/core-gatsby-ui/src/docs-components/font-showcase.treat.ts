@@ -1,13 +1,13 @@
 import { Theme } from '@newrade/core-react-ui';
 import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
-import capsize from '@capsizecss/core';
+import { createStyleObject } from '@capsizecss/core';
 import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),
 
   lettersSans: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.sans[0].fontMetrics,
       capHeight: 100,
       lineGap: 10,
@@ -20,7 +20,7 @@ export const styles = {
   })),
 
   lettersSansAlternate: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.sansAlternate[0].fontMetrics,
       capHeight: 100,
       lineGap: 10,
@@ -29,11 +29,11 @@ export const styles = {
   })),
   paragraphSansAlternate: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontFamily: cssTheme.typography.fonts.sansAlternate[0].name,
+    fontFamily: cssTheme.typography.fonts.sansAlternate,
   })),
 
   lettersSansSerif: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.serif[0].fontMetrics,
       capHeight: 100,
       lineGap: 10,
@@ -42,11 +42,11 @@ export const styles = {
   })),
   paragraphSerif: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontFamily: cssTheme.typography.fonts.serif[0].name,
+    fontFamily: cssTheme.typography.fonts.serif,
   })),
 
   lettersSansMono: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.monospace[0].fontMetrics,
       capHeight: 100,
       lineGap: 10,
@@ -55,7 +55,7 @@ export const styles = {
   })),
   paragraphMono: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontFamily: cssTheme.typography.fonts.monospace[0].name,
+    fontFamily: cssTheme.typography.fonts.monospace,
   })),
 
   letters: style(({ theme, cssTheme }: Theme) => ({
