@@ -1,4 +1,4 @@
-import { disabledStyle, resetButtonStyle } from '@newrade/core-react-ui';
+import { resetButtonStyle } from '@newrade/core-react-ui';
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/global';
 import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { createVar, globalStyle, style } from '@vanilla-extract/css';
@@ -12,9 +12,12 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 const textColor = createVar();
 const textColorActive = createVar();
+const textColorDisabled = createVar();
 const borderColor = createVar();
 const borderColorActive = createVar();
+const borderColorDisabled = createVar();
 const backgroundColorActive = createVar();
+const backgroundColorDisabled = createVar();
 
 /**
  *
@@ -28,8 +31,11 @@ export const base = style([
     vars: {
       [textColor]: colorVars.colorIntents.primaryText,
       [textColorActive]: colorVars.colorIntents.primary,
+      [textColorDisabled]: colorVars.colorIntents.disabledText,
       [borderColor]: colorVars.colorIntents.primary,
+      [borderColorDisabled]: `transparent`,
       [backgroundColorActive]: colorVars.colors.grey[0],
+      [backgroundColorDisabled]: `transparent`,
     },
 
     position: 'relative',
@@ -91,15 +97,16 @@ export const navbarItemLink = recipe({
         borderColor: borderColorActive,
         backgroundColor: backgroundColorActive,
       },
-      disabled: [
-        disabledStyle,
-        {
-          ':focus': {
-            outline: 'none',
-            boxShadow: 'none',
-          },
+      disabled: {
+        cursor: 'not-allowed',
+        color: textColorDisabled,
+        borderColor: borderColorDisabled,
+        backgroundColor: backgroundColorDisabled,
+        ':focus': {
+          outline: 'none',
+          boxShadow: 'none',
         },
-      ],
+      },
     },
     hover: {
       true: {
@@ -126,8 +133,11 @@ globalStyle(`${globalThemeReversedSelector} ${base}`, {
   vars: {
     [textColor]: colorVars.colorIntents.primaryReversed,
     [textColorActive]: colorVars.colorIntents.primaryReversed,
+    [textColorDisabled]: colorVars.colorIntents.disabledTextReversed,
     [borderColor]: colorVars.colorIntents.primaryReversed,
+    [borderColorDisabled]: `transparent`,
     [backgroundColorActive]: colorVars.colors.grey[900],
+    [backgroundColorDisabled]: `transparent`,
   },
 });
 

@@ -121,7 +121,7 @@ const ThemeWrapperFn = React.memo(
       id,
       style: {
         ...style,
-        backgroundColor: isReversed ? colorVars.colors.grey[900] : '',
+        backgroundColor: isReversed ? colorVars.colors.grey[1000] : '',
       },
       className,
       classNames: [
