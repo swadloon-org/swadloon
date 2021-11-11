@@ -1,16 +1,16 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
-import capsize, { CapsizeStyles, getCapHeight } from 'capsize';
-import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
+import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
+import { Property } from 'csstype';
 import { Style } from 'treat';
-import { pxStringToNumber, pxStringToRem } from './utilities';
+import { pxStringToNumber } from './utilities';
 
 /**
- * Create a TextStyle using the Capsize utility.
- * @see https://seek-oss.github.io/capsize/
+ *
+ * Text utility functions.
+ *
  */
+
 type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
@@ -22,72 +22,13 @@ export function createCSSTextStyle({
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
   return {
-    fontWeight,
+    fontWeight: fontWeight?.toString() || `400`,
     fontStyle,
     letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
     textTransform,
     textDecoration: getCSSTextDecoration(textDecoration),
-    // textDecoration: getCSSTextDecoration(),
   };
 }
-
-export function createCSSCapsizeTextStyle({
-  baseFontSize,
-  font,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  letterSpacing,
-  textTransform,
-  textDecoration,
-  capHeight,
-  fontSize,
-  lineGap,
-}: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
-  const compatibleCapHeight: number | undefined = capHeight;
-  if (!font) {
-    throw new AppError({
-      name: ERROR_TYPE.LIB_ERROR,
-      message: 'a text style requires a font to be set',
-    });
-  }
-  const { fontMetrics } = font[0];
-
-  const capsizePx = capsize(
-    fontSize
-      ? ({ fontSize: fontSize, lineGap: lineGap, fontMetrics } as any)
-      : { capHeight: compatibleCapHeight, lineGap, fontMetrics }
-  );
-
-  // when fontSize is used instead of capHeight, we get
-  // the cap height based on the font size and metrics
-  const capHeightNumber = capHeight
-    ? capHeight
-    : fontSize !== undefined && fontSize > 0
-    ? (getCapHeight({ fontSize, fontMetrics }) as number)
-    : 16;
-
-  return {
-    ...createCSSTextStyle({
-      baseFontSize,
-      font,
-      fontFamily,
-      fontWeight,
-      fontStyle,
-      letterSpacing,
-      textTransform,
-      textDecoration,
-    }),
-    font,
-    fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontSize,
-    capHeight: capHeightNumber,
-    lineGap,
-    capsize: capsizePx,
-  };
-}
-
-type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTextStyle;
 
 /**
  * Converts capsize styles from px to rem.
@@ -113,24 +54,7 @@ export function convertLetterSpacingToPercent({
 }
 
 /**
- * Converts capsize styles from px to rem.
- */
-export function convertCapsizeValuesToRem({
-  baseFontSize,
-  capsizePx,
-}: {
-  baseFontSize: number;
-  capsizePx: CapsizeStyles;
-}): CapsizeStyles {
-  return {
-    ...capsizePx,
-    fontSize: pxStringToRem({ value: capsizePx.fontSize, baseFontSize }),
-    lineHeight: pxStringToRem({ value: capsizePx.lineHeight, baseFontSize }),
-  };
-}
-
-/**
- * Converts capsize styles from px to rem.
+ * Convert px letter spacing value to em units
  */
 export function convertLetterSpacingToEM({
   value,
@@ -190,7 +114,7 @@ export function getCSSFontTextStyles(
     return {};
   }
   return {
-    fontWeight: textStyle.fontWeight as number,
+    fontWeight: textStyle.fontWeight as Property.FontWeight, // we need string to satisfy vanilla extract
     textTransform: textStyle.textTransform as Property.TextTransform,
     fontFamily: textStyle.fontFamily as string,
     fontStyle: textStyle.fontStyle as string,

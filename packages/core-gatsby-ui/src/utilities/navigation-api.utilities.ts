@@ -28,7 +28,7 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /tools/i,
     /Content API/i,
   ],
-  sortOrderItems: [/overview/i, /where to start/i, /get started/i],
+  sortOrderItems: [/overview/i, /where to start/i, /get started/i, /theming/i, /demos/i],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],

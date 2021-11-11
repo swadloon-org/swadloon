@@ -1,11 +1,10 @@
 import { TITLE, Variant } from '@newrade/core-design-system';
 import { kebab, pascal } from 'case';
 import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import * as colorTextStylesRef from '../styles/color-text.treat';
+import * as textStyles from '../styles/color-text.css';
 import { getMergedClassname } from '../utilities/component.utilities';
-import * as stylesRef from './title.treat';
+import * as styles from './title.css';
 
 type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & {
@@ -22,17 +21,17 @@ const defaultProps: Props = {
 export const Title = React.memo(
   React.forwardRef<any, Props>(
     ({ variant = TITLE.t1, variantLevel, id, className, children, ...props }, ref) => {
-      const { styles, wrapper } = useStyles(stylesRef);
-      const { colorTextStyles } = useStyles(colorTextStylesRef);
-
       const type = variant === TITLE.t1 ? 'h1' : 'h2';
       const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
       const child = children ? children : defaultChildrenString;
       const classNames = getMergedClassname([
         className || '',
-        wrapper,
-        styles[variant ? variant : (defaultProps.variant as TITLE)],
-        colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],
+        styles.title({
+          size: variant ? variant : (defaultProps.variant as TITLE),
+        }),
+        textStyles.colorText({
+          variant: variantLevel ? variantLevel : (defaultProps.variantLevel as Variant),
+        }),
       ]);
 
       return React.createElement(

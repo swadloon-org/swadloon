@@ -20,7 +20,7 @@ export const CodeOutline: React.FC<Props> = ({ id, style, className, ...props })
   });
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x2]} {...commonProps}>
+    <Stack gap={[cssTheme.sizing.var.x3]} {...commonProps}>
       {props.children}
     </Stack>
   );

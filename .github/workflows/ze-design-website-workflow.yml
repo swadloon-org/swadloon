@@ -81,7 +81,7 @@ jobs:
         run: yarn lerna:depcheck --scope @newrade/ze-*
 
       - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/ze-*
+        run: yarn lerna:typecheck --scope @newrade/ze-design-website
 
       - name: Lint (ls-lint) source files (core-docs)
         run: yarn ls-lint
@@ -95,8 +95,8 @@ jobs:
       - name: Build ze-design-system
         run: yarn lerna:build --scope @newrade/ze-design-system
 
-      - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/ze-*
+      # - name: Run unit tests
+      #   run: yarn lerna:test --scope @newrade/ze-*
 
       - name: Clean package
         run: yarn lerna:clean --scope @newrade/ze-design-website
@@ -105,6 +105,7 @@ jobs:
         run: yarn lerna:build --scope @newrade/ze-design-website
 
       - name: Deploy
+        id: deploy
         if: ${{ env.APP_CI_DEPLOY && matrix.os == 'ubuntu-latest' }}
         uses: amondnet/vercel-action@v20
         with:
@@ -118,5 +119,17 @@ jobs:
           working-directory: ./packages/ze-design-website
           alias-domains: |
             ${{ env.APP_HOST }}
+
+      #
+      # @see https://www.foo.software/docs/lighthouse-check-github-action/intro
+      # @see https://www.foo.software/docs/lighthouse-check-github-action/configuration#githubaccesstoken
+      #
+      - name: Lighthouse Check
+        if: ${{ env.APP_CI_DEPLOY && matrix.os == 'ubuntu-latest' }}
+        uses: foo-software/lighthouse-check-action@v5.0.0
+        with:
+          urls: ${{ steps.deploy.outputs.preview-url }}
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+
 
 

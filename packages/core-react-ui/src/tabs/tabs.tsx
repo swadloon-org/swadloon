@@ -5,7 +5,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import * as styles from './tabs.css';
 
-type TabsProps = PrimitiveProps<'div'>;
+type TabsProps = PrimitiveProps<'button'>;
 
 /**
  * Used to wrap Tabs and their TabContent
@@ -45,20 +45,22 @@ type TabCompProps = PrimitiveProps<'div'> &
 /**
  * Tab component
  * @version 1
+ * @todo as 'button' is probably better
+ * @todo disabled state
  */
-export const Tab = React.forwardRef<HTMLDivElement, TabCompProps>(
+export const Tab = React.forwardRef<HTMLButtonElement, TabCompProps>(
   ({ as, AsElement, size, state, disabled, selected, icon, children, ...props }, forwardedRef) => {
     const localRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
 
     return (
-      <Primitive
+      <Primitive<'button'>
         ref={ref}
         classNames={[styles.tab, styles.primary, styles.medium]}
         disabled={disabled}
         role={'tab'}
         aria-selected={selected}
-        tabIndex={'-1'}
+        tabIndex={-1}
         {...props}
       >
         <Label variantDisplay={'inline'} variantStyle={TEXT_STYLE.bold} variant={LABEL_SIZE.small}>

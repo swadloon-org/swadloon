@@ -6,12 +6,16 @@ import {
   Typography,
   VIEWPORT,
 } from '@newrade/core-design-system';
+import { defaultFontVarNames, defaultFontVars } from '../default-theme/default-typography';
 import { CSSTypography } from '../design-system';
-import { defaultFontVars } from '../default-theme/default-typography';
-import { cssVar } from './css-variable.utilities';
-import { createCSSCapsizeTextStyle, createCSSTextStyle } from './text.utilities';
+import { getCSSFonts, getCSSFontsObject } from './font.utilities';
+import { createCSSCapsizeTextStyle } from './text-capsize.utilities';
+import { createCSSTextStyle } from './text.utilities';
 import { keys } from './utilities';
 
+/**
+ * Create a typography object which properties that are compatible with CSS
+ */
 export function getCSSTypography({
   baseFontSize,
   fonts,
@@ -20,8 +24,6 @@ export function getCSSTypography({
   paragraphs,
   labels,
 }: Typography & { baseFontSize: number }): CSSTypography {
-  // take each text styles and convert it to CSS format
-
   const titlesStyles = createCSSVariantTextStyles({ variant: titles, baseFontSize });
   const headingsStyles = createCSSVariantTextStyles({ variant: headings, baseFontSize });
   const paragraphsStyles = createCSSVariantTextStyles({ variant: paragraphs, baseFontSize });
@@ -29,24 +31,24 @@ export function getCSSTypography({
 
   return {
     fonts: {
-      ...fonts,
+      ...getCSSFontsObject(fonts),
       var: defaultFontVars,
-      varNames: defaultFontVars.map((varName) => cssVar(varName)),
+      varNames: defaultFontVarNames,
     },
     titles: {
-      font: titles.font ? titles.font : fonts.sans, // fallback to sans font
+      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
       ...(titlesStyles as Typography<string>['titles']),
     },
     headings: {
-      font: titles.font ? titles.font : fonts.sans, // fallback to sans font
+      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
       ...(headingsStyles as Typography<string>['headings']),
     },
     paragraphs: {
-      font: titles.font ? titles.font : fonts.sans, // fallback to sans font
+      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
       ...(paragraphsStyles as Typography<string>['paragraphs']),
     },
     labels: {
-      font: titles.font ? titles.font : fonts.sans, // fallback to sans font
+      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
       ...(labelsStyles as Typography<string>['labels']),
     },
   };

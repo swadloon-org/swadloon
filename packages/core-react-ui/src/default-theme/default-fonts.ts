@@ -1,4 +1,5 @@
 import { Font } from '@newrade/core-design-system';
+import { FontMetrics } from '@capsizecss/core';
 
 export const defaultSerifFont: Font = {
   name: 'PT Serif',
@@ -38,65 +39,99 @@ export const defaultMonospaceFont: Font = {
   },
 };
 
+export const SFProFontMetric: FontMetrics = {
+  capHeight: 1443,
+  ascent: 1950,
+  descent: -494,
+  lineGap: 0,
+  unitsPerEm: 2048,
+};
+
+export const SFMonoFontMetric: FontMetrics = {
+  capHeight: 1443,
+  ascent: 1950,
+  descent: -494,
+  lineGap: 0,
+  unitsPerEm: 2048,
+};
+
+/**
+ * System fonts fallback
+ *
+ * Note: since font metrics can't be computed dynamically
+ * (we don't know what system fonts users will have), we fallback on the SF Pro metrics
+ *
+ * @see https://seek-oss.github.io/capsize/
+ * @see https://developer.apple.com/fonts/
+ */
 export const defaultFallbackSansFonts: Font[] = [
   {
     name: 'ui-sans-serif',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: 'system-ui',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '-apple-system',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: 'BlinkMacSystemFont',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Segoe UI"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: 'Roboto',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Helvetica Neue"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: 'Arial',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Noto Sans"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: 'sans-serif',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Apple Color Emoji"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Segoe UI Emoji"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Segoe UI Symbol"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
   {
     name: '"Noto Color Emoji"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFProFontMetric,
   },
 ];
 
+/**
+ * System fonts fallback (serif)
+ *
+ * Note: since font metrics can't be computed dynamically
+ * (we don't know what system fonts users will have), we fallback on the SF Pro metrics
+ *
+ * @see https://seek-oss.github.io/capsize/
+ * @see https://developer.apple.com/fonts/
+ */
 export const defaultFallbackSerifFonts: Font[] = [
   {
     name: 'ui-serif',
@@ -124,37 +159,46 @@ export const defaultFallbackSerifFonts: Font[] = [
   },
 ];
 
+/**
+ * System fonts fallback (mono)
+ *
+ * Note: since font metrics can't be computed dynamically
+ * (we don't know what system fonts users will have), we fallback on the SFMono-Regular metrics
+ *
+ * @see https://seek-oss.github.io/capsize/
+ * @see https://developer.apple.com/fonts/
+ */
 export const defaultFallbackMonospaceFonts: Font[] = [
   {
     name: 'ui-monospace',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: 'SFMono-Regular',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: 'Menlo',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: 'Monaco',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: 'Consolas',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: '"Liberation Mono"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: '"Courier New"',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
   {
     name: 'monospace',
-    fontMetrics: { capHeight: 1456, ascent: 1900, descent: -500, lineGap: 0, unitsPerEm: 2048 },
+    fontMetrics: SFMonoFontMetric,
   },
 ];

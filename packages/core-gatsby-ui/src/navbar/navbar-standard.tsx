@@ -30,6 +30,11 @@ import { NavbarProps } from './navbar.props';
 
 type Props = NavbarProps & {};
 
+/**
+ * Preconfigured navbar with the essentials.
+ *
+ * Renders data from the passed navbar object.
+ */
 export const NavbarStandard = React.forwardRef<any, Props>(
   (
     {

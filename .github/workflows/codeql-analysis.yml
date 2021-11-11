@@ -70,9 +70,6 @@ jobs:
         with:
           languages: ${{ matrix.language }}
 
-      - name: Clean
-        run: yarn clean
-
       - name: Install dependencies and build core packages
         run: yarn --prefer-offline --frozen-lockfile
 

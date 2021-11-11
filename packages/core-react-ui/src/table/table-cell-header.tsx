@@ -2,6 +2,7 @@ import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { getMergedClassname } from '../utilities';
 import * as stylesRef from './table-cell-header.treat';
 
 type Props = PrimitiveProps &
@@ -26,10 +27,12 @@ export const TableCellHeader: React.FC<Props> = React.memo(
       variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
     }`;
 
+    const classNames = getMergedClassname([styles.th, className]);
+
     return React.createElement(
       type,
       {
-        className: `${styles.th} ${className || ''}`,
+        className: classNames,
         ...props,
       },
       <div className={`${variantClassName} ${variantStyle ? styles[variantStyle] : ''}`}>

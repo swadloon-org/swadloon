@@ -15,14 +15,16 @@ import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { NavbarLogoLinkItem } from '..';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
+import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarStandard } from '../navbar/navbar-standard';
-import { SidebarDocsDesktop } from '../sidebar/sidebar-docs-desktop';
+import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import * as styleRefs from './docs.layout.treat';
@@ -143,18 +145,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   //   isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
 
   /**
-   * Navbar
-   */
-
-  const tagText = props.location?.pathname
-    ? /core-docs/gi.test(props.location?.pathname)
-      ? 'core docs'
-      : /design-system/gi.test(props.location?.pathname)
-      ? 'design system'
-      : 'docs'
-    : '';
-
-  /**
    * Sidebar
    */
 
@@ -256,9 +246,49 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       : undefined,
   };
 
+  /**
+   * Navbar
+   */
+
+  const tagText = props.location?.pathname
+    ? /core-docs/gi.test(props.location?.pathname)
+      ? 'core docs'
+      : /design-system/gi.test(props.location?.pathname)
+      ? 'design system'
+      : 'docs'
+    : '';
+
+  const navbarItems = {
+    left: (
+      <>
+        <NavbarLinkItem>Link</NavbarLinkItem>
+      </>
+    ),
+    leftDesktop: (
+      <>
+        <NavbarLogoLinkItem />
+
+        <NavbarLinkItem AsElement={<GatsbyLink to={'/'} />}>Home</NavbarLinkItem>
+        <NavbarLinkItem>Link</NavbarLinkItem>
+      </>
+    ),
+    rightDesktop: (
+      <>
+        <NavbarLinkItem>Link</NavbarLinkItem>
+        <NavbarLinkItem>Link</NavbarLinkItem>
+      </>
+    ),
+  };
+
   return (
     <MainDocsWrapper className={styles.mainWrapper}>
-      {/* Navbars */}
+      {/**
+       *
+       * Navbars
+       *
+       */}
+      {/* <NavbarModular navbarMode={'normal'} {...navbarItems}></NavbarModular> */}
+
       <NavbarStandard
         ref={navbarRef}
         navbar={navbar}
@@ -283,6 +313,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         menuOpened={sidebarOpened}
         enableLayoutModeButton={false}
       ></NavbarDocs> */}
+
+      {/**
+       *
+       * Sidebar
+       *
+       */}
 
       <React.Suspense fallback={''}>
         <SidebarStandardLazy

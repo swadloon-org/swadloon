@@ -2,63 +2,74 @@ import { Variant } from '@newrade/core-design-system';
 import React from 'react';
 import { globalThemeReversed } from '../global/global-theme-classnames';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { PrimitiveProps } from './primitive.props';
+import { AsTypes, PrimitiveProps } from './primitive.props';
 
 const NAME = 'Primitive';
-const DEFAULT_TAG = 'div';
 
-type Props = PrimitiveProps<any> & { variant?: Variant | null };
+/**
+ * Augment React's forwardRef to accept generic argument
+ */
+declare module 'react' {
+  /**
+   * Forwarded Component that accepts generic props
+   *
+   * Note: It is not possible to have an interface / fn that stays generic while having props like `displayName`
+   *
+   * Workaround: `(as React.NamedExoticComponent)`
+   */
+  type GenericForwardedComponent<T, P = {}> = (
+    props: P & React.RefAttributes<T>
+  ) => React.ReactElement | null;
+
+  /**
+   * Augmentation of the forwardRef function
+   */
+  function forwardRef<T, P = {}>(
+    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
+  ): GenericForwardedComponent<T, P>;
+}
+
+type Props<As extends AsTypes = 'div'> = PrimitiveProps<As> & { variant?: Variant | null };
 
 /**
  * Base component which avoid repeating the same boilerplate for most components.
  *
  * It forwards the refs, normalize id, class names, and support both `as` and `AsElement`
  */
-const Primitive = React.forwardRef<any, Props>(
-  (
-    {
-      id,
-      style,
-      className,
-      classNames = [],
-      as = DEFAULT_TAG,
-      AsElement,
-      theme,
-      variant,
-      ...props
-    },
-    forwardedRef
-  ) => {
-    const mergedTheme = theme ? theme : variant?.match(/reversed/i) ? 'reversed' : 'normal';
+function PrimitiveFn<As extends AsTypes = 'div', ElementRef extends Element = any>(
+  { id, style, className, classNames = [], as, AsElement, theme, variant, ...props }: Props<As>,
+  forwardedRef: React.ForwardedRef<ElementRef>
+) {
+  const mergedTheme = theme ? theme : variant?.match(/reversed/i) ? 'reversed' : 'normal';
 
-    // merge props (normalize id, combine classNames...)
-    const commonProps = useCommonProps({
-      id,
-      style,
-      className,
-      classNames: [
-        ...classNames,
-        // set the correct theme class to reverse components if they are set to a reversed variant
-        mergedTheme === 'reversed' ? globalThemeReversed : '',
-      ],
-      ...props,
-    });
+  // merge props (normalize id, combine classNames...)
+  // @ts-ignore
+  const commonProps = useCommonProps<As>({
+    id,
+    style,
+    className,
+    classNames: [
+      ...classNames,
+      // set the correct theme class to reverse components if they are set to a reversed variant
+      mergedTheme === 'reversed' ? globalThemeReversed : '',
+    ],
+    ...props,
+  });
 
-    const mergedProps = { ...commonProps, ref: forwardedRef };
+  const mergedProps = { ...commonProps, ref: forwardedRef };
 
-    // when a AsElement node is passed, we clone it and spread the props to it
-    const ClonedComponent = AsElement
-      ? React.cloneElement(AsElement as React.ReactElement, mergedProps)
-      : null;
+  // when a AsElement node is passed, we clone it and spread the props to it
+  const ClonedComponent = AsElement
+    ? React.cloneElement(AsElement as React.ReactElement, mergedProps)
+    : null;
 
-    if (ClonedComponent) {
-      return ClonedComponent;
-    }
-
-    return React.createElement(as, mergedProps);
+  if (ClonedComponent) {
+    return ClonedComponent;
   }
-);
 
-Primitive.displayName = NAME;
+  return React.createElement(as || 'div', mergedProps);
+}
 
-export { Primitive };
+(PrimitiveFn as React.NamedExoticComponent).displayName = NAME;
+
+export const Primitive = React.forwardRef(PrimitiveFn);

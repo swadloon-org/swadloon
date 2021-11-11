@@ -5,9 +5,6 @@ tags:
   - markdown
 ---
 
-export const lorenipsum =
-`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla pariatur.`;
-
 <DocHeader props={props}/>
 
 # Heading H1
@@ -25,9 +22,9 @@ incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
 pariatur.
 
-- <p><strong>Some text:</strong> {lorenipsum}</p><br/><p><strong>Some text:</strong> {lorenipsum}</p>
-- <p>{lorenipsum}</p>
-- <p>{lorenipsum}</p>
+- <p><strong>Some text:</strong> <Lorenipsum/></p><br/><p><strong>Some text:</strong> <Lorenipsum/></p>
+- <p><Lorenipsum/></p>
+- <p><Lorenipsum/></p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut esse cillum dolore eu fugiat nulla pariatur.
@@ -60,7 +57,7 @@ incididunt ut nisi ut aliquip ex ea commodo consequat.
 
 <details>
   <summary>Summary</summary>
-  <p>{lorenipsum}</p>
+  <p><Lorenipsum/></p>
 </details>
 
 ## Text content
@@ -105,9 +102,9 @@ With short text
 
 With longer text
 
-- <p><strong>Some text:</strong> {lorenipsum}</p>
-- <p>{lorenipsum}</p>
-- <p>{lorenipsum}</p>
+- <p><strong>Some text:</strong> <Lorenipsum/></p>
+- <p><Lorenipsum/></p>
+- <p><Lorenipsum/></p>
 
 With custom bullet
 
@@ -129,19 +126,19 @@ With short text
 
 With longer text
 
-1. <p>{lorenipsum}</p>
-2. <p>{lorenipsum}</p>
-3. <p>{lorenipsum}</p>
-4. <p>{lorenipsum}</p>
+1. <p><Lorenipsum/></p>
+2. <p><Lorenipsum/></p>
+3. <p><Lorenipsum/></p>
+4. <p><Lorenipsum/></p>
 
 #### Nested List
 
 1. List item
-   1. <p>{lorenipsum}</p>
-   2. <p>{lorenipsum}</p>
+   1. <p><Lorenipsum/></p>
+   2. <p><Lorenipsum/></p>
 2. List item
    1. List item with `code` List item with
-      1. <p>{lorenipsum}</p>
+      1. <p><Lorenipsum/></p>
 3. List item
    1. List item
 

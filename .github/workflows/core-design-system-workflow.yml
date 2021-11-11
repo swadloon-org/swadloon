@@ -74,8 +74,8 @@ jobs:
       - name: Lint source files
         run: yarn eslint ./packages/core-design-system/src/ --ext "ts,tsx"
 
-      - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-design-system
+      # - name: Run unit tests
+      #   run: yarn lerna:test --scope @newrade/core-design-system
 
       - name: Build package
         run: yarn lerna:build --scope @newrade/core-design-system

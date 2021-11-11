@@ -20,8 +20,7 @@ export const TableRow: React.FC<Props> = React.memo(({ className, ...props }) =>
   const type = 'tr';
 
   return React.createElement(type, {
-    className: `${className || ''} ${styles.tr}
-    }`,
+    className: `${className || ''} ${styles.tr}`,
     ...props,
   });
 });

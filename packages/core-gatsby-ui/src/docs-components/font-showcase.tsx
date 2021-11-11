@@ -18,7 +18,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
     <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
       <Stack gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Sans'} - {title(cssTheme.typography.fonts.sans[0].name)}
+          {'Sans'} - {title(cssTheme.typography.fonts.sans)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
@@ -32,11 +32,10 @@ export const FontShowcase: React.FC<Props> = (props) => {
         <p className={`${styles.paragraphSans}`}>{sampleText}</p>
       </Stack>
 
-      {cssTheme.typography.fonts.sans[0].name !==
-      cssTheme.typography.fonts.sansAlternate[0].name ? (
+      {cssTheme.typography.fonts.sans !== cssTheme.typography.fonts.sansAlternate ? (
         <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
           <Heading variant={HEADING.h4}>
-            {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate[0].name)}
+            {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate)}
           </Heading>
 
           <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
@@ -59,7 +58,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
       <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Serif'} - {title(cssTheme.typography.fonts.serif[0].name)}
+          {'Serif'} - {title(cssTheme.typography.fonts.serif)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
@@ -77,7 +76,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
       <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Mono'} - {title(cssTheme.typography.fonts.monospace[0].name)}
+          {'Mono'} - {title(cssTheme.typography.fonts.monospace)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>

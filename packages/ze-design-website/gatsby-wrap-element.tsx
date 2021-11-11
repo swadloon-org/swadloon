@@ -21,7 +21,7 @@ import {
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import { companyInfo } from './src/data/company-info';
-import { themeClass } from './src/design-system/theme.css';
+import { customButtonsTheme } from './src/design-system/theme.css';
 import { cssTheme, light, theme } from './src/design-system/theme.treat';
 import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
@@ -53,7 +53,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = (props) => {
 /**
  * Component for Gatsby's 'wrapPageElement' with i18n context
  */
-export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element, props }) => {
+const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, props }) => {
   const pageProps = props as Props;
 
   /**
@@ -134,7 +134,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
             navbar={navbar}
             sidebar={sidebarDocs}
             footer={footer}
-            themeClassname={themeClass}
+            themeClassname={customButtonsTheme}
             treatThemeRef={light}
             theme={{ theme, cssTheme }}
           >
@@ -161,3 +161,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = ({ element,
     }
   }
 };
+
+WrapElementI18nFn.displayName = 'WrapElementI18n';
+
+export const WrapElementI18n = WrapElementI18nFn;

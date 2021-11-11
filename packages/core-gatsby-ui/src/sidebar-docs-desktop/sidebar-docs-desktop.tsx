@@ -21,12 +21,12 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
+import { SidebarBase } from '../sidebar/sidebar-base';
+import { SidebarProps } from '../sidebar/sidebar.props';
 import { getPathParts, isPathActive } from '../utilities/navigation-api.utilities';
-import { SidebarBase } from './sidebar-base';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
 import * as styleRefs from './sidebar-docs-desktop.treat';
-import { SidebarProps } from './sidebar.props';
 
 type Props = SidebarProps & {};
 
@@ -124,7 +124,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     function LinksRenderer(links?: PartialOrNull<LinkAPI>[] | null, level?: number) {
       return (
         <>
-          {links?.map((link, id) => {
+          {links?.map((link, linkIndex) => {
             const linkActive = isPathActive({
               path: link?.page?.slug,
               pathname: activePathname,
@@ -132,7 +132,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
 
             return (
               <SidebarDocsDesktopItem
-                key={id}
+                key={linkIndex}
                 active={linkActive.match && linkActive.exact}
                 style={{
                   // @ts-ignore

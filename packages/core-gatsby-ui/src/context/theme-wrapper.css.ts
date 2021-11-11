@@ -1,4 +1,4 @@
-import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -9,8 +9,27 @@ export const wrapper = style({
 
 export const header = style({
   display: 'grid',
-  gap: sizingVars.sizes.desktop.x2,
+  gap: sizingVars.var.x2,
   gridTemplateColumns: `repeat(auto-fit, 170px)`,
-  padding: `${sizingVars.sizes.desktop.x3}`,
+  padding: `${sizingVars.sizes.desktop.x2}`,
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
+});
+
+export const content = style({
+  // maxWidth: `min(calc(100vw - 2 * ${layoutVars.var.contentMargins}), var(--max-content-width))`,
+  maxWidth: '100%',
+  overflow: 'hidden',
+});
+
+/**
+ *
+ * iFrame
+ *
+ */
+
+export const iframeWrapper = style({
+  display: 'grid',
+  width: '100%',
+  maxWidth: '100%',
+  backgroundColor: colorVars.colors.grey[25],
 });

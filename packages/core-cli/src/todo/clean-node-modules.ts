@@ -10,6 +10,9 @@ export default class CleanNodeModules extends Command {
 
   static description = `find . -name 'node_modules' -type d -prune -print -exec rimraf -rf '{}' \;`;
 
+  // nvm cache clear
+  // yarn cache clear
+  // npm cache clear --force
   static examples = [`$ nr resetbranches`];
 
   static flags = {

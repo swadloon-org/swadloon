@@ -36,6 +36,6 @@ const TestComponent = React.forwardRef<HTMLDivElement, Props>(
   }
 );
 
-TestComponent.displayName = NAME;
+(TestComponent as React.NamedExoticComponent).displayName = NAME;
 
 export { TestComponent };

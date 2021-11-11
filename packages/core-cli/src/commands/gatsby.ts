@@ -51,7 +51,11 @@ export default class Gatsby extends Command {
       if (/error/gi.test(chunkString)) {
         process.stderr.write(chunk);
 
-        if (!/(\.gitkeep|DeprecationWarning)/gi.test(chunkString)) {
+        if (
+          !/(\.gitkeep|DeprecationWarning|webpack\.cache\.PackFileCacheStrategy)/gi.test(
+            chunkString
+          )
+        ) {
           errors.push(chunkString);
         }
 

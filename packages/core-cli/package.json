@@ -30,7 +30,7 @@
     "postpack": "rimraf -f oclif.manifest.json",
     "prepack": "rimraf -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --composite false --incremental false",
     "version": "oclif-dev readme && git add README.md"
   },
   "oclif": {

@@ -20,8 +20,7 @@ export const TableBody: React.FC<Props> = React.memo(({ className, ...props }) =
   const type = 'tbody';
 
   return React.createElement(type, {
-    className: `${className || ''} ${styles.tbody}
-    }`,
+    className: `${className || ''} ${styles.tbody}`,
     ...props,
   });
 });

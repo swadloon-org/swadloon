@@ -1,12 +1,20 @@
-import { TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
+import { Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
+import { cssVar } from '../utilities/css-variable.utilities';
 import * as fonts from './default-fonts';
 
-export const defaultFontVars = [
-  '--font-family-monospace',
-  '--font-family-sans',
-  '--font-family-sans-alternate',
-  '--font-family-serif',
-];
+export const defaultFontVars: Fonts<string> = {
+  sans: '--font-family-monospace',
+  sansAlternate: '--font-family-sans',
+  serif: '--font-family-sans-alternate',
+  monospace: '--font-family-serif',
+};
+
+export const defaultFontVarNames: Fonts<string> = {
+  sans: cssVar('--font-family-monospace'),
+  sansAlternate: cssVar('--font-family-sans'),
+  serif: cssVar('--font-family-sans-alternate'),
+  monospace: cssVar('--font-family-serif'),
+};
 
 export const defaultTypography: Typography = {
   fonts: {
@@ -168,19 +176,19 @@ export const defaultTypography: Typography = {
     desktop: {
       large: {
         fontSize: 18,
-        lineGap: 16,
+        lineGap: 18,
       },
       medium: {
         fontSize: 16,
-        lineGap: 14,
+        lineGap: 16,
       },
       small: {
         fontSize: 14,
-        lineGap: 12,
+        lineGap: 14,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 10,
+        lineGap: 12,
       },
     },
   },
@@ -204,29 +212,29 @@ export const defaultTypography: Typography = {
     },
     mobile: {
       medium: {
-        fontSize: 16,
+        fontSize: 18,
         lineGap: 12,
       },
       small: {
-        fontSize: 14,
+        fontSize: 16,
         lineGap: 12,
       },
       xSmall: {
-        fontSize: 10,
+        fontSize: 12,
         lineGap: 12,
       },
     },
     tablet: {
       medium: {
-        capHeight: 13,
+        fontSize: 17,
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        fontSize: 15,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 11,
         lineGap: 12,
       },
     },

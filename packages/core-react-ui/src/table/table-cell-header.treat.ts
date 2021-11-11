@@ -63,7 +63,7 @@ export const styles = {
   th: style(({ theme, cssTheme }: Theme) => ({
     textAlign: 'left',
     wordBreak: 'normal',
-
+    userSelect: 'text',
     paddingLeft: cssTheme.sizing.var.x3,
     paddingRight: cssTheme.sizing.var.x3,
     paddingTop: cssTheme.sizing.var.x2,

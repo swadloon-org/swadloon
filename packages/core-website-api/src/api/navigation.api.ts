@@ -3,12 +3,33 @@ import { PartialOrNull } from '../utilities';
 import { LinkAPI } from './link.api';
 
 export enum NavComponent {
+  /**
+   * High level component that can contain menus, links, link, button...
+   */
   navbar = 'navbar',
+  /**
+   * High level component that can contain menus, links, link, button...
+   */
   sidebar = 'sidebar',
+  /**
+   * High level component that can contain links, link, button...
+   */
   footer = 'footer',
+  /**
+   * Menu contains other items
+   */
   menu = 'menu',
+  /**
+   * Links is a group of 1 or more links
+   */
   links = 'links',
+  /**
+   * Link can be an external link, internal page (active state, a button)
+   */
   link = 'link',
+  /**
+   * A button can be used to navigate or trigger an action
+   */
   button = 'button',
 }
 

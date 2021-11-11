@@ -17,7 +17,7 @@ export const FontSerif: React.FC<Props> = (props) => {
   return (
     <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
       <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
-        <Heading variant={HEADING.h4}>{title(cssTheme.typography.fonts.serif[0].name)}</Heading>
+        <Heading variant={HEADING.h4}>{title(cssTheme.typography.fonts.serif)}</Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
           <div className={`${styles.letters} ${styles.lettersSansSerif}`}>Aa</div>

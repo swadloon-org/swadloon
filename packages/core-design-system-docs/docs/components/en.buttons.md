@@ -20,11 +20,20 @@ import ButtonsSizesCode from '!!raw-loader!../../src/code/buttons-sizes.code.tsx
 import { ButtonsIcon } from '../../src/code/buttons-icon.code'; 
 import ButtonsIconCode from '!!raw-loader!../../src/code/buttons-icon.code';
 import { ButtonsStates } from '../../src/code/buttons-states.code';
-import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code';
+import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
+
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'buttons.code.tsx'} 
+  code={ButtonsCode}
+  viewportControl={true}>
+  <Buttons />
+</ThemeWrapper>
 
 ## Features
 
@@ -46,14 +55,6 @@ Like most components there are three level of importance for buttons:
 - Primary
 - Secondary
 - Tertiary
-
-<!-- prettier-ignore -->
-<ThemeWrapper 
-  displayControls={true} 
-  filename={'buttons.code.tsx'} 
-  code={ButtonsCode}>
-  <Buttons />
-</ThemeWrapper>
 
 ## Sizes
 

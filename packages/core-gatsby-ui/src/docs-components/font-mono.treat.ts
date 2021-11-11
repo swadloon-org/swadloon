@@ -1,13 +1,13 @@
 import { Theme } from '@newrade/core-react-ui';
 import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
-import capsize from 'capsize';
+import { createStyleObject } from '@capsizecss/core';
 import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),
 
   lettersSansMono: style(({ theme, cssTheme }: Theme) => ({
-    ...capsize({
+    ...createStyleObject({
       fontMetrics: theme.typography.fonts.monospace[0].fontMetrics,
       capHeight: 100,
       lineGap: 10,
@@ -16,7 +16,7 @@ export const styles = {
   })),
   paragraphMono: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontFamily: cssTheme.typography.fonts.monospace[0].name,
+    fontFamily: cssTheme.typography.fonts.monospace,
   })),
 
   letters: style(({ theme, cssTheme }: Theme) => ({

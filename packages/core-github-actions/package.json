@@ -24,7 +24,7 @@
     "start": "tsc --noEmit --watch --preserveWatchOutput",
     "test": "nr jest",
     "test:watch": "nr jest-watch",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --composite false --incremental false",
     "webpack": "nr webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",

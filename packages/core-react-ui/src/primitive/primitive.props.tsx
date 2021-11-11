@@ -7,14 +7,6 @@ export type AsTypes = keyof React.ReactHTML | keyof React.ReactSVG;
  */
 export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
   /**
-   * Uses React.createElement with as as the element type.
-   */
-  as: As;
-  /**
-   * Pass a complete React component to replace the default containing element.
-   */
-  AsElement: React.ReactNode;
-  /**
    * Id that will be normalized
    */
   id: string;
@@ -31,6 +23,11 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    */
   className: string;
   /**
+   * WAI-ARIA role
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+   */
+  role?: React.AriaRole;
+  /**
    * Classnames that will be combined and set to class={...}
    */
   classNames: (string | null | undefined | boolean)[];
@@ -46,6 +43,14 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    *  ````
    */
   style: CSSProperties;
+  /**
+   * Uses React.createElement with as as the element type.
+   */
+  as: As;
+  /**
+   * Pass a complete React component to replace the default containing element.
+   */
+  AsElement: React.ReactNode;
   /**
    * Inverse components colors
    * @deprecated use `colorMode` instead
