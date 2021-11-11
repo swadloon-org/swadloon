@@ -66,14 +66,24 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
 
   /**
    *
-   * Backgrounds and elevation
+   * Backgrounds
    *
    */
 
+  /** @deprecated use elevation levels instead */
   background0: ColorType<Override>;
+  /** @deprecated use elevation levels instead */
   background1: ColorType<Override>;
+  /** @deprecated use elevation levels instead */
   background2: ColorType<Override>;
+  /** @deprecated use elevation levels instead */
   backgroundDisabled: ColorType<Override>;
+
+  /**
+   *
+   * Elevation Levels
+   *
+   */
 
   // elevation0: ColorType<Override>;
   // elevation1: ColorType<Override>;

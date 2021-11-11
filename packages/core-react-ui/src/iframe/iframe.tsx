@@ -98,7 +98,7 @@ const IFrameFn: React.FC<Props> = React.memo(
     const [iframeLinkNodes, setIframeLinkNodes] = useState<JSX.Element[] | null>(null);
 
     /**
-     * Sync stylesheets from the parent to the iframe
+     * Sync stylesheets <link/> elements from the parent to the iframe
      */
     useEffect(() => {
       if (isSsrIframe) {
@@ -147,6 +147,53 @@ const IFrameFn: React.FC<Props> = React.memo(
       }
     }, [setIframeHeight, isSsrIframe, iframeLinkElements, iframeLinkNodes]);
 
+    const [iframeStyleElements, setIframeStyleElements] = useState<HTMLStyleElement[] | null>(null);
+    const [iframeStyleNodes, setIframeStyleNodes] = useState<JSX.Element[] | null>(null);
+
+    /**
+     * Sync stylesheets <style/> elements from the parent to the iframe
+     */
+    useEffect(() => {
+      if (isSsrIframe) {
+        return;
+      }
+
+      const newIFrameStyleElements = Array.from(
+        window.document.querySelectorAll('head > style') as NodeListOf<HTMLStyleElement>
+      );
+      const newIFrameStyleNodes = newIFrameStyleElements.map((styleElement, styleElementIndex) => (
+        <style key={styleElementIndex}>{styleElement.innerHTML}</style>
+      ));
+
+      if (!newIFrameStyleElements.length) {
+        return;
+      }
+
+      if (!iframeStyleNodes) {
+        setIframeStyleNodes(newIFrameStyleNodes);
+        setIframeStyleElements(newIFrameStyleElements);
+        return;
+      }
+
+      if (!iframeStyleElements) {
+        return;
+      }
+
+      let styleElementsChanged = false;
+      newIFrameStyleElements.every((newStyle, newStyleIndex) => {
+        if (newStyle?.innerHTML !== iframeStyleElements?.[newStyleIndex]?.innerHTML) {
+          styleElementsChanged = true;
+          return false;
+        }
+        return true;
+      });
+
+      if (styleElementsChanged) {
+        setIframeStyleNodes(newIFrameStyleNodes);
+        setIframeHeight();
+      }
+    }, [setIframeHeight, isSsrIframe, iframeStyleElements, iframeStyleNodes]);
+
     /**
      * Handle iframe onload event
      */
@@ -170,6 +217,7 @@ const IFrameFn: React.FC<Props> = React.memo(
         <IFrameHead
           key={'head'}
           iframeLinkElements={iframeLinkNodes}
+          iframeStyleElements={iframeStyleNodes}
           iframeHead={iframeHead}
         ></IFrameHead>
         <IFrameBody key={'body'} iframeBody={iframeBody}>
@@ -187,12 +235,14 @@ export const IFrame = IFrameFn;
 const IFrameHead = React.memo(
   ({
     iframeLinkElements,
+    iframeStyleElements,
     iframeHead,
   }: {
     iframeLinkElements: React.ReactNode;
+    iframeStyleElements: React.ReactNode;
     iframeHead?: HTMLHeadElement;
   }) => {
-    return iframeHead ? createPortal(iframeLinkElements, iframeHead) : null;
+    return iframeHead ? createPortal([iframeLinkElements, iframeStyleElements], iframeHead) : null;
   }
 );
 
