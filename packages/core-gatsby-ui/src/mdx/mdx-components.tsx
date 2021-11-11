@@ -43,6 +43,7 @@ import React, { AnchorHTMLAttributes, Suspense } from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { IconBox } from '../docs-components/icon-box';
+import { lorenipsum, lorenipsumShort } from '../docs-components/loren-ipsum';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
@@ -259,13 +260,28 @@ export const mdxComponents: Partial<
   Code: Code,
 
   /**
+   *
    * Others
+   *
    */
+
   pragmaFrag: (props: MDXProps) => <Paragraph {...props} />,
 
   /**
-   * Layout
+   *
+   * Placeholders
+   *
    */
+
+  LorenipsumShort: (props: MDXProps) => <>{lorenipsumShort}</>,
+  Lorenipsum: (props: MDXProps) => <>{lorenipsum}</>,
+
+  /**
+   *
+   * Layout
+   *
+   */
+
   Label: Label,
   Tag: Tag,
   Button: Button,
@@ -273,8 +289,11 @@ export const mdxComponents: Partial<
   BoxV3: BoxV3,
 
   /**
-   * Layout
+
+  * Layout
+   *
    */
+
   Center: Center,
   Cluster: Cluster,
 

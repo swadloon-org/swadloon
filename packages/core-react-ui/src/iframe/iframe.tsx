@@ -159,6 +159,7 @@ const IFrameFn: React.FC<Props> = React.memo(
       }
 
       const newIFrameStyleElements = Array.from(
+        // take the style tag present in the head only
         window.document.querySelectorAll('head > style') as NodeListOf<HTMLStyleElement>
       );
       const newIFrameStyleNodes = newIFrameStyleElements.map((styleElement, styleElementIndex) => (

@@ -21,7 +21,6 @@ import { Titles } from '../../src/code/titles.code';
 import { Headings } from '../../src/code/headings.code';
 import { Labels } from '../../src/code/labels.code';
 import { Paragraphs } from '../../src/code/paragraphs.code';
-import { lorenipsum, lorenipsumShort } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 
 <!-- END CODE IMPORTS -->
 
@@ -40,7 +39,7 @@ Visual importance of text has 3 levels: primary, secondary and tertiary.
 <ThemeWrapper viewport={'auto'}> 
   <Heading variantLevel={'primary'} variant={'h2'}>Title</Heading>
   <Label variantLevel={'secondary'} variantStyle={'boldUppercase'}>Subtitle</Label>
-  <Paragraph variantLevel={'primary'}>{lorenipsum}</Paragraph>
+  <Paragraph variantLevel={'primary'}><Lorenipsum/></Paragraph>
   <Paragraph variantLevel={'tertiary'} variant={'small'}>Published 4h ago</Paragraph>
 </ThemeWrapper>
 
