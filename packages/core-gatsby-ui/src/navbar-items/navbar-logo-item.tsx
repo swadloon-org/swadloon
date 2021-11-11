@@ -12,6 +12,7 @@ type Props = NavbarLinkProps & {
 
 export const NavbarLogoLinkItem: React.FC<Props> = ({
   kind = LOGO.STANDARD,
+  tagText,
   children,
   ...props
 }) => {

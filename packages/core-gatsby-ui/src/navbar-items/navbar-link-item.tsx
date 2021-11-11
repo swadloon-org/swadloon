@@ -32,6 +32,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
 
   const linkIsExternal = props.href && /https?:\/\//.test(props.href);
   const classNames = [
+    styles.base,
     styles.navbarItemLink({
       variant: 'primary',
       kind: linkIsExternal ? 'external' : 'normal',

@@ -16,7 +16,7 @@ import {
   Label,
   Link,
   Logo,
-  MenuSeparator,
+  NavbarSeparatorItem,
   Paragraph,
   Stack,
   useCommonProps,
@@ -177,7 +177,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
         <>
           {socialLinks.map((socialLink, index) =>
             socialLink === '|' ? (
-              <MenuSeparator key={index}></MenuSeparator>
+              <NavbarSeparatorItem key={index}></NavbarSeparatorItem>
             ) : (
               <Button
                 key={index}

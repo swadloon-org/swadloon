@@ -747,6 +747,19 @@ describe(`navigation api utilities`, () => {
         exact: true,
       });
     });
+
+    it('should handle path with query parameters', () => {
+      expect(
+        isPathActive({
+          path: '/design-system/',
+          pathname: '/design-system/?some=value',
+        })
+      ).toEqual({
+        match: true,
+        partial: false,
+        exact: true,
+      });
+    });
   });
 
   describe(`${sortLinkPredicate.name}`, () => {

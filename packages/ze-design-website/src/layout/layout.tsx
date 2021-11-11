@@ -89,7 +89,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
           sidebarOpened={sidebarOpened}
           onClickMenuButton={handleClickMenuButton}
           onClickBackdrop={handleClickMenuButton}
-          activePathname={props.path}
+          activePathname={props.location?.pathname}
           HomeLink={<GatsbyLink to={'/'} />}
         ></SidebarStandardLazy>
       </Suspense>

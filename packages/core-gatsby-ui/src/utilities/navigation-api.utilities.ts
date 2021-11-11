@@ -866,14 +866,7 @@ export function isPathActive({
    */
   prefix?: string | null;
 }): { match: boolean; partial: boolean; exact: boolean } {
-  if (!path) {
-    return {
-      match: false,
-      partial: false,
-      exact: false,
-    };
-  }
-  if (!pathname) {
+  if (!(path && pathname)) {
     return {
       match: false,
       partial: false,
@@ -882,9 +875,13 @@ export function isPathActive({
   }
   const pathToMatch = prefix ? path.replace(prefix, '/') : path;
   const pathnameToMatch = prefix ? pathname.replace(prefix, '/') : pathname;
-  const match = new RegExp(pathToMatch).test(pathnameToMatch);
-  const partial = pathnameToMatch !== pathToMatch;
-  const exact = pathnameToMatch === pathToMatch;
+
+  const pathWithoutQuery = pathToMatch.replace(/(\?.+)$/, '');
+  const pathnameWithoutQuery = pathnameToMatch.replace(/(\?.+)$/, '');
+
+  const match = new RegExp(pathWithoutQuery).test(pathnameWithoutQuery);
+  const exact = pathnameWithoutQuery === pathWithoutQuery;
+  const partial = !exact;
 
   return {
     match,

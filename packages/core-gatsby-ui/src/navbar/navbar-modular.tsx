@@ -7,9 +7,8 @@ import { NavbarModularProps } from './navbar.props';
 type Props = NavbarModularProps;
 
 /**
- * Navbar with no logic. S
- *
- * lots allows navbar-item components to be placed in 3 areas.
+ * Navbar with no logic.
+ * Slots allows navbar-item components to be placed in 3 areas.
  */
 export const NavbarModular = React.forwardRef<any, Props>(
   (

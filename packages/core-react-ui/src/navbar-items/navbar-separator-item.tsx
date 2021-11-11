@@ -1,12 +1,10 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import * as styleRefs from './menu-separator.treat';
+import * as styles from './navbar-separator-item.css';
 
 type Props = PrimitiveProps<'div'>;
 
-export const MenuSeparator: React.FC<Props> = (props) => {
-  const { styles } = useStyles(styleRefs);
+export const NavbarSeparatorItem: React.FC<Props> = (props) => {
   return <Primitive classNames={[styles.wrapper]} {...props}></Primitive>;
 };
