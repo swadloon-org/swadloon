@@ -6,7 +6,6 @@ import {
   Variant,
 } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -84,7 +83,7 @@ export const Link: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : variantIcon ? (
-      <IoOpenOutline className={styles.icon} preserveAspectRatio="xMinYMin meet" />
+      <div className={styles.icon}>↗</div>
     ) : null;
 
     /**

@@ -14,7 +14,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './docs.treat';
+import * as styleRefs from './docs.css';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 

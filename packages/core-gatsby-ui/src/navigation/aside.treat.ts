@@ -10,12 +10,14 @@ export const styles = {
     marginTop: cssTheme.sizing.var.x4,
     marginBottom: cssTheme.sizing.var.x3,
 
+    display: 'none',
     visibility: 'hidden',
 
     backgroundColor: 'transparent',
 
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
+        display: 'initial',
         visibility: 'visible',
       },
     },

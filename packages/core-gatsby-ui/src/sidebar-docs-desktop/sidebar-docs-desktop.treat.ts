@@ -50,6 +50,7 @@ export const navigationWrapper = style(({ theme, cssTheme }: Theme) => ({
   height: '100%',
   overflowY: 'auto',
   overflowX: 'hidden',
+  paddingBottom: cssTheme.sizing.var.x5,
 }));
 
 export const navigation = style(({ theme, cssTheme }: Theme) => ({

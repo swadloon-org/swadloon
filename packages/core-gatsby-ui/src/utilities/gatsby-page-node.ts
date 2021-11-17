@@ -2,7 +2,7 @@ import {
   GatsbyCommonPageContext,
   GatsbyMarkdownFilePageContext,
 } from '@newrade/core-gatsb-config/config';
-import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
 /**
  * Simplified type for a Page Node

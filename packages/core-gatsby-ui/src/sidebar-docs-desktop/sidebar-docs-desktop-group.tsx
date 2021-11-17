@@ -1,9 +1,10 @@
-import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { LABEL_SIZE, LinkProps, TagSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import {
   Cluster,
   Label,
   PrimitiveProps,
   Stack,
+  Tag,
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
@@ -17,8 +18,10 @@ type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     label?: string;
+    count?: number;
     isOpen?: boolean;
     pathname?: string;
+    level?: 0 | 1;
   };
 
 export const SidebarDocsDesktopGroup: React.FC<Props> = ({
@@ -28,17 +31,29 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   as,
   AsElement,
   label,
+  count,
   isOpen,
   pathname,
+  level = 0,
   ...props
 }) => {
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
+
+  /**
+   *
+   * Levels
+   *
+   */
+
+  type LevelStyle = `level${typeof level}`;
+  const levelStyle: LevelStyle = `level${level}`;
+
   const commonProps = useCommonProps<'div'>({
     id,
     style,
     className,
-    classNames: [styles.wrapper],
+    classNames: [styles[levelStyle]],
     ...props,
   });
   const [localIsOpened, setLocalIsOpened] = useState<boolean | undefined>(undefined);
@@ -71,6 +86,12 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
         >
           {label}
         </Label>
+
+        {count ? (
+          <Tag variant={Variant.primary} size={TagSize.small}>
+            {count.toString()}
+          </Tag>
+        ) : null}
       </Cluster>
 
       {localIsOpened ? <div className={styles.children}>{props.children}</div> : null}

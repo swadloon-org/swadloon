@@ -94,11 +94,15 @@ export const mdxComponents: Partial<
       // removes unwanted props in DOM
       const { className, mdxType, originalType, ...elementProps } = element.props;
 
+      // todo style .footnotes
+      // todo style .footnote-ref
+      // todo style .footnote-backref
       if (element.props.className === 'footnotes') {
         // since we only have one element that will ever match this
         // the key doesn't matter, but react will yell without a key.
         return <div key={1} className={className} {...elementProps}></div>;
       }
+
       return child;
     });
     return <>{updatedChildren}</>;

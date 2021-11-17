@@ -1,8 +1,15 @@
 import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui';
-import { LinkAPI, LinkType, NavComponent, NavigationAPI, PageAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
+import {
+  BreadcrumbsAPI,
+  LinkAPI,
+  LinkType,
+  NavComponent,
+  NavigationAPI,
+  PageAPI,
+} from '@newrade/core-website-api';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import { kebab, lower, title } from 'case';
 import { GatsbyPageNode } from './gatsby-page-node';
 
@@ -12,6 +19,11 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
   navigationComponent: NavComponent.navbar,
   locale: SITE_LANGUAGES.EN,
   sortOrderDirectories: [
+    /overview/i,
+    /accessibility/i,
+    /tech/i,
+    /theming/i,
+    /where to start/i,
     /development process/i,
     /guides/i,
     /packages/i,
@@ -28,7 +40,15 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /tools/i,
     /Content API/i,
   ],
-  sortOrderItems: [/overview/i, /where to start/i, /get started/i, /theming/i, /demos/i],
+  sortOrderItems: [
+    /overview/i,
+    /accessibility/i,
+    /where to start/i,
+    /get started/i,
+    /tech/i,
+    /theming/i,
+    /demos/i,
+  ],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
   uppercaseWords: ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
@@ -228,7 +248,7 @@ export function getNavigationAPIFromPageNodes(options: GetNavigationAPIOptions):
 }
 
 /**
- * Create a LinkAPI object in a navigation tree at a specific path
+ * Create a NavigationAPI object in a navigation tree at a specific path
  */
 export function setNavigationLinkAtPath({
   paths,
@@ -246,9 +266,11 @@ export function setNavigationLinkAtPath({
   //
   // for a path /fr/docs/design/page
   //
-  const localePath = [paths[0]].find((path) => path === getLangSimpleCode(pageLocale)); // 'fr'
-  const pathsWithoutLocale = localePath ? paths.slice(1) : paths; // ['fr', 'docs', 'design', 'page-name']
-  const currentPathParts = pathsWithoutLocale;
+
+  // locale path /fr/docs/design/page => 'fr'
+  const localePath = [paths[0]].find((path) => path === getLangSimpleCode(pageLocale));
+  // locale path without locale /fr/docs/design/page => ['fr', 'docs', 'design', 'page-name']
+  const pathsWithoutLocale = localePath ? paths.slice(1) : paths;
   const parentPathParts = pathsWithoutLocale.slice(0, pathsWithoutLocale.length - 1); // ['docs', 'design']
   const parentPathPart = pathsWithoutLocale.slice(
     pathsWithoutLocale.length - 2,
@@ -258,8 +280,9 @@ export function setNavigationLinkAtPath({
   const currentPathPart = pathsWithoutLocale.slice(pathsWithoutLocale.length - 1); // ['page-name']
   const currentPathLast = currentPathPart.join('').replace(/-/g, ' '); // 'page-name' => 'page name'
 
-  const currentPath = getCompletePath(currentPathParts);
-  const currentPathName = currentPathParts.join('');
+  const currentPath = getCompletePath(pathsWithoutLocale);
+  const currentPathWithLocale = getCompletePath(paths);
+  const currentPathName = pathsWithoutLocale.join('');
   const linkEntryIsIndex = linkEntry && linkEntry.name && /index/gi.test(linkEntry.name);
   const { foundNav, foundLink, foundPage } = getNavigationForPath(parentPathParts, [nav]);
 
@@ -283,7 +306,7 @@ export function setNavigationLinkAtPath({
     page: {
       name: currentPathLast,
       ...linkEntry?.page,
-      slug: currentPath,
+      slug: currentPathWithLocale,
     },
     ...linkEntry,
     label: linkLabel,
@@ -293,22 +316,36 @@ export function setNavigationLinkAtPath({
   // and insert the link
   if (!foundNav) {
     if (linkEntryIsIndex) {
-      // if a link is an index, create a sub navigation
+      // if a link is an index, create a sub navigation using the parent path
+      // e.g. /design-system/index => design-system is the parent path
       setNavigationAtPath({
-        paths,
+        paths: pathsWithoutLocale,
         localePath,
         nav,
         pageLocale,
         navigationEntry: {
           name: newLinkEntry.name,
           label: translateAndFormat(currentPathLast, pageLocale),
-          links: [newLinkEntry],
+          component: NavComponent.menu,
+          links: [],
+          subNavigation: [
+            {
+              name: newLinkEntry.name,
+              label: translateAndFormat(currentPathLast, pageLocale),
+              path: currentPath,
+              component: NavComponent.link,
+              links: [],
+              link: newLinkEntry,
+            },
+          ],
         },
         options,
       });
       return nav;
     }
 
+    // if it's not an index
+    // e.g. /design-system/index => design-system is the parent path
     setNavigationAtPath({
       paths: parentPathParts,
       localePath,
@@ -316,23 +353,18 @@ export function setNavigationLinkAtPath({
       navigationEntry: {
         name: newLinkEntry.name,
         label: translateAndFormat(parentPathPartName, pageLocale),
-        links: [newLinkEntry],
-      },
-      pageLocale,
-      options,
-    });
-    return nav;
-  }
-
-  if (linkEntryIsIndex) {
-    setNavigationAtPath({
-      paths: currentPathParts,
-      localePath,
-      nav,
-      navigationEntry: {
-        name: newLinkEntry.name,
-        label: translateAndFormat(currentPathLast, pageLocale),
-        links: [newLinkEntry],
+        component: NavComponent.menu,
+        links: [],
+        subNavigation: [
+          {
+            name: newLinkEntry.name,
+            label: newLinkEntry.label,
+            path: currentPath,
+            component: NavComponent.link,
+            links: [],
+            link: newLinkEntry,
+          },
+        ],
       },
       pageLocale,
       options,
@@ -344,8 +376,52 @@ export function setNavigationLinkAtPath({
     foundNav.links = [];
   }
 
-  // otherwise just insert the new link in the links
-  foundNav.links.push(newLinkEntry);
+  if (!foundNav.subNavigation) {
+    foundNav.subNavigation = [];
+  }
+
+  if (linkEntryIsIndex) {
+    // if a link is an index, create a sub navigation using the parent path
+    // e.g. /design-system/index => design-system is the parent path
+    setNavigationAtPath({
+      paths: pathsWithoutLocale,
+      localePath,
+      nav,
+      pageLocale,
+      navigationEntry: {
+        name: newLinkEntry.name,
+        label: translateAndFormat(currentPathLast, pageLocale),
+        component: NavComponent.menu,
+        links: [],
+        subNavigation: [
+          {
+            name: newLinkEntry.name,
+            label: newLinkEntry.label,
+            path: currentPathWithLocale,
+            component: NavComponent.link,
+            links: [],
+            link: newLinkEntry,
+          },
+        ],
+      },
+      options,
+    });
+    return nav;
+  }
+
+  // otherwise just insert the new link in the current nav
+  foundNav.subNavigation.push({
+    name: newLinkEntry.name,
+    label: translateAndFormat(currentPathLast, pageLocale),
+    component: NavComponent.link,
+    link: newLinkEntry,
+    path: currentPathWithLocale,
+  });
+
+  // if the current nav was a link, we added more sub nav object, so it becomes a menu
+  if (foundNav.component === NavComponent.link) {
+    foundNav.component = NavComponent.menu;
+  }
 
   return nav;
 }
@@ -493,30 +569,47 @@ export function getNavigationForPath(
         return true;
       }
 
-      if (nav.links && nav.links.length) {
-        nav.links.every((link) => {
-          if (!link) {
-            return true;
-          }
-          if (!link.page) {
-            return true;
-          }
-          if (completePath === link.page.slug) {
-            foundNav = nav;
-            foundLink = link;
-            foundPage = link.page as PageAPI;
-          }
-          if (foundNav || foundLink || foundPage) {
-            return false;
-          }
-          return true;
-        });
-      }
-
       return true;
     });
 
   return { foundNav, foundLink, foundPage };
+}
+
+/**
+ * Given a path, find the matching nav object in a NavigationAPI tree and build a list of LinkAPI objects.
+ */
+export function getBreadcrumbsForPath(
+  /**
+   * [] means the root level
+   */
+  pathParts: string[],
+  navigations?: NavigationAPI[] | null
+): BreadcrumbsAPI {
+  if (!navigations) {
+    return { links: [] };
+  }
+
+  const completePath = getCompletePath(pathParts);
+
+  let links: LinkAPI[] = [];
+
+  navigations
+    .filter((nav) => !!nav as NavigationAPI)
+    .forEach((nav) => {
+      const navPathMatch = isPathActive({ path: nav.path, pathname: completePath });
+      if (navPathMatch.partial && nav.link) {
+        links?.push(nav.link);
+      }
+
+      if (nav.subNavigation && nav.subNavigation.length) {
+        const result = getBreadcrumbsForPath(pathParts, nav.subNavigation as NavigationAPI[]);
+        if (result.links?.length) {
+          links = [...links, ...(result.links as LinkAPI[])];
+        }
+      }
+    });
+
+  return { links };
 }
 
 /**
@@ -623,6 +716,9 @@ export function setNavigationAtPath({
       existingSubnav.links = existingSubnav.links
         ? [...existingSubnav.links, ...(insertedNavigationEntry.links || [])]
         : insertedNavigationEntry.links;
+      existingSubnav.subNavigation = existingSubnav.subNavigation
+        ? [...existingSubnav.subNavigation, ...(insertedNavigationEntry.subNavigation || [])]
+        : insertedNavigationEntry.subNavigation;
       return setNavigationAtPath({
         paths,
         localePath,
@@ -785,7 +881,7 @@ export function sortLinkPredicate(
 
 export function sortNavigationPredicate(
   options: Pick<Required<GetNavigationAPIOptions>, 'sortOrderDirectories' | 'sortOrderItems'>
-) {
+): (a?: NavigationAPI | null, b?: NavigationAPI | null) => number {
   return function (a?: NavigationAPI | null, b?: NavigationAPI | null) {
     if (!options.sortOrderDirectories) {
       return 0;

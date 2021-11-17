@@ -15,10 +15,17 @@ import {
 } from '@newrade/core-react-ui';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
+import {
+  BreadcrumbsAPI,
+  CompanyInfoAPI,
+  FooterAPI,
+  NavbarAPI,
+  NavigationAPI,
+  SidebarAPI,
+} from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useStyles } from 'react-treat';
+import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
@@ -32,8 +39,12 @@ import { NavbarModular } from '../navbar/navbar-modular';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
-import { isPathActive } from '../utilities/navigation-api.utilities';
-import * as styleRefs from './docs.layout.treat';
+import {
+  getNavigationForPath,
+  getPathParts,
+  isPathActive,
+} from '../utilities/navigation-api.utilities';
+import * as styles from './docs.layout.css';
 
 /**
  * Custom props to control the layout
@@ -85,7 +96,6 @@ export type LayoutDocsProps = Partial<
  */
 export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const { cssTheme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
 
   const isSSR = useIsSSR();
   const isFirstRender = useFirstRender();
@@ -152,15 +162,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
 
     return () => {};
   }, [isSSR, isFirstRender]);
-
-  /**
-   *
-   * Breadcrumbs
-   *
-   */
-
-  // const BreadcrumbsPortal = () =>
-  //   isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
 
   /**
    *
@@ -287,7 +288,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     leftDesktop: (
       <Cluster gap={[sizingVars.var.x4]}>
         <Cluster gap={['0px']}>
-          <NavbarLogoLinkItem tagText={'Docs'} />
+          <NavbarLogoLinkItem tagText={'Docs'} AsElement={<GatsbyLink to={'/'} />} />
           <NavbarLogoTagItem tagText={tagText} />
         </Cluster>
 
@@ -312,12 +313,28 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       </Cluster>
     ),
     rightDesktop: (
-      <Cluster gap={[sizingVars.var.x1]}>
+      <Cluster>
         <NavbarLinkItem>Search</NavbarLinkItem>
         <NavbarSeparatorItem />
         <NavbarLinkItem>{alternatePageForLocale?.locale || 'FR'}</NavbarLinkItem>
       </Cluster>
     ),
+  };
+
+  /**
+   *
+   * Breadcrumbs
+   *
+   */
+
+  const currentPathParts = getPathParts({ path: props.location?.pathname });
+  const activeNavigation = getNavigationForPath(currentPathParts, [
+    sidebar.navigation as NavigationAPI,
+  ]);
+  const breadcrumbs: BreadcrumbsAPI = {
+    links: currentPathParts
+      .slice(0, currentPathParts.length - 1)
+      .map((part, partIndex) => ({ name: part, label: part, page: { slug: part } })),
   };
 
   return (
@@ -363,13 +380,28 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
          */}
         <SidebarDocsDesktop
           sidebar={sidebar}
+          style={{ gridArea: 'main-docs-sidebar' }}
           activePathname={props.location?.pathname}
         ></SidebarDocsDesktop>
+
+        {/*
+         * Breadcrumbs
+         */}
+        <BreadcrumbsDocs
+          breadcrumbs={breadcrumbs}
+          className={styles.breadcrumbs}
+          style={{ gridArea: 'main-docs-breadcrumbs' }}
+        />
 
         {/**
          * Main markdown content
          */}
-        <MDXProvider components={mdxComponents}>{props.children}</MDXProvider>
+        <MDXProvider components={mdxComponents}>
+          {/**
+           * Template
+           */}
+          {props.children}
+        </MDXProvider>
       </MainDocs>
 
       {/**

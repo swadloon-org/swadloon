@@ -5,7 +5,14 @@ import { NavbarLinkProps } from './navbar-item.props';
 import * as styles from './navbar-link-item.css';
 
 type Props = NavbarLinkProps & {
+  /**
+   * Pass a SVG logo component
+   */
   SVGLogo?: React.ReactNode;
+  /**
+   * Pass a custom children element
+   */
+  CustomChildren?: React.ReactNode;
 };
 
 /**
@@ -20,6 +27,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
   disabled,
   icon,
   SVGLogo,
+  CustomChildren,
   ...props
 }) => {
   const ref = useRef(null);
@@ -65,6 +73,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
    *
    */
 
+  const RenderedCustomChildren = CustomChildren ? CustomChildren : null;
   const children = props.children ? props.children : RenderedLogo ? null : 'Link';
 
   return (
@@ -79,11 +88,13 @@ export const NavbarLinkItem: React.FC<Props> = ({
       variant={variant}
       {...props}
     >
-      {RenderedLogo ? null : (
+      {RenderedLogo || CustomChildren ? null : (
         <Label style={{ color: 'inherit' }} variant={labelSize}>
           {children}
         </Label>
       )}
+
+      {RenderedCustomChildren}
 
       {RenderedLogo}
 

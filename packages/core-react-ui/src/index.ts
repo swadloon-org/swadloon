@@ -57,6 +57,7 @@ export * from './logos/logo';
 export * from './logos/logos-provider';
 export * from './maps/google-maps';
 export * from './maps/google-maps-info-window';
+export * from './metadata/component-metadata';
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 export * from './navbar-items/navbar-separator-item';

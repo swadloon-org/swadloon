@@ -147,13 +147,7 @@ const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, prop
     default: {
       return (
         <ProvidersSite>
-          <Layout
-            {...pageProps}
-            companyInfo={companyInfo}
-            navbar={navbar}
-            footer={footer}
-            sidebar={sidebar}
-          >
+          <Layout {...pageProps} companyInfo={companyInfo} navbar={navbar} footer={footer}>
             {element}
           </Layout>
         </ProvidersSite>

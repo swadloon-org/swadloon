@@ -3,12 +3,13 @@ import {
   BoxV2,
   Label,
   Link,
+  PrimitiveProps,
   scrollIntoView,
   Stack,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities';
+import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -20,7 +21,7 @@ type AsideItem = {
   depth?: number | null;
 } | null;
 
-type Props = {
+type Props = PrimitiveProps<'aside'> & {
   items?: AsideItem[] | null;
   /**
    * Maximum depth to display
@@ -30,11 +31,19 @@ type Props = {
   location?: WindowLocation<any>;
 };
 
-export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
+export const Aside: React.FC<Props> = ({
+  id,
+  className,
+  style,
+  maxDepth = 2,
+  items,
+  location,
+  ...props
+}) => {
   const isSSR = useIsSSR();
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
-  const renderedItems = props.items?.filter(filterItemDepthPredicate);
+  const renderedItems = items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
   const { t } = useI18next();
 
@@ -58,8 +67,10 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
     });
   }
 
+  const classNames = getMergedClassname([className, styles.wrapper]);
+
   return (
-    <BoxV2 as={'aside'} className={styles.wrapper}>
+    <BoxV2 id={id} className={classNames} as={'aside'} style={style}>
       <Stack as={'nav'} gap={[cssTheme.sizing.var.x1]}>
         <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
           {t('inThisPage')}

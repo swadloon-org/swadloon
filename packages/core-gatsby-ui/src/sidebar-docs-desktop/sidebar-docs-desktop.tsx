@@ -15,8 +15,8 @@ import {
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { LinkAPI, NavigationAPI } from '@newrade/core-website-api/src';
-import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
+import { LinkAPI, NavComponent, NavigationAPI } from '@newrade/core-website-api';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';
@@ -83,8 +83,11 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     );
 
     /**
+     *
      * Scroll management
+     *
      */
+
     const [isScrollSticky, setIsScrollSticky] = useState(false);
     useEventListener<'scroll'>(
       'scroll',
@@ -110,7 +113,9 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     const formattedVersion = version ? (/^v/gi.test(version) ? version : `v${version}`) : '';
 
     /**
+     *
      * Filtering
+     *
      */
 
     const [filterValue, setFilterValue] = useState('');
@@ -118,45 +123,55 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     function handleOnFilter() {}
 
     /**
+     *
      * Rendering
+     *
      */
 
     function LinksRenderer(links?: PartialOrNull<LinkAPI>[] | null, level?: number) {
       return (
         <>
           {links?.map((link, linkIndex) => {
-            const linkActive = isPathActive({
-              path: link?.page?.slug,
-              pathname: activePathname,
-            });
-
-            return (
-              <SidebarDocsDesktopItem
-                key={linkIndex}
-                active={linkActive.match && linkActive.exact}
-                style={{
-                  // @ts-ignore
-                  '--sidebar-docs-desktop-item-icon': level && level >= 1 ? `16px` : '0px',
-                }}
-                level={level !== undefined ? (level as 0) : 0}
-                AsElement={
-                  <GatsbyLink
-                    noStyles={true}
-                    to={`${link?.page?.slug || '/'}${isScrollSticky ? '#main-docs' : ''}`}
-                  />
-                }
-              >
-                {link?.label || ' '}
-              </SidebarDocsDesktopItem>
-            );
+            return LinkRenderer({ link, level, key: linkIndex });
           })}
         </>
       );
     }
 
+    function LinkRenderer({
+      link,
+      level,
+      key,
+    }: {
+      link?: PartialOrNull<LinkAPI> | null;
+      level?: number;
+      key: number;
+    }) {
+      const linkActive = isPathActive({
+        path: link?.page?.slug,
+        pathname: activePathname,
+      });
+
+      return (
+        <SidebarDocsDesktopItem
+          key={key}
+          active={linkActive.match && linkActive.exact}
+          level={level !== undefined ? (level as 0) : 0}
+          AsElement={
+            <GatsbyLink
+              noStyles={true}
+              to={`${link?.page?.slug || '/'}${isScrollSticky ? '#main-docs' : ''}`}
+            />
+          }
+        >
+          {link?.label || ' '}
+        </SidebarDocsDesktopItem>
+      );
+    }
+
     function NavRenderer({
       navs,
-      level = 1,
+      level = 0,
     }: { navs?: PartialOrNull<NavigationAPI>[]; level?: number } = {}) {
       return navs?.map((subNav, subNavIndex) => {
         if (!subNav) {
@@ -168,23 +183,48 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         const subNavPath = getPathParts({ path: subNav.path }).filter(
           (part) => !baseNavigationPathParts.find((basePart) => basePart === part)
         );
-        const subNavPathOnly = subNavPath[0] || '/';
+        const subNavPathOnly = subNavPath[subNavPath.length - 1] || '/';
         // split the pathname and consider the first parent
-        const pathnameParent = pathnameParts.find((part) => subNavPath[0]) || '/';
+        const pathnameParent =
+          pathnameParts.find(
+            (part, partIndex, parts) => part === subNavPath[subNavPath.length - 1]
+          ) || '/';
         const subNavOpened = isPathActive({
           path: subNavPathOnly,
           pathname: pathnameParent,
         });
+
+        const linksCount = links?.length ? links.length : 0;
+        const subNavCount = subNav.subNavigation?.length ? subNav.subNavigation.length : 0;
+        const navItemsCount = linksCount + subNavCount;
+
+        if (subNav.component === NavComponent.link && subNav.link) {
+          return LinkRenderer({ link: subNav.link, level: 0, key: subNavIndex });
+        }
 
         return (
           <Stack key={subNavIndex} gap={[`0px`]}>
             {subNav.label ? (
               <SidebarDocsDesktopGroup
                 label={subNav.label}
+                count={navItemsCount}
                 isOpen={subNavOpened.exact}
                 pathname={activePathname}
+                level={level !== undefined ? (level as 0) : 0}
               >
-                {LinksRenderer(links as LinkAPI[], 1)}
+                {/* no need to increase level for nested link, the group will be shifted */}
+                {/* render links first */}
+                {LinksRenderer(links as LinkAPI[], 0)}
+
+                {/* render subnav after */}
+                {subNav.subNavigation?.length ? (
+                  <div className={styles.navigation}>
+                    {NavRenderer({
+                      navs: subNav.subNavigation as NavigationAPI[],
+                      level: level + 1,
+                    })}
+                  </div>
+                ) : null}
               </SidebarDocsDesktopGroup>
             ) : null}
           </Stack>
@@ -231,7 +271,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
           {/* Navigation items */}
           <div className={styles.navigation}>
             {LinksRenderer(sidebarNavigation?.links as LinkAPI[], 0)}
-            {NavRenderer({ navs: sidebarNavigation?.subNavigation as NavigationAPI[] })}
+            {NavRenderer({ navs: sidebarNavigation?.subNavigation as NavigationAPI[], level: 0 })}
           </div>
         </div>
 

@@ -6,7 +6,8 @@
   "main": "dist/newrade-core-website-api.cjs.js",
   "module": "dist/newrade-core-website-api.esm.js",
   "files": [
-    "/dist"
+    "/dist",
+    "/utilities"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:dist && nr prepare-exports",
@@ -15,6 +16,12 @@
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "utilities.ts"
+    ]
   },
   "sideEffects": false,
   "dependencies": {

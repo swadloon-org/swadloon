@@ -197,7 +197,7 @@ const ThemeWrapperFn = React.memo(
               </Tab>
 
               <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
-                Source
+                Code
               </Tab>
             </TabList>
           ) : null}

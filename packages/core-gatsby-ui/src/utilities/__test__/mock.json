@@ -1,0 +1,104 @@
+{
+  "component": "sidebar",
+  "links": [],
+  "name": "test",
+  "path": "/",
+  "subNavigation": [
+    {
+      "component": "menu",
+      "label": "Design System",
+      "links": [],
+      "name": "index",
+      "path": "/design-system/",
+      "subNavigation": [
+        {
+          "component": "menu",
+          "label": "Components",
+          "links": [],
+          "name": "index",
+          "path": "/design-system/components/",
+          "subNavigation": [
+            {
+              "component": "link",
+              "label": "Components",
+              "link": {
+                "label": "Overview",
+                "name": "index",
+                "page": {
+                  "name": "index",
+                  "slug": "/design-system/components/",
+                  "title": "Overview"
+                },
+                "type": "internalPage"
+              },
+              "links": [],
+              "name": "index",
+              "subNavigation": []
+            },
+            {
+              "component": "link",
+              "label": "Buttons",
+              "link": {
+                "label": "Buttons",
+                "name": "buttons",
+                "page": {
+                  "name": "buttons",
+                  "slug": "/design-system/components/buttons/",
+                  "title": "Buttons"
+                },
+                "type": "internalPage"
+              },
+              "links": [],
+              "name": "buttons",
+              "path": "/design-system/components/buttons/",
+              "subNavigation": []
+            }
+          ]
+        },
+        {
+          "component": "link",
+          "label": "Design System",
+          "link": {
+            "label": "Overview",
+            "name": "index",
+            "page": {
+              "name": "index",
+              "slug": "/design-system/",
+              "title": "Overview"
+            },
+            "type": "internalPage"
+          },
+          "links": [],
+          "name": "index",
+          "subNavigation": []
+        }
+      ]
+    },
+    {
+      "component": "menu",
+      "label": "Docs",
+      "links": [],
+      "name": "index",
+      "path": "/docs/",
+      "subNavigation": [
+        {
+          "component": "link",
+          "label": "Docs",
+          "link": {
+            "label": "Overview",
+            "name": "index",
+            "page": {
+              "name": "index",
+              "slug": "/docs/",
+              "title": "Overview"
+            },
+            "type": "internalPage"
+          },
+          "links": [],
+          "name": "index",
+          "subNavigation": []
+        }
+      ]
+    }
+  ]
+}
