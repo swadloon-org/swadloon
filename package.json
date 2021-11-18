@@ -129,7 +129,7 @@
     "@types/sanitize-html": "^2.3.1",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^3.1.4",
-    "@types/yeoman-test": "^2.0.4",
+    "@types/yeoman-test": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "4.x",
     "@typescript-eslint/parser": "4.x",
     "@vanilla-extract/babel-plugin": "^1.0.0",
