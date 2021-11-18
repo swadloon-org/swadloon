@@ -37,9 +37,21 @@ export const rest = style(({ theme, cssTheme }: Theme) => ({
  */
 export const underline = style(({ theme, cssTheme }: Theme) => ({
   textDecoration: 'underline',
+  selectors: {
+    '&:hover': {
+      color: cssTheme.colors.colorIntents.primary,
+      textDecoration: 'underline',
+    },
+  },
 }));
 export const noUnderline = style(({ theme, cssTheme }: Theme) => ({
   textDecoration: 'none',
+  selectors: {
+    '&:hover': {
+      color: cssTheme.colors.colorIntents.primary,
+      textDecoration: 'underline',
+    },
+  },
 }));
 
 /**
@@ -56,9 +68,9 @@ globalStyle(
   })
 );
 globalStyle(
-  `${globalThemeReversedSelector} ${primary}:hover, ${primaryReversed}:hover`,
+  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
   ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colors.primary[100],
+    color: cssTheme.colors.var.colorIntents.primaryTextReversed,
   })
 );
 
@@ -66,7 +78,7 @@ globalStyle(
  * Secondary
  */
 export const secondary = style(({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.var.colorIntents.secondary,
+  color: cssTheme.colors.var.colorIntents.secondaryText,
 }));
 export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
 globalStyle(
@@ -155,6 +167,14 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
  */
 export const icon = style(({ theme, cssTheme }: Theme) => ({
   display: 'inline-block',
+
   marginLeft: '0.3em',
   verticalAlign: '-0.1em',
+  fontSize: '1em',
+  lineHeight: '0',
+
+  textDecoration: 'none',
+}));
+globalStyle(`${icon} path`, ({ theme, cssTheme }: Theme) => ({
+  strokeWidth: 42,
 }));

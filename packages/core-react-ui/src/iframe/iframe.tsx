@@ -211,7 +211,7 @@ const IFrameFn: React.FC<Props> = React.memo(
         style={{ opacity: isVisible ? 1 : 0 }}
         ref={iframeRef}
         width={`100%`}
-        sandbox="allow-same-origin"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
         onLoad={handleOnLoad}
         {...props}
       >

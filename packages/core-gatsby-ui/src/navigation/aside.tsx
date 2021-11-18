@@ -3,12 +3,13 @@ import {
   BoxV2,
   Label,
   Link,
+  PrimitiveProps,
   scrollIntoView,
   Stack,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities';
+import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -20,7 +21,7 @@ type AsideItem = {
   depth?: number | null;
 } | null;
 
-type Props = {
+type Props = PrimitiveProps<'aside'> & {
   items?: AsideItem[] | null;
   /**
    * Maximum depth to display
@@ -30,11 +31,19 @@ type Props = {
   location?: WindowLocation<any>;
 };
 
-export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
+export const Aside: React.FC<Props> = ({
+  id,
+  className,
+  style,
+  maxDepth = 2,
+  items,
+  location,
+  ...props
+}) => {
   const isSSR = useIsSSR();
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
-  const renderedItems = props.items?.filter(filterItemDepthPredicate);
+  const renderedItems = items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
   const { t } = useI18next();
 
@@ -58,17 +67,20 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
     });
   }
 
+  const classNames = getMergedClassname([className, styles.wrapper]);
+
   return (
-    <BoxV2 as={'aside'} className={styles.wrapper}>
+    <BoxV2 id={id} className={classNames} as={'aside'} style={style}>
       <Stack as={'nav'} gap={[cssTheme.sizing.var.x1]}>
         <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
           {t('inThisPage')}
         </Label>
         <ul className={styles.linksWrapper}>
-          {renderedItems?.map((item, index, items) => {
-            const href = `#${getFormattedAnchorId(item?.value)}`;
-            const selected = getFormattedAnchorId(item?.value) === currentId;
-            const hasItemAfter = !!items?.[index + 1];
+          {renderedItems?.map((item, itemIndex, items) => {
+            const formattedId = getFormattedAnchorId(item?.value);
+            const href = `#${formattedId}`;
+            const selected = formattedId === currentId;
+            const hasItemAfter = !!items?.[itemIndex + 1];
             return (
               <li
                 draggable={false}
@@ -77,25 +89,25 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
                   marginTop: item?.depth ? `1em` : '',
                   // @ts-ignore
                   '--aside-before-top':
-                    index === 0
+                    itemIndex === 0
                       ? `-0.7em`
                       : // @ts-ignore
-                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      item?.depth > 2 && props.items[itemIndex - 1]?.depth < item?.depth
                       ? `-0.6em`
                       : '',
                   // @ts-ignore
                   '--aside-before-height':
-                    index === 0
+                    itemIndex === 0
                       ? `1em`
                       : // @ts-ignore
-                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      item?.depth > 2 && props.items[itemIndex - 1]?.depth < item?.depth
                       ? `1em`
                       : '',
                 }}
                 className={`${styles.link} ${selected ? styles.linkSelected : ''} ${
                   hasItemAfter ? styles.linkAfter : ''
                 }`}
-                key={getFormattedAnchorId(item?.value)}
+                key={`${formattedId}-${itemIndex}`}
               >
                 <Link
                   draggable={false}

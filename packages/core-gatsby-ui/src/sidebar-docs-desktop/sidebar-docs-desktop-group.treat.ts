@@ -2,11 +2,15 @@ import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {
-  wrapper: style(({ cssTheme, theme }: Theme) => ({
-    padding: `0 ${cssTheme.sizing.var.x3} 0 0`,
+  level0: style(({ cssTheme, theme }: Theme) => ({
+    padding: `0 0 0 0`,
+  })),
+  level1: style(({ cssTheme, theme }: Theme) => ({
+    padding: `0 0 0 calc(16px + ${cssTheme.sizing.var.x1})`,
   })),
   group: style(({ cssTheme, theme }: Theme) => ({
     padding: `calc(1.25 * ${cssTheme.sizing.var.x1}) 0`,
+    gap: `${cssTheme.sizing.var.x1}`,
     cursor: 'pointer',
     userSelect: 'none',
   })),
@@ -16,7 +20,7 @@ export const styles = {
   icon: style(({ cssTheme, theme }: Theme) => ({
     width: 16,
     height: 16,
-    margin: `0 ${cssTheme.sizing.var.x1} 0 0`,
+    margin: `0 0 0 0`,
 
     color: cssTheme.colors.colorIntents.secondaryText,
 

@@ -1,5 +1,5 @@
 import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo } from 'react';
 import { GatsbyPageNode } from '..';

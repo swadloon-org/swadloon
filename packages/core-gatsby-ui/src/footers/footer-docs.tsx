@@ -16,7 +16,7 @@ import {
   Label,
   Link,
   Logo,
-  MenuSeparator,
+  NavbarSeparatorItem,
   Paragraph,
   Stack,
   useCommonProps,
@@ -177,13 +177,13 @@ export const FooterDocs = React.forwardRef<any, Props>(
         <>
           {socialLinks.map((socialLink, index) =>
             socialLink === '|' ? (
-              <MenuSeparator key={index}></MenuSeparator>
+              <NavbarSeparatorItem key={index}></NavbarSeparatorItem>
             ) : (
               <Button
                 key={index}
                 Icon={socialLink.Icon}
                 icon={socialLink.icon}
-                size={ButtonSize.small}
+                size={ButtonSize.xSmall}
                 variant={socialLink.variant}
                 as={'a'}
                 href={socialLink.href}
@@ -224,9 +224,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
           : null}
 
         {/* Social links */}
-        <Cluster className={styles.profileLinks} gap={[cssTheme.sizing.var.x3]}>
-          {renderSocialLinks(socialLinks)}
-        </Cluster>
+        <Cluster className={styles.profileLinks}>{renderSocialLinks(socialLinks)}</Cluster>
 
         {/* Navigation links */}
         <div className={styles.navLinks}>
@@ -280,7 +278,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
           </Paragraph>
 
           {/* Social links */}
-          <Cluster gap={[cssTheme.sizing.var.x3]}>{renderSocialLinks(socialLinks)}</Cluster>
+          <Cluster>{renderSocialLinks(socialLinks)}</Cluster>
         </Cluster>
       </FooterBase>
     );

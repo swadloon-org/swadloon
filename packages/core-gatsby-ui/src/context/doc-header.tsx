@@ -1,6 +1,6 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
-import { Badge, Cluster, Heading, Hr, Paragraph, Stack, Tag } from '@newrade/core-react-ui';
+import { Badge, Cluster, Heading, Hr, Link, Paragraph, Stack, Tag } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
 import React from 'react';
 import { useI18next } from '../i18next/use-i18next.hook';
@@ -31,7 +31,7 @@ export const DocHeader = ({ props }: Props) => {
   const renderComponentInfos = componentVersion || componentStatus || componentTests;
 
   return (
-    <Stack gap={[sizingVars.var.x4, '24px', '24px']}>
+    <Stack gap={[sizingVars.var.x4]}>
       {/* {subject ? (
         <Label
           variant={LABEL_SIZE.small}
@@ -40,7 +40,10 @@ export const DocHeader = ({ props }: Props) => {
         >{`${subject.toUpperCase()}`}</Label>
       ) : null} */}
 
-      {title ? <Heading>{title}</Heading> : null}
+      <Cluster gap={[sizingVars.var.x2]} justifyContent={['flex-start']} alignItems={['flex-end']}>
+        {title ? <Heading>{title}</Heading> : null}{' '}
+        {status ? <Tag variant={Variant.secondary}>{`${status.toUpperCase()}`}</Tag> : null}
+      </Cluster>
 
       {description ? (
         <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.large}>
@@ -48,28 +51,35 @@ export const DocHeader = ({ props }: Props) => {
         </Paragraph>
       ) : null}
 
-      {renderTags ? (
-        <Cluster justifyContent={['flex-start']} gap={[sizingVars.var.x1]} wrap={true}>
-          {status ? <Tag variant={Variant.secondary}>{`${status.toUpperCase()}`}</Tag> : null}
-
-          {tags?.map((tag, index) => (
-            <Tag variant={Variant.primary} key={index}>
-              {tag}
-            </Tag>
-          ))}
-        </Cluster>
-      ) : null}
-
-      {timeToRead ? (
-        <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
-          {lastChangedAt} · {`${timeToRead} ${t('minutesToRead')}`}
-        </Paragraph>
-      ) : null}
-
-      <Hr />
+      <Cluster justifyContent={['flex-start']} gap={[sizingVars.var.x0]} wrap={true}>
+        {timeToRead ? (
+          <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
+            {lastChangedAt} · {`${timeToRead} ${t('minutesToRead')}`}
+          </Paragraph>
+        ) : null}
+        {renderTags && tags?.length ? (
+          <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
+            -
+          </Paragraph>
+        ) : null}
+        {renderTags
+          ? tags?.map((tag, tagIndex) => (
+              <Link
+                variantLevel={Variant.primary}
+                variantSize={PARAGRAPH_SIZE.xSmall}
+                key={tagIndex}
+              >
+                {tag}
+                {tagIndex < tags.length - 1 ? ', ' : null}
+              </Link>
+            ))
+          : null}
+      </Cluster>
 
       {renderComponentInfos ? (
         <Stack gap={[sizingVars.var.x3]}>
+          <Hr />
+
           <Cluster wrap={true} justifyContent={['flex-start']} gap={[sizingVars.var.x1]}>
             {componentVersion ? <Badge name="version" status={componentVersion}></Badge> : null}
 
@@ -92,7 +102,9 @@ export const DocHeader = ({ props }: Props) => {
 
           <Hr />
         </Stack>
-      ) : null}
+      ) : (
+        <Hr />
+      )}
     </Stack>
   );
 };

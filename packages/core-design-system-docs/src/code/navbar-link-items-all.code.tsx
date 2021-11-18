@@ -4,7 +4,7 @@ import {
   NavbarLinkItem,
   NavbarLogoLinkItem,
 } from '@newrade/core-gatsby-ui/src';
-import { Cluster, Stack } from '@newrade/core-react-ui';
+import { Cluster, NavbarSeparatorItem, Stack } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
 import React from 'react';
 
@@ -14,13 +14,17 @@ export const AllNavbarLinkItems: React.FC<Props> = (props) => {
   return (
     <Stack gap={[sizingVars.var.x3]}>
       <Cluster justifyContent={['flex-start']}>
+        <NavbarLogoLinkItem kind={LOGO.SYMBOL} />
+        <NavbarLogoLinkItem />
+
         <NavbarLinkItem active={true}></NavbarLinkItem>
         <NavbarLinkItem active={false}></NavbarLinkItem>
 
-        <NavbarLogoLinkItem />
-        <NavbarLogoLinkItem kind={LOGO.SYMBOL} />
+        <NavbarSeparatorItem />
 
-        <NavbarExternalLinkItem href={'https://www.google.com'}></NavbarExternalLinkItem>
+        <NavbarExternalLinkItem href={'https://www.google.com'}>
+          External link
+        </NavbarExternalLinkItem>
       </Cluster>
     </Stack>
   );

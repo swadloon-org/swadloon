@@ -56,8 +56,14 @@ export type NavigationAPI = PartialOrNull<{
   component: NavComponent;
   /**
    * Links to other pages or external pages
+   * @deprecated 'use subNavigation with a NavComponent.link object instead'
    */
-  links: LinkAPI[];
+  links?: LinkAPI[];
+  /**
+   * If the navigation object is a link or button component (NavComponent),
+   * the link property will contain a LinkAPI object
+   */
+  link?: LinkAPI;
   /**
    * Sub-navigation
    */

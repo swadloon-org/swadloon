@@ -3,19 +3,29 @@ import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
+  Cluster,
   Heading,
   MainDocs,
   MainDocsWrapper,
+  NavbarSeparatorItem,
   scrollIntoView,
   Theme,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { CompanyInfoAPI, FooterAPI, NavbarAPI, SidebarAPI } from '@newrade/core-website-api';
+import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
+import { sizingVars } from '@newrade/core-react-ui/theme';
+import {
+  BreadcrumbsAPI,
+  CompanyInfoAPI,
+  FooterAPI,
+  NavbarAPI,
+  NavigationAPI,
+  SidebarAPI,
+} from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useStyles } from 'react-treat';
-import { NavbarLogoLinkItem } from '..';
+import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
@@ -23,11 +33,18 @@ import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
-import { NavbarStandard } from '../navbar/navbar-standard';
+import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
+import { NavbarLogoTagItem } from '../navbar-items/navbar-logo-tag-item';
+import { NavbarModular } from '../navbar/navbar-modular';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
-import * as styleRefs from './docs.layout.treat';
+import {
+  getBreadcrumbsForPath,
+  getPathParts,
+  isPathActive,
+} from '../utilities/navigation-api.utilities';
+import * as styles from './docs.layout.css';
 
 /**
  * Custom props to control the layout
@@ -79,20 +96,25 @@ export type LayoutDocsProps = Partial<
  */
 export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const { cssTheme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
 
   const isSSR = useIsSSR();
+  const isFirstRender = useFirstRender();
 
   /**
+   *
    * Styles and theming
+   *
    */
 
   const { treatThemeRef, theme, themeClassname } = props;
   const injectThemeWrapper = treatThemeRef && theme && themeClassname;
 
   /**
+   *
    * Translation
+   *
    */
+
   const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
   const { t, changeLanguage, getTranslatedObject, getAlternativePageForLocale } = useI18next();
   const alternatePageForLocale = getAlternativePageForLocale(
@@ -109,13 +131,17 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   }
 
   /**
+   *
    * CompanyInfo
+   *
    */
 
   const companyInfo = props.companyInfo;
 
   /**
+   *
    * Navigation
+   *
    */
 
   const navbar = props.navbar;
@@ -126,7 +152,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   };
 
   useEffect(() => {
-    if (!isSSR) {
+    if (!isSSR && isFirstRender) {
       if (window.location.hash) {
         scrollIntoView({
           id: window.location.hash,
@@ -135,17 +161,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     }
 
     return () => {};
-  }, [isSSR]);
+  }, [isSSR, isFirstRender]);
 
   /**
-   * Breadcrumbs
-   */
-
-  // const BreadcrumbsPortal = () =>
-  //   isSSR ? null : ReactDOM.createPortal(<BreadcrumbsDocs />, document.body);
-
-  /**
+   *
    * Sidebar
+   *
    */
 
   const [sidebarOpened, setSidebarOpened] = useSidebarState({ initial: false });
@@ -194,7 +215,9 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   // );
 
   /**
+   *
    * Layout
+   *
    */
 
   const [layoutMode, setLayoutMode] = useLayoutState('centered');
@@ -224,7 +247,9 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         };
 
   /**
+   *
    * MDX Components
+   *
    */
 
   const mdxComponents = {
@@ -247,16 +272,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   };
 
   /**
+   *
    * Navbar
+   *
    */
 
-  const tagText = props.location?.pathname
-    ? /core-docs/gi.test(props.location?.pathname)
-      ? 'core docs'
-      : /design-system/gi.test(props.location?.pathname)
-      ? 'design system'
-      : 'docs'
-    : '';
+  const tagText = 'docs';
 
   const navbarItems = {
     left: (
@@ -265,20 +286,55 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       </>
     ),
     leftDesktop: (
-      <>
-        <NavbarLogoLinkItem />
+      <Cluster gap={[sizingVars.var.x4]}>
+        <Cluster gap={['0px']}>
+          <NavbarLogoLinkItem
+            tagText={'Docs'}
+            AsElement={<GatsbyLink to={'/'} />}
+            collapsePadding={'left'}
+          />
+          <NavbarLogoTagItem tagText={tagText} />
+        </Cluster>
 
-        <NavbarLinkItem AsElement={<GatsbyLink to={'/'} />}>Home</NavbarLinkItem>
-        <NavbarLinkItem>Link</NavbarLinkItem>
-      </>
+        <Cluster gap={['0px']}>
+          {navbar?.navigation?.links?.map((link, linkIndex) => {
+            const isLinkPathActive = isPathActive({
+              path: link?.page?.slug,
+              pathname: props.location?.pathname,
+            });
+
+            return (
+              <NavbarLinkItem
+                key={linkIndex}
+                active={isLinkPathActive.match}
+                AsElement={<GatsbyLink to={link?.page?.slug} />}
+              >
+                {link?.label}
+              </NavbarLinkItem>
+            );
+          })}
+        </Cluster>
+      </Cluster>
     ),
     rightDesktop: (
-      <>
-        <NavbarLinkItem>Link</NavbarLinkItem>
-        <NavbarLinkItem>Link</NavbarLinkItem>
-      </>
+      <Cluster>
+        <NavbarLinkItem>Search</NavbarLinkItem>
+        <NavbarSeparatorItem />
+        <NavbarLinkItem>{alternatePageForLocale?.locale || 'FR'}</NavbarLinkItem>
+      </Cluster>
     ),
   };
+
+  /**
+   *
+   * Breadcrumbs
+   *
+   */
+
+  const currentPathParts = getPathParts({ path: props.location?.pathname });
+  const breadcrumbs: BreadcrumbsAPI = getBreadcrumbsForPath(currentPathParts, [
+    sidebar.navigation as NavigationAPI,
+  ]);
 
   return (
     <MainDocsWrapper className={styles.mainWrapper}>
@@ -287,32 +343,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
        * Navbars
        *
        */}
-      {/* <NavbarModular navbarMode={'normal'} {...navbarItems}></NavbarModular> */}
 
-      <NavbarStandard
-        ref={navbarRef}
-        navbar={navbar}
+      <NavbarModular
         navbarMode={'normal'}
-        colorMode={'reversed'}
-        HomeLink={<GatsbyLink to={'/'} />}
         maxWidth={contentMaxWidth}
-        tagText={tagText}
-        currentLanguage={props.pageContext?.locale}
-        languages={props.pageContext?.siteMetadata?.languages?.langs}
-        onClickMenuButton={handleClickMenuButton}
-        onChangeLang={handleChangeLanguage}
-      ></NavbarStandard>
-
-      {/* <NavbarDocs
-        tagText={tag}
-        navbar={{}}
-        HomeLink={HomeLink}
-        maxWidth={contentMaxWidth}
-        MenuLinks={MenuLinks}
-        onClickMenuButton={handleClickMenuButton}
-        menuOpened={sidebarOpened}
-        enableLayoutModeButton={false}
-      ></NavbarDocs> */}
+        {...navbarItems}
+      ></NavbarModular>
 
       {/**
        *
@@ -326,7 +362,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
           sidebarOpened={sidebarOpened}
           onClickMenuButton={handleClickMenuButton}
           onClickBackdrop={handleClickMenuButton}
-          activePathname={props.path}
+          activePathname={props.location?.pathname}
           HomeLink={<GatsbyLink to={'/'} />}
         ></SidebarStandardLazy>
       </React.Suspense>
@@ -338,11 +374,40 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         navbarPadding={false}
         minHeight={true}
       >
-        {/* Desktop sidebar */}
-        <SidebarDocsDesktop sidebar={sidebar} activePathname={props.path}></SidebarDocsDesktop>
+        {/**
+         * Desktop sidebar
+         */}
+        <SidebarDocsDesktop
+          sidebar={sidebar}
+          style={{ gridArea: 'main-docs-sidebar' }}
+          activePathname={props.location?.pathname}
+        ></SidebarDocsDesktop>
 
-        <MDXProvider components={mdxComponents}>{props.children}</MDXProvider>
+        {/*
+         * Breadcrumbs
+         */}
+        <BreadcrumbsDocs
+          breadcrumbs={breadcrumbs}
+          className={styles.breadcrumbs}
+          style={{ gridArea: 'main-docs-breadcrumbs' }}
+        />
+
+        {/**
+         * Main markdown content
+         */}
+        <MDXProvider components={mdxComponents}>
+          {/**
+           * Template
+           */}
+          {props.children}
+        </MDXProvider>
       </MainDocs>
+
+      {/**
+       *
+       * Footer
+       *
+       */}
 
       <FooterDocs
         ref={footerRef}

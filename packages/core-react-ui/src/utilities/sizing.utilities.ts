@@ -141,7 +141,10 @@ export function getCSSSizingStep(options: core.SizingSteps): core.SizingSteps<st
  *
  * starting by an initial value and the power mathematical operator
  */
-export function getCSSSizingStepV2(steps: core.SizingSteps): core.SizingSteps<string> {
+export function getCSSSizingStepV2(
+  steps: core.SizingSteps,
+  options?: { power?: boolean }
+): core.SizingSteps<string> {
   const viewports = keys(steps);
   return viewports.reduce((previous, current) => {
     const viewport = current as core.VIEWPORT;
@@ -150,19 +153,24 @@ export function getCSSSizingStepV2(steps: core.SizingSteps): core.SizingSteps<st
     }
     const sizingSteps = steps[current];
 
-    keys(sizingSteps).forEach((size, index) => {
-      if (size === SIZE.x0) {
-        previous[viewport][size] = `${sizingSteps.x0}px`;
-        return;
-      }
-      const initial = defaultSizesCSSVarV2.x0;
-      const powerValue = index + 1;
-      const ratio = defaultRatiosCSSVar[current];
-      const ratioStr = `* ${ratio}`.repeat(powerValue);
-      const power = `calc(${initial} ${ratioStr})`;
-      previous[viewport][size] = `${power}`;
-    });
+    if (options?.power) {
+      keys(sizingSteps).forEach((size, index) => {
+        if (size === SIZE.x0) {
+          previous[viewport][size] = `${sizingSteps.x0}px`;
+          return;
+        }
+        const initial = defaultSizesCSSVarV2.x0;
+        const powerValue = index + 1;
+        const ratio = defaultRatiosCSSVar[current];
+        const ratioStr = `* ${ratio}`.repeat(powerValue);
+        const power = `calc(${initial} ${ratioStr})`;
+        previous[viewport][size] = `${power}`;
+      });
+    }
 
+    keys(sizingSteps).forEach((size, index) => {
+      previous[viewport][size] = `${sizingSteps[size]}px`;
+    });
     return previous;
   }, {} as core.SizingSteps<string>);
 }

@@ -49,7 +49,7 @@ export const ListItems: React.FC<Props> = React.memo(
         id={id}
         style={style}
         className={allClassName}
-        gap={gap || [`0.6em`]}
+        gap={gap || [`0.5em`]}
         {...props}
       >
         {renderedChildren}

@@ -40,7 +40,7 @@ A sans-serif typeface doesn't have any serif.
   <FontsSans/>
 </ThemeWrapper>
 
-### Sans Serif Alternate
+## Sans Serif Alternate
 
 A sans-serif alternate typeface is used to alternate the main sans-serif
 typeface.
@@ -50,7 +50,7 @@ typeface.
 <FontsSansAlternate/>
 </ThemeWrapper>
 
-### Serif
+## Serif
 
 A serif typeface has serif, a small line or stroke, at the end of stroke of
 letters and symbols.
@@ -60,9 +60,12 @@ letters and symbols.
   <FontsSerif/>
 </ThemeWrapper>
 
-### Mono
+## Mono
 
 A mono typeface has letters and characters that are mathematically the same
 width.
 
-<ThemeWrapper> <FontsMono/> </ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper>
+  <FontsMono/>
+</ThemeWrapper>

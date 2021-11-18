@@ -1,7 +1,8 @@
-import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { Label, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { GatsbyLink } from '../links/gatsby-link';
 import * as styleRefs from './breadcrumbs-docs.treat';
 import { BreadcrumbsProps } from './breadcrumbs.props';
 
@@ -28,78 +29,58 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
 
     return (
       <nav ref={ref} {...commonProps}>
-        {/* {subject ? (
-        <Label
-          variant={LABEL_SIZE.small}
-          variantStyle={TEXT_STYLE.boldUppercase}
-          variantLevel={Variant.tertiary}
-        >{`${subject.toUpperCase()}`}</Label>
-      ) : null} */}
-        <Label
-          key={id}
-          variant={LABEL_SIZE.small}
-          variantStyle={TEXT_STYLE.boldUppercase}
-          variantLevel={Variant.tertiary}
-        >
-          {'CORE-DOCS'}
-        </Label>
-
-        <Label
-          key={id}
-          variant={LABEL_SIZE.small}
-          variantStyle={TEXT_STYLE.boldUppercase}
-          variantLevel={Variant.tertiary}
-        >
-          {'/'}
-        </Label>
-
-        <Label
-          key={id}
-          variant={LABEL_SIZE.small}
-          variantStyle={TEXT_STYLE.boldUppercase}
-          variantLevel={Variant.tertiary}
-        >
-          {'INTRODUCTION'}
-        </Label>
-        {/* Navigation links */}
-        {/* <div className={styles.navLinks}>
-          {footerNavigation?.subNavigation?.map((subNav, subNavIndex) => {
-            if (!subNav) {
-              return null;
-            }
-
-            const links = subNav.links;
-
-            return (
-              <Stack key={subNavIndex} gap={[cssTheme.sizing.var.x4]}>
-                <Label
-                  variantStyle={TEXT_STYLE.boldUppercase}
-                  variant={LABEL_SIZE.xSmall}
+        {links?.map((link, linkIndex) => {
+          return (
+            <React.Fragment key={linkIndex}>
+              {/*
+               * Separator
+               */}
+              {linkIndex > 0 ? (
+                <Paragraph
+                  key={`${linkIndex}-separator`}
+                  variant={PARAGRAPH_SIZE.small}
                   variantLevel={Variant.tertiary}
+                  style={{ userSelect: 'none', fontWeight: 400 }}
                 >
-                  {subNav.label || ' '}
-                </Label>
+                  {'/'}
+                </Paragraph>
+              ) : null}
 
-                <Stack
-                  key={id}
-                  gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
+              {/*
+               * Link
+               */}
+              {link?.page?.slug ? (
+                <Link
+                  key={linkIndex}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variantLevel={Variant.tertiary}
+                  variant={LinkVariant.noUnderline}
+                  style={{
+                    userSelect: 'none',
+                    fontWeight: 400,
+                  }}
+                  AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
                 >
-                  {links?.map((link, id) => {
-                    return (
-                      <Link
-                        key={id}
-                        variantSize={PARAGRAPH_SIZE.small}
-                        AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
-                      >
-                        {link?.label || ' '}
-                      </Link>
-                    );
-                  })}
-                </Stack>
-              </Stack>
-            );
-          })}
-        </div> */}
+                  {link?.label}
+                </Link>
+              ) : (
+                <Link
+                  key={linkIndex}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variantLevel={Variant.tertiary}
+                  variant={LinkVariant.noUnderline}
+                  style={{
+                    userSelect: 'none',
+                    fontWeight: 400,
+                    textDecoration: !link?.page?.slug ? 'none' : '',
+                  }}
+                >
+                  {link?.label}
+                </Link>
+              )}
+            </React.Fragment>
+          );
+        })}
       </nav>
     );
   }

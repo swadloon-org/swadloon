@@ -84,7 +84,7 @@ export const Link: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : variantIcon ? (
-      <IoOpenOutline className={styles.icon} preserveAspectRatio="xMinYMin meet" />
+      <IoOpenOutline className={styles.icon}></IoOpenOutline>
     ) : null;
 
     /**

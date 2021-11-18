@@ -121,7 +121,7 @@ const ThemeWrapperFn = React.memo(
       id,
       style: {
         ...style,
-        backgroundColor: isReversed ? colorVars.colors.grey[900] : '',
+        backgroundColor: isReversed ? colorVars.colors.grey[1000] : '',
       },
       className,
       classNames: [
@@ -197,7 +197,7 @@ const ThemeWrapperFn = React.memo(
               </Tab>
 
               <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
-                Source
+                Code
               </Tab>
             </TabList>
           ) : null}

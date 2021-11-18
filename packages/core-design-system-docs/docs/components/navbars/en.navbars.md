@@ -12,8 +12,8 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { Navbars } from '../../src/code/navbars.code'; 
-import NavbarsCode from '!!raw-loader!../../src/code/navbars.code.tsx';
+import { Navbars } from '../../../src/code/navbars.code'; 
+import NavbarsCode from '!!raw-loader!../../../src/code/navbars.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

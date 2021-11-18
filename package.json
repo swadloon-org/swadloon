@@ -223,7 +223,7 @@
     "lint-staged": "^10.2.9",
     "lmdb-store": "^1.6.4-pre",
     "lodash-es": "^4.17.15",
-    "mini-css-extract-plugin": "^2.1.0",
+    "mini-css-extract-plugin": "^2.4.4",
     "mocha": "^7.2.0",
     "node-loader": "^2.0.0",
     "nodemon": "^2.0.7",

@@ -14,7 +14,7 @@ import {
   IconComp,
   Link,
   Logo,
-  MenuSeparator,
+  NavbarSeparatorItem,
   Tag,
   useCommonProps,
   useTreatTheme,
@@ -180,7 +180,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
             );
           })}
 
-          <MenuSeparator />
+          <NavbarSeparatorItem />
 
           <Button
             aria-label={'Search'}

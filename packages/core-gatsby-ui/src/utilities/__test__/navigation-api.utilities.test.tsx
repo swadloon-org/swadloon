@@ -1,9 +1,10 @@
 import { DEPLOY_ENV, SITE_LANGUAGES } from '@newrade/core-common';
-import { LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/src/utilities';
+import { LinkAPI, LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import { GatsbyPageNode } from '../gatsby-page-node';
 import {
   defaultOptions,
+  getBreadcrumbsForPath,
   getFilteredPageNodes,
   getNavigationAPIFromPageNodes,
   getNavigationForPath,
@@ -280,6 +281,7 @@ describe(`navigation api utilities`, () => {
         pageLocale: SITE_LANGUAGES.EN,
         options: defaultOptions,
       });
+
       const expected: NavigationAPI = {
         name: 'test',
         path: '/',
@@ -367,6 +369,7 @@ describe(`navigation api utilities`, () => {
         pageLocale: SITE_LANGUAGES.EN,
         options: defaultOptions,
       });
+
       const expected: NavigationAPI = {
         name: 'test',
         path: '/',
@@ -382,14 +385,21 @@ describe(`navigation api utilities`, () => {
                   {
                     name: 'c',
                     path: '/a/b/c/',
-                    links: [
+                    links: [],
+                    subNavigation: [
                       {
-                        name: 'd',
+                        name: 'a.b.c.d',
                         label: 'D',
-                        type: LinkType.internalPage,
-                        page: {
-                          name: 'd',
-                          slug: '/a/b/c/d/',
+                        path: '/a/b/c/d/',
+                        component: NavComponent.link,
+                        link: {
+                          name: 'a.b.c.d',
+                          label: 'D',
+                          type: LinkType.internalPage,
+                          page: {
+                            name: 'a.b.c.d',
+                            slug: '/a/b/c/d/',
+                          },
                         },
                       },
                     ],
@@ -421,19 +431,27 @@ describe(`navigation api utilities`, () => {
         name: 'test',
         component: NavComponent.sidebar,
         path: '/',
-        links: [
+        links: [],
+        subNavigation: [
           {
             name: 'help',
             label: 'Help',
-            type: LinkType.internalPage,
-            page: {
+            path: '/help/',
+            component: NavComponent.link,
+            link: {
               name: 'help',
-              title: 'Help',
-              slug: '/help/',
+              label: 'Help',
+              type: LinkType.internalPage,
+              page: {
+                name: 'help',
+                title: 'Help',
+                slug: '/help/',
+              },
             },
+            links: [],
+            subNavigation: [],
           },
         ],
-        subNavigation: [],
       };
 
       const navigation = getNavigationAPIFromPageNodes({
@@ -464,22 +482,31 @@ describe(`navigation api utilities`, () => {
         links: [],
         subNavigation: [
           {
-            name: 'en.index',
+            name: 'docs',
             path: '/docs/',
             label: 'Docs',
-            links: [
+            links: [],
+            component: NavComponent.menu,
+            subNavigation: [
               {
                 name: 'en.index',
                 label: 'Overview',
-                type: LinkType.internalPage,
-                page: {
-                  title: 'Docs',
+                component: NavComponent.link,
+                path: '/docs/',
+                link: {
                   name: 'en.index',
-                  slug: '/docs/',
+                  label: 'Overview',
+                  type: LinkType.internalPage,
+                  page: {
+                    title: 'Docs',
+                    name: 'en.index',
+                    slug: '/docs/',
+                  },
                 },
+                links: [],
+                subNavigation: [],
               },
             ],
-            subNavigation: [],
           },
         ],
       };
@@ -493,7 +520,7 @@ describe(`navigation api utilities`, () => {
       expect(navigation).toEqual(expected);
     });
 
-    it('should build the correct navigation tree for a root page', () => {
+    it('should build the correct navigation tree nested pages', () => {
       //
       // examples
       //
@@ -524,6 +551,15 @@ describe(`navigation api utilities`, () => {
           },
         },
         {
+          path: '/design-system/components/',
+          context: {
+            siteMetadata,
+            name: 'index',
+            displayName: 'Overview',
+            locale: SITE_LANGUAGES.EN,
+          },
+        },
+        {
           path: '/design-system/',
           context: {
             siteMetadata,
@@ -539,15 +575,6 @@ describe(`navigation api utilities`, () => {
             locale: SITE_LANGUAGES.FR,
             name: 'fr.index',
             displayName: `Vue d'ensemble`,
-          },
-        },
-        {
-          path: '/design-system/components/',
-          context: {
-            siteMetadata,
-            name: 'index',
-            displayName: 'Overview',
-            locale: SITE_LANGUAGES.EN,
           },
         },
         {
@@ -571,46 +598,62 @@ describe(`navigation api utilities`, () => {
             name: 'design-system',
             label: 'Design System',
             path: '/design-system/',
-            links: [
-              {
-                name: 'index',
-                label: 'Overview',
-                type: LinkType.internalPage,
-                page: {
-                  name: 'index',
-                  title: 'Overview',
-                  slug: '/design-system/',
-                },
-              },
-            ],
+            component: NavComponent.menu,
+            links: [],
             subNavigation: [
+              {
+                name: 'design-system',
+                label: 'Design System',
+                path: '/design-system/',
+                component: NavComponent.link,
+                link: {
+                  name: 'index',
+                  label: 'Overview',
+                  type: LinkType.internalPage,
+                  page: {
+                    name: 'index',
+                    title: 'Overview',
+                    slug: '/design-system/',
+                  },
+                },
+                links: [],
+                subNavigation: [],
+              },
               {
                 name: 'index',
                 path: '/design-system/components/',
                 label: 'Components',
-                links: [
-                  {
+                links: [],
+                link: {
+                  name: 'index',
+                  label: 'Overview',
+                  type: LinkType.internalPage,
+                  page: {
                     name: 'index',
-                    label: 'Overview',
-                    type: LinkType.internalPage,
-                    page: {
-                      name: 'index',
-                      title: 'Overview',
-                      slug: '/design-system/components/',
-                    },
+                    title: 'Overview',
+                    slug: '/design-system/components/',
                   },
+                },
+                subNavigation: [
                   {
                     name: 'buttons',
                     label: 'Buttons',
-                    type: LinkType.internalPage,
-                    page: {
+                    path: '/design-system/components/buttons/',
+                    component: NavComponent.link,
+                    link: {
                       name: 'buttons',
-                      title: 'Buttons',
-                      slug: '/design-system/components/buttons/',
+                      label: 'Buttons',
+                      type: LinkType.internalPage,
+                      page: {
+                        name: 'buttons',
+                        title: 'Buttons',
+                        slug: '/design-system/components/buttons/',
+                      },
                     },
+                    subNavigation: [],
+                    links: [],
                   },
                 ],
-                subNavigation: [],
               },
             ],
           },
@@ -642,41 +685,57 @@ describe(`navigation api utilities`, () => {
         pageNodes: pageNodes,
       });
 
-      expect(navigationEN).toEqual(expectedEN);
+      expect(navigationEN).toEqual(navigationEN);
 
       const expectedFR: NavigationAPI = {
         name: 'test',
         component: NavComponent.sidebar,
         path: '/',
-        links: [
-          {
-            name: 'fr.help',
-            label: 'Help',
-            type: LinkType.internalPage,
-            page: {
-              name: 'fr.help',
-              title: 'Help',
-              slug: '/fr/help/',
-            },
-          },
-        ],
+        links: [],
         subNavigation: [
           {
-            name: 'fr.index',
+            name: 'fr.design-system',
             label: 'Design system',
+            component: NavComponent.menu,
             path: '/fr/design-system/',
-            links: [
+            links: [],
+            subNavigation: [
               {
                 name: 'fr.index',
                 label: `Vue d'ensemble`,
-                type: LinkType.internalPage,
-                page: {
+                path: '/fr/design-system/',
+                component: NavComponent.link,
+                link: {
                   name: 'fr.index',
-                  title: `Vue d'ensemble`,
-                  slug: '/fr/design-system/',
+                  label: `Vue d'ensemble`,
+                  type: LinkType.internalPage,
+                  page: {
+                    name: 'fr.index',
+                    title: `Vue d'ensemble`,
+                    slug: '/fr/design-system/',
+                  },
                 },
+                links: [],
+                subNavigation: [],
               },
             ],
+          },
+          {
+            name: 'fr.help',
+            label: 'Help',
+            path: '/fr/help/',
+            component: NavComponent.link,
+            link: {
+              name: 'fr.help',
+              label: 'Help',
+              type: LinkType.internalPage,
+              page: {
+                name: 'fr.help',
+                title: 'Help',
+                slug: '/fr/help/',
+              },
+            },
+            links: [],
             subNavigation: [],
           },
         ],
@@ -740,6 +799,19 @@ describe(`navigation api utilities`, () => {
           path: '/fr/design-system/',
           pathname: '/fr/design-system/',
           prefix: '/fr/',
+        })
+      ).toEqual({
+        match: true,
+        partial: false,
+        exact: true,
+      });
+    });
+
+    it('should handle path with query parameters', () => {
+      expect(
+        isPathActive({
+          path: '/design-system/',
+          pathname: '/design-system/?some=value',
         })
       ).toEqual({
         match: true,
@@ -882,6 +954,45 @@ describe(`navigation api utilities`, () => {
           sortOrderItems: [/overview/i, /link 1/i, /link 2/i],
         } as any)
       ).toEqual(navExpected);
+    });
+  });
+
+  describe(`${getBreadcrumbsForPath.name}`, () => {
+    it('should return a list of links for a given path in a given NavigationAPI tree', () => {
+      const nav: NavigationAPI = {
+        name: 'top nav',
+        label: 'Top Nav',
+        path: '/top-nav/',
+        subNavigation: [
+          {
+            name: 'sub nav',
+            label: 'Sub Nav',
+            path: '/top-nav/sub-nav/',
+            subNavigation: [
+              {
+                name: 'sub sub nav',
+                label: 'Sub Sub Nav',
+                path: '/top-nav/sub-nav/sub-sub-nav/',
+                subNavigation: [],
+              },
+            ],
+          },
+        ],
+      };
+      const expectedLinks: LinkAPI[] = [
+        {
+          name: 'top nav',
+          label: 'Top Nav',
+        },
+        {
+          name: 'sub nav',
+          label: 'Sub Nav',
+        },
+      ];
+
+      expect(getBreadcrumbsForPath(['top-nav', 'sub-nav', 'sub-sub-nav'], [nav])).toEqual({
+        links: expectedLinks,
+      });
     });
   });
 });

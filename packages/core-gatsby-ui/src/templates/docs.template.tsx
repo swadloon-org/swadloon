@@ -14,11 +14,9 @@ import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useStyles } from 'react-treat';
-import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
-import * as styleRefs from './docs.treat';
+import * as styles from './docs.css';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
@@ -67,7 +65,6 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
   return (
@@ -117,8 +114,6 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           maxWidth: cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
         }}
       >
-        <BreadcrumbsDocs />
-
         <MarkdownCSS>
           <MDXRenderer {...{ ...props, theme, cssTheme }}>
             {props.data.file?.childMdx?.body as string}
@@ -132,7 +127,11 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         />
       </Stack>
 
-      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+      <Aside
+        style={{ gridArea: 'main-docs-aside' }}
+        items={props.data.file?.childMdx?.headings}
+        location={props.location}
+      />
     </>
   );
 };

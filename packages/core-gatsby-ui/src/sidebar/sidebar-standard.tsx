@@ -20,7 +20,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { LinkAPI } from '@newrade/core-website-api/src';
+import { LinkAPI } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useI18next } from '../i18next/use-i18next.hook';

@@ -1,43 +1,73 @@
-import { disabledStyle, resetButtonStyle } from '@newrade/core-react-ui';
-import { colorVars, effectsVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
-import { style } from '@vanilla-extract/css';
+import { resetButtonStyle } from '@newrade/core-react-ui';
+import { globalThemeReversedSelector } from '@newrade/core-react-ui/global';
+import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { createVar, globalStyle, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
+
+/**
+ *
+ * Vars
+ *
+ */
+
+const textColor = createVar();
+const textColorActive = createVar();
+const textColorDisabled = createVar();
+const borderColor = createVar();
+const borderColorActive = createVar();
+const borderColorDisabled = createVar();
+const backgroundColorActive = createVar();
+const backgroundColorDisabled = createVar();
+const padding = createVar();
+
 /**
  *
  * Base
  *
  */
 
-export const navbarItemLink = recipe({
-  base: [
-    resetButtonStyle,
-    {
-      position: 'relative',
+export const base = style([
+  resetButtonStyle,
+  {
+    vars: {
+      [padding]: `16px`,
+      [textColor]: colorVars.colorIntents.primaryText,
+      [textColorActive]: colorVars.colorIntents.primary,
+      [textColorDisabled]: colorVars.colorIntents.disabledText,
+      [borderColor]: colorVars.colorIntents.primary,
+      [borderColorDisabled]: `transparent`,
+      [backgroundColorActive]: colorVars.colors.grey[0],
+      [backgroundColorDisabled]: `transparent`,
+    },
 
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+    position: 'relative',
 
-      touchAction: 'none',
-      whiteSpace: 'nowrap', // don't allow wrapping
-      width: 'fit-content',
-      textDecoration: 'none',
-      textDecorationColor: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 
-      borderBottom: `2px solid transparent`,
+    touchAction: 'none',
+    whiteSpace: 'nowrap', // don't allow wrapping
+    width: 'fit-content',
+    textDecoration: 'none',
+    textDecorationColor: 'none',
 
-      transitionProperty: `border-bottom-color, color, box-shadow`,
-      transitionDuration: '200ms',
-      transitionTimingFunction: 'ease-out',
+    borderBottom: `2px solid transparent`,
 
-      selectors: {
-        '&:focus': {
-          outline: 'none',
-          boxShadow: effectsVars.outlineShadows.focus,
-        },
+    transitionProperty: `border-bottom-color, color, box-shadow`,
+    transitionDuration: '200ms',
+    transitionTimingFunction: 'ease-out',
+
+    selectors: {
+      '&:focus': {
+        outline: 'none',
+        // boxShadow: effectsVars.outlineShadows.focus,
       },
     },
-  ],
+  },
+]);
+
+export const navbarItemLink = recipe({
   variants: {
     /**
      * Variants
@@ -48,38 +78,51 @@ export const navbarItemLink = recipe({
      */
     kind: {
       normal: {},
-      external: { color: colorVars.colorIntents.primary },
+      external: { color: textColor },
     },
     /**
      * Sizes
      */
     size: {
-      small: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
-      medium: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
+      small: { padding: `0 ${padding}`, height: layoutVars.var.navbarHeight },
+      medium: { padding: `0 ${padding}`, height: layoutVars.var.navbarHeight },
+    },
+    /**
+     * Collapse Padding
+     */
+    padding: {
+      left: { marginLeft: `calc(-1 * ${padding})` },
+      right: { marginRight: `calc(-1 * ${padding})` },
     },
     /**
      * States
      */
     state: {
-      rest: { color: colorVars.colorIntents.primaryText, borderBottomColor: `transparent` },
-      active: {
-        color: colorVars.colorIntents.primary,
-        borderBottomColor: colorVars.colorIntents.primary,
+      rest: {
+        color: textColor,
       },
-      disabled: [
-        disabledStyle,
-        {
-          ':focus': {
-            outline: 'none',
-            boxShadow: 'none',
-          },
+      active: {
+        color: textColorActive,
+        borderColor: borderColorActive,
+        backgroundColor: backgroundColorActive,
+      },
+      disabled: {
+        cursor: 'not-allowed',
+        color: textColorDisabled,
+        borderColor: borderColorDisabled,
+        backgroundColor: backgroundColorDisabled,
+        ':focus': {
+          outline: 'none',
+          boxShadow: 'none',
         },
-      ],
+      },
     },
     hover: {
       true: {
         ':hover': {
-          color: colorVars.colorIntents.primary,
+          vars: {
+            [textColor]: colorVars.colorIntents.primary,
+          },
         },
       },
       false: {},
@@ -88,6 +131,24 @@ export const navbarItemLink = recipe({
 });
 
 export type NavbarItemLinkVariants = RecipeVariants<typeof navbarItemLink>;
+
+/**
+ *
+ * Color Modes
+ *
+ */
+
+globalStyle(`${globalThemeReversedSelector} ${base}`, {
+  vars: {
+    [textColor]: colorVars.colorIntents.primaryReversed,
+    [textColorActive]: colorVars.colorIntents.primaryReversed,
+    [textColorDisabled]: colorVars.colorIntents.disabledTextReversed,
+    [borderColor]: colorVars.colorIntents.primaryReversed,
+    [borderColorDisabled]: `transparent`,
+    [backgroundColorActive]: colorVars.colors.grey[900],
+    [backgroundColorDisabled]: `transparent`,
+  },
+});
 
 /**
  *
