@@ -1,5 +1,5 @@
 import { DEPLOY_ENV, SITE_LANGUAGES } from '@newrade/core-common';
-import { LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
+import { LinkAPI, LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import { GatsbyPageNode } from '../gatsby-page-node';
 import {
@@ -388,16 +388,16 @@ describe(`navigation api utilities`, () => {
                     links: [],
                     subNavigation: [
                       {
-                        name: 'd',
+                        name: 'a.b.c.d',
                         label: 'D',
                         path: '/a/b/c/d/',
                         component: NavComponent.link,
                         link: {
-                          name: 'd',
+                          name: 'a.b.c.d',
                           label: 'D',
                           type: LinkType.internalPage,
                           page: {
-                            name: 'd',
+                            name: 'a.b.c.d',
                             slug: '/a/b/c/d/',
                           },
                         },
@@ -482,7 +482,7 @@ describe(`navigation api utilities`, () => {
         links: [],
         subNavigation: [
           {
-            name: 'en.index',
+            name: 'docs',
             path: '/docs/',
             label: 'Docs',
             links: [],
@@ -490,7 +490,7 @@ describe(`navigation api utilities`, () => {
             subNavigation: [
               {
                 name: 'en.index',
-                label: 'Docs',
+                label: 'Overview',
                 component: NavComponent.link,
                 path: '/docs/',
                 link: {
@@ -694,7 +694,7 @@ describe(`navigation api utilities`, () => {
         links: [],
         subNavigation: [
           {
-            name: 'fr.index',
+            name: 'fr.design-system',
             label: 'Design system',
             component: NavComponent.menu,
             path: '/fr/design-system/',
@@ -963,18 +963,23 @@ describe(`navigation api utilities`, () => {
         name: 'top nav',
         label: 'Top Nav',
         path: '/top-nav/',
-        links: [],
         subNavigation: [
           {
             name: 'sub nav',
             label: 'Sub Nav',
             path: '/top-nav/sub-nav/',
-            links: [],
-            subNavigation: [],
+            subNavigation: [
+              {
+                name: 'sub sub nav',
+                label: 'Sub Sub Nav',
+                path: '/top-nav/sub-nav/sub-sub-nav/',
+                subNavigation: [],
+              },
+            ],
           },
         ],
       };
-      const expectedLinks = [
+      const expectedLinks: LinkAPI[] = [
         {
           name: 'top nav',
           label: 'Top Nav',
@@ -984,9 +989,10 @@ describe(`navigation api utilities`, () => {
           label: 'Sub Nav',
         },
       ];
-      // expect(getBreadcrumbsForPath(['top-nav', 'sub-nav'], [nav])).toEqual({
-      //   links: expectedLinks,
-      // });
+
+      expect(getBreadcrumbsForPath(['top-nav', 'sub-nav', 'sub-sub-nav'], [nav])).toEqual({
+        links: expectedLinks,
+      });
     });
   });
 });

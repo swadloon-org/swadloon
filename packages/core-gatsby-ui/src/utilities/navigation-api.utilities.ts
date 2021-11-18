@@ -24,6 +24,7 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /tech/i,
     /theming/i,
     /where to start/i,
+    /get started/i,
     /development process/i,
     /guides/i,
     /packages/i,
@@ -279,10 +280,10 @@ export function setNavigationLinkAtPath({
   const parentPathPartName = parentPathPart.join(''); // 'design'
   const currentPathPart = pathsWithoutLocale.slice(pathsWithoutLocale.length - 1); // ['page-name']
   const currentPathLast = currentPathPart.join('').replace(/-/g, ' '); // 'page-name' => 'page name'
+  const currentPathName = paths.join('.');
 
   const currentPath = getCompletePath(pathsWithoutLocale);
   const currentPathWithLocale = getCompletePath(paths);
-  const currentPathName = pathsWithoutLocale.join('');
   const linkEntryIsIndex = linkEntry && linkEntry.name && /index/gi.test(linkEntry.name);
   const { foundNav, foundLink, foundPage } = getNavigationForPath(parentPathParts, [nav]);
 
@@ -301,10 +302,10 @@ export function setNavigationLinkAtPath({
     : translateAndFormat(currentPathLast, pageLocale);
 
   const newLinkEntry: LinkAPI = {
-    name: currentPathLast,
+    name: currentPathName,
     type: LinkType.internalPage,
     page: {
-      name: currentPathLast,
+      name: currentPathName,
       ...linkEntry?.page,
       slug: currentPathWithLocale,
     },
@@ -324,13 +325,13 @@ export function setNavigationLinkAtPath({
         nav,
         pageLocale,
         navigationEntry: {
-          name: newLinkEntry.name,
+          name: linkEntry.name,
           label: translateAndFormat(currentPathLast, pageLocale),
           component: NavComponent.menu,
           links: [],
           subNavigation: [
             {
-              name: newLinkEntry.name,
+              name: currentPathLast,
               label: translateAndFormat(currentPathLast, pageLocale),
               path: currentPath,
               component: NavComponent.link,
@@ -351,13 +352,13 @@ export function setNavigationLinkAtPath({
       localePath,
       nav,
       navigationEntry: {
-        name: newLinkEntry.name,
+        name: currentPathName,
         label: translateAndFormat(parentPathPartName, pageLocale),
         component: NavComponent.menu,
         links: [],
         subNavigation: [
           {
-            name: newLinkEntry.name,
+            name: currentPathName,
             label: newLinkEntry.label,
             path: currentPath,
             component: NavComponent.link,
@@ -389,13 +390,13 @@ export function setNavigationLinkAtPath({
       nav,
       pageLocale,
       navigationEntry: {
-        name: newLinkEntry.name,
+        name: currentPathName,
         label: translateAndFormat(currentPathLast, pageLocale),
         component: NavComponent.menu,
         links: [],
         subNavigation: [
           {
-            name: newLinkEntry.name,
+            name: linkEntry.name,
             label: newLinkEntry.label,
             path: currentPathWithLocale,
             component: NavComponent.link,
@@ -411,7 +412,7 @@ export function setNavigationLinkAtPath({
 
   // otherwise just insert the new link in the current nav
   foundNav.subNavigation.push({
-    name: newLinkEntry.name,
+    name: currentPathName,
     label: translateAndFormat(currentPathLast, pageLocale),
     component: NavComponent.link,
     link: newLinkEntry,
@@ -579,9 +580,6 @@ export function getNavigationForPath(
  * Given a path, find the matching nav object in a NavigationAPI tree and build a list of LinkAPI objects.
  */
 export function getBreadcrumbsForPath(
-  /**
-   * [] means the root level
-   */
   pathParts: string[],
   navigations?: NavigationAPI[] | null
 ): BreadcrumbsAPI {
@@ -595,18 +593,66 @@ export function getBreadcrumbsForPath(
 
   navigations
     .filter((nav) => !!nav as NavigationAPI)
-    .forEach((nav) => {
+    .every((nav) => {
       const navPathMatch = isPathActive({ path: nav.path, pathname: completePath });
-      if (navPathMatch.partial && nav.link) {
-        links?.push(nav.link);
+      //
+      // no match, we continue in the list
+      //
+      if (!navPathMatch.match) {
+        return true;
+      }
+
+      const navIsIndex = nav.name ? /index$/i.test(nav.name) : false;
+
+      if (!navIsIndex && navPathMatch.exact && !nav.subNavigation?.length) {
+        return false;
+      }
+
+      //
+      // we skip the index navigation elements
+      //
+      if (!navIsIndex) {
+        //
+        // if there is a nav link present at this navigation level, use it
+        //
+        if (nav.link) {
+          links.push(nav.link);
+          return true;
+        }
+        //
+        // check if the nav has an index in its sub navigation
+        //
+        if (nav.subNavigation && nav.subNavigation.length) {
+          const indexSubNav = nav.subNavigation.find((subNav) =>
+            subNav?.name ? /index$/i.test(subNav.name) : false
+          );
+          //
+          // if there is a index subnav, add its link but keep the parent nav's label
+          //
+          if (indexSubNav && indexSubNav.link) {
+            links.push({ ...indexSubNav.link, label: nav.label });
+          } else {
+            //
+            // if there is no link object, just create a non-clickable link
+            //
+            links.push({
+              name: nav.name,
+              label: nav.label,
+            });
+          }
+        }
       }
 
       if (nav.subNavigation && nav.subNavigation.length) {
-        const result = getBreadcrumbsForPath(pathParts, nav.subNavigation as NavigationAPI[]);
-        if (result.links?.length) {
-          links = [...links, ...(result.links as LinkAPI[])];
+        const nestedLinks = getBreadcrumbsForPath(pathParts, nav.subNavigation as NavigationAPI[]);
+
+        if (nestedLinks.links?.length) {
+          links = [...links, ...(nestedLinks.links as LinkAPI[])];
+          return false;
         }
       }
+
+      return true;
     });
 
   return { links };

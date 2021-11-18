@@ -1,10 +1,9 @@
 ---
 title: Navbar Link Item
 tags:
-  - navbar item
+  - link
   - navigation
   - molecule
-  - docs
 componentStatus: ready
 componentVersion: v1
 componentTests: missing

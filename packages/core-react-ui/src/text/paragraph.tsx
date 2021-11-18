@@ -7,7 +7,9 @@ import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './paragraph.treat';
 
-type Props = PrimitiveProps<'p' | 'b' | 'div'> &
+type Tag = 'p' | 'b' | 'div' | 'small' | 'strong' | 'em' | 'del';
+
+type Props = PrimitiveProps<Tag> &
   TextCommonProps &
   HTMLAttributes<HTMLParagraphElement> & {
     variant?: PARAGRAPH_SIZE;

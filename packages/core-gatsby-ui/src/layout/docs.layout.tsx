@@ -40,7 +40,7 @@ import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import {
-  getNavigationForPath,
+  getBreadcrumbsForPath,
   getPathParts,
   isPathActive,
 } from '../utilities/navigation-api.utilities';
@@ -328,14 +328,9 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    */
 
   const currentPathParts = getPathParts({ path: props.location?.pathname });
-  const activeNavigation = getNavigationForPath(currentPathParts, [
+  const breadcrumbs: BreadcrumbsAPI = getBreadcrumbsForPath(currentPathParts, [
     sidebar.navigation as NavigationAPI,
   ]);
-  const breadcrumbs: BreadcrumbsAPI = {
-    links: currentPathParts
-      .slice(0, currentPathParts.length - 1)
-      .map((part, partIndex) => ({ name: part, label: part, page: { slug: part } })),
-  };
 
   return (
     <MainDocsWrapper className={styles.mainWrapper}>

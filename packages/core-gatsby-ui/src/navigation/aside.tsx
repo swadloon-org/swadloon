@@ -76,10 +76,11 @@ export const Aside: React.FC<Props> = ({
           {t('inThisPage')}
         </Label>
         <ul className={styles.linksWrapper}>
-          {renderedItems?.map((item, index, items) => {
-            const href = `#${getFormattedAnchorId(item?.value)}`;
-            const selected = getFormattedAnchorId(item?.value) === currentId;
-            const hasItemAfter = !!items?.[index + 1];
+          {renderedItems?.map((item, itemIndex, items) => {
+            const formattedId = getFormattedAnchorId(item?.value);
+            const href = `#${formattedId}`;
+            const selected = formattedId === currentId;
+            const hasItemAfter = !!items?.[itemIndex + 1];
             return (
               <li
                 draggable={false}
@@ -88,25 +89,25 @@ export const Aside: React.FC<Props> = ({
                   marginTop: item?.depth ? `1em` : '',
                   // @ts-ignore
                   '--aside-before-top':
-                    index === 0
+                    itemIndex === 0
                       ? `-0.7em`
                       : // @ts-ignore
-                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      item?.depth > 2 && props.items[itemIndex - 1]?.depth < item?.depth
                       ? `-0.6em`
                       : '',
                   // @ts-ignore
                   '--aside-before-height':
-                    index === 0
+                    itemIndex === 0
                       ? `1em`
                       : // @ts-ignore
-                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      item?.depth > 2 && props.items[itemIndex - 1]?.depth < item?.depth
                       ? `1em`
                       : '',
                 }}
                 className={`${styles.link} ${selected ? styles.linkSelected : ''} ${
                   hasItemAfter ? styles.linkAfter : ''
                 }`}
-                key={getFormattedAnchorId(item?.value)}
+                key={`${formattedId}-${itemIndex}`}
               >
                 <Link
                   draggable={false}

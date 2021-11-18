@@ -166,10 +166,13 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
 export const icon = style(({ theme, cssTheme }: Theme) => ({
   display: 'inline-block',
 
-  marginLeft: '0.1em',
-  verticalAlign: '0em',
+  marginLeft: '0.3em',
+  verticalAlign: '-0.1em',
   fontSize: '1em',
   lineHeight: '0',
 
   textDecoration: 'none',
+}));
+globalStyle(`${icon} path`, ({ theme, cssTheme }: Theme) => ({
+  strokeWidth: 42,
 }));

@@ -2,6 +2,7 @@ import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-syste
 import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { GatsbyLink } from '../links/gatsby-link';
 import * as styleRefs from './breadcrumbs-docs.treat';
 import { BreadcrumbsProps } from './breadcrumbs.props';
 
@@ -37,9 +38,9 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
               {linkIndex > 0 ? (
                 <Paragraph
                   key={`${linkIndex}-separator`}
-                  variant={PARAGRAPH_SIZE.xSmall}
+                  variant={PARAGRAPH_SIZE.small}
                   variantLevel={Variant.tertiary}
-                  style={{ userSelect: 'none' }}
+                  style={{ userSelect: 'none', fontWeight: 400 }}
                 >
                   {'/'}
                 </Paragraph>
@@ -48,15 +49,35 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
               {/*
                * Link
                */}
-              <Link
-                key={linkIndex}
-                variantSize={PARAGRAPH_SIZE.small}
-                variantLevel={Variant.tertiary}
-                variant={LinkVariant.noUnderline}
-                style={{ userSelect: 'none' }}
-              >
-                {link?.label}
-              </Link>
+              {link?.page?.slug ? (
+                <Link
+                  key={linkIndex}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variantLevel={Variant.tertiary}
+                  variant={LinkVariant.noUnderline}
+                  style={{
+                    userSelect: 'none',
+                    fontWeight: 400,
+                  }}
+                  AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
+                >
+                  {link?.label}
+                </Link>
+              ) : (
+                <Link
+                  key={linkIndex}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variantLevel={Variant.tertiary}
+                  variant={LinkVariant.noUnderline}
+                  style={{
+                    userSelect: 'none',
+                    fontWeight: 400,
+                    textDecoration: !link?.page?.slug ? 'none' : '',
+                  }}
+                >
+                  {link?.label}
+                </Link>
+              )}
             </React.Fragment>
           );
         })}

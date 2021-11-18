@@ -49,7 +49,7 @@ globalStyle(`${wrapper} > *:only-child`, ({ cssTheme, theme }: Theme) => ({
 // styles for h1-h2
 globalStyle(`${wrapper} > h1, ${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.75em',
-  marginBottom: '1.3em',
+  marginBottom: '1.2em',
 }));
 
 // styles for h3-h6
