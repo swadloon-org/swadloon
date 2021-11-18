@@ -25,6 +25,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
   size = NavbarItemSize.medium,
   active,
   disabled,
+  collapsePadding,
   icon,
   SVGLogo,
   CustomChildren,
@@ -45,6 +46,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
       variant: 'primary',
       kind: linkIsExternal ? 'external' : 'normal',
       size: size === NavbarItemSize.medium ? 'medium' : 'small',
+      padding: collapsePadding,
       state: disabled ? 'disabled' : active ? 'active' : 'rest',
       hover: disabled ? false : true,
     }),
@@ -80,6 +82,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
     <Primitive<'a', HTMLAnchorElement>
       ref={ref}
       as={as}
+      style={{}}
       AsElement={AsElement}
       classNames={classNames}
       target={linkIsExternal ? '_blank' : undefined}

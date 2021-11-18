@@ -288,7 +288,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     leftDesktop: (
       <Cluster gap={[sizingVars.var.x4]}>
         <Cluster gap={['0px']}>
-          <NavbarLogoLinkItem tagText={'Docs'} AsElement={<GatsbyLink to={'/'} />} />
+          <NavbarLogoLinkItem
+            tagText={'Docs'}
+            AsElement={<GatsbyLink to={'/'} />}
+            collapsePadding={'left'}
+          />
           <NavbarLogoTagItem tagText={tagText} />
         </Cluster>
 

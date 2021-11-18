@@ -18,6 +18,7 @@ const borderColorActive = createVar();
 const borderColorDisabled = createVar();
 const backgroundColorActive = createVar();
 const backgroundColorDisabled = createVar();
+const padding = createVar();
 
 /**
  *
@@ -29,6 +30,7 @@ export const base = style([
   resetButtonStyle,
   {
     vars: {
+      [padding]: `16px`,
       [textColor]: colorVars.colorIntents.primaryText,
       [textColorActive]: colorVars.colorIntents.primary,
       [textColorDisabled]: colorVars.colorIntents.disabledText,
@@ -82,8 +84,15 @@ export const navbarItemLink = recipe({
      * Sizes
      */
     size: {
-      small: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
-      medium: { padding: `0 16px`, height: layoutVars.var.navbarHeight },
+      small: { padding: `0 ${padding}`, height: layoutVars.var.navbarHeight },
+      medium: { padding: `0 ${padding}`, height: layoutVars.var.navbarHeight },
+    },
+    /**
+     * Collapse Padding
+     */
+    padding: {
+      left: { marginLeft: `calc(-1 * ${padding})` },
+      right: { marginRight: `calc(-1 * ${padding})` },
     },
     /**
      * States

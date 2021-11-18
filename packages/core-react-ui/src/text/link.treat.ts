@@ -39,6 +39,7 @@ export const underline = style(({ theme, cssTheme }: Theme) => ({
   textDecoration: 'underline',
   selectors: {
     '&:hover': {
+      color: cssTheme.colors.colorIntents.primary,
       textDecoration: 'underline',
     },
   },
@@ -47,6 +48,7 @@ export const noUnderline = style(({ theme, cssTheme }: Theme) => ({
   textDecoration: 'none',
   selectors: {
     '&:hover': {
+      color: cssTheme.colors.colorIntents.primary,
       textDecoration: 'underline',
     },
   },
