@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.1.0...@newrade/core-gatsb-config@3.1.1) (2021-11-18)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fixes for docs layout
+  ([17aec4e](https://github.com/newrade/newrade-core/commit/17aec4e5e2ecdebf80e362e952cd8e02e78bcae1))
+- **core-gatsby-ui:** upgrade gastby and other deps
+  ([e9742da](https://github.com/newrade/newrade-core/commit/e9742da54bc667c351cc3ba1bcb835efc173c339))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.0.1...@newrade/core-gatsb-config@3.1.0) (2021-10-05)
 
 ### Bug Fixes

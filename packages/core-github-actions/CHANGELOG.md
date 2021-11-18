@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.3...@newrade/core-github-actions@2.0.4) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix jest-watch script
+  ([0e57dcb](https://github.com/newrade/newrade-core/commit/0e57dcb3a511bddb9e24fd2ddf83b54700f39ee0))
+- **core:** fix typecheck command
+  ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
+- **core-github-actions:** fix set-app-env for pull_request_target event
+  ([db2e601](https://github.com/newrade/newrade-core/commit/db2e601e18e5987d55a035fe8d69ccb81f1a9b9e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.2...@newrade/core-github-actions@2.0.3) (2021-10-05)
 
 ### Bug Fixes

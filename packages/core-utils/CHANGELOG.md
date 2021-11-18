@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.3.0...@newrade/core-utils@2.3.1) (2021-11-18)
+
+### Bug Fixes
+
+- **core-utils:** reorg files
+  ([4108a26](https://github.com/newrade/newrade-core/commit/4108a263592b97b7750b24886bf680bf33280aea))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.2.0...@newrade/core-utils@2.3.0) (2021-10-05)
 
 ### Bug Fixes

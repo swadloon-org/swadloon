@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.4.0...@newrade/core-website-api@1.5.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fixes for docs layout
+  ([17aec4e](https://github.com/newrade/newrade-core/commit/17aec4e5e2ecdebf80e362e952cd8e02e78bcae1))
+- **core-ui:** improvements for nav components and utilities
+  ([4e5d922](https://github.com/newrade/newrade-core/commit/4e5d9226d4657e65c4b2d96428ff0671b8a60757))
+
+### Features
+
+- **core:** adding new components
+  ([a122348](https://github.com/newrade/newrade-core/commit/a1223488c070672a10e2121047154a8666a8987e))
+- **core-ui:** improvements to docs layout
+  ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.1...@newrade/core-website-api@1.4.0) (2021-10-05)
 
 ### Bug Fixes

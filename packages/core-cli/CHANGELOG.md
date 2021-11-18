@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.1...@newrade/core-cli@1.14.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix typecheck command
+  ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
+- **core-cli:** fix gatsby command
+  ([9905459](https://github.com/newrade/newrade-core/commit/9905459d588d3a1122548b74cfabcb0fc8bf7d12))
+- **core-cli:** fix npm link command
+  ([b36690b](https://github.com/newrade/newrade-core/commit/b36690be1d9fecc7b31e52e40517752030f7652f))
+- **core-ui:** fix iframe style replication
+  ([e25915b](https://github.com/newrade/newrade-core/commit/e25915b4416bc2f340ecc47d534a59d5e3eabc98))
+- **core-utils:** reorg files
+  ([4108a26](https://github.com/newrade/newrade-core/commit/4108a263592b97b7750b24886bf680bf33280aea))
+
+### Features
+
+- **core-cli:** add lerna-version command
+  ([833337e](https://github.com/newrade/newrade-core/commit/833337ec237c77f342d965e1fac65e26a7b2cf43))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.13.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.0...@newrade/core-cli@1.13.1) (2021-10-05)
 
 ### Bug Fixes

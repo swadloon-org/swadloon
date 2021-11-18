@@ -27,7 +27,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.13.1 darwin-arm64 node-v16.10.0
+@newrade/core-cli/1.14.0 darwin-arm64 node-v16.11.1
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -137,7 +137,7 @@ EXAMPLE
   $ nr gatsby build
 ```
 
-_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.13.1/lib/commands/gatsby.js)_
+_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.14.0/lib/commands/gatsby.js)_
 
 ## `nr git-clean-branches`
 
@@ -313,7 +313,7 @@ EXAMPLE
   $ nr prepare-exports
 ```
 
-_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.13.1/lib/commands/prepare-exports.js)_
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.14.0/lib/commands/prepare-exports.js)_
 
 ## `nr vercel-deploy`
 

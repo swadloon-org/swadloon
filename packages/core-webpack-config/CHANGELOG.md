@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.2.0...@newrade/core-webpack-config@2.3.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** upgrade vanilla extract setup
+  ([60e559d](https://github.com/newrade/newrade-core/commit/60e559d40f877739d4c2c21403f2ba55f131b0d2))
+- **core-cli:** fix npm link command
+  ([b36690b](https://github.com/newrade/newrade-core/commit/b36690be1d9fecc7b31e52e40517752030f7652f))
+
+### Features
+
+- **core-ui:** improvements and fixes for scrolling restoration
+  ([4333b6e](https://github.com/newrade/newrade-core/commit/4333b6eb84ab343887deca95c05b4a5287d31fe6))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.1.1...@newrade/core-webpack-config@2.2.0) (2021-10-05)
 
 ### Bug Fixes

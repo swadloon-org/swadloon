@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.1...@newrade/core-figma-extractor@1.5.2) (2021-11-18)
+
+**Note:** Version bump only for package @newrade/core-figma-extractor
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.0...@newrade/core-figma-extractor@1.5.1) (2021-10-05)
 
 ### Bug Fixes

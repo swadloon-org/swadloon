@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.3](https://github.com/newrade/newrade-core/compare/@newrade/core-contentful-lib@1.10.2...@newrade/core-contentful-lib@1.10.3) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix jest-watch script
+  ([0e57dcb](https://github.com/newrade/newrade-core/commit/0e57dcb3a511bddb9e24fd2ddf83b54700f39ee0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.2](https://github.com/newrade/newrade-core/compare/@newrade/core-contentful-lib@1.10.1...@newrade/core-contentful-lib@1.10.2) (2021-10-05)
 
 ### Bug Fixes

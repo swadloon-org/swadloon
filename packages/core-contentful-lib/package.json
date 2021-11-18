@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-contentful-lib",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "description": "Scripts and models to interact with Contentful APIs and SDKs.",
   "author": {
     "email": "info@newrade.ca",
@@ -32,10 +32,10 @@
     "test:watch": "nr jest-watch"
   },
   "dependencies": {
-    "@newrade/core-design-system": "^1.14.2",
+    "@newrade/core-design-system": "^1.15.0",
     "@newrade/core-jest-config": "^2.0.2",
-    "@newrade/core-utils": "^2.3.0",
-    "@newrade/core-website-api": "^1.4.0",
+    "@newrade/core-utils": "^2.3.1",
+    "@newrade/core-website-api": "^1.5.0",
     "case": "^1",
     "contentful-migration": "^2.0.4",
     "fp-ts": "^2.11.1",

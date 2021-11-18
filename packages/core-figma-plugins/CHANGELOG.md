@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.3...@newrade/core-figma-plugins@1.2.4) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix typecheck command
+  ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.2.3](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.2...@newrade/core-figma-plugins@1.2.3) (2021-10-05)
 
 ### Bug Fixes

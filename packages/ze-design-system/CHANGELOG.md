@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.5.1...@newrade/ze-design-system@1.6.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix typecheck command
+  ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
+- **core-ui:** fix test and iframe
+  ([c837bf2](https://github.com/newrade/newrade-core/commit/c837bf29e783082b966d6ea1d9127c39f8d51e4f))
+
+### Features
+
+- **core:** adding new components
+  ([a122348](https://github.com/newrade/newrade-core/commit/a1223488c070672a10e2121047154a8666a8987e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.5.0...@newrade/ze-design-system@1.5.1) (2021-10-05)
 
 ### Bug Fixes

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.4...@newrade/core-graphql-ui@2.0.5) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** fix typecheck command
+  ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
+- **core-gatsby-ui:** upgrade gastby and other deps
+  ([e9742da](https://github.com/newrade/newrade-core/commit/e9742da54bc667c351cc3ba1bcb835efc173c339))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.3...@newrade/core-graphql-ui@2.0.4) (2021-10-05)
 
 ### Bug Fixes

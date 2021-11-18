@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.3.0...@newrade/core-react-ui@2.4.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core:** upgrade vanilla extract setup
+  ([60e559d](https://github.com/newrade/newrade-core/commit/60e559d40f877739d4c2c21403f2ba55f131b0d2))
+- **core-gatsby-ui:** fix lorenipsum markdown import
+  ([d00e3c4](https://github.com/newrade/newrade-core/commit/d00e3c4c017dfe5ce17cd0663c594a44d35d52e8))
+- **core-gatsby-ui:** fixes for docs layout
+  ([17aec4e](https://github.com/newrade/newrade-core/commit/17aec4e5e2ecdebf80e362e952cd8e02e78bcae1))
+- **core-gatsby-ui:** fixes for iframe
+  ([7553845](https://github.com/newrade/newrade-core/commit/75538459910316ff93afe4dcfc0f2693dc40c304))
+- **core-gatsby-ui:** improvements for docs layout
+  ([638af60](https://github.com/newrade/newrade-core/commit/638af6030f8b278e04e4eb0656007086222d2f4d))
+- **core-gatsby-ui:** upgrade gastby and other deps
+  ([e9742da](https://github.com/newrade/newrade-core/commit/e9742da54bc667c351cc3ba1bcb835efc173c339))
+- **core-react-ui:** upgrade @testing-library/react for react v18
+  ([6f5290c](https://github.com/newrade/newrade-core/commit/6f5290c9a38c749026e228da14ad40058adb2421))
+- **core-ui:** fix for navbar-logo-item (padding)
+  ([bea4dd6](https://github.com/newrade/newrade-core/commit/bea4dd6c1277d78a13f791919c42e4b2ec0481d3))
+- **core-ui:** fix iframe style replication
+  ([e25915b](https://github.com/newrade/newrade-core/commit/e25915b4416bc2f340ecc47d534a59d5e3eabc98))
+- **core-ui:** fix regex cve issue
+  ([f5a6934](https://github.com/newrade/newrade-core/commit/f5a69340fe7dbd7d7e6807dcabf3e8b9d60893e5))
+- **core-ui:** fix test and iframe
+  ([c837bf2](https://github.com/newrade/newrade-core/commit/c837bf29e783082b966d6ea1d9127c39f8d51e4f))
+- **core-ui:** fixes for various components
+  ([85730cf](https://github.com/newrade/newrade-core/commit/85730cf86c907409d6f5a98c436bc63c9c2bc390))
+- **core-ui:** improvements for iframe and themewrapper
+  ([d0556dc](https://github.com/newrade/newrade-core/commit/d0556dce9d694b76ecc871132812d8c1e0b48619))
+- **core-ui:** improvements for nav components and utilities
+  ([4e5d922](https://github.com/newrade/newrade-core/commit/4e5d9226d4657e65c4b2d96428ff0671b8a60757))
+- **core-ui:** update vanilla, and more features to css variable component
+  ([e2120c3](https://github.com/newrade/newrade-core/commit/e2120c3c1c48458b0c689d86aa4d16f2f14c9c7d))
+- **core-ui:** upgrade capsize related code
+  ([522a9bd](https://github.com/newrade/newrade-core/commit/522a9bdebcda87ee6f9b6078a6147f0901f68372))
+
+### Features
+
+- **core:** adding new components
+  ([a122348](https://github.com/newrade/newrade-core/commit/a1223488c070672a10e2121047154a8666a8987e))
+- **core-react-ui:** wip for iframe component, navitem components
+  ([eed4b3e](https://github.com/newrade/newrade-core/commit/eed4b3ea3cb104ed31d34d856fafc1cd8c4165c6))
+- **core-ui:** improvements and fixes for scrolling restoration
+  ([4333b6e](https://github.com/newrade/newrade-core/commit/4333b6eb84ab343887deca95c05b4a5287d31fe6))
+- **core-ui:** improvements for navbar components
+  ([bd8ef00](https://github.com/newrade/newrade-core/commit/bd8ef008cc1afe36eff651f3d982ac075a6382f2))
+- **core-ui:** improvements to docs layout
+  ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.1...@newrade/core-react-ui@2.3.0) (2021-10-05)
 
 ### Bug Fixes

@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.14.2...@newrade/core-design-system@1.15.0) (2021-11-18)
+
+### Bug Fixes
+
+- **core-ui:** fix iframe style replication
+  ([e25915b](https://github.com/newrade/newrade-core/commit/e25915b4416bc2f340ecc47d534a59d5e3eabc98))
+- **core-ui:** fixes for various components
+  ([85730cf](https://github.com/newrade/newrade-core/commit/85730cf86c907409d6f5a98c436bc63c9c2bc390))
+- **core-ui:** improvements for iframe and themewrapper
+  ([d0556dc](https://github.com/newrade/newrade-core/commit/d0556dce9d694b76ecc871132812d8c1e0b48619))
+- **core-ui:** upgrade capsize related code
+  ([522a9bd](https://github.com/newrade/newrade-core/commit/522a9bdebcda87ee6f9b6078a6147f0901f68372))
+
+### Features
+
+- **core:** adding new components
+  ([a122348](https://github.com/newrade/newrade-core/commit/a1223488c070672a10e2121047154a8666a8987e))
+- **core-react-ui:** wip for iframe component, navitem components
+  ([eed4b3e](https://github.com/newrade/newrade-core/commit/eed4b3ea3cb104ed31d34d856fafc1cd8c4165c6))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.14.2](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.14.1...@newrade/core-design-system@1.14.2) (2021-10-05)
 
 ### Bug Fixes
