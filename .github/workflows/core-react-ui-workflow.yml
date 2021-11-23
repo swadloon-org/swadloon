@@ -81,6 +81,7 @@ jobs:
         run: yarn lerna:build --scope @newrade/core-react-ui
 
       - name: Run package size report
+        if: ${{ github.event_name == 'pull_request_target' || github.event_name == 'pull_request' }}
         uses: pkg-size/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
