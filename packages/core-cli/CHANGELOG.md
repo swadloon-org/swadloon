@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.14.0...@newrade/core-cli@1.14.1) (2021-11-23)
+
+### Bug Fixes
+
+- **core-cli:** fix bug when using prepare-exports in scoped package
+  ([b6f228c](https://github.com/newrade/newrade-core/commit/b6f228cd34113a7830edea5d3b43ae552c36a875))
+- **core-cli:** fix release package
+  ([67ba069](https://github.com/newrade/newrade-core/commit/67ba069c4c6133c37f0c35d86a78c2f8bd9f274e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.1...@newrade/core-cli@1.14.0) (2021-11-18)
 
 ### Bug Fixes
