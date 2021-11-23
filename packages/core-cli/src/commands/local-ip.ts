@@ -33,8 +33,7 @@ export default class LocalIp extends Command {
 
     interfacesIds.forEach((ifname) => {
       const networkInterfaces = ifaces[ifname];
-
-      networkInterfaces.forEach((iface) => {
+      networkInterfaces?.forEach((iface) => {
         if (!/ipv4/gi.test(iface.family)) {
           return;
         }
