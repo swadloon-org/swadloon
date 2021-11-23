@@ -79,3 +79,10 @@ jobs:
 
       - name: Build package
         run: yarn lerna:build --scope @newrade/core-react-ui
+
+      - name: Run package size report
+        uses: pkg-size/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          build-command: false

@@ -1,0 +1,27 @@
+{
+  "name": "@newrade/core-github-bot",
+  "version": "1.0.0",
+  "description": "Automation bot for monorepositories",
+  "author": "newrade <phil@leger.work>",
+  "homepage": "https://github.com/newrade/newrade-core",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "license": "ISC",
+  "private": true,
+  "engines": {
+    "node": ">= 12"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "probot run ./lib/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "nock": "^13.0.5",
+    "probot": "^11.0.1",
+    "smee-client": "^1.2.2"
+  }
+}

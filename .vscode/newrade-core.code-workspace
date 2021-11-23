@@ -167,6 +167,10 @@
       "path": "../packages/core-github-actions"
     },
     {
+      "name": "core-github-bot",
+      "path": "../packages/core-github-bot"
+    },
+    {
       "name": "core-jest-config",
       "path": "../packages/core-jest-config"
     },
