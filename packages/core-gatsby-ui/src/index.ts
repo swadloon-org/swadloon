@@ -53,6 +53,7 @@ export * from './sidebar-docs-desktop/sidebar-docs-desktop-group';
 export * from './sidebar-docs-desktop/sidebar-docs-desktop-item';
 export * from './sidebar/sidebar-base';
 export * from './sidebar/sidebar-renderer';
+export * from './sidebar/sidebar-renderer.lazy';
 export * from './sidebar/sidebar-standard';
 export * from './sidebar/sidebar-standard.lazy';
 export * from './sidebar/sidebar.hooks';

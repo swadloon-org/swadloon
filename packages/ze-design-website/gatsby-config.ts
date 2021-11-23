@@ -87,6 +87,7 @@ const config: conf.GastbySiteConfig = {
     /** cdn / deploy */
     /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
+    /** cms */
   ],
 };
 

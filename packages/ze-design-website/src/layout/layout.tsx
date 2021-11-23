@@ -12,7 +12,6 @@ import {
   Main,
   MainWrapper,
   useCommonProps,
-  useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
@@ -23,11 +22,12 @@ import * as styleRefs from './layout.treat';
 type LayoutProps = LayoutDocsProps;
 
 export const Layout: React.FC<LayoutProps> = (props) => {
-  const isSSR = useIsSSR();
-
   /**
+   *
    * Translation
+   *
    */
+
   const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
   const { t, changeLanguage, getTranslatedObject, getAlternativePageForLocale } = useI18next();
   const alternatePageForLocale = getAlternativePageForLocale(
@@ -44,14 +44,18 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   }
 
   /**
+   *
    * Styles & animations
+   *
    */
 
   const { cssTheme } = useTreatTheme();
   const styles = useStyles(styleRefs);
 
   /**
+   *
    * Navigation
+   *
    */
 
   const navbar = props.navbar;
@@ -59,7 +63,9 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   const footer = props.footer;
 
   /**
+   *
    * Sidebar
+   *
    */
 
   const [sidebarOpened, setSidebarOpened] = useSidebarState({ initial: false });
