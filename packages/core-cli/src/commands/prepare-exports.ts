@@ -52,6 +52,10 @@ export default class PrepareExports extends Command {
       encoding: 'utf8',
     });
     const packageJson = JSON.parse(packageJsonFile) as PackageJsonPreconstructEntrypoint;
+    const packageMatch = /@(?<scope>.+)\//gi.exec(packageJson.name);
+    const packageScope = packageMatch?.groups?.['scope']
+      ? packageMatch?.groups?.['scope']
+      : undefined;
     const packageName = packageJson.name.replace(/@.+\//gi, '');
     const packagePath = `packages/${packageName}`;
     const packageJsonEntryPoints = packageJson.preconstruct?.entrypoints
@@ -65,9 +69,9 @@ export default class PrepareExports extends Command {
         ? `${entrypoint.replace(/\/index\.ts/, '')}`
         : '';
       const entryPointId = entrypointName === '' ? 'dist' : entrypointName;
-      const exportEntrypointName = `${kebab(rootPackageName)}-${packageName}${
-        entrypointName ? '-' + entrypointName : ''
-      }`;
+      const exportEntrypointName = `${kebab(
+        packageScope ? packageScope : rootPackageName
+      )}-${packageName}${entrypointName ? '-' + entrypointName : ''}`;
       const entrypointPath = `${entryPointId === 'dist' ? '/dist' : '/' + entryPointId + '/dist'}`;
       const entryPointFullPath = entrypointPath;
 
