@@ -1,4 +1,5 @@
 import { style } from 'treat';
+
 import { Theme } from '@newrade/core-react-ui';
 
 export const base = style(({ theme, cssTheme }: Theme) => ({}));

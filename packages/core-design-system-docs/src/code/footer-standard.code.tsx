@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { FooterStandard } from '@newrade/core-gatsby-ui/src';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import { FooterAPI, LinkType, NavComponent } from '@newrade/core-website-api';
-import React from 'react';
 
 type Props = {};
 

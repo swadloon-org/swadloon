@@ -1,5 +1,6 @@
-import { sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
+
+import { sizingVars } from '@newrade/core-react-ui/theme';
 
 export const content = style({
   // see docs layout

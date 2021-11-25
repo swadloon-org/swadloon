@@ -1,6 +1,8 @@
-import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import * as path from 'path';
+
+import { Command } from '@oclif/command';
+
 import { getShellForPlatform } from '@newrade/core-utils';
 
 export default class Commit extends Command {

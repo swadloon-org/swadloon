@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { Property } from 'csstype';
+
 import { layoutCSS } from '../theme/default-theme.css';
 
 export const wrapper = style({

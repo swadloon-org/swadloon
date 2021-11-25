@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
+
 import { useEventListener } from './use-event-listener';
 
 export default createPersistedState;

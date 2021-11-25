@@ -1,6 +1,7 @@
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+
 import { NavbarItemProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 export type NavbarHTMLElements = 'a' | 'div';
 

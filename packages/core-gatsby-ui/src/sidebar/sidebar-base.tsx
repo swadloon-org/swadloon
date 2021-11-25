@@ -1,10 +1,12 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { Variant } from '@newrade/core-design-system';
 import { SidebarContainer, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
-import React from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './sidebar-base.treat';
+
 import { SidebarProps } from './sidebar.props';
+import * as styleRefs from './sidebar-base.treat';
 
 type Props = SidebarProps & {
   contentClassName?: string;

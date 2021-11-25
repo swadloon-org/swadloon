@@ -1,5 +1,5 @@
 import { MediaQueryGroup } from './foundations/media-queries';
-import { TextDecoration, TEXT_TRANSFORM } from './foundations/text';
+import { TEXT_TRANSFORM, TextDecoration } from './foundations/text';
 import { Color } from './primitives/color';
 import { Radius } from './primitives/radius';
 

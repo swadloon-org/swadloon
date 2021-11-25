@@ -1,4 +1,5 @@
 import { BorderStyles, Buttons } from '@newrade/core-design-system';
+
 import { defaultColorIntents, defaultColors } from './default-colors';
 
 export const defaultButtonBorder: BorderStyles = {

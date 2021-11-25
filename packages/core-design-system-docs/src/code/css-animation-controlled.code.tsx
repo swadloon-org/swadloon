@@ -1,3 +1,5 @@
+import React, { useRef, useState } from 'react';
+
 import { Variant } from '@newrade/core-design-system';
 import {
   Button,
@@ -9,7 +11,6 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React, { useRef, useState } from 'react';
 
 type Props = {};
 

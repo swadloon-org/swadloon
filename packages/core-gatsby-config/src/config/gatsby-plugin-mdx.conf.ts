@@ -1,3 +1,5 @@
+import Gatsby from 'gatsby';
+
 import {
   rehypeAutoLinkHeadingsPlugin,
   rehypeSlugPlugin,
@@ -6,7 +8,6 @@ import {
   remarkTocPlugin,
   remarkWikiLinkPlugin,
 } from '@newrade/core-webpack-config';
-import Gatsby from 'gatsby';
 
 /**
  * gatsby-plugin-mdx

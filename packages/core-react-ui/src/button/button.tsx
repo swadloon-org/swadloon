@@ -1,3 +1,6 @@
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
+import { useStyles } from 'react-treat';
+
 import {
   ButtonIcon,
   ButtonProps,
@@ -6,13 +9,13 @@ import {
   TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+
 import * as stylesRef from './button.treat';
 
 type AsType = 'button' | 'a';

@@ -1,7 +1,7 @@
-import { WebpackPluginInstance } from 'webpack';
-import type * as Terser from 'terser-webpack-plugin/types';
 // @ts-ignore
 import TerserPlugin from 'terser-webpack-plugin';
+import type * as Terser from 'terser-webpack-plugin/types';
+import { WebpackPluginInstance } from 'webpack';
 
 export const terserOptions: Terser.TerserPluginOptions = {
   terserOptions: {

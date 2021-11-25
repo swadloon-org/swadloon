@@ -1,6 +1,9 @@
-import { fireEvent } from '@testing-library/dom';
 import React from 'react';
+
+import { fireEvent } from '@testing-library/dom';
+
 import { renderTest } from '../../utilities/test-render';
+
 import { TestComponent } from './test-component';
 import { TestFormComponent } from './test-form-component';
 

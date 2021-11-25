@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
+
 import { layoutCSS, sizingCSS, sizingVars } from '../theme';
 
 globalStyle(`:root`, {

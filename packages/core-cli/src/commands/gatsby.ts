@@ -1,7 +1,10 @@
-import { Command, flags } from '@oclif/command';
 import { spawn } from 'child_process';
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+
+import { Command, flags } from '@oclif/command';
+
 import { getShellForPlatform } from '@newrade/core-utils';
+
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class Gatsby extends Command {
   log = debugInstance(`${NS}:gatsby`);

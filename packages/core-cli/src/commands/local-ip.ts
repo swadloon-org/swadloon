@@ -1,5 +1,7 @@
-import { Command } from '@oclif/command';
 import os from 'os';
+
+import { Command } from '@oclif/command';
+
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 /**

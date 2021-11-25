@@ -1,5 +1,6 @@
-import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
+
+import { Theme } from '@newrade/core-react-ui';
 
 export const styles = {
   level0: style(({ cssTheme, theme }: Theme) => ({

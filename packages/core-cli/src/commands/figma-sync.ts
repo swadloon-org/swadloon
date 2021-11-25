@@ -1,9 +1,12 @@
-import { extract } from '@newrade/core-figma-extractor';
-import { loadDotEnv } from '@newrade/core-utils';
+import path from 'path';
+
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
 import * as t from 'io-ts';
-import path from 'path';
+
+import { extract } from '@newrade/core-figma-extractor';
+import { loadDotEnv } from '@newrade/core-utils';
+
 import { NS } from '../utilities/log.utilities';
 
 export type ENV = t.TypeOf<typeof Env>;

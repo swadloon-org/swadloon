@@ -1,7 +1,10 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+
+import chalk from 'chalk';
+
 import { ExtractOptions } from '..';
+
 import { log, logError } from './logging.service';
 
 const projectJson = JSON.parse(

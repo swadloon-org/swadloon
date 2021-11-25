@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { Context } from '@actions/github/lib/context';
 import fetch from 'node-fetch';
+
 import { ENV } from '../../types/dot-env';
 
 type ActionEnv = Partial<ENV>;

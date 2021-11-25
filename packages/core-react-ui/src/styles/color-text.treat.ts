@@ -1,5 +1,7 @@
-import { Variant } from '@newrade/core-design-system';
 import { globalStyle, style } from 'treat';
+
+import { Variant } from '@newrade/core-design-system';
+
 import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 

@@ -1,6 +1,7 @@
-import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { MDXRenderer, MDXRendererProps } from 'gatsby-plugin-mdx';
 import React from 'react';
+
+import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 
 type Props = PrimitiveProps & Partial<MDXRendererProps>;
 

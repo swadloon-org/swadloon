@@ -1,5 +1,6 @@
 import { pascal } from 'case';
 import { IFieldOptions } from 'contentful-migration';
+
 import { ContentType } from '@newrade/core-website-api';
 
 export enum COMMON_FIELD {

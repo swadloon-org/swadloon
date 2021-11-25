@@ -1,7 +1,9 @@
-import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+
 import * as styleRefs from './background-effect.treat';
 
 export type BackgroundEffectConfig = Partial<{

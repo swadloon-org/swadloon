@@ -1,4 +1,5 @@
 import { pascal } from 'case';
+
 import { keys } from './utilities';
 
 /**

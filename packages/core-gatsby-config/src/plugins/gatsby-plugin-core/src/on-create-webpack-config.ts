@@ -1,3 +1,8 @@
+import { GatsbyNode } from 'gatsby';
+
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import { Configuration, RuleSetRule } from 'webpack';
+
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType } from '@newrade/core-utils';
 import {
@@ -8,9 +13,7 @@ import {
   getWebpackStatsPlugin,
   stats,
 } from '@newrade/core-webpack-config';
-import { GatsbyNode } from 'gatsby';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { Configuration, RuleSetRule } from 'webpack';
+
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 /**

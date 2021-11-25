@@ -1,8 +1,9 @@
+import React from 'react';
+
 import { NavbarItemSize } from '@newrade/core-design-system';
 import { NavbarExternalLinkItem } from '@newrade/core-gatsby-ui/src';
 import { Cluster, Stack } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import React from 'react';
 
 type Props = {};
 

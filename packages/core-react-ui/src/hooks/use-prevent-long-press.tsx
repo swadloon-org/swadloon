@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { isIOS } from '../utilities/useragent';
 
 type HandleScrollEvent = TouchEvent;

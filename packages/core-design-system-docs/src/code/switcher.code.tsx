@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { Switcher, useTreatTheme } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = {};
 

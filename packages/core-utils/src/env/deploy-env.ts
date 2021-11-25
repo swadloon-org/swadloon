@@ -1,5 +1,6 @@
-import { DEPLOY_ENV } from '@newrade/core-common';
 import * as t from 'io-ts';
+
+import { DEPLOY_ENV } from '@newrade/core-common';
 
 export const DeployEnv = t.keyof({
   [DEPLOY_ENV.LOCAL]: DEPLOY_ENV.LOCAL,

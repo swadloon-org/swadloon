@@ -6,21 +6,22 @@
 
 delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
+import path from 'path';
+
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { TreatPlugin } from 'treat/webpack-plugin';
+import * as tsloader from 'ts-loader';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import webpack, { WebpackOptionsNormalized } from 'webpack';
+import { Configuration } from 'webpack';
+
 import {
   babelPluginBrowserConf,
   babelPresetBrowserConf,
   extractCssLoader,
   svgLoader,
 } from '@newrade/core-webpack-config';
-
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
-import { TreatPlugin } from 'treat/webpack-plugin';
-import * as tsloader from 'ts-loader';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack, { WebpackOptionsNormalized } from 'webpack';
-import { Configuration } from 'webpack';
 
 const config: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',

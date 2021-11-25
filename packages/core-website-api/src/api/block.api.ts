@@ -1,5 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
+
 import { PartialOrNull } from '../utilities';
+
 import { LinkAPI } from './link.api';
 
 export enum BlockType {

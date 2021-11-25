@@ -1,3 +1,7 @@
+import React from 'react';
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import { ButtonIcon, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   Button,
@@ -8,11 +12,9 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './footer-simple.treat';
+
 import { FooterProps } from './footer.props';
+import * as styleRefs from './footer-simple.treat';
 
 type Props = FooterProps & {
   MenuLinks?: React.ReactNode;

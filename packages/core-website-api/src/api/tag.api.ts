@@ -1,4 +1,5 @@
 import { PartialOrNull } from '../utilities';
+
 import { TagTypeAPI } from './tag-type.api';
 
 export type TagAPI = PartialOrNull<{

@@ -1,5 +1,7 @@
-import Gatsby, { PluginRef } from 'gatsby';
 import path from 'path';
+
+import Gatsby, { PluginRef } from 'gatsby';
+
 import {
   rehypeAutoLinkHeadingsPlugin,
   rehypeSlugPlugin,
@@ -8,7 +10,9 @@ import {
   remarkTocPlugin,
   remarkWikiLinkPlugin,
 } from '@newrade/core-webpack-config';
+
 import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
+
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 
 const defaultOptions: Required<GatsbyCorePluginOptions> = {

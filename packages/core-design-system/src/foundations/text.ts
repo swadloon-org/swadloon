@@ -1,6 +1,8 @@
 import { ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
+
 import { Color } from '../primitives/color';
 import { FontWeightType, LetterSpacingType, TextDecorationType, TextTransformType } from '../types';
+
 import { Font } from './font';
 
 export enum TEXT_TRANSFORM {

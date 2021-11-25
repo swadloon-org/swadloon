@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { AlignItemsViewportProps, JustifyContentViewportProps } from '..';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
+import { AlignItemsViewportProps, JustifyContentViewportProps } from '..';
+
 import * as styleRefs from './switcher.treat';
 
 type OwnProps = PrimitiveProps &

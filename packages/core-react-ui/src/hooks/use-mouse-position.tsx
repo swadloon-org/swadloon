@@ -1,5 +1,6 @@
-import throttle from 'lodash/throttle';
 import React from 'react';
+
+import throttle from 'lodash/throttle';
 
 const events = new Set<(event: MouseEvent) => any>();
 const onMouseMove = (event: MouseEvent) => events.forEach((fn) => fn(event));

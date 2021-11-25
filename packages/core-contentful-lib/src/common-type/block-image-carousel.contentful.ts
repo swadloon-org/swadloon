@@ -1,9 +1,12 @@
-import { CarouselDirection } from '@newrade/core-design-system';
-import { BlockType, ContentType } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+
+import { CarouselDirection } from '@newrade/core-design-system';
+import { BlockType, ContentType } from '@newrade/core-website-api';
+
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
+
 import { createBlock } from './block.contentful';
 import { COMMON_FIELD, mediaCollectionField } from './common-fields.contentful';
 

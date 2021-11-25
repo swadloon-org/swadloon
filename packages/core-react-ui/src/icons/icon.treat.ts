@@ -1,4 +1,5 @@
 import { style } from 'treat';
+
 import { Theme } from '../design-system';
 
 const iconSize = `1.5em`;

@@ -1,3 +1,6 @@
+import React, { Suspense } from 'react';
+import { useStyles } from 'react-treat';
+
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
   FooterStandard,
@@ -15,8 +18,7 @@ import {
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import React, { Suspense } from 'react';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = LayoutDocsProps;

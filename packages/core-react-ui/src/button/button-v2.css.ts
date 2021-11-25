@@ -9,6 +9,7 @@ const iconPadding = `3em`;
  */
 
 import { style } from '@vanilla-extract/css';
+
 import { buttonsVars } from '../theme/default-theme.css';
 
 export const base = style({

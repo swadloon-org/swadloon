@@ -1,12 +1,12 @@
 import {
   Animation,
+  ANIMATION_CURVE,
+  ANIMATION_DURATION,
+  ANIMATION_TYPE,
   AnimationCurves,
   AnimationDurations,
   Animations,
   AnimationTypes,
-  ANIMATION_CURVE,
-  ANIMATION_DURATION,
-  ANIMATION_TYPE,
 } from '@newrade/core-design-system';
 
 const curves: AnimationCurves = {

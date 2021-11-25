@@ -1,8 +1,10 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+
 import { DEPLOY_ENV } from '@newrade/core-common';
+
+import { ENV, env as processEnv } from '../../../types/dot-env';
 import { runAction } from '../action';
-import { env as processEnv, ENV } from '../../../types/dot-env';
 import { exportVariable } from '../utilities';
 
 function getEnv() {

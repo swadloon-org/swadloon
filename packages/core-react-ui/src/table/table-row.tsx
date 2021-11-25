@@ -1,6 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as stylesRef from './table-row.treat';
 
 type Props = PrimitiveProps & HTMLAttributes<HTMLHeadingElement> & {};

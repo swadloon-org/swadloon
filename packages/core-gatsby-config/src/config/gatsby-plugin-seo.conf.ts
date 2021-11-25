@@ -1,6 +1,7 @@
+import Gatsby from 'gatsby';
+
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType, getAppUrl } from '@newrade/core-utils';
-import Gatsby from 'gatsby';
 
 /**
  * gatsby-plugin-google-tagmanager

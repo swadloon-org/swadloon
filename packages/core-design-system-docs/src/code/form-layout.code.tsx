@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import {
   Button,
@@ -8,7 +10,6 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = {};
 

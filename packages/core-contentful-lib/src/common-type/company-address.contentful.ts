@@ -1,6 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+
 import { ContentType } from '@newrade/core-website-api';
+
 import { COMMON_FIELD, emailField, urlField } from './common-fields.contentful';
 
 export const createCompanyAddress: Migration.MigrationFunction = function (migration) {

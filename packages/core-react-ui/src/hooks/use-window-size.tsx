@@ -1,5 +1,6 @@
-import throttle from 'lodash/throttle';
 import React from 'react';
+
+import throttle from 'lodash/throttle';
 
 const events = new Set<() => void>();
 const onResize = () => events.forEach((fn) => fn());

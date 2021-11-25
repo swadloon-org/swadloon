@@ -1,4 +1,5 @@
 import { GatsbyNode } from 'gatsby';
+
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'] = (

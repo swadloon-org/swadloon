@@ -1,12 +1,15 @@
-import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { IoPauseOutline, IoPlayOutline, IoReloadOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
+
+import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
+
 import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './css-animation.treat';
 
 export type CSSAnimationState = 'running' | 'paused';

@@ -1,4 +1,5 @@
 import { FontMetrics, precomputeValues } from '@capsizecss/core';
+
 import {
   CapsizeTextStyle,
   TextStyle,
@@ -7,11 +8,13 @@ import {
   TypographyV2,
   VIEWPORT,
 } from '@newrade/core-design-system';
+
 import { defaultSansFont, defaultSerifFont } from '../default-theme';
 import { CSSTypographyV2 } from '../design-system';
+
 import { getCSSFonts, getCSSFontsObject } from './font.utilities';
-import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
 import { createCSSTextStyle } from './text.utilities';
+import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
 import { keys } from './utilities';
 
 /**

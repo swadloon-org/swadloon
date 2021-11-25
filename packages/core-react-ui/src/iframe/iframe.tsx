@@ -1,8 +1,11 @@
-import { VIEWPORT } from '@newrade/core-design-system';
 import React, { IframeHTMLAttributes, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useIsSSR } from '..';
+
+import { VIEWPORT } from '@newrade/core-design-system';
+
 import { getMergedClassname } from '../utilities';
+import { useIsSSR } from '..';
+
 import * as styles from './iframe.css';
 
 type Props = IframeHTMLAttributes<HTMLIFrameElement> & {

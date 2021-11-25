@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { HEADING, Variant } from '@newrade/core-design-system';
 import {
   Button,
@@ -10,7 +12,6 @@ import {
   Switcher,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = {};
 

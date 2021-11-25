@@ -1,5 +1,6 @@
-import erd from 'element-resize-detector';
 import { useRef } from 'react';
+
+import erd from 'element-resize-detector';
 
 /**
  * Resize Sensor Service

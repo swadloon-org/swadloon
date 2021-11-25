@@ -1,6 +1,8 @@
-import { ContentType } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+
+import { ContentType } from '@newrade/core-website-api';
+
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createTagType: Migration.MigrationFunction = function (migration) {

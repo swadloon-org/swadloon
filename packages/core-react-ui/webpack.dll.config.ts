@@ -7,8 +7,10 @@
 delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
 import path from 'path';
-import { getWebpackCleanPlugin } from '@newrade/core-webpack-config';
+
 import { Configuration, DllPlugin, WebpackPluginInstance } from 'webpack';
+
+import { getWebpackCleanPlugin } from '@newrade/core-webpack-config';
 
 const config: Configuration = {
   name: 'vendor-react',

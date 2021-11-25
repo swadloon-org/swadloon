@@ -1,4 +1,5 @@
 import Gatsby from 'gatsby';
+
 import { GatsbySiteMetadata } from './site-metadata';
 
 /**

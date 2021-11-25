@@ -1,7 +1,9 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { globalHistory } from '@reach/router';
+
 import { VIEWPORT } from '@newrade/core-design-system';
 import { useViewportBreakpoint } from '@newrade/core-react-ui';
-import { globalHistory } from '@reach/router';
-import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Props = {
   /**

@@ -1,5 +1,5 @@
 import { PrimitiveProps } from '@newrade/core-react-ui';
-import { LinkType, LinkComponent } from '@newrade/core-website-api';
+import { LinkComponent, LinkType } from '@newrade/core-website-api';
 import { LinkAPI } from '@newrade/core-website-api';
 
 /**

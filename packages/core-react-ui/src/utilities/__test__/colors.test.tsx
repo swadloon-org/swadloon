@@ -1,6 +1,9 @@
-import { Color } from '@newrade/core-design-system';
-import { cleanup, render } from '@testing-library/react';
 import React from 'react';
+
+import { cleanup, render } from '@testing-library/react';
+
+import { Color } from '@newrade/core-design-system';
+
 import {
   defaultColorIntents,
   defaultColors,

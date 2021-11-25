@@ -43,6 +43,7 @@ See https://github.com/actions/toolkit/blob/master/docs/action-debugging.md
 ## Useful Actions
 
 - https://github.com/marketplace/actions/cancel-workflow-action
+- https://github.com/pkg-size/action
 
 ## Local Setup
 

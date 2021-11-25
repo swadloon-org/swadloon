@@ -1,4 +1,5 @@
 import { Node } from 'gatsby';
+
 import { MdxFrontmatter } from './site-mdx-frontmatter';
 import { GatsbySiteMetadata } from './site-metadata';
 

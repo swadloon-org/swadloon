@@ -1,3 +1,8 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
+import { WindowLocation } from '@reach/router';
+
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import {
   BoxV2,
@@ -10,10 +15,9 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities';
-import { WindowLocation } from '@reach/router';
-import React from 'react';
-import { useStyles } from 'react-treat';
+
 import { useI18next } from '../i18next/use-i18next.hook';
+
 import * as styleRefs from './aside.treat';
 
 type AsideItem = {

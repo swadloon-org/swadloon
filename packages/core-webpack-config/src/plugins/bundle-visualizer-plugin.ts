@@ -1,5 +1,5 @@
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { WebpackPluginInstance } from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export const getBundleVisualizerPlugin: () => WebpackPluginInstance = () =>
   new BundleAnalyzerPlugin({

@@ -1,4 +1,5 @@
 import { RuleSetRule } from 'webpack';
+
 import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
 import { isDevelopment } from '../utilities/webpack-dev-server.utilities';

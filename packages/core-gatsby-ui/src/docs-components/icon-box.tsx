@@ -1,6 +1,8 @@
-import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
+
 import * as stylesRef from './icon-box.treat';
 
 type Props = PrimitiveProps & {

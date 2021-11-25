@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useStyles } from 'react-treat';
+
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { LABEL_SIZE, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
@@ -17,16 +20,16 @@ import {
 } from '@newrade/core-react-ui';
 import { LinkAPI, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
-import React, { useState } from 'react';
-import { useStyles } from 'react-treat';
+
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
-import { SidebarBase } from '../sidebar/sidebar-base';
 import { SidebarProps } from '../sidebar/sidebar.props';
+import { SidebarBase } from '../sidebar/sidebar-base';
 import { getPathParts, isPathActive } from '../utilities/navigation-api.utilities';
+
+import * as styleRefs from './sidebar-docs-desktop.treat';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
-import * as styleRefs from './sidebar-docs-desktop.treat';
 
 type Props = SidebarProps & {};
 

@@ -1,18 +1,20 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { pascal } from 'case';
 import chalk from 'chalk';
 import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as prettier from 'prettier';
+
 import { FILES_TYPE_TEXT, regexName } from '../constants/figma-texts.constants';
-import { fetchObjectById } from '../service/figma-api.service';
 import {
   FigmaTextHeading,
   FigmaTextLabel,
   FigmaTextParagraphe,
   TextTokens,
 } from '../models/figma-texts.model';
+import { fetchObjectById } from '../service/figma-api.service';
 
 const log = debug('nr:core-cli');
 

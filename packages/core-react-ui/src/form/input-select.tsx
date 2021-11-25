@@ -1,8 +1,10 @@
 import React, { SelectHTMLAttributes } from 'react';
 import { IoChevronDownOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './input.treat';
 
 type Props = PrimitiveProps<'select'> &

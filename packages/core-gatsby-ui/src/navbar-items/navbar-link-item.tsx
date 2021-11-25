@@ -1,7 +1,10 @@
+import React, { useRef } from 'react';
+
 import { ICON, LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
 import { IconComp, Label, Primitive, usePreventPinchZoom } from '@newrade/core-react-ui';
-import React, { useRef } from 'react';
+
 import { NavbarLinkProps } from './navbar-item.props';
+
 import * as styles from './navbar-link-item.css';
 
 type Props = NavbarLinkProps & {

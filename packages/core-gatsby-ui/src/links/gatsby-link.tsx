@@ -1,7 +1,9 @@
-import { useCommonProps } from '@newrade/core-react-ui';
 import { GatsbyLinkProps, Link as GastbyLinkDefault } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { useCommonProps } from '@newrade/core-react-ui';
+
 import * as styleRefs from './gatsby-link.treat';
 
 type Props = Omit<GatsbyLinkProps<any>, 'to'> & {

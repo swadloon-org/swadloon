@@ -1,4 +1,5 @@
 import { globalStyle, style } from 'treat';
+
 import { Theme } from '../design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
 

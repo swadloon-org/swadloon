@@ -1,7 +1,8 @@
-import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { ListItem, ListItems, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { IoMailOutline } from 'react-icons/io5';
+
+import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { ListItem, ListItems, useTreatTheme } from '@newrade/core-react-ui';
 
 type Props = {};
 

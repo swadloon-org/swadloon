@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './hr.treat';
 
 type Props = PrimitiveProps<'hr'>;

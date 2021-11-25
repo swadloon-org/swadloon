@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { FooterEnterprise } from '@newrade/core-gatsby-ui/src';
 import { useTreatTheme } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = {};
 

@@ -1,4 +1,5 @@
 import { kebab } from 'case';
+
 import { cssVar, cssVarName } from './css-variable.utilities';
 
 export function getFormattedCSSVar(options: {

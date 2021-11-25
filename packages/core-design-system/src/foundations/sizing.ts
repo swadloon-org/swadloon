@@ -1,4 +1,5 @@
 import { NumberType } from '../types';
+
 import { VIEWPORT } from './layout';
 
 /**

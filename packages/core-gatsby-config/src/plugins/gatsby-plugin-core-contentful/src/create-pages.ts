@@ -1,7 +1,10 @@
-import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import fsp from 'fs/promises';
-import { GatsbyNode } from 'gatsby';
 import path from 'path';
+
+import { GatsbyNode } from 'gatsby';
+
+import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
+
 import {
   GatsbyContentfulPageContext,
   GatsbyPageAlternateLocale,

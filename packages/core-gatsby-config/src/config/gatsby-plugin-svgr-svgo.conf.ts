@@ -1,4 +1,5 @@
 import Gatsby from 'gatsby';
+
 import { svgoConfig } from '@newrade/core-webpack-config';
 
 /**

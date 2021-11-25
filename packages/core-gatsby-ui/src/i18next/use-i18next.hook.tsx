@@ -1,12 +1,15 @@
-import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
-import { GatsbyPageAlternateLocale } from '@newrade/core-gatsb-config/config';
-import { getLangSimpleCode } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
-import { NavigateOptions } from '@reach/router';
-import { title } from 'case';
 import { navigate as gatsbyNavigate } from 'gatsby';
 import { useContext } from 'react';
 import { Namespace, useTranslation, UseTranslationOptions } from 'react-i18next';
+
+import { NavigateOptions } from '@reach/router';
+import { title } from 'case';
+
+import { SITE_LANGUAGE_SHORT, SITE_LANGUAGES } from '@newrade/core-common';
+import { GatsbyPageAlternateLocale } from '@newrade/core-gatsb-config/config';
+import { getLangSimpleCode } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities';
+
 import { I18nextContext, LANGUAGE_KEY } from './i18next-context';
 
 type AlternatePageLocale = GatsbyPageAlternateLocale;

@@ -2,6 +2,7 @@
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
+
 import { cssLoader } from './css-loader';
 import { postCssLoader } from './post-css.loader';
 

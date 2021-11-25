@@ -1,4 +1,5 @@
 import { style } from 'treat';
+
 import { Theme } from '../design-system';
 import {
   getCSSFontTextStyles,

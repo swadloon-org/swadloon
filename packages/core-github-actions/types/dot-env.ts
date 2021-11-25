@@ -1,5 +1,6 @@
-import { CommonEnv } from '@newrade/core-utils';
 import * as t from 'io-ts';
+
+import { CommonEnv } from '@newrade/core-utils';
 
 /**
  * Local, typed representation of the .env file.

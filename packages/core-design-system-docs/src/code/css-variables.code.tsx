@@ -1,3 +1,7 @@
+import React, { Fragment, useState } from 'react';
+
+import { NullableTokens } from '@vanilla-extract/css/dist/declarations/src/types';
+
 import {
   Stack,
   Tab,
@@ -15,8 +19,6 @@ import {
 import { CodeBlock } from '@newrade/core-react-ui/code';
 import { sizingVars } from '@newrade/core-react-ui/theme';
 import { getCSSVar, keys } from '@newrade/core-react-ui/utilities';
-import { NullableTokens } from '@vanilla-extract/css/dist/declarations/src/types';
-import React, { Fragment, useState } from 'react';
 
 type Props = {
   namespace: string;

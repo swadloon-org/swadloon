@@ -1,8 +1,11 @@
-import { Cluster, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { NavbarBase } from './navbar-base';
-import * as styles from './navbar-modular.css';
+
+import { Cluster, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+
 import { NavbarModularProps } from './navbar.props';
+import { NavbarBase } from './navbar-base';
+
+import * as styles from './navbar-modular.css';
 
 type Props = NavbarModularProps;
 

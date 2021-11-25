@@ -1,4 +1,5 @@
 import { CarouselDirection } from '@newrade/core-design-system';
+
 import { MediaAPI } from './media.api';
 
 export type MediaCollectionAPI = {

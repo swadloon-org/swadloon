@@ -1,6 +1,8 @@
+import { graphql, useStaticQuery } from 'gatsby';
+
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsb-config/config';
-import { graphql, useStaticQuery } from 'gatsby';
+
 import { Navigation } from '../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 

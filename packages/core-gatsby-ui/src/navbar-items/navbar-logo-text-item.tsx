@@ -1,9 +1,12 @@
+import React from 'react';
+
 import { HEADING, LOGO } from '@newrade/core-design-system';
 import { Cluster, Heading, Logo } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import React from 'react';
+
 import { NavbarLinkProps } from './navbar-item.props';
 import { NavbarLinkItem } from './navbar-link-item';
+
 import * as styles from './navbar-link-item.css';
 
 type Props = NavbarLinkProps & {

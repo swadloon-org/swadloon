@@ -1,4 +1,4 @@
-import { ColorPalette, ColorShades10, ColorShades5 } from '../primitives/color-palette';
+import { ColorPalette, ColorShades5, ColorShades10 } from '../primitives/color-palette';
 import { ColorType } from '../types';
 
 export interface ColorsDataViz<Override extends undefined | string = undefined> {

@@ -1,8 +1,10 @@
+import React, { AnchorHTMLAttributes, useRef } from 'react';
+import { useStyles } from 'react-treat';
+
 import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
 import { Label, PrimitiveProps, useCommonProps, usePreventPinchZoom } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
-import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './sidebar-docs-desktop-item.treat';
 
 type Props = PrimitiveProps &

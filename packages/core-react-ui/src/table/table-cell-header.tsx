@@ -1,8 +1,11 @@
-import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+
+import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities';
+
 import * as stylesRef from './table-cell-header.treat';
 
 type Props = PrimitiveProps &

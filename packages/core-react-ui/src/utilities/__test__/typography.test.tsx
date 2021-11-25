@@ -1,10 +1,11 @@
 import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
+
 import { defaultFallbackSansFonts, defaultSansFont } from '../../default-theme/default-fonts';
 import { defaultBaseFontSize } from '../../default-theme/default-sizing';
 import { defaultCSSTheme } from '../../default-theme/default-theme';
 import { defaultTypography } from '../../default-theme/default-typography';
-import { createCSSCapsizeTextStyle } from '../text-capsize.utilities';
 import { getCSSTextStyles } from '../text.utilities';
+import { createCSSCapsizeTextStyle } from '../text-capsize.utilities';
 import { getCSSTypography } from '../typography.utilities';
 
 describe('colors utilities', () => {

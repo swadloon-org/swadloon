@@ -1,4 +1,5 @@
 import { DeployEnvType } from '@newrade/core-utils';
+
 import { GatsbySiteLanguages } from './site-languages';
 
 export type GatsbySiteMetadata = {

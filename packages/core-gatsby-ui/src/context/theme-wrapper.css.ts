@@ -1,5 +1,6 @@
-import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { style } from '@vanilla-extract/css';
+
+import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   border: `1px solid ${colorVars.colors.grey[200]}`,

@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
+
 import * as styleRefs from './stack.treat';
 
 type Tag = 'ol' | 'ul' | 'div' | 'nav' | 'form' | 'footer';

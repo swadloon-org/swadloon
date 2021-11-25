@@ -1,12 +1,15 @@
-import { SITE_LANGUAGES } from '@newrade/core-common';
-import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
+import React from 'react';
+import { I18nextProvider } from 'react-i18next';
+
 /**
  * i18n
  */
 import i18next, { InitOptions } from 'i18next';
-import React from 'react';
-import { I18nextProvider } from 'react-i18next';
+
+import { SITE_LANGUAGES } from '@newrade/core-common';
+import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
+
 import { I18nextContext } from './i18next-context';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;

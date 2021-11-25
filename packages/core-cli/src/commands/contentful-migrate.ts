@@ -1,9 +1,12 @@
-import { loadDotEnv } from '@newrade/core-utils';
-import { runMigration } from 'contentful-migration';
 import path from 'path';
+
 import { Command, flags } from '@oclif/command';
+import { runMigration } from 'contentful-migration';
 import debug from 'debug';
 import * as t from 'io-ts';
+
+import { loadDotEnv } from '@newrade/core-utils';
+
 import { NS } from '../utilities/log.utilities';
 
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json

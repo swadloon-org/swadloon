@@ -1,8 +1,11 @@
-import { animated, useSpring } from '@react-spring/web';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useDrag } from 'react-use-gesture';
+
+import { animated, useSpring } from '@react-spring/web';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './gesture-drag-example.treat';
 
 type Props = PrimitiveProps;

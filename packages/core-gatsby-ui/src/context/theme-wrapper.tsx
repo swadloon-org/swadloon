@@ -1,3 +1,8 @@
+import React, { ReactNode, Suspense, useRef, useState } from 'react';
+import { TreatProvider } from 'react-treat';
+
+import type { Property } from 'csstype';
+
 import { VIEWPORT } from '@newrade/core-design-system';
 import {
   IFrame,
@@ -15,9 +20,7 @@ import {
 import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
 import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
 import { colorVars } from '@newrade/core-react-ui/theme';
-import type { Property } from 'csstype';
-import React, { ReactNode, Suspense, useRef, useState } from 'react';
-import { TreatProvider } from 'react-treat';
+
 import * as styles from './theme-wrapper.css';
 
 type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {

@@ -1,3 +1,5 @@
+import React, { AnchorHTMLAttributes, Suspense } from 'react';
+
 import {
   HEADING,
   LinkIcon,
@@ -39,7 +41,7 @@ import {
 } from '@newrade/core-react-ui';
 import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
-import React, { AnchorHTMLAttributes, Suspense } from 'react';
+
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { IconBox } from '../docs-components/icon-box';

@@ -1,12 +1,15 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefsButtons from './global-css-buttons-variables.treat';
 import * as styleRefsColors from './global-css-colors-variables.treat';
-import './global-css-layout.css';
-import './global-css-sizing.css';
 import * as styleRefs from './global-css-variables.treat';
 import * as styleRefsReset from './global-reset-css.treat';
+
+import './global-css-layout.css';
+import './global-css-sizing.css';
 
 type Props = {};
 

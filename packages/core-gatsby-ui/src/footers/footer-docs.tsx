@@ -1,3 +1,13 @@
+import React from 'react';
+import {
+  IoLogoFacebook,
+  IoLogoGithub,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoLogoTwitter,
+} from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import {
   ButtonIcon,
   ButtonSize,
@@ -23,20 +33,13 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { BlockAPI, LinkAPI, LinkType, NavComponent } from '@newrade/core-website-api';
-import React from 'react';
-import {
-  IoLogoFacebook,
-  IoLogoGithub,
-  IoLogoInstagram,
-  IoLogoLinkedin,
-  IoLogoTwitter,
-} from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import { BlockRenderer } from '../blocks/block-renderer';
 import { GatsbyLink } from '../links/gatsby-link';
+
+import { FooterProps } from './footer.props';
 import { FooterBase } from './footer-base';
 import * as styleRefs from './footer-docs.treat';
-import { FooterProps } from './footer.props';
 
 type Props = FooterProps;
 

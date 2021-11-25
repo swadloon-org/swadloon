@@ -1,8 +1,10 @@
+import React from 'react';
+
 import { SizingSteps } from '@newrade/core-design-system';
 import { Cluster, Label, Stack } from '@newrade/core-react-ui';
 import { sizingCSS } from '@newrade/core-react-ui/theme';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
+
 import { Placeholder } from './placeholder';
 
 export const ScaleSteps: React.FC<{ steps: SizingSteps<string>['mobile'] }> = ({ steps }) => {

@@ -1,4 +1,5 @@
 import { Sizing } from '@newrade/core-design-system';
+
 import { defaultSizing } from '../../default-theme/default-sizing';
 import { getCSSSizing } from '../sizing.utilities';
 

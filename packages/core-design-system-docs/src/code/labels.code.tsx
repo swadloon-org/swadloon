@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
 
 type Props = {};
 

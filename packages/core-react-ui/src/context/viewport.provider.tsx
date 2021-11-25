@@ -1,5 +1,6 @@
-import debounce from 'lodash/debounce';
 import React from 'react';
+
+import debounce from 'lodash/debounce';
 
 declare let window: Window | undefined;
 

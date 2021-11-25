@@ -1,4 +1,5 @@
 import { ColorType, PercentType } from '../types';
+
 import { Angle } from './angle';
 
 export type ColorGradient<Override extends undefined | string = undefined> = {

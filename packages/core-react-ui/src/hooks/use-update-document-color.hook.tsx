@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { useFirstRender } from './use-first-render.hook';
 import { useIsSSR } from './use-is-ssr';
 

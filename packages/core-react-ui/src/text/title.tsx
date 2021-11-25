@@ -1,9 +1,13 @@
-import { TITLE, Variant } from '@newrade/core-design-system';
-import { kebab, pascal } from 'case';
 import React, { HTMLAttributes } from 'react';
+
+import { kebab, pascal } from 'case';
+
+import { TITLE, Variant } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
-import * as textStyles from '../styles/color-text.css';
 import { getMergedClassname } from '../utilities/component.utilities';
+
+import * as textStyles from '../styles/color-text.css';
 import * as styles from './title.css';
 
 type Props = PrimitiveProps &

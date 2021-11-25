@@ -1,5 +1,7 @@
-import { CarouselProps } from '@newrade/core-design-system';
 import React from 'react';
+
+import { CarouselProps } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 
 type Props = PrimitiveProps & CarouselProps;

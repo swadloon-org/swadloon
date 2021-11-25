@@ -1,7 +1,10 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+
 import { ContentType } from '@newrade/core-website-api';
+
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+
 import { COMMON_FIELD } from './common-fields.contentful';
 
 /**

@@ -1,5 +1,6 @@
-import { Font } from '@newrade/core-design-system';
 import { FontMetrics } from '@capsizecss/core';
+
+import { Font } from '@newrade/core-design-system';
 
 export const defaultSerifFont: Font = {
   name: 'PT Serif',

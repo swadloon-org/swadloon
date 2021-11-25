@@ -1,6 +1,7 @@
 import { DEPLOY_ENV, SITE_LANGUAGES } from '@newrade/core-common';
 import { LinkAPI, LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
+
 import { GatsbyPageNode } from '../gatsby-page-node';
 import {
   defaultOptions,

@@ -1,8 +1,10 @@
+import React from 'react';
+
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
 import { Badge, Cluster, Heading, Hr, Link, Paragraph, Stack, Tag } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import React from 'react';
+
 import { useI18next } from '../i18next/use-i18next.hook';
 
 type Props = {

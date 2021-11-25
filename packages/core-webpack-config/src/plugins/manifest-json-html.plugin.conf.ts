@@ -1,6 +1,5 @@
-import { WebpackPluginInstance } from 'webpack';
-
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { WebpackPluginInstance } from 'webpack';
 
 export const getManifestJsonHtmlPlugin: (options: { template: string }) => WebpackPluginInstance = (
   options

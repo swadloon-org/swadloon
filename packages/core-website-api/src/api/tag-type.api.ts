@@ -1,4 +1,5 @@
 import { PartialOrNull } from '../utilities';
+
 import { ChildMDXAPI } from './child-mdx.api';
 
 export type TagTypeAPI = PartialOrNull<{

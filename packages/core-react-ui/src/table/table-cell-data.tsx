@@ -1,7 +1,10 @@
-import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+
+import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as stylesRef from './table-cell-data.treat';
 
 type Props = PrimitiveProps &

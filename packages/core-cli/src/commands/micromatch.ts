@@ -2,6 +2,7 @@ import { Command } from '@oclif/command';
 import chalk from 'chalk';
 import debug from 'debug';
 import micromatch from 'micromatch';
+
 import { NS } from '../utilities/log.utilities';
 
 export default class Micromatch extends Command {

@@ -1,3 +1,7 @@
+// import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
+import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
+import React from 'react';
+
 import { Variant } from '@newrade/core-design-system';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import {
@@ -17,16 +21,15 @@ import {
   SidebarAPI,
   SidebarLayout,
 } from '@newrade/core-website-api';
-// import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
-import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
-import React from 'react';
+
 import { companyInfo } from './src/data/company-info';
-import { customButtonsTheme } from './src/design-system/theme.css';
 import { cssTheme, light, theme } from './src/design-system/theme.treat';
 import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
 import { ProvidersDocs } from './src/providers/providers-docs';
 import { ProvidersSite } from './src/providers/providers-site';
+
+import { customButtonsTheme } from './src/design-system/theme.css';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 

@@ -1,10 +1,15 @@
+import React, { PropsWithChildren } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+import debug from 'debug';
+
 import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
-import debug from 'debug';
-import React, { PropsWithChildren } from 'react';
-import { useInView } from 'react-intersection-observer';
+
 import { BlockRenderer } from '../blocks/block-renderer';
+
+import { SectionProps, SectionRendererProps } from './section.props';
 import { SectionBanner } from './section-banner';
 import { SectionDivider } from './section-divider';
 import { SectionMessenger } from './section-messenger';
@@ -12,7 +17,6 @@ import { SectionShowcase } from './section-showcase';
 import { SectionStack } from './section-stack';
 import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
-import { SectionProps, SectionRendererProps } from './section.props';
 
 const log = debug('nr:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');

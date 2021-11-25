@@ -13,10 +13,11 @@ import remarkParse from 'remark-parse';
 // @ts-ignore
 import remarkToc from 'remark-toc';
 // @ts-ignore
-import wikiLinkPlugin from 'remark-wiki-link';
-// @ts-ignore
 import remarkUnwrapImages from 'remark-unwrap-images';
+// @ts-ignore
+import wikiLinkPlugin from 'remark-wiki-link';
 import { RuleSetRule } from 'webpack';
+
 import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
 

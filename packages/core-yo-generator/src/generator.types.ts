@@ -1,4 +1,5 @@
 import Generator, { MemFsEditor, Question } from 'yeoman-generator';
+
 import { CHOICES } from './generator-choices';
 
 export type YeomanProps = {

@@ -1,12 +1,12 @@
 import { Answers } from 'inquirer';
 import Generator, { Question, Questions } from 'yeoman-generator';
 
-import { CHOICES } from './generator-choices';
 import {
   NEW_PACKAGE_GENERATOR,
   NEW_PACKAGE_TEMPLATE_PROPS,
 } from './new-package-generator/new-package.config';
 import { GeneratorModule } from './generator.types';
+import { CHOICES } from './generator-choices';
 
 /**
  * @description Yeoman Generator

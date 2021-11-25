@@ -1,9 +1,12 @@
-import { ContentType, FooterLayout } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+
 import { Variant } from '@newrade/core-design-system';
+import { ContentType, FooterLayout } from '@newrade/core-website-api';
+
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
+
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createFooter(migration: Migration.default) {

@@ -1,10 +1,13 @@
-import type { Props as CleaveProps } from 'cleave.js/react/props';
 import React, { InputHTMLAttributes, Suspense } from 'react';
 import { useStyles } from 'react-treat';
+
+import type { Props as CleaveProps } from 'cleave.js/react/props';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-import { InputTextCleaveLazy } from './input-text-cleave.lazy';
+
 import * as styleRefs from './input.treat';
+import { InputTextCleaveLazy } from './input-text-cleave.lazy';
 
 type Props = PrimitiveProps<'input'> &
   InputHTMLAttributes<any> & {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useIsSSR } from './use-is-ssr';
 
 export function usePageVisibility() {

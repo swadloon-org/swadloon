@@ -1,6 +1,7 @@
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { IoMailOutline, IoPhonePortraitOutline } from 'react-icons/io5';
+
+import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 
 type Props = {};
 

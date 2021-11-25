@@ -1,11 +1,14 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { ContentType } from '@newrade/core-website-api';
-import { COMMON_FIELD } from './common-fields.contentful';
+
 import { Variant } from '@newrade/core-design-system';
+import { ContentType } from '@newrade/core-website-api';
 import { SectionLayout } from '@newrade/core-website-api';
+
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
+
+import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createSection(migration: Migration.default) {
   const content = migration.createContentType(ContentType.SECTION, {

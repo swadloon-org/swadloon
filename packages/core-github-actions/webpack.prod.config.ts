@@ -6,10 +6,12 @@
 
 delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
-import * as core from '@newrade/core-webpack-config';
 import path from 'path';
+
 import * as tsloader from 'ts-loader';
 import { Configuration } from 'webpack';
+
+import * as core from '@newrade/core-webpack-config';
 
 const config: Configuration = {
   mode: 'production',

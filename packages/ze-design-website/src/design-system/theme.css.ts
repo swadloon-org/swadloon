@@ -1,12 +1,11 @@
-import { DesignSystem, VIEWPORT } from '@newrade/core-design-system';
-import { defaultCSSLayout } from '@newrade/core-react-ui/src/theme/default-css-layout';
+import { createTheme } from '@vanilla-extract/css';
+
+import { DesignSystem } from '@newrade/core-design-system';
 import {
   buttonsVars,
-  layoutVars,
   placeholderButtonSize,
   placeholderButtonVariant,
 } from '@newrade/core-react-ui/theme';
-import { createGlobalTheme, createTheme } from '@vanilla-extract/css';
 
 export const buttons: Pick<DesignSystem<string>['components'], 'buttons'> = {
   buttons: {

@@ -1,5 +1,5 @@
-import { PrimitiveProps } from '@newrade/core-react-ui';
 import { PageLayout, PageTemplate } from '@newrade/core-gatsb-config/config';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 
 /**
  * UI only props

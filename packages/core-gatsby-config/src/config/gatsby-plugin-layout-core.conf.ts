@@ -1,5 +1,7 @@
-import { PluginRef } from 'gatsby';
 import path from 'path';
+
+import { PluginRef } from 'gatsby';
+
 import { GatsbyPluginLayoutCoreOptions } from '../plugins/gatsby-plugin-layout-core';
 
 const defaultOptions: GatsbyPluginLayoutCoreOptions = {

@@ -1,7 +1,8 @@
-import { getFigmaColor, getFormattedColorNode } from '../colors-extractor';
-import { FigmaColor } from '../../models/figma-colors.model';
-import { defaultOutputColorFiles, ExtractOptions } from '../..';
 import path from 'path';
+
+import { defaultOutputColorFiles, ExtractOptions } from '../..';
+import { FigmaColor } from '../../models/figma-colors.model';
+import { getFigmaColor, getFormattedColorNode } from '../colors-extractor';
 
 describe('colors utilities', () => {
   const rawStyle = {

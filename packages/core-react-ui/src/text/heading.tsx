@@ -1,13 +1,17 @@
-import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
-import { pascal } from 'case';
 import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
+
+import { pascal } from 'case';
+
+import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
+
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
 import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { getFormattedAnchorId } from '../utilities/text.utilities';
+
 import * as stylesRef from './heading.treat';
 
 type Props = PrimitiveProps &

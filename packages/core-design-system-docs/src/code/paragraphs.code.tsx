@@ -1,8 +1,9 @@
+import React from 'react';
+
 import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { lorenipsum } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 import { Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
 
 type Props = {};
 

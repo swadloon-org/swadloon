@@ -1,6 +1,6 @@
 import { ColorGradients } from './color-gradients';
-import { ColorsColors } from './colors-colors';
 import { ColorIntents } from './color-intents';
+import { ColorsColors } from './colors-colors';
 
 /**
  * Every color defined in the system.

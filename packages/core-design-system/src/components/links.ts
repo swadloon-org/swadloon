@@ -1,6 +1,8 @@
 import { AriaRole } from 'react';
+
 import { PARAGRAPH_SIZE } from '../foundations/typography';
 import { ColorType } from '../types';
+
 import { BoxStyle } from './box';
 import { Variant } from './components.props';
 

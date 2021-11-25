@@ -1,9 +1,12 @@
 // @ts-ignore
-import { Lethargy } from 'lethargy';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useWheel } from 'react-use-gesture';
+
+import { Lethargy } from 'lethargy';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './gesture-scroll-wheel-example.treat';
 
 type Props = PrimitiveProps;

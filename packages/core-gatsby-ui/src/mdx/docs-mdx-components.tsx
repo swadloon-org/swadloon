@@ -1,6 +1,9 @@
-import { CodeBlockLazy, CodeHighlightLazy } from '@newrade/core-react-ui/code';
 import React, { Suspense } from 'react';
+
+import { CodeBlockLazy, CodeHighlightLazy } from '@newrade/core-react-ui/code';
+
 import { IconsLazy } from '../docs-components/icons.lazy';
+
 import { mdxComponents, MDXProps } from './mdx-components';
 
 /**

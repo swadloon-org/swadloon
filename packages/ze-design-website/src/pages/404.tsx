@@ -1,5 +1,7 @@
-import { Center, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+
+import { Center, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {

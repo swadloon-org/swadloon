@@ -1,4 +1,5 @@
 import { RuleSetRule } from 'webpack';
+
 import { svgoConfig } from './svgo.conf';
 
 /**

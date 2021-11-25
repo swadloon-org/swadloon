@@ -1,6 +1,9 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { GatsbyNode } from 'gatsby';
 import path from 'path';
+
+import { GatsbyNode } from 'gatsby';
+
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
+
 import { GatsbyPluginLayoutCoreOptions } from './gatsby-plugin-options';
 
 let didRunAlready = false;

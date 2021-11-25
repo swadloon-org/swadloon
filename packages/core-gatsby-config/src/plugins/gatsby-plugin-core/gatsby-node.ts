@@ -1,4 +1,5 @@
 import { GatsbyNode } from 'gatsby';
+
 import { createPagesFunction, onCreatePageFunction } from './src/create-pages';
 import { createSchemaCustomizationFn } from './src/create-schema-customization';
 import { onCreateBabelConfigFunction } from './src/on-create-babel-config';

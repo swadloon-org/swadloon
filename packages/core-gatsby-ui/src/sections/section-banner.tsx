@@ -1,11 +1,13 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { Variant } from '@newrade/core-design-system';
 import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
-import React from 'react';
-import { useStyles } from 'react-treat';
+
+import { SectionProps } from './section.props';
 import * as styleRefs from './section-banner.treat';
 import { SectionBase } from './section-base';
-import { SectionProps } from './section.props';
 
 type Props = SectionProps & {
   BackgroundBlock?: React.ReactNode;

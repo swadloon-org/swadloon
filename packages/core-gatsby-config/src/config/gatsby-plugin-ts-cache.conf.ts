@@ -1,4 +1,5 @@
 import { PluginRef } from 'gatsby';
+
 import { GatsbyPluginTsCacheOptions } from '../plugins/gatsby-plugin-ts-cache';
 
 const defaultOptions: Required<GatsbyPluginTsCacheOptions> = {

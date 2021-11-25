@@ -1,8 +1,11 @@
-import { HEADING } from '@newrade/core-design-system';
-import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { title } from 'case';
+
+import { HEADING } from '@newrade/core-design-system';
+import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+
 import * as styleRefs from './font-serif.treat';
 
 type Props = {};

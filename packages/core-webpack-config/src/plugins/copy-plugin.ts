@@ -1,5 +1,5 @@
-import { WebpackPluginInstance } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { WebpackPluginInstance } from 'webpack';
 
 type CopyWebpackPluginPattern = {
   from: string;

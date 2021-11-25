@@ -8,6 +8,7 @@ import {
   PartialLayout,
   VIEWPORT,
 } from '@newrade/core-design-system';
+
 import { defautlLayoutZIndexes } from './default-layout-z-indexes';
 
 const defaultBreakpoints: Breakpoints = {

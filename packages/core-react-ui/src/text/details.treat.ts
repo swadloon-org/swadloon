@@ -1,4 +1,5 @@
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
+
 import { Theme } from '../design-system';
 
 export const styles = {

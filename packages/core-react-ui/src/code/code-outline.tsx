@@ -1,9 +1,11 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './code-outline.treat';
 
 type Props = PrimitiveProps;

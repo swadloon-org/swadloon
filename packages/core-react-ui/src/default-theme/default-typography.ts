@@ -1,5 +1,7 @@
 import { Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
+
 import { cssVar } from '../utilities/css-variable.utilities';
+
 import * as fonts from './default-fonts';
 
 export const defaultFontVars: Fonts<string> = {

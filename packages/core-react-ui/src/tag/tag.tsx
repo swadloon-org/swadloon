@@ -1,8 +1,11 @@
-import { TagProps, TagSize, Variant } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { TagProps, TagSize, Variant } from '@newrade/core-design-system';
+
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as stylesRef from './tag.treat';
 
 type Props = PrimitiveProps<'div'> &

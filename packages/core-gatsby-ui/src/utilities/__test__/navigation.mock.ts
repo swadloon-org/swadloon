@@ -1,6 +1,7 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from '@newrade/core-gatsb-config/config';
 import { SITE_LANGUAGES } from '@newrade/core-common';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from '@newrade/core-gatsb-config/config';
+
 import { GatsbyPageNode } from '../gatsby-page-node';
 
 const siteMetadata = {

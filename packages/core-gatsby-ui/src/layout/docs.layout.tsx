@@ -1,4 +1,8 @@
+import { PageProps } from 'gatsby';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+
 import { MDXProvider } from '@mdx-js/react';
+
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
@@ -23,8 +27,7 @@ import {
   NavigationAPI,
   SidebarAPI,
 } from '@newrade/core-website-api';
-import { PageProps } from 'gatsby';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+
 import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
@@ -32,18 +35,19 @@ import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { MDXProps } from '../mdx/mdx-components';
+import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
 import { NavbarLogoTagItem } from '../navbar-items/navbar-logo-tag-item';
-import { NavbarModular } from '../navbar/navbar-modular';
-import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
-import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
+import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
+import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
 import {
   getBreadcrumbsForPath,
   getPathParts,
   isPathActive,
 } from '../utilities/navigation-api.utilities';
+
 import * as styles from './docs.layout.css';
 
 /**

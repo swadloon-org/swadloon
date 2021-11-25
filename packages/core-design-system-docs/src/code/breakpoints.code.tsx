@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   Table,
   TableBody,
@@ -8,7 +10,6 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
 
 type Props = {};
 

@@ -1,3 +1,6 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import {
   Color,
   ColorPalette as ColorPaletteType,
@@ -6,8 +9,7 @@ import {
 } from '@newrade/core-design-system';
 import { Stack } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
-import { useStyles } from 'react-treat';
+
 import * as stylesRef from './color-palette.treat';
 import { ColorSwatchDark } from './color-swatch-dark';
 import { ColorSwatchLight } from './color-swatch-light';

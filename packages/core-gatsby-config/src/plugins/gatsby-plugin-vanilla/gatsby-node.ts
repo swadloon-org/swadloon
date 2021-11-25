@@ -1,6 +1,7 @@
 import { GatsbyNode } from 'gatsby';
-import { Configuration } from 'webpack';
+
 import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
+import { Configuration } from 'webpack';
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
   actions.setBabelPlugin({

@@ -1,11 +1,15 @@
-import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
-import chalk from 'chalk';
 import fsp from 'fs/promises';
-import { GatsbyNode, Page } from 'gatsby';
 import path from 'path';
+
+import { GatsbyNode, Page } from 'gatsby';
+
+import chalk from 'chalk';
+
+import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
+
 import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
+import { PAGE_TEMPLATE, PageTemplate } from '../../../config/page.props';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-context';
-import { PageTemplate, PAGE_TEMPLATE } from '../../../config/page.props';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,

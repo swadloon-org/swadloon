@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './center.treat';
 
 type AsTypes = 'div' | 'footer' | 'section' | 'nav';

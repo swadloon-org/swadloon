@@ -1,6 +1,7 @@
-import { Switch, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { IoCheckmarkOutline, IoCloseOutline, IoMoon, IoSunny } from 'react-icons/io5';
+
+import { Switch, useTreatTheme } from '@newrade/core-react-ui';
 
 type Props = {};
 

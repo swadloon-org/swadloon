@@ -1,7 +1,8 @@
-import { Theme } from '@newrade/core-react-ui';
-import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
 import { createStyleObject } from '@capsizecss/core';
 import { style } from 'treat';
+
+import { Theme } from '@newrade/core-react-ui';
+import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),

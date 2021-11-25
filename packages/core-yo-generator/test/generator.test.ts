@@ -1,10 +1,12 @@
+import path from 'path';
+
 import _ from 'case';
 import rimraf from 'rimraf';
-import path from 'path';
 import assert from 'yeoman-assert';
 import helpers from 'yeoman-test';
-import { NEW_PACKAGE_TEMPLATE_PROPS } from '../src/new-package-generator/new-package.config';
+
 import { CHOICES } from '../src/generator-choices';
+import { NEW_PACKAGE_TEMPLATE_PROPS } from '../src/new-package-generator/new-package.config';
 
 describe('The new-package-generator', () => {
   const testPackageScope = '@test-scope';

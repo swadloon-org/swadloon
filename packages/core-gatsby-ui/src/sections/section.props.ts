@@ -1,5 +1,6 @@
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
+
 import { CustomBlockVariantComponents } from '../blocks/block.props';
 
 /**

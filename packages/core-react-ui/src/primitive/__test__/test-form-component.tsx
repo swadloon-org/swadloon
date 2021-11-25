@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Primitive } from '../primitive';
 import { PrimitiveProps } from '../primitive.props';
 

@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { Variant } from '@newrade/core-design-system';
 import { Button, Cluster, useTreatTheme } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import React from 'react';
 
 type Props = {};
 

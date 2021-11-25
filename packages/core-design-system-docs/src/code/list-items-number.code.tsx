@@ -1,5 +1,6 @@
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+
+import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 
 type Props = {};
 

@@ -1,10 +1,13 @@
-import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
-import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+
 import { GatsbyLink } from '../links/gatsby-link';
-import * as styleRefs from './breadcrumbs-docs.treat';
+
 import { BreadcrumbsProps } from './breadcrumbs.props';
+import * as styleRefs from './breadcrumbs-docs.treat';
 
 type Props = BreadcrumbsProps;
 

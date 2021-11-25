@@ -1,9 +1,12 @@
+import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
+
+import { kebab } from 'case';
+
 import { BoxShadow, Variant } from '@newrade/core-design-system';
 import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { getCSSBoxShadow } from '@newrade/core-react-ui/utilities';
-import { kebab } from 'case';
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
+
 import * as stylesRef from './shadow-swatch.treat';
 
 type OwnProps = HTMLAttributes<any> & {

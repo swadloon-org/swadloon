@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
+
 import { layoutCSS, layoutVars } from '../theme';
 
 globalStyle(`:root`, {

@@ -1,7 +1,10 @@
-import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
-import { CSSSizingV2, CSSTypographyV2 } from '..';
+
+import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
+
 import { CSSLayoutV2 } from '../design-system/css-layout';
+import { CSSSizingV2, CSSTypographyV2 } from '..';
+
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
 import { defaultCSSEffects } from './default-css-effects';

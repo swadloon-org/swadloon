@@ -1,10 +1,12 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { Variant } from '@newrade/core-design-system';
 import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
 import { globalThemeReversed } from '@newrade/core-react-ui/global';
-import React from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './navbar-base.treat';
+
 import { NavbarProps } from './navbar.props';
+import * as styleRefs from './navbar-base.treat';
 
 type Props = NavbarProps & {
   contentClassName?: string;

@@ -1,7 +1,8 @@
 import { PartialOrNull } from '../utilities';
+
 import { BlockAPI, BlockType } from './block.api';
-import { MediaCollectionV2API } from './media-collection-v2.api';
 import { MediaAPI } from './media.api';
+import { MediaCollectionV2API } from './media-collection-v2.api';
 
 /**
  * @deprecated please use BlockImageAPIV2

@@ -1,5 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
+
 import { PartialOrNull } from '../utilities';
+
 import { BlockAPI } from './block.api';
 import { CompanyInfoAPI } from './company-info.api';
 import { LinkAPI } from './link.api';

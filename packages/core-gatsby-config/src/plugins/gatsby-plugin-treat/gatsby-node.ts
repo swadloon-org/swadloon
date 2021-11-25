@@ -1,4 +1,5 @@
 import { GatsbyNode } from 'gatsby';
+
 import { TreatPlugin } from 'treat/webpack-plugin';
 import { Configuration } from 'webpack';
 

@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { IConfig } from '@oclif/config';
 import debug from 'debug';
+
 import { NS } from '../utilities/log.utilities';
 
 export default class Hello extends Command {

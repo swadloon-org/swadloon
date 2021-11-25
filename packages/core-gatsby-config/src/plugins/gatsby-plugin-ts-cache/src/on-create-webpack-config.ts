@@ -1,7 +1,10 @@
 import fs from 'fs';
-import { GatsbyNode } from 'gatsby';
 import path from 'path';
+
+import { GatsbyNode } from 'gatsby';
+
 import { Configuration } from 'webpack';
+
 import { GatsbyPluginTsCacheOptions } from '../gatsby-plugin-options';
 
 /**

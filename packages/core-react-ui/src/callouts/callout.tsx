@@ -1,11 +1,14 @@
-import { ICON } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Primitive } from '..';
+
+import { ICON } from '@newrade/core-design-system';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { IconComp } from '../icons/icon';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '..';
+
 import * as styleRefs from './callout.treat';
 
 type Props = PrimitiveProps<'div'> & {

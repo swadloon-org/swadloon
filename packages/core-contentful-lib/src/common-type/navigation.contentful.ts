@@ -1,9 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+
 import { ContentType, NavComponent } from '@newrade/core-website-api';
-import { COMMON_FIELD } from './common-fields.contentful';
+
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
+
+import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createNavigation(migration: Migration.default) {
   const content = migration.createContentType(ContentType.NAVIGATION, {

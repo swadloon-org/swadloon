@@ -1,10 +1,13 @@
-import { LABEL_SIZE } from '@newrade/core-design-system';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+
+import { LABEL_SIZE } from '@newrade/core-design-system';
+
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './input-error.treat';
 
 type Props = PrimitiveProps & LabelHTMLAttributes<any> & {};

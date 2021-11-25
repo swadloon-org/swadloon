@@ -1,9 +1,12 @@
-import { TagProps } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { TagProps } from '@newrade/core-design-system';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as stylesRef from './badge.treat';
 
 type Props = PrimitiveProps &

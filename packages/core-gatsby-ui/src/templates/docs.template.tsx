@@ -1,3 +1,8 @@
+import { graphql, PageProps } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import Helmet from 'react-helmet';
+
 import {
   GatsbyMarkdownFilePageContext,
   MarkdownTemplateQuery,
@@ -10,12 +15,10 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
-import { graphql, PageProps } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import React from 'react';
-import Helmet from 'react-helmet';
+
 import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
+
 import * as styles from './docs.css';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;

@@ -1,3 +1,8 @@
+import React, { useMemo, useState } from 'react';
+import { useStyles } from 'react-treat';
+
+import { pascal } from 'case';
+
 import {
   ButtonIcon,
   ButtonSize,
@@ -30,9 +35,7 @@ import {
 } from '@newrade/core-react-ui';
 import { globalThemeReversed } from '@newrade/core-react-ui/global';
 import { keys } from '@newrade/core-react-ui/utilities';
-import { pascal } from 'case';
-import React, { useMemo, useState } from 'react';
-import { useStyles } from 'react-treat';
+
 import { IconBox } from './icon-box';
 import * as stylesRef from './icons.treat';
 import { lorenipsumShort } from './loren-ipsum';

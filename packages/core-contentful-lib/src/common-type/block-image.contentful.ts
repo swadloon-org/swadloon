@@ -1,7 +1,10 @@
-import { BlockType, ContentType } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+
+import { BlockType, ContentType } from '@newrade/core-website-api';
+
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+
 import { createBlock } from './block.contentful';
 import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 

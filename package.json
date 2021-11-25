@@ -169,6 +169,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "esm": "^3.2.25",
     "expect-puppeteer": "^5",
     "format-package": "^6",

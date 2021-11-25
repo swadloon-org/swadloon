@@ -6,11 +6,13 @@ import {
   Typography,
   VIEWPORT,
 } from '@newrade/core-design-system';
+
 import { defaultFontVarNames, defaultFontVars } from '../default-theme/default-typography';
 import { CSSTypography } from '../design-system';
+
 import { getCSSFonts, getCSSFontsObject } from './font.utilities';
-import { createCSSCapsizeTextStyle } from './text-capsize.utilities';
 import { createCSSTextStyle } from './text.utilities';
+import { createCSSCapsizeTextStyle } from './text-capsize.utilities';
 import { keys } from './utilities';
 
 /**

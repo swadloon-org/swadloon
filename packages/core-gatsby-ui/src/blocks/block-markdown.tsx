@@ -1,11 +1,14 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { useCommonProps } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { BlockAlignment, BlockAPI } from '@newrade/core-website-api';
-import React from 'react';
-import { useStyles } from 'react-treat';
+
 import { MarkdownRenderer } from '../markdown/markdown-renderer';
-import * as styleRefs from './block-markdown.treat';
+
 import { BlockProps } from './block.props';
+import * as styleRefs from './block-markdown.treat';
 
 type Props = BlockProps & { block?: BlockAPI } & {
   children?: string | null | React.ReactNode;

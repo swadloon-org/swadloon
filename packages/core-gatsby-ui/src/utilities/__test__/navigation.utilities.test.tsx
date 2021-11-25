@@ -1,5 +1,6 @@
 import { Navigation } from '../../navigation/navigation.model';
 import { getNavigationFromPageNodes, getPageDirFromPath } from '../navigation.utilities';
+
 import { navigationMock } from './navigation.mock';
 
 describe(`navigation utilities`, () => {

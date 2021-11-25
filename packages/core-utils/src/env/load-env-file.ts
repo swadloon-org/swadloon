@@ -1,12 +1,16 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
+import path from 'path';
+
 import chalk from 'chalk';
 import debug from 'debug';
 import * as dotenv from 'dotenv';
 import * as t from 'io-ts';
-import path from 'path';
+
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
+
+import { PathReporter } from '../io-ts/reporter';
+
 import { CommonEnvType } from './common-env';
 import { logEnvVariables } from './log-env-variables';
-import { PathReporter } from '../io-ts/reporter';
 
 const log = debug('nr:env');
 

@@ -1,10 +1,13 @@
-import { LOGO } from '@newrade/core-design-system';
 import React, { ErrorInfo } from 'react';
 import { useStyles } from 'react-treat';
+
+import { LOGO } from '@newrade/core-design-system';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './logo.treat';
 import { useLogosContext } from './logos-provider';
 

@@ -1,8 +1,10 @@
-import { createStyleObject, getCapHeight, FontMetrics, precomputeValues } from '@capsizecss/core';
-import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
+import { createStyleObject, FontMetrics, getCapHeight, precomputeValues } from '@capsizecss/core';
+
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { createCSSTextStyle } from './text.utilities';
+import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
+
 import { getCSSFonts } from './font.utilities';
+import { createCSSTextStyle } from './text.utilities';
 import { pxStringToRem } from './utilities';
 
 /**

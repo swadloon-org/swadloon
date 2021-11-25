@@ -1,3 +1,8 @@
+import React, { PropsWithChildren, Suspense } from 'react';
+import { useStyles } from 'react-treat';
+
+import debug from 'debug';
+
 import {
   ErrorBoundary,
   Stack,
@@ -12,16 +17,15 @@ import {
   BlockType,
   LinkAPI,
 } from '@newrade/core-website-api';
-import debug from 'debug';
-import React, { PropsWithChildren, Suspense } from 'react';
-import { useStyles } from 'react-treat';
-import { BlockGoogleMapLazy } from '..';
+
 import { LinkRenderer } from '../links/link-renderer';
+import { BlockGoogleMapLazy } from '..';
+
+import { BlockRendererProps } from './block.props';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
 import * as styleRefs from './block-renderer.treat';
-import { BlockRendererProps } from './block.props';
 
 const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');

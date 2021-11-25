@@ -1,8 +1,11 @@
-import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
+
+import { Command } from '@oclif/command';
 import debug from 'debug';
-import { NS } from '../utilities/log.utilities';
+
 import { getShellForPlatform } from '@newrade/core-utils';
+
+import { NS } from '../utilities/log.utilities';
 
 /**
  * To be used with preconstruct

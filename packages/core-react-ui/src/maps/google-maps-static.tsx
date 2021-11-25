@@ -1,12 +1,15 @@
-import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
-import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
+import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
+
 import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-import { mapStyles } from './google-maps-styles';
+
 import * as styleRefs from './google-maps.treat';
+import { mapStyles } from './google-maps-styles';
 
 type Props = PrimitiveProps & {
   theme?: Theme;

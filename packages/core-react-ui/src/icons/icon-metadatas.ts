@@ -1,4 +1,5 @@
 import { ICON } from '@newrade/core-design-system';
+
 import { IconMetadata } from './icons-provider';
 
 enum ICON_CATEGORY {

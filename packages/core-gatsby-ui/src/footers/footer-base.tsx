@@ -1,10 +1,12 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { Variant } from '@newrade/core-design-system';
 import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
 import { globalThemeReversed } from '@newrade/core-react-ui/global';
-import React from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './footer-base.treat';
+
 import { FooterProps } from './footer.props';
+import * as styleRefs from './footer-base.treat';
 
 type Props = FooterProps;
 

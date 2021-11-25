@@ -1,3 +1,6 @@
+import React from 'react';
+import { useStyles } from 'react-treat';
+
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
   ButtonIcon,
@@ -21,13 +24,13 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { LinkAPI } from '@newrade/core-website-api';
-import React from 'react';
-import { useStyles } from 'react-treat';
+
 import { useI18next } from '../i18next/use-i18next.hook';
 import { LinkRenderer } from '../links/link-renderer';
+
+import { SidebarProps } from './sidebar.props';
 import { SidebarBase } from './sidebar-base';
 import * as styleRefs from './sidebar-standard.treat';
-import { SidebarProps } from './sidebar.props';
 
 type Props = SidebarProps & {};
 

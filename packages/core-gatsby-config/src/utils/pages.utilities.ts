@@ -1,9 +1,12 @@
-import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
-import { camel, capital, lower, title } from 'case';
 import { Page } from 'gatsby';
+
+import { camel, capital, lower, title } from 'case';
+
+import { SITE_LANGUAGE_SHORT, SITE_LANGUAGES } from '@newrade/core-common';
+
 import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
+import { PAGE_LAYOUT, PAGE_TEMPLATE, PageLayout, PageTemplate } from '../config/page.props';
 import { GatsbyMarkdownFilePageContext, GatsbyPageAlternateLocale } from '../config/page-context';
-import { PageLayout, PageTemplate, PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
 
 export const patternLocaleInPath =
   /\/?(?:(?<locale>[a-z]{2}(?:(?:-|_)[a-z]{0,2})?)\.)?(?<name>[a-z-_]+)(?<extension>\.(?:tsx|md|mdx))?\/?$/i;

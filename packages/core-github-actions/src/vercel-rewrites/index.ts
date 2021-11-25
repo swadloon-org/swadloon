@@ -1,5 +1,7 @@
 import * as github from '@actions/github';
+
 import { env } from '../../types/dot-env';
+
 import { runAction } from './action';
 
 /**

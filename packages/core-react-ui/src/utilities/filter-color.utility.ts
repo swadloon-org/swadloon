@@ -1,6 +1,8 @@
-import { Color } from '@newrade/core-design-system';
-import { getRGBColor } from './colors.utilities';
 import { Property } from 'csstype';
+
+import { Color } from '@newrade/core-design-system';
+
+import { getRGBColor } from './colors.utilities';
 
 type Matrix = [number, number, number, number, number, number, number, number, number];
 

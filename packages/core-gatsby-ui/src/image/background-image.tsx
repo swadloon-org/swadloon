@@ -1,11 +1,13 @@
-import { PrimitiveProps, useTreatTheme } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import GatsbyBackgroundImage, {
   IBackgroundImageProps,
   InferExtraProps,
 } from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { PrimitiveProps, useTreatTheme } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
 import * as styleRefs from './background-image.treat';
 

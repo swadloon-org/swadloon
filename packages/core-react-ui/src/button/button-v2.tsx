@@ -1,3 +1,5 @@
+import React, { ButtonHTMLAttributes, useRef } from 'react';
+
 import {
   ButtonIcon,
   ButtonProps,
@@ -5,11 +7,12 @@ import {
   LABEL_SIZE,
   TEXT_STYLE,
 } from '@newrade/core-design-system';
-import React, { ButtonHTMLAttributes, useRef } from 'react';
+
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+
 import * as styles from './button-v2.css';
 
 type Props = PrimitiveProps &

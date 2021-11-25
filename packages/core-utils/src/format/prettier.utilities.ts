@@ -1,4 +1,5 @@
 import path from 'path';
+
 import prettier from 'prettier';
 
 export function format(source: string, options?: prettier.Options, configPath?: string): string {

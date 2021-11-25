@@ -1,4 +1,5 @@
 import { PluginRef } from 'gatsby';
+
 import { GatsbyCoreContentfulPluginOptions } from '../plugins/gatsby-plugin-core-contentful';
 
 const defaultOptions: GatsbyCoreContentfulPluginOptions = {

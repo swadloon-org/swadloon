@@ -1,3 +1,9 @@
+import { graphql, PageProps } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useStyles } from 'react-treat';
+
 import {
   GatsbyMarkdownFilePageContext,
   MarkdownTemplateQuery,
@@ -9,11 +15,7 @@ import {
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
-import { graphql, PageProps } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './docs.css';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;

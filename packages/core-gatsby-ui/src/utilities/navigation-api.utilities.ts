@@ -1,4 +1,6 @@
-import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
+import { kebab, lower, title } from 'case';
+
+import { SITE_LANGUAGE_SHORT, SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui';
 import {
@@ -10,7 +12,7 @@ import {
   PageAPI,
 } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
-import { kebab, lower, title } from 'case';
+
 import { GatsbyPageNode } from './gatsby-page-node';
 
 export const defaultOptions: Required<GetNavigationAPIOptions> = {

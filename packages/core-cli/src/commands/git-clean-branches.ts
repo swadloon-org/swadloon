@@ -2,6 +2,7 @@ import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
+
 import { NS } from '../utilities/log.utilities';
 
 export default class GitCleanBranches extends Command {

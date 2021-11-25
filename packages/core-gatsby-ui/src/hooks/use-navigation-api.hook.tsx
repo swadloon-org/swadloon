@@ -1,14 +1,16 @@
-import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/utilities';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo } from 'react';
-import { GatsbyPageNode } from '..';
+
+import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
+import { PartialOrNull } from '@newrade/core-website-api/utilities';
+
 import { useI18next } from '../i18next/use-i18next.hook';
 import {
   getNavigationAPIFromPageNodes,
   GetNavigationAPIOptions,
   getPathParts,
 } from '../utilities/navigation-api.utilities';
+import { GatsbyPageNode } from '..';
 
 type NavigationQuery = PartialOrNull<{
   pages: {

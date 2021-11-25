@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
+
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './desktop-docs-sidebar.treat';
 
 type Props = PrimitiveProps & {};

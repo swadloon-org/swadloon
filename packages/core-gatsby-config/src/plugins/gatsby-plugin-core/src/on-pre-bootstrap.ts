@@ -1,7 +1,10 @@
-import { CommonEnvType } from '@newrade/core-utils';
-import { GatsbyNode } from 'gatsby';
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
+
+import { GatsbyNode } from 'gatsby';
+
+import { CommonEnvType } from '@newrade/core-utils';
+
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (

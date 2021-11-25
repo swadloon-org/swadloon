@@ -6,11 +6,13 @@ import {
   ButtonVariants,
   DesignSystem,
 } from '@newrade/core-design-system';
+
 import { CSSButtons, CSSButtonsVarNames } from '../design-system';
+
 import { getCSSBoxStyle, getCSSVarNameForBox } from './box.utilities';
 import { getCSSColor, getCSSVarForColors, getCSSVarNamesForColors } from './colors.utilities';
-import { keys } from './utilities';
 import { getFormattedCSSVar, getFormattedCSSVarName } from './props.utilities';
+import { keys } from './utilities';
 
 export function getCSSButtons(theme: DesignSystem): CSSButtons {
   const { colors, components } = theme;

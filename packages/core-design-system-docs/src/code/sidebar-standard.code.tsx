@@ -1,6 +1,7 @@
+import React, { Suspense } from 'react';
+
 import { SidebarStandardLazy, useSidebarState } from '@newrade/core-gatsby-ui/src';
 import { Button, useTreatTheme } from '@newrade/core-react-ui';
-import React, { Suspense } from 'react';
 
 type Props = {};
 

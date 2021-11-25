@@ -1,3 +1,7 @@
+import React, { AnchorHTMLAttributes, useEffect, useState } from 'react';
+import { IoChevronDownOutline } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import { LABEL_SIZE, LinkProps, TagSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import {
   Cluster,
@@ -9,9 +13,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
-import React, { AnchorHTMLAttributes, useEffect, useState } from 'react';
-import { IoChevronDownOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './sidebar-docs-desktop-group.treat';
 
 type Props = PrimitiveProps &

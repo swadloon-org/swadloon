@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { HEADING, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import {
   Heading,
@@ -8,7 +10,6 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = PrimitiveProps & {
   title: string | React.ReactNode;

@@ -1,8 +1,10 @@
 // @ts-ignore
-import GithubSlugger from 'github-slugger';
-import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 import { Property } from 'csstype';
+import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
+
+import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
+
 import { pxStringToNumber } from './utilities';
 
 /**

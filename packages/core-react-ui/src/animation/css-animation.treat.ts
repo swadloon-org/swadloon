@@ -1,5 +1,7 @@
-import { globalStyle, style, Style } from 'treat';
+import { globalStyle, Style, style } from 'treat';
+
 import { Theme } from '../design-system';
+
 import { easingPower4 } from './css-easings';
 
 export const styles = {

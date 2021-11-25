@@ -1,3 +1,7 @@
+import React from 'react';
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import {
   ButtonIcon,
   ICON,
@@ -21,15 +25,14 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
-import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import { BlockRenderer } from '../blocks/block-renderer';
 import { lorenipsumMedium, lorenipsumShort } from '../docs-components/loren-ipsum';
 import { GatsbyLink } from '../links/gatsby-link';
+
+import { FooterProps } from './footer.props';
 import { FooterBase } from './footer-base';
 import * as styleRefs from './footer-standard.treat';
-import { FooterProps } from './footer.props';
 
 type Props = FooterProps;
 

@@ -3,7 +3,9 @@ import chalk from 'chalk';
 import debug from 'debug';
 import * as t from 'io-ts';
 import { Octokit } from 'octokit';
+
 import { loadDotEnv } from '@newrade/core-utils';
+
 import { NS } from '../utilities/log.utilities';
 
 export type ENV = t.TypeOf<typeof Env>;

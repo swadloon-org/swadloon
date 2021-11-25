@@ -1,5 +1,7 @@
-import { SITE_LANGUAGES } from '@newrade/core-common';
 import { graphql, useStaticQuery } from 'gatsby';
+
+import { SITE_LANGUAGES } from '@newrade/core-common';
+
 import { Navigation } from '../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 

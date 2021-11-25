@@ -1,11 +1,14 @@
-import { getShellForPlatform } from '@newrade/core-utils';
-import { Command, flags } from '@oclif/command';
-import chalk from 'chalk';
 import { spawnSync } from 'child_process';
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 import fs from 'fs';
 import path from 'path';
+
+import { Command, flags } from '@oclif/command';
+import chalk from 'chalk';
 import prettier from 'prettier';
+
+import { getShellForPlatform } from '@newrade/core-utils';
+
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 type PackageJsonWorkspaces =
   | {

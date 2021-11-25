@@ -1,7 +1,9 @@
-import { ButtonIcon, Variant } from '@newrade/core-design-system';
 import React, { useImperativeHandle, useRef, useState } from 'react';
 import { IoClose, IoMenu } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
+
+import { ButtonIcon, Variant } from '@newrade/core-design-system';
+
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { useTreatTheme } from '../hooks/use-treat-theme';
@@ -9,6 +11,7 @@ import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './navbar-app.treat';
 
 export type NavBarAppRefs = {

@@ -1,7 +1,10 @@
-import { Variant } from '@newrade/core-design-system';
 import React from 'react';
+
+import { Variant } from '@newrade/core-design-system';
+
 import { globalThemeReversed } from '../global/global-theme-classnames';
 import { useCommonProps } from '../hooks/use-common-props.hook';
+
 import { AsTypes, PrimitiveProps } from './primitive.props';
 
 const NAME = 'Primitive';

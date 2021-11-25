@@ -6,7 +6,7 @@ declare module '@mdx-js/react' {
   const useMDXComponents: any;
   const withMDXComponents: any;
   export default value;
-  export { MDXContext, MDXProvider, createElement as mdx, useMDXComponents, withMDXComponents };
+  export { createElement as mdx, MDXContext, MDXProvider, useMDXComponents, withMDXComponents };
 }
 
 declare module '*.mdx' {

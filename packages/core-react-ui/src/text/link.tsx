@@ -1,3 +1,7 @@
+import React, { AnchorHTMLAttributes, useRef } from 'react';
+import { IoOpenOutline } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import {
   LinkProps,
   LinkState,
@@ -5,12 +9,11 @@ import {
   PARAGRAPH_SIZE,
   Variant,
 } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { IoOpenOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getDefaultTextFromProps } from '../utilities/component.utilities';
+
 import * as stylesRef from './link.treat';
 
 type Props = PrimitiveProps &

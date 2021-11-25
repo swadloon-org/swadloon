@@ -1,8 +1,9 @@
+import React from 'react';
+
 import { Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBase } from '@newrade/core-gatsby-ui/src';
 import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
 import { Stack, useTreatTheme } from '@newrade/core-react-ui';
-import React from 'react';
 
 type Props = {};
 

@@ -1,7 +1,10 @@
-import { loadDotEnv } from '@newrade/core-utils';
-import { runMigration } from 'contentful-migration';
 import path from 'path';
-import { Env, ENV } from './types/dot-env';
+
+import { runMigration } from 'contentful-migration';
+
+import { loadDotEnv } from '@newrade/core-utils';
+
+import { ENV, Env } from './types/dot-env';
 
 const env = loadDotEnv<ENV>({
   schema: Env,

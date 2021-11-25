@@ -1,6 +1,8 @@
-import { LinkAPI } from '@newrade/core-website-api';
 import { helmetJsonLdProp } from 'react-schemaorg';
+
 import { BreadcrumbList } from 'schema-dts';
+
+import { LinkAPI } from '@newrade/core-website-api';
 
 /**
  * Return a list of links (breadcrumbs) from a navigation object

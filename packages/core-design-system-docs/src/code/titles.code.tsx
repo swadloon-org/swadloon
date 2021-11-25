@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { TITLE, Variant } from '@newrade/core-design-system';
 import { Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
-import React from 'react';
 
 type Props = {};
 

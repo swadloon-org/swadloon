@@ -1,5 +1,6 @@
 import { createTextStyle } from '@capsizecss/vanilla-extract';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
+
 import { layoutCSS, typographyVars } from '../theme';
 
 export const t1 = createTextStyle(typographyVars.titles.mobile.t1.capsize, {

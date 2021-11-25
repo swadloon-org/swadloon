@@ -1,11 +1,14 @@
-import { I18nextContext } from '@newrade/core-gatsby-ui/src/i18next/i18next-context';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
+import React from 'react';
+import { I18nextProvider } from 'react-i18next';
+
 /**
  * i18n
  */
 import i18next, { InitOptions } from 'i18next';
-import React from 'react';
-import { I18nextProvider } from 'react-i18next';
+
+import { I18nextContext } from '@newrade/core-gatsby-ui/src/i18next/i18next-context';
+
 import { GatsbyCommonPageContext } from '../../config/page-context';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;

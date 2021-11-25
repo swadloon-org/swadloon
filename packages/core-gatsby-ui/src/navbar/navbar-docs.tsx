@@ -1,3 +1,7 @@
+import React, { useRef } from 'react';
+import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import { ButtonIcon, ButtonSize, ICON, LOGO, Variant } from '@newrade/core-design-system';
 import {
   BoxV2,
@@ -14,9 +18,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { globalThemeReversed } from '@newrade/core-react-ui/global';
-import React, { useRef } from 'react';
-import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './navbar-docs.treat';
 
 export type NavBarDocsRefs = {

@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+
 import { colorVars } from '../theme/default-theme.css';
 
 /**

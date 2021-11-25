@@ -1,8 +1,10 @@
+import path from 'path';
+
 import { camel } from 'case';
 import chalk from 'chalk';
 import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
-import path from 'path';
+
 import { ExtractOptions } from '../extract';
 import { ColorTokens, FigmaColor } from '../models/figma-colors.model';
 import { fetchObjectById } from '../service/figma-api.service';

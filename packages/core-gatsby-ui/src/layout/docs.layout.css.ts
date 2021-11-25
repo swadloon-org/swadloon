@@ -1,5 +1,6 @@
-import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
 import { globalStyle, style } from '@vanilla-extract/css';
+
+import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
 
 export const global = style({});
 

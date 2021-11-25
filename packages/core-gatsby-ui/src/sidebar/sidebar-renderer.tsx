@@ -1,11 +1,14 @@
+import React, { PropsWithChildren, Suspense } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+import debug from 'debug';
+
 import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import { SidebarLayout } from '@newrade/core-website-api';
-import debug from 'debug';
-import React, { PropsWithChildren, Suspense } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { SidebarStandardLazy } from './sidebar-standard.lazy';
+
 import { SidebarProps, SidebarRendererProps } from './sidebar.props';
+import { SidebarStandardLazy } from './sidebar-standard.lazy';
 
 const log = debug('nr:core-gatsby-ui:sidebar-renderer');
 const logWarn = log.extend('warn');

@@ -1,8 +1,10 @@
 /// <reference types="@newrade/core-types/src/mdx" />
 
-import { render } from '@testing-library/react';
 import { spawnSync } from 'child_process';
+
 import React from 'react';
+
+import { render } from '@testing-library/react';
 
 /**
  * @description Test Jest setup itself, e.g. if the Jest test can compile from TypeScript

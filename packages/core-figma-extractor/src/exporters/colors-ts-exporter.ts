@@ -1,5 +1,6 @@
 import { formatOutput } from '../utilities/formatting.utilities';
 import { sortColorNames } from '../utilities/sorting.utilities';
+
 import { ColorsExporter } from './colors-exporter.api';
 
 export const exportTSColorTokens: ColorsExporter = (colorTokens, options) => {

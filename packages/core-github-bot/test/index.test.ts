@@ -2,9 +2,11 @@
 // import index from '../src/index'
 
 import nock from 'nock';
+import { Probot, ProbotOctokit } from 'probot';
+
 // Requiring our app implementation
 import myProbotApp from '../src';
-import { Probot, ProbotOctokit } from 'probot';
+
 // Requiring our fixtures
 import payload from './fixtures/issues.opened.json';
 const issueCreatedBody = { body: 'Thanks for opening this issue!' };
@@ -31,7 +33,7 @@ describe('My Probot app', () => {
     probot.load(myProbotApp);
   });
 
-  test('creates a comment when an issue is opened', async (done) => {
+  it('creates a comment when an issue is opened', async (done) => {
     const mock = nock('https://api.github.com')
       // Test that we correctly return a test token
       .post('/app/installations/2/access_tokens')

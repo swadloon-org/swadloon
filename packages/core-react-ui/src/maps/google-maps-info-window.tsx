@@ -1,9 +1,12 @@
-import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
-import { title } from 'case';
 import React from 'react';
 import { IoStar, IoStarHalf } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
+
+import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
+import { title } from 'case';
+
+import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -11,6 +14,7 @@ import { Label } from '../text/label';
 import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as styleRefs from './google-maps-info-window.treat';
 
 type Props = PrimitiveProps & {

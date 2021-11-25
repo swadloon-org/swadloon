@@ -1,4 +1,5 @@
 import { globalStyle, style } from 'treat';
+
 import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';

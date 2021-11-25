@@ -1,9 +1,11 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { Command } from '@oclif/command';
 import { kebab } from 'case';
 import chalk from 'chalk';
 import debug from 'debug';
-import * as fs from 'fs';
-import * as path from 'path';
+
 import { NS } from '../utilities/log.utilities';
 
 // @ts-ignore

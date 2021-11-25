@@ -1,10 +1,13 @@
-import { PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
-import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 import { IFluidObject } from 'gatsby-background-image';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
+
+import { PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
+
 import { BackgroundImage } from '../image/background-image';
 import { BackgroundImageV2 } from '../image/background-image-v2';
+
 import { BlockProps } from './block.props';
 
 type Props = PrimitiveProps &

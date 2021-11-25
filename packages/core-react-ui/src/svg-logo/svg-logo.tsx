@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+
 import * as stylesRef from './svg-logo.treat';
 
 type Props = PrimitiveProps & {

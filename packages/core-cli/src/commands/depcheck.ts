@@ -1,6 +1,9 @@
-import { getShellForPlatform } from '@newrade/core-utils';
-import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
+
+import { Command } from '@oclif/command';
+
+import { getShellForPlatform } from '@newrade/core-utils';
+
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class Depcheck extends Command {

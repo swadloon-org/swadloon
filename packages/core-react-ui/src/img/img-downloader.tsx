@@ -1,11 +1,14 @@
-import { ButtonSize, Variant } from '@newrade/core-design-system';
 import React, { useCallback, useRef } from 'react';
 import { useStyles } from 'react-treat';
+
+import { ButtonSize, Variant } from '@newrade/core-design-system';
+
 import { Button } from '../button/button';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import * as styleRefs from './img-downloader.treat';
 
 type Props = PrimitiveProps & {

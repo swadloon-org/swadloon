@@ -1,8 +1,11 @@
-import { Property } from 'csstype';
 import React from 'react';
+
+import { Property } from 'csstype';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
+
 import * as styles from './cluster.css';
 
 type Gap = string;

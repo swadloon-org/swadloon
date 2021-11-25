@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { Cluster, Switch, useTreatTheme } from '@newrade/core-react-ui';
 import { sizingVars } from '@newrade/core-react-ui/theme';
-import React from 'react';
 
 type Props = {};
 

@@ -1,11 +1,14 @@
 /// <reference types="@newrade/core-types/src/svg" />
 
-import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { IconComp } from '..';
+
+import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+import { IconComp } from '..';
+
 import { Label } from './label';
 import * as stylesRef from './summary.treat';
 

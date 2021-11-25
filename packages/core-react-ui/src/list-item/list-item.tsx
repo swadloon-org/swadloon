@@ -1,10 +1,13 @@
-import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { BsDot } from 'react-icons/bs';
 import { useStyles } from 'react-treat';
+
+import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Paragraph } from '../text/paragraph';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+
 import * as stylesRef from './list-item.treat';
 
 type Props = PrimitiveProps &

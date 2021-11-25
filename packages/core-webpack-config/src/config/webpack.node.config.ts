@@ -1,6 +1,7 @@
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration } from 'webpack';
+
 import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
 import { htmlLoader } from '../loaders/html.loader';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';

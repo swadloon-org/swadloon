@@ -1,10 +1,13 @@
+import { spawnSync } from 'child_process';
+
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
-import { NS } from '../utilities/log.utilities';
 import * as t from 'io-ts';
+
 import { loadDotEnv } from '@newrade/core-utils';
-import { spawnSync } from 'child_process';
 import { getShellForPlatform } from '@newrade/core-utils';
+
+import { NS } from '../utilities/log.utilities';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([

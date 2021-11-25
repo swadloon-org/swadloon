@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
+
 import { Center } from './center';
 import * as styleRefs from './main-docs.treat';
 

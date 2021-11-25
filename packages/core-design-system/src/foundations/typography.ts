@@ -1,4 +1,5 @@
 import { CapsizeTextStyleV2 } from '..';
+
 import { Font } from './font';
 import { VIEWPORT } from './layout';
 import { CapsizeTextStyle, TextStyle } from './text';

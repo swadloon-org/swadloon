@@ -1,7 +1,10 @@
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { Marker } from '@react-google-maps/api';
+
 import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
 import { BlockGoogleMapAPI } from '@newrade/core-website-api';
-import { Marker } from '@react-google-maps/api';
-import React, { useCallback, useEffect, useState } from 'react';
+
 import { BlockProps } from './block.props';
 
 export type BlockGoogleMapsProps = BlockProps & {

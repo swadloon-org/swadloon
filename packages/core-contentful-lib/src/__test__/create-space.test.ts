@@ -1,5 +1,6 @@
 import { spawnSync } from 'child_process';
 import path from 'path';
+
 import { getShellForPlatform } from '@newrade/core-utils';
 
 describe('the run-migration command', () => {

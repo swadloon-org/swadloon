@@ -1,12 +1,14 @@
 import { DesignSystem } from '@newrade/core-design-system';
+
 import { CSSDesignSystem } from '../design-system';
-import { getCSSColors } from './colors.utilities';
+
 import { getCSSButtons } from './buttons.utilities';
+import { getCSSColors } from './colors.utilities';
 import { getCSSEffects } from './effects.utilities';
+import { getCSSIconography } from './iconography.utilities';
 import { getCSSLayout } from './layout.utilities';
 import { getCSSSizing } from './sizing.utilities';
 import { getCSSTypography } from './typography.utilities';
-import { getCSSIconography } from './iconography.utilities';
 
 /**
  * Create a CSS compatible theme object from raw styles

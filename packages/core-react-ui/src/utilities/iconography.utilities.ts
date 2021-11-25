@@ -1,5 +1,7 @@
 import { Iconography, IconSizes, VIEWPORT } from '@newrade/core-design-system';
+
 import { CSSIconography } from '../design-system';
+
 import { keys, px } from './utilities';
 
 export function getCSSIconography({ sizes }: Iconography): CSSIconography {

@@ -1,5 +1,6 @@
 import { IFixedObject, IFluidObject } from 'gatsby-background-image';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 import { PartialOrNull } from '../utilities';
 
 export type MediaImage = {

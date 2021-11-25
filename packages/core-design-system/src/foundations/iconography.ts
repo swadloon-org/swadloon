@@ -1,4 +1,5 @@
 import { SizingType } from '../types';
+
 import { VIEWPORT } from './layout';
 
 /**

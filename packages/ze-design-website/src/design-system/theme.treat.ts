@@ -1,4 +1,5 @@
 import { createTheme } from 'treat';
+
 import { cssTheme, theme } from '@newrade/ze-design-system/src/design-system/theme';
 
 /**

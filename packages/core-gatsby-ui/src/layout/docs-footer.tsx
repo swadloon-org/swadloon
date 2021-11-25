@@ -1,3 +1,7 @@
+import React from 'react';
+import { IoArrowForwardOutline } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
+
 import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   Button,
@@ -6,9 +10,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
-import { IoArrowForwardOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
+
 import * as styleRefs from './docs-footer.treat';
 
 type Props = PrimitiveProps & {

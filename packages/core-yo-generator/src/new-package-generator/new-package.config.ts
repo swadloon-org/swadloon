@@ -1,8 +1,9 @@
-import _ from 'case';
 import path from 'path';
 
-import { CHOICES } from '../generator-choices';
+import _ from 'case';
+
 import { GeneratorModule } from '../generator.types';
+import { CHOICES } from '../generator-choices';
 
 /**
  * @description Names of the props that are passed to the templates

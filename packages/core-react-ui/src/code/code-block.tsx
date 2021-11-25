@@ -1,6 +1,8 @@
-import { Language } from 'prism-react-renderer';
 import React from 'react';
 import { useStyles } from 'react-treat';
+
+import { Language } from 'prism-react-renderer';
+
 import * as styleRefs from './code-block.treat';
 import { CodeHighlight } from './code-highlight';
 import { githubTheme } from './code-theme';
