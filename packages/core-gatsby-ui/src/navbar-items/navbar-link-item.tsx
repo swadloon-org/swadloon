@@ -19,6 +19,15 @@ type Props = NavbarLinkProps & {
 };
 
 /**
+ * Component that render a navigation item
+ *
+ * It supports a few variants:
+ *  - simple link
+ *  - external link
+ *  - menu link with icon
+ *  - link with svg icon or component
+ *  - link with a custom children
+ *
  * @see https://zedesignsystem.com/design-system/components/navbars-items/
  */
 export const NavbarLinkItem: React.FC<Props> = ({
@@ -31,6 +40,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
   collapsePadding,
   icon,
   SVGLogo,
+  Icon,
   CustomChildren,
   ...props
 }) => {
@@ -94,17 +104,29 @@ export const NavbarLinkItem: React.FC<Props> = ({
       variant={variant}
       {...props}
     >
+      {/*
+       * Default label
+       */}
       {RenderedLogo || CustomChildren ? null : (
         <Label style={{ color: 'inherit' }} variant={labelSize}>
           {children}
         </Label>
       )}
 
+      {/*
+       * Custom children
+       */}
       {RenderedCustomChildren}
 
+      {/*
+       * SVG Logo
+       */}
       {RenderedLogo}
 
-      {icon ? <IconComp name={ICON.OPEN} className={styles.icon} /> : null}
+      {/*
+       * Icon
+       */}
+      {icon ? <IconComp name={Icon || ICON.OPEN} className={styles.icon} /> : null}
     </Primitive>
   );
 };

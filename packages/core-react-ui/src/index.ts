@@ -9,6 +9,7 @@ export * from './design-system';
 export * from './do-donts/do-dont';
 export * from './error/error-boundary';
 export * from './form/form';
+export * from './form/input.props';
 export * from './form/input-error';
 export * from './form/input-label';
 export * from './form/input-select';

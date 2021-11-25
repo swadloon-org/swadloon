@@ -1,0 +1,18 @@
+#
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
+# see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
+#
+name: 'Sync forks with parent repo'
+description: 'Sync forks with parent repo'
+inputs:
+  forks: # id of input
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'

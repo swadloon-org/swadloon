@@ -75,7 +75,7 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    padding: `0 10px`,
+    padding: `0 ${cssTheme.sizing.var.x2}`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
     height: `56px`,
@@ -101,6 +101,13 @@ export const styles = {
         },
       },
     },
+  })),
+
+  /**
+   * Icon placement
+   */
+  iconPaddingRight: style(({ theme, cssTheme }: Theme) => ({
+    paddingRight: `calc(16px + ${cssTheme.sizing.var.x1} + ${cssTheme.sizing.var.x2})`,
   })),
 
   /**

@@ -1,13 +1,13 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
-import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 
 import { GatsbyLink } from '../links/gatsby-link';
 
 import { BreadcrumbsProps } from './breadcrumbs.props';
-import * as styleRefs from './breadcrumbs-docs.treat';
+
+import * as styles from './breadcrumbs.css';
 
 type Props = BreadcrumbsProps;
 
@@ -16,9 +16,8 @@ type Props = BreadcrumbsProps;
  *
  * @see https://developers.google.com/search/docs/advanced/structured-data/breadcrumb
  */
-export const BreadcrumbsDocs = React.forwardRef<any, Props>(
+export const Breadcrumbs = React.forwardRef<any, Props>(
   ({ id, style, className, breadcrumbs, ...props }, ref) => {
-    const styles = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
@@ -42,6 +41,7 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
                 <Paragraph
                   key={`${linkIndex}-separator`}
                   variant={PARAGRAPH_SIZE.small}
+                  variantStyle={TEXT_STYLE.boldUppercase}
                   variantLevel={Variant.tertiary}
                   style={{ userSelect: 'none', fontWeight: 400 }}
                 >
@@ -55,12 +55,14 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
               {link?.page?.slug ? (
                 <Link
                   key={linkIndex}
-                  variantSize={PARAGRAPH_SIZE.small}
+                  variantSize={PARAGRAPH_SIZE.xSmall}
+                  variantStyle={TEXT_STYLE.boldUppercase}
                   variantLevel={Variant.tertiary}
                   variant={LinkVariant.noUnderline}
                   style={{
                     userSelect: 'none',
-                    fontWeight: 400,
+                    fontWeight: 500,
+                    textTransform: 'uppercase',
                   }}
                   AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
                 >
@@ -69,12 +71,14 @@ export const BreadcrumbsDocs = React.forwardRef<any, Props>(
               ) : (
                 <Link
                   key={linkIndex}
-                  variantSize={PARAGRAPH_SIZE.small}
+                  variantSize={PARAGRAPH_SIZE.xSmall}
+                  variantStyle={TEXT_STYLE.boldUppercase}
                   variantLevel={Variant.tertiary}
                   variant={LinkVariant.noUnderline}
                   style={{
                     userSelect: 'none',
-                    fontWeight: 400,
+                    fontWeight: 500,
+                    textTransform: 'uppercase',
                     textDecoration: !link?.page?.slug ? 'none' : '',
                   }}
                 >

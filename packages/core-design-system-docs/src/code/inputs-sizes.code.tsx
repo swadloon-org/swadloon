@@ -14,7 +14,10 @@ export const InputsSize: React.FC<Props> = (props) => {
       </InputWrapper>
 
       <InputWrapper>
-        <InputSelect />
+        <InputSelect placeholder={'Choose value'}>
+          <option value={'normal'}>Normal</option>
+          <option value={'reversed'}>Reversed</option>
+        </InputSelect>
       </InputWrapper>
     </>
   );

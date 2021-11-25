@@ -1,4 +1,5 @@
 import { ColorType } from '../types';
+import { ICON } from '..';
 
 import { BoxStyle } from './box';
 import { Variant } from './components.props';
@@ -45,6 +46,7 @@ export interface NavbarItemStyleProps {
   role: string;
   variant: Variant;
   icon: NavbarItemIcon;
+  Icon: ICON;
   size: NavbarItemSize;
 }
 

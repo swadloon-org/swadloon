@@ -8,6 +8,7 @@ import { HEADING } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
   Cluster,
+  getLangSimpleCode,
   Heading,
   MainDocs,
   MainDocsWrapper,
@@ -28,7 +29,7 @@ import {
   SidebarAPI,
 } from '@newrade/core-website-api';
 
-import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
+import { Breadcrumbs } from '../breadcrumbs/breadcrumbs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
@@ -39,6 +40,7 @@ import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
 import { NavbarLogoTagItem } from '../navbar-items/navbar-logo-tag-item';
+import { NavbarSelectItem } from '../navbar-items/navbar-select-item';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
@@ -120,17 +122,24 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    */
 
   const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
-  const { t, changeLanguage, getTranslatedObject, getAlternativePageForLocale } = useI18next();
+  const siteLangs = props.pageContext?.siteMetadata?.languages.langs;
+  const { t, changeLanguage, getAlternativePageForLocale, getAlternativeLang } = useI18next();
   const alternatePageForLocale = getAlternativePageForLocale(
     currentLang,
     props.pageContext?.alternateLocales
   );
 
-  function handleChangeLanguage(lang: SITE_LANGUAGES) {
+  function handleChangeLanguage(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value as SITE_LANGUAGES;
+
+    if (!value) {
+      return;
+    }
+
     changeLanguage({
-      language: lang,
+      language: value,
       alternateLocales: props.pageContext?.alternateLocales,
-      fallbackToHomePage: false,
+      fallbackToHomePage: true,
     });
   }
 
@@ -324,7 +333,19 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       <Cluster>
         <NavbarLinkItem>Search</NavbarLinkItem>
         <NavbarSeparatorItem />
-        <NavbarLinkItem>{alternatePageForLocale?.locale || 'FR'}</NavbarLinkItem>
+        <NavbarSelectItem
+          select={{ value: getLangSimpleCode(currentLang), onChange: handleChangeLanguage }}
+        >
+          {siteLangs ? (
+            siteLangs.map((lang) => (
+              <option key={lang} value={getLangSimpleCode(lang)}>
+                {getLangSimpleCode(lang)}
+              </option>
+            ))
+          ) : (
+            <option value={currentLang}>{currentLang}</option>
+          )}
+        </NavbarSelectItem>
       </Cluster>
     ),
   };
@@ -390,7 +411,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         {/*
          * Breadcrumbs
          */}
-        <BreadcrumbsDocs
+        <Breadcrumbs
           breadcrumbs={breadcrumbs}
           className={styles.breadcrumbs}
           style={{ gridArea: 'main-docs-breadcrumbs' }}

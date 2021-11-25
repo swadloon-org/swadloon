@@ -1,6 +1,6 @@
 import { AriaRole } from 'react';
 
-import { PARAGRAPH_SIZE } from '../foundations/typography';
+import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
@@ -51,6 +51,7 @@ export interface LinkStyleProps {
   variantLevel: Variant;
   variant: LinkVariant;
   variantSize: PARAGRAPH_SIZE; // same as paragraph sizes
+  variantStyle: TEXT_STYLE; // same as paragraph style
   state: LinkState;
 }
 
