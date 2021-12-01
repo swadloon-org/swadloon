@@ -19,18 +19,15 @@ export enum InputSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
-  xSmall = 'xSmall',
-}
-
-export enum InputInternalState {
-  rest = 'rest',
-  focused = 'focused',
-  loading = 'loading',
-  disabled = 'disabled',
 }
 
 export enum InputState {
   rest = 'rest',
+  focused = 'focused',
+}
+
+export enum InputValidityState {
+  neutral = 'neutral',
   valid = 'valid',
   warning = 'warning',
   error = 'error',
@@ -51,11 +48,34 @@ export enum InputIcon {
 export type InputProps = Partial<InputStyleProps>;
 
 export interface InputStyleProps {
+  /**
+   * The visual importance of the component
+   */
   variant: Variant;
+  /**
+   * Icon placement
+   */
   icon: InputIcon;
+  /**
+   * What icon to render
+   */
   Icon: ICON;
+  /**
+   * General size of the input
+   */
   variantSize: InputSize;
-  state: InputState;
+  /**
+   * Validation state
+   */
+  validity: InputValidityState;
+  /**
+   * Loading state
+   */
+  loading: boolean;
+  /**
+   * Disabled state
+   */
+  disabled: boolean;
 }
 
 export type InputColors<Override extends undefined | string = undefined> = {

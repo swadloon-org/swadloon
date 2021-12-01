@@ -4,12 +4,10 @@ import { InputProps } from '@newrade/core-design-system';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-export type InputStateProps = {
-  /**
-   * if the input is disabled or not
-   */
-  disabled?: boolean;
-};
+/**
+ * Additional component-only state
+ */
+export type InputStateProps = {};
 
 export type InputSelectProps = PrimitiveProps<'select'> &
   SelectHTMLAttributes<any> &

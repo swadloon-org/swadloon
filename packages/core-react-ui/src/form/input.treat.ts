@@ -8,6 +8,7 @@ export const styles = {
    */
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
+    height: 'fit-content',
   })),
 
   /**
@@ -104,19 +105,34 @@ export const styles = {
   })),
 
   /**
-   * Icon placement
+   *
+   * Icons
+   *
    */
+
   iconPaddingRight: style(({ theme, cssTheme }: Theme) => ({
     paddingRight: `calc(16px + ${cssTheme.sizing.var.x1} + ${cssTheme.sizing.var.x2})`,
   })),
 
-  /**
-   * Icon
-   */
-  icon: style(({ theme, cssTheme }: Theme) => ({
+  iconPaddingLeft: style(({ theme, cssTheme }: Theme) => ({
+    paddingLeft: `calc(16px + ${cssTheme.sizing.var.x1} + ${cssTheme.sizing.var.x2})`,
+  })),
+
+  iconRight: style(({ theme, cssTheme }: Theme) => ({
     height: '16px',
     position: 'absolute',
     top: `calc(50% - 8px)`,
     right: cssTheme.sizing.var.x2,
+    pointerEvents: 'none',
+    zIndex: 1,
+  })),
+
+  iconLeft: style(({ theme, cssTheme }: Theme) => ({
+    height: '16px',
+    position: 'absolute',
+    top: `calc(50% - 8px)`,
+    left: cssTheme.sizing.var.x2,
+    pointerEvents: 'none',
+    zIndex: 1,
   })),
 };

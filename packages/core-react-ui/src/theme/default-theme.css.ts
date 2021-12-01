@@ -3,6 +3,7 @@ import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
 import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 
 import { CSSLayoutV2 } from '../design-system/css-layout';
+import { defaultSizesCSSVarNamesV2, defaultSizesCSSVarV2 } from '../utilities/sizing.utilities';
 import { CSSSizingV2, CSSTypographyV2 } from '..';
 
 import { defaultCSSButtons } from './default-css-buttons';
@@ -29,7 +30,11 @@ export const effectsCSS = defaultCSSEffects;
 /**
  * Sizing
  */
-export const sizingVars = createThemeContract<CSSSizingV2>(defaultCSSSizing);
+export const sizingVars = {
+  ...createThemeContract<CSSSizingV2>(defaultCSSSizing),
+  var: defaultSizesCSSVarV2,
+  varNames: defaultSizesCSSVarNamesV2, // we don't want to hash the var and varNames variables
+};
 export const sizingCSS = defaultCSSSizing;
 
 /**
@@ -58,18 +63,3 @@ export const layoutCSS = defaultCSSLayoutV2;
  */
 type Buttons = Pick<DesignSystem<string>['components'], 'buttons'>;
 export const buttonsVars = createThemeContract<Buttons>(defaultCSSButtons);
-
-/**
- * Creating Default Global Themes
- */
-// @ts-expect-error
-createGlobalTheme(':root', colorVars, defaultCSSColors);
-// @ts-expect-error
-createGlobalTheme(':root', effectsVars, defaultCSSEffects);
-// @ts-expect-error
-createGlobalTheme(':root', sizingVars, defaultCSSSizing);
-// @ts-expect-error
-createGlobalTheme(':root', layoutVars, defaultCSSLayout);
-// @ts-expect-error
-createGlobalTheme(':root', typographyVars, defaultCSSTypography);
-createGlobalTheme(':root', buttonsVars, defaultCSSButtons);

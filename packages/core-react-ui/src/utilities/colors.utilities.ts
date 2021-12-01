@@ -244,6 +244,33 @@ export function generateColorGreyPalette({
   };
 }
 
+export function generateColorGreyPaletteDark({
+  hue,
+}: {
+  hue: number;
+}): DS.ColorPalette<undefined, DS.ColorShadesGrey> {
+  return {
+    baseHue: hue,
+    baseSat: 6,
+    1000: { h: hue, s: 6, l: 100 },
+    900: { h: hue, s: 4, l: 97 },
+    800: { h: hue, s: 4, l: 93 },
+    700: { h: hue, s: 5, l: 90 },
+    600: { h: hue, s: 5, l: 86 },
+    500: { h: hue, s: 5, l: 83 },
+    400: { h: hue, s: 6, l: 73 },
+    300: { h: hue, s: 6, l: 66 },
+    200: { h: hue, s: 6, l: 59 },
+    '200-reversed': { h: hue, s: 10, l: 100 },
+    100: { h: hue, s: 6, l: 46 },
+    '100-reversed': { h: hue, s: 10, l: 100 },
+    50: { h: hue, s: 3, l: 26 },
+    25: { h: hue, s: 0, l: 13 },
+    '0-reversed': { h: hue, s: 10, l: 100 },
+    0: { h: hue, s: 0, l: 7 },
+  };
+}
+
 export function getCSSColorPalette<ColorShades extends string>({
   palette,
   baseHue,

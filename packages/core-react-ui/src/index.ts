@@ -19,6 +19,7 @@ export * from './gestures/gesture-drag-example';
 export * from './gestures/gesture-scroll-example';
 export * from './gestures/gesture-scroll-wheel-example';
 export * from './hooks/use-common-props.hook';
+export * from './hooks/use-css-theme';
 export * from './hooks/use-event-listener';
 export * from './hooks/use-intersection-observer';
 export * from './hooks/use-is-ssr';

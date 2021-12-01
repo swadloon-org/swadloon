@@ -20,15 +20,11 @@ const padding = createVar();
 export const base = style([
   {
     vars: {
-      [padding]: `16px`,
+      [padding]: `8px`,
     },
+    display: 'flex',
+    alignItems: 'center',
     position: 'relative',
-    selectors: {
-      '&:focus': {
-        outline: 'none',
-        // boxShadow: effectsVars.outlineShadows.focus,
-      },
-    },
   },
 ]);
 

@@ -24,7 +24,7 @@ export function createCSSTextStyle({
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
   return {
-    fontWeight: fontWeight?.toString() || `400`,
+    fontWeight: fontWeight ? fontWeight.toString() : `400`,
     fontStyle,
     letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
     textTransform,

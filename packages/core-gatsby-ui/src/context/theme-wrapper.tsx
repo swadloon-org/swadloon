@@ -3,8 +3,10 @@ import { TreatProvider } from 'react-treat';
 
 import type { Property } from 'csstype';
 
-import { VIEWPORT } from '@newrade/core-design-system';
+import { InputSize, VIEWPORT } from '@newrade/core-design-system';
 import {
+  CSSRuntimeThemeConfig,
+  CSSThemeProvider,
   IFrame,
   InputSelect,
   PrimitiveProps,
@@ -18,6 +20,7 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
+import { CSSThemeProviderConfig } from '@newrade/core-react-ui/design-system';
 import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
 import { colorVars } from '@newrade/core-react-ui/theme';
 
@@ -35,7 +38,7 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
   /**
    * Classname to apply vanilla-extra theme css variables
    */
-  themeClassname: string;
+  themeConfig: CSSThemeProviderConfig;
   /**
    * Normal children
    */
@@ -44,7 +47,6 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    * Activate knobs and controls
    */
   displayControls?: boolean;
-
   /**
    * Display mode
    */
@@ -97,7 +99,7 @@ const ThemeWrapperFn = React.memo(
     style,
     className,
     treatThemeRef,
-    themeClassname,
+    themeConfig,
     theme,
     children,
     displayControls,
@@ -111,7 +113,9 @@ const ThemeWrapperFn = React.memo(
     viewport,
     ...props
   }: Props) => {
-    const [selectedTheme, setSelectedTheme] = useState<'default' | 'custom'>('custom');
+    const [selectedTheme, setSelectedTheme] = useState<CSSRuntimeThemeConfig | undefined>(
+      themeConfig.themes.find((theme) => theme.default)
+    );
     const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
     //
     // the `viewport` prop has precedence on other settings
@@ -129,18 +133,16 @@ const ThemeWrapperFn = React.memo(
       className,
       classNames: [
         isReversed ? globalThemeReversed : '',
-        selectedTheme === 'default' ? '' : themeClassname,
+        selectedTheme ? selectedTheme.classNames.colors : '',
       ],
     });
 
-    function handleToggleIsReversed(event: React.ChangeEvent<HTMLSelectElement>) {
-      const value = event.target.value;
-      setIsReversed(value === 'normal' ? false : true);
-    }
-
     function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
-      const value = event.target.value as 'default' | 'custom';
-      setSelectedTheme(value);
+      const value = event.target.value as string;
+      const foundTheme = themeConfig.themes.find((theme) => theme.name === value);
+      if (foundTheme) {
+        setSelectedTheme(foundTheme);
+      }
     }
 
     function handleViewportChange(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -162,14 +164,13 @@ const ThemeWrapperFn = React.memo(
      * iFrame
      *
      */
-    // const iframeClassNames = getMergedClassname([styles[selectedViewport]]);
     const iframeWrapperRef = useRef<HTMLDivElement>(null);
     function getIframeBodyWidth(selectedViewport: ThemeWrapperViewportMode) {
       switch (selectedViewport) {
         //
-        // todo uses variables instead
-        // layoutVars.var.breakpoints.tabletPortrait
-        // layoutVars.var.breakpoints.desktopSmall
+        // TODO: use variables instead
+        //  layoutVars.var.breakpoints.tabletPortrait
+        //  layoutVars.var.breakpoints.desktopSmall
         //
         default:
         case 'auto': {
@@ -187,8 +188,6 @@ const ThemeWrapperFn = React.memo(
       }
     }
     const iframeBodyWidth = getIframeBodyWidth(selectedViewport);
-    // const iframeBodyWidth = iframeWrapperRef.current?.getBoundingClientRect().width;
-    // const iframeBodyWidthPx = iframeBodyWidth ? `${iframeBodyWidth}px` : undefined;
 
     return (
       <div className={styles.wrapper}>
@@ -213,29 +212,31 @@ const ThemeWrapperFn = React.memo(
           <TabContent aria-labelledby={'design'} hidden={activeTabId !== 'design'}>
             {displayControls ? (
               <div className={styles.header}>
-                <InputSelect
-                  onChange={handleToggleIsReversed}
-                  style={{ minWidth: 170 }}
-                  value={isReversed ? 'reversed' : 'normal'}
-                >
-                  <option value={'normal'}>Normal</option>
-                  <option value={'reversed'}>Reversed</option>
-                </InputSelect>
-
+                {/**
+                 * Theme selector
+                 */}
                 <InputSelect
                   onChange={handleChangeTheme}
-                  value={selectedTheme}
-                  style={{ minWidth: 170 }}
+                  value={selectedTheme?.name || ''}
+                  variantSize={InputSize.small}
                 >
-                  <option value={'custom'}>Custom</option>
-                  <option value={'default'}>Default</option>
+                  {themeConfig.themes.map((theme) => {
+                    return (
+                      <option key={theme.name} value={theme.name}>
+                        {theme.name}
+                      </option>
+                    );
+                  })}
                 </InputSelect>
 
+                {/**
+                 * Viewport selector
+                 */}
                 {viewportControl ? (
                   <InputSelect
                     onChange={handleViewportChange}
-                    style={{ minWidth: 170 }}
                     value={selectedViewport}
+                    variantSize={InputSize.small}
                   >
                     <option value={'auto'}>Auto</option>
                     <option value={VIEWPORT.desktop}>Desktop</option>
@@ -249,22 +250,24 @@ const ThemeWrapperFn = React.memo(
             <div className={styles.content}>
               <TreatProvider theme={treatThemeRef}>
                 <TreatThemeProvider theme={theme}>
-                  <div
-                    ref={iframeWrapperRef}
-                    className={styles.iframeWrapper}
-                    style={{ overflowX: viewportOverflowX, overflowY: viewportOverflowY }}
-                  >
-                    <IFrame
-                      title={filename}
-                      style={{ width: iframeBodyWidth }}
-                      bodyWidth={viewportOverflowX === 'hidden' ? iframeBodyWidth : ''}
-                      viewport={selectedViewport}
+                  <CSSThemeProvider config={{ config: themeConfig }}>
+                    <div
+                      ref={iframeWrapperRef}
+                      className={styles.iframeWrapper}
+                      style={{ overflowX: viewportOverflowX, overflowY: viewportOverflowY }}
                     >
-                      <GlobalCSSVariables>
-                        <CodeOutline {...commonProps}>{children}</CodeOutline>
-                      </GlobalCSSVariables>
-                    </IFrame>
-                  </div>
+                      <IFrame
+                        title={filename}
+                        style={{ width: iframeBodyWidth }}
+                        bodyWidth={viewportOverflowX === 'hidden' ? iframeBodyWidth : ''}
+                        viewport={selectedViewport}
+                      >
+                        <GlobalCSSVariables>
+                          <CodeOutline {...commonProps}>{children}</CodeOutline>
+                        </GlobalCSSVariables>
+                      </IFrame>
+                    </div>
+                  </CSSThemeProvider>
                 </TreatThemeProvider>
               </TreatProvider>
             </div>

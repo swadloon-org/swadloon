@@ -1,39 +1,74 @@
-import { createTheme } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 
-import { DesignSystem } from '@newrade/core-design-system';
+import {
+  CSSRuntimeThemeConfig,
+  CSSThemeProviderConfig,
+} from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import {
   buttonsVars,
-  placeholderButtonSize,
-  placeholderButtonVariant,
+  colorVars,
+  effectsVars,
+  layoutVars,
+  sizingVars,
+  typographyVars,
 } from '@newrade/core-react-ui/theme';
+import {
+  darkCssTheme,
+  darkCssThemeV2,
+  lightCssTheme,
+  lightCssThemeV2,
+} from '@newrade/ze-design-system/src/design-system/theme';
 
-export const buttons: Pick<DesignSystem<string>['components'], 'buttons'> = {
-  buttons: {
-    variants: {
-      primary: { ...placeholderButtonVariant, textColor: 'red' },
-      primaryReversed: placeholderButtonVariant,
-      secondary: placeholderButtonVariant,
-      secondaryReversed: placeholderButtonVariant,
-      tertiary: placeholderButtonVariant,
-      tertiaryReversed: placeholderButtonVariant,
-    },
-    sizes: {
-      large: placeholderButtonSize,
-      medium: placeholderButtonSize,
-      small: placeholderButtonSize,
-      xSmall: placeholderButtonSize,
-    },
+/**
+ *
+ * Light theme
+ *
+ */
+
+const lightThemeConfig: CSSRuntimeThemeConfig = {
+  name: lightCssTheme.name,
+  variation: lightCssTheme.variation,
+  default: true,
+  classNames: {},
+};
+
+// @ts-expect-error
+createGlobalTheme(':root', colorVars, lightCssThemeV2.colors);
+// @ts-expect-error
+createGlobalTheme(':root', effectsVars, lightCssThemeV2.effects);
+// @ts-expect-error
+createGlobalTheme(':root', sizingVars, lightCssThemeV2.sizing);
+// @ts-expect-error
+createGlobalTheme(':root', layoutVars, lightCssThemeV2.layout);
+// @ts-expect-error
+createGlobalTheme(':root', typographyVars, lightCssThemeV2.typography);
+// createGlobalTheme(':root', buttonsVars, lightCssThemeV2.components);
+
+/**
+ *
+ * Dark theme
+ *
+ */
+
+const darkThemeConfig: CSSRuntimeThemeConfig = {
+  name: darkCssTheme.name,
+  variation: darkCssTheme.variation,
+  default: false,
+  classNames: {
+    colors: `global-theme-colors-${darkCssTheme.name}`,
   },
 };
 
-// createGlobalTheme(':root', layoutVars, {
-//   ...defaultCSSLayout,
-//   navbarHeight: {
-//     ...defaultCSSLayout.navbarHeight,
-//     // @ts-ignore
-//     [VIEWPORT.desktop]: '80px',
-//   },
-// });
+// @ts-expect-error
+createGlobalTheme(`.${darkThemeConfig.classNames.colors}`, colorVars, darkCssThemeV2.colors);
 
-export const customButtonsTheme = createTheme(buttonsVars, buttons, 'custom-buttons');
-// export const customLayoutTheme = createTheme(layoutVars, buttons, 'custom-layout');
+/**
+ *
+ * CSS Theme provider config
+ *
+ */
+
+export const cssThemeConfig: CSSThemeProviderConfig = {
+  autoDetect: true,
+  themes: [lightThemeConfig, darkThemeConfig],
+};

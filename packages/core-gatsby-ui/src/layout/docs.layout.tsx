@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING } from '@newrade/core-design-system';
+import { HEADING, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
   Cluster,
@@ -18,6 +18,7 @@ import {
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { sizingVars } from '@newrade/core-react-ui/theme';
 import {
@@ -72,7 +73,11 @@ type Props = {
   /**
    * The application's className for its theme
    */
-  themeClassname?: string;
+  themeConfig: CSSThemeProviderConfig;
+  /**
+   * The application's classNames for theme
+   */
+  themeRuntimeConfig?: CSSThemeProviderConfig;
 };
 
 /**
@@ -100,7 +105,12 @@ export type LayoutDocsProps = Partial<
  *  - navbar component with logo, tag, search theme switcher and links on the top right
  *  - sidebar with nested navigation links
  */
-export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
+export const LayoutDocs: React.FC<LayoutDocsProps> = ({
+  treatThemeRef,
+  theme,
+  themeConfig,
+  ...props
+}) => {
   const { cssTheme } = useTreatTheme();
 
   const isSSR = useIsSSR();
@@ -112,8 +122,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    *
    */
 
-  const { treatThemeRef, theme, themeClassname } = props;
-  const injectThemeWrapper = treatThemeRef && theme && themeClassname;
+  const injectThemeWrapper = treatThemeRef && theme && themeConfig;
 
   /**
    *
@@ -195,38 +204,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
 
   const [navbarPosition, setNavbarPosition] = useState({ top: '', bottom: '' });
 
-  // useEventListener<'scroll'>(
-  //   'scroll',
-  //   (event) => {
-  //     if (isSSR) {
-  //       return;
-  //     }
-  //     const footerElement = footerRef.current;
-  //     if (!footerElement) {
-  //       return;
-  //     }
-  //     const navbarElement = navbarRef.current;
-  //     if (!navbarElement) {
-  //       return;
-  //     }
-  //     const windowHeight = window.document.documentElement.clientHeight;
-  //     const { height: footerHeight, bottom: footerBottom } = footerElement.getBoundingClientRect();
-  //     const { bottom: navbarBottom } = navbarElement.getBoundingClientRect();
-  //     const sidebarBottomPosition = windowHeight - footerBottom + footerHeight;
-  //     const sidebarTopPosition = navbarBottom;
-  //     setNavbarPosition({
-  //       top:
-  //         sidebarBottomPosition > 0
-  //           ? 'auto'
-  //           : `${sidebarTopPosition > 0 ? sidebarTopPosition : 0}px`,
-  //       bottom: `${sidebarBottomPosition > 0 ? sidebarBottomPosition : 0}px`,
-  //     });
-  //   },
-  //   {
-  //     passive: true,
-  //   }
-  // );
-
   /**
    *
    * Layout
@@ -277,7 +254,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
           <ThemeWrapper
             treatThemeRef={treatThemeRef}
             theme={theme}
-            themeClassname={themeClassname}
+            themeConfig={themeConfig}
             {...props}
           />
         )
@@ -333,8 +310,37 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       <Cluster>
         <NavbarLinkItem>Search</NavbarLinkItem>
         <NavbarSeparatorItem />
+
+        {/* /**
+         * Theme selector
+         */}
+        {themeConfig.themes ? (
+          <NavbarSelectItem
+            select={{
+              icon: InputIcon.left,
+              Icon: ICON.SEARCH,
+              // value: getLangSimpleCode(currentLang),
+              // onChange: handleChangeLanguage,
+              variantSize: InputSize.small,
+            }}
+          >
+            {themeConfig.themes.map((theme) => (
+              <option key={theme.name} value={theme.name}>
+                {theme.name}
+              </option>
+            ))}
+          </NavbarSelectItem>
+        ) : null}
+
+        {/* /**
+         * Language selector
+         */}
         <NavbarSelectItem
-          select={{ value: getLangSimpleCode(currentLang), onChange: handleChangeLanguage }}
+          select={{
+            value: getLangSimpleCode(currentLang),
+            onChange: handleChangeLanguage,
+            variantSize: InputSize.small,
+          }}
         >
           {siteLangs ? (
             siteLangs.map((lang) => (
