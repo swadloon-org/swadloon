@@ -18,7 +18,7 @@ import { getCSSTypographyV2 } from './typography-v2.utilities';
 export function createCSSTheme(theme: DesignSystem): CSSDesignSystem {
   return {
     name: theme.name,
-    variation: theme.variation,
+    colorScheme: theme.colorScheme,
     colors: getCSSColors(theme.colors),
     effects: getCSSEffects(theme.effects),
     sizing: getCSSSizing(theme.sizing),
@@ -38,7 +38,7 @@ export function createCSSTheme(theme: DesignSystem): CSSDesignSystem {
 export function createCSSThemeV2(theme: DesignSystemV2): CSSDesignSystemV2 {
   return {
     name: theme.name,
-    variation: theme.variation,
+    colorScheme: theme.colorScheme,
     colors: getCSSColorsV2(theme.colors),
     effects: getCSSEffects(theme.effects),
     sizing: getCSSSizingV2(theme.sizing),

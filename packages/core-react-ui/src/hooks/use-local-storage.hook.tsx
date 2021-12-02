@@ -2,8 +2,6 @@ import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } fr
 
 import { useEventListener } from './use-event-listener';
 
-export default createPersistedState;
-
 type StorageAPI<State> = {
   get: (key: string, defaultValue?: State) => State;
   set: (key: string, value: State) => void;

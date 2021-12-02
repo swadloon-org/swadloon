@@ -7,6 +7,10 @@ import { ColorsColors } from './colors-colors';
  */
 export type Colors<Override extends undefined | string = undefined> = {
   /**
+   * Whether the color scheme is using light or dark
+   */
+  colorScheme: 'light' | 'dark';
+  /**
    * Raw colors
    */
   colors: ColorsColors<Override>;

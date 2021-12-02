@@ -16,17 +16,17 @@ export const defaultColorsColorsDark: Colors['colors'] = {
     a: 0,
   },
   primary: generateColorPalette5({
-    color: { h: 222, s: 50, l: 50 },
+    color: { h: 222, s: 40, l: 50 },
     light: 90,
     dark: 20,
   }),
   accent1: generateColorPalette5({
-    color: { h: 323, s: 80, l: 50 },
+    color: { h: 323, s: 60, l: 50 },
     light: 90,
     dark: 10,
   }),
   accent2: generateColorPalette5({
-    color: { h: 290, s: 50, l: 50 },
+    color: { h: 290, s: 40, l: 50 },
     light: 90,
     dark: 10,
   }),
@@ -58,9 +58,9 @@ export const defaultColorsColorsDark: Colors['colors'] = {
   grey: generateColorGreyPaletteDark({
     hue: 222,
   }),
-  effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
-  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
-  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
+  effectTransparentLight: { h: 0, s: 0, l: 0, a: 24 },
+  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 62 },
+  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 59 },
   utilityNeutral: generateColorPalette5({
     color: { h: 112, s: 0, l: 53 },
     light: 90,
@@ -83,8 +83,10 @@ export const defaultColorsColorsDark: Colors['colors'] = {
   }),
 };
 
-export const defaultColorIntentsDark: ColorIntents =
-  getDefaultColorIntents(defaultColorsColorsDark);
+export const defaultColorIntentsDark: ColorIntents = {
+  ...getDefaultColorIntents(defaultColorsColorsDark),
+  isLight: `0`,
+};
 
 export const defaultColorVarDark = getCSSVarForColors({
   colors: defaultColorsColorsDark,
@@ -125,6 +127,7 @@ export const defaultColorsGradientsDark: ColorGradients = {
 };
 
 export const defaultColorsDark: Colors = {
+  colorScheme: 'dark',
   colors: defaultColorsColorsDark,
   colorIntents: defaultColorIntentsDark,
   gradients: defaultColorsGradientsDark,

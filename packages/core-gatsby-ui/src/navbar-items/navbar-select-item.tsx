@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
+import { NavbarItemSize } from '@newrade/core-design-system';
 import {
   InputSelect,
   InputSelectProps,

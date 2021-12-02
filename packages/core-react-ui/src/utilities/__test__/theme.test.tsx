@@ -6,7 +6,7 @@ describe('theme utilities', () => {
     it('should create a valid CSS theme', () => {
       const defaultCSSTheme = createCSSTheme(defaultTheme);
       expect(defaultCSSTheme.name).toMatchSnapshot();
-      expect(defaultCSSTheme.variation).toMatchSnapshot();
+      expect(defaultCSSTheme.colorScheme).toMatchSnapshot();
     });
   });
 });

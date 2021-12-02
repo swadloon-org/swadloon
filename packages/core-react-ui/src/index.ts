@@ -29,6 +29,7 @@ export * from './hooks/use-network-status';
 export * from './hooks/use-page-visibility.hook';
 export * from './hooks/use-prevent-long-press';
 export * from './hooks/use-prevent-pinch-zoom';
+export * from './hooks/use-theme-elevation-bg.hook';
 export * from './hooks/use-treat-theme';
 export * from './hooks/use-update-document-color.hook';
 export * from './hooks/use-viewport';

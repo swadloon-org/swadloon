@@ -5,7 +5,6 @@ import {
   CSSThemeProviderConfig,
 } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import {
-  buttonsVars,
   colorVars,
   effectsVars,
   layoutVars,
@@ -27,13 +26,17 @@ import {
 
 const lightThemeConfig: CSSRuntimeThemeConfig = {
   name: lightCssTheme.name,
-  variation: lightCssTheme.variation,
+  colorScheme: lightCssTheme.colorScheme,
   default: true,
   classNames: {},
 };
 
 // @ts-expect-error
 createGlobalTheme(':root', colorVars, lightCssThemeV2.colors);
+createGlobalTheme(':root', {
+  myColor: 'hsl(100, 100%, 50%)',
+  myColorhsl: 'hsl(222 50% 50%)',
+});
 // @ts-expect-error
 createGlobalTheme(':root', effectsVars, lightCssThemeV2.effects);
 // @ts-expect-error
@@ -52,7 +55,7 @@ createGlobalTheme(':root', typographyVars, lightCssThemeV2.typography);
 
 const darkThemeConfig: CSSRuntimeThemeConfig = {
   name: darkCssTheme.name,
-  variation: darkCssTheme.variation,
+  colorScheme: darkCssTheme.colorScheme,
   default: false,
   classNames: {
     colors: `global-theme-colors-${darkCssTheme.name}`,

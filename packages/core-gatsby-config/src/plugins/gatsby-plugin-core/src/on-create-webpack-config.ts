@@ -118,6 +118,10 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   };
 
   /**
+   * Replace CSS rules
+   */
+
+  /**
    * Filters to find the correct webpack rules
    */
 

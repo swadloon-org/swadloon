@@ -9,7 +9,8 @@ import { RuleSetUseItem } from 'webpack';
 
 import { BROWSERLIST_MODERN } from '../other/browserlist-modern';
 
-import { cssNanoConfig } from './css-nano.config';
+// cssnano should not be used inside postcss loader see https://github.com/cssnano/cssnano/issues/659
+// import { cssNanoConfig } from './css-nano.config';
 
 export const postCssLoaderOptions = {
   sourceMap: true,
@@ -20,7 +21,6 @@ export const postCssLoaderOptions = {
     postcssCustomMedia(),
     postcssMediaVariables(),
     autoprefixer({ grid: true }),
-    cssnano(cssNanoConfig),
     postcssPresetEnv({ browsers: BROWSERLIST_MODERN }),
   ],
 };

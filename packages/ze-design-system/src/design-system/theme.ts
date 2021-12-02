@@ -20,7 +20,7 @@ import { typography } from './typography';
 
 export const lightTheme: DesignSystem = {
   name: 'ze-light',
-  variation: 'light',
+  colorScheme: 'light',
   colors,
   effects,
   sizing: defaultSizing,
@@ -38,7 +38,7 @@ export const lightCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(lightTheme);
 
 export const darkTheme: DesignSystem = {
   name: 'ze-dark',
-  variation: 'dark',
+  colorScheme: 'dark',
   colors: colorsDark,
   effects,
   sizing: defaultSizing,

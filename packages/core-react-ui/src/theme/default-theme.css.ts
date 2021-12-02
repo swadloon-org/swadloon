@@ -1,4 +1,4 @@
-import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
+import { createThemeContract } from '@vanilla-extract/css';
 
 import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 
@@ -9,7 +9,6 @@ import { CSSSizingV2, CSSTypographyV2 } from '..';
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
 import { defaultCSSEffects } from './default-css-effects';
-import { defaultCSSLayout } from './default-css-layout';
 import { defaultCSSLayoutV2 } from './default-css-layout-v2';
 import { defaultCSSSizing } from './default-css-sizing';
 import { defaultCSSTypography } from './default-css-typography';

@@ -17,7 +17,7 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * Theme variation
    * @default 'light'
    */
-  variation: 'light' | 'dark' | 'other';
+  colorScheme: 'light' | 'dark';
   /**
    * Every color defined in the system.
    */
@@ -157,7 +157,7 @@ export interface DesignSystemV2<Override extends undefined | string = undefined>
    * Theme variation
    * @default 'light'
    */
-  variation: 'light' | 'dark' | 'other';
+  colorScheme: 'light' | 'dark' | 'other';
   /**
    * Every color defined in the system.
    */

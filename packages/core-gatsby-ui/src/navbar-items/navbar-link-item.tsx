@@ -1,7 +1,13 @@
 import React, { useRef } from 'react';
 
 import { ICON, LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
-import { IconComp, Label, Primitive, usePreventPinchZoom } from '@newrade/core-react-ui';
+import {
+  IconComp,
+  Label,
+  Primitive,
+  usePreventPinchZoom,
+  useThemeElevationBG,
+} from '@newrade/core-react-ui';
 
 import { NavbarLinkProps } from './navbar-item.props';
 
@@ -31,6 +37,7 @@ type Props = NavbarLinkProps & {
  * @see https://zedesignsystem.com/design-system/components/navbars-items/
  */
 export const NavbarLinkItem: React.FC<Props> = ({
+  style,
   as = 'a',
   AsElement,
   variant,
@@ -53,6 +60,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
    */
 
   const linkIsExternal = props.href && /https?:\/\//.test(props.href);
+  const navbarSelectedBG = useThemeElevationBG({ level: 3, greyLevel: 1 });
   const classNames = [
     styles.base,
     styles.navbarItemLink({
@@ -95,7 +103,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
     <Primitive<'a', HTMLAnchorElement>
       ref={ref}
       as={as}
-      style={{}}
+      style={{ ...style, backgroundColor: active ? navbarSelectedBG : '' }}
       AsElement={AsElement}
       classNames={classNames}
       target={linkIsExternal ? '_blank' : undefined}

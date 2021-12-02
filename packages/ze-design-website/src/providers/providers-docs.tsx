@@ -6,6 +6,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src/mdx/docs-mdx-components';
 import {
+  createPersistedState,
   CSSThemeProvider,
   IconProvider,
   LogosProvider,
@@ -24,14 +25,49 @@ import { defaultCSSTheme, defaultTheme, docsTheme } from '../design-system/theme
 
 import { cssThemeConfig } from '../design-system/theme.css';
 
+const useSelectedThemeState = createPersistedState<string>('docs-css-theme');
+
 /**
  * Provide context over /docs/ and /design-system/ pages
  */
 export const ProvidersDocs: React.FC = (props) => {
+  /**
+   *
+   * Themes
+   *
+   */
+
+  const defaultCssTheme = cssThemeConfig.themes.find((theme) => theme.default);
+
+  const [selectedThemeName, setSelectedThemeName] = useSelectedThemeState(
+    defaultCssTheme?.name || 'default'
+  );
+
+  function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value as string;
+    handleChangeThemeName(value);
+  }
+
+  function handleChangeThemeName(themeName: string) {
+    const foundTheme = cssThemeConfig.themes.find((theme) => theme.name === themeName);
+    if (foundTheme) {
+      setSelectedThemeName(foundTheme.name);
+    }
+  }
+
+  const selectedTheme = cssThemeConfig.themes.find((theme) => theme.name === selectedThemeName);
+
   return (
     <TreatProvider theme={docsTheme}>
       <ViewportProvider context={viewportContext}>
-        <CSSThemeProvider config={{ config: cssThemeConfig }}>
+        <CSSThemeProvider
+          value={{
+            config: cssThemeConfig,
+            onChangeTheme: handleChangeThemeName,
+            selected: selectedTheme,
+          }}
+          options={{ applyThemeToRootElement: true }}
+        >
           <TreatThemeProvider theme={{ theme: defaultTheme, cssTheme: defaultCSSTheme }}>
             <MDXProvider components={docsMdxComponents}>
               <GlobalCSSVariables>

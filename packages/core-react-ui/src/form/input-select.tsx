@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 
@@ -22,6 +22,8 @@ export const InputSelect = React.memo(
       validity = InputValidityState.neutral,
       loading = false,
       disabled = false,
+      value,
+      onChange,
       ...props
     },
     ref
@@ -53,6 +55,20 @@ export const InputSelect = React.memo(
     ]);
     const renderedId = id || props.name || '';
 
+    //
+    // not sure why but passing value from the parent
+    // won't always rerender the select element correctly
+    //
+    const [selectValue, setSelectValue] = useState<string | number>('');
+
+    useEffect(() => {
+      if (value !== selectValue) {
+        setSelectValue(value as string);
+      }
+    }, [value, selectValue]);
+
+    function defaultHandleOnChange(event: React.ChangeEvent<HTMLSelectElement>) {}
+
     return (
       <div className={wrapperClassNames}>
         {/* optional icon */}
@@ -65,8 +81,10 @@ export const InputSelect = React.memo(
           id={renderedId}
           style={style}
           className={classNames}
-          {...props}
           disabled={disabled}
+          value={selectValue}
+          onChange={onChange || defaultHandleOnChange}
+          {...props}
         ></select>
         {/* chevron */}
         <IconComp

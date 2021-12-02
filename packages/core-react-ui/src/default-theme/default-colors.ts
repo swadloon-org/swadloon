@@ -124,6 +124,7 @@ export const defaultColorsGradients: ColorGradients = {
 };
 
 export const defaultColors: Colors = {
+  colorScheme: 'light',
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
   gradients: defaultColorsGradients,

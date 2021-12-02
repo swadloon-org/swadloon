@@ -15,6 +15,7 @@ import {
   NavbarSeparatorItem,
   scrollIntoView,
   Theme,
+  useCSSTheme,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
@@ -263,6 +264,20 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
 
   /**
    *
+   * Themes
+   *
+   */
+
+  const currentTheme = useCSSTheme();
+  const currentSelectedTheme = currentTheme.selected?.name;
+
+  function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value as string;
+    currentTheme.onChangeTheme(value);
+  }
+
+  /**
+   *
    * Navbar
    *
    */
@@ -311,7 +326,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
         <NavbarLinkItem>Search</NavbarLinkItem>
         <NavbarSeparatorItem />
 
-        {/* /**
+        {/**
          * Theme selector
          */}
         {themeConfig.themes ? (
@@ -319,8 +334,8 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
             select={{
               icon: InputIcon.left,
               Icon: ICON.SEARCH,
-              // value: getLangSimpleCode(currentLang),
-              // onChange: handleChangeLanguage,
+              value: currentSelectedTheme || '',
+              onChange: handleChangeTheme,
               variantSize: InputSize.small,
             }}
           >
@@ -332,7 +347,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
           </NavbarSelectItem>
         ) : null}
 
-        {/* /**
+        {/**
          * Language selector
          */}
         <NavbarSelectItem

@@ -1,4 +1,5 @@
 import { ColorType } from '../types';
+import { NumberType } from '..';
 
 /**
  * Contextual use of certain colors (text, action, state, etc).
@@ -8,6 +9,19 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    * Used for outlines when elements are focused
    */
   accessibilityColor: ColorType<Override>;
+
+  /**
+   *
+   * Color scheme
+   *
+   */
+  isLight: `1` | `0`;
+
+  /**
+   *
+   * Other useful colors
+   *
+   */
 
   current: string;
   transparent: ColorType<Override>;
@@ -85,9 +99,9 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    *
    */
 
-  // elevation0: ColorType<Override>;
-  // elevation1: ColorType<Override>;
-  // elevation2: ColorType<Override>;
-  // elevation3: ColorType<Override>;
-  // elevation4: ColorType<Override>;
+  elevation0: ColorType<Override>;
+  elevation1: ColorType<Override>;
+  elevation2: ColorType<Override>;
+  elevation3: ColorType<Override>;
+  elevation4: ColorType<Override>;
 };

@@ -17,6 +17,7 @@ import {
   Theme,
   TreatThemeProvider,
   useCommonProps,
+  useCSSTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
@@ -113,10 +114,12 @@ const ThemeWrapperFn = React.memo(
     viewport,
     ...props
   }: Props) => {
-    const [selectedTheme, setSelectedTheme] = useState<CSSRuntimeThemeConfig | undefined>(
-      themeConfig.themes.find((theme) => theme.default)
-    );
-    const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
+    /**
+     *
+     * Viewport selection
+     *
+     */
+
     //
     // the `viewport` prop has precedence on other settings
     //
@@ -124,31 +127,52 @@ const ThemeWrapperFn = React.memo(
     const [selectedViewport, setSelectedViewport] = useState<ThemeWrapperViewportMode>(
       viewport ? viewport : viewportAutoWidth ? 'auto' : currentViewport
     );
-    const commonProps = useCommonProps({
-      id,
-      style: {
-        ...style,
-        backgroundColor: isReversed ? colorVars.colors.grey[1000] : '',
-      },
-      className,
-      classNames: [
-        isReversed ? globalThemeReversed : '',
-        selectedTheme ? selectedTheme.classNames.colors : '',
-      ],
-    });
-
-    function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
-      const value = event.target.value as string;
-      const foundTheme = themeConfig.themes.find((theme) => theme.name === value);
-      if (foundTheme) {
-        setSelectedTheme(foundTheme);
-      }
-    }
 
     function handleViewportChange(event: React.ChangeEvent<HTMLSelectElement>) {
       const value = event.target.value as VIEWPORT;
       setSelectedViewport(value);
     }
+
+    /**
+     *
+     * Themes
+     *
+     */
+    const currentTheme = useCSSTheme();
+
+    const [selectedTheme, setSelectedTheme] = useState<CSSRuntimeThemeConfig | undefined>(
+      currentTheme.selected
+        ? currentTheme.selected
+        : themeConfig.themes.find((theme) => theme.default)
+    );
+
+    const commonProps = useCommonProps({
+      id,
+      style: {
+        ...style,
+        backgroundColor: colorVars.colorIntents.background0,
+      },
+      className,
+      classNames: [selectedTheme ? selectedTheme.classNames.colors : ''],
+    });
+
+    function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
+      const value = event.target.value as string;
+      handleChangeThemeName(value);
+    }
+
+    function handleChangeThemeName(themeName: string) {
+      const foundTheme = themeConfig.themes.find((theme) => theme.name === themeName);
+      if (foundTheme) {
+        setSelectedTheme(foundTheme);
+      }
+    }
+
+    /**
+     *
+     * Tabs selection
+     *
+     */
 
     const [activeTabId, setActiveTabId] = useState<string>('design');
 
@@ -164,6 +188,7 @@ const ThemeWrapperFn = React.memo(
      * iFrame
      *
      */
+
     const iframeWrapperRef = useRef<HTMLDivElement>(null);
     function getIframeBodyWidth(selectedViewport: ThemeWrapperViewportMode) {
       switch (selectedViewport) {
@@ -250,7 +275,14 @@ const ThemeWrapperFn = React.memo(
             <div className={styles.content}>
               <TreatProvider theme={treatThemeRef}>
                 <TreatThemeProvider theme={theme}>
-                  <CSSThemeProvider config={{ config: themeConfig }}>
+                  <CSSThemeProvider
+                    value={{
+                      config: themeConfig,
+                      onChangeTheme: handleChangeThemeName,
+                      selected: selectedTheme,
+                    }}
+                    options={{ applyThemeToRootElement: false }}
+                  >
                     <div
                       ref={iframeWrapperRef}
                       className={styles.iframeWrapper}
