@@ -175,6 +175,10 @@ export const logo = style({
   maxHeight: 50,
 });
 
+globalStyle(`${logo} path`, {
+  fill: colorVars.colors.grey[1000],
+});
+
 export const logoWrapper = style({
   display: 'flex',
   justifySelf: 'flex-start',

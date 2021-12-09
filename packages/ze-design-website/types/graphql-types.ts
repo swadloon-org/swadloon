@@ -372,6 +372,8 @@ type SitePluginPluginOptions = {
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
   readonly jsxPragma: Maybe<Scalars['String']>;
+  readonly cssLoaderOptions: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
+  readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly name: Maybe<Scalars['String']>;
   readonly ignore: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly host: Maybe<Scalars['String']>;
@@ -419,12 +421,24 @@ type SitePluginPluginOptions = {
   readonly lessBabel: Maybe<Scalars['Boolean']>;
   readonly mediaTypes: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly root: Maybe<Scalars['String']>;
-  readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly inlineSvgOptions: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsInlineSvgOptions>>>;
   readonly urlSvgOptions: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsUrlSvgOptions>>>;
   readonly createLinkInHead: Maybe<Scalars['Boolean']>;
   readonly entryLimit: Maybe<Scalars['Int']>;
   readonly query: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsCssLoaderOptions = {
+  readonly module: Maybe<Scalars['Boolean']>;
+};
+
+type SitePluginPluginOptionsPostCssPlugins = {
+  readonly postcssPlugin: Maybe<Scalars['String']>;
+  readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptions>;
+};
+
+type SitePluginPluginOptionsPostCssPluginsOptions = {
+  readonly grid: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsEnv = {
@@ -512,15 +526,6 @@ type SitePluginPluginOptionsRehypePluginsContentProperties = {
 type SitePluginPluginOptionsRehypePluginsContentChildren = {
   readonly type: Maybe<Scalars['String']>;
   readonly value: Maybe<Scalars['String']>;
-};
-
-type SitePluginPluginOptionsPostCssPlugins = {
-  readonly postcssPlugin: Maybe<Scalars['String']>;
-  readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptions>;
-};
-
-type SitePluginPluginOptionsPostCssPluginsOptions = {
-  readonly grid: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsInlineSvgOptions = {
@@ -2834,6 +2839,8 @@ type SitePluginPluginOptionsFilterInput = {
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
   readonly jsxPragma: Maybe<StringQueryOperatorInput>;
+  readonly cssLoaderOptions: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
+  readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly ignore: Maybe<StringQueryOperatorInput>;
   readonly host: Maybe<StringQueryOperatorInput>;
@@ -2881,12 +2888,28 @@ type SitePluginPluginOptionsFilterInput = {
   readonly lessBabel: Maybe<BooleanQueryOperatorInput>;
   readonly mediaTypes: Maybe<StringQueryOperatorInput>;
   readonly root: Maybe<StringQueryOperatorInput>;
-  readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly inlineSvgOptions: Maybe<SitePluginPluginOptionsInlineSvgOptionsFilterListInput>;
   readonly urlSvgOptions: Maybe<SitePluginPluginOptionsUrlSvgOptionsFilterListInput>;
   readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>;
   readonly entryLimit: Maybe<IntQueryOperatorInput>;
   readonly query: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
+  readonly module: Maybe<BooleanQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
+  readonly elemMatch: Maybe<SitePluginPluginOptionsPostCssPluginsFilterInput>;
+};
+
+type SitePluginPluginOptionsPostCssPluginsFilterInput = {
+  readonly postcssPlugin: Maybe<StringQueryOperatorInput>;
+  readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptionsFilterInput>;
+};
+
+type SitePluginPluginOptionsPostCssPluginsOptionsFilterInput = {
+  readonly grid: Maybe<BooleanQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsEnvFilterInput = {
@@ -3006,19 +3029,6 @@ type SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput = {
 type SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
   readonly value: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
-  readonly elemMatch: Maybe<SitePluginPluginOptionsPostCssPluginsFilterInput>;
-};
-
-type SitePluginPluginOptionsPostCssPluginsFilterInput = {
-  readonly postcssPlugin: Maybe<StringQueryOperatorInput>;
-  readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptionsFilterInput>;
-};
-
-type SitePluginPluginOptionsPostCssPluginsOptionsFilterInput = {
-  readonly grid: Maybe<BooleanQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsInlineSvgOptionsFilterListInput = {
@@ -3371,6 +3381,9 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.allExtensions'
   | 'pluginCreator.pluginOptions.isTSX'
   | 'pluginCreator.pluginOptions.jsxPragma'
+  | 'pluginCreator.pluginOptions.cssLoaderOptions.module'
+  | 'pluginCreator.pluginOptions.postCssPlugins'
+  | 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin'
   | 'pluginCreator.pluginOptions.name'
   | 'pluginCreator.pluginOptions.ignore'
   | 'pluginCreator.pluginOptions.host'
@@ -3422,8 +3435,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.lessBabel'
   | 'pluginCreator.pluginOptions.mediaTypes'
   | 'pluginCreator.pluginOptions.root'
-  | 'pluginCreator.pluginOptions.postCssPlugins'
-  | 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin'
   | 'pluginCreator.pluginOptions.inlineSvgOptions'
   | 'pluginCreator.pluginOptions.inlineSvgOptions.native'
   | 'pluginCreator.pluginOptions.inlineSvgOptions.ref'
@@ -3625,6 +3636,10 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.allExtensions'
   | 'pluginOptions.isTSX'
   | 'pluginOptions.jsxPragma'
+  | 'pluginOptions.cssLoaderOptions.module'
+  | 'pluginOptions.postCssPlugins'
+  | 'pluginOptions.postCssPlugins.postcssPlugin'
+  | 'pluginOptions.postCssPlugins.options.grid'
   | 'pluginOptions.name'
   | 'pluginOptions.ignore'
   | 'pluginOptions.host'
@@ -3688,9 +3703,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.lessBabel'
   | 'pluginOptions.mediaTypes'
   | 'pluginOptions.root'
-  | 'pluginOptions.postCssPlugins'
-  | 'pluginOptions.postCssPlugins.postcssPlugin'
-  | 'pluginOptions.postCssPlugins.options.grid'
   | 'pluginOptions.inlineSvgOptions'
   | 'pluginOptions.inlineSvgOptions.native'
   | 'pluginOptions.inlineSvgOptions.ref'
@@ -4700,10 +4712,36 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DesignSystemLayoutPageQuery = { readonly pages: (
+type NavigationQuery = { readonly pages: (
     Pick<SitePageConnection, 'totalCount'>
     & { readonly nodes: ReadonlyArray<(
       Pick<SitePage, 'id' | 'path'>
@@ -4716,6 +4754,16 @@ type DesignSystemLayoutPageQuery = { readonly pages: (
       )> }
     )> }
   ) };
+
+type MarkdownPageTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+}>;
+
+
+type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }> };
 
 type DocsPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4746,10 +4794,10 @@ type DocsPagesQuery = { readonly pages: (
     )> }
   ) };
 
-type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type NavigationQuery = { readonly pages: (
+type DesignSystemLayoutPageQuery = { readonly pages: (
     Pick<SitePageConnection, 'totalCount'>
     & { readonly nodes: ReadonlyArray<(
       Pick<SitePage, 'id' | 'path'>
@@ -4767,41 +4815,5 @@ type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
     Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
     & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
-
-type MarkdownPageTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-}>;
-
-
-type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }> };
-
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 }

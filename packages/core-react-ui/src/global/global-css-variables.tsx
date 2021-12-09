@@ -9,7 +9,9 @@ import * as styleRefs from './global-css-variables.treat';
 import * as styleRefsReset from './global-reset-css.treat';
 
 import './global-css-layout.css';
+import './global-css-scrollbar.css';
 import './global-css-sizing.css';
+import './global-css-transitions.css';
 
 type Props = {};
 

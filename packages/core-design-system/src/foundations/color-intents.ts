@@ -1,5 +1,4 @@
 import { ColorType } from '../types';
-import { NumberType } from '..';
 
 /**
  * Contextual use of certain colors (text, action, state, etc).

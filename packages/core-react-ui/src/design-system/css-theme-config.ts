@@ -10,6 +10,10 @@ export type CSSRuntimeThemeConfig = Pick<CSSDesignSystem, 'name' | 'colorScheme'
    */
   default: boolean;
   /**
+   * Class name to inject the global theme
+   */
+  className: string;
+  /**
    * Class names to inject the theme css variables in the DOM
    */
   classNames: { [key in keyof Pick<CSSDesignSystem, 'colors'>]?: string };

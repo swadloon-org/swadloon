@@ -8,8 +8,6 @@ const log = debugInstance(`${NS}:body-scroll-lock`);
 const logWarn = debugInstance(`${NS}:body-scroll-lock:warn`);
 const logError = debugInstance(`${NS}:body-scroll-lock:error`);
 
-debugInstance.enable(`${NS}:body-scroll-lock`);
-
 export interface BodyScrollOptions {
   reserveScrollBarGap?: boolean;
   hideBodyOverflow?: boolean;

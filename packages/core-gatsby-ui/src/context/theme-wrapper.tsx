@@ -153,7 +153,10 @@ const ThemeWrapperFn = React.memo(
         backgroundColor: colorVars.colorIntents.background0,
       },
       className,
-      classNames: [selectedTheme ? selectedTheme.classNames.colors : ''],
+      classNames: [
+        selectedTheme && selectedTheme.className ? selectedTheme.className : '',
+        selectedTheme && selectedTheme.classNames.colors ? selectedTheme.classNames.colors : '',
+      ],
     });
 
     function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -281,7 +284,6 @@ const ThemeWrapperFn = React.memo(
                       onChangeTheme: handleChangeThemeName,
                       selected: selectedTheme,
                     }}
-                    options={{ applyThemeToRootElement: false }}
                   >
                     <div
                       ref={iframeWrapperRef}

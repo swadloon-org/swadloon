@@ -1,5 +1,6 @@
 export * from './env/boolean-env';
 export * from './env/common-env';
+export * from './env/debug-env';
 export * from './env/deploy-env';
 export * from './env/load-env-file';
 export * from './env/log';

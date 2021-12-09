@@ -269,11 +269,14 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    */
 
   const currentTheme = useCSSTheme();
-  const currentSelectedTheme = currentTheme.selected?.name;
+  const currentlySelectedTheme = currentTheme.selected?.name;
+  const currentlySelectedThemeColorScheme = currentTheme.selected?.colorScheme;
 
   function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value as string;
-    currentTheme.onChangeTheme(value);
+    if (currentTheme.onChangeTheme) {
+      currentTheme.onChangeTheme(value);
+    }
   }
 
   /**
@@ -333,8 +336,8 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
           <NavbarSelectItem
             select={{
               icon: InputIcon.left,
-              Icon: ICON.SEARCH,
-              value: currentSelectedTheme || '',
+              Icon: currentlySelectedThemeColorScheme === 'light' ? ICON.SUN : ICON.MOON,
+              value: currentlySelectedTheme || '',
               onChange: handleChangeTheme,
               variantSize: InputSize.small,
             }}

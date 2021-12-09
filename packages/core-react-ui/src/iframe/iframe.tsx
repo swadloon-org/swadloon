@@ -33,12 +33,10 @@ const IFrameFn: React.FC<Props> = React.memo(
      * Inject custom styles into mount node
      */
     if (iframeDocumentElement) {
-      iframeDocumentElement.style.backgroundColor = 'white';
       iframeDocumentElement.style.height = 'min-content';
       iframeDocumentElement.style.overflowY = 'auto';
     }
     if (iframeBody) {
-      iframeBody.style.backgroundColor = 'white';
       iframeBody.style.height = 'min-content';
       iframeBody.style.width = bodyWidth || '';
     }

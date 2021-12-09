@@ -62,7 +62,7 @@ export const defaultColorsColors: Colors['colors'] = {
   effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
   utilityNeutral: generateColorPalette5({
-    color: { h: 112, s: 0, l: 53 },
+    color: { h: 112, s: 50, l: 53 },
     light: 90,
     dark: 5,
   }),

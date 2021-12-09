@@ -71,6 +71,7 @@ const config: conf.GastbySiteConfig = {
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
+    core.getGastbyPluginCssThemeConfig(),
     /** mdx */
     core.getGatsbyPluginCatchLinks(),
     ...core.getGatsbyPluginMdx(),

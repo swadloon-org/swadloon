@@ -1,12 +1,12 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
-import { Variant } from '@newrade/core-design-system';
+import { Level, Variant } from '@newrade/core-design-system';
 import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
 import { globalThemeReversed } from '@newrade/core-react-ui/global';
 
 import { FooterProps } from './footer.props';
-import * as styleRefs from './footer-base.treat';
+
+import * as styles from './footer-base.css';
 
 type Props = FooterProps;
 
@@ -28,48 +28,16 @@ export const FooterBase = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const variant = footer?.variant;
+    const variant = footer?.variant || Variant.primary;
 
     /**
      * Styling
      */
 
     const { cssTheme } = useTreatTheme();
-    const styles = useStyles(styleRefs);
 
-    const variantClass = styles[getVariantClass(variant)];
+    const variantClass = styles[variant];
     const isReversed = colorMode === 'reversed';
-
-    function getVariantClass(variant: Variant | null | undefined) {
-      const isReversed = colorMode === 'reversed';
-
-      switch (variant) {
-        default:
-        case Variant.primary: {
-          if (isReversed) {
-            return Variant.primaryReversed;
-          }
-          return Variant.primary;
-        }
-        case Variant.secondary: {
-          if (isReversed) {
-            return Variant.secondaryReversed;
-          }
-          return Variant.secondary;
-        }
-        case Variant.tertiary: {
-          if (isReversed) {
-            return Variant.tertiaryReversed;
-          }
-          return Variant.tertiary;
-        }
-        case Variant.primaryReversed:
-        case Variant.secondaryReversed:
-        case Variant.tertiaryReversed: {
-          return variant;
-        }
-      }
-    }
 
     return (
       <Primitive

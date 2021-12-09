@@ -1,5 +1,6 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 
+import { GLOBAL_CSS_THEME } from '@newrade/core-gatsb-config/config';
 import {
   CSSRuntimeThemeConfig,
   CSSThemeProviderConfig,
@@ -28,15 +29,12 @@ const lightThemeConfig: CSSRuntimeThemeConfig = {
   name: lightCssTheme.name,
   colorScheme: lightCssTheme.colorScheme,
   default: true,
+  className: GLOBAL_CSS_THEME.LIGHT,
   classNames: {},
 };
 
 // @ts-expect-error
 createGlobalTheme(':root', colorVars, lightCssThemeV2.colors);
-createGlobalTheme(':root', {
-  myColor: 'hsl(100, 100%, 50%)',
-  myColorhsl: 'hsl(222 50% 50%)',
-});
 // @ts-expect-error
 createGlobalTheme(':root', effectsVars, lightCssThemeV2.effects);
 // @ts-expect-error
@@ -57,13 +55,18 @@ const darkThemeConfig: CSSRuntimeThemeConfig = {
   name: darkCssTheme.name,
   colorScheme: darkCssTheme.colorScheme,
   default: false,
+  className: GLOBAL_CSS_THEME.DARK,
   classNames: {
-    colors: `global-theme-colors-${darkCssTheme.name}`,
+    colors: `${GLOBAL_CSS_THEME.DARK}-${darkCssTheme.name}-colors`,
   },
 };
 
-// @ts-expect-error
-createGlobalTheme(`.${darkThemeConfig.classNames.colors}`, colorVars, darkCssThemeV2.colors);
+createGlobalTheme(
+  `.${GLOBAL_CSS_THEME.DARK}, ${darkThemeConfig.classNames.colors}`,
+  colorVars,
+  // @ts-expect-error
+  darkCssThemeV2.colors
+);
 
 /**
  *

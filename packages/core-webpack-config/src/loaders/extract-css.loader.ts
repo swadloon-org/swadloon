@@ -17,6 +17,29 @@ export const extractCssLoader: RuleSetRule = {
   ],
 };
 
+/**
+ * @see https://vanilla-extract.style/documentation/setup/
+ */
+export const extractVanillaCssLibLoader: RuleSetRule = {
+  test: /\.(css)$/,
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader,
+    },
+    {
+      ...cssLoader,
+      options: {
+        ...cssLoader.options,
+        modules: false,
+        importLoaders: 1,
+        sourceMap: false,
+        url: false, // Required as image imports should be handled via JS/TS import statements
+      },
+    },
+    postCssLoader,
+  ],
+};
+
 export const extractCssModuleLoader: RuleSetRule = {
   test: /\.(css)$/,
   use: [

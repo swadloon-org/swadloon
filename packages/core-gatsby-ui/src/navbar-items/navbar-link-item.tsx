@@ -59,8 +59,9 @@ export const NavbarLinkItem: React.FC<Props> = ({
    *
    */
 
+  const linkSelectedBackground = useThemeElevationBG({ level: 3, greyLevel: 1 });
+  const linkBackground = useThemeElevationBG({ level: 2 });
   const linkIsExternal = props.href && /https?:\/\//.test(props.href);
-  const navbarSelectedBG = useThemeElevationBG({ level: 3, greyLevel: 1 });
   const classNames = [
     styles.base,
     styles.navbarItemLink({
@@ -103,7 +104,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
     <Primitive<'a', HTMLAnchorElement>
       ref={ref}
       as={as}
-      style={{ ...style, backgroundColor: active ? navbarSelectedBG : '' }}
+      style={{ ...style, backgroundColor: active ? linkSelectedBackground : linkBackground }}
       AsElement={AsElement}
       classNames={classNames}
       target={linkIsExternal ? '_blank' : undefined}

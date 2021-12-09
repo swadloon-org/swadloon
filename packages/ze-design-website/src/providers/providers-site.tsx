@@ -6,6 +6,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
 import { mdxComponents } from '@newrade/core-gatsby-ui/src/mdx/mdx-components';
 import {
+  createPersistedState,
+  CSSThemeProvider,
   IconProvider,
   LogosProvider,
   TreatThemeProvider,
@@ -21,6 +23,10 @@ import { logosComponents } from '@newrade/ze-design-system';
 
 import { cssTheme, light, theme } from '../design-system/theme.treat';
 
+import { cssThemeConfig } from '../design-system/theme.css';
+
+const useSelectedThemeState = createPersistedState<string>('docs-css-theme');
+
 /**
  * Provide context on the website site pages (other than /docs/ and /design-system/)
  */
@@ -28,20 +34,27 @@ export const ProvidersSite: React.FC = (props) => {
   return (
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
-        <TreatThemeProvider theme={{ theme: theme, cssTheme: cssTheme }}>
-          <MDXProvider components={mdxComponents}>
-            <GlobalCSSVariables>
-              <LogosProvider<LOGO> logoComponents={logosComponents}>
-                <IconProvider<ICON>
-                  {...ioniconsOutlineConfig}
-                  iconComponents={ionicons5OutlineComponents}
-                >
-                  {props.children}
-                </IconProvider>
-              </LogosProvider>
-            </GlobalCSSVariables>
-          </MDXProvider>
-        </TreatThemeProvider>
+        <CSSThemeProvider
+          value={{
+            config: cssThemeConfig,
+          }}
+          options={{ applyThemeToRootElement: true, syncToLocalStorage: true }}
+        >
+          <TreatThemeProvider theme={{ theme: theme, cssTheme: cssTheme }}>
+            <MDXProvider components={mdxComponents}>
+              <GlobalCSSVariables>
+                <LogosProvider<LOGO> logoComponents={logosComponents}>
+                  <IconProvider<ICON>
+                    {...ioniconsOutlineConfig}
+                    iconComponents={ionicons5OutlineComponents}
+                  >
+                    {props.children}
+                  </IconProvider>
+                </LogosProvider>
+              </GlobalCSSVariables>
+            </MDXProvider>
+          </TreatThemeProvider>
+        </CSSThemeProvider>
       </ViewportProvider>
     </TreatProvider>
   );
