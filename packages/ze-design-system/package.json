@@ -26,11 +26,13 @@
     "*.treat.js"
   ],
   "dependencies": {
-    "@newrade/core-common": "^1.4.2",
-    "@newrade/core-design-system": "^1.15.0",
-    "@newrade/core-figma-extractor": "^1.5.2",
-    "@newrade/core-react-ui": "^2.4.0",
+    "@newrade/core-common": "*",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-figma-extractor": "*",
+    "@newrade/core-gatsb-config": "*",
+    "@newrade/core-react-ui": "*",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.3.1"
+    "@newrade/core-utils": "*",
+    "@vanilla-extract/css": "^1"
   }
 }

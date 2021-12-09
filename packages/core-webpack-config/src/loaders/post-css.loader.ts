@@ -5,7 +5,6 @@ import autoprefixer from 'autoprefixer';
 import postcssCustomMedia from 'postcss-custom-media';
 // @ts-ignore
 import postcssMediaVariables from 'postcss-media-variables';
-import postcssModules from 'postcss-modules';
 import postcssPresetEnv from 'postcss-preset-env';
 import { RuleSetUseItem } from 'webpack';
 
@@ -29,14 +28,6 @@ export const postCssLoaderOptions = {
     postcssCustomMedia(),
     postcssMediaVariables(),
     postcssPresetEnv({ browsers: BROWSERLIST_MODERN }),
-    // postcssModules({
-    //   // getJSON: function (cssFileName, json, outputFileName) {
-    //   //   var path = require('path');
-    //   //   var cssName = path.basename(cssFileName, '.css');
-    //   //   var jsonFileName = path.resolve('./build/' + cssName + '.json');
-    //   //   fs.writeFileSync(jsonFileName, JSON.stringify(json));
-    //   // },
-    // }),
   ],
 };
 
