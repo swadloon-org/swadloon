@@ -27,7 +27,7 @@ export default class JestWatch extends Command {
     const { args, flags } = this.parse(JestWatch);
 
     const command = [
-      `cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
+      `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
       `${flags.config ? '--config ' + flags.config : ''}`,
       `${args.args || '--watch'}`,
     ].join(' ');

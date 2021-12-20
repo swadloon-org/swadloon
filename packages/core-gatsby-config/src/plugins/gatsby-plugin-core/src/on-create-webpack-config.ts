@@ -1,7 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, ProgressPlugin, RuleSetRule, webpack } from 'webpack';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType } from '@newrade/core-utils';
@@ -55,7 +55,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the devtool option
    */
-  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
+  config.devtool = isProduction ? false : 'source-map';
 
   /**
    * Remove es5 target
@@ -168,17 +168,30 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Add tsx support with ts-loader
    */
   if (config.module?.rules) {
+    reporter.info(`[${pluginOptions.pluginName}] adding .tsx file support`);
+    const currentRules = (config.module.rules as RuleSetRule[]).map((rule) => rule.test).join(', ');
+    reporter.info(`[${pluginOptions.pluginName}] current rules: ${currentRules}`);
+
     (config.module.rules as RuleSetRule[]) = [
       ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
       getTypescriptBabelReactLoader({
         isDevelopment: isDevelopStage,
         tsLoaderOptions: {
           projectReferences: false,
+          compilerOptions: {
+            declaration: false,
+            composite: false,
+            incremental: false,
+          },
         },
         babelPlugins: [['@vanilla-extract/babel-plugin']],
       }),
     ] as RuleSetRule[];
 
+    const updatedRules = (config.module.rules as RuleSetRule[]).map((rule) => rule.test).join(', ');
+    reporter.info(`[${pluginOptions.pluginName}] updated rules: ${updatedRules}`);
+
+    reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
     config.plugins?.push(getForkTsCheckerWebpackPlugin());
 
     // can be used to counter tsc emitting all files again but it's slower for the first webpack build
@@ -224,6 +237,11 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       ? [...config.plugins, getBundleVisualizerPlugin()]
       : [getBundleVisualizerPlugin()];
   }
+
+  /**
+   * Add ProgressPlugin
+   */
+  config.plugins = [...(config.plugins || []), new ProgressPlugin()];
 
   reporter.info(`[${pluginOptions.pluginName}] replacing webpack config with modified one`);
 

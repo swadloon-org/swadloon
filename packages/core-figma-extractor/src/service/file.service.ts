@@ -3,7 +3,7 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-import { ExtractOptions } from '..';
+import { ExtractOptions } from '../extract';
 
 import { log, logError } from './logging.service';
 

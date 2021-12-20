@@ -1,6 +1,6 @@
 import cssnano from 'cssnano';
 
-import { svgoConfig } from '..';
+import { svgoConfig } from './svgo.conf';
 
 /**
  * CSS Nano Config

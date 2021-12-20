@@ -30,7 +30,7 @@ export default class Gatsby extends Command {
     const { args, flags } = this.parse(Gatsby);
 
     const command = [
-      `cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/gatsby/dist/bin/gatsby.js`,
+      `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/gatsby/dist/bin/gatsby.js`,
       `${args.command || ''}`,
       `${flags['no-uglify'] ? '--no-uglify' : ''}`,
       `${flags.verbose ? '--verbose' : ''}`,

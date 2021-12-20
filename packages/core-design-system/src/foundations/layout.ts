@@ -1,5 +1,4 @@
-import { SizeType } from '../types';
-import { NumberType } from '..';
+import { NumberType, SizeType } from '../types';
 
 import { ContentMargins, ContentWidths } from './content-width';
 import { MediaQueries } from './media-queries';

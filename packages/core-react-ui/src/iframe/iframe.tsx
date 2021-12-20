@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 
 import { VIEWPORT } from '@newrade/core-design-system';
 
+import { useIsSSR } from '../hooks/use-is-ssr';
 import { getMergedClassname } from '../utilities';
-import { useIsSSR } from '..';
 
 import * as styles from './iframe.css';
 

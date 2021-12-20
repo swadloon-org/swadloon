@@ -35,7 +35,7 @@ type GlobalCssType =
     'global-css-theme-scheme-dark';
 
   function setGlobalCssThemeScheme(theme: GlobalCssType) {
-    log(`adding theme classname: ${theme}`);
+    log(`adding theme scheme classname: ${theme}`);
 
     if (theme === 'global-css-theme-scheme-dark') {
       log(`adding the dark scheme classname`);

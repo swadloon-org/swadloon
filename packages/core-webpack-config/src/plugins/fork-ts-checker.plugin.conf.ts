@@ -9,8 +9,13 @@ export function getForkTsCheckerWebpackPlugin() {
       enabled: true,
       memoryLimit: 2048,
       configFile: 'tsconfig.json',
-      mode: 'write-tsbuildinfo',
-      build: true,
+      mode: 'readonly', // other options were emitting .d.ts files...
+      build: false, // `true` may build project references and emit declaration files
+      configOverwrite: {
+        compilerOptions: {
+          declaration: false,
+        },
+      },
     },
   });
 }

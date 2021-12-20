@@ -1,5 +1,5 @@
-// @ts-ignore
 import { Property } from 'csstype';
+// @ts-ignore
 import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
 

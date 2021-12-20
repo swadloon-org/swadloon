@@ -5,9 +5,9 @@ import { useStyles } from 'react-treat';
 
 import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 
+import { IconComp } from '../icons/icon';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-import { IconComp } from '..';
 
 import { Label } from './label';
 import * as stylesRef from './summary.treat';

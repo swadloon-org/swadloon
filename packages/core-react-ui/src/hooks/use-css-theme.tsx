@@ -81,7 +81,9 @@ export const CSSThemeProvider = ({
 }) => {
   const { applyThemeToRootElement, syncToLocalStorage } = { ...defaultOptions, ...options };
   const isSSR = useIsSSR();
+
   const { colorScheme } = usePreferColorScheme();
+  const lastColorScheme = useRef<typeof colorScheme>(undefined);
 
   /**
    * Check if theme preference is already set in local storage
@@ -148,20 +150,32 @@ export const CSSThemeProvider = ({
     if (!selectedTheme) {
       return;
     }
-    if (colorScheme !== selectedTheme.colorScheme) {
-      log(`user color scheme is: ${colorScheme}`);
+    log(`previous user's device color scheme: ${lastColorScheme.current}`);
+    log(`current user's device color scheme: ${colorScheme}`);
+
+    if (!lastColorScheme.current && colorScheme !== lastColorScheme.current) {
+      lastColorScheme.current = colorScheme;
+      return;
+    }
+
+    if (colorScheme !== lastColorScheme.current) {
+      lastColorScheme.current = colorScheme;
+      log(`user's device color scheme has changed, it is now: ${colorScheme}`);
+
+      log(`finding a theme with the new color scheme`);
       const foundThemeForColorSceme = themes?.find((theme) => theme.colorScheme === colorScheme);
+
+      log(`found: ${foundThemeForColorSceme?.name}`);
       if (foundThemeForColorSceme) {
         if (
           internalValue?.selected &&
           internalValue.selected.name !== foundThemeForColorSceme.name
         ) {
-          log(`user color scheme is: ${colorScheme}`);
-          setInternalValue({ ...internalValue, selected: foundThemeForColorSceme });
-          return;
+          handleChangeThemeName(foundThemeForColorSceme.name);
         }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colorScheme]);
 
   /**
@@ -174,6 +188,7 @@ export const CSSThemeProvider = ({
         setInternalValue(value);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, handleChangeThemeName]);
 
   /**
@@ -227,6 +242,7 @@ export const CSSThemeProvider = ({
       log(`no previous theme selected, defaulting to : ${foundThemeByScheme?.name}`);
       setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundThemeByScheme });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSSR, localStorageThemeName.current, localStorageThemeScheme.current]);
 
   /**

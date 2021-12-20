@@ -1,13 +1,11 @@
 import { DesignSystem, DesignSystemV2 } from '@newrade/core-design-system';
 
-import { CSSLayoutV2, CSSSizingV2, CSSTypographyV2 } from '..';
-
 import { CSSColors, CSSColorsV2 } from './css-colors';
 import { CSSComponents } from './css-components';
 import { CSSIconography } from './css-iconography';
-import { CSSLayout } from './css-layout';
-import { CSSSizing } from './css-sizing';
-import { CSSTypography } from './css-typography';
+import { CSSLayout, CSSLayoutV2 } from './css-layout';
+import { CSSSizing, CSSSizingV2 } from './css-sizing';
+import { CSSTypography, CSSTypographyV2 } from './css-typography';
 
 export type CSSDesignSystem = Omit<DesignSystem<string>, 'animations'> & {
   colors: CSSColors;

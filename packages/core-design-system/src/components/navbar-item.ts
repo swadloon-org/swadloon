@@ -1,5 +1,5 @@
+import { ICON } from '../foundations/iconography';
 import { ColorType } from '../types';
-import { ICON } from '..';
 
 import { BoxStyle } from './box';
 import { Variant } from './components.props';
