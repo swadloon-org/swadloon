@@ -23,8 +23,8 @@ export interface Color {
   //  */
   // hex: string;
   /**
-   * alpha-channel transparency value
-   * @example 50 (e.g. 50%)
+   * alpha-channel transparency value between 0 and 100
+   * @example e.g. 50 becomes 50% or 0.5
    */
   a?: number;
 }

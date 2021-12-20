@@ -27,7 +27,7 @@ describe('colors utilities', () => {
         a: 80,
       };
       const cssColor = getCSSColor(color);
-      expect(cssColor).toBe('hsl(222deg 40% 50% / 0.8)');
+      expect(cssColor).toBe('hsl(222, 40%, 50%, 0.8)');
     });
 
     it('should create a valid CSS color from a Color object with no transparency', () => {
@@ -38,7 +38,7 @@ describe('colors utilities', () => {
         a: 100,
       };
       const cssColor = getCSSColor(color);
-      expect(cssColor).toBe('hsl(222deg 40% 50% / 1)');
+      expect(cssColor).toBe('hsl(222, 40%, 50%, 1)');
     });
 
     it(`should create a valid CSS color from a Color object the param 'a' not set`, () => {
@@ -48,7 +48,7 @@ describe('colors utilities', () => {
         l: 50,
       };
       const cssColor = getCSSColor(color);
-      expect(cssColor).toBe('hsl(222deg 40% 50% / 1)');
+      expect(cssColor).toBe('hsl(222, 40%, 50%, 1)');
     });
 
     it(`should create a valid CSS color that can be applied to a div`, () => {
@@ -67,7 +67,7 @@ describe('colors utilities', () => {
           fail('element div not found');
         }
         // @ts-ignore
-        expect(element[0]).toHaveStyle(`backgroundColor: hsl(222deg 40% 50% / 100%)`);
+        expect(element[0]).toHaveStyle(`backgroundColor: hsl(222 40%, 50%, 1)`);
       }
       cleanup();
     });

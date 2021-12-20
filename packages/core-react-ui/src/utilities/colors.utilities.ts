@@ -392,7 +392,9 @@ export function getCSSColor(
     return '';
   }
   const { h, s, l, a } = color;
-  return `hsl(${h}, ${s}%, ${l}%, ${a === undefined ? 1 : a})`;
+  const transparency = Number(a);
+  const parsedTransparency = isNaN(transparency) ? 1 : transparency;
+  return `hsl(${h}, ${s}%, ${l}%, ${a === undefined ? 1 : parsedTransparency / 100})`;
 }
 
 /**
