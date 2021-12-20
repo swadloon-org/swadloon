@@ -20,10 +20,9 @@ import {
   ioniconsOutlineConfig,
 } from '@newrade/core-react-ui/icons-kit-ionicons-outline';
 import { logosComponents } from '@newrade/ze-design-system';
+import * as CssTheme from '@newrade/ze-design-system/css';
 
 import { cssTheme, light, theme } from '../design-system/theme.treat';
-
-import { cssThemeConfig } from '../design-system/theme.css';
 
 const useSelectedThemeState = createPersistedState<string>('docs-css-theme');
 
@@ -36,7 +35,7 @@ export const ProvidersSite: React.FC = (props) => {
       <ViewportProvider context={viewportContext}>
         <CSSThemeProvider
           value={{
-            config: cssThemeConfig,
+            config: CssTheme.cssThemeConfig,
           }}
           options={{ applyThemeToRootElement: true, syncToLocalStorage: true }}
         >

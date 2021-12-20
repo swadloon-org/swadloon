@@ -1,7 +1,6 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
-import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 
-import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
+import { Animations, Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { defaultSizesCSSVarNamesV2, defaultSizesCSSVarV2 } from '../utilities/sizing.utilities';

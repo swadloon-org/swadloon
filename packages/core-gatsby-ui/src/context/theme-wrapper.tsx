@@ -153,10 +153,7 @@ const ThemeWrapperFn = React.memo(
         backgroundColor: colorVars.colorIntents.background0,
       },
       className,
-      classNames: [
-        selectedTheme && selectedTheme.className ? selectedTheme.className : '',
-        selectedTheme && selectedTheme.classNames.colors ? selectedTheme.classNames.colors : '',
-      ],
+      classNames: [selectedTheme && selectedTheme.className ? selectedTheme.className : ''],
     });
 
     function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {

@@ -1,13 +1,15 @@
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
-import { GLOBAL_CSS_THEME, LOCAL_STORAGE_CSS_THEME_PROP } from '@newrade/core-gatsb-config/config';
-
 import { defaultTheme } from '../default-theme';
 import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '../design-system/css-theme-config';
+import {
+  GLOBAL_CSS_THEME_SCHEME,
+  LOCAL_STORAGE_CSS_THEME_NAME_PROP,
+  LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
+} from '../global/global-theme-classnames';
 import { useIsSSR } from '../hooks/use-is-ssr';
 import { debugInstance, NS } from '../utilities/log.utilities';
 
-import { useFirstRender } from './use-first-render.hook';
 import { usePreferColorScheme } from './use-prefer-color-scheme';
 
 const log = debugInstance(`${NS}:css-theme`);
@@ -48,13 +50,11 @@ export const defaultOptions: CSSThemeContextOptions = {
 };
 
 export const defaultCSSThemeConfig: CSSThemeProviderConfig = {
-  autoDetect: true,
   themes: [
     {
       name: defaultTheme.name,
       colorScheme: defaultTheme.colorScheme,
-      className: GLOBAL_CSS_THEME.LIGHT,
-      classNames: {},
+      className: 'global-css-theme-ze',
       default: true,
     },
   ],
@@ -86,10 +86,14 @@ export const CSSThemeProvider = ({
   /**
    * Check if theme preference is already set in local storage
    */
+  const localStorageThemeScheme = useRef<GLOBAL_CSS_THEME_SCHEME | null>(null);
+  localStorageThemeScheme.current = isSSR
+    ? null
+    : (window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_SCHEME_PROP) as GLOBAL_CSS_THEME_SCHEME);
   const localStorageThemeName = useRef<string | null>(null);
   localStorageThemeName.current = isSSR
     ? null
-    : window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_PROP);
+    : window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_NAME_PROP);
 
   /**
    * Init internal context value
@@ -109,9 +113,17 @@ export const CSSThemeProvider = ({
     function handleChangeThemeName(themeName: string) {
       log(`changing theme to: ${themeName}`);
       const foundTheme = themes?.find((theme) => theme.name === themeName);
+      const foundThemeSchemeClassName =
+        foundTheme && foundTheme.colorScheme === 'dark'
+          ? GLOBAL_CSS_THEME_SCHEME.DARK
+          : GLOBAL_CSS_THEME_SCHEME.LIGHT;
       if (foundTheme) {
         if (syncToLocalStorage) {
-          window.localStorage.setItem(LOCAL_STORAGE_CSS_THEME_PROP, foundTheme.className);
+          window.localStorage.setItem(
+            LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
+            foundThemeSchemeClassName
+          );
+          window.localStorage.setItem(LOCAL_STORAGE_CSS_THEME_NAME_PROP, foundTheme.className);
         }
         setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundTheme });
       }
@@ -172,24 +184,50 @@ export const CSSThemeProvider = ({
       return;
     }
 
-    const foundTheme = themes?.find((theme) => theme.className === localStorageThemeName.current);
+    const foundThemeByName = themes?.find(
+      (theme) => theme.className === localStorageThemeName.current
+    );
+    const foundThemeByScheme = themes?.find((theme) => {
+      if (localStorageThemeScheme.current === GLOBAL_CSS_THEME_SCHEME.LIGHT) {
+        return theme.colorScheme === 'light';
+      }
+      if (localStorageThemeScheme.current === GLOBAL_CSS_THEME_SCHEME.DARK) {
+        return theme.colorScheme === 'dark';
+      }
+    });
+
+    log(`loaded theme name from localstorage got: ${foundThemeByName?.name}`);
+    log(`loaded theme scheme from localstorage got: ${foundThemeByScheme?.name}`);
 
     if (
       internalValue?.selected &&
-      internalValue.selected.className !== localStorageThemeName.current
+      internalValue.selected.className !== localStorageThemeScheme.current
     ) {
-      if (foundTheme) {
-        log(`setting selected theme to: ${foundTheme.name}`);
-        setInternalValue({ ...internalValue, selected: foundTheme });
+      if (foundThemeByScheme) {
+        log(`setting selected theme to: ${foundThemeByScheme.name}`);
+        setInternalValue({ ...internalValue, selected: foundThemeByScheme });
       }
       return;
     }
 
     if (!internalValue?.selected) {
-      log(`setting initial selected theme to: ${foundTheme?.name}`);
-      setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundTheme });
+      //
+      // if we have a previous theme set in local storage, and it is found in the themes list, we set it as selected
+      //
+      if (foundThemeByName) {
+        log(`setting theme to: ${foundThemeByName.name}`);
+        setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundThemeByName });
+        return;
+      }
+
+      //
+      // if we don't have a previous theme set in local storage, we take the first theme that matches the user's color scheme
+      //
+
+      log(`no previous theme selected, defaulting to : ${foundThemeByScheme?.name}`);
+      setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundThemeByScheme });
     }
-  }, [isSSR, localStorageThemeName.current]);
+  }, [isSSR, localStorageThemeName.current, localStorageThemeScheme.current]);
 
   /**
    * Sync the selected theme with external changes
@@ -213,7 +251,7 @@ export const CSSThemeProvider = ({
   }, [internalValue, value, value?.selected]);
 
   /**
-   * Handle context changes
+   * Handle context changes in DOM
    */
   useEffect(() => {
     if (!applyThemeToRootElement) {
@@ -224,16 +262,30 @@ export const CSSThemeProvider = ({
       return;
     }
 
-    if (!internalValue?.selected?.classNames) {
+    if (!internalValue?.selected?.className) {
       return;
     }
     const globalThemeClassNameToAdd = internalValue.selected.className;
     const globalThemeClassNamesToRemove = themes
       ?.filter((theme) => theme.name !== selectedTheme?.name)
       .map((theme) => theme.className);
-    const themeClassNamesToAdd = Object.values(internalValue.selected.classNames);
     const rootElement = window.document.documentElement;
 
+    //
+    // update the global theme scheme classname
+    //
+    if (internalValue.selected.colorScheme === 'light') {
+      if (rootElement.classList.contains(GLOBAL_CSS_THEME_SCHEME.DARK)) {
+        rootElement.classList.remove(GLOBAL_CSS_THEME_SCHEME.DARK);
+      }
+      rootElement.classList.add(GLOBAL_CSS_THEME_SCHEME.LIGHT);
+    }
+    if (internalValue.selected.colorScheme === 'dark') {
+      if (rootElement.classList.contains(GLOBAL_CSS_THEME_SCHEME.LIGHT)) {
+        rootElement.classList.remove(GLOBAL_CSS_THEME_SCHEME.LIGHT);
+      }
+      rootElement.classList.add(GLOBAL_CSS_THEME_SCHEME.DARK);
+    }
     //
     // clean up classes from other themes
     //
@@ -249,16 +301,12 @@ export const CSSThemeProvider = ({
       log(`adding className: ${globalThemeClassNameToAdd}`);
       rootElement.classList.add(globalThemeClassNameToAdd);
     }
-
-    if (!themeClassNamesToAdd.length) {
-      return;
-    }
   }, [
     isSSR,
     applyThemeToRootElement,
     themes,
+    internalValue?.selected?.colorScheme,
     internalValue?.selected?.className,
-    internalValue?.selected?.classNames,
     selectedTheme?.name,
     value?.selected,
   ]);

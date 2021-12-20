@@ -55,8 +55,8 @@ export const base = style([
 
     borderBottom: `2px solid transparent`,
 
-    transitionProperty: `border-bottom-color, color, box-shadow`,
-    transitionDuration: '200ms',
+    transitionProperty: `background-color, border-bottom-color, color, box-shadow`,
+    transitionDuration: '350ms',
     transitionTimingFunction: 'ease-out',
 
     selectors: {

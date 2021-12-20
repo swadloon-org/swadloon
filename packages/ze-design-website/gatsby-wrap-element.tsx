@@ -21,6 +21,7 @@ import {
   SidebarAPI,
   SidebarLayout,
 } from '@newrade/core-website-api';
+import { cssThemeConfig } from '@newrade/ze-design-system/css';
 
 import { companyInfo } from './src/data/company-info';
 import { cssTheme, light, theme } from './src/design-system/theme.treat';
@@ -28,8 +29,6 @@ import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
 import { ProvidersDocs } from './src/providers/providers-docs';
 import { ProvidersSite } from './src/providers/providers-site';
-
-import { cssThemeConfig } from './src/design-system/theme.css';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 

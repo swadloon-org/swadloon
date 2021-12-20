@@ -6,7 +6,6 @@ import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src/mdx/docs-mdx-components';
 import {
-  createPersistedState,
   CSSThemeProvider,
   IconProvider,
   LogosProvider,
@@ -20,10 +19,9 @@ import {
   ioniconsOutlineConfig,
 } from '@newrade/core-react-ui/icons-kit-ionicons-outline';
 import { logosComponents } from '@newrade/ze-design-system';
+import * as CssTheme from '@newrade/ze-design-system/css';
 
 import { defaultCSSTheme, defaultTheme, docsTheme } from '../design-system/theme-docs.treat';
-
-import { cssThemeConfig } from '../design-system/theme.css';
 
 /**
  * Provide context over /docs/ and /design-system/ pages
@@ -34,7 +32,7 @@ export const ProvidersDocs: React.FC = (props) => {
       <ViewportProvider context={viewportContext}>
         <CSSThemeProvider
           value={{
-            config: cssThemeConfig,
+            config: CssTheme.cssThemeConfig,
           }}
           options={{ applyThemeToRootElement: true, syncToLocalStorage: true }}
         >

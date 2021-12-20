@@ -6,7 +6,10 @@
   "main": "dist/newrade-ze-design-system.cjs.js",
   "module": "dist/newrade-ze-design-system.esm.js",
   "files": [
-    "/dist"
+    "/dist",
+    "/css",
+    "/css-tokens",
+    "/figma-tokens"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:dist && nr prepare-exports",
@@ -17,6 +20,14 @@
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev",
     "typecheck": "tsc --noEmit --composite false --incremental false"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "css.ts",
+      "css-tokens.ts",
+      "figma-tokens.ts"
+    ]
   },
   "sideEffects": [
     "*.css",
@@ -29,7 +40,6 @@
     "@newrade/core-common": "*",
     "@newrade/core-design-system": "*",
     "@newrade/core-figma-extractor": "*",
-    "@newrade/core-gatsb-config": "*",
     "@newrade/core-react-ui": "*",
     "@newrade/core-types": "*",
     "@newrade/core-utils": "*",

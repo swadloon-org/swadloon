@@ -92,7 +92,7 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
       : `${getLanguagePath(language)}/`; // fallback to home page in the other language
     localStorage.setItem(LANGUAGE_KEY, language);
 
-    i18n.changeLanguage(language);
+    // i18n.changeLanguage(language);
 
     return gatsbyNavigate(path, options);
   };

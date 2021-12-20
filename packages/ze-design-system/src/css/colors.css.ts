@@ -1,11 +1,11 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 
-import { GLOBAL_CSS_THEME } from '@newrade/core-gatsb-config/config';
+import { GLOBAL_CSS_THEME_SCHEME } from '@newrade/core-react-ui/global';
 import { colorVars } from '@newrade/core-react-ui/theme';
 
 import { darkCssThemeV2, lightCssThemeV2 } from '../design-system/theme';
 
-import { darkThemeConfig } from './themes-config';
+import { darkThemeConfig, lightThemeConfig } from './theme-config';
 
 /**
  *
@@ -13,8 +13,11 @@ import { darkThemeConfig } from './themes-config';
  *
  */
 
-// @ts-ignore
-createGlobalTheme(':root', colorVars, lightCssThemeV2.colors);
+createGlobalTheme(
+  `.${GLOBAL_CSS_THEME_SCHEME.LIGHT}, .${lightThemeConfig.className}`,
+  colorVars,
+  lightCssThemeV2.colors
+);
 
 /**
  *
@@ -23,8 +26,7 @@ createGlobalTheme(':root', colorVars, lightCssThemeV2.colors);
  */
 
 createGlobalTheme(
-  `.${GLOBAL_CSS_THEME.DARK}, .${darkThemeConfig.classNames.colors}`,
+  `.${GLOBAL_CSS_THEME_SCHEME.DARK}, .${darkThemeConfig.className}`,
   colorVars,
-  // @ts-ignore
   darkCssThemeV2.colors
 );

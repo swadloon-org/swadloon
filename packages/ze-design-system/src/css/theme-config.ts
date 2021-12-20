@@ -1,4 +1,3 @@
-import { GLOBAL_CSS_THEME } from '@newrade/core-gatsb-config/config';
 import {
   CSSRuntimeThemeConfig,
   CSSThemeProviderConfig,
@@ -16,8 +15,7 @@ export const lightThemeConfig: CSSRuntimeThemeConfig = {
   name: lightCssTheme.name,
   colorScheme: lightCssTheme.colorScheme,
   default: true,
-  className: GLOBAL_CSS_THEME.LIGHT,
-  classNames: {},
+  className: 'global-css-theme-ze-light',
 };
 
 /**
@@ -30,10 +28,7 @@ export const darkThemeConfig: CSSRuntimeThemeConfig = {
   name: darkCssTheme.name,
   colorScheme: darkCssTheme.colorScheme,
   default: false,
-  className: GLOBAL_CSS_THEME.DARK,
-  classNames: {
-    colors: `${GLOBAL_CSS_THEME.DARK}-${darkCssTheme.name}-colors`,
-  },
+  className: 'global-css-theme-ze-dark',
 };
 
 /**
@@ -43,6 +38,5 @@ export const darkThemeConfig: CSSRuntimeThemeConfig = {
  */
 
 export const cssThemeConfig: CSSThemeProviderConfig = {
-  autoDetect: true,
   themes: [lightThemeConfig, darkThemeConfig],
 };

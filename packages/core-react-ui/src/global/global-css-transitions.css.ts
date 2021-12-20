@@ -8,11 +8,11 @@ import { createVar, globalStyle } from '@vanilla-extract/css';
 
 const transitionDuration = createVar();
 
-globalStyle(`:root`, {
+globalStyle(`*`, {
   vars: {
-    [transitionDuration]: `200ms`,
+    [transitionDuration]: `350ms`,
   },
-  transitionProperty: `color, background-color, border-color, scrollbar-color`,
+  transitionProperty: `background, color, background-color, border-color, scrollbar-color, fill, stroke`,
   transitionDuration: transitionDuration,
   transitionTimingFunction: `ease-out`,
 });
