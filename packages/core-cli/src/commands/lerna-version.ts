@@ -52,7 +52,7 @@ export default class LernaVersion extends Command {
 
   static flags = {
     packages: flags.string({
-      description: 'packages glob to be included in lerna version bump, e.g. packages/*',
+      description: 'packages glob to be included in lerna version bump, e.g. --packages=packages/*',
       required: true,
     }),
   };

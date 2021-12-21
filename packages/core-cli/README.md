@@ -295,7 +295,7 @@ USAGE
   $ nr lerna-version [ARGS]
 
 OPTIONS
-  --packages=packages  (required) packages glob to be included in lerna version bump, e.g. packages/*
+  --packages=packages  (required) packages glob to be included in lerna version bump, e.g. --packages=packages/*
 
 EXAMPLE
   $ nr lerna-version
