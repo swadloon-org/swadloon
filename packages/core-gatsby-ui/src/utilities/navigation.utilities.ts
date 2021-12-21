@@ -2,7 +2,7 @@ import { capital, kebab, lower, title } from 'case';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
-import { getLangSimpleCode } from '@newrade/core-react-ui';
+import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 
 import { NavItem } from '../navigation/nav-item.model';
 import { Navigation } from '../navigation/navigation.model';
