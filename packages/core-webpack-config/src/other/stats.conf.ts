@@ -1,10 +1,10 @@
-import { StatsValue } from '../types/webpack';
+import { StatsOptions } from 'webpack';
 
 /**
  * @description Webpack Stats Configuration
  * @see https://webpack.js.org/configuration/stats/
  */
-export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsValue } = {
+export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsOptions } = {
   debug: {
     all: undefined,
     colors: true,
@@ -53,7 +53,7 @@ export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsValue } = {
     all: false,
     colors: false,
     assets: true,
-    children: false,
+    children: true,
     chunks: true,
     chunkModules: true,
     chunkGroups: true,
@@ -64,12 +64,14 @@ export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsValue } = {
     publicPath: true,
     errors: true,
     errorDetails: true,
-    modules: false,
+    modules: true,
     moduleTrace: false,
     performance: true,
     timings: true,
     warnings: true,
-    version: false,
+    version: true,
     hash: false,
+    optimizationBailout: true,
+    logging: 'verbose',
   },
 };

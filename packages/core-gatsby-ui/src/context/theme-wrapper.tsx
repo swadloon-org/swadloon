@@ -22,7 +22,7 @@ import {
 } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeOutline } from '@newrade/core-react-ui/code';
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/design-system';
-import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
 import { colorVars } from '@newrade/core-react-ui/theme';
 
 import * as styles from './theme-wrapper.css';

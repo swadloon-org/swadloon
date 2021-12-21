@@ -20,6 +20,7 @@ export default class Gatsby extends Command {
   static flags = {
     'no-uglify': flags.boolean({ description: 'gatsby --no-uglify flag' }),
     verbose: flags.boolean({ description: 'gatsby verbose command' }),
+    inspect: flags.boolean({ description: 'gatsby inspect command' }),
     port: flags.string({ char: 'p', description: 'gatsby port option' }),
     host: flags.string({ char: 'H', description: 'gatsby host option' }),
   };
@@ -34,6 +35,7 @@ export default class Gatsby extends Command {
       `${args.command || ''}`,
       `${flags['no-uglify'] ? '--no-uglify' : ''}`,
       `${flags.verbose ? '--verbose' : ''}`,
+      `${flags.inspect ? '--inspect' : ''}`,
       `${flags.port ? `-p ${flags.port}` : ''}`,
       `${flags.host ? `-H ${flags.host}` : ''}`,
     ].join(' ');
@@ -55,7 +57,7 @@ export default class Gatsby extends Command {
       // gatsby cli does not use stderr correctly, so we have to parse stdout and find occurence of errors
       //
       const chunkString = chunk.toString();
-      if (/error\b/gi.test(chunkString)) {
+      if (/error\s/gi.test(chunkString)) {
         process.stderr.write(chunk);
 
         if (
@@ -78,8 +80,12 @@ export default class Gatsby extends Command {
 
     const handleClose = (args: any[]) => {
       if (errors.length) {
-        process.stderr.write(errors.join(''));
         this.logError(`finished with ${errors.length} errors`);
+        errors.forEach((error, errorIndex) => {
+          this.logError(`error #${errorIndex}:`);
+          process.stderr.write(`\t${error.toString()}`);
+        });
+
         process.exit(1);
       }
       this.log(`finished`);

@@ -31,6 +31,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         options: {
           cacheDirectory: true,
           cacheCompression: false,
+          sourceType: `unambiguous`,
           plugins: [...babelPluginBrowserConf, ...(options.babelPlugins || [])],
           presets: [...babelPresetBrowserConf],
         },
@@ -52,6 +53,6 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         } as Partial<tsloader.Options>,
       },
     ],
-    exclude: /node_modules|\.treat\.ts|\.svg\.tsx/, // see `treat.loader.ts`, `svgr-macro.loader.ts`
+    exclude: /node_modules|\.treat\.ts$|\.svg\.tsx$/, // see `treat.loader.ts`, `svgr-macro.loader.ts`
   };
 }

@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { useStyles } from 'react-treat';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
@@ -11,15 +10,9 @@ import {
   useSidebarState,
 } from '@newrade/core-gatsby-ui/src';
 import { LayoutDocsProps } from '@newrade/core-gatsby-ui/src/layout/docs.layout';
-import {
-  Main,
-  MainWrapper,
-  useCommonProps,
-  useTreatTheme,
-  useViewportBreakpoint,
-} from '@newrade/core-react-ui';
+import { Main, MainWrapper, useCommonProps, useViewportBreakpoint } from '@newrade/core-react-ui';
 
-import * as styleRefs from './layout.treat';
+import * as styles from './layout.css';
 
 type LayoutProps = LayoutDocsProps;
 
@@ -44,15 +37,6 @@ export const Layout: React.FC<LayoutProps> = (props) => {
       fallbackToHomePage: false,
     });
   }
-
-  /**
-   *
-   * Styles & animations
-   *
-   */
-
-  const { cssTheme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
 
   /**
    *

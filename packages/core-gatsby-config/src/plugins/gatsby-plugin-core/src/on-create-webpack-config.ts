@@ -84,7 +84,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   config.watchOptions = {
     ...config.watchOptions,
-    ignored: ['*.d.ts', '*.js.map', '**/node_modules', '**/dist'],
+    ignored: ['*.d.ts', '*.js.map', '**/node_modules', '**/dist', 'graphql-types.ts'],
   };
 
   /**
@@ -94,6 +94,12 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     config.stats = {
       ...(typeof config.stats === 'object' ? config.stats : {}),
       ...stats.dev,
+    };
+  }
+
+  if (isProduction) {
+    config.stats = {
+      ...stats.prod,
     };
   }
 
@@ -165,31 +171,31 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/babel-preset-gatsby/src/dependencies.ts
    */
 
-  // if (config.module?.rules) {
-  //   reporter.info(
-  //     `[${pluginOptions.pluginName}] adding exclusions to .js rules to exclude .css.ts and .css.js files`
-  //   );
-  //   reporter.info(`[${pluginOptions.pluginName}] current rules: `);
-  //   printOutRules(config.module.rules);
+  if (config.module?.rules) {
+    reporter.info(
+      `[${pluginOptions.pluginName}] adding exclusions to .js rules to exclude .css.ts and .css.js files`
+    );
+    reporter.info(`[${pluginOptions.pluginName}] current rules: `);
+    printOutRules(config.module.rules);
 
-  //   (config.module.rules as RuleSetRule[]) = [
-  //     ...(config.module.rules as RuleSetRule[]).filter(negateBabelLoaderPredicate),
-  //     ...(config.module.rules as RuleSetRule[]).filter(babelLoaderPredicate).map((rule) => {
-  //       if (rule) {
-  //         const excludeVanillaFiles = /\.css\.ts|\.css\.js/i;
-  //         if (rule.exclude) {
-  //           rule.exclude = [rule.exclude, excludeVanillaFiles];
-  //           return rule;
-  //         }
-  //         rule.exclude = excludeVanillaFiles;
-  //       }
-  //       return rule;
-  //     }),
-  //   ] as RuleSetRule[];
+    (config.module.rules as RuleSetRule[]) = [
+      ...(config.module.rules as RuleSetRule[]).filter(babelLoaderPredicate).map((rule) => {
+        if (rule) {
+          const excludePattern = /\.css\.ts$|\.css\.js$|\.tsx$|\.ts$/i;
+          if (rule.exclude) {
+            rule.exclude = [rule.exclude, excludePattern];
+            return rule;
+          }
+          rule.exclude = excludePattern;
+        }
+        return rule;
+      }),
+      ...(config.module.rules as RuleSetRule[]).filter(negateBabelLoaderPredicate),
+    ] as RuleSetRule[];
 
-  //   reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
-  //   printOutRules(config.module.rules);
-  // }
+    reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
+    printOutRules(config.module.rules);
+  }
 
   /**
    * Replace Gatsby default babel config
@@ -312,9 +318,14 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Add ProgressPlugin, only for development
    */
-  if (!isProduction) {
+  if (!isProduction || env.APP_ENV === DEPLOY_ENV.LOCAL) {
     reporter.info(`[${pluginOptions.pluginName}] adding progress plugin`);
-    config.plugins = [...(config.plugins || []), new ProgressPlugin()];
+    config.plugins = [
+      ...(config.plugins || []),
+      new ProgressPlugin({
+        activeModules: true,
+      }),
+    ];
   }
 
   /**

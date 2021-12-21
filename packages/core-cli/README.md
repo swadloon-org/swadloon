@@ -153,6 +153,7 @@ USAGE
 OPTIONS
   -H, --host=host  gatsby host option
   -p, --port=port  gatsby port option
+  --inspect        gatsby inspect command
   --no-uglify      gatsby --no-uglify flag
   --verbose        gatsby verbose command
 

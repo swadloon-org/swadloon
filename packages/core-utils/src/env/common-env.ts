@@ -1,6 +1,6 @@
 import * as t from 'io-ts';
 
-import { DEPLOY_ENV, NODE_ENV, TEST_ENV } from '@newrade/core-common';
+import { DEPLOY_ENV, TEST_ENV } from '@newrade/core-common';
 
 import { TextBoolean } from './boolean-env';
 import { DebugEnv } from './debug-env';

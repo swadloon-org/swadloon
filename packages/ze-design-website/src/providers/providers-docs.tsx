@@ -13,11 +13,11 @@ import {
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/global';
 import {
   ionicons5OutlineComponents,
   ioniconsOutlineConfig,
 } from '@newrade/core-react-ui/icons-kit-ionicons-outline';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
 import { logosComponents } from '@newrade/ze-design-system';
 import * as CssTheme from '@newrade/ze-design-system/css';
 

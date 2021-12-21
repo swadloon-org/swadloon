@@ -35,6 +35,20 @@
       "sourceMaps": true
     },
     {
+      "name": "Gatsby build (yarn)",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["build", "--verbose", "--inspect"],
+      "env": {},
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      // "preLaunchTask": "pre-debug",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Jest debug current file",
