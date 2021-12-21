@@ -33,7 +33,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-beta.8",
     "@vanilla-extract/webpack-plugin": "^2.1.0",
     "autoprefixer": "^10.3.1",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "clean-webpack-plugin": "^4.0.0",
     "compression-webpack-plugin": "^6.1.1",
     "copy-webpack-plugin": "^6.4.1",
     "csp-html-webpack-plugin": "^5.1.0",
