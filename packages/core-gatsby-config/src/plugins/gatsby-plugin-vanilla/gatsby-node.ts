@@ -2,7 +2,6 @@ import { GatsbyNode } from 'gatsby';
 
 import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
 import { Configuration } from 'webpack';
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
   actions.setBabelPlugin({

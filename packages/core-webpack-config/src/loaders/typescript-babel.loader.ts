@@ -52,6 +52,6 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         } as Partial<tsloader.Options>,
       },
     ],
-    exclude: /node_modules|\.css\.ts|\.treat\.ts|\.svg\.tsx/, // see `treat.loader.ts`, vanilla-extract's loader (for .css.ts) and `svgr-macro.loader.ts`
+    exclude: /node_modules|\.treat\.ts|\.svg\.tsx/, // see `treat.loader.ts`, `svgr-macro.loader.ts`
   };
 }

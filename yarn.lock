@@ -7142,12 +7142,26 @@
     "@babel/template" "^7.12.13"
     "@vanilla-extract/integration" "^1.0.0"
 
+"@vanilla-extract/babel-plugin@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/babel-plugin/-/babel-plugin-1.1.3.tgz#a037a04a773c763990e6e219f82c11a780b7704a"
+  integrity sha512-pqYdxes92l39Djf493QCtmaz70ssEy/T3R6MX+OmBKIwY5c+eWlp/45TmEzPSi22S4AzoHa6mdS3/PWIR+YJwA==
+  dependencies:
+    "@babel/core" "^7.13.10"
+    "@babel/template" "^7.12.13"
+    "@vanilla-extract/integration" "^2.0.0"
+
 "@vanilla-extract/css-utils@^0.1.1":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@vanilla-extract/css-utils/-/css-utils-0.1.1.tgz#f4f58f85347d8a841ef74c60db111ec264011860"
   integrity sha512-9fDV8IhSfzgDd9Z+64jVcS38S2dVc6c1eOd+hgO8zPMRba6rEB8kEjg5+AQ3xPCdzl1m8olqFHnfQRNOn1OXuA==
 
-"@vanilla-extract/css@^1":
+"@vanilla-extract/css-utils@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/css-utils/-/css-utils-0.1.2.tgz#6bcd3e45f187d56c319ce9bc36ae1814b373c581"
+  integrity sha512-qoxIu5E/UhJtoKsPL1JaU9nhTN0Xl5zYV0pScOgsvc3JN46TvTTt0L3GV8x3PQpZP7x3elw8BsC9czYbhJy9Gg==
+
+"@vanilla-extract/css@^1", "@vanilla-extract/css@^1.6.8":
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.6.8.tgz#21796c6e11d010a22422185bacf5b65cbd294da8"
   integrity sha512-wkZay2jWe9a3Dt30j+WTJicK4+YV7i65lr+QnpkigVY9uU2KPzaiASEyUV8AouT2cZm7AOhteBBVKI8cYeWnVQ==
@@ -7235,6 +7249,20 @@
     javascript-stringify "^2.0.1"
     lodash "^4.17.21"
 
+"@vanilla-extract/integration@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-2.0.0.tgz#bcb5e30939a2e8e489bc5e9d3b5b0d835e6b06c3"
+  integrity sha512-ooJ3yj1jYzOBdIwZ9k3T7DD9w9hpZcUOnv98FB11pYCjbTjLEk4nOvEf+zqd+oUCQBZ42R4SKJwYm3n5KcyTiQ==
+  dependencies:
+    "@vanilla-extract/css" "^1.6.8"
+    chalk "^4.1.1"
+    esbuild "^0.11.16"
+    eval "^0.1.6"
+    find-up "^5.0.0"
+    javascript-stringify "^2.0.1"
+    lodash "^4.17.21"
+    outdent "^0.8.0"
+
 "@vanilla-extract/private@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@vanilla-extract/private/-/private-1.0.0.tgz#10711c4481decd2f9a2f19cb85dcee60eff3f75c"
@@ -7255,7 +7283,12 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/recipes/-/recipes-0.2.1.tgz#a3dab757e4c73cf4c42f8fb01cfd81010067ecca"
   integrity sha512-H73oWlFG6Lf1TYBM2zY+z3f9vrNKhGtJKpX53YrUi28xCdsMZq7yucSy8vfKWZu26SFpVYbxncRx0sKGTuCD9A==
 
-"@vanilla-extract/sprinkles@^1":
+"@vanilla-extract/recipes@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/recipes/-/recipes-0.2.3.tgz#cb6390efeb273ce5ac76d944fd65e550bd930654"
+  integrity sha512-RKCfW2nczXmHLSR8TJcLUOvfE941rJl397GdbJiIBU3DqTSJuqDDOr3bKFiLP28BohLHs3Hz8BAzjYldKqGhXg==
+
+"@vanilla-extract/sprinkles@^1", "@vanilla-extract/sprinkles@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.3.3.tgz#319a87156814a15a5358fc0c5f3b0013d7965609"
   integrity sha512-LoxDYbVSrNZdsXME09UUescV9v2tT0AI2yalavR3KCGNY89i2Lp7j7iNZuXJMPK4MzW7CErfYDffcpJ5+PyU2g==
@@ -7282,6 +7315,17 @@
     debug "^4.3.1"
     loader-utils "^2.0.0"
     lodash "^4.17.21"
+    virtual-resource-loader "^1.0.0"
+
+"@vanilla-extract/webpack-plugin@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-2.1.4.tgz#79574215105d0fdd76e8cd1e40ae7c0ac77381b6"
+  integrity sha512-v50pYwlJvjTOofyQ3LmKK0nmquxDDKzJGwX/lmhFGE00IXXUEv/gLqaZLDRsBU+C/fFUyl3WBpH8r7U3mHBCTg==
+  dependencies:
+    "@vanilla-extract/integration" "^2.0.0"
+    chalk "^4.1.1"
+    debug "^4.3.1"
+    loader-utils "^2.0.0"
     virtual-resource-loader "^1.0.0"
 
 "@vercel/build-utils@2.10.1":
@@ -11034,10 +11078,10 @@ css-has-pseudo@^0.10.0:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
 
-css-loader@^5.0.1, css-loader@^5.0.2, css-loader@^5.2.6:
-  version "5.2.6"
-  resolved "https://registry.npmjs.org/css-loader/-/css-loader-5.2.6.tgz#c3c82ab77fea1f360e587d871a6811f4450cc8d1"
-  integrity sha512-0wyN5vXMQZu6BvjbrPdUJvkCzGEO24HC7IS7nW4llc6BBFC+zwR9CKtYGv63Puzsg10L/o12inMY5/2ByzfD6w==
+css-loader@^5.0.1, css-loader@^5.0.2, css-loader@^5.2.7:
+  version "5.2.7"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.2.7.tgz#9b9f111edf6fb2be5dc62525644cbc9c232064ae"
+  integrity sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==
   dependencies:
     icss-utils "^5.1.0"
     loader-utils "^2.0.0"
@@ -21351,12 +21395,12 @@ mini-css-extract-plugin@^2.1.0:
   dependencies:
     schema-utils "^3.0.0"
 
-mini-css-extract-plugin@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.4.tgz#c7e5d2d931dcf100ae50ae949ba757c506b54b0f"
-  integrity sha512-UJ+aNuFQaQaECu7AamlWOBLj2cJ6XSGU4zNiqXeZ7lZLe5VD0DoSPWFbWArXueo+6FZVbgHzpX9lUIaBIDLuYg==
+mini-css-extract-plugin@^2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.5.tgz#191d6c170226037212c483af1180b4010b7b9eef"
+  integrity sha512-oEIhRucyn1JbT/1tU2BhnwO6ft1jjH1iCX9Gc59WFMg0n5773rQU0oyQ0zzeYFFuBfONaRbQJyGoPtuNseMxjA==
   dependencies:
-    schema-utils "^3.1.0"
+    schema-utils "^4.0.0"
 
 mini-svg-data-uri@^1.2.3:
   version "1.3.3"

@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 import autoprefixer from 'autoprefixer';
 // @ts-ignore
 import postcssCustomMedia from 'postcss-custom-media';
