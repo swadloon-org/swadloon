@@ -261,8 +261,6 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly flags: Maybe<SiteFlags>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
@@ -1122,8 +1120,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   flags: Maybe<SiteFlagsFilterInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -2399,8 +2395,6 @@ type SiteFieldsEnum =
   | 'siteMetadata.siteVersion'
   | 'siteMetadata.languages.langs'
   | 'siteMetadata.languages.defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags.FAST_DEV'
   | 'flags.DEV_SSR'
   | 'flags.PRESERVE_FILE_DOWNLOAD_CACHE'
@@ -2540,8 +2534,6 @@ type SiteGroupConnection_groupArgs = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly flags: Maybe<SiteFlagsFilterInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -4693,24 +4685,53 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type MarkdownDocsTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-  locale: Scalars['String'];
-}>;
+type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
-    Pick<File, 'changeTime'>
-    & { readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'layout' | 'template' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+type NavigationQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
+        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
+      )> }
     )> }
+  ) };
+
+type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
-
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4728,6 +4749,16 @@ type DesignSystemLayoutPageQuery = { readonly pages: (
       )> }
     )> }
   ) };
+
+type MarkdownPageTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+}>;
+
+
+type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }> };
 
 type DocsPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4758,62 +4789,18 @@ type DocsPagesQuery = { readonly pages: (
     )> }
   ) };
 
-type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NavigationQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
-        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
-      )> }
-    )> }
-  ) };
-
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
-
-type MarkdownPageTemplateQueryVariables = Exact<{
+type MarkdownDocsTemplateQueryVariables = Exact<{
   fileId: Scalars['String'];
+  locale: Scalars['String'];
 }>;
 
 
-type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
+type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
+    Pick<File, 'changeTime'>
+    & { readonly childMdx: Maybe<(
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }> };
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'layout' | 'template' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }
+  )> };
 
 }

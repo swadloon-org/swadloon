@@ -40,6 +40,8 @@ export default class Gatsby extends Command {
 
     this.log(`running: ${command}`);
 
+    this.log(`NODE_ENV is: ${process.env.NODE_ENV}`);
+
     const cmd = spawn(command, {
       shell: getShellForPlatform(),
       stdio: ['inherit', 'pipe', 'pipe'],
@@ -49,9 +51,11 @@ export default class Gatsby extends Command {
     let errors: any[] = [];
 
     const handleData = (chunk: Buffer) => {
-      // gatsby cli does not use stderr correctly, so we have to parse stdout
+      //
+      // gatsby cli does not use stderr correctly, so we have to parse stdout and find occurence of errors
+      //
       const chunkString = chunk.toString();
-      if (/error/gi.test(chunkString)) {
+      if (/error\b/gi.test(chunkString)) {
         process.stderr.write(chunk);
 
         if (

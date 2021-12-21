@@ -47,10 +47,17 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     return void 0;
   }
 
+  /**
+   * Print out env information
+   */
   reporter.info(
     `[${pluginOptions.pluginName}] process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
   );
-  delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
+  if (process.env.TS_NODE_PROJECT) {
+    delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
+  }
+
+  reporter.info(`[${pluginOptions.pluginName}] NODE_ENV: ${env.NODE_ENV}`);
 
   /**
    * Replace the devtool option
@@ -233,15 +240,19 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Add BundleVisualizer when building for production but local only
    */
   if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+    reporter.info(`[${pluginOptions.pluginName}] adding bundle visualizer plugin`);
     config.plugins = config.plugins
       ? [...config.plugins, getBundleVisualizerPlugin()]
       : [getBundleVisualizerPlugin()];
   }
 
   /**
-   * Add ProgressPlugin
+   * Add ProgressPlugin, only for development
    */
-  config.plugins = [...(config.plugins || []), new ProgressPlugin()];
+  if (!isProduction) {
+    reporter.info(`[${pluginOptions.pluginName}] adding progress plugin`);
+    config.plugins = [...(config.plugins || []), new ProgressPlugin()];
+  }
 
   reporter.info(`[${pluginOptions.pluginName}] replacing webpack config with modified one`);
 
