@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-css-extractor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate global CSS vars and classes for non-js applications.",
   "license": "MIT",
   "main": "dist/newrade-core-css-extractor.cjs.js",
@@ -20,13 +20,13 @@
     "webpack:prod": "nr webpack --config webpack.prod.config.ts"
   },
   "dependencies": {
-    "@newrade/core-common": "*",
-    "@newrade/core-design-system": "*",
-    "@newrade/core-jest-config": "*",
-    "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-common": "^1.4.3",
+    "@newrade/core-design-system": "^1.16.0",
+    "@newrade/core-jest-config": "^2.0.3",
+    "@newrade/core-react-ui": "^2.5.0",
+    "@newrade/core-types": "^2.1.0",
+    "@newrade/core-utils": "^2.4.0",
+    "@newrade/core-webpack-config": "^2.4.0",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "fp-ts": "^2",
     "io-ts": "^2"

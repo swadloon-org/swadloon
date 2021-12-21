@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.6.0...@newrade/ze-design-system@1.7.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fix bad import
+  ([b5f34d9](https://github.com/newrade/newrade-core/commit/b5f34d99fb99cf755ec28d046910a0bb700f4b52))
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core-css-extractor:** fix for treat files
+  ([8c5a6e3](https://github.com/newrade/newrade-core/commit/8c5a6e3551b39a97cbb2a399a51cff7a44d07c6e))
+- **core-css-extractor:** fixes webpack plugin
+  ([17b944f](https://github.com/newrade/newrade-core/commit/17b944fc9eba00b029af5f1a9a252caa2643db32))
+- **core-react-ui:** fix hsl conversion
+  ([bee26e7](https://github.com/newrade/newrade-core/commit/bee26e73b91d9a8aa9416df3fb100064ea4d52d4))
+- **core-react-ui:** refactor theming selection
+  ([92c8d03](https://github.com/newrade/newrade-core/commit/92c8d0330b858702131191539d77282e621c8e4e))
+- **core-ui:** improvements for theming selection and organization
+  ([5a49a03](https://github.com/newrade/newrade-core/commit/5a49a03bdf9d0a5c571906745f4594e400ed09f0))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+- **core-react-ui:** rework theming and remove reverse color mode (will use
+  React.Context)
+  ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.5.1...@newrade/ze-design-system@1.6.0) (2021-11-18)
 
 ### Bug Fixes

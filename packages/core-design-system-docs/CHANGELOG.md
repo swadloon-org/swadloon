@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.4.0...@newrade/core-design-system-docs@2.5.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core-react-ui:** refactor theming selection
+  ([92c8d03](https://github.com/newrade/newrade-core/commit/92c8d0330b858702131191539d77282e621c8e4e))
+- **core-ui:** improvements for theming selection and organization
+  ([5a49a03](https://github.com/newrade/newrade-core/commit/5a49a03bdf9d0a5c571906745f4594e400ed09f0))
+
+### Features
+
+- **core-react-ui:** add new input and nav items
+  ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
+- **core-react-ui:** rework theming and remove reverse color mode (will use
+  React.Context)
+  ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.3.0...@newrade/core-design-system-docs@2.4.0) (2021-11-18)
 
 ### Bug Fixes

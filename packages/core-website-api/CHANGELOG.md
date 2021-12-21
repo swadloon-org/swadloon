@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.5.0...@newrade/core-website-api@1.5.1) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core:** fixes for fork-ts-checker and ts-loader config
+  ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.4.0...@newrade/core-website-api@1.5.0) (2021-11-18)
 
 ### Bug Fixes

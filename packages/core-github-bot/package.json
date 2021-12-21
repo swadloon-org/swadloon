@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-github-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Automation bot for monorepositories",
   "author": "newrade <phil@leger.work>",
   "homepage": "https://github.com/newrade/newrade-core",

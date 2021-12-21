@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.4.0...@newrade/core-react-ui@2.5.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fix bad global import in core-react-ui/global and other fixes in
+  gatsby config
+  ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core:** fixes for fork-ts-checker and ts-loader config
+  ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
+- **core-gatsby-ui:** fix utility import
+  ([41d2fed](https://github.com/newrade/newrade-core/commit/41d2fed1e09cbb8a9dc9495990f15d7fc96fdc11))
+- **core-react-ui:** fix hsl conversion
+  ([bee26e7](https://github.com/newrade/newrade-core/commit/bee26e73b91d9a8aa9416df3fb100064ea4d52d4))
+- **core-react-ui:** refactor theming selection
+  ([92c8d03](https://github.com/newrade/newrade-core/commit/92c8d0330b858702131191539d77282e621c8e4e))
+- **core-ui:** improvements for theming selection and organization
+  ([5a49a03](https://github.com/newrade/newrade-core/commit/5a49a03bdf9d0a5c571906745f4594e400ed09f0))
+- **core-webpack-config:** fix ts-loader config for vanilla files
+  ([9bd0507](https://github.com/newrade/newrade-core/commit/9bd050727a6d1f067850df2391a0561e57ea72b8))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+- **core-react-ui:** add new input and nav items
+  ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
+- **core-react-ui:** rework theming and remove reverse color mode (will use
+  React.Context)
+  ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.3.0...@newrade/core-react-ui@2.4.0) (2021-11-18)
 
 ### Bug Fixes

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-types@2.0.1...@newrade/core-types@2.1.0) (2021-12-21)
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-types@2.0.0...@newrade/core-types@2.0.1) (2021-08-31)
 
 ### Bug Fixes

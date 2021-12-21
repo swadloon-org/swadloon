@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.2...@newrade/core-figma-extractor@1.6.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core:** fixes for fork-ts-checker and ts-loader config
+  ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
+- **core-figma-extractor:** fix test fixtures
+  ([4b9cc3f](https://github.com/newrade/newrade-core/commit/4b9cc3f1c545c178d1592172226c30e23a5d830b))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.2](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.1...@newrade/core-figma-extractor@1.5.2) (2021-11-18)
 
 **Note:** Version bump only for package @newrade/core-figma-extractor

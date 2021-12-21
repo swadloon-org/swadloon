@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.3.1...@newrade/core-utils@2.4.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fix bad global import in core-react-ui/global and other fixes in
+  gatsby config
+  ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.3.0...@newrade/core-utils@2.3.1) (2021-11-18)
 
 ### Bug Fixes

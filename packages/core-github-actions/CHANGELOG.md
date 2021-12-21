@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.4...@newrade/core-github-actions@2.1.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+
+### Features
+
+- **core-react-ui:** add new input and nav items
+  ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.3...@newrade/core-github-actions@2.0.4) (2021-11-18)
 
 ### Bug Fixes
