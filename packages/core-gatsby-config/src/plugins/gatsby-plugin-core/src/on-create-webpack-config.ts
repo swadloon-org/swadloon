@@ -195,8 +195,10 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       }),
     ] as RuleSetRule[];
 
-    const updatedRules = (config.module.rules as RuleSetRule[]).map((rule) => rule.test).join(', ');
-    reporter.info(`[${pluginOptions.pluginName}] updated rules: ${updatedRules}`);
+    reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
+    (config.module.rules as RuleSetRule[]).forEach((rule) => {
+      reporter.info(`[${pluginOptions.pluginName}] rule: ${rule.test}, exclude: ${rule.exclude}`);
+    });
 
     reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
     config.plugins?.push(getForkTsCheckerWebpackPlugin());

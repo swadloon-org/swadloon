@@ -1,6 +1,6 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
 
-import { Animations, Colors, DesignSystem, Effects } from '@newrade/core-design-system';
+import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { CSSSizingV2 } from '../design-system/css-sizing';

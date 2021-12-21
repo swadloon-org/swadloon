@@ -1,4 +1,4 @@
-import { GlobalCssThemeClassnames, GlobalCssTypeName } from '../global/global-theme-classnames';
+import { GlobalCssTypeName } from '../global/global-theme-classnames';
 
 import { CSSDesignSystem } from './css-design-system';
 
