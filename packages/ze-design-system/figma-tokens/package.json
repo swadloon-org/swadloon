@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-ze-design-system-figma-tokens.cjs.js",
+  "module": "dist/newrade-ze-design-system-figma-tokens.esm.js"
+}

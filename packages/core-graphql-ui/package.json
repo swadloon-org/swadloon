@@ -14,8 +14,8 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.3.1",
-    "@newrade/core-webpack-config": "^2.3.0",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
     "fp-ts": "^2",
     "io-ts": "^2",
     "treat": "^2"

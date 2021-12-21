@@ -76,15 +76,15 @@ export function getCSSTypographyV2({
       ...(titlesStyles as TypographyV2<string>['titles']),
     },
     headings: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      font: getCSSFonts(headings.font ? headings.font : fonts.sans), // fallback to sans font
       ...(headingsStyles as TypographyV2<string>['headings']),
     },
     paragraphs: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      font: getCSSFonts(paragraphs.font ? paragraphs.font : fonts.sans), // fallback to sans font
       ...(paragraphsStyles as TypographyV2<string>['paragraphs']),
     },
     labels: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      font: getCSSFonts(labels.font ? labels.font : fonts.sans), // fallback to sans font
       ...(labelsStyles as TypographyV2<string>['labels']),
     },
   };

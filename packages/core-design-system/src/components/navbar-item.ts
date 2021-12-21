@@ -1,3 +1,4 @@
+import { ICON } from '../foundations/iconography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
@@ -45,6 +46,7 @@ export interface NavbarItemStyleProps {
   role: string;
   variant: Variant;
   icon: NavbarItemIcon;
+  Icon: ICON;
   size: NavbarItemSize;
 }
 

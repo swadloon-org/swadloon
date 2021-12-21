@@ -88,8 +88,12 @@ export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
   };
 
   return {
+    colorScheme: colors.colorScheme,
     colors: cssColors,
-    colorIntents: getDefaultCSSVarColorIntents({ colors: cssColors }),
+    colorIntents: getDefaultCSSVarColorIntents({
+      colors: cssColors,
+      isLight: colors.colorScheme === 'light',
+    }),
     gradients: getCSSColorGradients(colors.gradients),
   };
 }
@@ -108,6 +112,7 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
   });
 
   return {
+    colorScheme: colors.colorScheme,
     var: colorVar,
     varNames: colorVarNames,
     colors: {
@@ -239,8 +244,45 @@ export function generateColorGreyPalette({
     '100-reversed': { h: hue, s: 10, l: 0 },
     50: { h: hue, s: 3, l: 93 },
     25: { h: hue, s: 0, l: 97 },
+    e4: { h: hue, s: 3, l: 89 },
+    e3: { h: hue, s: 3, l: 92 },
+    e2: { h: hue, s: 3, l: 95 },
+    e1: { h: hue, s: 3, l: 98 },
+    e0: { h: hue, s: 3, l: 100 },
     '0-reversed': { h: hue, s: 10, l: 100 },
     0: { h: hue, s: 0, l: 100 },
+  };
+}
+
+export function generateColorGreyPaletteDark({
+  hue,
+}: {
+  hue: number;
+}): DS.ColorPalette<undefined, DS.ColorShadesGrey> {
+  return {
+    baseHue: hue,
+    baseSat: 6,
+    1000: { h: hue, s: 0, l: 100 },
+    900: { h: hue, s: 4, l: 93 },
+    800: { h: hue, s: 4, l: 85 },
+    700: { h: hue, s: 5, l: 78 },
+    600: { h: hue, s: 5, l: 63 },
+    500: { h: hue, s: 5, l: 55 },
+    400: { h: hue, s: 6, l: 47 },
+    300: { h: hue, s: 6, l: 33 },
+    200: { h: hue, s: 6, l: 27 },
+    '200-reversed': { h: hue, s: 10, l: 100 },
+    100: { h: hue, s: 6, l: 24 },
+    '100-reversed': { h: hue, s: 10, l: 100 },
+    50: { h: hue, s: 3, l: 20 },
+    25: { h: hue, s: 0, l: 18 },
+    e4: { h: hue, s: 3, l: 26 },
+    e3: { h: hue, s: 3, l: 20 },
+    e2: { h: hue, s: 3, l: 16 },
+    e1: { h: hue, s: 3, l: 13 },
+    e0: { h: hue, s: 3, l: 11 },
+    '0-reversed': { h: hue, s: 10, l: 100 },
+    0: { h: hue, s: 0, l: 7 },
   };
 }
 
@@ -295,6 +337,10 @@ export function getCSSColorIntents(intents: DS.ColorIntents) {
       previous[current] = current;
       return previous;
     }
+    if (current === 'isLight') {
+      previous[current] = previous[current];
+      return previous;
+    }
     previous[current] = getCSSColor(color);
     return previous;
   }, {} as DS.ColorIntents<string>);
@@ -326,7 +372,7 @@ export function getCSSColorVar({
   const sat = s ? (/var/gi.test(s.toString()) ? s : `${s}%`) : '';
   const lum = l ? (/var/gi.test(l.toString()) ? l : `${l}%`) : '';
 
-  return `hsl(${h} ${sat} ${lum} / ${a === undefined ? 100 : a}%)`;
+  return `hsl(${h}, ${sat}, ${lum}, ${a === undefined ? 1 : a})`;
 }
 
 /**
@@ -346,7 +392,9 @@ export function getCSSColor(
     return '';
   }
   const { h, s, l, a } = color;
-  return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
+  const transparency = Number(a);
+  const parsedTransparency = isNaN(transparency) ? 1 : transparency;
+  return `hsl(${h}, ${s}%, ${l}%, ${a === undefined ? 1 : parsedTransparency / 100})`;
 }
 
 /**
@@ -447,12 +495,21 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     background1: colors.grey['25'],
     background2: colors.grey['50'],
     backgroundDisabled: colors.grey['100'],
+
+    isLight: `1`,
+
+    elevation0: colors.grey.e0,
+    elevation1: colors.grey.e1,
+    elevation2: colors.grey.e2,
+    elevation3: colors.grey.e3,
+    elevation4: colors.grey.e4,
   };
 }
 
 export function getDefaultCSSVarColorIntents({
   colors,
-}: Pick<DS.Colors<string>, 'colors'>): DS.ColorIntents<string> {
+  isLight,
+}: Pick<DS.Colors<string>, 'colors'> & { isLight?: boolean }): DS.ColorIntents<string> {
   return {
     accessibilityColor: colors.primary['700'],
     current: colors.current,
@@ -493,6 +550,14 @@ export function getDefaultCSSVarColorIntents({
     background1: colors.grey['25'],
     background2: colors.grey['50'],
     backgroundDisabled: colors.grey['100'],
+
+    isLight: isLight ? `1` : `0`,
+
+    elevation0: colors.grey.e0,
+    elevation1: colors.grey.e1,
+    elevation2: colors.grey.e2,
+    elevation3: colors.grey.e3,
+    elevation4: colors.grey.e4,
   };
 }
 

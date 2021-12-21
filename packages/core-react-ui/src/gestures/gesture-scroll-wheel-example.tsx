@@ -1,8 +1,8 @@
-// @ts-ignore
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useWheel } from 'react-use-gesture';
 
+// @ts-ignore
 import { Lethargy } from 'lethargy';
 
 import { PrimitiveProps } from '../primitive/primitive.props';

@@ -10,8 +10,8 @@ export enum FileType {
 }
 
 export const defaultOutputColorFiles: PathExport = {
-  [FileType.CSS]: 'figma-color.css',
-  [FileType.SCSS]: 'figma-color.scss',
-  [FileType.JSON]: 'figma-color.json',
-  [FileType.TS]: 'figma-color.ts',
+  [FileType.CSS]: 'figma-colors.css',
+  [FileType.SCSS]: 'figma-colors.scss',
+  [FileType.JSON]: 'figma-colors.json',
+  [FileType.TS]: 'figma-colors.ts',
 };

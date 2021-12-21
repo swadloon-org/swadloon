@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING } from '@newrade/core-design-system';
+import { HEADING, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
   Cluster,
@@ -14,10 +14,13 @@ import {
   NavbarSeparatorItem,
   scrollIntoView,
   Theme,
+  useCSSTheme,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
+import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 import { sizingVars } from '@newrade/core-react-ui/theme';
 import {
   BreadcrumbsAPI,
@@ -28,7 +31,7 @@ import {
   SidebarAPI,
 } from '@newrade/core-website-api';
 
-import { BreadcrumbsDocs } from '../breadcrumbs/breadcrumbs-docs';
+import { Breadcrumbs } from '../breadcrumbs/breadcrumbs';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
@@ -39,6 +42,7 @@ import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
 import { NavbarLogoTagItem } from '../navbar-items/navbar-logo-tag-item';
+import { NavbarSelectItem } from '../navbar-items/navbar-select-item';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
@@ -70,7 +74,11 @@ type Props = {
   /**
    * The application's className for its theme
    */
-  themeClassname?: string;
+  themeConfig: CSSThemeProviderConfig;
+  /**
+   * The application's classNames for theme
+   */
+  themeRuntimeConfig?: CSSThemeProviderConfig;
 };
 
 /**
@@ -98,7 +106,12 @@ export type LayoutDocsProps = Partial<
  *  - navbar component with logo, tag, search theme switcher and links on the top right
  *  - sidebar with nested navigation links
  */
-export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
+export const LayoutDocs: React.FC<LayoutDocsProps> = ({
+  treatThemeRef,
+  theme,
+  themeConfig,
+  ...props
+}) => {
   const { cssTheme } = useTreatTheme();
 
   const isSSR = useIsSSR();
@@ -110,8 +123,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    *
    */
 
-  const { treatThemeRef, theme, themeClassname } = props;
-  const injectThemeWrapper = treatThemeRef && theme && themeClassname;
+  const injectThemeWrapper = treatThemeRef && theme && themeConfig;
 
   /**
    *
@@ -120,17 +132,24 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
    */
 
   const currentLang = props.pageContext?.locale || SITE_LANGUAGES.EN;
-  const { t, changeLanguage, getTranslatedObject, getAlternativePageForLocale } = useI18next();
+  const siteLangs = props.pageContext?.siteMetadata?.languages.langs;
+  const { t, changeLanguage, getAlternativePageForLocale, getAlternativeLang } = useI18next();
   const alternatePageForLocale = getAlternativePageForLocale(
     currentLang,
     props.pageContext?.alternateLocales
   );
 
-  function handleChangeLanguage(lang: SITE_LANGUAGES) {
+  function handleChangeLanguage(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value as SITE_LANGUAGES;
+
+    if (!value) {
+      return;
+    }
+
     changeLanguage({
-      language: lang,
+      language: value,
       alternateLocales: props.pageContext?.alternateLocales,
-      fallbackToHomePage: false,
+      fallbackToHomePage: true,
     });
   }
 
@@ -186,38 +205,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
 
   const [navbarPosition, setNavbarPosition] = useState({ top: '', bottom: '' });
 
-  // useEventListener<'scroll'>(
-  //   'scroll',
-  //   (event) => {
-  //     if (isSSR) {
-  //       return;
-  //     }
-  //     const footerElement = footerRef.current;
-  //     if (!footerElement) {
-  //       return;
-  //     }
-  //     const navbarElement = navbarRef.current;
-  //     if (!navbarElement) {
-  //       return;
-  //     }
-  //     const windowHeight = window.document.documentElement.clientHeight;
-  //     const { height: footerHeight, bottom: footerBottom } = footerElement.getBoundingClientRect();
-  //     const { bottom: navbarBottom } = navbarElement.getBoundingClientRect();
-  //     const sidebarBottomPosition = windowHeight - footerBottom + footerHeight;
-  //     const sidebarTopPosition = navbarBottom;
-  //     setNavbarPosition({
-  //       top:
-  //         sidebarBottomPosition > 0
-  //           ? 'auto'
-  //           : `${sidebarTopPosition > 0 ? sidebarTopPosition : 0}px`,
-  //       bottom: `${sidebarBottomPosition > 0 ? sidebarBottomPosition : 0}px`,
-  //     });
-  //   },
-  //   {
-  //     passive: true,
-  //   }
-  // );
-
   /**
    *
    * Layout
@@ -268,12 +255,29 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
           <ThemeWrapper
             treatThemeRef={treatThemeRef}
             theme={theme}
-            themeClassname={themeClassname}
+            themeConfig={themeConfig}
             {...props}
           />
         )
       : undefined,
   };
+
+  /**
+   *
+   * Themes
+   *
+   */
+
+  const currentTheme = useCSSTheme();
+  const currentlySelectedTheme = currentTheme.selected?.name;
+  const currentlySelectedThemeColorScheme = currentTheme.selected?.colorScheme;
+
+  function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
+    const value = event.target.value as string;
+    if (currentTheme.onChangeTheme) {
+      currentTheme.onChangeTheme(value);
+    }
+  }
 
   /**
    *
@@ -324,7 +328,48 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       <Cluster>
         <NavbarLinkItem>Search</NavbarLinkItem>
         <NavbarSeparatorItem />
-        <NavbarLinkItem>{alternatePageForLocale?.locale || 'FR'}</NavbarLinkItem>
+
+        {/**
+         * Theme selector
+         */}
+        {themeConfig.themes ? (
+          <NavbarSelectItem
+            select={{
+              icon: InputIcon.left,
+              Icon: currentlySelectedThemeColorScheme === 'light' ? ICON.SUN : ICON.MOON,
+              value: currentlySelectedTheme || '',
+              onChange: handleChangeTheme,
+              variantSize: InputSize.small,
+            }}
+          >
+            {themeConfig.themes.map((theme) => (
+              <option key={theme.name} value={theme.name}>
+                {theme.name}
+              </option>
+            ))}
+          </NavbarSelectItem>
+        ) : null}
+
+        {/**
+         * Language selector
+         */}
+        <NavbarSelectItem
+          select={{
+            value: getLangSimpleCode(currentLang),
+            onChange: handleChangeLanguage,
+            variantSize: InputSize.small,
+          }}
+        >
+          {siteLangs ? (
+            siteLangs.map((lang) => (
+              <option key={lang} value={getLangSimpleCode(lang)}>
+                {getLangSimpleCode(lang)}
+              </option>
+            ))
+          ) : (
+            <option value={currentLang}>{currentLang}</option>
+          )}
+        </NavbarSelectItem>
       </Cluster>
     ),
   };
@@ -390,7 +435,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         {/*
          * Breadcrumbs
          */}
-        <BreadcrumbsDocs
+        <Breadcrumbs
           breadcrumbs={breadcrumbs}
           className={styles.breadcrumbs}
           style={{ gridArea: 'main-docs-breadcrumbs' }}

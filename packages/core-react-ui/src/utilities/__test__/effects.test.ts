@@ -13,10 +13,10 @@ describe('shadows utilities', () => {
             h: 222,
             s: 90,
             l: 90,
-            a: 0.7,
+            a: 70,
           },
         })
-      ).toBe('0px 0px 1px 0px hsl(222deg 90% 90% / 0.7%)');
+      ).toBe('0px 0px 1px 0px hsl(222, 90%, 90%, 0.7)');
     });
     it('should create a valid CSS text-shadow property', () => {
       expect(
@@ -28,10 +28,10 @@ describe('shadows utilities', () => {
             h: 222,
             s: 90,
             l: 90,
-            a: 0.7,
+            a: 70,
           },
         })
-      ).toBe('0px 0px 1px hsl(222deg 90% 90% / 0.7%)');
+      ).toBe('0px 0px 1px hsl(222, 90%, 90%, 0.7)');
     });
   });
 });

@@ -1,14 +1,14 @@
 import { DesignSystem } from '@newrade/core-design-system';
-import { CSSDesignSystem } from '@newrade/core-react-ui';
+import { CSSDesignSystem, CSSDesignSystemV2 } from '@newrade/core-react-ui';
 import {
   defaultAnimations,
   defaultButtons,
   defaultIconography,
   defaultSizing,
 } from '@newrade/core-react-ui/default-theme';
-import { createCSSTheme } from '@newrade/core-react-ui/utilities';
+import { createCSSTheme, createCSSThemeV2 } from '@newrade/core-react-ui/utilities';
 
-import { colors } from './colors';
+import { colors, colorsDark } from './colors';
 import { effects } from './effects';
 import { layout } from './layout';
 import { typography } from './typography';
@@ -18,9 +18,9 @@ import { typography } from './typography';
  * They must be imported only in .treat.ts or .css.ts files
  */
 
-export const theme: DesignSystem = {
-  name: 'ZE DS',
-  variation: 'light',
+export const lightTheme: DesignSystem = {
+  name: 'ze-light',
+  colorScheme: 'light',
   colors,
   effects,
   sizing: defaultSizing,
@@ -32,4 +32,24 @@ export const theme: DesignSystem = {
     buttons: defaultButtons,
   },
 };
-export const cssTheme: CSSDesignSystem = createCSSTheme(theme);
+
+export const lightCssTheme: CSSDesignSystem = createCSSTheme(lightTheme);
+export const lightCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(lightTheme);
+
+export const darkTheme: DesignSystem = {
+  name: 'ze-dark',
+  colorScheme: 'dark',
+  colors: colorsDark,
+  effects,
+  sizing: defaultSizing,
+  iconography: defaultIconography,
+  typography,
+  layout,
+  animations: defaultAnimations,
+  components: {
+    buttons: defaultButtons,
+  },
+};
+
+export const darkCssTheme: CSSDesignSystem = createCSSTheme(darkTheme);
+export const darkCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(darkTheme);

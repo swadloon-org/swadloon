@@ -17,7 +17,6 @@ export const wrapper = style((theme: Theme) => ({
  */
 globalStyle(`*`, {
   boxSizing: 'border-box',
-  transition: `color, background-color 200ms`,
 });
 
 /**
@@ -45,8 +44,6 @@ globalStyle(`html`, {
   // ensure fast clicks on ios safari 9, 10
   // disable browser handling zooming gestures https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
   touchAction: 'pan-x pan-y',
-  // smooth background transition
-  transition: 'background-color 0.2s ease-out',
   // user select
   userSelect: 'none',
 });
@@ -58,40 +55,6 @@ globalStyle(`body`, {
   margin: 0,
   // prevent long string to break the layout
   wordBreak: 'break-word',
-});
-
-/**
- * Scrollbars
- *
- * @see https://css-tricks.com/almanac/properties/s/scrollbar/
- *
- * ::-webkit-scrollbar addresses the background of the bar itself. It is usually covered by the other elements
- * ::-webkit-scrollbar-button addresses the directional buttons on the scrollbar
- * ::-webkit-scrollbar-track addresses the empty space “below” the progress bar
- * ::-webkit-scrollbar-track-piece is the top-most layer of the the progress bar not covered by the draggable scrolling element (thumb)
- * ::-webkit-scrollbar-thumb addresses the draggable scrolling element that resizes depending on the size of the scrollable element
- * ::-webkit-scrollbar-corner addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet
- * ::-webkit-resizer addresses the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements
- */
-
-// TODO move to themed file (handle dark / light)
-
-globalStyle(`::-webkit-scrollbar`, {
-  width: '12px',
-  backgroundColor: '#F5F5F5',
-});
-
-globalStyle(`::-webkit-scrollbar-track`, {
-  WebkitBoxShadow: 'none',
-  borderRadius: '10px',
-  backgroundColor: '#F5F5F5',
-});
-
-globalStyle(`::-webkit-scrollbar-thumb`, {
-  borderRadius: '10px',
-  WebkitBoxShadow: 'none',
-  backgroundColor: '#b5b5b5',
-  border: '2px solid #F5F5F5',
 });
 
 /**

@@ -5,12 +5,12 @@ import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-w
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
 import { useI18next } from '../i18next/use-i18next.hook';
+import { GatsbyPageNode } from '../utilities/gatsby-page-node';
 import {
   getNavigationAPIFromPageNodes,
   GetNavigationAPIOptions,
   getPathParts,
 } from '../utilities/navigation-api.utilities';
-import { GatsbyPageNode } from '..';
 
 type NavigationQuery = PartialOrNull<{
   pages: {

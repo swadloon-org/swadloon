@@ -11,7 +11,7 @@ export const wrapper = style({
 export const header = style({
   display: 'grid',
   gap: sizingVars.var.x2,
-  gridTemplateColumns: `repeat(auto-fit, 170px)`,
+  gridTemplateColumns: `repeat(4, min-content)`,
   padding: `${sizingVars.sizes.desktop.x2}`,
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
 });

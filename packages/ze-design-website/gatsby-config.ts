@@ -57,12 +57,6 @@ const config: conf.GastbySiteConfig = {
      */
     /** template */
     core.getGatsbyPluginReactHelmet(),
-    /** js/ts/react */
-    ...core.getGatsbyPluginTypeScriptConfig(),
-    ...core.getGastbyCorePluginConfig({
-      packageName: packageJson.name,
-    }),
-    core.getGastbyPluginTsCacheConfig(),
     /** svg */
     core.getGatsbyReactSvgrSvgoConfig(),
     /** gatsby plugin image */
@@ -71,6 +65,7 @@ const config: conf.GastbySiteConfig = {
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
+    core.getGastbyPluginCssThemeConfig(),
     /** mdx */
     core.getGatsbyPluginCatchLinks(),
     ...core.getGatsbyPluginMdx(),
@@ -89,6 +84,12 @@ const config: conf.GastbySiteConfig = {
     /** cdn / deploy */
     /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
+    /** js/ts/react */
+    ...core.getGatsbyPluginTypeScriptConfig(),
+    ...core.getGastbyCorePluginConfig({
+      packageName: packageJson.name,
+    }),
+    core.getGastbyPluginTsCacheConfig(),
     /** cms */
   ],
 };

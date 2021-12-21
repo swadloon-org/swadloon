@@ -18,7 +18,10 @@ import * as stylesRef from './link.treat';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<
+    LinkProps,
+    'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel' | 'variantStyle'
+  > & {
     as?: 'div' | 'a';
     Icon?: React.ReactNode;
   };
@@ -37,6 +40,7 @@ export const Link: React.FC<Props> = React.memo(
     Icon,
     variantSize,
     variantLevel,
+    variantStyle,
     as,
     AsElement,
     children,

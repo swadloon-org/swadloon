@@ -19,9 +19,9 @@ import {
 } from '@newrade/core-website-api';
 
 import { LinkRenderer } from '../links/link-renderer';
-import { BlockGoogleMapLazy } from '..';
 
 import { BlockRendererProps } from './block.props';
+import { BlockGoogleMapLazy } from './block-google-map.lazy';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';

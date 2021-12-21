@@ -1,5 +1,4 @@
 import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 // @ts-ignore
 import postcssCustomMedia from 'postcss-custom-media';
 // @ts-ignore
@@ -9,18 +8,23 @@ import { RuleSetUseItem } from 'webpack';
 
 import { BROWSERLIST_MODERN } from '../other/browserlist-modern';
 
-import { cssNanoConfig } from './css-nano.config';
+//
+// cssnano should not be used inside postcss loader see https://github.com/cssnano/cssnano/issues/659
+//
+// import cssnano from 'cssnano';
+// import { cssNanoConfig } from './css-nano.config';
 
 export const postCssLoaderOptions = {
   sourceMap: true,
   ident: 'postcss',
   plugins: [
-    // https://github.com/WolfgangKluge/postcss-media-variables
+    autoprefixer({ grid: true }),
+    /**
+     * @see https://github.com/WolfgangKluge/postcss-media-variables
+     */
     postcssMediaVariables(),
     postcssCustomMedia(),
     postcssMediaVariables(),
-    autoprefixer({ grid: true }),
-    cssnano(cssNanoConfig),
     postcssPresetEnv({ browsers: BROWSERLIST_MODERN }),
   ],
 };

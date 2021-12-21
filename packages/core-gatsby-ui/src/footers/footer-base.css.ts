@@ -1,0 +1,38 @@
+import { style } from '@vanilla-extract/css';
+
+import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
+
+export const wrapper = style({
+  width: '100%',
+  padding: `${sizingVars.var.x5} 0`,
+});
+
+/**
+ *
+ * Variants
+ *
+ */
+
+export const primary = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});
+
+export const secondary = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});
+
+export const tertiary = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});
+
+export const primaryReversed = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});
+
+export const secondaryReversed = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});
+
+export const tertiaryReversed = style({
+  backgroundColor: colorVars.colorIntents.elevation1,
+});

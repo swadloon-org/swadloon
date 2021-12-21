@@ -12,3 +12,9 @@ export enum Variant {
   tertiary = 'tertiary',
   tertiaryReversed = 'tertiaryReversed',
 }
+
+export enum Level {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+}

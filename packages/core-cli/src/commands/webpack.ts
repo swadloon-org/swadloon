@@ -26,7 +26,7 @@ export default class Webpack extends Command {
 
     const { args, flags } = this.parse(Webpack);
 
-    const command = `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack ${
+    const command = `TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack ${
       args.command || ''
     } --config ${flags.config}`;
 

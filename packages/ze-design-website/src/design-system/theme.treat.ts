@@ -1,13 +1,13 @@
 import { createTheme } from 'treat';
 
-import { cssTheme, theme } from '@newrade/ze-design-system/src/design-system/theme';
+import { lightCssTheme, lightTheme } from '@newrade/ze-design-system/src/design-system/theme';
 
 /**
  * Export theme object so they are compiled by treat
  */
-export { cssTheme, theme };
+export { lightCssTheme as cssTheme, lightTheme as theme };
 
 /**
  * Treat theme reference
  */
-export const light = createTheme({ theme, cssTheme });
+export const light = createTheme({ theme: lightTheme, cssTheme: lightCssTheme });

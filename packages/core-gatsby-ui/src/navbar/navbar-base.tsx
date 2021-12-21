@@ -1,12 +1,12 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
-import { globalThemeReversed } from '@newrade/core-react-ui/global';
+import { Center, Primitive, useThemeElevationBG } from '@newrade/core-react-ui';
+import { layoutVars } from '@newrade/core-react-ui/theme';
 
 import { NavbarProps } from './navbar.props';
-import * as styleRefs from './navbar-base.treat';
+
+import * as styles from './navbar-base.css';
 
 type Props = NavbarProps & {
   contentClassName?: string;
@@ -21,6 +21,7 @@ const defaultProps: NavbarProps = {
 export const NavbarBase = React.forwardRef<HTMLElement, Props>(
   (
     {
+      style,
       contentClassName,
       navbar = defaultProps.navbar,
       navbarMode = 'fixed',
@@ -33,61 +34,25 @@ export const NavbarBase = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const variant = navbar?.variant;
+    const variant = navbar?.variant || Variant.primary;
     /**
      * Styling
      */
-    const { cssTheme } = useTreatTheme();
-    const styles = useStyles(styleRefs);
-    const variantClass = styles[getVariantClass(variant)];
-    const isReversed = colorMode === 'reversed';
+    // const variantClass = styles[variant];
 
-    function getVariantClass(variant: Variant | null | undefined) {
-      const isReversed = colorMode === 'reversed';
-
-      switch (variant) {
-        default:
-        case Variant.primary: {
-          if (isReversed) {
-            return Variant.primaryReversed;
-          }
-          return Variant.primary;
-        }
-        case Variant.secondary: {
-          if (isReversed) {
-            return Variant.secondaryReversed;
-          }
-          return Variant.secondary;
-        }
-        case Variant.tertiary: {
-          if (isReversed) {
-            return Variant.tertiaryReversed;
-          }
-          return Variant.tertiary;
-        }
-        case Variant.primaryReversed:
-        case Variant.secondaryReversed:
-        case Variant.tertiaryReversed: {
-          return variant;
-        }
-      }
-    }
+    const elevationBG = useThemeElevationBG({ level: 2 });
 
     return (
       <Primitive
         ref={ref}
+        style={{ ...style, backgroundColor: elevationBG }}
         variant={variant}
-        classNames={[
-          styles.wrapper,
-          styles[navbarMode],
-          variantClass,
-          isReversed ? globalThemeReversed : '',
-        ]}
+        classNames={[styles.wrapper, styles[navbarMode]]}
         AsElement={
           <Center
             as={'nav'}
             contentClassName={contentClassName}
-            maxWidth={maxWidth || cssTheme.layout.var.contentWidth.desktopMaxWidth}
+            maxWidth={maxWidth || layoutVars.var.contentWidth.desktopMaxWidth}
           >
             {children}
           </Center>

@@ -7,6 +7,9 @@ export function getGatsbyPluginPostCSS(options?: any) {
   return {
     resolve: `gatsby-plugin-postcss`,
     options: {
+      cssLoaderOptions: {
+        module: true,
+      },
       postCssPlugins: postCssLoaderOptions.plugins,
     },
   };

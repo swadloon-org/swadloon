@@ -64,6 +64,11 @@ export enum ICON {
   LAYOUT_CENTER = 'LAYOUT_CENTER',
   LAYOUT_WIDE = 'LAYOUT_WIDE',
   /**
+   * Nature
+   */
+  SUN = 'SUN',
+  MOON = 'MOON',
+  /**
    * Actions
    */
   OPEN = 'OPEN',

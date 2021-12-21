@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { CSSProperties, HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 
 import { kebab } from 'case';
@@ -10,9 +10,10 @@ import { getCSSBoxShadow } from '@newrade/core-react-ui/utilities';
 import * as stylesRef from './shadow-swatch.treat';
 
 type OwnProps = HTMLAttributes<any> & {
-  shadow: BoxShadow;
+  shadow: BoxShadow | string;
+  shadowStyle?: CSSProperties | undefined;
   name: string;
-  size: number;
+  size: number | string;
 };
 
 export const ShadowSwatch: React.FC<OwnProps> = ({
@@ -20,6 +21,7 @@ export const ShadowSwatch: React.FC<OwnProps> = ({
   style,
   className,
   shadow,
+  shadowStyle,
   name,
   size,
   ...props
@@ -28,14 +30,16 @@ export const ShadowSwatch: React.FC<OwnProps> = ({
   const { cssTheme, theme } = useTreatTheme();
 
   const shadowObject = typeof shadow === 'object' ? (shadow as BoxShadow) : null;
-  const cssShadowString = shadowObject ? getCSSBoxShadow(shadowObject) : '';
+  const cssShadowString = shadowObject ? getCSSBoxShadow(shadowObject) : shadow;
 
   return (
     <Stack id={id} style={style} gap={[cssTheme.sizing.var.x3]} {...props}>
       <div
         className={styles.shadow}
-        style={{ width: size, height: size, boxShadow: `${cssShadowString}` }}
-      ></div>
+        style={{ width: size, height: size, boxShadow: `${cssShadowString}`, ...shadowStyle }}
+      >
+        {props.children}
+      </div>
 
       <Label variantLevel={Variant.secondary}>{`${kebab(name)}`}</Label>
     </Stack>

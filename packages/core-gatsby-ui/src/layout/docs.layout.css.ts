@@ -17,6 +17,6 @@ export const mainWrapper = style({
   backgroundColor: colorVars.colors.grey[0],
 });
 
-globalStyle(`html, ${global}`, {
-  background: colorVars.colors.grey[1000],
+globalStyle(`:root, ${global}`, {
+  background: colorVars.colorIntents.elevation0,
 });

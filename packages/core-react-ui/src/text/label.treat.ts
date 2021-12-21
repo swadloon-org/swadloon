@@ -2,6 +2,7 @@ import { globalStyle, style } from 'treat';
 
 import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
+import { colorVars } from '../theme';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 /**
@@ -81,7 +82,7 @@ export const italicBold = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const primary = style(({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colorIntents.primaryText,
+  color: colorVars.colorIntents.primaryText,
 }));
 export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
 globalStyle(

@@ -14,7 +14,7 @@ import { defaultTypography } from './default-typography';
 
 export const defaultTheme: DesignSystem = {
   name: 'core-react-ui',
-  variation: 'light',
+  colorScheme: 'light',
   colors: defaultColors,
   effects: defaultEffects,
   sizing: defaultSizing,

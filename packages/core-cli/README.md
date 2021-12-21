@@ -27,7 +27,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.14.1 darwin-arm64 node-v16.11.1
+@newrade/core-cli/1.14.1 darwin-arm64 node-v16.13.1
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -40,6 +40,7 @@ USAGE
 <!-- commands -->
 * [`nr commit`](#nr-commit)
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
+* [`nr css-extract`](#nr-css-extract)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
 * [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
@@ -92,6 +93,20 @@ EXAMPLE
 
 _See code: [lib/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.14.1/lib/commands/contentful-migrate.js)_
 
+## `nr css-extract`
+
+Create CSS tokens from Vanilla-extract styles definition files (*.css.ts)
+
+```
+USAGE
+  $ nr css-extract
+
+EXAMPLE
+  $ nr css-extract
+```
+
+_See code: [lib/commands/css-extract.js](https://github.com/newrade/newrade-core/blob/v1.14.1/lib/commands/css-extract.js)_
+
 ## `nr depcheck [ARGS]`
 
 Shortcut to run depcheck
@@ -138,6 +153,7 @@ USAGE
 OPTIONS
   -H, --host=host  gatsby host option
   -p, --port=port  gatsby port option
+  --inspect        gatsby inspect command
   --no-uglify      gatsby --no-uglify flag
   --verbose        gatsby verbose command
 

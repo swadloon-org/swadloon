@@ -1,8 +1,6 @@
-import { CapsizeTextStyleV2 } from '..';
-
 import { Font } from './font';
 import { VIEWPORT } from './layout';
-import { CapsizeTextStyle, TextStyle } from './text';
+import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from './text';
 
 /**
  * The main typographic styles.

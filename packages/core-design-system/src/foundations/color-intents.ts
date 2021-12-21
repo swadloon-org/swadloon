@@ -9,6 +9,19 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    */
   accessibilityColor: ColorType<Override>;
 
+  /**
+   *
+   * Color scheme
+   *
+   */
+  isLight: `1` | `0`;
+
+  /**
+   *
+   * Other useful colors
+   *
+   */
+
   current: string;
   transparent: ColorType<Override>;
 
@@ -85,9 +98,9 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    *
    */
 
-  // elevation0: ColorType<Override>;
-  // elevation1: ColorType<Override>;
-  // elevation2: ColorType<Override>;
-  // elevation3: ColorType<Override>;
-  // elevation4: ColorType<Override>;
+  elevation0: ColorType<Override>;
+  elevation1: ColorType<Override>;
+  elevation2: ColorType<Override>;
+  elevation3: ColorType<Override>;
+  elevation4: ColorType<Override>;
 };

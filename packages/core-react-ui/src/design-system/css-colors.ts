@@ -24,3 +24,5 @@ export type CSSColors = Colors<string> & {
    */
   var: CSSColorsVars;
 };
+
+export type CSSColorsV2 = Colors<string>;

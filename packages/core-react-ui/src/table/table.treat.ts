@@ -8,7 +8,7 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const table = style(({ theme, cssTheme }: Theme) => ({
-  width: 'auto',
+  width: '100%',
   borderWidth: '0px',
   borderStyle: 'solid',
   borderCollapse: 'separate',

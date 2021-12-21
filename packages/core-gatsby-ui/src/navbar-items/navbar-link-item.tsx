@@ -1,7 +1,13 @@
 import React, { useRef } from 'react';
 
 import { ICON, LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
-import { IconComp, Label, Primitive, usePreventPinchZoom } from '@newrade/core-react-ui';
+import {
+  IconComp,
+  Label,
+  Primitive,
+  usePreventPinchZoom,
+  useThemeElevationBG,
+} from '@newrade/core-react-ui';
 
 import { NavbarLinkProps } from './navbar-item.props';
 
@@ -19,9 +25,19 @@ type Props = NavbarLinkProps & {
 };
 
 /**
+ * Component that render a navigation item
+ *
+ * It supports a few variants:
+ *  - simple link
+ *  - external link
+ *  - menu link with icon
+ *  - link with svg icon or component
+ *  - link with a custom children
+ *
  * @see https://zedesignsystem.com/design-system/components/navbars-items/
  */
 export const NavbarLinkItem: React.FC<Props> = ({
+  style,
   as = 'a',
   AsElement,
   variant,
@@ -31,6 +47,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
   collapsePadding,
   icon,
   SVGLogo,
+  Icon,
   CustomChildren,
   ...props
 }) => {
@@ -42,6 +59,8 @@ export const NavbarLinkItem: React.FC<Props> = ({
    *
    */
 
+  const linkSelectedBackground = useThemeElevationBG({ level: 3, greyLevel: 1 });
+  const linkBackground = useThemeElevationBG({ level: 2 });
   const linkIsExternal = props.href && /https?:\/\//.test(props.href);
   const classNames = [
     styles.base,
@@ -85,7 +104,7 @@ export const NavbarLinkItem: React.FC<Props> = ({
     <Primitive<'a', HTMLAnchorElement>
       ref={ref}
       as={as}
-      style={{}}
+      style={{ ...style, backgroundColor: active ? linkSelectedBackground : linkBackground }}
       AsElement={AsElement}
       classNames={classNames}
       target={linkIsExternal ? '_blank' : undefined}
@@ -94,17 +113,29 @@ export const NavbarLinkItem: React.FC<Props> = ({
       variant={variant}
       {...props}
     >
+      {/*
+       * Default label
+       */}
       {RenderedLogo || CustomChildren ? null : (
         <Label style={{ color: 'inherit' }} variant={labelSize}>
           {children}
         </Label>
       )}
 
+      {/*
+       * Custom children
+       */}
       {RenderedCustomChildren}
 
+      {/*
+       * SVG Logo
+       */}
       {RenderedLogo}
 
-      {icon ? <IconComp name={ICON.OPEN} className={styles.icon} /> : null}
+      {/*
+       * Icon
+       */}
+      {icon ? <IconComp name={Icon || ICON.OPEN} className={styles.icon} /> : null}
     </Primitive>
   );
 };

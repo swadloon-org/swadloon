@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 
 import { VIEWPORT } from '@newrade/core-design-system';
 
+import { useIsSSR } from '../hooks/use-is-ssr';
 import { getMergedClassname } from '../utilities';
-import { useIsSSR } from '..';
 
 import * as styles from './iframe.css';
 
@@ -33,12 +33,10 @@ const IFrameFn: React.FC<Props> = React.memo(
      * Inject custom styles into mount node
      */
     if (iframeDocumentElement) {
-      iframeDocumentElement.style.backgroundColor = 'white';
       iframeDocumentElement.style.height = 'min-content';
       iframeDocumentElement.style.overflowY = 'auto';
     }
     if (iframeBody) {
-      iframeBody.style.backgroundColor = 'white';
       iframeBody.style.height = 'min-content';
       iframeBody.style.width = bodyWidth || '';
     }

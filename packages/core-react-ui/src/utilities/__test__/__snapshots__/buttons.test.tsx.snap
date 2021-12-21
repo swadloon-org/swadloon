@@ -12,7 +12,7 @@ Object {
           "width": undefined,
         },
         "default": Object {
-          "color": "hsl(222deg 50% 50% / 100%)",
+          "color": "hsl(222, 50%, 50%, 1)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
@@ -50,7 +50,7 @@ Object {
           "width": undefined,
         },
         "default": Object {
-          "color": "hsl(222deg 50% 50% / 100%)",
+          "color": "hsl(222, 50%, 50%, 1)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
@@ -88,7 +88,7 @@ Object {
           "width": undefined,
         },
         "default": Object {
-          "color": "hsl(222deg 50% 50% / 100%)",
+          "color": "hsl(222, 50%, 50%, 1)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
@@ -126,7 +126,7 @@ Object {
           "width": undefined,
         },
         "default": Object {
-          "color": "hsl(222deg 50% 50% / 100%)",
+          "color": "hsl(222, 50%, 50%, 1)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
@@ -462,22 +462,22 @@ Object {
   },
   "variants": Object {
     "primary": Object {
-      "backgroundColor": "hsl(222deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(222, 6%, 7%, 1)",
     },
     "primaryReversed": Object {
-      "backgroundColor": "hsl(222deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(222, 10%, 100%, 1)",
     },
     "secondary": Object {
-      "backgroundColor": "hsl(222deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(222, 6%, 7%, 1)",
     },
     "secondaryReversed": Object {
-      "backgroundColor": "hsl(222deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(222, 10%, 100%, 1)",
     },
     "tertiary": Object {
-      "backgroundColor": "hsl(222deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(222, 6%, 7%, 1)",
     },
     "tertiaryReversed": Object {
-      "backgroundColor": "hsl(222deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(222, 10%, 100%, 1)",
     },
   },
 }

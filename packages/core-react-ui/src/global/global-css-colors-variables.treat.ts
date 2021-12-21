@@ -40,6 +40,12 @@ globalStyle(`:root, ${wrapper}`, ({ theme, cssTheme }: Theme) => {
     [colors.varNames.colorIntents.background1]: colors.colorIntents.background1,
     [colors.varNames.colorIntents.background2]: colors.colorIntents.background2,
     [colors.varNames.colorIntents.backgroundDisabled]: colors.colorIntents.backgroundDisabled,
+    [colors.varNames.colorIntents.isLight]: colors.colorIntents.isLight,
+    [colors.varNames.colorIntents.elevation0]: colors.colorIntents.elevation0,
+    [colors.varNames.colorIntents.elevation1]: colors.colorIntents.elevation1,
+    [colors.varNames.colorIntents.elevation2]: colors.colorIntents.elevation2,
+    [colors.varNames.colorIntents.elevation3]: colors.colorIntents.elevation3,
+    [colors.varNames.colorIntents.elevation4]: colors.colorIntents.elevation4,
 
     /**
      * Color variables

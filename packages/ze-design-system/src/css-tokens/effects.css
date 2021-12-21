@@ -1,0 +1,12 @@
+:root{
+  --boxShadows-light:0px 1px 4px 0px hsl(0, 0%, 0%, 10);
+  --boxShadows-medium:0px 2px 8px 0px hsl(0, 0%, 0%, 10);
+  --boxShadows-heavy:0px 8px 32px 0px hsl(0, 0%, 0%, 13);
+  --innerBoxShadows-light:0px 1px 4px 0px hsl(0, 0%, 0%, 10);
+  --innerBoxShadows-medium:0px 2px 8px 0px hsl(0, 0%, 0%, 10);
+  --innerBoxShadows-heavy:0px 8px 32px 0px hsl(0, 0%, 0%, 13);
+  --textShadows-light:0px 2px 17px hsl(0, 0%, 0%, 10);
+  --textShadows-medium:0px 2px 17px hsl(0, 0%, 0%, 10);
+  --textShadows-heavy:0px 2px 17px hsl(0, 0%, 0%, 10);
+  --outlineShadows-focus:inset 0px 0px 1px 0px hsl(222, 50%, 32%, 1), inset 0px 0px 1px 0px hsl(222, 50%, 32%, 1);
+}

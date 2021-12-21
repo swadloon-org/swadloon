@@ -211,6 +211,10 @@
       "path": "../packages/core-jest-config"
     },
     {
+      "name": "core-css-extractor",
+      "path": "../packages/core-css-extractor"
+    },
+    {
       "name": "core-react-ui",
       "path": "../packages/core-react-ui"
     },

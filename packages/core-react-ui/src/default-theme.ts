@@ -1,6 +1,7 @@
 export * from './default-theme/default-animations';
 export * from './default-theme/default-buttons';
 export * from './default-theme/default-colors';
+export * from './default-theme/default-colors-dark';
 export * from './default-theme/default-effects';
 export * from './default-theme/default-fonts';
 export * from './default-theme/default-iconography';

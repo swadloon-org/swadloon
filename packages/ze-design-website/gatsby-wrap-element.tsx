@@ -21,6 +21,7 @@ import {
   SidebarAPI,
   SidebarLayout,
 } from '@newrade/core-website-api';
+import { cssThemeConfig } from '@newrade/ze-design-system/css';
 
 import { companyInfo } from './src/data/company-info';
 import { cssTheme, light, theme } from './src/design-system/theme.treat';
@@ -28,8 +29,6 @@ import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
 import { ProvidersDocs } from './src/providers/providers-docs';
 import { ProvidersSite } from './src/providers/providers-site';
-
-import { customButtonsTheme } from './src/design-system/theme.css';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 
@@ -137,7 +136,7 @@ const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, prop
             navbar={navbar}
             sidebar={sidebarDocs}
             footer={footer}
-            themeClassname={customButtonsTheme}
+            themeConfig={cssThemeConfig}
             treatThemeRef={light}
             theme={{ theme, cssTheme }}
           >
@@ -150,7 +149,13 @@ const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, prop
     default: {
       return (
         <ProvidersSite>
-          <Layout {...pageProps} companyInfo={companyInfo} navbar={navbar} footer={footer}>
+          <Layout
+            {...pageProps}
+            companyInfo={companyInfo}
+            navbar={navbar}
+            footer={footer}
+            themeConfig={cssThemeConfig}
+          >
             {element}
           </Layout>
         </ProvidersSite>

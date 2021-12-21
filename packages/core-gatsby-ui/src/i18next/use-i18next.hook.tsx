@@ -7,7 +7,7 @@ import { title } from 'case';
 
 import { SITE_LANGUAGE_SHORT, SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyPageAlternateLocale } from '@newrade/core-gatsb-config/config';
-import { getLangSimpleCode } from '@newrade/core-react-ui';
+import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 import { keys } from '@newrade/core-react-ui/utilities';
 
 import { I18nextContext, LANGUAGE_KEY } from './i18next-context';
@@ -92,7 +92,7 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
       : `${getLanguagePath(language)}/`; // fallback to home page in the other language
     localStorage.setItem(LANGUAGE_KEY, language);
 
-    i18n.changeLanguage(language);
+    // i18n.changeLanguage(language);
 
     return gatsbyNavigate(path, options);
   };

@@ -1,7 +1,7 @@
 import { PartialOrNull } from '../utilities';
-import { TagAPI } from '..';
 
 import { LinkAPI } from './link.api';
+import { TagAPI } from './tag.api';
 
 export enum NavComponent {
   /**

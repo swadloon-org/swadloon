@@ -3,6 +3,11 @@ import { Color } from './color';
 export type ColorShadesGrey =
   | '0'
   | '0-reversed'
+  | 'e0' // elevation 0
+  | 'e1' // elevation 1
+  | 'e2' // elevation 2
+  | 'e3' // elevation 3
+  | 'e4' // elevation 4
   | '25'
   | '50'
   | '100'

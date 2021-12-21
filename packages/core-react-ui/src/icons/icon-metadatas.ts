@@ -266,6 +266,17 @@ export const iconMetadatas: IconMetadata<ICON> = {
     tags: ['layout', 'wide', 'full width'],
   },
   /**
+   * Nature
+   */
+  [ICON.SUN]: {
+    description: 'Sun',
+    tags: ['nature', 'light'],
+  },
+  [ICON.MOON]: {
+    description: 'Moon',
+    tags: ['nature', 'night'],
+  },
+  /**
    * Logos
    */
   [ICON.LOGO_TWITTER]: {

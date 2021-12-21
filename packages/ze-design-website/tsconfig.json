@@ -2,10 +2,7 @@
   "extends": "../../tsconfig.browser-gatsby.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "lib"
+    "outDir": "dist"
   },
-  "include": ["gatsby-*.ts", "src", "test", "types", "scripts/**/*"],
-  "ts-node": {
-    "transpileOnly": true
-  }
+  "include": ["gatsby-*.ts", "src", "test", "types", "scripts/**/*"]
 }

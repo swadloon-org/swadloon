@@ -11,6 +11,7 @@ export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions
 };
 
 /**
+ * @see https://vanilla-extract.style/documentation/setup/
  * @see https://github.com/KyleAMathews/gatsby-plugin-vanilla-extract
  */
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({

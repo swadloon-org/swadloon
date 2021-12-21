@@ -1,25 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export const usePreferColorScheme = () => {
-  const [colorScheme, setColorScheme] = React.useState<'light' | 'dark'>(
-    getThemeForActiveScheme(query().matches)
-  );
+import { useIsSSR } from './use-is-ssr';
 
-  React.useEffect(() => {
-    const q = query();
-    const handleChangeColorScheme = (event: MediaQueryListEvent) => {
-      setColorScheme(getThemeForActiveScheme(event.matches));
-    };
+export function usePreferColorScheme() {
+  const isSSR = useIsSSR();
+  const [colorScheme, setColorScheme] = React.useState<'light' | 'dark' | undefined>(undefined);
 
-    if (typeof window === 'undefined') {
+  useEffect(() => {
+    if (isSSR) {
+      return;
+    }
+    const updatedColorScheme = getThemeForActiveScheme(query().matches);
+    if (colorScheme !== updatedColorScheme) {
+      setColorScheme(updatedColorScheme);
+    }
+  }, [isSSR]);
+
+  useEffect(() => {
+    if (isSSR) {
       return;
     }
 
-    q.addEventListener('change', handleChangeColorScheme);
-    return () => {
-      q.removeEventListener('change', handleChangeColorScheme);
+    const mediaQuery = query();
+    const handleChangeColorScheme = (event: MediaQueryListEvent) => {
+      const updatedColorScheme = getThemeForActiveScheme(event.matches);
+      if (colorScheme !== updatedColorScheme) {
+        setColorScheme(updatedColorScheme);
+      }
     };
-  }, []);
+
+    mediaQuery.addEventListener('change', handleChangeColorScheme);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChangeColorScheme);
+    };
+  }, [isSSR]);
 
   return {
     colorScheme,
@@ -32,4 +46,4 @@ export const usePreferColorScheme = () => {
   function getThemeForActiveScheme(matches: boolean) {
     return matches ? 'dark' : 'light';
   }
-};
+}

@@ -55,8 +55,8 @@ export const base = style([
 
     borderBottom: `2px solid transparent`,
 
-    transitionProperty: `border-bottom-color, color, box-shadow`,
-    transitionDuration: '200ms',
+    transitionProperty: `background-color, border-bottom-color, color, box-shadow`,
+    transitionDuration: '350ms',
     transitionTimingFunction: 'ease-out',
 
     selectors: {
@@ -173,6 +173,10 @@ export const icon = style({
 export const logo = style({
   height: `calc(0.45 * ${layoutVars.var.navbarHeight})`,
   maxHeight: 50,
+});
+
+globalStyle(`${logo} path`, {
+  fill: colorVars.colors.grey[1000],
 });
 
 export const logoWrapper = style({

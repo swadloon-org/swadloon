@@ -49,6 +49,7 @@ import {
   IoLogoYoutube,
   IoMailOutline,
   IoMenuOutline,
+  IoMoonOutline,
   IoOpenOutline,
   IoPersonCircleOutline,
   IoPrintOutline,
@@ -57,6 +58,7 @@ import {
   IoRemoveCircleOutline,
   IoRemoveOutline,
   IoSearchOutline,
+  IoSunnyOutline,
 } from 'react-icons/io5';
 
 import { ICON } from '@newrade/core-design-system';
@@ -72,6 +74,9 @@ export const ioniconsOutlineConfig: IconConfig = {
 };
 
 export const ionicons5OutlineComponents: IconComponents<ICON> = {
+  /**
+   * Arrows
+   */
   [ICON.ARROW_UP]: IoArrowUpOutline,
   [ICON.ARROW_DOWN]: IoArrowDownOutline,
   [ICON.ARROW_LEFT]: IoArrowBackOutline,
@@ -84,6 +89,9 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.CARET_DOWN]: IoCaretDownOutline,
   [ICON.CARET_LEFT]: IoCaretBackOutline,
   [ICON.CARET_RIGHT]: IoCaretForwardOutline,
+  /**
+   * Interface
+   */
   [ICON.MENU]: IoMenuOutline,
   [ICON.ELLIPSIS_VERTICAL]: IoEllipsisVertical,
   [ICON.APPS]: IoAppsOutline,
@@ -107,6 +115,10 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.CHECK]: IoCheckmarkOutline,
   [ICON.CHECKMARK_CIRCLE]: IoCheckmarkCircleOutline,
   [ICON.CHECKBOX]: IoCheckboxOutline,
+
+  /**
+   * Actions
+   */
   [ICON.ARROW_UP_CIRCLE]: IoArrowUpCircleOutline,
   [ICON.ARROW_DOWN_CIRCLE]: IoArrowDownCircleOutline,
   [ICON.ARROW_LEFT_CIRCLE]: IoArrowBackCircleOutline,
@@ -125,6 +137,14 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.PERSON_CIRCLE]: IoPersonCircleOutline,
   [ICON.RADIO_ON]: IoRadioButtonOnOutline,
   [ICON.RADIO_OFF]: IoRadioButtonOffOutline,
+  /**
+   * Nature
+   */
+  [ICON.SUN]: IoSunnyOutline,
+  [ICON.MOON]: IoMoonOutline,
+  /**
+   * Logos
+   */
   [ICON.LOGO_TWITTER]: IoLogoTwitter,
   [ICON.LOGO_FACEBOOK]: IoLogoFacebook,
   [ICON.LOGO_INSTAGRAM]: IoLogoInstagram,

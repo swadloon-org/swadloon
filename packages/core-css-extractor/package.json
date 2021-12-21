@@ -1,0 +1,34 @@
+{
+  "name": "@newrade/core-css-extractor",
+  "version": "1.0.0",
+  "description": "Generate global CSS vars and classes for non-js applications.",
+  "license": "MIT",
+  "main": "dist/newrade-core-css-extractor.cjs.js",
+  "module": "dist/newrade-core-css-extractor.esm.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "yarn webpack:prod",
+    "clean": "rm -rf dist/** ./node_modules/.cache && rm -f *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
+    "serve": ". ./.env && http-server --port $APP_PORT --gzip",
+    "start": "yarn webpack:dev",
+    "test-disabled": "echo ok",
+    "typecheck": "tsc --noEmit",
+    "webpack:dev": "nr webpack serve --config webpack.dev.config.ts",
+    "webpack:prod": "nr webpack --config webpack.prod.config.ts"
+  },
+  "dependencies": {
+    "@newrade/core-common": "*",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-jest-config": "*",
+    "@newrade/core-react-ui": "*",
+    "@newrade/core-types": "*",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
+    "add-asset-html-webpack-plugin": "^3.2.0",
+    "fp-ts": "^2",
+    "io-ts": "^2"
+  }
+}

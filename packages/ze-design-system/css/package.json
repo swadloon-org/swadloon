@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-ze-design-system-css.cjs.js",
+  "module": "dist/newrade-ze-design-system-css.esm.js"
+}

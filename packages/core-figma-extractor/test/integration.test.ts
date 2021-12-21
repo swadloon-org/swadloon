@@ -16,28 +16,28 @@ describe(`${extract} command`, () => {
     });
 
     const figmaColorJsonFile = fs.readFileSync(
-      path.resolve(process.cwd(), 'figma-export', 'figma-color.json'),
+      path.resolve(process.cwd(), 'figma-export', 'figma-colors.json'),
       { encoding: 'utf8' }
     );
 
     expect(figmaColorJsonFile).toMatchSnapshot();
 
     const figmaColorCssFile = fs.readFileSync(
-      path.resolve(process.cwd(), 'figma-export', 'figma-color.css'),
+      path.resolve(process.cwd(), 'figma-export', 'figma-colors.css'),
       { encoding: 'utf8' }
     );
 
     expect(figmaColorCssFile).toMatchSnapshot();
 
     const figmaColorScssFile = fs.readFileSync(
-      path.resolve(process.cwd(), 'figma-export', 'figma-color.scss'),
+      path.resolve(process.cwd(), 'figma-export', 'figma-colors.scss'),
       { encoding: 'utf8' }
     );
 
     expect(figmaColorScssFile).toMatchSnapshot();
 
     const figmaColorTsFile = fs.readFileSync(
-      path.resolve(process.cwd(), 'figma-export', 'figma-color.ts'),
+      path.resolve(process.cwd(), 'figma-export', 'figma-colors.ts'),
       { encoding: 'utf8' }
     );
 
