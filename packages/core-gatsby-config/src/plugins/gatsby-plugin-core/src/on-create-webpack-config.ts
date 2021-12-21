@@ -9,6 +9,7 @@ import {
   getBundleVisualizerPlugin,
   getForkTsCheckerWebpackPlugin,
   getLodashPlugin,
+  getSizePlugin,
   getTypescriptBabelReactLoader,
   getWebpackStatsPlugin,
   stats,
@@ -306,13 +307,21 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   // };
 
   /**
-   * Add BundleVisualizer when building for production but local only
+   * Add BundleVisualizer when building for production & local only
    */
   if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     reporter.info(`[${pluginOptions.pluginName}] adding bundle visualizer plugin`);
     config.plugins = config.plugins
       ? [...config.plugins, getBundleVisualizerPlugin()]
       : [getBundleVisualizerPlugin()];
+  }
+
+  /**
+   * Add SizePlugin
+   */
+  if (isProduction) {
+    reporter.info(`[${pluginOptions.pluginName}] adding size-plugin plugin`);
+    config.plugins = [...(config.plugins || []), getSizePlugin()];
   }
 
   /**
