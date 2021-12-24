@@ -94,11 +94,7 @@ export function getCSSSizing(options: core.Sizing): CSSSizing {
 export function getCSSSizingV2(options: core.Sizing): CSSSizingV2 {
   return {
     baseFontSize: px({ value: options.baseFontSize }),
-    var: defaultSizesCSSVarV2,
-    varNames: defaultSizesCSSVarNamesV2,
     ratio: getCSSSizingRatios(options.ratio),
-    ratioVar: defaultRatiosCSSVar,
-    ratioVarNames: defaultRatiosCSSVarNamesV2,
     sizes: getCSSSizingStepV2(options.sizes),
   };
 }

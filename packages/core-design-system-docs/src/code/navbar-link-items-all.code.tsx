@@ -7,13 +7,13 @@ import {
   NavbarLogoLinkItem,
 } from '@newrade/core-gatsby-ui/src';
 import { Cluster, NavbarSeparatorItem, Stack } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const AllNavbarLinkItems: React.FC<Props> = (props) => {
   return (
-    <Stack gap={[sizingVars.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       <Cluster justifyContent={['flex-start']}>
         <NavbarLogoLinkItem kind={LOGO.SYMBOL} />
         <NavbarLogoLinkItem />

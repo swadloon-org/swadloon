@@ -1,25 +1,8 @@
 :root{
   --baseFontSize:9px;
-  --size-x0:--size-x0;
-  --size-x1:--size-x1;
-  --size-x2:--size-x2;
-  --size-x3:--size-x3;
-  --size-x4:--size-x4;
-  --size-x5:--size-x5;
-  --size-x6:--size-x6;
-  --size-x7:--size-x7;
-  --size-x8:--size-x8;
-  --size-x9:--size-x9;
-  --size-x10:--size-x10;
   --ratio-mobile:1.44;
   --ratio-tablet:1.44;
   --ratio-desktop:1.618;
-  --ratioVar-mobile:var(--sizing-ratio-mobile);
-  --ratioVar-tablet:var(--sizing-ratio-tablet);
-  --ratioVar-desktop:var(--sizing-ratio-desktop);
-  --ratioVarNames-mobile:--sizing-ratio-mobile;
-  --ratioVarNames-tablet:--sizing-ratio-tablet;
-  --ratioVarNames-desktop:--sizing-ratio-desktop;
   --sizes-mobile-x0:6px;
   --sizes-mobile-x1:9px;
   --sizes-mobile-x2:14px;
@@ -53,4 +36,50 @@
   --sizes-desktop-x8:232px;
   --sizes-desktop-x9:375px;
   --sizes-desktop-x10:606px;
+}
+:root{
+  --sizing-ratio-mobile:var(--ratio-mobile);
+  --sizing-ratio-tablet:var(--ratio-tablet);
+  --sizing-ratio-desktop:var(--ratio-desktop);
+  --size-x0:var(--sizes-mobile-x0);
+  --size-x1:var(--sizes-mobile-x1);
+  --size-x2:var(--sizes-mobile-x2);
+  --size-x3:var(--sizes-mobile-x3);
+  --size-x4:var(--sizes-mobile-x4);
+  --size-x5:var(--sizes-mobile-x5);
+  --size-x6:var(--sizes-mobile-x6);
+  --size-x7:var(--sizes-mobile-x7);
+  --size-x8:var(--sizes-mobile-x8);
+  --size-x9:var(--sizes-mobile-x9);
+  --size-x10:var(--sizes-mobile-x10);
+}
+@media screen and (min-width: 768px){
+  :root{
+    --size-x0:var(--sizes-tablet-x0);
+    --size-x1:var(--sizes-tablet-x1);
+    --size-x2:var(--sizes-tablet-x2);
+    --size-x3:var(--sizes-tablet-x3);
+    --size-x4:var(--sizes-tablet-x4);
+    --size-x5:var(--sizes-tablet-x5);
+    --size-x6:var(--sizes-tablet-x6);
+    --size-x7:var(--sizes-tablet-x7);
+    --size-x8:var(--sizes-tablet-x8);
+    --size-x9:var(--sizes-tablet-x9);
+    --size-x10:var(--sizes-tablet-x10);
+  }
+}
+@media screen and (min-width: 1280px){
+  :root{
+    --size-x0:var(--sizes-desktop-x0);
+    --size-x1:var(--sizes-desktop-x1);
+    --size-x2:var(--sizes-desktop-x2);
+    --size-x3:var(--sizes-desktop-x3);
+    --size-x4:var(--sizes-desktop-x4);
+    --size-x5:var(--sizes-desktop-x5);
+    --size-x6:var(--sizes-desktop-x6);
+    --size-x7:var(--sizes-desktop-x7);
+    --size-x8:var(--sizes-desktop-x8);
+    --size-x9:var(--sizes-desktop-x9);
+    --size-x10:var(--sizes-desktop-x10);
+  }
 }

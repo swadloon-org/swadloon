@@ -4,7 +4,7 @@ import parseToRgb from 'polished/lib/color/parseToRgb';
 import toColorString from 'polished/lib/color/toColorString';
 
 import * as DS from '@newrade/core-design-system';
-import { Color, ColorPalette } from '@newrade/core-design-system';
+import { CodeColors, Color, ColorPalette } from '@newrade/core-design-system';
 
 import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 
@@ -85,6 +85,7 @@ export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
       baseHue: colors.colors.utilityRed.baseHue,
       baseSat: colors.colors.utilityRed.baseSat,
     }),
+    code: getCodeColors(colors.colors.code),
   };
 
   return {
@@ -186,6 +187,7 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
         baseHue: colorVar.colors.utilityRed.baseHue,
         baseSat: colorVar.colors.utilityRed.baseSat,
       }),
+      code: getCodeColors(colors.colors.code),
     },
     colorIntents: getDefaultCSSVarColorIntents(colorVar),
     gradients: getCSSColorGradients(colors.gradients),
@@ -353,6 +355,15 @@ export function getCSSColorGradients(intents: DS.ColorGradients) {
     previous[current] = getCSSLinearGradient(gradient);
     return previous;
   }, {} as DS.ColorGradients<string>);
+}
+
+export function getCodeColors(colors: CodeColors) {
+  const codeColorNames = keys(colors);
+  return codeColorNames.reduce((previous, current) => {
+    const color = colors[current];
+    previous[current] = getCSSColor(color);
+    return previous;
+  }, {} as CodeColors<string>);
 }
 
 /**

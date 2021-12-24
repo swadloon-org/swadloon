@@ -1,4 +1,4 @@
-import { FontMetrics, precomputeValues } from '@capsizecss/core';
+import { FontMetrics } from '@capsizecss/core';
 
 import {
   CapsizeTextStyle,

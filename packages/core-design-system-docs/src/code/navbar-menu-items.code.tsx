@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { NavbarMenuLinkItem } from '@newrade/core-gatsby-ui/src';
 import { Cluster, Stack, useIsSSR } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -16,7 +16,7 @@ export const NavbavMenuItems: React.FC<Props> = (props) => {
   }
 
   return (
-    <Stack gap={[sizingVars.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       <Cluster justifyContent={['flex-start']}>
         <NavbarMenuLinkItem>Menu</NavbarMenuLinkItem>
         <NavbarMenuLinkItem>Menu</NavbarMenuLinkItem>

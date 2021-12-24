@@ -3,7 +3,7 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { resetButtonStyle } from '@newrade/core-react-ui';
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/global';
-import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 /**
  *
@@ -160,7 +160,7 @@ globalStyle(`${globalThemeReversedSelector} ${base}`, {
 export const icon = style({
   width: '1em',
   height: '1em',
-  marginLeft: sizingVars.var.x0,
+  marginLeft: sizeVars.x0,
   marginBottom: `2px`,
 });
 

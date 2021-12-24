@@ -81,9 +81,9 @@
   --colors-grey-e1:hsl(222, 6%, 98%, 1);
   --colors-grey-e0:hsl(222, 6%, 100%, 1);
   --colors-grey-0-reversed:hsl(222, 6%, 100%, 1);
-  --colors-effectTransparentLight:hsl(0, 0%, 0%, 10);
-  --colors-effectTransparentMedium:hsl(0, 0%, 0%, 10);
-  --colors-effectTransparentHeavy:hsl(0, 0%, 0%, 13);
+  --colors-effectTransparentLight:hsl(0, 0%, 0%, 0.1);
+  --colors-effectTransparentMedium:hsl(0, 0%, 0%, 0.1);
+  --colors-effectTransparentHeavy:hsl(0, 0%, 0%, 0.13);
   --colors-utilityNeutral-100:hsl(112, 50%, 95%, 1);
   --colors-utilityNeutral-300:hsl(112, 50%, 74%, 1);
   --colors-utilityNeutral-500:hsl(112, 50%, 53%, 1);
@@ -236,9 +236,9 @@
   --colors-grey-e1:hsl(222, 6%, 13%, 1);
   --colors-grey-e0:hsl(222, 6%, 11%, 1);
   --colors-grey-0-reversed:hsl(222, 6%, 100%, 1);
-  --colors-effectTransparentLight:hsl(0, 0%, 0%, 24);
-  --colors-effectTransparentMedium:hsl(0, 0%, 0%, 62);
-  --colors-effectTransparentHeavy:hsl(0, 0%, 0%, 59);
+  --colors-effectTransparentLight:hsl(0, 0%, 0%, 0.24);
+  --colors-effectTransparentMedium:hsl(0, 0%, 0%, 0.62);
+  --colors-effectTransparentHeavy:hsl(0, 0%, 0%, 0.59);
   --colors-utilityNeutral-100:hsl(112, , 95%, 1);
   --colors-utilityNeutral-300:hsl(112, , 74%, 1);
   --colors-utilityNeutral-500:hsl(112, , 53%, 1);

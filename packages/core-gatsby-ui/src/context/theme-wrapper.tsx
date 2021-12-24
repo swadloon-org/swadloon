@@ -312,7 +312,9 @@ const ThemeWrapperFn = React.memo(
           <TabContent aria-labelledby={'source'} hidden={activeTabId !== 'source'}>
             {code ? (
               <Suspense fallback={''}>
-                <CodeBlockLazy filename={filename}>{code}</CodeBlockLazy>
+                <CodeBlockLazy filename={filename} preClassName={styles.codeblock}>
+                  {code}
+                </CodeBlockLazy>
               </Suspense>
             ) : null}
           </TabContent>

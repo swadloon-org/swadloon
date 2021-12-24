@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   display: 'flex',
@@ -9,6 +9,6 @@ export const wrapper = style({
   // gridAutoFlow: 'column',
   alignItems: 'center',
   justifyContent: 'flex-start',
-  columnGap: sizingVars.var.x1,
-  rowGap: sizingVars.var.x2,
+  columnGap: sizeVars.x1,
+  rowGap: sizeVars.x2,
 });

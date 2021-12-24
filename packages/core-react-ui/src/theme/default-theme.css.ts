@@ -5,7 +5,12 @@ import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { CSSSizingV2 } from '../design-system/css-sizing';
 import { CSSTypographyV2 } from '../design-system/css-typography';
-import { defaultSizesCSSVarNamesV2, defaultSizesCSSVarV2 } from '../utilities/sizing.utilities';
+import {
+  defaultRatiosCSSVar,
+  defaultRatiosCSSVarNamesV2,
+  defaultSizesCSSVarNamesV2,
+  defaultSizesCSSVarV2,
+} from '../utilities/sizing.utilities';
 
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
@@ -18,8 +23,11 @@ const propertyFormatFn: (value: string | null, path: string[]) => string = (valu
   `${path.join('-')}`;
 
 /**
- * Color
+ *
+ * Colors
+ *
  */
+
 export const colorVars = createGlobalThemeContract<Colors<string>>(
   defaultCSSColors,
   propertyFormatFn
@@ -27,7 +35,9 @@ export const colorVars = createGlobalThemeContract<Colors<string>>(
 export const colorCSS = defaultCSSColors;
 
 /**
+ *
  * Effects
+ *
  */
 
 export const effectsVars = createGlobalThemeContract<Effects<string>>(
@@ -37,17 +47,25 @@ export const effectsVars = createGlobalThemeContract<Effects<string>>(
 export const effectsCSS = defaultCSSEffects;
 
 /**
- * Sizing
+ *
+ * Sizing variables
+ *
  */
-export const sizingVars = {
-  ...createGlobalThemeContract<CSSSizingV2>(defaultCSSSizing, propertyFormatFn),
-  var: defaultSizesCSSVarV2,
-  varNames: defaultSizesCSSVarNamesV2, // we don't want to hash the var and varNames variables
-};
+
+export const sizingVars = createGlobalThemeContract<CSSSizingV2>(
+  defaultCSSSizing,
+  propertyFormatFn
+);
+export const sizeVars = defaultSizesCSSVarV2;
+export const sizeVarNames = defaultSizesCSSVarNamesV2;
+export const ratioVars = defaultRatiosCSSVar;
+export const ratioVarNames = defaultRatiosCSSVarNamesV2;
 export const sizingCSS = defaultCSSSizing;
 
 /**
+ *
  * Iconography
+ *
  */
 
 /**

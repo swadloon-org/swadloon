@@ -1,6 +1,15 @@
 import { ColorPalette, ColorShades5, ColorShadesGrey } from '../primitives/color-palette';
 import { ColorType } from '../types';
 
+import { CodeMarkupType } from './colors-code';
+
+export type CodeMarkupColors<Override extends undefined | string = undefined> = {
+  [key in `code${keyof typeof CodeMarkupType}`]: ColorType<Override>;
+};
+
+export type CodeColors<Override extends undefined | string = undefined> =
+  CodeMarkupColors<Override>;
+
 export type ColorsColors<Override extends undefined | string = undefined> = {
   primary: ColorPalette<Override, ColorShades5, ColorType<Override>>;
 
@@ -24,4 +33,6 @@ export type ColorsColors<Override extends undefined | string = undefined> = {
   utilityGreen: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   utilityYellow: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   utilityRed: ColorPalette<Override, ColorShades5, ColorType<Override>>;
+
+  code: CodeColors<Override>;
 };

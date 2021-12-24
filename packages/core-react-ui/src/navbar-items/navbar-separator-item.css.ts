@@ -1,14 +1,14 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
-import { colorVars, sizingVars } from '../theme';
+import { colorVars, sizeVars } from '../theme';
 
 export const base = style({
   display: 'flex',
   alignItems: 'center',
   margin: 0,
   height: `100%`,
-  padding: `0 ${sizingVars.var.x2}`,
+  padding: `0 ${sizeVars.x2}`,
 
   userSelect: `none`,
 });

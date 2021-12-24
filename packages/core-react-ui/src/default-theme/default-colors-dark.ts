@@ -1,4 +1,5 @@
 import { ANGLE_UNIT, ColorGradients, ColorIntents, Colors } from '@newrade/core-design-system';
+import { ColorsColors } from '@newrade/core-design-system/src/foundations/colors-colors';
 
 import {
   generateColorGreyPaletteDark,
@@ -7,7 +8,9 @@ import {
   getDefaultColorIntents,
 } from '../utilities/colors.utilities';
 
-export const defaultColorsColorsDark: Colors['colors'] = {
+import { defaultCodeColors } from './default-code-colors';
+
+export const defaultColorsColorsDark: ColorsColors = {
   current: 'currentColor',
   transparent: {
     h: 0,
@@ -16,7 +19,7 @@ export const defaultColorsColorsDark: Colors['colors'] = {
     a: 0,
   },
   primary: generateColorPalette5({
-    color: { h: 222, s: 40, l: 50 },
+    color: { h: 222, s: 60, l: 70 },
     light: 90,
     dark: 20,
   }),
@@ -81,6 +84,8 @@ export const defaultColorsColorsDark: Colors['colors'] = {
     light: 90,
     dark: 5,
   }),
+
+  code: defaultCodeColors,
 };
 
 export const defaultColorIntentsDark: ColorIntents = {

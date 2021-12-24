@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { WindowLocation } from '@reach/router';
 
@@ -18,7 +17,7 @@ import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui
 
 import { useI18next } from '../i18next/use-i18next.hook';
 
-import * as styleRefs from './aside.treat';
+import * as styles from './aside.css';
 
 type AsideItem = {
   value?: string | null;
@@ -46,7 +45,6 @@ export const Aside: React.FC<Props> = ({
 }) => {
   const isSSR = useIsSSR();
   const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
   const renderedItems = items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
   const { t } = useI18next();

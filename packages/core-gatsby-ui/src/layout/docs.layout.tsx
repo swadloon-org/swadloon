@@ -21,7 +21,7 @@ import {
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import {
   BreadcrumbsAPI,
   CompanyInfoAPI,
@@ -294,7 +294,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
       </>
     ),
     leftDesktop: (
-      <Cluster gap={[sizingVars.var.x4]}>
+      <Cluster gap={[sizeVars.x4]}>
         <Cluster gap={['0px']}>
           <NavbarLogoLinkItem
             tagText={'Docs'}

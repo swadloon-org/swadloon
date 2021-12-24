@@ -3,7 +3,7 @@ import React from 'react';
 import { BoxShadow, ColorIntents } from '@newrade/core-design-system';
 import { ShadowSwatch } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, useCSSTheme, useThemeElevationBG } from '@newrade/core-react-ui';
-import { colorVars, effectsVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, effectsVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -20,7 +20,7 @@ export const GuidelineElevation: React.FC<Props> = (props) => {
     width: `100%`,
     height: `100%`,
     gridAutoRows: `1fr auto`,
-    padding: sizingVars.var.x5,
+    padding: sizeVars.x5,
   };
 
   return (

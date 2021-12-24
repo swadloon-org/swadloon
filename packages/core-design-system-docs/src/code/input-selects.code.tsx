@@ -8,17 +8,17 @@ import {
   Variant,
 } from '@newrade/core-design-system';
 import { InputSelect, Stack } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const InputSelects: React.FC<Props> = (props) => {
   return (
-    <Stack gap={[sizingVars.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       <div
         style={{
           display: 'grid',
-          gap: sizingVars.var.x3,
+          gap: sizeVars.x3,
           gridTemplateColumns: `repeat(auto-fit, minmax(170px, 1fr))`,
         }}
       >
@@ -37,7 +37,7 @@ export const InputSelects: React.FC<Props> = (props) => {
       <div
         style={{
           display: 'grid',
-          gap: sizingVars.var.x3,
+          gap: sizeVars.x3,
           gridAutoFlow: 'rows',
           gridTemplateColumns: `repeat(auto-fit, minmax(170px, 1fr))`,
         }}
@@ -45,7 +45,7 @@ export const InputSelects: React.FC<Props> = (props) => {
         <div
           style={{
             display: 'grid',
-            gap: sizingVars.var.x3,
+            gap: sizeVars.x3,
             gridTemplateRows: `repeat(4, 1fr)`,
           }}
         >
@@ -65,7 +65,7 @@ export const InputSelects: React.FC<Props> = (props) => {
         <div
           style={{
             display: 'grid',
-            gap: sizingVars.var.x3,
+            gap: sizeVars.x3,
             gridTemplateRows: `repeat(4, 1fr)`,
           }}
         >
@@ -89,7 +89,7 @@ export const InputSelects: React.FC<Props> = (props) => {
         <div
           style={{
             display: 'grid',
-            gap: sizingVars.var.x3,
+            gap: sizeVars.x3,
             gridTemplateRows: `repeat(4, 1fr)`,
           }}
         >

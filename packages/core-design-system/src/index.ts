@@ -15,6 +15,8 @@ export * from './foundations/background-effect';
 export * from './foundations/color-gradients';
 export * from './foundations/color-intents';
 export * from './foundations/colors';
+export * from './foundations/colors-code';
+export * from './foundations/colors-colors';
 export * from './foundations/content-width';
 export * from './foundations/effects';
 export * from './foundations/font';
