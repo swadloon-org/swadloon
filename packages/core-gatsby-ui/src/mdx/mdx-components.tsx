@@ -44,6 +44,7 @@ import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
+import { DocPropsTable } from '../context/doc-props-table';
 import { IconBox } from '../docs-components/icon-box';
 import { lorenipsum, lorenipsumShort } from '../docs-components/loren-ipsum';
 import { Placeholder } from '../docs-components/placeholder';
@@ -328,6 +329,7 @@ export const mdxComponents: Partial<
   TableHeader: TableHeader,
   TableCell: TableCell,
   DocHeader: DocHeader,
+  DocPropsTable: DocPropsTable,
   Badge: Badge,
 
   /**

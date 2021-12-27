@@ -32,6 +32,11 @@ const defaultOptions: Required<GatsbyCorePluginOptions> = {
   renderDesignSystemPages: true,
   designSystemPagesPath: path.resolve('..', 'core-design-system-docs', 'docs'),
   designSystemPagesPathPrefix: '/design-system/',
+  jsdocSourcePaths: [
+    path.resolve('..', 'core-gatsby-ui', 'src', 'context'),
+    // path.resolve('..', 'core-gatsby-ui', 'src'),
+    // path.resolve('..', 'core-react-ui', 'src'),
+  ],
 
   renderDocsPages: true,
   docsPagesPath: path.resolve('src', 'docs'),
@@ -68,6 +73,7 @@ export function getGastbyCorePluginConfig({
   renderDesignSystemPages = defaultOptions.renderDesignSystemPages,
   designSystemPagesPath = defaultOptions.designSystemPagesPath,
   designSystemPagesPathPrefix = defaultOptions.designSystemPagesPathPrefix,
+  jsdocSourcePaths = defaultOptions.jsdocSourcePaths,
 
   renderCoreDocsPages = defaultOptions.renderCoreDocsPages,
   coreDocsPagesPath = defaultOptions.coreDocsPagesPath,
@@ -128,6 +134,22 @@ export function getGastbyCorePluginConfig({
           },
         }
       : null,
+
+    /**
+     * Design system pages
+     */
+    ...(jsdocSourcePaths
+      ? jsdocSourcePaths.map((jsDocPath) => {
+          return {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: SOURCE_INSTANCE_NAME.JSDOC_SOURCE_FILES,
+              path: jsDocPath,
+              ignore: [`**/*.mdx?`],
+            },
+          };
+        })
+      : []),
 
     /**
      * Core packages docs

@@ -2,6 +2,8 @@ import { Language } from 'prism-react-renderer';
 
 import { CodeMarkupValues } from '@newrade/core-design-system';
 
+import { colorVars } from '../theme';
+
 /**
  * Extracted type from 'prism-react-renderer' since it is not exported
  */
@@ -38,10 +40,7 @@ type ExtendedPrismTheme = {
   }>;
 };
 
-/**
- * @see https://github.com/PrismJS/prism-themes/blob/master/themes/prism-ghcolors.css
- */
-export const githubTheme: ExtendedPrismTheme = {
+export const prismTheme: ExtendedPrismTheme = {
   plain: {
     color: '#393A34',
     backgroundColor: '#f6f8fa',
@@ -50,7 +49,7 @@ export const githubTheme: ExtendedPrismTheme = {
     {
       types: ['comment', 'prolog', 'doctype', 'cdata'],
       style: {
-        color: '#999988',
+        color: colorVars.colors.code.codeComment,
         fontStyle: 'italic',
       },
     },
@@ -63,13 +62,13 @@ export const githubTheme: ExtendedPrismTheme = {
     {
       types: ['string', 'attr-value'],
       style: {
-        color: '#e3116c',
+        color: colorVars.colors.code.codeString,
       },
     },
     {
       types: ['punctuation', 'operator'],
       style: {
-        color: '#393A34',
+        color: colorVars.colors.code.codeOperator,
       },
     },
     {
@@ -86,31 +85,31 @@ export const githubTheme: ExtendedPrismTheme = {
         'inserted',
       ],
       style: {
-        color: '#36acaa',
+        color: colorVars.colors.code.codeEntity,
       },
     },
     {
       types: ['atrule', 'keyword', 'attr-name', 'selector'],
       style: {
-        color: '#00a4db',
+        color: colorVars.colors.code.codeAtrule,
       },
     },
     {
       types: ['function', 'deleted', 'tag'],
       style: {
-        color: '#d73a49',
+        color: colorVars.colors.code.codeFunction,
       },
     },
     {
       types: ['function-variable'],
       style: {
-        color: '#6f42c1',
+        color: colorVars.colors.code.codeFunctionVariable,
       },
     },
     {
       types: ['tag', 'selector', 'keyword'],
       style: {
-        color: '#00009f',
+        color: colorVars.colors.code.codeTag,
       },
     },
   ],

@@ -14,7 +14,28 @@ type Props = {
 };
 
 /**
- * Insert document heading, tags and other frontmatter metadata in .md document
+ * Insert document heading, tags and other frontmatter metadata in a .md document
+ * @param {object} See `site-mdx-frontmatter.ts` for all `frontmatter` fields
+ * @example
+ * ```markdown
+ * ---
+ * title: Code
+ * description:
+ *   Utility components to render components in an iframe with viewport controls.
+ *   It can also render source code with syntax highlighting.
+ * tags:
+ *   - organism
+ *   - prism
+ *   - tools
+ *   - development
+ *   - documentation
+ * jsdoc: ['@newrade/core-gatsby-ui/src/context/theme-wrapper.tsx']
+ * ---
+ *
+ * <DocHeader props={props}/>
+ *
+ * Rest of the markdown file
+ * ```
  */
 export const DocHeader = ({ props }: Props) => {
   const { t } = useI18next();

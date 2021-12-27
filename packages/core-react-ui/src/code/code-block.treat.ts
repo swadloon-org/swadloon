@@ -6,8 +6,10 @@ export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
     width: '100%',
-    overflow: 'hidden',
+    overflowX: 'hidden',
+    overflowY: 'auto',
     maxWidth: `min(calc(100vw - 2 * ${cssTheme.layout.var.contentMargins}), var(--max-content-width))`,
+    maxHeight: `max(60vh, 400px)`,
   })),
   header: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',

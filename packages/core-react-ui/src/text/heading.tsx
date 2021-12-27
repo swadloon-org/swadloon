@@ -14,7 +14,9 @@ import { getFormattedAnchorId } from '../utilities/text.utilities';
 
 import * as stylesRef from './heading.treat';
 
-type Props = PrimitiveProps &
+type Tags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
+
+type Props = PrimitiveProps<Tags> &
   TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
@@ -52,8 +54,8 @@ export const Heading = React.memo(
     ) => {
       const styles = useStyles(stylesRef);
       const { colorTextStyles } = useStyles(colorTextStylesRef);
-      const localRef = useRef<HTMLButtonElement>(null);
-      const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
+      const localRef = useRef<HTMLHeadingElement>(null);
+      const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLHeadingElement>) : localRef;
 
       let type: keyof JSX.IntrinsicElements;
 

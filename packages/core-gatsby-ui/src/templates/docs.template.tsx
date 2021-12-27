@@ -61,6 +61,82 @@ export const markdownTemplateQuery = graphql`
         body
       }
     }
+    jsdoc: allDocumentationJs(filter: { name: { in: ["ThemeWrapper", "ThemeWrapperProps"] } }) {
+      nodes {
+        ...DocumentationJsFragment
+        params {
+          name
+          type {
+            name
+          }
+          description {
+            ...DocumentationJSComponentDescriptionFragment
+          }
+        }
+        properties {
+          ...DocumentationJsFragment
+        }
+        examples {
+          raw
+        }
+        deprecated {
+          childMdx {
+            rawBody
+          }
+        }
+        members {
+          static {
+            ...DocumentationJsFragment
+          }
+          inner {
+            ...DocumentationJsFragment
+          }
+          global {
+            ...DocumentationJsFragment
+          }
+          events {
+            ...DocumentationJsFragment
+          }
+        }
+      }
+    }
+  }
+
+  fragment DocumentationJsFragment on DocumentationJs {
+    name
+    level
+    memberof
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+    kind
+    optional
+    default
+    type {
+      ...DoctrineTypeFragment
+    }
+    type {
+      ...DoctrineTypeFragment
+    }
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+  }
+
+  fragment DoctrineTypeFragment on DoctrineType {
+    name
+    type
+    result
+    params
+    fields
+    expression
+    elements
+  }
+
+  fragment DocumentationJSComponentDescriptionFragment on DocumentationJSComponentDescription {
+    childMdx {
+      body
+    }
   }
 `;
 

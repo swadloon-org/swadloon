@@ -332,7 +332,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     config.plugins = [
       ...(config.plugins || []),
       new ProgressPlugin({
-        activeModules: true,
+        activeModules: false,
       }),
     ];
   }

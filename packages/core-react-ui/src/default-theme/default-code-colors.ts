@@ -1,49 +1,68 @@
-import { CodeColors } from '@newrade/core-design-system/src/foundations/colors-colors';
+import { CodeColors } from '@newrade/core-design-system';
+
+import { getColorFromHex } from '../utilities/colors.utilities';
+
+/**
+ * Inspired by Github default theme
+ *
+ * @see https://github.com/PrismJS/prism-themes/blob/master/themes/prism-ghcolors.css
+ */
+
+const token1 = getColorFromHex('#36acaa');
+const colorComment = getColorFromHex('#999988');
+const colorString = getColorFromHex('#e3116c');
+const colorOperator = getColorFromHex('#393A34');
+const colorAtRule = getColorFromHex('#00a4db');
+const colorFunction = getColorFromHex('#d73a49');
+const colorFunctionVar = getColorFromHex('#6f42c1');
+const colorTag = getColorFromHex('#00009f');
 
 export const defaultCodeColors: CodeColors = {
-  codeComment: { h: 222, s: 60, l: 50 },
-  codeCdata: { h: 222, s: 60, l: 50 },
-  codeDoctype: { h: 222, s: 60, l: 50 },
-  codeProlog: { h: 222, s: 60, l: 50 },
+  codeComment: colorComment,
+  codeCdata: colorComment,
+  codeDoctype: colorComment,
+  codeProlog: colorComment,
 
-  codeAtrule: { h: 222, s: 60, l: 50 },
-  codeAttrName: { h: 222, s: 60, l: 50 },
-  codeSelector: { h: 222, s: 60, l: 50 },
+  codeKeyword: colorAtRule,
+  codeAtrule: colorAtRule,
+  codeAttrName: colorAtRule,
+  codeSelector: colorAtRule,
 
-  codeOperator: { h: 222, s: 60, l: 50 },
-  codePunctuation: { h: 222, s: 60, l: 50 },
+  codeOperator: colorOperator,
+  codePunctuation: colorOperator,
 
   codeRegexSource: { h: 222, s: 60, l: 50 },
   codeSelectorFunctionArgument: { h: 222, s: 60, l: 50 },
   codeStringProperty: { h: 222, s: 60, l: 50 },
-  codeString: { h: 222, s: 60, l: 50 },
+
+  codeString: colorString,
+  codeAttrValue: colorString,
+
   codeStyle: { h: 222, s: 60, l: 50 },
   codeTemplatePunctuation: { h: 222, s: 60, l: 50 },
   codeTemplateString: { h: 222, s: 60, l: 50 },
   codeValue: { h: 222, s: 60, l: 50 },
 
-  codeVariable: { h: 222, s: 60, l: 50 },
-  codeSymbol: { h: 222, s: 60, l: 50 },
-  codeNumber: { h: 222, s: 60, l: 50 },
-  codeUrl: { h: 222, s: 60, l: 50 },
-  codeEntity: { h: 222, s: 60, l: 50 },
-  codeBoolean: { h: 222, s: 60, l: 50 },
-  codeConstant: { h: 222, s: 60, l: 50 },
-  codeRegex: { h: 222, s: 60, l: 50 },
-  codeProperty: { h: 222, s: 60, l: 50 },
-  codeInserted: { h: 222, s: 60, l: 50 },
+  codeVariable: token1,
+  codeSymbol: token1,
+  codeNumber: token1,
+  codeUrl: token1,
+  codeEntity: token1,
+  codeBoolean: token1,
+  codeConstant: token1,
+  codeRegex: token1,
+  codeProperty: token1,
+  codeInserted: token1,
 
-  codeFunction: { h: 222, s: 60, l: 50 },
-  codeTag: { h: 222, s: 60, l: 50 },
-  codeDeleted: { h: 222, s: 60, l: 50 },
+  codeFunction: colorFunction,
+  codeDeleted: colorFunction,
 
-  codeFunctionVariable: { h: 222, s: 60, l: 50 },
+  codeTag: colorTag,
 
-  codeKeyword: { h: 222, s: 60, l: 50 },
+  codeFunctionVariable: colorFunctionVar,
 
   codeNamespace: { h: 222, s: 60, l: 50 },
 
-  codeAttrValue: { h: 222, s: 60, l: 50 },
   codeClassName: { h: 222, s: 60, l: 50 },
   codeHashbang: { h: 222, s: 60, l: 50 },
   codeImportant: { h: 222, s: 60, l: 50 },

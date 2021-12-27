@@ -16,11 +16,6 @@ const defaultProps: Props = {
   children: 'Th',
 };
 
-/**
- * The HTMLParagraphElement interface provides special properties
- * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
- * @see https://devdocs.io/dom/htmlparagraphelement
- */
 export const TableCellHeader: React.FC<Props> = React.memo(
   ({ className, variantStyle, variant, ...props }) => {
     const { styles } = useStyles(stylesRef);

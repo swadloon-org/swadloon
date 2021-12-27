@@ -7,7 +7,7 @@ import { getMergedClassname } from '../utilities';
 
 import * as styleRefs from './code-block.treat';
 import { CodeHighlight } from './code-highlight';
-import { githubTheme } from './code-theme';
+import { prismTheme } from './code-theme';
 
 type Props = {
   children?: string;
@@ -54,7 +54,7 @@ export const CodeBlock: React.FC<Props> = ({
 
       <CodeHighlight
         code={formattedCode}
-        theme={githubTheme}
+        theme={prismTheme}
         language={language as Language}
         preClassName={preClassName}
         injectPreElement={true}

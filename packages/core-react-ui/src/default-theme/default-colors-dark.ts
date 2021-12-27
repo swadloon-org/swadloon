@@ -1,5 +1,10 @@
-import { ANGLE_UNIT, ColorGradients, ColorIntents, Colors } from '@newrade/core-design-system';
-import { ColorsColors } from '@newrade/core-design-system/src/foundations/colors-colors';
+import {
+  ANGLE_UNIT,
+  ColorGradients,
+  ColorIntents,
+  Colors,
+  ColorsColors,
+} from '@newrade/core-design-system';
 
 import {
   generateColorGreyPaletteDark,

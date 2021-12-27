@@ -9,7 +9,7 @@ import * as stylesRef from './details.treat';
 type Props = PrimitiveProps & DetailsHTMLAttributes<any> & {};
 
 /**
- * <details> The HTML Details Element (<details>) creates a disclosure
+ * The HTML Details Element creates a disclosure
  * widget in which information is visible only when the widget is toggled into an "open" state.
  * @see https://devdocs.io/html/element/details
  */

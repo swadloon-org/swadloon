@@ -1,4 +1,5 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
+import { kebab } from 'case';
 
 import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
 
@@ -20,7 +21,7 @@ import { defaultCSSSizing } from './default-css-sizing';
 import { defaultCSSTypography } from './default-css-typography';
 
 const propertyFormatFn: (value: string | null, path: string[]) => string = (value, path) =>
-  `${path.join('-')}`;
+  `${path.map(kebab).join('-')}`;
 
 /**
  *

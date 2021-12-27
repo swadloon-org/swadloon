@@ -27,10 +27,11 @@ import { colorVars } from '@newrade/core-react-ui/theme';
 
 import * as styles from './theme-wrapper.css';
 
-type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
-  /**
-   * Outer theme ref
-   */
+/**
+ * @typedef {Object} ThemeWrapperProps
+ * @description Props for ThemeWrapper
+ */
+type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
   treatThemeRef: string;
   /**
    * Full theme config object
@@ -49,6 +50,10 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    */
   displayControls?: boolean;
   /**
+   * Whether to display or not the theme selection dropdown
+   */
+  displayThemeSelection?: boolean;
+  /**
    * Display mode
    */
   reversed?: boolean;
@@ -62,20 +67,20 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
   code?: string;
   /**
    * Enable viewport selection controls
-   *
-   * @default false
+   * @default "false"
    */
   viewportControl?: boolean;
   /**
    * Enable or disable scrolling in the x direction
-   *
-   * @default false
+   * @default
+   * {"viewportOverflowX": true}
    */
   viewportOverflowX?: Property.OverflowX;
   /**
    * Enable or disable scrolling in the y direction
-   *
    * @default true
+   * @since v1
+   *
    */
   viewportOverflowY?: Property.OverflowY;
   /**
@@ -92,7 +97,12 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
 type ThemeWrapperViewportMode = VIEWPORT | 'auto';
 
 /**
- * Inject Treat providers
+ * Utility component to render React components in an iframe with viewport
+ * controls. It can also render source code with syntax highlighting.
+ *
+ * @name ThemeWrapper
+ * @type {React.FC<ThemeWrapperProps>}
+ * @param {ThemeWrapperProps} props
  */
 const ThemeWrapperFn = React.memo(
   ({
@@ -104,6 +114,7 @@ const ThemeWrapperFn = React.memo(
     theme,
     children,
     displayControls,
+    displayThemeSelection = true,
     reversed,
     filename,
     code,
@@ -113,7 +124,7 @@ const ThemeWrapperFn = React.memo(
     viewportAutoWidth = true,
     viewport,
     ...props
-  }: Props) => {
+  }: ThemeWrapperProps) => {
     /**
      *
      * Viewport selection
@@ -240,19 +251,21 @@ const ThemeWrapperFn = React.memo(
                 {/**
                  * Theme selector
                  */}
-                <InputSelect
-                  onChange={handleChangeTheme}
-                  value={selectedTheme?.name || ''}
-                  variantSize={InputSize.small}
-                >
-                  {themeConfig.themes.map((theme) => {
-                    return (
-                      <option key={theme.name} value={theme.name}>
-                        {theme.name}
-                      </option>
-                    );
-                  })}
-                </InputSelect>
+                {displayThemeSelection ? (
+                  <InputSelect
+                    onChange={handleChangeTheme}
+                    value={selectedTheme?.name || ''}
+                    variantSize={InputSize.small}
+                  >
+                    {themeConfig.themes.map((theme) => {
+                      return (
+                        <option key={theme.name} value={theme.name}>
+                          {theme.name}
+                        </option>
+                      );
+                    })}
+                  </InputSelect>
+                ) : null}
 
                 {/**
                  * Viewport selector

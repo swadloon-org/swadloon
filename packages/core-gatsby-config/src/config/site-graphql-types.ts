@@ -1,5 +1,13 @@
 import { Node } from 'gatsby';
 
+import {
+  DoctrineType,
+  DoctrineTypeFragmentFragment,
+  DocumentationJs,
+  DocumentationJSComponentDescriptionFragmentFragment,
+  DocumentationJsExample,
+  DocumentationJsFragmentFragment,
+} from './site-documentationjs';
 import { MdxFrontmatter } from './site-mdx-frontmatter';
 import { GatsbySiteMetadata } from './site-metadata';
 
@@ -139,23 +147,6 @@ export type MarkdownTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
-// export type MarkdownTemplateQuery = {
-//   file?: Maybe<{
-//     childMdx?: Maybe<
-//       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-//         frontmatter?: Maybe<MdxFrontmatter>;
-//         headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-//       }
-//     >;
-//   }>;
-//   mdx?: Maybe<
-//     Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body' | 'headings'> & {
-//       frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'tags' | 'description'>>;
-//       headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-//     }
-//   >;
-// };
-
 export type MarkdownTemplateQuery = {
   file: Maybe<
     Pick<File, 'changeTime'> & {
@@ -185,4 +176,31 @@ export type MarkdownTemplateQuery = {
       >;
     }
   >;
+  jsdoc: {
+    nodes: Array<
+      Maybe<
+        {
+          readonly params: Maybe<
+            ReadonlyArray<
+              Maybe<
+                Pick<DocumentationJs, 'name'> & {
+                  readonly type: Maybe<DoctrineTypeFragmentFragment>;
+                  readonly description: Maybe<DocumentationJSComponentDescriptionFragmentFragment>;
+                }
+              >
+            >
+          >;
+          readonly properties: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>;
+          readonly examples: Maybe<ReadonlyArray<Maybe<Pick<DocumentationJsExample, 'raw'>>>>;
+          readonly deprecated: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'rawBody'>> }>;
+          readonly members: Maybe<{
+            readonly static: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>;
+            readonly inner: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>;
+            readonly global: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>;
+            readonly events: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>;
+          }>;
+        } & DocumentationJsFragmentFragment
+      >
+    >;
+  };
 };
