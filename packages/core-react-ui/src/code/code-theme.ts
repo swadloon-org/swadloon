@@ -42,8 +42,8 @@ type ExtendedPrismTheme = {
 
 export const prismTheme: ExtendedPrismTheme = {
   plain: {
-    color: '#393A34',
-    backgroundColor: '#f6f8fa',
+    color: colorVars.colors.code.editorForeground,
+    backgroundColor: colorVars.colors.code.editorBackground,
   },
   styles: [
     {
@@ -66,9 +66,39 @@ export const prismTheme: ExtendedPrismTheme = {
       },
     },
     {
-      types: ['punctuation', 'operator'],
+      types: ['class-name'],
+      style: {
+        color: colorVars.colors.code.codeClassName,
+      },
+    },
+    {
+      types: ['maybe-class-name'],
+      style: {
+        color: colorVars.colors.code.codeMaybeClassName,
+      },
+    },
+    {
+      types: ['unit'],
+      style: {
+        color: colorVars.colors.code.codeUnit,
+      },
+    },
+    {
+      types: ['punctuation'],
+      style: {
+        color: colorVars.colors.code.codePunctuation,
+      },
+    },
+    {
+      types: ['operator'],
       style: {
         color: colorVars.colors.code.codeOperator,
+      },
+    },
+    {
+      types: ['constant'],
+      style: {
+        color: colorVars.colors.code.codeConstant,
       },
     },
     {
@@ -79,7 +109,6 @@ export const prismTheme: ExtendedPrismTheme = {
         'number',
         'boolean',
         'variable',
-        'constant',
         'property',
         'regex',
         'inserted',
@@ -89,13 +118,37 @@ export const prismTheme: ExtendedPrismTheme = {
       },
     },
     {
-      types: ['atrule', 'keyword', 'attr-name', 'selector'],
+      types: ['keyword'],
+      style: {
+        color: colorVars.colors.code.codeKeyword,
+      },
+    },
+    {
+      types: ['tag'],
+      style: {
+        color: colorVars.colors.code.codeTag,
+      },
+    },
+    {
+      types: ['atrule', 'attr-name'],
       style: {
         color: colorVars.colors.code.codeAtrule,
       },
     },
     {
-      types: ['function', 'deleted', 'tag'],
+      types: ['parameter'],
+      style: {
+        color: colorVars.colors.code.codeParameter,
+      },
+    },
+    {
+      types: ['selector'],
+      style: {
+        color: colorVars.colors.code.codeSelector,
+      },
+    },
+    {
+      types: ['function', 'deleted'],
       style: {
         color: colorVars.colors.code.codeFunction,
       },
@@ -104,12 +157,6 @@ export const prismTheme: ExtendedPrismTheme = {
       types: ['function-variable'],
       style: {
         color: colorVars.colors.code.codeFunctionVariable,
-      },
-    },
-    {
-      types: ['tag', 'selector', 'keyword'],
-      style: {
-        color: colorVars.colors.code.codeTag,
       },
     },
   ],

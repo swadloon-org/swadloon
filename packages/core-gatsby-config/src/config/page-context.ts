@@ -115,6 +115,15 @@ export type GatsbyMarkdownFilePageContext = GatsbyCommonPageContext & {
    */
   fileId?: string;
   /**
+   * Jsdoc imports list to query extracted jsdoc documents
+   *
+   * @example
+   *  ```ts
+   *    `query Page($jsdocImports: String[]!) {...}`
+   *  ```
+   */
+  jsdocImports?: string[];
+  /**
    * If the page was created with a source plugin this will be set
    */
   sourceInstance?: SOURCE_INSTANCE_NAME;

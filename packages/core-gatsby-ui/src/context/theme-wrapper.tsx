@@ -27,14 +27,22 @@ import { colorVars } from '@newrade/core-react-ui/theme';
 
 import * as styles from './theme-wrapper.css';
 
+enum ThemeWrapperTab {
+  DESIGN = 'design',
+  CODE = 'code',
+}
+
 /**
  * @typedef {Object} ThemeWrapperProps
  * @description Props for ThemeWrapper
  */
 type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
+  /**
+   * Treat theme ref (classname)
+   */
   treatThemeRef: string;
   /**
-   * Full theme config object
+   * Full treat theme config object
    */
   theme: Theme;
   /**
@@ -46,7 +54,12 @@ type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
    */
   children: ReactNode;
   /**
-   * Activate knobs and controls
+   * Whether to display tabs to switch between 'design' and 'code'
+   * @default true
+   */
+  displayTabs?: boolean;
+  /**
+   * Activate knobs and controls for the design tab
    */
   displayControls?: boolean;
   /**
@@ -55,8 +68,13 @@ type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
   displayThemeSelection?: boolean;
   /**
    * Display mode
+   * @deprecated
    */
   reversed?: boolean;
+  /**
+   * Initial selected tab
+   */
+  initialTab?: ThemeWrapperTab;
   /**
    * Displayed filename
    */
@@ -113,9 +131,11 @@ const ThemeWrapperFn = React.memo(
     themeConfig,
     theme,
     children,
+    displayTabs = true,
     displayControls,
     displayThemeSelection = true,
     reversed,
+    initialTab = ThemeWrapperTab.DESIGN,
     filename,
     code,
     viewportControl = false,
@@ -185,12 +205,12 @@ const ThemeWrapperFn = React.memo(
      *
      */
 
-    const [activeTabId, setActiveTabId] = useState<string>('design');
+    const [activeTabId, setActiveTabId] = useState<ThemeWrapperTab>(initialTab);
 
     function handleSelectTab(event: React.MouseEvent<HTMLDivElement>) {
       const value = event.currentTarget.id;
       if (activeTabId !== value) {
-        setActiveTabId(value);
+        setActiveTabId(value as ThemeWrapperTab);
       }
     }
 
@@ -228,13 +248,21 @@ const ThemeWrapperFn = React.memo(
     return (
       <div className={styles.wrapper}>
         <Tabs>
-          {code ? (
+          {displayTabs && code ? (
             <TabList>
-              <Tab id={'design'} selected={activeTabId === 'design'} onClick={handleSelectTab}>
+              <Tab
+                id={ThemeWrapperTab.DESIGN}
+                selected={activeTabId === ThemeWrapperTab.DESIGN}
+                onClick={handleSelectTab}
+              >
                 Design
               </Tab>
 
-              <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
+              <Tab
+                id={ThemeWrapperTab.CODE}
+                selected={activeTabId === ThemeWrapperTab.CODE}
+                onClick={handleSelectTab}
+              >
                 Code
               </Tab>
             </TabList>
@@ -245,7 +273,10 @@ const ThemeWrapperFn = React.memo(
            * Design tab
            *
            */}
-          <TabContent aria-labelledby={'design'} hidden={activeTabId !== 'design'}>
+          <TabContent
+            aria-labelledby={ThemeWrapperTab.DESIGN}
+            hidden={activeTabId !== ThemeWrapperTab.DESIGN}
+          >
             {displayControls ? (
               <div className={styles.header}>
                 {/**
@@ -322,7 +353,10 @@ const ThemeWrapperFn = React.memo(
            * Code tab
            *
            */}
-          <TabContent aria-labelledby={'source'} hidden={activeTabId !== 'source'}>
+          <TabContent
+            aria-labelledby={ThemeWrapperTab.CODE}
+            hidden={activeTabId !== ThemeWrapperTab.CODE}
+          >
             {code ? (
               <Suspense fallback={''}>
                 <CodeBlockLazy filename={filename} preClassName={styles.codeblock}>

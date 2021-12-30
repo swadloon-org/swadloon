@@ -152,6 +152,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
                 componentStatus
                 componentVersion
                 componentTests
+                jsdocImports
               }
             }
           }
@@ -344,6 +345,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       const component =
         getComponentForTemplate(template) || getComponentForSourceInstanceName(sourceInstance);
 
+      const jsdocImports = node.childMdx?.frontmatter?.jsdocImports || [];
+
       reporter.info(
         `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(
           layout
@@ -360,6 +363,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
           name,
           displayName,
           fileId: node.id,
+          jsdocImports: jsdocImports,
           locale,
           relativePath: node.relativePath,
           absolutePath: node.absolutePath,

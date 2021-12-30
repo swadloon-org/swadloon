@@ -48,6 +48,7 @@ export enum CodeMarkupType {
 
   AttrValue = 'attr-value',
   ClassName = 'class-name',
+  MaybeClassName = 'maybe-class-name',
   Hashbang = 'hashbang',
   Important = 'important',
   IncludedCdata = 'included-cdata',
@@ -56,6 +57,13 @@ export enum CodeMarkupType {
   Interpolation = 'interpolation',
   LiteralProperty = 'literal-property',
   Parameter = 'parameter',
+
+  /**
+   * Custom tokens below
+   */
+
+  Script = 'script',
+  Unit = 'unit',
 }
 
 export type CodeMarkupValuesRecord = Record<CodeMarkupType, string>;

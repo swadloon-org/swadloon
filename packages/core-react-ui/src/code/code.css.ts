@@ -1,12 +1,18 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, typographyVars } from '../theme';
+
 export const wrapper = style({
-  display: 'inline',
-  padding: '.2em .4em',
+  display: 'inline-block',
+  padding: '2px 2px 2px 2px',
   margin: '0 1px',
-  lineHeight: 0,
-  borderRadius: 6,
-  fontSize: '0.95em',
-  color: 'rgb(160 58 160)',
-  backgroundColor: 'rgb(243 141 243 / 20%)',
+  borderRadius: '0px',
+  fontSize: 'clamp(14px, 95%, 16px)',
+  verticalAlign: 'baseline',
+  lineHeight: '1',
+
+  fontFamily: typographyVars.fonts.monospace,
+
+  backgroundColor: colorVars.colors.code.editorBackground,
+  wordBreak: 'break-word',
 });

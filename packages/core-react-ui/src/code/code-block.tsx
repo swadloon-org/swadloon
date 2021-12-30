@@ -1,34 +1,66 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Language } from 'prism-react-renderer';
 
+import { Primitive } from '../primitive/primitive';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities';
 
-import * as styleRefs from './code-block.treat';
 import { CodeHighlight } from './code-highlight';
 import { prismTheme } from './code-theme';
 
-type Props = {
+import * as styles from './code-block.css';
+
+/**
+ * @name CodeBlockProps
+ * @typedef {Object} CodeBlockProps
+ */
+type CodeBlockProps = PrimitiveProps<'code'> & {
+  /**
+   * Source code to highlight with PrismJS
+   */
   children?: string;
+  /**
+   * Class to apply to the `code` element. You can also pass a class formatted as
+   * language-lang where lang is the desired language highlight to apply.
+   *
+   * If not provided, it will fallback to the filename's extension and if missing too, will default to '.tsx'
+   */
   className?: string;
+  /**
+   * Class to apply to the `pre` element
+   */
   preClassName?: string;
-  live?: boolean;
+  /**
+   * Display a filename in the editor header
+   */
   filename?: string;
 };
 
 /**
+ * Component that renders highlighted source code PrismJS.
+ *
+ * @see https://github.com/PrismJS/prism/
  * @see https://github.com/mdx-js/mdx/edit/master/examples/syntax-highlighting/src/pages/index.mdx
+ *
+ * @name CodeBlock
+ * @type {React.FC<CodeBlockProps>}
+ * @param {CodeBlockProps} props
  */
-export const CodeBlock: React.FC<Props> = ({
+export const CodeBlock: React.FC<CodeBlockProps> = function CodeBlock({
   children = '',
   className = '',
   preClassName,
   filename,
   ...props
-}) => {
-  const { styles } = useStyles(styleRefs);
-  const language = className ? className.replace(/language-/, '') : 'tsx';
+}) {
+  const filenameExtMatch = filename ? /(?<filename>.+)\.(?<ext>.+)/gi.exec(filename) : null;
+  const filenameExt = filenameExtMatch ? filenameExtMatch.groups?.['ext'] : 'tsx';
+  const language = className
+    ? className.replace(/language-/, '')
+    : filenameExt
+    ? filenameExt
+    : 'tsx';
 
   if (typeof children !== 'string') {
     console.warn(
@@ -40,10 +72,10 @@ export const CodeBlock: React.FC<Props> = ({
   const trimmedCode = children ? children.trim() : '';
   const formattedCode = trimmedCode.replace(/(\r\n|\r)+$/g, ''); // remove extra line inserted by prettier
 
-  const classnames = getMergedClassname([className, styles.wrapper]);
+  const classnames = getMergedClassname();
 
   return (
-    <code className={classnames}>
+    <Primitive as={'code'} classNames={[className, styles.wrapper]}>
       {filename ? (
         <div className={styles.header}>
           {filename}
@@ -59,6 +91,6 @@ export const CodeBlock: React.FC<Props> = ({
         preClassName={preClassName}
         injectPreElement={true}
       ></CodeHighlight>
-    </code>
+    </Primitive>
   );
 };

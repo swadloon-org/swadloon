@@ -1,11 +1,10 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './code-highlight.treat';
+import * as styles from './code-highlight.css';
 
 type Props = {
   code?: string;
@@ -27,8 +26,6 @@ export const CodeHighlight: React.FC<Props> = ({
   injectPreElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
-
   return (
     <Highlight
       Prism={Prism}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
@@ -11,7 +10,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 
-import * as styleRefs from './docs-footer.treat';
+import * as styles from './docs-footer.css';
 
 type Props = PrimitiveProps & {
   editPageUrl?: string;
@@ -29,7 +28,6 @@ export const DocsPageFooter: React.FC<Props> = ({
   as,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps<'footer'>({
     id,

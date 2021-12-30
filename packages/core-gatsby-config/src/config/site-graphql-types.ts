@@ -133,6 +133,7 @@ export type GatsbyNodeMarkdownFilesQuery = {
                 | 'componentStatus'
                 | 'componentVersion'
                 | 'componentTests'
+                | 'jsdocImports'
               >
             >;
             headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;

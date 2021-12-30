@@ -3,7 +3,7 @@ import { CodeColors } from '@newrade/core-design-system';
 import { getColorFromHex } from '../utilities/colors.utilities';
 
 /**
- * Inspired by Github default light theme
+ * Inspired by Github dark dimmed theme
  *
  * @see https://github.com/primer/github-vscode-theme
  */
@@ -12,29 +12,29 @@ import { getColorFromHex } from '../utilities/colors.utilities';
  * Basics
  */
 
-const colorForeground = getColorFromHex('#24292f');
-const colorComment = getColorFromHex('#999988');
-const colorString = getColorFromHex('#e3116c');
+const colorForeground = getColorFromHex('#d1d9e0');
+const colorComment = getColorFromHex('#768390');
+const colorString = getColorFromHex('#fc4594');
 
 /**
  * Functions
  */
 
-const colorFunction = getColorFromHex('#c83cd7');
-const colorFunctionVar = getColorFromHex('#d73a49');
+const colorFunction = getColorFromHex('#dcbdfb');
+const colorFunctionVar = getColorFromHex('#adbac7');
 
 /**
  * Keyword and tag
  */
 
-const colorKeyword = getColorFromHex('#1414b8');
+const colorKeyword = getColorFromHex('#7474f1');
 const colorTag = colorKeyword;
 
 /**
  * Code tokens
  */
 
-const token1 = getColorFromHex('#1f8483');
+const token1 = getColorFromHex('#36acaa');
 
 /**
  * CSS
@@ -42,12 +42,12 @@ const token1 = getColorFromHex('#1f8483');
 
 const colorAtRule = getColorFromHex('#087aa0');
 
-export const defaultCodeColors: CodeColors = {
-  editorBackground: getColorFromHex('#f6f8fa'),
+export const defaultCodeColorsDark: CodeColors = {
+  editorBackground: getColorFromHex('#1e2329'),
   editorForeground: colorForeground,
-  editorSelectionBackground: getColorFromHex('#0366d625'),
-  editorHeaderBackground: getColorFromHex('#CCC0E9'),
-  editorHeaderForeground: getColorFromHex('#393A34'),
+  editorSelectionBackground: getColorFromHex('#3392FF44'),
+  editorHeaderBackground: getColorFromHex('#4a425c'),
+  editorHeaderForeground: getColorFromHex('#fff'),
   editorHeaderTagBackground: getColorFromHex('#FF9EDA'),
   editorHeaderTagForeground: getColorFromHex('#393A34'),
 
@@ -61,29 +61,29 @@ export const defaultCodeColors: CodeColors = {
   codeAttrName: colorAtRule,
   codeSelector: colorAtRule,
 
-  codeOperator: getColorFromHex('#207e77'),
-  codePunctuation: getColorFromHex('#393A34'),
+  codeOperator: getColorFromHex('#8e9084'),
+  codePunctuation: getColorFromHex('#adbac7'),
 
-  codeRegexSource: getColorFromHex('#393A34'),
-  codeSelectorFunctionArgument: getColorFromHex('#393A34'),
-  codeStringProperty: getColorFromHex('#393A34'),
+  codeRegexSource: { h: 222, s: 60, l: 50 },
+  codeSelectorFunctionArgument: { h: 222, s: 60, l: 50 },
+  codeStringProperty: { h: 222, s: 60, l: 50 },
 
   codeString: colorString,
   codeAttrValue: colorString,
 
-  codeStyle: getColorFromHex('#393A34'),
-  codeTemplatePunctuation: getColorFromHex('#393A34'),
-  codeTemplateString: getColorFromHex('#393A34'),
-  codeValue: getColorFromHex('#393A34'),
+  codeStyle: { h: 222, s: 60, l: 50 },
+  codeTemplatePunctuation: { h: 222, s: 60, l: 50 },
+  codeTemplateString: { h: 222, s: 60, l: 50 },
+  codeValue: { h: 222, s: 60, l: 50 },
   codeScript: colorForeground,
 
-  codeVariable: getColorFromHex('#953800'),
+  codeVariable: token1,
   codeSymbol: token1,
   codeNumber: token1,
   codeUrl: token1,
   codeEntity: token1,
   codeBoolean: token1,
-  codeConstant: colorTag,
+  codeConstant: token1,
   codeRegex: token1,
   codeProperty: token1,
   codeInserted: token1,
@@ -96,7 +96,7 @@ export const defaultCodeColors: CodeColors = {
 
   codeFunctionVariable: colorFunctionVar,
 
-  codeNamespace: getColorFromHex('#393A34'),
+  codeNamespace: colorForeground,
 
   codeClassName: colorKeyword,
   codeMaybeClassName: getColorFromHex('#238052'),

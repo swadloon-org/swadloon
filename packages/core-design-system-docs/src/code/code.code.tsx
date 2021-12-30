@@ -1,20 +1,31 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
-import { Cluster, useTreatTheme } from '@newrade/core-react-ui';
-import { CodeBlockLazy } from '@newrade/core-react-ui/code';
+import { CodeMarkupType } from '@newrade/core-design-system';
+import { Paragraph, Stack } from '@newrade/core-react-ui';
+import { Code } from '@newrade/core-react-ui/code';
+import { sizeVars } from '@newrade/core-react-ui/theme';
+import { keys } from '@newrade/core-react-ui/utilities';
 
 type Props = {};
 
-export const CodeHighlightExamples: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
+export const CodeCode: React.FC<Props> = (props) => {
   return (
-    <>
-      <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
-        <Suspense fallback={''}>
-          <CodeBlockLazy filename={'example file name.tsx'}>{'hello'}</CodeBlockLazy>
-        </Suspense>
-      </Cluster>
-    </>
+    <Stack gap={[sizeVars.x4]}>
+      <Paragraph>
+        Normal text followed by a <Code kind={CodeMarkupType.Function}>function()</Code> and another
+        piece of code <Code kind={CodeMarkupType.Tag}>filename.json</Code>
+      </Paragraph>
+
+      <Paragraph>
+        The available code kinds are:{' '}
+        {keys(CodeMarkupType).map((type) => {
+          return (
+            <span key={type}>
+              <Code kind={CodeMarkupType[type]}>{type}</Code>,{' '}
+            </span>
+          );
+        })}
+      </Paragraph>
+    </Stack>
   );
 };

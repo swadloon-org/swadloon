@@ -23,7 +23,7 @@ export const defaultTypography: Typography = {
     serif: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     sansAlternate: [fonts.defaultSansAlternateFont, ...fonts.defaultFallbackSansFonts],
-    monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
+    monospace: [...fonts.defaultFallbackMonospaceFonts],
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
@@ -72,6 +72,7 @@ export const defaultTypography: Typography = {
       h2: {
         capHeight: 20,
         lineGap: 18,
+        fontWeight: 600,
       },
       h3: {
         capHeight: 16,
@@ -93,6 +94,7 @@ export const defaultTypography: Typography = {
       h2: {
         capHeight: 20,
         lineGap: 18,
+        fontWeight: 600,
       },
       h3: {
         capHeight: 16,
@@ -114,6 +116,7 @@ export const defaultTypography: Typography = {
       h2: {
         fontSize: 28,
         lineGap: 16,
+        fontWeight: 600,
       },
       h3: {
         fontSize: 20,

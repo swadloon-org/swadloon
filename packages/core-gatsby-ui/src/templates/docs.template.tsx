@@ -27,7 +27,10 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownDocsTemplate($fileId: String!, $locale: String!) {
+  query MarkdownDocsTemplate($fileId: String!, $locale: String!, $jsdocImports: [String]!) {
+    #
+    # retrive the markdown file along with its metadata, frontmatter and mdx content
+    #
     file(id: { eq: $fileId }) {
       changeTime(formatString: "ll", locale: $locale)
       childMdx {
@@ -61,7 +64,10 @@ export const markdownTemplateQuery = graphql`
         body
       }
     }
-    jsdoc: allDocumentationJs(filter: { name: { in: ["ThemeWrapper", "ThemeWrapperProps"] } }) {
+    #
+    # if provided, retrieve for extracted JSDoc nodes with passed names
+    #
+    jsdoc: allDocumentationJs(filter: { name: { in: $jsdocImports } }) {
       nodes {
         ...DocumentationJsFragment
         params {

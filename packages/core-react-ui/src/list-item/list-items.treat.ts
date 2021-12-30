@@ -7,7 +7,7 @@ export const styles = {
     listStylePosition: 'inside', // no side effects from the added padding
     marginBlockStart: '1.3em',
     marginBlockEnd: '1.3em',
-    marginInlineStart: '1.3em',
+    marginInlineStart: '1em',
     marginInlineEnd: '0px',
     paddingInlineStart: '0px',
     paddingInlineEnd: '0px',

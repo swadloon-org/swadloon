@@ -13,7 +13,7 @@ import {
   getDefaultColorIntents,
 } from '../utilities/colors.utilities';
 
-import { defaultCodeColors } from './default-code-colors';
+import { defaultCodeColorsDark } from './default-code-colors-dark';
 
 export const defaultColorsColorsDark: ColorsColors = {
   current: 'currentColor',
@@ -90,7 +90,7 @@ export const defaultColorsColorsDark: ColorsColors = {
     dark: 5,
   }),
 
-  code: defaultCodeColors,
+  code: defaultCodeColorsDark,
 };
 
 export const defaultColorIntentsDark: ColorIntents = {

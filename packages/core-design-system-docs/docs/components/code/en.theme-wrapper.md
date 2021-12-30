@@ -9,15 +9,12 @@ tags:
   - tools
   - development
   - documentation
-jsdoc: ['ThemeWrapper', 'ThemeWrapperProps']
+jsdocImports: ['ThemeWrapper', 'ThemeWrapperProps']
 ---
 
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { CodeHighlightExamples } from '../../src/code/code.code'; 
-import CodeHighlightExamplesCode from '!!raw-loader!../../src/code/code.code.tsx';
-
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
@@ -58,14 +55,14 @@ The most simple use case is to simply pass what you want to render as children:
   </Stack>
 </ThemeWrapper>
 
-**Note**: You may use the above syntax in any markdown document without any
+**Note:** You may use the above syntax in any markdown document without any
 additional imports (they are already included in our base markdown components)
 ✅
 
 ### Theming
 
-By default, when `displayControls` is `true`, `ThemeWrapper` will display a
-dropdown with the available themes.
+By default, when `displayControls` is <Code kind={'Boolean'}>true</Code>,
+`ThemeWrapper` will display a dropdown with the available themes.
 
 By default, it will auto select the theme used by the site or application. But
 you can use it to preview what a different theme could look like on a specific
@@ -96,7 +93,6 @@ enabled:
 
 <!-- prettier-ignore -->
 <ThemeWrapper
-  code={CodeHighlightExamplesCode}
   filename={'code.code.tsx'}
   displayControls={true}
   displayThemeSelection={false}

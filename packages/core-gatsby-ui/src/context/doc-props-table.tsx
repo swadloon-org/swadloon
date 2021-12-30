@@ -1,12 +1,10 @@
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 
-import { HEADING, Variant } from '@newrade/core-design-system';
+import { CodeMarkupType, HEADING, Variant } from '@newrade/core-design-system';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
 import {
   Heading,
-  Label,
-  Paragraph,
   Stack,
   Table,
   TableBody,
@@ -76,10 +74,12 @@ export function DocPropsTable({ props }: Props) {
             {topAndNestedProperties.length ? (
               <Table>
                 <TableHeader>
-                  <TableCellHeader>Prop</TableCellHeader>
-                  <TableCellHeader>Type</TableCellHeader>
-                  <TableCellHeader>Optional</TableCellHeader>
-                  <TableCellHeader>Default</TableCellHeader>
+                  <TableRow>
+                    <TableCellHeader style={{ width: '40%' }}>Prop</TableCellHeader>
+                    <TableCellHeader style={{ width: '30%' }}>Type</TableCellHeader>
+                    <TableCellHeader style={{ width: '15%' }}>Optional</TableCellHeader>
+                    <TableCellHeader style={{ width: '15%' }}>Default</TableCellHeader>
+                  </TableRow>
                 </TableHeader>
                 <TableBody>
                   {topAndNestedProperties.map((property, propertyIndex) => {
@@ -89,9 +89,11 @@ export function DocPropsTable({ props }: Props) {
                     return (
                       <TableRow key={propertyIndex}>
                         <TableCell>
-                          <Code>{property?.name}</Code>
+                          <Code kind={CodeMarkupType.AttrName}>{property?.name}</Code>
                         </TableCell>
-                        <TableCell>{propertyTypeValue || '-'}</TableCell>
+                        <TableCell>
+                          <Code kind={CodeMarkupType.Keyword}>{propertyTypeValue || '-'}</Code>
+                        </TableCell>
                         <TableCell>{'-'}</TableCell>
                         <TableCell>{'-'}</TableCell>
                       </TableRow>
@@ -104,10 +106,10 @@ export function DocPropsTable({ props }: Props) {
             {params?.length ? (
               <Table>
                 <TableHeader>
-                  <TableCellHeader>Param</TableCellHeader>
-                  <TableCellHeader>Type</TableCellHeader>
-                  <TableCellHeader>Optional</TableCellHeader>
-                  <TableCellHeader>Default</TableCellHeader>
+                  <TableCellHeader style={{ width: '40%' }}>Param</TableCellHeader>
+                  <TableCellHeader style={{ width: '30%' }}>Type</TableCellHeader>
+                  <TableCellHeader style={{ width: '15%' }}>Optional</TableCellHeader>
+                  <TableCellHeader style={{ width: '15%' }}>Default</TableCellHeader>
                 </TableHeader>
                 <TableBody>
                   {params?.map((param, paramIndex) => {
@@ -116,9 +118,11 @@ export function DocPropsTable({ props }: Props) {
                     return (
                       <TableRow key={paramIndex}>
                         <TableCell>
-                          <Code>{param?.name}</Code>{' '}
+                          <Code kind={CodeMarkupType.AttrName}>{param?.name}</Code>{' '}
                         </TableCell>
-                        <TableCell>{paramTypeValue || '-'}</TableCell>
+                        <TableCell>
+                          <Code kind={CodeMarkupType.Keyword}>{paramTypeValue || '-'}</Code>
+                        </TableCell>
                         <TableCell>{'-'}</TableCell>
                         <TableCell>{'-'}</TableCell>
                       </TableRow>

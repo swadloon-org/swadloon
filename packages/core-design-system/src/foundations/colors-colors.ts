@@ -3,12 +3,28 @@ import { ColorType } from '../types';
 
 import { CodeMarkupType } from './colors-code';
 
+/**
+ * Token colors used in highlighted code
+ */
 export type CodeMarkupColors<Override extends undefined | string = undefined> = {
   [key in `code${keyof typeof CodeMarkupType}`]: ColorType<Override>;
 };
 
+/**
+ * Code for each tokens and additional UI colors for the editor. Inspired by VSCode's theming  system.
+ *
+ * @see https://code.visualstudio.com/api/references/theme-color
+ */
 export type CodeColors<Override extends undefined | string = undefined> =
-  CodeMarkupColors<Override>;
+  CodeMarkupColors<Override> & {
+    editorBackground: ColorType<Override>;
+    editorForeground: ColorType<Override>;
+    editorSelectionBackground: ColorType<Override>;
+    editorHeaderBackground: ColorType<Override>;
+    editorHeaderForeground: ColorType<Override>;
+    editorHeaderTagBackground: ColorType<Override>;
+    editorHeaderTagForeground: ColorType<Override>;
+  };
 
 export type ColorsColors<Override extends undefined | string = undefined> = {
   primary: ColorPalette<Override, ColorShades5, ColorType<Override>>;

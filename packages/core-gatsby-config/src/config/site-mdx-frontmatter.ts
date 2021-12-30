@@ -75,10 +75,6 @@ export type MdxFrontmatter = {
    */
   componentStatus?: 'wip' | 'published';
   /**
-   * Name of the DocumentationJs node to query for a markdown file
-   */
-  jsdoc?: string;
-  /**
    * Version of the component on the page
    */
   componentVersion?: string;
@@ -86,4 +82,9 @@ export type MdxFrontmatter = {
    * Indicates if the component has tests written
    */
   componentTests?: 'ok' | 'missing';
+  /**
+   * Name of the DocumentationJs node to query for a markdown file
+   * @example ['CodeBlock', 'CodeBlockProps']
+   */
+  jsdocImports?: string[];
 };

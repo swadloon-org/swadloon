@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   border: `1px solid ${colorVars.colors.grey[200]}`,
@@ -17,7 +17,6 @@ export const header = style({
 });
 
 export const content = style({
-  // maxWidth: `min(calc(100vw - 2 * ${layoutVars.var.contentMargins}), var(--max-content-width))`,
   maxWidth: '100%',
   overflow: 'hidden',
 });

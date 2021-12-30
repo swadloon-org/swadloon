@@ -33,9 +33,8 @@ const defaultOptions: Required<GatsbyCorePluginOptions> = {
   designSystemPagesPath: path.resolve('..', 'core-design-system-docs', 'docs'),
   designSystemPagesPathPrefix: '/design-system/',
   jsdocSourcePaths: [
-    path.resolve('..', 'core-gatsby-ui', 'src', 'context'),
-    // path.resolve('..', 'core-gatsby-ui', 'src'),
-    // path.resolve('..', 'core-react-ui', 'src'),
+    path.resolve('..', 'core-gatsby-ui', 'src'),
+    path.resolve('..', 'core-react-ui', 'src'),
   ],
 
   renderDocsPages: true,

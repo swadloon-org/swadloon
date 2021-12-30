@@ -33,12 +33,12 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Replace the default caching strategy
    */
 
-  // if (!isProduction) {
-  //   reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
-  //   config.cache = undefined; // disabling all cache during development
-  //   actions.replaceWebpackConfig(config);
-  //   return;
-  // }
+  if (!isProduction) {
+    reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
+    config.cache = undefined; // disabling all cache during development
+    actions.replaceWebpackConfig(config);
+    return;
+  }
 
   config.cache = {
     type: 'filesystem',
