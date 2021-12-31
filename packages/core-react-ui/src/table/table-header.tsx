@@ -1,23 +1,25 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
+import React from 'react';
 
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './table-header.treat';
+import * as styles from './table-header.css';
 
-type Props = PrimitiveProps & HTMLAttributes<HTMLHeadingElement> & {};
+type Props = PrimitiveProps<'thead'> & {};
 
-const defaultProps: Props = {
-  children: 'Thead',
-};
-
-export const TableHeader: React.FC<Props> = React.memo(({ className, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
-
-  const type = 'thead';
-
-  return React.createElement(type, {
-    className: `${className || ''} ${styles.thead}`,
-    ...props,
-  });
+export const TableHeader: React.FC<Props> = React.memo(function TableHeader(props) {
+  return (
+    <Primitive
+      as={'thead'}
+      classNames={
+        [
+          // styles.getVariantStyles({
+          //   variant: variantLevel,
+          //   size: variant,
+          // }),
+        ]
+      }
+      {...props}
+    ></Primitive>
+  );
 });

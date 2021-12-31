@@ -24,6 +24,7 @@ export enum LinkVariant {
 
 export enum LinkIcon {
   right = 'right',
+  none = 'none',
 }
 
 export enum LinkState {

@@ -71,22 +71,10 @@ export function getCSSTypographyV2({
     fonts: {
       ...getCSSFontsObject(fonts),
     },
-    titles: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
-      ...(titlesStyles as TypographyV2<string>['titles']),
-    },
-    headings: {
-      font: getCSSFonts(headings.font ? headings.font : fonts.sans), // fallback to sans font
-      ...(headingsStyles as TypographyV2<string>['headings']),
-    },
-    paragraphs: {
-      font: getCSSFonts(paragraphs.font ? paragraphs.font : fonts.sans), // fallback to sans font
-      ...(paragraphsStyles as TypographyV2<string>['paragraphs']),
-    },
-    labels: {
-      font: getCSSFonts(labels.font ? labels.font : fonts.sans), // fallback to sans font
-      ...(labelsStyles as TypographyV2<string>['labels']),
-    },
+    titles: titlesStyles as TypographyV2<string>['titles'],
+    headings: headingsStyles as TypographyV2<string>['headings'],
+    paragraphs: paragraphsStyles as TypographyV2<string>['paragraphs'],
+    labels: labelsStyles as TypographyV2<string>['labels'],
   };
 }
 
@@ -104,8 +92,10 @@ function createCSSVariantTextStylesV2({
   fontMetrics: FontMetrics;
 }) {
   const parentTextStyles = keys(variant)
+    // remove 'desktop' | 'tablet' | 'mobile'
     .filter((viewport) => !Object.values(VIEWPORT).includes(viewport as VIEWPORT))
     .reduce((previous, prop) => {
+      // extract each style prop
       const styles = variant[prop] as Omit<TypographyV2['titles'], 'desktop' | 'tablet' | 'mobile'>;
       (previous as any)[prop] = styles;
       return previous;
@@ -137,16 +127,13 @@ function createCSSVariantTextStylesV2({
       return previous;
     }, {} as TypographyV2<string>['titles'] | TypographyV2<string>['headings'] | TypographyV2<string>['paragraphs'] | TypographyV2<string>['labels']);
 
-  if (parentTextStyles && (parentTextStyles as TypographyV2['paragraphs']).styles) {
-    const variantStylesStyles = (parentTextStyles as TypographyV2['paragraphs']).styles;
-    return {
-      ...variantStyles,
-      styles: keys(variantStylesStyles).reduce((previous, current) => {
-        previous[current] = createCSSTextStyle({ ...variantStylesStyles[current], baseFontSize });
-        return previous;
-      }, {} as TextVariantStyles<string>),
-    };
-  }
-
-  return variantStyles;
+  const variantStylesStyles = (parentTextStyles as TypographyV2['paragraphs']).styles;
+  return {
+    ...createCSSTextStyle({ ...parentTextStyles, baseFontSize }),
+    ...variantStyles,
+    styles: keys(variantStylesStyles).reduce((previous, current) => {
+      previous[current] = createCSSTextStyle({ ...variantStylesStyles[current], baseFontSize });
+      return previous;
+    }, {} as TextVariantStyles<string>),
+  };
 }

@@ -75,8 +75,8 @@ export function DocPropsTable({ props }: Props) {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableCellHeader style={{ width: '40%' }}>Prop</TableCellHeader>
-                    <TableCellHeader style={{ width: '30%' }}>Type</TableCellHeader>
+                    <TableCellHeader style={{ width: '35%' }}>Prop</TableCellHeader>
+                    <TableCellHeader style={{ width: '35%' }}>Type</TableCellHeader>
                     <TableCellHeader style={{ width: '15%' }}>Optional</TableCellHeader>
                     <TableCellHeader style={{ width: '15%' }}>Default</TableCellHeader>
                   </TableRow>
@@ -106,10 +106,12 @@ export function DocPropsTable({ props }: Props) {
             {params?.length ? (
               <Table>
                 <TableHeader>
-                  <TableCellHeader style={{ width: '40%' }}>Param</TableCellHeader>
-                  <TableCellHeader style={{ width: '30%' }}>Type</TableCellHeader>
-                  <TableCellHeader style={{ width: '15%' }}>Optional</TableCellHeader>
-                  <TableCellHeader style={{ width: '15%' }}>Default</TableCellHeader>
+                  <TableRow>
+                    <TableCellHeader style={{ width: '35%' }}>Param</TableCellHeader>
+                    <TableCellHeader style={{ width: '35%' }}>Type</TableCellHeader>
+                    <TableCellHeader style={{ width: '15%' }}>Optional</TableCellHeader>
+                    <TableCellHeader style={{ width: '15%' }}>Default</TableCellHeader>
+                  </TableRow>
                 </TableHeader>
                 <TableBody>
                   {params?.map((param, paramIndex) => {

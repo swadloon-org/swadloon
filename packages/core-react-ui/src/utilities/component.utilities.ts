@@ -14,6 +14,9 @@ export function getDefaultTextFromProps(name: string, props: object): string {
 }
 
 /**
+ * Utility to remove invalid classnames and merge them into a single string
+ *
+ * @example
  * ['hey', 'classname '] => 'hey classname'
  */
 export function getMergedClassname(classNames?: (string | null | undefined | boolean)[]): string {

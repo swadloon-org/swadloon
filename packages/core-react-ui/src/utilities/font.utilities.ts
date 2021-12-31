@@ -4,7 +4,10 @@ export function getCSSFont(font?: Font): string {
   return font?.name || '';
 }
 
-export function getCSSFonts(fonts: Font[]): string {
+export function getCSSFonts(fonts?: Font[]): string {
+  if (!fonts) {
+    return '';
+  }
   return fonts.map((font) => font.name).join(',');
 }
 

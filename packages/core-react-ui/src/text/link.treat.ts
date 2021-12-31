@@ -169,7 +169,8 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
 export const icon = style(({ theme, cssTheme }: Theme) => ({
   display: 'inline-block',
 
-  marginLeft: '0.3em',
+  marginLeft: '3px',
+  marginRight: '1px',
   verticalAlign: '-0.1em',
   fontSize: '1em',
   lineHeight: '0',

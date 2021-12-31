@@ -40,7 +40,7 @@ const token1 = getColorFromHex('#36acaa');
  * CSS
  */
 
-const colorAtRule = getColorFromHex('#087aa0');
+const colorAtRule = getColorFromHex('#0a94c2');
 
 export const defaultCodeColorsDark: CodeColors = {
   editorBackground: getColorFromHex('#1e2329'),

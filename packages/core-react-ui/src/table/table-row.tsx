@@ -1,23 +1,12 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
+import React from 'react';
 
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './table-row.treat';
+import * as styles from './table-row.css';
 
-type Props = PrimitiveProps & HTMLAttributes<HTMLHeadingElement> & {};
+type Props = PrimitiveProps<'tr'> & {};
 
-const defaultProps: Props = {
-  children: 'Tr',
-};
-
-export const TableRow: React.FC<Props> = React.memo(({ className, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
-
-  const type = 'tr';
-
-  return React.createElement(type, {
-    className: `${className || ''} ${styles.tr}`,
-    ...props,
-  });
+export const TableRow: React.FC<Props> = React.memo((props) => {
+  return <Primitive as={'tr'} classNames={[styles.base]} {...props}></Primitive>;
 });

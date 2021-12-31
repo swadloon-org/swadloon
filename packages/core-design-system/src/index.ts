@@ -7,6 +7,7 @@ export * from './components/inputs';
 export * from './components/links';
 export * from './components/navbar-item';
 export * from './components/size';
+export * from './components/tables';
 export * from './components/tabs';
 export * from './components/tags';
 export * from './design-system';

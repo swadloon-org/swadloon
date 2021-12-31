@@ -10,7 +10,7 @@ import * as stylesRef from './tag.treat';
 
 type Props = PrimitiveProps<'div'> &
   TagProps & {
-    children?: string;
+    children?: any;
   };
 
 export const Tag: React.FC<Props> = React.memo(

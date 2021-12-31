@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutVars, typographyVars } from '../theme';
+import { colorVars, layoutCSS, layoutVars, typographyVars } from '../theme';
 
 export const wrapper = style({
   position: 'relative',
@@ -15,6 +15,15 @@ export const header = style({
   position: 'relative',
   padding: `12px 16px`,
 
+  fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
+  '@media': {
+    [layoutCSS.media.tablet]: {
+      fontSize: typographyVars.labels.tablet.small.capsize.fontSize,
+    },
+    [layoutCSS.media.desktopSmall]: {
+      fontSize: typographyVars.labels.desktop.small.capsize.fontSize,
+    },
+  },
   fontFamily: typographyVars.fonts.monospace,
   color: colorVars.colors.code.editorHeaderForeground,
   backgroundColor: colorVars.colors.code.editorHeaderBackground,

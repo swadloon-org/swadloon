@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { Link, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Link, Paragraph, useCommonProps } from '@newrade/core-react-ui';
 
 import { GatsbyLink } from '../links/gatsby-link';
 
@@ -18,7 +18,6 @@ type Props = BreadcrumbsProps;
  */
 export const Breadcrumbs = React.forwardRef<any, Props>(
   ({ id, style, className, breadcrumbs, ...props }, ref) => {
-    const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
       style,

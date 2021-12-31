@@ -32,14 +32,6 @@ const textColor = createVar();
 const textColorActive = createVar();
 const textColorDisabled = createVar();
 
-/**
- *
- * Wrapper
- *
- */
-
-export const wrapper = style({});
-
 export const getWrapperStyles = recipe({
   base: {
     vars: {

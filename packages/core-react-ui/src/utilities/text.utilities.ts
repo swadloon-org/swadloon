@@ -5,6 +5,7 @@ import { Style } from 'treat';
 
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 
+import { getCSSFonts } from './font.utilities';
 import { pxStringToNumber } from './utilities';
 
 /**
@@ -17,12 +18,26 @@ type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
   baseFontSize,
+  font,
+  fontFamily,
   fontWeight,
   fontStyle,
   letterSpacing,
   textTransform,
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
+  if (fontFamily || font?.length) {
+    return {
+      fontFamily: fontFamily ? fontFamily : font?.length ? getCSSFonts(font) : undefined,
+      font: getCSSFonts(font),
+      fontWeight: fontWeight ? fontWeight.toString() : `400`,
+      fontStyle,
+      letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
+      textTransform,
+      textDecoration: getCSSTextDecoration(textDecoration),
+    };
+  }
+
   return {
     fontWeight: fontWeight ? fontWeight.toString() : `400`,
     fontStyle,

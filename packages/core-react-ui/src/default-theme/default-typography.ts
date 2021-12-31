@@ -78,11 +78,13 @@ export const defaultTypography: Typography = {
         capHeight: 16,
         lineGap: 16,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
     tablet: {
@@ -100,11 +102,13 @@ export const defaultTypography: Typography = {
         capHeight: 16,
         lineGap: 16,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
     desktop: {
@@ -122,11 +126,13 @@ export const defaultTypography: Typography = {
         fontSize: 20,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         fontSize: 16,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
   },
