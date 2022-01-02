@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { BoxShadow, ColorIntents } from '@newrade/core-design-system';
-import { ShadowSwatch } from '@newrade/core-gatsby-ui/src';
-import { BoxV2, useCSSTheme, useThemeElevationBG } from '@newrade/core-react-ui';
-import { colorVars, effectsVars, sizeVars } from '@newrade/core-react-ui/theme';
+import { BoxShadow } from '@newrade/core-design-system';
+import { BoxV2, useThemeElevationBG } from '@newrade/core-react-ui';
+import { ShadowSwatch } from '@newrade/core-react-ui/doc-components';
+import { effectsVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

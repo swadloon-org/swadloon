@@ -59,7 +59,7 @@ export const Heading = React.memo(
     const localRef = useRef<HTMLHeadingElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLHeadingElement>) : localRef;
 
-    const type: Tags = variant || 'h1';
+    const type: Tags = as ? as : variant || 'h1';
 
     /**
      *

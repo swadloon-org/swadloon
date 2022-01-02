@@ -6,7 +6,7 @@ import { layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
   fontFamily: typographyVars.titles.font,
-  position: 'relative',
+  // position: 'relative', // 'relative' breaks useScrollSpy()
   wordBreak: 'normal',
   userSelect: 'text',
 });
