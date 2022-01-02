@@ -105,6 +105,7 @@
     "@loadable/babel-plugin": "^5.13.2",
     "@loadable/component": "^5.15.0",
     "@ls-lint/ls-lint": "^1.10.0",
+    "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.22",
     "@popmotion/popcorn": "^0.4.4",

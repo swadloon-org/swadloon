@@ -121,7 +121,7 @@ export const mdxLoader: RuleSetRule = {
       options: {
         cacheDirectory: true,
         plugins: [...babelPluginBrowserConf],
-        presets: [...babelPresetBrowserConf, '@babel/preset-react'],
+        presets: [...babelPresetBrowserConf],
       },
     },
     {
