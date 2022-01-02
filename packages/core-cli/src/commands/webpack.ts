@@ -19,6 +19,14 @@ export default class Webpack extends Command {
 
   static flags = {
     config: flags.string({ char: 'c', description: 'path to config file (.ts)' }),
+    /**
+     * @since webpack-dev-server@v4
+     * @see https://webpack.js.org/configuration/dev-server/#overlay
+     */
+    ['no-client-overlay']: flags.boolean({
+      description:
+        'disable the full-screen overlay in the browser when there are compiler errors or warnings',
+    }),
   };
 
   async run() {
@@ -26,9 +34,12 @@ export default class Webpack extends Command {
 
     const { args, flags } = this.parse(Webpack);
 
-    const command = `TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack ${
-      args.command || ''
-    } --config ${flags.config}`;
+    const command = [
+      `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack`,
+      args.command || '',
+      `${flags['no-client-overlay'] ? `--no-client-overlay` : ''}`,
+      `--config ${flags.config}`,
+    ].join(' ');
 
     this.log(`running: ${command}`);
 
