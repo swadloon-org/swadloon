@@ -28,8 +28,6 @@
   },
   "dependencies": {
     "@capsizecss/core": "^3.0.0",
-    "@capsizecss/metrics": "^0.1.0",
-    "@capsizecss/vanilla-extract": "^1",
     "framer-motion": "^4"
   }
 }
