@@ -2,7 +2,7 @@
  * Identifier for source instance name when creating pages
  */
 export enum SOURCE_INSTANCE_NAME {
-  /** for mdx files located at the root of the monorepository, <root>/docs/ */
+  /** for mdx files located at the root of the monorepository, e.g. root/docs/ */
   MONO_REPO_DOCS = 'MONO_REPO_DOCS',
   /** mdx doc files related to the design system */
   DESIGN_SYSTEM_DOCS = 'DESIGN_SYSTEM_DOCS',

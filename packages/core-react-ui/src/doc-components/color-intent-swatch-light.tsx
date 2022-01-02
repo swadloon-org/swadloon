@@ -4,8 +4,11 @@ import { useStyles } from 'react-treat';
 import { kebab } from 'case';
 
 import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { getCSSColor } from '@newrade/core-react-ui/utilities';
+
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Stack } from '../layout/stack';
+import { Label } from '../text/label';
+import { getCSSColor } from '../utilities/colors.utilities';
 
 import * as stylesRef from './color-swatch.treat';
 

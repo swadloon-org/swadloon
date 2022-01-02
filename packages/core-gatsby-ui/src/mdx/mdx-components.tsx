@@ -54,16 +54,16 @@ import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 
 /**
- * Components configuration object for <MDXProvider/>.
+ * Components configuration object for `<MDXProvider/>`.
  * Those components don't have any margins to avoid any layout side-effects.
  *
  * @see https://mdxjs.com/table-of-components
  * @example
- *    ```tsx
- *    <MDXProvider components={components}>
- *      <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
- *    </MDXProvider>
- *    ```
+ * ```tsx
+ * <MDXProvider components={components}>
+ *   <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+ * </MDXProvider>
+ * ```
  */
 export const mdxComponents: Partial<
   Record<keyof React.ReactHTML, React.ReactNode> & {

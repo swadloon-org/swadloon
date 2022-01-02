@@ -1,12 +1,10 @@
 import React, { SVGAttributes } from 'react';
 
-import { useTreatTheme } from '@newrade/core-react-ui';
+import { colorVars } from '../theme';
 
 type Props = SVGAttributes<any>;
 
 export const LogoPlaceholder: React.FC<Props> = (props) => {
-  const { cssTheme } = useTreatTheme();
-
   return (
     <svg
       viewBox="0 0 1024 1024"
@@ -15,7 +13,7 @@ export const LogoPlaceholder: React.FC<Props> = (props) => {
       preserveAspectRatio="xMinYMin meet"
       {...props}
     >
-      <rect width="1024" height="1024" fill={cssTheme.colors.colorIntents.background1}>
+      <rect width="1024" height="1024" fill={colorVars.colorIntents.background1}>
         <text>LOGO</text>
       </rect>
     </svg>

@@ -4,7 +4,11 @@ import { useStyles } from 'react-treat';
 import { title } from 'case';
 
 import { HEADING } from '@newrade/core-design-system';
-import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Cluster } from '../layout/cluster';
+import { Stack } from '../layout/stack';
+import { Heading } from '../text/heading';
 
 import * as styleRefs from './font-showcase.treat';
 

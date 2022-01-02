@@ -1,11 +1,12 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 
-import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
+import { useCommonProps } from '../hooks/use-common-props.hook';
+import { PrimitiveProps } from '../primitive/primitive.props';
 
 import * as stylesRef from './icon-box.treat';
 
-type Props = PrimitiveProps & {
+type Props = PrimitiveProps<'div'> & {
   iconName?: string;
 };
 

@@ -13,7 +13,6 @@ export * from './doc-components/icon-box';
 export * from './doc-components/icons';
 export * from './doc-components/icons.lazy';
 export * from './doc-components/logo-placeholder';
-export * from './doc-components/page-header';
 export * from './doc-components/placeholder';
 export * from './doc-components/placeholder-markdown';
 export * from './doc-components/reversed-box';

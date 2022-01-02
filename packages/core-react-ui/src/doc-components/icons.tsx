@@ -13,29 +13,28 @@ import {
   TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
-import {
-  Button,
-  Cluster,
-  IconComp,
-  iconMetadatas,
-  InputLabel,
-  InputSelect,
-  InputText,
-  InputWrapper,
-  Label,
-  Link,
-  lorenipsumShort,
-  Paragraph,
-  PrimitiveProps,
-  Stack,
-  SvgDownloader,
-  Tag,
-  useCommonProps,
-  useIconContext,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
-import { globalThemeReversed } from '@newrade/core-react-ui/global';
-import { keys } from '@newrade/core-react-ui/utilities';
+
+import { Button } from '../button/button';
+import { lorenipsumShort } from '../doc-components';
+import { InputLabel } from '../form/input-label';
+import { InputSelect } from '../form/input-select';
+import { InputText } from '../form/input-text';
+import { InputWrapper } from '../form/input-wrapper';
+import { globalThemeReversed } from '../global';
+import { useCommonProps } from '../hooks/use-common-props.hook';
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { IconComp } from '../icons/icon';
+import { iconMetadatas } from '../icons/icon-metadatas';
+import { useIconContext } from '../icons/icons-provider';
+import { SvgDownloader } from '../img/img-downloader';
+import { Cluster } from '../layout/cluster';
+import { Stack } from '../layout/stack';
+import { PrimitiveProps } from '../primitive/primitive.props';
+import { Tag } from '../tag/tag';
+import { Label } from '../text/label';
+import { Link } from '../text/link';
+import { Paragraph } from '../text/paragraph';
+import { keys } from '../utilities/utilities';
 
 import { IconBox } from './icon-box';
 import * as stylesRef from './icons.treat';

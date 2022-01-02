@@ -1,6 +1,6 @@
 // @ts-check
 // tslint:disable:readonly-array
-/** @type {Partial<jest.DefaultOptions & jest.InitialOptions>} */
+/** @type {Partial<jest.InitialOptions>} */
 module.exports.puppeteerPreset = {
   globalSetup: 'jest-environment-puppeteer/setup',
   globalTeardown: 'jest-environment-puppeteer/teardown',

@@ -16,7 +16,7 @@ export type GeneratorTemplate<TemplateProps extends object> = {
   templatesDir: string;
   /** Name of the outputted file. */
   ouputFilename: string;
-  /** Extension of the outputted file (e.g. "json" will be appended to the output filename, <filename>.json). */
+  /** Extension of the outputted file (e.g. "json" will be appended to the output filename, {filename}.json). */
   outputFileExtension: string;
   /** Control how files are ouputted, receives props from the generator during the "writing" sequence. */
   render: (

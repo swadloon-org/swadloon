@@ -7,8 +7,9 @@ import {
   ColorShades5,
   ColorShadesGrey,
 } from '@newrade/core-design-system';
-import { Stack } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+
+import { Stack } from '../layout/stack';
+import { keys } from '../utilities/utilities';
 
 import * as stylesRef from './color-palette.treat';
 import { ColorSwatchDark } from './color-swatch-dark';

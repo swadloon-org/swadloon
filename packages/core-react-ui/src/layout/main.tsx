@@ -37,8 +37,8 @@ type Props = PrimitiveProps & {
 };
 
 /**
- * High level layout component to create a <main/> area in a page.
- * Should be used inside <MainWrapper/>
+ * High level layout component to create a `<main/>` area in a page.
+ * Should be used inside `<MainWrapper/>`
  */
 export const Main: React.FC<Props> = ({
   id,

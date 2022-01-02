@@ -1,7 +1,8 @@
 import { default as React } from 'react';
 import { useStyles } from 'react-treat';
 
-import { Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Stack } from '../layout/stack';
 
 import * as styleRefs from './text-color-intents-showcase.treat';
 
