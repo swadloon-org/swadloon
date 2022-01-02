@@ -1,10 +1,9 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as styleRefs from './main.treat';
+import * as styles from './main.css';
 
 type Props = PrimitiveProps & {
   /**
@@ -54,7 +53,6 @@ export const Main: React.FC<Props> = ({
   fullHeight,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const type = as ? as : 'main';
   const commonProps = useCommonProps({
     id,

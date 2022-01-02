@@ -7,7 +7,6 @@ export * from './blocks/block-markdown';
 export * from './blocks/block-renderer';
 export * from './breadcrumbs/breadcrumbs';
 export * from './debug/debug-gatsby-page';
-export * from './docs-components/shadow-swatch';
 export * from './footers/footer.props';
 export * from './footers/footer-enterprise';
 export * from './footers/footer-renderer';

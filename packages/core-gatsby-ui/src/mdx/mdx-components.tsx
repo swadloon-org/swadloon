@@ -26,6 +26,8 @@ import {
   ListItem,
   ListItems,
   ListItemV2,
+  lorenipsum,
+  lorenipsumShort,
   Paragraph,
   Stack,
   Summary,
@@ -41,15 +43,12 @@ import {
   Title,
 } from '@newrade/core-react-ui';
 import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
+import { IconBox, Placeholder, PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { DocPropsTable } from '../context/doc-props-table';
-import { IconBox } from '../docs-components/icon-box';
-import { lorenipsum, lorenipsumShort } from '../docs-components/loren-ipsum';
-import { Placeholder } from '../docs-components/placeholder';
-import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
 import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';

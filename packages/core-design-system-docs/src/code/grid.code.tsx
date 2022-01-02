@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { Grid, useTreatTheme } from '@newrade/core-react-ui';
+import { Placeholder } from '@newrade/core-react-ui/doc-components';
 type Props = {};
 
 export const LayoutGrid: React.FC<Props> = (props) => {

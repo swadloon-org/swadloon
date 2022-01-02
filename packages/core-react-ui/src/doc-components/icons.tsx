@@ -24,6 +24,7 @@ import {
   InputWrapper,
   Label,
   Link,
+  lorenipsumShort,
   Paragraph,
   PrimitiveProps,
   Stack,
@@ -38,7 +39,6 @@ import { keys } from '@newrade/core-react-ui/utilities';
 
 import { IconBox } from './icon-box';
 import * as stylesRef from './icons.treat';
-import { lorenipsumShort } from './loren-ipsum';
 
 type Props = PrimitiveProps;
 

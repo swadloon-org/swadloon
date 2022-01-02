@@ -137,15 +137,31 @@ export const defaultTypography: Typography = {
     },
   },
   paragraphs: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
+      normal: {
+        fontWeight: 400,
+      },
       bold: {
         fontWeight: 600,
       },
       italic: {
         fontWeight: 400,
         fontStyle: 'italic',
+      },
+      boldUppercase: {
+        fontWeight: 600,
+        textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 3,
+      },
+      uppercase: {
+        textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 3,
+      },
+      italicBold: {
+        fontStyle: 'italic',
+        fontWeight: 600,
       },
     },
     mobile: {
@@ -204,11 +220,18 @@ export const defaultTypography: Typography = {
     },
   },
   labels: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [...fonts.defaultFallbackSansFonts],
     fontWeight: 600,
     styles: {
+      normal: {
+        fontWeight: 600,
+      },
+      italic: { fontStyle: 'italic' },
       bold: {
         fontWeight: 600,
+      },
+      italicBold: {
+        fontStyle: 'italic',
       },
       boldUppercase: {
         fontWeight: 600,

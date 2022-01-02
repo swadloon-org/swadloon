@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FontShowcase } from '@newrade/core-gatsby-ui/src/docs-components/font-showcase';
 import { useTreatTheme } from '@newrade/core-react-ui';
+import { FontShowcase } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 

@@ -11,6 +11,7 @@
     "/global",
     "/default-theme",
     "/design-system",
+    "/doc-components",
     "/theme",
     "/code",
     "/markdown",
@@ -37,10 +38,11 @@
     "entrypoints": [
       "index.ts",
       "utilities.ts",
-      "design-system.ts",
       "global.ts",
       "theme.ts",
       "default-theme.ts",
+      "design-system.ts",
+      "doc-components.ts",
       "code.ts",
       "markdown.ts",
       "icons-kit-ionicons-outline.ts"

@@ -160,7 +160,7 @@ export type LabelsV2<Override extends undefined | string = undefined> = {
 };
 
 export type TextVariantStyles<Override extends undefined | string> = {
-  [key in TEXT_STYLE]?: TextStyle<Override>;
+  [key in TEXT_STYLE]: TextStyle<Override>;
 };
 
 export type Typography<Override extends undefined | string = undefined> = {

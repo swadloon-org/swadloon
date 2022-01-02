@@ -41,7 +41,7 @@ globalStyle(`:root`, {
 
 globalStyle(`*::-webkit-scrollbar`, {
   scrollbarWidth: `${scrollBarWidth}`,
-  scrollbarColor: `${scrollBarThumbBackground} ${scrollBarThumbBackground}`,
+  scrollbarColor: `${scrollBarThumbBackground}`,
 });
 
 globalStyle(`*::-webkit-scrollbar`, {

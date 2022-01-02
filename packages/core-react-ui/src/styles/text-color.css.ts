@@ -7,7 +7,7 @@ import { colorVars } from '../theme';
 /**
  * Reusable classes to set text colors, also support reversed color mode
  */
-export const colorText = recipe({
+export const getTextColorStyles = recipe({
   variants: {
     variant: {
       primary: {
@@ -26,27 +26,27 @@ export const colorText = recipe({
   },
 });
 
-const primary = colorText({
+const primary = getTextColorStyles({
   variant: 'primary',
 });
 
-const primaryReversed = colorText({
+const primaryReversed = getTextColorStyles({
   variant: 'primaryReversed',
 });
 
-const secondary = colorText({
+const secondary = getTextColorStyles({
   variant: 'secondary',
 });
 
-const secondaryReversed = colorText({
+const secondaryReversed = getTextColorStyles({
   variant: 'secondaryReversed',
 });
 
-const tertiary = colorText({
+const tertiary = getTextColorStyles({
   variant: 'tertiary',
 });
 
-const tertiaryReversed = colorText({
+const tertiaryReversed = getTextColorStyles({
   variant: 'tertiaryReversed',
 });
 

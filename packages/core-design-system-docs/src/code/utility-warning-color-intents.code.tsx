@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
 import { Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { ColorPalette } from '@newrade/core-react-ui/doc-components';
 type Props = {};
 
 export const UtilityWarningColorIntents: React.FC<Props> = (props) => {

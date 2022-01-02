@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FontMono } from '@newrade/core-gatsby-ui/src/docs-components/font-mono';
 import { useTreatTheme } from '@newrade/core-react-ui';
+import { FontMono } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 

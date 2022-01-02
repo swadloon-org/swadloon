@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FontSerif } from '@newrade/core-gatsby-ui/src/docs-components/font-serif';
 import { useTreatTheme } from '@newrade/core-react-ui';
+import { FontSerif } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 
