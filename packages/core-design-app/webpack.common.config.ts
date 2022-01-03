@@ -27,12 +27,7 @@ const localCommonConfig: Configuration = {
   entry: {
     ['index']: path.resolve(__dirname, 'src/index.tsx'),
   },
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [__filename],
-    },
-  },
+  cache: false,
   output: {
     publicPath: '/',
     path: path.join(__dirname, 'public'),

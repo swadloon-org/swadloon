@@ -10,15 +10,13 @@ import { Configuration, WebpackOptionsNormalized } from 'webpack';
 import merge from 'webpack-merge';
 
 import * as core from '@newrade/core-webpack-config';
+import { devServerConfig } from '@newrade/core-webpack-config';
 
 import { commonConfig, env } from './webpack.common.config';
 
 const devConfig: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',
-  watchOptions: {
-    aggregateTimeout: 400,
-    ignored: /node_modules|public/,
-  },
+  watchOptions: devServerConfig.watchOptions,
   devtool: 'source-map',
   devServer: {
     host: '0.0.0.0',

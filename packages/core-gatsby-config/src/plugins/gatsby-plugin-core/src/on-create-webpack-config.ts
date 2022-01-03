@@ -6,6 +6,7 @@ import { Configuration, ProgressPlugin, RuleSetRule } from 'webpack';
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType } from '@newrade/core-utils';
 import {
+  devServerConfig,
   getBundleVisualizerPlugin,
   getForkTsCheckerWebpackPlugin,
   getLodashPlugin,
@@ -88,7 +89,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   config.watchOptions = {
     ...config.watchOptions,
-    ignored: ['*.d.ts', '*.js.map', '**/node_modules', '**/dist', 'graphql-types.ts'],
+    ...devServerConfig.watchOptions,
   };
 
   /**

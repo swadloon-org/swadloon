@@ -75,7 +75,7 @@ export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsOptions } = {
     warnings: true,
     version: true,
     hash: false,
-    optimizationBailout: true,
+    optimizationBailout: false,
     logging: 'warn',
   },
 };

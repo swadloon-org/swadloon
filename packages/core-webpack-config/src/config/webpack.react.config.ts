@@ -22,6 +22,7 @@ import { mdxLoader } from '..';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
+ * @see https://webpack.js.org/guides/build-performance/
  */
 export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Configuration = ({
   isDevelopment,
