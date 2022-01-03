@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   border: `1px solid ${colorVars.colors.grey[200]}`,
@@ -10,14 +10,13 @@ export const wrapper = style({
 
 export const header = style({
   display: 'grid',
-  gap: sizingVars.var.x2,
+  gap: sizeVars.x2,
   gridTemplateColumns: `repeat(4, min-content)`,
-  padding: `${sizingVars.sizes.desktop.x2}`,
+  padding: `${sizeVars.x2}`,
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
 });
 
 export const content = style({
-  // maxWidth: `min(calc(100vw - 2 * ${layoutVars.var.contentMargins}), var(--max-content-width))`,
   maxWidth: '100%',
   overflow: 'hidden',
 });
@@ -33,4 +32,15 @@ export const iframeWrapper = style({
   width: '100%',
   maxWidth: '100%',
   backgroundColor: colorVars.colors.grey[25],
+});
+
+/**
+ *
+ * Codeblock
+ *
+ */
+
+export const codeblock = style({
+  borderTopLeftRadius: 0,
+  borderTopRightRadius: 0,
 });

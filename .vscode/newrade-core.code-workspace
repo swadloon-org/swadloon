@@ -243,6 +243,10 @@
       "path": "../packages/core-yo-generator"
     },
     {
+      "name": "core-design-app",
+      "path": "../packages/core-design-app"
+    },
+    {
       "name": "ze-design-system",
       "path": "../packages/ze-design-system"
     },

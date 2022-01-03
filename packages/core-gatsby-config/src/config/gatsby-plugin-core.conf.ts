@@ -32,6 +32,37 @@ const defaultOptions: Required<GatsbyCorePluginOptions> = {
   renderDesignSystemPages: true,
   designSystemPagesPath: path.resolve('..', 'core-design-system-docs', 'docs'),
   designSystemPagesPathPrefix: '/design-system/',
+  jsdocSourcePaths: [
+    path.resolve('..', 'core-gatsby-ui', 'src', 'blocks'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'breadcrumbs'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'context'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'debug'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'docs'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'footers'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'fragments'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'hooks'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'i18next'),
+
+    path.resolve('..', 'core-gatsby-ui', 'src', 'image'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'layout'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'links'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'markdown'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'mdx'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navbar-items'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navbar-menus'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navigation', 'aside.css.ts'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navigation', 'aside.tsx'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navigation', 'navigation.model.ts'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'navigation', 'nav-item.model.ts'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'pages'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'sections'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'sidebar'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'sidebar-docs-desktop'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'sidebar-items'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'templates'),
+    path.resolve('..', 'core-gatsby-ui', 'src', 'utilities'),
+    path.resolve('..', 'core-react-ui', 'src'),
+  ],
 
   renderDocsPages: true,
   docsPagesPath: path.resolve('src', 'docs'),
@@ -68,6 +99,7 @@ export function getGastbyCorePluginConfig({
   renderDesignSystemPages = defaultOptions.renderDesignSystemPages,
   designSystemPagesPath = defaultOptions.designSystemPagesPath,
   designSystemPagesPathPrefix = defaultOptions.designSystemPagesPathPrefix,
+  jsdocSourcePaths = defaultOptions.jsdocSourcePaths,
 
   renderCoreDocsPages = defaultOptions.renderCoreDocsPages,
   coreDocsPagesPath = defaultOptions.coreDocsPagesPath,
@@ -128,6 +160,22 @@ export function getGastbyCorePluginConfig({
           },
         }
       : null,
+
+    /**
+     * Design system pages
+     */
+    ...(jsdocSourcePaths
+      ? jsdocSourcePaths.map((jsDocPath) => {
+          return {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: SOURCE_INSTANCE_NAME.JSDOC_SOURCE_FILES,
+              path: jsDocPath,
+              ignore: [`**/*.mdx?`],
+            },
+          };
+        })
+      : []),
 
     /**
      * Core packages docs

@@ -8,7 +8,7 @@ import { createVar, globalStyle } from '@vanilla-extract/css';
 
 const transitionDuration = createVar();
 
-globalStyle(`*`, {
+globalStyle(`html, body`, {
   vars: {
     [transitionDuration]: `350ms`,
   },

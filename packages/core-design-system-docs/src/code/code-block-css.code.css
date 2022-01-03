@@ -1,0 +1,24 @@
+.global-css-theme-scheme-light {
+  --color-scheme: light;
+  --colors-current: currentColor;
+  --colors-transparent: hsl(0, 0%, 0%, 0);
+  --colors-primary-100: hsl(222, 50%, 86%, 1);
+  --colors-primary-300: hsl(222, 50%, 68%, 1);
+  --colors-primary-500: hsl(222, 50%, 50%, 1);
+  --colors-primary-700: hsl(222, 50%, 32%, 1);
+  --colors-primary-900: hsl(222, 50%, 14%, 1);
+  --colors-primary-base-hue: 222;
+}
+
+.selector {
+  color: var(--colors-current);
+}
+
+@keyframes Keyframes {
+  0% {
+    transform: translate(0px);
+  }
+  100% {
+    transform: translate(-100px);
+  }
+}

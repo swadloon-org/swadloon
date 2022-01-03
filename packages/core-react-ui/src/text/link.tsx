@@ -3,6 +3,7 @@ import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 
 import {
+  LinkIcon,
   LinkProps,
   LinkState,
   LinkVariant,
@@ -23,6 +24,7 @@ type Props = PrimitiveProps &
     'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel' | 'variantStyle'
   > & {
     as?: 'div' | 'a';
+    shortenLongLink?: boolean;
     Icon?: React.ReactNode;
   };
 
@@ -38,6 +40,7 @@ export const Link: React.FC<Props> = React.memo(
     variant,
     variantIcon,
     Icon,
+    shortenLongLink,
     variantSize,
     variantLevel,
     variantStyle,
@@ -55,9 +58,18 @@ export const Link: React.FC<Props> = React.memo(
     const ref = useRef<HTMLElement>();
 
     /**
+     * External links
+     */
+    const linkIsExternal = href && /https?:\/\//.test(href);
+
+    /**
+     * Icon
+     */
+
+    /**
      * Props
      */
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'a'>({
       id,
       style,
       className,
@@ -67,6 +79,7 @@ export const Link: React.FC<Props> = React.memo(
         styles[variantLevel ? variantLevel : Variant.primary],
         styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium],
       ],
+      target: target ? target : linkIsExternal ? '_blank' : undefined,
       ...props,
     });
 
@@ -74,13 +87,28 @@ export const Link: React.FC<Props> = React.memo(
      * Default children
      */
     const renderedChildren = children
-      ? children
+      ? typeof children === 'string'
+        ? shortenLongLink
+          ? getShortLink(children)
+          : children
+        : children
       : getDefaultTextFromProps('link', {
           variant,
           variantLevel,
           variantSize,
           variantIcon,
         });
+
+    function getShortLink(linkStr?: string) {
+      if (!linkStr) {
+        return '';
+      }
+      if (linkStr.length > 20) {
+        return [linkStr.substring(0, 20), '...', linkStr.substring(linkStr.length - 20)].join('');
+      }
+
+      return linkStr;
+    }
 
     /**
      * Icon insertion
@@ -90,7 +118,7 @@ export const Link: React.FC<Props> = React.memo(
         className: styles.icon,
         preserveAspectRatio: `xMinYMin meet`,
       })
-    ) : variantIcon ? (
+    ) : variantIcon !== LinkIcon.none && linkIsExternal ? (
       <IoOpenOutline className={styles.icon}></IoOpenOutline>
     ) : null;
 

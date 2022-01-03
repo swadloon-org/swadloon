@@ -25,4 +25,8 @@ export type CSSColors = Colors<string> & {
   var: CSSColorsVars;
 };
 
+/**
+ * V2 introduces the following changes
+ *  - removes `varNames` and `var` since we generated the names automatically based on the path
+ */
 export type CSSColorsV2 = Colors<string>;

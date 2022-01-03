@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ICON } from '@newrade/core-design-system';
 import { NavbarSelectItem } from '@newrade/core-gatsby-ui/src';
 import { Cluster, Stack, useIsSSR } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -21,7 +21,7 @@ export const NavbavSelectItems: React.FC<Props> = (props) => {
   }
 
   return (
-    <Stack gap={[sizingVars.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       <Cluster justifyContent={['flex-start']}>
         <NavbarSelectItem
           Icon={ICON.ARROW_UP}

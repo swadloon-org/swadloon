@@ -71,6 +71,7 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       componentStatus: String
       componentVersion: String
       componentTests: String
+      jsdocImports: [String]
     }
   `;
 

@@ -3,7 +3,7 @@ import { pascal } from 'case';
 import { keys } from './utilities';
 
 /**
- * <Link /> => "Link Medium Underline"
+ * `<Link />` => "Link Medium Underline"
  */
 export function getDefaultTextFromProps(name: string, props: object): string {
   const propString = `${keys(props)
@@ -14,6 +14,9 @@ export function getDefaultTextFromProps(name: string, props: object): string {
 }
 
 /**
+ * Utility to remove invalid classnames and merge them into a single string
+ *
+ * @example
  * ['hey', 'classname '] => 'hey classname'
  */
 export function getMergedClassname(classNames?: (string | null | undefined | boolean)[]): string {

@@ -20,7 +20,12 @@ const prodConfig: Configuration.Configuration = {
   optimization: {},
   performance: false,
   plugins: [core.getSizePlugin()],
-  stats: core.stats.prod,
+  stats: {
+    all: false,
+    assets: true,
+    errors: true,
+    logging: 'info',
+  },
   output: core.output.prod,
 };
 

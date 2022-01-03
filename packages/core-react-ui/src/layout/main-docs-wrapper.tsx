@@ -9,8 +9,8 @@ import * as styleRefs from './main-docs-wrapper.treat';
 type Props = PrimitiveProps & {};
 
 /**
- * High level layout component to create a wrapper for the <main/> content
- * Should be used as close as possible to the <body/> element
+ * High level layout component to create a wrapper for the `<main/> content
+ * Should be used as close as possible to the `<body/>` element
  *
  * This docs variant allows for sticky element since there are no overflow applied
  */

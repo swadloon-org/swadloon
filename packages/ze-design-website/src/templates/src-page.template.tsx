@@ -1,4 +1,4 @@
-import { PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 
@@ -12,6 +12,90 @@ import {
 export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext>;
 
 export type Props = Omit<SrcPageTemplateProps, 'children'> & { children: ReactNode };
+
+/**
+ * Query to retrieve all markdown content for the markdown file
+ */
+export const markdownTemplateQuery = graphql`
+  query JSDoc {
+    jsdoc: allDocumentationJs(filter: { name: { in: ["ThemeWrapper", "ThemeWrapperProps"] } }) {
+      nodes {
+        ...DocumentationJsFragment
+        params {
+          name
+          type {
+            name
+          }
+          description {
+            ...DocumentationJSComponentDescriptionFragment
+          }
+        }
+        properties {
+          ...DocumentationJsFragment
+        }
+        examples {
+          raw
+        }
+        deprecated {
+          childMdx {
+            rawBody
+          }
+        }
+        members {
+          static {
+            ...DocumentationJsFragment
+          }
+          inner {
+            ...DocumentationJsFragment
+          }
+          global {
+            ...DocumentationJsFragment
+          }
+          events {
+            ...DocumentationJsFragment
+          }
+        }
+      }
+    }
+  }
+
+  fragment DocumentationJsFragment on DocumentationJs {
+    name
+    level
+    memberof
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+    kind
+    optional
+    default
+    type {
+      ...DoctrineTypeFragment
+    }
+    type {
+      ...DoctrineTypeFragment
+    }
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+  }
+
+  fragment DoctrineTypeFragment on DoctrineType {
+    name
+    type
+    result
+    params
+    fields
+    expression
+    elements
+  }
+
+  fragment DocumentationJSComponentDescriptionFragment on DocumentationJSComponentDescription {
+    childMdx {
+      body
+    }
+  }
+`;
 
 export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props) => {
   return (

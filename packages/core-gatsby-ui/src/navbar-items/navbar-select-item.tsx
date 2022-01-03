@@ -17,7 +17,7 @@ type Props = NavbarLinkProps & {
 };
 
 /**
- * Component that allows user to select a value from a <select/> dropdown.
+ * Component that allows user to select a value from a `<select/>` dropdown.
  *
  * @see https://zedesignsystem.com/design-system/components/navbars-items/
  */

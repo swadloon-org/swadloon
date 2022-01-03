@@ -55,6 +55,12 @@ const config: conf.GastbySiteConfig = {
     /**
      * Core Plugins
      */
+    /** js/ts/react */
+    ...core.getGatsbyPluginTypeScriptConfig(),
+    ...core.getGastbyCorePluginConfig({
+      packageName: packageJson.name,
+    }),
+    core.getGastbyPluginTsCacheConfig(),
     /** template */
     core.getGatsbyPluginReactHelmet(),
     /** svg */
@@ -84,12 +90,6 @@ const config: conf.GastbySiteConfig = {
     /** cdn / deploy */
     /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
-    /** js/ts/react */
-    ...core.getGatsbyPluginTypeScriptConfig(),
-    ...core.getGastbyCorePluginConfig({
-      packageName: packageJson.name,
-    }),
-    core.getGastbyPluginTsCacheConfig(),
     /** cms */
   ],
 };

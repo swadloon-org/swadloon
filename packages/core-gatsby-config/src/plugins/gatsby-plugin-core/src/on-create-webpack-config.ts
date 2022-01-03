@@ -21,6 +21,7 @@ import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
  * Replacement config for Gatsby's default config
  *
  * @see 'node_modules/gatsby/dist/utils/webpack.config.js'
+ * @see https://webpack.js.org/configuration/
  */
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
   { stage, rules, loaders, plugins, actions, getConfig, reporter, store },
@@ -64,8 +65,10 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 
   /**
    * Replace the devtool option
+   *
+   * @see https://webpack.js.org/configuration/devtool/#devtool
    */
-  config.devtool = isProduction ? false : 'source-map';
+  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
 
   /**
    * Remove es5 target
@@ -332,7 +335,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     config.plugins = [
       ...(config.plugins || []),
       new ProgressPlugin({
-        activeModules: true,
+        activeModules: false,
       }),
     ];
   }

@@ -47,12 +47,7 @@ export const InputSelect = React.memo(
       position: 'left',
       disabled: disabled,
     });
-    const classNames = getMergedClassname([
-      className,
-      styles.wrapper,
-      styles.text,
-      inputClassNames,
-    ]);
+    const classNames = getMergedClassname([className, styles.text, inputClassNames]);
     const renderedId = id || props.name || '';
 
     //

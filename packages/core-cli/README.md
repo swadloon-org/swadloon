@@ -386,6 +386,7 @@ USAGE
 
 OPTIONS
   -c, --config=config  path to config file (.ts)
+  --no-client-overlay  disable the full-screen overlay in the browser when there are compiler errors or warnings
 
 EXAMPLE
   $ nr webpack serve --config webpack.dev.config.ts

@@ -1,16 +1,55 @@
-// Original: https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-ghcolors.css
-import { PrismTheme } from 'prism-react-renderer';
+import { Language } from 'prism-react-renderer';
 
-export const githubTheme: PrismTheme = {
+import { CodeMarkupValues } from '@newrade/core-design-system';
+
+import { colorVars } from '../theme';
+
+/**
+ * Extracted type from 'prism-react-renderer' since it is not exported
+ */
+type PrismThemeEntry = {
+  color?: string;
+  backgroundColor?: string;
+  fontStyle?: 'normal' | 'italic';
+  fontWeight?:
+    | 'normal'
+    | 'bold'
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900';
+  textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through';
+  opacity?: number;
+  [styleKey: string]: string | number | void;
+};
+
+/**
+ * Augmented prism theme with our enum for `types`
+ */
+type ExtendedPrismTheme = {
+  plain: PrismThemeEntry;
+  styles: Array<{
+    types: CodeMarkupValues[];
+    style: PrismThemeEntry;
+    languages?: Language[];
+  }>;
+};
+
+export const prismTheme: ExtendedPrismTheme = {
   plain: {
-    color: '#393A34',
-    backgroundColor: '#f6f8fa',
+    color: colorVars.colors.code.editorForeground,
+    backgroundColor: colorVars.colors.code.editorBackground,
   },
   styles: [
     {
       types: ['comment', 'prolog', 'doctype', 'cdata'],
       style: {
-        color: '#999988',
+        color: colorVars.colors.code.codeComment,
         fontStyle: 'italic',
       },
     },
@@ -23,13 +62,43 @@ export const githubTheme: PrismTheme = {
     {
       types: ['string', 'attr-value'],
       style: {
-        color: '#e3116c',
+        color: colorVars.colors.code.codeString,
       },
     },
     {
-      types: ['punctuation', 'operator'],
+      types: ['class-name'],
       style: {
-        color: '#393A34',
+        color: colorVars.colors.code.codeClassName,
+      },
+    },
+    {
+      types: ['maybe-class-name'],
+      style: {
+        color: colorVars.colors.code.codeMaybeClassName,
+      },
+    },
+    {
+      types: ['unit'],
+      style: {
+        color: colorVars.colors.code.codeUnit,
+      },
+    },
+    {
+      types: ['punctuation'],
+      style: {
+        color: colorVars.colors.code.codePunctuation,
+      },
+    },
+    {
+      types: ['operator'],
+      style: {
+        color: colorVars.colors.code.codeOperator,
+      },
+    },
+    {
+      types: ['constant'],
+      style: {
+        color: colorVars.colors.code.codeConstant,
       },
     },
     {
@@ -40,250 +109,55 @@ export const githubTheme: PrismTheme = {
         'number',
         'boolean',
         'variable',
-        'constant',
         'property',
         'regex',
         'inserted',
       ],
       style: {
-        color: '#36acaa',
+        color: colorVars.colors.code.codeEntity,
       },
     },
     {
-      types: ['atrule', 'keyword', 'attr-name', 'selector'],
+      types: ['keyword'],
       style: {
-        color: '#00a4db',
+        color: colorVars.colors.code.codeKeyword,
       },
     },
     {
-      types: ['function', 'deleted', 'tag'],
+      types: ['tag'],
       style: {
-        color: '#d73a49',
+        color: colorVars.colors.code.codeTag,
+      },
+    },
+    {
+      types: ['atrule', 'attr-name'],
+      style: {
+        color: colorVars.colors.code.codeAtrule,
+      },
+    },
+    {
+      types: ['parameter'],
+      style: {
+        color: colorVars.colors.code.codeParameter,
+      },
+    },
+    {
+      types: ['selector'],
+      style: {
+        color: colorVars.colors.code.codeSelector,
+      },
+    },
+    {
+      types: ['function', 'deleted'],
+      style: {
+        color: colorVars.colors.code.codeFunction,
       },
     },
     {
       types: ['function-variable'],
       style: {
-        color: '#6f42c1',
-      },
-    },
-    {
-      types: ['tag', 'selector', 'keyword'],
-      style: {
-        color: '#00009f',
+        color: colorVars.colors.code.codeFunctionVariable,
       },
     },
   ],
 };
-
-// todo convert back to prism object
-
-// globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
-//   maxWidth: '100%',
-//   marginTop: '1em',
-//   marginBottom: contentMargin,
-//   overflowX: 'auto',
-
-//   borderRadius: '6px',
-//   padding: '16px',
-//   overflow: 'auto',
-//   lineHeight: '1.45',
-//   backgroundColor: '#f2f5f8',
-// }));
-
-// globalStyle(`${wrapper} pre code`, ({ cssTheme, theme }: Theme) => ({
-//   fontSize: '90%',
-// }));
-
-// globalStyle(`${wrapper} :not(pre) > code`, ({ cssTheme, theme }: Theme) => ({
-//   backgroundColor: 'rgba(27, 31, 35, 0.05)',
-//   color: '#373c49',
-//   fontSize: '90%',
-//   margin: '0',
-//   padding: '0.2em 0.4em',
-//   BorderRadius: '6px',
-// }));
-
-// globalStyle(
-//   `${wrapper} code[class*='language-'],
-// pre[class*='language-']`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#24292e',
-//     textAlign: 'left',
-//     whiteSpace: 'pre',
-//     wordSpacing: 'normal',
-//     wordBreak: 'normal',
-//     wordWrap: 'normal',
-//     lineHeight: '1.4',
-//     MozTabSize: '8',
-//     OTabSize: '8',
-//     tabSize: '8',
-
-//     WebkitHyphens: 'none',
-//     MozHyphens: 'none',
-//     MsHyphens: 'none',
-//     hyphens: 'none',
-//   })
-// );
-
-// globalStyle(`${wrapper} .token.comment,.token.blockquote`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#6a737d',
-// }));
-
-// globalStyle(`${wrapper} .token.cdata`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#183691',
-// }));
-
-// globalStyle(
-//   `${wrapper} .token.doctype,
-// .token.punctuation,
-// .token.variable,
-// .token.macro.property`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#333',
-//   })
-// );
-
-// globalStyle(
-//   `${wrapper} .token.operator,
-// .token.important,
-// .token.keyword,
-// .token.rule,
-// .token.builtin `,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#a71d5d',
-//   })
-// );
-
-// globalStyle(
-//   `${wrapper} .token.string,
-// .token.url,
-// .token.regex,
-// .token.attr-value `,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#183691',
-//   })
-// );
-
-// globalStyle(
-//   `${wrapper} .token.property,
-//   .token.number,
-//   .token.boolean,
-//   .token.entity,
-//   .token.atrule,
-//   .token.constant,
-//   .token.symbol,
-//   .token.command,
-//   .token.code `,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#0086b3',
-//   })
-// );
-
-// globalStyle(
-//   `${wrapper} .token.tag,
-//   .token.selector,
-//   .token.prolog`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#63a35c',
-//   })
-// );
-
-// globalStyle(
-//   `${wrapper} .token.function,
-//   .token.namespace,
-//   .token.pseudo-element,
-//   .token.class,
-//   .token.class-name,
-//   .token.pseudo-class,
-//   .token.id,
-//   .token.url-reference .token.variable,
-//   .token.attr-name`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#005cc5',
-//   })
-// );
-
-// globalStyle(`${wrapper} .token.entity`, ({ cssTheme, theme }: Theme) => ({
-//   cursor: 'help',
-// }));
-
-// globalStyle(
-//   `${wrapper} .token.title,
-// .token.title .token.punctuation`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     fontWeight: 'bold',
-//     color: '#1d3e81',
-//   })
-// );
-
-// globalStyle(`${wrapper} .token.list`, ({ cssTheme, theme }: Theme) => ({
-//   fontWeight: 'bold',
-//   color: '#ed6a43',
-// }));
-
-// globalStyle(`${wrapper} .token.inserted `, ({ cssTheme, theme }: Theme) => ({
-//   backgroundColor: '#eaffea',
-//   color: '#55a532',
-// }));
-
-// globalStyle(`${wrapper} .token.deleted`, ({ cssTheme, theme }: Theme) => ({
-//   backgroundColor: '#ffecec',
-//   color: '#bd2c00',
-// }));
-
-// globalStyle(`${wrapper} .token.bold`, ({ cssTheme, theme }: Theme) => ({
-//   fontWeight: 'bold',
-// }));
-
-// globalStyle(`${wrapper} .token.italic`, ({ cssTheme, theme }: Theme) => ({
-//   fontStyle: 'italic',
-// }));
-
-// globalStyle(`${wrapper} .language-json .token.property`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#183691',
-// }));
-
-// globalStyle(`${wrapper} .language-markup .token.tag .token.punctuation `, ({ cssTheme, theme }: Theme) => ({
-//   color: '#333',
-// }));
-
-// globalStyle(
-//   `${wrapper} code.language-css,
-// .language-css .token.function`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     color: '#0086b3',
-//   })
-// );
-
-// globalStyle(`${wrapper} .language-yaml .token.atrule `, ({ cssTheme, theme }: Theme) => ({
-//   color: '#63a35c',
-// }));
-
-// globalStyle(`${wrapper} code.language-yaml`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#183691',
-// }));
-
-// globalStyle(`${wrapper} .language-ruby .token.function`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#333',
-// }));
-
-// globalStyle(`${wrapper} .language-markdown .token.url`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#795da3',
-// }));
-
-// globalStyle(`${wrapper} .language-makefile .token.symbol `, ({ cssTheme, theme }: Theme) => ({
-//   color: '#795da3',
-// }));
-
-// globalStyle(`${wrapper} .language-makefile .token.variable `, ({ cssTheme, theme }: Theme) => ({
-//   color: '#183691',
-// }));
-
-// globalStyle(`${wrapper} .language-makefile .token.builtin `, ({ cssTheme, theme }: Theme) => ({
-//   color: '#0086b3',
-// }));
-
-// globalStyle(`${wrapper} .language-bash .token.keyword`, ({ cssTheme, theme }: Theme) => ({
-//   color: '#0086b3',
-// }));

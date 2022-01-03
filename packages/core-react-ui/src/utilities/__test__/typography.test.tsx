@@ -8,7 +8,7 @@ import { getCSSTextStyles } from '../text.utilities';
 import { createCSSCapsizeTextStyle } from '../text-capsize.utilities';
 import { getCSSTypography } from '../typography.utilities';
 
-describe('colors utilities', () => {
+describe('typography utilities', () => {
   describe(`${createCSSCapsizeTextStyle.name}`, () => {
     it('should create a valid CSS typography object', () => {
       const textStyle: TextStyle & CapsizeTextStyle = {

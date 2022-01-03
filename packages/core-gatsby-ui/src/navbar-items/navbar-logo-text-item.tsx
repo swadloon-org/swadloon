@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HEADING, LOGO } from '@newrade/core-design-system';
 import { Cluster, Heading, Logo } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { NavbarLinkProps } from './navbar-item.props';
 import { NavbarLinkItem } from './navbar-link-item';
@@ -21,7 +21,7 @@ export const NavbarLogoTextItem: React.FC<Props> = ({
   ...props
 }) => {
   const Name = (
-    <Cluster gap={[sizingVars.var.x2]}>
+    <Cluster gap={[sizeVars.x2]}>
       <Logo name={kind} className={styles.logo}></Logo>
 
       <Heading as={'div'} variant={HEADING.h3}>

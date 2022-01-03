@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, sizingVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   width: '100%',
-  padding: `${sizingVars.var.x5} 0`,
+  padding: `${sizeVars.x5} 0`,
 });
 
 /**

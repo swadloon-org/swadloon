@@ -24,10 +24,10 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { lorenipsumMedium, lorenipsumShort } from '@newrade/core-react-ui';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';
-import { lorenipsumMedium, lorenipsumShort } from '../docs-components/loren-ipsum';
 import { GatsbyLink } from '../links/gatsby-link';
 
 import { FooterProps } from './footer.props';

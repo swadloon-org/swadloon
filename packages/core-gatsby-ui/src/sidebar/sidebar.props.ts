@@ -36,7 +36,7 @@ export type SidebarProps = PrimitiveProps<'nav'> & {
   /**
    * Inject a link around the logo
    * @example
-   *  <Sidebar ... HomeLink={<GatsbyLink to={'/'} />} />
+   * <Sidebar ... HomeLink={<GatsbyLink to={'/'} />} />
    */
   HomeLink?: React.ReactNode;
   /**

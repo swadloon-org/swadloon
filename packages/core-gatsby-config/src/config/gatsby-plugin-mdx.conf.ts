@@ -16,6 +16,12 @@ import {
 export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
   return [
     /**
+     * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-documentationjs
+     */
+    {
+      resolve: 'gatsby-transformer-documentationjs',
+    },
+    /**
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx#gatsby-remark-plugins
      */
     {

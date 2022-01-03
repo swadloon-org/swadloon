@@ -1,34 +1,39 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './code-highlight.treat';
+import * as styles from './code-highlight.css';
 
 type Props = {
   code?: string;
   className?: string;
+  preClassName?: string;
   language?: string;
   theme?: PrismTheme;
   live?: boolean;
-
   injectPreElement?: boolean;
 };
 
 export const CodeHighlight: React.FC<Props> = ({
   code,
   children = '',
+  className,
+  preClassName,
   language,
   theme,
   injectPreElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
-
   return (
-    <Highlight Prism={Prism} code={code || ''} theme={theme} language={language as Language}>
+    <Highlight
+      Prism={Prism}
+      code={code || ''}
+      theme={theme}
+      language={language as Language}
+      {...props}
+    >
       {!injectPreElement
         ? ({ tokens, getLineProps, getTokenProps }) => (
             <React.Fragment>
@@ -45,22 +50,25 @@ export const CodeHighlight: React.FC<Props> = ({
               })}
             </React.Fragment>
           )
-        : ({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={`${className} ${styles.pre}`} style={{ ...style }}>
-              {tokens.map((line, i) => {
-                const lineProps = { ...getLineProps({ line, key: i }) };
-                const lineClassName = getMergedClassname([lineProps.className, styles.tokenLine]);
+        : ({ className, style, tokens, getLineProps, getTokenProps }) => {
+            const preClassnames = getMergedClassname([styles.pre, className, preClassName]);
+            return (
+              <pre className={preClassnames} style={{ ...style }}>
+                {tokens.map((line, i) => {
+                  const lineProps = { ...getLineProps({ line, key: i }) };
+                  const lineClassName = getMergedClassname([lineProps.className, styles.tokenLine]);
 
-                return (
-                  <div key={i} {...lineProps} className={lineClassName}>
-                    {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                );
-              })}
-            </pre>
-          )}
+                  return (
+                    <div key={i} {...lineProps} className={lineClassName}>
+                      {line.map((token, key) => (
+                        <span key={key} {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  );
+                })}
+              </pre>
+            );
+          }}
     </Highlight>
   );
 };

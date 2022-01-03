@@ -122,7 +122,6 @@ export function createCSSCapsizeTextStyle({
 /**
  * @version
  *  - v2: uses css vars instead of raw value
- *
  */
 export function createCSSCapsizeTextStyleV2({
   baseFontSize,

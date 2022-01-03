@@ -19,6 +19,7 @@ import { colorVars } from '../theme';
 
 const scrollBarBackground = createVar();
 const scrollBarWidth = createVar();
+const scrollBarHeight = createVar();
 const scrollBarThumbWidth = createVar();
 const scrollBarThumbBorderWidth = createVar();
 const scrollBarThumbBorderColor = createVar();
@@ -29,6 +30,7 @@ globalStyle(`:root`, {
   vars: {
     [scrollBarBackground]: colorVars.colorIntents.elevation0,
     [scrollBarWidth]: '12px',
+    [scrollBarHeight]: '12px',
     [scrollBarThumbWidth]: '12px',
     [scrollBarThumbBorderWidth]: '2px',
     [scrollBarThumbBorderColor]: colorVars.colorIntents.elevation0,
@@ -39,11 +41,12 @@ globalStyle(`:root`, {
 
 globalStyle(`*::-webkit-scrollbar`, {
   scrollbarWidth: `${scrollBarWidth}`,
-  scrollbarColor: `${scrollBarThumbBackground} ${scrollBarThumbBackground}`,
+  scrollbarColor: `${scrollBarThumbBackground}`,
 });
 
 globalStyle(`*::-webkit-scrollbar`, {
   width: scrollBarWidth,
+  height: scrollBarHeight, // only applies for horizontal scrollbars
   backgroundColor: scrollBarBackground,
 });
 

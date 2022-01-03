@@ -27,13 +27,22 @@ import { colorVars } from '@newrade/core-react-ui/theme';
 
 import * as styles from './theme-wrapper.css';
 
-type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
+enum ThemeWrapperTab {
+  DESIGN = 'design',
+  CODE = 'code',
+}
+
+/**
+ * @typedef {Object} ThemeWrapperProps
+ * @description Props for ThemeWrapper
+ */
+type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
   /**
-   * Outer theme ref
+   * Treat theme ref (classname)
    */
   treatThemeRef: string;
   /**
-   * Full theme config object
+   * Full treat theme config object
    */
   theme: Theme;
   /**
@@ -45,13 +54,27 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
    */
   children: ReactNode;
   /**
-   * Activate knobs and controls
+   * Whether to display tabs to switch between 'design' and 'code'
+   * @default true
+   */
+  displayTabs?: boolean;
+  /**
+   * Activate knobs and controls for the design tab
    */
   displayControls?: boolean;
   /**
+   * Whether to display or not the theme selection dropdown
+   */
+  displayThemeSelection?: boolean;
+  /**
    * Display mode
+   * @deprecated
    */
   reversed?: boolean;
+  /**
+   * Initial selected tab
+   */
+  initialTab?: ThemeWrapperTab;
   /**
    * Displayed filename
    */
@@ -62,20 +85,20 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
   code?: string;
   /**
    * Enable viewport selection controls
-   *
-   * @default false
+   * @default "false"
    */
   viewportControl?: boolean;
   /**
    * Enable or disable scrolling in the x direction
-   *
-   * @default false
+   * @default
+   * {"viewportOverflowX": true}
    */
   viewportOverflowX?: Property.OverflowX;
   /**
    * Enable or disable scrolling in the y direction
-   *
    * @default true
+   * @since v1
+   *
    */
   viewportOverflowY?: Property.OverflowY;
   /**
@@ -92,7 +115,12 @@ type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
 type ThemeWrapperViewportMode = VIEWPORT | 'auto';
 
 /**
- * Inject Treat providers
+ * Utility component to render React components in an iframe with viewport
+ * controls. It can also render source code with syntax highlighting.
+ *
+ * @name ThemeWrapper
+ * @type {React.FC<ThemeWrapperProps>}
+ * @param {ThemeWrapperProps} props
  */
 const ThemeWrapperFn = React.memo(
   ({
@@ -103,8 +131,11 @@ const ThemeWrapperFn = React.memo(
     themeConfig,
     theme,
     children,
+    displayTabs = true,
     displayControls,
+    displayThemeSelection = true,
     reversed,
+    initialTab = ThemeWrapperTab.DESIGN,
     filename,
     code,
     viewportControl = false,
@@ -113,7 +144,7 @@ const ThemeWrapperFn = React.memo(
     viewportAutoWidth = true,
     viewport,
     ...props
-  }: Props) => {
+  }: ThemeWrapperProps) => {
     /**
      *
      * Viewport selection
@@ -174,12 +205,12 @@ const ThemeWrapperFn = React.memo(
      *
      */
 
-    const [activeTabId, setActiveTabId] = useState<string>('design');
+    const [activeTabId, setActiveTabId] = useState<ThemeWrapperTab>(initialTab);
 
     function handleSelectTab(event: React.MouseEvent<HTMLDivElement>) {
       const value = event.currentTarget.id;
       if (activeTabId !== value) {
-        setActiveTabId(value);
+        setActiveTabId(value as ThemeWrapperTab);
       }
     }
 
@@ -217,13 +248,21 @@ const ThemeWrapperFn = React.memo(
     return (
       <div className={styles.wrapper}>
         <Tabs>
-          {code ? (
+          {displayTabs && code ? (
             <TabList>
-              <Tab id={'design'} selected={activeTabId === 'design'} onClick={handleSelectTab}>
+              <Tab
+                id={ThemeWrapperTab.DESIGN}
+                selected={activeTabId === ThemeWrapperTab.DESIGN}
+                onClick={handleSelectTab}
+              >
                 Design
               </Tab>
 
-              <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
+              <Tab
+                id={ThemeWrapperTab.CODE}
+                selected={activeTabId === ThemeWrapperTab.CODE}
+                onClick={handleSelectTab}
+              >
                 Code
               </Tab>
             </TabList>
@@ -234,25 +273,30 @@ const ThemeWrapperFn = React.memo(
            * Design tab
            *
            */}
-          <TabContent aria-labelledby={'design'} hidden={activeTabId !== 'design'}>
+          <TabContent
+            aria-labelledby={ThemeWrapperTab.DESIGN}
+            hidden={activeTabId !== ThemeWrapperTab.DESIGN}
+          >
             {displayControls ? (
               <div className={styles.header}>
                 {/**
                  * Theme selector
                  */}
-                <InputSelect
-                  onChange={handleChangeTheme}
-                  value={selectedTheme?.name || ''}
-                  variantSize={InputSize.small}
-                >
-                  {themeConfig.themes.map((theme) => {
-                    return (
-                      <option key={theme.name} value={theme.name}>
-                        {theme.name}
-                      </option>
-                    );
-                  })}
-                </InputSelect>
+                {displayThemeSelection ? (
+                  <InputSelect
+                    onChange={handleChangeTheme}
+                    value={selectedTheme?.name || ''}
+                    variantSize={InputSize.small}
+                  >
+                    {themeConfig.themes.map((theme) => {
+                      return (
+                        <option key={theme.name} value={theme.name}>
+                          {theme.name}
+                        </option>
+                      );
+                    })}
+                  </InputSelect>
+                ) : null}
 
                 {/**
                  * Viewport selector
@@ -309,10 +353,15 @@ const ThemeWrapperFn = React.memo(
            * Code tab
            *
            */}
-          <TabContent aria-labelledby={'source'} hidden={activeTabId !== 'source'}>
+          <TabContent
+            aria-labelledby={ThemeWrapperTab.CODE}
+            hidden={activeTabId !== ThemeWrapperTab.CODE}
+          >
             {code ? (
               <Suspense fallback={''}>
-                <CodeBlockLazy filename={filename}>{code}</CodeBlockLazy>
+                <CodeBlockLazy filename={filename} preClassName={styles.codeblock}>
+                  {code}
+                </CodeBlockLazy>
               </Suspense>
             ) : null}
           </TabContent>

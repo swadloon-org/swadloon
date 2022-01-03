@@ -26,12 +26,15 @@ import {
   ListItem,
   ListItems,
   ListItemV2,
+  lorenipsum,
+  lorenipsumShort,
   Paragraph,
   Stack,
   Summary,
   Switcher,
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableCellHeader,
   TableHeader,
@@ -40,29 +43,27 @@ import {
   Title,
 } from '@newrade/core-react-ui';
 import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
+import { IconBox, Placeholder, PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
-import { IconBox } from '../docs-components/icon-box';
-import { lorenipsum, lorenipsumShort } from '../docs-components/loren-ipsum';
-import { Placeholder } from '../docs-components/placeholder';
-import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
+import { DocPropsTable } from '../context/doc-props-table';
 import { SectionBase } from '../sections/section-base';
 import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 
 /**
- * Components configuration object for <MDXProvider/>.
+ * Components configuration object for `<MDXProvider/>`.
  * Those components don't have any margins to avoid any layout side-effects.
  *
  * @see https://mdxjs.com/table-of-components
  * @example
- *    ```tsx
- *    <MDXProvider components={components}>
- *      <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
- *    </MDXProvider>
- *    ```
+ * ```tsx
+ * <MDXProvider components={components}>
+ *   <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+ * </MDXProvider>
+ * ```
  */
 export const mdxComponents: Partial<
   Record<keyof React.ReactHTML, React.ReactNode> & {
@@ -116,8 +117,8 @@ export const mdxComponents: Partial<
    *
    */
 
-  Title: Title,
-  Heading: Heading,
+  Title: (props: MDXProps) => <Title {...props} />,
+  Heading: (props: MDXProps) => <Heading {...props} />,
   h1: (props: MDXProps) => <Heading {...props} />,
   h2: (props: MDXProps) => <Heading variant={HEADING.h2} {...props} />,
   h3: (props: MDXProps) => <Heading variant={HEADING.h3} {...props} />,
@@ -138,9 +139,9 @@ export const mdxComponents: Partial<
 
   p: (props: MDXProps) => <Paragraph {...props} readableWidth={true} />,
   a: (props: MDXProps & AnchorHTMLAttributes<any>) => {
-    const linkIsExternal = props?.href && /https?:\/\//.test(props.href);
-
+    //
     // if the child is a img tag, don't render the external icon
+    //
     if (
       props?.children &&
       typeof props.children !== 'string' &&
@@ -152,7 +153,7 @@ export const mdxComponents: Partial<
           variant={LinkVariant.underline}
           variantSize={PARAGRAPH_SIZE.medium}
           style={{ display: 'inline-block' }}
-          target={linkIsExternal ? '_blank' : undefined}
+          variantIcon={LinkIcon.none}
           {...props}
         />
       );
@@ -163,8 +164,6 @@ export const mdxComponents: Partial<
         variant={LinkVariant.underline}
         variantSize={PARAGRAPH_SIZE.medium}
         style={{ display: 'inline-block' }}
-        target={linkIsExternal ? '_blank' : undefined}
-        variantIcon={linkIsExternal ? LinkIcon.right : undefined}
         {...props}
       />
     );
@@ -238,8 +237,40 @@ export const mdxComponents: Partial<
   thead: (props: MDXProps) => <TableHeader {...props} />,
   tbody: (props: MDXProps) => <TableBody {...props} />,
   tr: (props: MDXProps) => <TableRow {...props} />,
-  td: (props: MDXProps) => <TableCell {...props} />,
+  td: ({ children, ...props }: MDXProps & AnchorHTMLAttributes<any>) => {
+    //
+    // if the child is a link tag with text inside, we make sure it does not overflow the cell
+    //
+    if (
+      children &&
+      // @ts-ignore
+      children.props &&
+      typeof children !== 'string' &&
+      // @ts-ignore
+      children.props.mdxType === 'a' &&
+      // @ts-ignore
+      typeof children.props.children === 'string'
+    ) {
+      // @ts-ignore
+      const { parentName, originalType, mdxType, ...childrenProps } = children.props;
+      return (
+        <TableCell {...props}>
+          <Link
+            variant={LinkVariant.underline}
+            variantSize={PARAGRAPH_SIZE.small}
+            shortenLongLink={true}
+            style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
+            // @ts-ignore
+            {...childrenProps}
+          ></Link>
+        </TableCell>
+      );
+    }
+
+    return <TableCell {...props}>{children}</TableCell>;
+  },
   th: (props: MDXProps) => <TableCellHeader {...props} />,
+  caption: (props: MDXProps) => <TableCaption {...props} />,
 
   /**
    *
@@ -263,7 +294,7 @@ export const mdxComponents: Partial<
       </Suspense>
     );
   },
-  Code: Code,
+  Code: (props: MDXProps) => <Code {...props} />,
 
   /**
    *
@@ -288,11 +319,11 @@ export const mdxComponents: Partial<
    *
    */
 
-  Label: Label,
-  Tag: Tag,
-  Button: Button,
-  BoxV2: BoxV2,
-  BoxV3: BoxV3,
+  Label: (props: MDXProps) => <Label {...props} />,
+  Tag: (props: MDXProps) => <Tag {...props} />,
+  Button: (props: MDXProps) => <Button {...props} />,
+  BoxV2: (props: MDXProps) => <BoxV2 {...props} />,
+  BoxV3: (props: MDXProps) => <BoxV3 {...props} />,
 
   /**
 
@@ -300,41 +331,47 @@ export const mdxComponents: Partial<
    *
    */
 
-  Center: Center,
-  Cluster: Cluster,
+  Center: (props: MDXProps) => <Center {...props} />,
+  Cluster: (props: MDXProps) => <Cluster {...props} />,
 
-  Details: Details,
-  ListItem: ListItem,
-  ListItems: ListItems,
-  Grid: Grid,
-  BlockMarkdown: BlockMarkdown,
+  Details: (props: MDXProps) => <Details {...props} />,
+  ListItem: (props: MDXProps) => <ListItem {...props} />,
+  ListItems: (props: MDXProps) => <ListItems {...props} />,
+  Grid: (props: MDXProps) => <Grid {...props} />,
+  BlockMarkdown: (props: MDXProps) => <BlockMarkdown {...props} />,
 
-  Paragraph: Paragraph,
-  Placeholder: Placeholder,
-  PlaceholderMarkdown: PlaceholderMarkdown,
-  SectionSwitcher: SectionSwitcher,
-  SectionBase: SectionBase,
-  Stack: Stack,
-  Summary: Summary,
-  Switcher: Switcher,
+  Paragraph: (props: MDXProps) => <Paragraph {...props} />,
+  Placeholder: (props: MDXProps) => <Placeholder {...props} />,
+  PlaceholderMarkdown: (props: MDXProps) => <PlaceholderMarkdown {...props} />,
+  // @ts-ignore
+  SectionSwitcher: (props: MDXProps) => <SectionSwitcher {...props} />,
+  SectionBase: (props: MDXProps) => <SectionBase {...props} />,
+  Stack: (props: MDXProps) => <Stack {...props} />,
+  Summary: (props: MDXProps) => <Summary {...props} />,
+  Switcher: (props: MDXProps) => <Switcher {...props} />,
   SectionDivider: SectionDivider,
   SectionLayout: SectionBaseLayout,
   SectionPadding: SectionPadding,
   Variant: Variant,
-  Link: Link,
-  Table: Table,
-  TableCellHeader: TableCellHeader,
-  TableRow: TableRow,
-  TableHeader: TableHeader,
-  TableCell: TableCell,
-  DocHeader: DocHeader,
-  Badge: Badge,
+  Link: (props: MDXProps) => <Link {...props} />,
+  Table: (props: MDXProps) => <Table {...props} />,
+  TableCellHeader: (props: MDXProps) => <TableCellHeader {...props} />,
+  TableRow: (props: MDXProps) => <TableRow {...props} />,
+  TableHeader: (props: MDXProps) => <TableHeader {...props} />,
+  TableCell: (props: MDXProps) => <TableCell {...props} />,
+  // @ts-ignore
+  DocHeader: (props: MDXProps) => <DocHeader {...props} />,
+  // @ts-ignore
+  DocPropsTable: (props: MDXProps) => <DocPropsTable {...props} />,
+  // @ts-ignore
+  Badge: (props: MDXProps) => <Badge {...props} />,
 
   /**
    * Icon
    */
-  Icon: IconComp,
-  IconBox: IconBox,
+  // @ts-ignore
+  Icon: (props: MDXProps) => <IconComp {...props} />,
+  IconBox: (props: MDXProps) => <IconBox {...props} />,
 };
 
 export type MDXProps = {
