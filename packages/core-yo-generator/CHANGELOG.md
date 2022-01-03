@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.4...@newrade/core-yo-generator@1.6.5) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** fix imports and error in jsdoc comment block
+  ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.4](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.3...@newrade/core-yo-generator@1.6.4) (2021-12-21)
 
 **Note:** Version bump only for package @newrade/core-yo-generator

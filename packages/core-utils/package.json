@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-utils",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "@newrade/core utilities shared across packages.",
   "author": {
     "email": "info@newrade.ca",
@@ -34,7 +34,7 @@
   "sideEffects": false,
   "dependencies": {
     "@newrade/core-common": "*",
-    "@newrade/core-jest-config": "*",
+    "@newrade/core-jest-config": "^2.0.4",
     "chalk": "^4",
     "dotenv": "^10",
     "fp-ts": "^2.11.1",

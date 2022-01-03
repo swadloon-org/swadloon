@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.4.0...@newrade/core-utils@2.4.1) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** set internal packages version to \* which means any version found
+  locally
+  ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.3.1...@newrade/core-utils@2.4.0) (2021-12-21)
 
 ### Bug Fixes

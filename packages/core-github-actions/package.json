@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-github-actions",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Custom Github actions",
   "author": {
     "email": "info@newrade.ca",
@@ -32,9 +32,9 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@newrade/core-common": "*",
-    "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-jest-config": "^2.0.4",
+    "@newrade/core-utils": "^2.4.1",
+    "@newrade/core-webpack-config": "^2.5.0",
     "fp-ts": "^2.11.1",
     "io-ts": "^2",
     "node-fetch": "^2"

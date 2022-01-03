@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-design-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple React application for rapid components development",
   "license": "MIT",
   "scripts": {
@@ -16,12 +16,12 @@
   "type": "module",
   "dependencies": {
     "@newrade/core-common": "*",
-    "@newrade/core-design-system": "*",
-    "@newrade/core-jest-config": "*",
-    "@newrade/core-react-ui": "*",
+    "@newrade/core-design-system": "^1.17.0",
+    "@newrade/core-jest-config": "^2.0.4",
+    "@newrade/core-react-ui": "^2.6.0",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-utils": "^2.4.1",
+    "@newrade/core-webpack-config": "^2.5.0",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "fp-ts": "^2",
     "io-ts": "^2",

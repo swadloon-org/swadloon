@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-webpack-config",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
   "main": "dist/newrade-core-webpack-config.cjs.js",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
-    "@newrade/core-utils": "*",
+    "@newrade/core-utils": "^2.4.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-beta.8",
     "@vanilla-extract/webpack-plugin": "^2.1.0",
     "autoprefixer": "^10.3.1",

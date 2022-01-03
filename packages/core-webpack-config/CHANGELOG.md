@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.4.0...@newrade/core-webpack-config@2.5.0) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** add missing mdx dependencies and update react webpack config
+  ([87a5355](https://github.com/newrade/newrade-core/commit/87a535506af9e0439b6e68fbd75886a81d6baadd))
+- **core:** set internal packages version to \* which means any version found
+  locally
+  ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
+  drunk)
+  ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
+- **core-webpack-config:** update some config for development setup
+  ([e715c66](https://github.com/newrade/newrade-core/commit/e715c66dda1669ee8a01f7548b73ce150b953a9f))
+
+### Features
+
+- **core-ui:** add colors for code syntax highlighting and simplify sizing
+  variables exports
+  ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.3.0...@newrade/core-webpack-config@2.4.0) (2021-12-21)
 
 ### Bug Fixes

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.2.0...@newrade/core-gatsb-config@3.3.0) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** fix imports and error in jsdoc comment block
+  ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
+- **core:** set internal packages version to \* which means any version found
+  locally
+  ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
+  drunk)
+  ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
+- **core-webpack-config:** update some config for development setup
+  ([e715c66](https://github.com/newrade/newrade-core/commit/e715c66dda1669ee8a01f7548b73ce150b953a9f))
+
+### Features
+
+- **core-ui:** add light dark mode to code components
+  ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
+- **core-ui:** add new capabilities to the docs engine with documentation.js
+  (extract jsdoc)
+  ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.1.1...@newrade/core-gatsb-config@3.2.0) (2021-12-21)
 
 ### Bug Fixes

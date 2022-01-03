@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.3...@newrade/core-jest-config@2.0.4) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** fix imports and error in jsdoc comment block
+  ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.2...@newrade/core-jest-config@2.0.3) (2021-12-21)
 
 **Note:** Version bump only for package @newrade/core-jest-config

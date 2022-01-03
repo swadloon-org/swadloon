@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.16.0...@newrade/core-design-system@1.17.0) (2022-01-03)
+
+### Bug Fixes
+
+- **core-react-ui:** fix dependencies
+  ([48a4dae](https://github.com/newrade/newrade-core/commit/48a4dae8459938822b7e5b042fd2211650ff503d))
+
+### Features
+
+- **core-ui:** add colors for code syntax highlighting and simplify sizing
+  variables exports
+  ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
+- **core-ui:** add light dark mode to code components
+  ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
+- **core-ui:** refactor all table components
+  ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.16.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.15.0...@newrade/core-design-system@1.16.0) (2021-12-21)
 
 ### Bug Fixes
