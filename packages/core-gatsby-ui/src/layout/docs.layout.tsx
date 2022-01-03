@@ -244,12 +244,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    */
 
   const mdxComponents = {
-    h1: (props: MDXProps) => <Heading enableAnchorSign={true} {...props} />,
-    h2: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h2} {...props} />,
-    h3: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h3} {...props} />,
-    h4: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
-    h5: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
-    h6: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
     ThemeWrapper: injectThemeWrapper
       ? (props: any) => (
           <ThemeWrapper
