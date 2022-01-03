@@ -1,7 +1,10 @@
 import { RuleSetRule, RuleSetUseItem } from 'webpack';
 
 import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
-import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
+import {
+  babelPresetBrowserConf,
+  babelTypeScriptPresetBrowserConf,
+} from '../babel/babel-preset.conf';
 import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
 
 export const babelReactRule: RuleSetUseItem = {
@@ -30,12 +33,12 @@ const defaultOptions: Options = {
 };
 
 /**
- * for babel-loader see
+ * for babel-loader see https://webpack.js.org/loaders/babel-loader/
  * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
  */
 export function getBabelReactLoader(options: Options = defaultOptions): RuleSetRule {
   return {
-    test: /\.jsx?$/,
+    test: /\.tsx?$|\.jsx?$/,
     use: [
       {
         loader: 'babel-loader',
@@ -45,10 +48,10 @@ export function getBabelReactLoader(options: Options = defaultOptions): RuleSetR
           plugins: options.hmr
             ? [['react-refresh/babel'], ...babelPluginBrowserConf, ...(options.plugins || [])]
             : [...babelPluginBrowserConf, ...(options.plugins || [])],
-          presets: [...babelPresetBrowserConf],
+          presets: [...babelTypeScriptPresetBrowserConf, ...babelPresetBrowserConf],
         },
       },
     ],
-    exclude: /node_modules|\.treat\.ts/,
+    exclude: /node_modules|\.treat\.ts$|\.svg\.tsx$/, // see `treat.loader.ts`, `svgr-macro.loader.ts`
   };
 }

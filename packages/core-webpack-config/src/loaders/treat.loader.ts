@@ -1,7 +1,10 @@
 import { RuleSetRule } from 'webpack';
 
 import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
-import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
+import {
+  babelPresetBrowserConf,
+  babelTypeScriptPresetBrowserConf,
+} from '../babel/babel-preset.conf';
 import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
 
 type Options = { hmr?: boolean; plugins?: string[][] };
@@ -27,7 +30,7 @@ export function getTreatLoader(options: Options = defaultOptions): RuleSetRule {
           plugins: options.hmr
             ? [['react-refresh/babel'], ...babelPluginBrowserConf, ...(options.plugins || [])]
             : [...babelPluginBrowserConf, ...(options.plugins || [])],
-          presets: [...babelPresetBrowserConf],
+          presets: [...babelTypeScriptPresetBrowserConf, ...babelPresetBrowserConf],
         },
       },
     ],

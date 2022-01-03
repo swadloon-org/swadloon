@@ -14,3 +14,4 @@ export const createPages: GatsbyNode['createPages'] = createPagesFunction;
 export const onCreatePage: GatsbyNode['onCreatePage'] = onCreatePageFunction;
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
   createSchemaCustomizationFn;
+export const resolvableExtensions: GatsbyNode['resolvableExtensions'] = () => [`.ts`, `.tsx`];

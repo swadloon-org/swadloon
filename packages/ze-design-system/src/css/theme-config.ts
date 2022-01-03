@@ -1,7 +1,4 @@
-import {
-  CSSRuntimeThemeConfig,
-  CSSThemeProviderConfig,
-} from '@newrade/core-react-ui/src/design-system/css-theme-config';
+import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '@newrade/core-react-ui';
 
 import { darkCssTheme, lightCssTheme } from '../design-system/theme';
 

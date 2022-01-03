@@ -7,6 +7,7 @@ import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType } from '@newrade/core-utils';
 import {
   devServerConfig,
+  getBabelReactLoader,
   getBundleVisualizerPlugin,
   getForkTsCheckerWebpackPlugin,
   getLodashPlugin,
@@ -132,7 +133,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Replace CSS rules
    */
 
-  const cssRule = rules.css() as RuleSetRule;
+  // const cssRule = rules.css() as RuleSetRule;
 
   // reporter.info(`[${pluginOptions.pluginName}] current css rule:`);
   // printOutRules([cssRule]);
@@ -162,13 +163,13 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Filters to find the correct webpack rules
    */
 
-  const babelLoaderPredicate = (rule: RuleSetRule) =>
-    String(rule.test) === '/\\.(js|mjs|jsx)$/' ||
-    String(rule.test) === '/\\.(js|mjs)$/' || // since gatsby v3
-    String(rule.test) === '/\\.js$/i' || // since gatsby v3
-    String(rule.test) === '/\\.mjs$/i'; // since gatsby v3
-  const negateBabelLoaderPredicate = (rule: RuleSetRule | '...') =>
-    !babelLoaderPredicate(rule as RuleSetRule);
+  // const babelLoaderPredicate = (rule: RuleSetRule) =>
+  //   String(rule.test) === '/\\.(js|mjs|jsx)$/' ||
+  //   String(rule.test) === '/\\.(js|mjs)$/' || // since gatsby v3
+  //   String(rule.test) === '/\\.js$/i' || // since gatsby v3
+  //   String(rule.test) === '/\\.mjs$/i'; // since gatsby v3
+  // const negateBabelLoaderPredicate = (rule: RuleSetRule | '...') =>
+  //   !babelLoaderPredicate(rule as RuleSetRule);
 
   /**
    * Add exclusions to .js/.mjs rules
@@ -176,31 +177,31 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/babel-preset-gatsby/src/dependencies.ts
    */
 
-  if (config.module?.rules) {
-    reporter.info(
-      `[${pluginOptions.pluginName}] adding exclusions to .js rules to exclude .css.ts and .css.js files`
-    );
-    reporter.info(`[${pluginOptions.pluginName}] current rules: `);
-    printOutRules(config.module.rules);
+  // if (config.module?.rules) {
+  //   reporter.info(
+  //     `[${pluginOptions.pluginName}] adding exclusions to .js rules to exclude .css.ts and .css.js files`
+  //   );
+  //   reporter.info(`[${pluginOptions.pluginName}] current rules: `);
+  //   printOutRules(config.module.rules);
 
-    (config.module.rules as RuleSetRule[]) = [
-      ...(config.module.rules as RuleSetRule[]).filter(babelLoaderPredicate).map((rule) => {
-        if (rule) {
-          const excludePattern = /\.css\.ts$|\.css\.js$|\.tsx$|\.ts$/i;
-          if (rule.exclude) {
-            rule.exclude = [rule.exclude, excludePattern];
-            return rule;
-          }
-          rule.exclude = excludePattern;
-        }
-        return rule;
-      }),
-      ...(config.module.rules as RuleSetRule[]).filter(negateBabelLoaderPredicate),
-    ] as RuleSetRule[];
+  //   (config.module.rules as RuleSetRule[]) = [
+  //     ...(config.module.rules as RuleSetRule[]).filter(babelLoaderPredicate).map((rule) => {
+  //       if (rule) {
+  //         const excludePattern = /\.css\.ts$|\.css\.js$|\.tsx$|\.ts$/i;
+  //         if (rule.exclude) {
+  //           rule.exclude = [rule.exclude, excludePattern];
+  //           return rule;
+  //         }
+  //         rule.exclude = excludePattern;
+  //       }
+  //       return rule;
+  //     }),
+  //     ...(config.module.rules as RuleSetRule[]).filter(negateBabelLoaderPredicate),
+  //   ] as RuleSetRule[];
 
-    reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
-    printOutRules(config.module.rules);
-  }
+  //   reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
+  //   printOutRules(config.module.rules);
+  // }
 
   /**
    * Replace Gatsby default babel config
@@ -235,48 +236,70 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 
   /**
    *
+   * Add tsx support with babel-loader
+   *
+   */
+
+  const jsLoader = loaders.js();
+
+  if (config.module?.rules) {
+    config.module.rules.push({
+      test: /\.tsx?$/,
+      use: jsLoader,
+    });
+  }
+
+  /**
+   *
    * Add tsx support with ts-loader
    *
    */
 
-  const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
-  const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
+  // const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
+  // const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
 
-  if (config.module?.rules) {
-    reporter.info(`[${pluginOptions.pluginName}] adding .tsx file support`);
-    reporter.info(`[${pluginOptions.pluginName}] current rules: `);
-    printOutRules(config.module.rules);
+  // if (config.module?.rules) {
+  //   reporter.info(`[${pluginOptions.pluginName}] adding .tsx file support`);
+  //   reporter.info(`[${pluginOptions.pluginName}] current rules: `);
+  //   printOutRules(config.module.rules);
 
-    (config.module.rules as RuleSetRule[]) = [
-      ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
-      getTypescriptBabelReactLoader({
-        isDevelopment: isDevelopStage,
-        tsLoaderOptions: {
-          projectReferences: false,
-          compilerOptions: {
-            declaration: false,
-            composite: false,
-            incremental: false,
-          },
-        },
-        babelPlugins: [['@vanilla-extract/babel-plugin']],
-      }),
-    ] as RuleSetRule[];
+  //   (config.module.rules as RuleSetRule[]) = [
+  //     ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
+  //     getBabelReactLoader({
+  //       hmr: isDevelopStage,
+  //       plugins: [['@vanilla-extract/babel-plugin']],
+  //     }),
+  //     //
+  //     // adding ts-loader and babel increases build times... using babel with the ts preset instead for now
+  //     //
+  //     // getTypescriptBabelReactLoader({
+  //     //   isDevelopment: isDevelopStage,
+  //     //   tsLoaderOptions: {
+  //     //     projectReferences: false,
+  //     //     compilerOptions: {
+  //     //       declaration: false,
+  //     //       composite: false,
+  //     //       incremental: false,
+  //     //     },
+  //     //   },
+  //     //   babelPlugins: [['@vanilla-extract/babel-plugin']],
+  //     // }),
+  //   ] as RuleSetRule[];
 
-    reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
-    printOutRules(config.module.rules);
+  //   reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
+  //   printOutRules(config.module.rules);
 
-    reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
-    config.plugins?.push(getForkTsCheckerWebpackPlugin());
+  //   reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
+  //   config.plugins?.push(getForkTsCheckerWebpackPlugin());
 
-    // can be used to counter tsc emitting all files again but it's slower for the first webpack build
-    // config.snapshot = {
-    //   module: {
-    //     timestamp: true,
-    //     hash: true,
-    //   },
-    // };
-  }
+  //   // can be used to counter tsc emitting all files again but it's slower for the first webpack build
+  //   // config.snapshot = {
+  //   //   module: {
+  //   //     timestamp: true,
+  //   //     hash: true,
+  //   //   },
+  //   // };
+  // }
 
   /**
    *
@@ -309,16 +332,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   //   ...config.module,
   //   noParse: /node_modules\/(react|react-dom)\//,
   // };
-
-  /**
-   * Add BundleVisualizer when building for production & local only
-   */
-  if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
-    reporter.info(`[${pluginOptions.pluginName}] adding bundle visualizer plugin`);
-    config.plugins = config.plugins
-      ? [...config.plugins, getBundleVisualizerPlugin()]
-      : [getBundleVisualizerPlugin()];
-  }
 
   /**
    * Add SizePlugin

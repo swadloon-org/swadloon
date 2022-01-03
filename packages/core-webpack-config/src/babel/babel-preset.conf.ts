@@ -1,9 +1,6 @@
 import { BROWSERLIST_MODERN } from '../other/browserlist-modern';
 
-/**
- * Babel presets for browsers
- */
-export const babelPresetBrowserConf: ([string, object] | [string])[] = [
+export const babelTypeScriptPresetBrowserConf: ([string, object] | [string])[] = [
   /**
    * @see https://babeljs.io/docs/en/babel-preset-typescript
    */
@@ -15,6 +12,12 @@ export const babelPresetBrowserConf: ([string, object] | [string])[] = [
       allExtensions: true, // defaults to false
     },
   ],
+];
+
+/**
+ * Babel presets for browsers
+ */
+export const babelPresetBrowserConf: ([string, object] | [string])[] = [
   /**
    * A Babel preset that compiles ES2015+ down to ES5 by automatically determining the Babel plugins
    * and polyfills you need based on your targeted browser or runtime environments.
