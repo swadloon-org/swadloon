@@ -33,52 +33,55 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Replace the default caching strategy
    */
 
-  if (!isProduction) {
-    reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
-    config.cache = undefined; // disabling all cache during development
-    actions.replaceWebpackConfig(config);
-    return;
-  }
+  reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache`);
+  config.cache = false; // disabling all cache during development
 
-  config.cache = {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [
-        __filename,
-        path.resolve(process.cwd(), '..', '..', 'package.json'),
-        path.resolve(process.cwd(), 'package.json'),
-        path.resolve(process.cwd(), 'tsconfig.json'),
-        ...store
-          .getState()
-          .flattenedPlugins.filter((plugin: any) =>
-            plugin.nodeAPIs.includes(`onCreateWebpackConfig`)
-          )
-          .map((plugin: any) => {
-            const pluginPath = path.join(plugin.resolve, `gatsby-node.js`);
-            const pluginPathTs = path.join(plugin.resolve, `gatsby-node.ts`);
-            let foundPluginPath;
+  // if (!isProduction) {
+  //   reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
+  //   config.cache = undefined; // disabling all cache during development
+  //   actions.replaceWebpackConfig(config);
+  //   return;
+  // }
 
-            try {
-              fs.readFileSync(pluginPath);
-              foundPluginPath = pluginPath;
-              return foundPluginPath;
-            } catch (error: any) {
-              reporter.info(`[${pluginOptions.pluginName}] could not find file: ${pluginPath}`);
-            }
+  // config.cache = {
+  //   type: 'filesystem',
+  //   buildDependencies: {
+  //     config: [
+  //       __filename,
+  //       path.resolve(process.cwd(), '..', '..', 'package.json'),
+  //       path.resolve(process.cwd(), 'package.json'),
+  //       path.resolve(process.cwd(), 'tsconfig.json'),
+  //       ...store
+  //         .getState()
+  //         .flattenedPlugins.filter((plugin: any) =>
+  //           plugin.nodeAPIs.includes(`onCreateWebpackConfig`)
+  //         )
+  //         .map((plugin: any) => {
+  //           const pluginPath = path.join(plugin.resolve, `gatsby-node.js`);
+  //           const pluginPathTs = path.join(plugin.resolve, `gatsby-node.ts`);
+  //           let foundPluginPath;
 
-            try {
-              reporter.info(`[${pluginOptions.pluginName}] trying file in ts: ${pluginPathTs}`);
-              fs.readFileSync(pluginPathTs);
-              reporter.info(`[${pluginOptions.pluginName}] found file: ${pluginPathTs}`);
-              foundPluginPath = pluginPathTs;
-            } catch (error: any) {
-              reporter.info(`[${pluginOptions.pluginName}] could not find file: ${pluginPathTs}`);
-            }
-            return foundPluginPath;
-          }),
-      ],
-    },
-  };
+  //           try {
+  //             fs.readFileSync(pluginPath);
+  //             foundPluginPath = pluginPath;
+  //             return foundPluginPath;
+  //           } catch (error: any) {
+  //             reporter.info(`[${pluginOptions.pluginName}] could not find file: ${pluginPath}`);
+  //           }
+
+  //           try {
+  //             reporter.info(`[${pluginOptions.pluginName}] trying file in ts: ${pluginPathTs}`);
+  //             fs.readFileSync(pluginPathTs);
+  //             reporter.info(`[${pluginOptions.pluginName}] found file: ${pluginPathTs}`);
+  //             foundPluginPath = pluginPathTs;
+  //           } catch (error: any) {
+  //             reporter.info(`[${pluginOptions.pluginName}] could not find file: ${pluginPathTs}`);
+  //           }
+  //           return foundPluginPath;
+  //         }),
+  //     ],
+  //   },
+  // };
 
   actions.replaceWebpackConfig(config);
 };

@@ -6,7 +6,6 @@
 
 delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Configuration, WebpackOptionsNormalized } from 'webpack';
 import merge from 'webpack-merge';
 
