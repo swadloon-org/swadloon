@@ -248,7 +248,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 ## [1.5.6](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.5.5...@newrade/core-graphql-ui@1.5.6) (2021-02-11)
@@ -276,7 +276,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** fix newrade-website
   ([070b12a](https://github.com/newrade/newrade/commit/070b12a4a7faaf59a1a837c15191e4a6c87b79ab))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

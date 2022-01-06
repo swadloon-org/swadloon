@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ButtonSize, Variant } from '@newrade/core-design-system';
+import { ButtonSize, COLOR_MODE, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionShowcase } from '@newrade/core-gatsby-ui/src';
 import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui';
 import { PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
@@ -13,7 +13,7 @@ export const SectionsShowCase: React.FC<Props> = (props) => {
   return (
     <>
       <SectionShowcase
-        section={{ variant: Variant.primaryReversed }}
+        section={{ variant: Variant.primary, colorMode: COLOR_MODE.REVERSED }}
         LeftBGBlock={
           <div
             style={{
@@ -28,7 +28,7 @@ export const SectionsShowCase: React.FC<Props> = (props) => {
           <BlockMarkdown>
             <Heading>Lorem Ipsum</Heading>
             <PlaceholderMarkdown />
-            <Button size={ButtonSize.large} variant={Variant.secondaryReversed}></Button>
+            <Button size={ButtonSize.large} variant={Variant.secondary}></Button>
           </BlockMarkdown>
         }
         RightBGBlock={
@@ -45,7 +45,7 @@ export const SectionsShowCase: React.FC<Props> = (props) => {
           <BlockMarkdown>
             <Heading>Lorem Ipsum</Heading>
             <PlaceholderMarkdown />
-            <Button size={ButtonSize.large} variant={Variant.secondaryReversed}></Button>
+            <Button size={ButtonSize.large} variant={Variant.secondary}></Button>
           </BlockMarkdown>
         }
       ></SectionShowcase>

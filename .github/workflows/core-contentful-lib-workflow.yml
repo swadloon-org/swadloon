@@ -16,7 +16,7 @@ on:
       - '**/package-lock.json'
       - '**/yarn.lock'
       - 'packages/core-types/**/*'
-      - 'packages/core-utils/**/*'
+      - 'packages/core-node-utils/**/*'
       - 'packages/core-common/**/*'
       - 'packages/core-jest-config/**/*'
       - 'packages/core-design-system/**/*'

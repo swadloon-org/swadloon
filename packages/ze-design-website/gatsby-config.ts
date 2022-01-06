@@ -3,7 +3,7 @@ import path from 'path';
 import * as common from '@newrade/core-common';
 import * as core from '@newrade/core-gatsb-config';
 import * as conf from '@newrade/core-gatsb-config/config';
-import { getAppUrl, loadDotEnv } from '@newrade/core-utils';
+import { getAppUrl, loadDotEnv } from '@newrade/core-node-utils';
 
 import { ENV, Env } from './types/dot-env';
 import packageJson from './package.json';

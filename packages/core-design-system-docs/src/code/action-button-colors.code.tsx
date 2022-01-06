@@ -19,9 +19,9 @@ export const ButtonColors: React.FC<Props> = (props) => {
 
       <ReversedBox>
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Button variant={Variant.primaryReversed}></Button>
-          <Button variant={Variant.secondaryReversed}></Button>
-          <Button variant={Variant.tertiaryReversed}></Button>
+          <Button variant={Variant.primary}></Button>
+          <Button variant={Variant.secondary}></Button>
+          <Button variant={Variant.tertiary}></Button>
         </Stack>
       </ReversedBox>
 
@@ -36,12 +36,6 @@ export const ButtonColors: React.FC<Props> = (props) => {
           colorName={''}
           colorOrPalette={{
             secondary: theme.colors.colorIntents.secondary,
-          }}
-        ></ColorPalette>
-        <ColorPalette
-          colorName={''}
-          colorOrPalette={{
-            primaryReversed: theme.colors.colorIntents.primaryReversed,
           }}
         ></ColorPalette>
       </Stack>

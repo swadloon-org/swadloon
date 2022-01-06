@@ -1,5 +1,5 @@
 {
-  "name": "@newrade/core-utils",
+  "name": "@newrade/core-node-utils",
   "version": "2.4.1",
   "description": "@newrade/core utilities shared across packages.",
   "author": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/newrade/newrade"
   },
   "repository": {
-    "directory": "packages/core-utils",
+    "directory": "packages/core-node-utils",
     "type": "git",
     "url": "https://github.com/newrade/newrade-core.git"
   },
@@ -17,8 +17,8 @@
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"
   },
-  "main": "dist/newrade-core-utils.cjs.js",
-  "module": "dist/newrade-core-utils.esm.js",
+  "main": "dist/newrade-core-node-utils.cjs.js",
+  "module": "dist/newrade-core-node-utils.esm.js",
   "files": [
     "/dist"
   ],

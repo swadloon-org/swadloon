@@ -66,7 +66,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-figma-plugins:** fix typing issue
   ([6470406](https://github.com/newrade/newrade-core/commit/6470406039821897e86b1edbb7477f80990c5a6f))
@@ -166,7 +166,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-gatsby-starter:** refactor templates + setup pages and markdown
   ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))

@@ -169,11 +169,11 @@ const ThemeWrapperFn = React.memo(
      * Themes
      *
      */
-    const currentTheme = useCSSTheme();
+    const { currentCSSTheme } = useCSSTheme();
 
     const [selectedTheme, setSelectedTheme] = useState<CSSRuntimeThemeConfig | undefined>(
-      currentTheme.selected
-        ? currentTheme.selected
+      currentCSSTheme.selected
+        ? currentCSSTheme.selected
         : themeConfig.themes.find((theme) => theme.default)
     );
 

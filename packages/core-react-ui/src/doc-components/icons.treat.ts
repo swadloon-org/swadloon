@@ -48,7 +48,7 @@ export const styles = {
     marginBottom: cssTheme.sizing.var.x1,
     padding: cssTheme.sizing.var.x3,
 
-    color: cssTheme.colors.colorIntents.primaryReversed,
+    color: cssTheme.colors.colorIntents.primary,
     backgroundColor: cssTheme.colors.colors.grey[800],
   })),
   usageRow: style(({ theme, cssTheme }: Theme) => ({

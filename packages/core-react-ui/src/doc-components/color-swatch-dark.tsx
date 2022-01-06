@@ -31,7 +31,7 @@ export const ColorSwatchDark: React.FC<OwnProps> = ({ id, style, className, ...p
         <Stack gap={[cssTheme.sizing.var.x2]}>
           <Label
             variant={LABEL_SIZE.xSmall}
-            variantLevel={Variant.primaryReversed}
+            variantLevel={Variant.primary}
             variantStyle={TEXT_STYLE.bold}
           >
             {`${props.name ? `${kebab(props.name)}-` : ''}${
@@ -40,7 +40,7 @@ export const ColorSwatchDark: React.FC<OwnProps> = ({ id, style, className, ...p
           </Label>
           <Label
             variant={LABEL_SIZE.xSmall}
-            variantLevel={Variant.primaryReversed}
+            variantLevel={Variant.primary}
             variantStyle={TEXT_STYLE.normal}
           >
             <code>{`${getCSSHexColor(props.color as Color)}`}</code>

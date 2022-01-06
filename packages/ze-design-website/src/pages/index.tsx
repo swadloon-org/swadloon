@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HEADING, Variant } from '@newrade/core-design-system';
+import { COLOR_MODE, HEADING, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
 import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 
@@ -13,7 +13,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (
     <>
       <SectionBanner
-        section={{ variant: Variant.primaryReversed }}
+        section={{ variant: Variant.primary, colorMode: COLOR_MODE.REVERSED }}
         ContentBlock={
           <Stack
             gap={[cssTheme.sizing.var.x4]}

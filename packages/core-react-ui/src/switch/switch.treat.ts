@@ -1,7 +1,6 @@
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { px } from '../utilities/utilities';
 
 /**
@@ -58,26 +57,6 @@ export const primary = style(({ theme, cssTheme }: Theme) => ({
 export const primaryOff = style(({ theme, cssTheme }: Theme) => ({
   backgroundColor: cssTheme.colors.colors.grey[400],
 }));
-export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.components.buttons.var.variants.primaryReversed.textColor,
-    backgroundColor: cssTheme.colors.var.colors.primary[500],
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}:active, ${primaryReversed}:active`,
-  ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.primary[700],
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}[disabled], ${primaryReversed}[disabled]`,
-  ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colorIntents.backgroundDisabled,
-  })
-);
 
 const thumbSize = 20;
 const iconSize = 16;

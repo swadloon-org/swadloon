@@ -4,7 +4,6 @@ import { Language } from 'prism-react-renderer';
 
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities';
 
 import { CodeHighlight } from './code-highlight';
 import { prismTheme } from './code-theme';

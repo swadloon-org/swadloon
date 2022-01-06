@@ -20,7 +20,6 @@ import { InputLabel } from '../form/input-label';
 import { InputSelect } from '../form/input-select';
 import { InputText } from '../form/input-text';
 import { InputWrapper } from '../form/input-wrapper';
-import { globalThemeReversed } from '../global';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { IconComp } from '../icons/icon';
@@ -196,7 +195,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
       <Stack gap={[cssTheme.sizing.var.x2]}>
         <SvgDownloader filename={pascal(selectedIcon)} style={{ gap: cssTheme.sizing.var.x2 }}>
           <div className={styles.usage}>
-            <div className={`${styles.usageHeader} ${globalThemeReversed}`}>
+            <div className={`${styles.usageHeader}`}>
               <Label>{pascal(selectedIcon)}</Label>
 
               <Link

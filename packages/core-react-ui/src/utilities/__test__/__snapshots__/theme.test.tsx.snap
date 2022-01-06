@@ -2,4 +2,4 @@
 
 exports[`theme utilities createCSSTheme should create a valid CSS theme 1`] = `"core-react-ui"`;
 
-exports[`theme utilities createCSSTheme should create a valid CSS theme 2`] = `"light"`;
+exports[`theme utilities createCSSTheme should create a valid CSS theme 2`] = `"LIGHT"`;

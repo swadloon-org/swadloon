@@ -1,4 +1,5 @@
 import { SITE_LANGUAGES } from '@newrade/core-common/src';
+import { ColorModeProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { NavbarAPI, NavbarLayout } from '@newrade/core-website-api';
 

@@ -2,7 +2,7 @@
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 
-import { Variant } from '@newrade/core-design-system';
+import { COLOR_MODE, Variant } from '@newrade/core-design-system';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import {
   getLinksFromTopSubNavigation,
@@ -82,7 +82,8 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
 
   const navbar: NavbarAPI = {
     name: 'Navbar',
-    variant: Variant.primaryReversed,
+    variant: Variant.primary,
+    colorMode: COLOR_MODE.REVERSED,
     layout: NavbarLayout.standard,
     navigation: {
       component: NavComponent.navbar,

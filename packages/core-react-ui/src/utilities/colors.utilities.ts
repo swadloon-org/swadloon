@@ -6,7 +6,7 @@ import toColorString from 'polished/lib/color/toColorString';
 import { HslaColor } from 'polished/lib/types/color';
 
 import * as DS from '@newrade/core-design-system';
-import { CodeColors, Color, ColorPalette } from '@newrade/core-design-system';
+import { CodeColors, Color, COLOR_SCHEME, ColorPalette } from '@newrade/core-design-system';
 
 import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 
@@ -95,7 +95,7 @@ export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
     colors: cssColors,
     colorIntents: getDefaultCSSVarColorIntents({
       colors: cssColors,
-      isLight: colors.colorScheme === 'light',
+      isLight: colors.colorScheme === COLOR_SCHEME.LIGHT,
     }),
     gradients: getCSSColorGradients(colors.gradients),
   };
@@ -494,19 +494,13 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     transparent: colors.transparent,
 
     primary: colors.primary['500'],
-    primaryReversed: colors.grey['0-reversed'],
 
     secondary: colors.accent1['500'],
-    secondaryReversed: colors.grey['0-reversed'],
 
     primaryText: colors.grey['1000'],
-    primaryTextReversed: colors.grey['0-reversed'],
     secondaryText: colors.grey['700'],
-    secondaryTextReversed: colors.grey[100],
     tertiaryText: colors.grey['500'],
-    tertiaryTextReversed: colors.grey[300],
     disabledText: colors.grey['400'],
-    disabledTextReversed: colors.grey[500],
 
     infoText: colors.utilityNeutral['900'],
     infoAction: colors.utilityNeutral['500'],
@@ -549,19 +543,13 @@ export function getDefaultCSSVarColorIntents({
     transparent: colors.transparent,
 
     primary: colors.primary['500'],
-    primaryReversed: colors.grey['0-reversed'],
 
     secondary: colors.accent1['500'],
-    secondaryReversed: colors.grey['0-reversed'],
 
     primaryText: colors.grey['1000'],
-    primaryTextReversed: colors.grey['0-reversed'],
     secondaryText: colors.grey['700'],
-    secondaryTextReversed: colors.grey[100],
     tertiaryText: colors.grey['500'],
-    tertiaryTextReversed: colors.grey[300],
     disabledText: colors.grey['400'],
-    disabledTextReversed: colors.grey[500],
 
     infoText: colors.utilityNeutral['900'],
     infoAction: colors.utilityNeutral['500'],

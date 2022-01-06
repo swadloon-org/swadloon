@@ -411,7 +411,7 @@ All notable changes to this project will be documented in this file. See
   ([a2c70bd](https://github.com/newrade/newrade-core/commit/a2c70bd54d454a17f02a642883d51e9d20545a67))
 - **core-react-ui:** trying to find issue
   ([a62e71c](https://github.com/newrade/newrade-core/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **core-webpack-config:** update loaders and plugins config
   ([c3810c1](https://github.com/newrade/newrade-core/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
@@ -675,7 +675,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core-cli:** fixes for core-cli tsconfig file
   ([1ad420e](https://github.com/newrade/newrade-core/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -1178,7 +1178,7 @@ All notable changes to this project will be documented in this file. See
   ([a2c70bd](https://github.com/newrade/newrade-core/commit/a2c70bd54d454a17f02a642883d51e9d20545a67))
 - **core-react-ui:** trying to find issue
   ([a62e71c](https://github.com/newrade/newrade-core/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **core-webpack-config:** update loaders and plugins config
   ([c3810c1](https://github.com/newrade/newrade-core/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
@@ -1442,7 +1442,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core-cli:** fixes for core-cli tsconfig file
   ([1ad420e](https://github.com/newrade/newrade-core/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -2118,7 +2118,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **vsb-api:** fixes
   ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
@@ -2399,7 +2399,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

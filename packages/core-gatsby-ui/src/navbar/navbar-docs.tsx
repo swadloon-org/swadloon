@@ -17,7 +17,6 @@ import {
   usePreventPinchZoom,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { globalThemeReversed } from '@newrade/core-react-ui/global';
 
 import * as styleRefs from './navbar-docs.treat';
 
@@ -98,7 +97,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       <header
         ref={mobileNavbar}
         style={props.style}
-        className={`${styles.wrapper} ${styles.mobileMenu} ${globalThemeReversed}`}
+        className={`${styles.wrapper} ${styles.mobileMenu}`}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
@@ -135,7 +134,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       {/* Desktop */}
       <header
         ref={desktopNavbar}
-        className={`${styles.wrapper} ${styles.desktopMenu} ${globalThemeReversed}`}
+        className={`${styles.wrapper} ${styles.desktopMenu}`}
         style={props.style}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
@@ -149,7 +148,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
               </BoxV2>
 
-              {props.tagText ? <Tag variant={Variant.primaryReversed}>{props.tagText}</Tag> : null}
+              {props.tagText ? <Tag variant={Variant.primary}>{props.tagText}</Tag> : null}
             </Cluster>
 
             <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>

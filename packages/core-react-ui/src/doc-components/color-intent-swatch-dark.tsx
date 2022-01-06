@@ -31,7 +31,7 @@ export const ColorIntentSwatchDark: React.FC<OwnProps> = ({ id, style, className
         <Stack gap={[cssTheme.sizing.var.x2]}>
           <Label
             variant={LABEL_SIZE.xSmall}
-            variantLevel={Variant.primaryReversed}
+            variantLevel={Variant.primary}
             variantStyle={TEXT_STYLE.bold}
           >
             {`${props.name ? `${kebab(props.name)}-` : ''}
@@ -39,7 +39,7 @@ export const ColorIntentSwatchDark: React.FC<OwnProps> = ({ id, style, className
           </Label>
           <Label
             variant={LABEL_SIZE.xSmall}
-            variantLevel={Variant.primaryReversed}
+            variantLevel={Variant.primary}
             variantStyle={TEXT_STYLE.normal}
           >
             <code>{`${getCSSColor(props.color as Color)}`}</code>

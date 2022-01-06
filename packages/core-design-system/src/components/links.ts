@@ -4,7 +4,7 @@ import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
-import { Variant } from './components.props';
+import { Variant } from './components';
 
 export enum LinkAs {
   button = 'button',

@@ -227,8 +227,8 @@
       "path": "../packages/core-types"
     },
     {
-      "name": "core-utils",
-      "path": "../packages/core-utils"
+      "name": "core-node-utils",
+      "path": "../packages/core-node-utils"
     },
     {
       "name": "core-webpack-config",

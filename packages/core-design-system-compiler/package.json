@@ -1,0 +1,33 @@
+{
+  "name": "@newrade/core-design-system-compiler",
+  "version": "1.6.1",
+  "description": "Compile Figma tokens (from figma-sync) to design system compatible objects",
+  "license": "MIT",
+  "main": "dist/newrade-core-design-system-compiler.cjs.js",
+  "module": "dist/newrade-core-design-system-compiler.esm.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
+    "extract": "env-cmd -x cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register bin/run.ts",
+    "test": "nr jest",
+    "test:watch": "nr jestwatch"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@newrade/core-jest-config": "^2.0.4",
+    "@newrade/core-node-utils": "^2.4.1",
+    "case": "^1",
+    "chalk": "^4",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "node-fetch": "^2",
+    "prettier": "^2"
+  }
+}

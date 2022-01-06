@@ -5,7 +5,7 @@ import { GatsbyNode } from 'gatsby';
 import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin';
 import { Configuration, DllReferencePlugin } from 'webpack';
 
-import { CommonEnvType } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-node-utils';
 
 import { GatsbyPluginCoreDllOptions } from '../gatsby-plugin-options';
 

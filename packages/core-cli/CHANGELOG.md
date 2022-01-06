@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file. See
   ([b36690b](https://github.com/newrade/newrade-core/commit/b36690be1d9fecc7b31e52e40517752030f7652f))
 - **core-ui:** fix iframe style replication
   ([e25915b](https://github.com/newrade/newrade-core/commit/e25915b4416bc2f340ecc47d534a59d5e3eabc98))
-- **core-utils:** reorg files
+- **core-node-utils:** reorg files
   ([4108a26](https://github.com/newrade/newrade-core/commit/4108a263592b97b7750b24886bf680bf33280aea))
 
 ### Features
@@ -321,7 +321,7 @@ All notable changes to this project will be documented in this file. See
   ([1ad420e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
 - **core-cli:** revert bad change
   ([bde6146](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bde6146922385b342b96ab600046cd32daf0d474))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -435,7 +435,7 @@ All notable changes to this project will be documented in this file. See
   ([1ad420e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
 - **core-cli:** revert bad change
   ([bde6146](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bde6146922385b342b96ab600046cd32daf0d474))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -600,7 +600,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

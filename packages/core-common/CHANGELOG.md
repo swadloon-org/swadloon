@@ -55,11 +55,11 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **deepscan-fixes:** fixing error flag by deepscan
   ([fee3386](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/fee3386d881f78036447523e48f7455ace636645))
@@ -158,7 +158,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 ### Features
@@ -199,7 +199,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

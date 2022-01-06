@@ -44,6 +44,6 @@ value from a dropdown.
 
 - TODO
 
-## Ressources
+## Resources
 
 - https://www.w3.org/TR/wai-aria-practices/#Listbox

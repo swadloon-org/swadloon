@@ -1,7 +1,6 @@
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 /**
@@ -38,15 +37,6 @@ export const primary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colors.grey[700],
   backgroundColor: cssTheme.colors.colors.grey[50],
 }));
-export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primary}${globalThemeReversedSelector}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    borderColor: cssTheme.colors.colors.grey[25],
-    color: cssTheme.colors.colors.grey[25],
-    backgroundColor: `transparent`,
-  })
-);
 
 /**
  * Secondary
@@ -56,15 +46,6 @@ export const secondary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colors.accent1[500],
   backgroundColor: cssTheme.colors.colors.accent1[100],
 }));
-export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${secondary}, ${secondary}${globalThemeReversedSelector}, ${secondaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    borderColor: cssTheme.colors.colors.accent1[500],
-    color: cssTheme.colors.colors.grey['0-reversed'],
-    backgroundColor: cssTheme.colors.colors.accent1[500],
-  })
-);
 
 /**
  * tertiary
@@ -74,15 +55,6 @@ export const tertiary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colors.accent2[500],
   backgroundColor: cssTheme.colors.colors.accent2[100],
 }));
-export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${tertiary}, ${tertiary}${globalThemeReversedSelector}, ${tertiaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    borderColor: cssTheme.colors.colors.accent2[500],
-    color: cssTheme.colors.colors.grey['0-reversed'],
-    backgroundColor: cssTheme.colors.colors.accent2[500],
-  })
-);
 
 /**
  *

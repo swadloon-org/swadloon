@@ -16,17 +16,17 @@ describe('props utilities', () => {
       expect(
         getFormattedCSSVar({
           prefix: 'button',
-          category: 'primaryReversed',
+          category: 'primary',
           propName: 'borderWidth',
         })
-      ).toEqual('var(--btn-prim-rev-bor-width)');
+      ).toEqual('var(--btn-prim-bor-width)');
       expect(
         getFormattedCSSVarName({
           prefix: 'button',
-          category: 'primaryReversed',
+          category: 'primary',
           propName: 'borderWidth',
         })
-      ).toEqual('--btn-prim-rev-bor-width');
+      ).toEqual('--btn-prim-bor-width');
     });
   });
 });

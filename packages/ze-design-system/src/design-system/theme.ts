@@ -1,4 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { COLOR_SCHEME, DesignSystem } from '@newrade/core-design-system';
 import { CSSDesignSystem, CSSDesignSystemV2 } from '@newrade/core-react-ui';
 import {
   defaultAnimations,
@@ -20,7 +20,7 @@ import { typography } from './typography';
 
 export const lightTheme: DesignSystem = {
   name: 'ze-light',
-  colorScheme: 'light',
+  colorScheme: COLOR_SCHEME.LIGHT,
   colors,
   effects,
   sizing: defaultSizing,
@@ -38,7 +38,7 @@ export const lightCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(lightTheme);
 
 export const darkTheme: DesignSystem = {
   name: 'ze-dark',
-  colorScheme: 'dark',
+  colorScheme: COLOR_SCHEME.DARK,
   colors: colorsDark,
   effects,
   sizing: defaultSizing,

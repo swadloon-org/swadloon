@@ -40,9 +40,9 @@
     "@newrade/core-common": "*",
     "@newrade/core-design-system": "^1.17.0",
     "@newrade/core-figma-extractor": "^1.6.1",
+    "@newrade/core-node-utils": "^2.4.1",
     "@newrade/core-react-ui": "^2.6.0",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.4.1",
     "@vanilla-extract/css": "^1"
   }
 }

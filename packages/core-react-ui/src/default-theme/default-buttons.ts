@@ -56,13 +56,6 @@ export const defaultButtons: Buttons = {
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
     },
-    primaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
-    },
     secondary: {
       textColor: defaultColorIntents.primaryText,
       backgroundColor: defaultColorIntents.primaryText,
@@ -70,26 +63,12 @@ export const defaultButtons: Buttons = {
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
     },
-    secondaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
-    },
     tertiary: {
       textColor: defaultColorIntents.primaryText,
       backgroundColor: defaultColorIntents.primaryText,
       iconColor: defaultColorIntents.primaryText,
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
-    },
-    tertiaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
     },
   },
 };

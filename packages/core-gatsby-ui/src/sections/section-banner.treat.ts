@@ -7,7 +7,7 @@ export const styles = {
     position: 'relative',
     height: `max(80vh, 500px)`,
     width: `100%`,
-    color: cssTheme.colors.colorIntents.primaryReversed,
+    color: cssTheme.colors.colorIntents.primary,
     textShadow: cssTheme.effects.textShadows.light,
   })),
   callout: style(({ theme, cssTheme }: Theme) => ({

@@ -1,7 +1,6 @@
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { colorVars } from '../theme';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
@@ -84,32 +83,11 @@ export const italicBold = style(({ theme, cssTheme }: Theme) => ({
 export const primary = style(({ theme, cssTheme }: Theme) => ({
   color: colorVars.colorIntents.primaryText,
 }));
-export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })
-);
 
 export const secondary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colorIntents.secondaryText,
 }));
-export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryTextReversed,
-  })
-);
 
 export const tertiary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colorIntents.tertiaryText,
 }));
-export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
-  })
-);

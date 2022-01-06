@@ -28,18 +28,12 @@ export const NavbarBase = React.forwardRef<HTMLElement, Props>(
       maxWidth,
       currentLanguage,
       languages,
-      colorMode,
       children,
       ...props
     },
     ref
   ) => {
     const variant = navbar?.variant || Variant.primary;
-    /**
-     * Styling
-     */
-    // const variantClass = styles[variant];
-
     const elevationBG = useThemeElevationBG({ level: 2 });
 
     return (

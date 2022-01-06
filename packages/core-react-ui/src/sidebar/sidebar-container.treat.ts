@@ -1,7 +1,6 @@
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { getCSSColor } from '../utilities/colors.utilities';
 
 export const styles = {
@@ -56,7 +55,3 @@ export const styles = {
     pointerEvents: 'auto',
   })),
 };
-
-globalStyle(`${globalThemeReversedSelector} ${styles.wrapper}`, ({ theme, cssTheme }: Theme) => ({
-  backgroundColor: cssTheme.colors.colors.grey[800],
-}));

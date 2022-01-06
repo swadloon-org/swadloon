@@ -1,5 +1,7 @@
 import React, { CSSProperties } from 'react';
 
+import { COLOR_SCHEME } from '@newrade/core-design-system';
+
 export type AsTypes = keyof React.ReactHTML | keyof React.ReactSVG;
 
 /**
@@ -56,10 +58,6 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    * @deprecated use `colorMode` instead
    */
   theme?: 'normal' | 'reversed';
-  /**
-   * Inverse components colors
-   */
-  colorMode?: 'normal' | 'reversed';
   /**
    * Preset for component's sizes
    * @version 2

@@ -1,5 +1,6 @@
 import { Buttons } from './components/buttons';
 import { Animations } from './foundations/animations';
+import { COLOR_SCHEME } from './foundations/color-scheme';
 import { Colors } from './foundations/colors';
 import { Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
@@ -17,7 +18,7 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * Theme variation
    * @default 'light'
    */
-  colorScheme: 'light' | 'dark';
+  colorScheme: COLOR_SCHEME;
   /**
    * Every color defined in the system.
    */
@@ -50,100 +51,7 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * Components' specific settings.
    */
   components: {
-    /**
-     * Styles
-     */
-
-    /**
-     * Atoms
-     */
-    // titles: {};
-    // headings: {};
-    // paragraphs: {};
-    // labels: {};
-    // logos: {};
-    // links: {};
-    // dividers: {};
-    // images: {};
-    // illustrations: {};
-
-    /**
-     * Molecules
-     */
     buttons: Buttons<Override>;
-    // inputs: {
-    //   text: {};
-    //   switch: {};
-    //   number: {};
-    //   dropdown: {};
-    //   radio: {};
-    //   checkbox: {};
-    //   date: {};
-    //   dateRange: {};
-    //   time: {};
-    //   textArea: {};
-    // };
-    // tags: {};
-    // keyboard: {};
-    // accordions: {};
-    // breadcrumbs: {
-    //   separatorIcon: {};
-    // };
-    // progressBar: {};
-    // progressCircle: {};
-    // statusDot: {};
-    // tabs: {};
-    // listItems: {
-    //   info: {};
-    //   dropdown: {};
-    //   sidemenu: {};
-    //   menu: {};
-    // };
-    // notifications: {};
-    // backgrounds: {};
-    // steppers: {};
-    // tooltips: {};
-    /**
-     * Organisms
-     */
-    // avatars: {};
-    // tables: {};
-    // tabsGroup: {};
-    // dialogs: {};
-    // carousels: {};
-    // plots: {
-    //   axis: {};
-    //   lines: {};
-    //   legend: {};
-    // };
-    // cards: {};
-    // forms: {
-    //   text: {};
-    //   switch: {};
-    //   number: {};
-    //   dropdown: {};
-    //   radio: {};
-    //   checkbox: {};
-    //   date: {};
-    //   dateRange: {};
-    //   time: {};
-    //   textArea: {};
-    // };
-    // layout: {
-    //   topbar: {};
-    //   sidemenu: {};
-    //   main: {};
-    //   aside: {};
-    //   footer: {};
-    // };
-    // sections?: {
-    //   divider: {
-    //     // backgroundColor
-    //     // padding
-    //     leftBlockWidth: number;
-    //     gap: number;
-    //   };
-    // };
   };
 }
 
@@ -157,7 +65,7 @@ export interface DesignSystemV2<Override extends undefined | string = undefined>
    * Theme variation
    * @default 'light'
    */
-  colorScheme: 'light' | 'dark' | 'other';
+  colorScheme: COLOR_SCHEME;
   /**
    * Every color defined in the system.
    */

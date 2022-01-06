@@ -48,6 +48,6 @@ label and a border. It uses the primary color to indicate that a link is active.
 - Insert `role="link"` when needed (element is not `<a/>`)
 - TODO: ~~_Activate link with <kbd>Space</kbd> or <kbd>Enter</kbd>_~~
 
-## Ressources
+## Resources
 
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a

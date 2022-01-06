@@ -5,13 +5,13 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core-utils
+name: core-node-utils
 
 on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-utils-workflow.yml'
+      - '.github/workflows/core-node-utils-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
@@ -64,13 +64,13 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-utils
+        run: yarn lerna:depcheck --scope @newrade/core-node-utils
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @newrade/core-utils
+        run: yarn lerna:ls-lint --scope @newrade/core-node-utils
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-utils/src/ --ext "ts,tsx"
+        run: yarn eslint ./packages/core-node-utils/src/ --ext "ts,tsx"
 
       - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/core-utils
+        run: yarn lerna:typecheck --scope @newrade/core-node-utils

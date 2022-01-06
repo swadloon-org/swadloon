@@ -1,7 +1,6 @@
 import { globalStyle, style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 
 const iconSize = `1.5em`;
 const iconOnlySize = `1.8em`;
@@ -60,21 +59,6 @@ export const primary = style(({ theme, cssTheme }: Theme) => ({
     },
   },
 }));
-export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.components.buttons.var.variants.primaryReversed.textColor,
-    border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
-    backgroundColor: cssTheme.colors.colorIntents.primary,
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}:active, ${primaryReversed}:active`,
-  ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.primary[700],
-  })
-);
 
 /**
  * Secondary
@@ -94,21 +78,6 @@ export const secondary = style(({ theme, cssTheme }: Theme) => ({
     },
   },
 }));
-export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryReversed,
-    border: `2px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
-    backgroundColor: cssTheme.colors.colorIntents.transparent,
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${secondary}:active, ${secondaryReversed}:active`,
-  ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[100],
-  })
-);
 
 /**
  * Tertiary
@@ -126,21 +95,6 @@ export const tertiary = style(({ theme, cssTheme }: Theme) => ({
     },
   },
 }));
-export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryReversed,
-    border: `2px solid ${cssTheme.colors.colorIntents.transparent}`,
-    backgroundColor: cssTheme.colors.colorIntents.transparent,
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${tertiary}:active, ${tertiaryReversed}:active`,
-  ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[100],
-  })
-);
 
 /**
  * Sizes

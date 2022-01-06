@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { ICON } from '@newrade/core-design-system';
 import { NavbarSelectItem } from '@newrade/core-gatsby-ui/src';
-import { Cluster, Stack, useIsSSR } from '@newrade/core-react-ui';
+import { Cluster, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};

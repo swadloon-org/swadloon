@@ -7,7 +7,7 @@ import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webp
 // @ts-ignore
 import WebpackWatchedGlobEntries from 'webpack-watched-glob-entries-plugin';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 import * as core from '@newrade/core-webpack-config';
 
 import { ENV, Env } from './types/dot-env';

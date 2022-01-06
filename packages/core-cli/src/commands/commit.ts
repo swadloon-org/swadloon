@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { Command } from '@oclif/command';
 
-import { getShellForPlatform } from '@newrade/core-utils';
+import { getShellForPlatform } from '@newrade/core-node-utils';
 
 export default class Commit extends Command {
   static description = 'call the commit script in the repo root';

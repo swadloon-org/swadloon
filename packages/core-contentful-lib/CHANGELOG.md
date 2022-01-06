@@ -163,7 +163,7 @@ All notable changes to this project will be documented in this file. See
   ([863c708](https://github.com/newrade/newrade-core/commit/863c70849a5e2a96aaec76665a0da40dfe39b652))
 - **contentful-lib:** add footer, navbar apis
   ([3cc7298](https://github.com/newrade/newrade-core/commit/3cc7298496da695a09048607d821b71a20b9648e))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** add import / export to .gitignore
   ([fca34fc](https://github.com/newrade/newrade-core/commit/fca34fcfe301bdc907cd1131507380136236eef3))
@@ -199,7 +199,7 @@ All notable changes to this project will be documented in this file. See
   ([65dddd2](https://github.com/newrade/newrade-core/commit/65dddd25b719753745d2f9e6d21cfc7a3b429428))
 - **core-react-ui:** fixes default buttons
   ([1818326](https://github.com/newrade/newrade-core/commit/1818326370f0dad527a1333c82d3668fd75db0a2))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **correction-contentful-block:** deleting deprecated content in section and
   ajusting variant layout
@@ -418,7 +418,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.5.0...@newrade/core-contentful-lib@1.6.0) (2021-02-11)
@@ -495,7 +495,7 @@ All notable changes to this project will be documented in this file. See
   ([c112b53](https://github.com/newrade/newrade/commit/c112b53ad7a95199589ab7f8f3e19f3814ef252c))
 - **contentful-fixes:** fixing the bad merge
   ([863c708](https://github.com/newrade/newrade/commit/863c70849a5e2a96aaec76665a0da40dfe39b652))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** add todos
   ([1a52816](https://github.com/newrade/newrade/commit/1a52816eb46f3c6166b3370ece59f7782655caab))

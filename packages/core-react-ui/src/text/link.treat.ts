@@ -1,7 +1,6 @@
 import { globalStyle, style } from 'treat';
 
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 /**
@@ -61,19 +60,6 @@ export const noUnderline = style(({ theme, cssTheme }: Theme) => ({
 export const primary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colorIntents.primary,
 }));
-export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryReversed,
-  })
-);
-globalStyle(
-  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.var.colorIntents.primaryTextReversed,
-  })
-);
 
 /**
  * Secondary
@@ -81,13 +67,6 @@ globalStyle(
 export const secondary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.var.colorIntents.secondaryText,
 }));
-export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.var.colorIntents.secondaryTextReversed,
-  })
-);
 
 /**
  * Tertiary
@@ -95,13 +74,6 @@ globalStyle(
 export const tertiary = style(({ theme, cssTheme }: Theme) => ({
   color: cssTheme.colors.colorIntents.tertiaryText,
 }));
-export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(
-  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
-  ({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
-  })
-);
 
 /**
  * Sizes

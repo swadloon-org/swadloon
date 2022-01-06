@@ -1,5 +1,6 @@
 import { ColorGradients } from './color-gradients';
 import { ColorIntents } from './color-intents';
+import { COLOR_SCHEME } from './color-scheme';
 import { ColorsColors } from './colors-colors';
 
 /**
@@ -9,7 +10,7 @@ export type Colors<Override extends undefined | string = undefined> = {
   /**
    * Whether the color scheme is using light or dark
    */
-  colorScheme: 'light' | 'dark';
+  colorScheme: COLOR_SCHEME;
   /**
    * Raw colors
    */

@@ -66,11 +66,8 @@ export const defaultCSSButtons: Pick<DesignSystem<string>['components'], 'button
   buttons: {
     variants: {
       primary: placeholderButtonVariant,
-      primaryReversed: placeholderButtonVariant,
       secondary: placeholderButtonVariant,
-      secondaryReversed: placeholderButtonVariant,
       tertiary: placeholderButtonVariant,
-      tertiaryReversed: placeholderButtonVariant,
     },
     sizes: {
       large: placeholderButtonSize,

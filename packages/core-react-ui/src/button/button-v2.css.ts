@@ -1,6 +1,3 @@
-import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
-
 const iconSize = `1.5em`;
 const iconPadding = `3em`;
 

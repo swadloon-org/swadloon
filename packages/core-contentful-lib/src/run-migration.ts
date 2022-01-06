@@ -2,7 +2,7 @@ import path from 'path';
 
 import { runMigration } from 'contentful-migration';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 
 import { ENV, Env } from './types/dot-env';
 

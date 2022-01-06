@@ -1,5 +1,6 @@
 import {
   ANGLE_UNIT,
+  COLOR_SCHEME,
   ColorGradients,
   ColorIntents,
   Colors,
@@ -137,7 +138,7 @@ export const defaultColorsGradientsDark: ColorGradients = {
 };
 
 export const defaultColorsDark: Colors = {
-  colorScheme: 'dark',
+  colorScheme: COLOR_SCHEME.DARK,
   colors: defaultColorsColorsDark,
   colorIntents: defaultColorIntentsDark,
   gradients: defaultColorsGradientsDark,

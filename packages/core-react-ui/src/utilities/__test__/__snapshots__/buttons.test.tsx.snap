@@ -271,13 +271,6 @@ Object {
         "outlineColor": "var(--btn-prim-out-color)",
         "textColor": "var(--btn-prim-text-color)",
       },
-      "primaryReversed": Object {
-        "backgroundColor": "var(--btn-prim-rev-bg-color)",
-        "borderColor": "var(--btn-prim-rev-bor-color)",
-        "iconColor": "var(--btn-prim-rev-icon-color)",
-        "outlineColor": "var(--btn-prim-rev-out-color)",
-        "textColor": "var(--btn-prim-rev-text-color)",
-      },
       "secondary": Object {
         "backgroundColor": "var(--btn-sec-bg-color)",
         "borderColor": "var(--btn-sec-bor-color)",
@@ -285,26 +278,12 @@ Object {
         "outlineColor": "var(--btn-sec-out-color)",
         "textColor": "var(--btn-sec-text-color)",
       },
-      "secondaryReversed": Object {
-        "backgroundColor": "var(--btn-sec-rev-bg-color)",
-        "borderColor": "var(--btn-sec-rev-bor-color)",
-        "iconColor": "var(--btn-sec-rev-icon-color)",
-        "outlineColor": "var(--btn-sec-rev-out-color)",
-        "textColor": "var(--btn-sec-rev-text-color)",
-      },
       "tertiary": Object {
         "backgroundColor": "var(--btn-ter-bg-color)",
         "borderColor": "var(--btn-ter-bor-color)",
         "iconColor": "var(--btn-ter-icon-color)",
         "outlineColor": "var(--btn-ter-out-color)",
         "textColor": "var(--btn-ter-text-color)",
-      },
-      "tertiaryReversed": Object {
-        "backgroundColor": "var(--btn-ter-rev-bg-color)",
-        "borderColor": "var(--btn-ter-rev-bor-color)",
-        "iconColor": "var(--btn-ter-rev-icon-color)",
-        "outlineColor": "var(--btn-ter-rev-out-color)",
-        "textColor": "var(--btn-ter-rev-text-color)",
       },
     },
   },
@@ -423,26 +402,12 @@ Object {
         "outlineColor": "--btn-prim-out-color",
         "textColor": "--btn-prim-text-color",
       },
-      "primaryReversed": Object {
-        "backgroundColor": "--btn-prim-rev-bg-color",
-        "borderColor": "--btn-prim-rev-bor-color",
-        "iconColor": "--btn-prim-rev-icon-color",
-        "outlineColor": "--btn-prim-rev-out-color",
-        "textColor": "--btn-prim-rev-text-color",
-      },
       "secondary": Object {
         "backgroundColor": "--btn-sec-bg-color",
         "borderColor": "--btn-sec-bor-color",
         "iconColor": "--btn-sec-icon-color",
         "outlineColor": "--btn-sec-out-color",
         "textColor": "--btn-sec-text-color",
-      },
-      "secondaryReversed": Object {
-        "backgroundColor": "--btn-sec-rev-bg-color",
-        "borderColor": "--btn-sec-rev-bor-color",
-        "iconColor": "--btn-sec-rev-icon-color",
-        "outlineColor": "--btn-sec-rev-out-color",
-        "textColor": "--btn-sec-rev-text-color",
       },
       "tertiary": Object {
         "backgroundColor": "--btn-ter-bg-color",
@@ -451,33 +416,17 @@ Object {
         "outlineColor": "--btn-ter-out-color",
         "textColor": "--btn-ter-text-color",
       },
-      "tertiaryReversed": Object {
-        "backgroundColor": "--btn-ter-rev-bg-color",
-        "borderColor": "--btn-ter-rev-bor-color",
-        "iconColor": "--btn-ter-rev-icon-color",
-        "outlineColor": "--btn-ter-rev-out-color",
-        "textColor": "--btn-ter-rev-text-color",
-      },
     },
   },
   "variants": Object {
     "primary": Object {
       "backgroundColor": "hsl(222, 6%, 7%, 1)",
     },
-    "primaryReversed": Object {
-      "backgroundColor": "hsl(222, 10%, 100%, 1)",
-    },
     "secondary": Object {
       "backgroundColor": "hsl(222, 6%, 7%, 1)",
     },
-    "secondaryReversed": Object {
-      "backgroundColor": "hsl(222, 10%, 100%, 1)",
-    },
     "tertiary": Object {
       "backgroundColor": "hsl(222, 6%, 7%, 1)",
-    },
-    "tertiaryReversed": Object {
-      "backgroundColor": "hsl(222, 10%, 100%, 1)",
     },
   },
 }

@@ -4,11 +4,10 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
+import { COLOR_SCHEME, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
   Cluster,
-  Heading,
   MainDocs,
   MainDocsWrapper,
   NavbarSeparatorItem,
@@ -37,7 +36,6 @@ import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
-import { MDXProps } from '../mdx/mdx-components';
 import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
@@ -262,14 +260,14 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    *
    */
 
-  const currentTheme = useCSSTheme();
-  const currentlySelectedTheme = currentTheme.selected?.name;
-  const currentlySelectedThemeColorScheme = currentTheme.selected?.colorScheme;
+  const { currentCSSTheme } = useCSSTheme();
+  const currentlySelectedTheme = currentCSSTheme.selected?.name;
+  const currentlySelectedThemeColorScheme = currentCSSTheme.selected?.colorScheme;
 
   function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value as string;
-    if (currentTheme.onChangeTheme) {
-      currentTheme.onChangeTheme(value);
+    if (currentCSSTheme.onChangeTheme) {
+      currentCSSTheme.onChangeTheme(value);
     }
   }
 
@@ -330,7 +328,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
           <NavbarSelectItem
             select={{
               icon: InputIcon.left,
-              Icon: currentlySelectedThemeColorScheme === 'light' ? ICON.SUN : ICON.MOON,
+              Icon: currentlySelectedThemeColorScheme === COLOR_SCHEME.LIGHT ? ICON.SUN : ICON.MOON,
               value: currentlySelectedTheme || '',
               onChange: handleChangeTheme,
               variantSize: InputSize.small,
@@ -452,12 +450,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
        *
        */}
 
-      <FooterDocs
-        ref={footerRef}
-        footer={footer}
-        colorMode={'reversed'}
-        contentMaxWidth={contentMaxWidth}
-      ></FooterDocs>
+      <FooterDocs ref={footerRef} footer={footer} contentMaxWidth={contentMaxWidth}></FooterDocs>
     </MainDocsWrapper>
   );
 };

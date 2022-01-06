@@ -3,7 +3,7 @@ import { GatsbyNode } from 'gatsby';
 import { Configuration, ProgressPlugin, RuleSetRule } from 'webpack';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { CommonEnvType } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-node-utils';
 import {
   devServerConfig,
   getForkTsCheckerWebpackPlugin,

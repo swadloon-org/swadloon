@@ -170,7 +170,7 @@ All notable changes to this project will be documented in this file. See
   ([093aa8f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 - **core-react-ui:** wip
   ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **gatsby:** update gatsby site config to include new flags
   ([48422e7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
@@ -427,7 +427,7 @@ All notable changes to this project will be documented in this file. See
   ([093aa8f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 - **core-react-ui:** wip
   ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **gatsby:** update gatsby site config to include new flags
   ([48422e7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
@@ -752,7 +752,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 # [1.8.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.7.0...@newrade/core-design-system@1.8.0) (2021-02-11)

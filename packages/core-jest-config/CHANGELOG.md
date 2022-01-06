@@ -74,7 +74,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -90,7 +90,7 @@ All notable changes to this project will be documented in this file. See
   ([e3624f2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e3624f2929c437fb49ed5eec0c580171308a29aa))
 - **core-react-ui:** wip
   ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **jest:** upgrade jest and fix test for vanilla-extract
   ([f1fc133](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f1fc1336cf5b322598dc06685352041661c18091))
@@ -166,7 +166,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -182,7 +182,7 @@ All notable changes to this project will be documented in this file. See
   ([e3624f2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e3624f2929c437fb49ed5eec0c580171308a29aa))
 - **core-react-ui:** wip
   ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **jest:** upgrade jest and fix test for vanilla-extract
   ([f1fc133](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f1fc1336cf5b322598dc06685352041661c18091))
@@ -307,7 +307,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 ## [1.5.3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.2...@newrade/core-jest-config@1.5.3) (2021-02-11)
@@ -335,7 +335,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

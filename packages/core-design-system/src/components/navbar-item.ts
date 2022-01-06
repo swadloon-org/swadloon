@@ -2,7 +2,7 @@ import { ICON } from '../foundations/iconography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
-import { Variant } from './components.props';
+import { Variant } from './components';
 
 export enum NavbarItemAs {
   button = 'button',

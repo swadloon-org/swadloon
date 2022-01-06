@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
@@ -14,14 +13,15 @@ import {
   BoxV2,
   Button,
   Cluster,
+  CSSThemeSwitcher,
   IconComp,
   Link,
   Logo,
   NavbarSeparatorItem,
   Tag,
   useCommonProps,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 
 import { useI18next } from '../i18next/use-i18next.hook';
@@ -29,7 +29,8 @@ import { LinkRenderer } from '../links/link-renderer';
 
 import { NavbarProps } from './navbar.props';
 import { NavbarBase } from './navbar-base';
-import * as styleRefs from './navbar-standard.treat';
+
+import * as styles from './navbar-standard.css';
 
 type Props = NavbarProps & {};
 
@@ -38,59 +39,60 @@ type Props = NavbarProps & {};
  *
  * Renders data from the passed navbar object.
  */
-export const NavbarStandard = React.forwardRef<any, Props>(
-  (
-    {
-      id,
-      style,
-      className,
-      navbar,
-      HomeLink,
-      tagText,
-      currentLanguage,
-      languages,
-      onChangeLang,
-      onClickMenuButton,
-      ...props
-    },
-    ref
-  ) => {
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
+export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStandard(
+  {
+    id,
+    style,
+    className,
+    navbar,
+    HomeLink,
+    tagText,
+    currentLanguage,
+    languages,
+    onChangeLang,
+    onClickMenuButton,
+    ...props
+  },
+  ref
+) {
+  /**
+   * Languages
+   */
 
-    /**
-     * Languages
-     */
+  const { t, getAlternativeLang, changeLanguage } = useI18next();
+  const alternativeLanguage = getAlternativeLang();
 
-    const { t, getAlternativeLang, changeLanguage } = useI18next();
-    const alternativeLanguage = getAlternativeLang();
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [styles.base],
+    ...props,
+  });
 
-    const commonProps = useCommonProps({
-      id,
-      style,
-      className,
-      classNames: [styles.base],
-      ...props,
-    });
+  /**
+   * Navigation
+   */
 
-    /**
-     * Navigation
-     */
+  const navigation = navbar?.navigation;
+  const navbarNavigation = navigation?.component === NavComponent.navbar ? navigation : null;
 
-    const navigation = navbar?.navigation;
-    const navbarNavigation = navigation?.component === NavComponent.navbar ? navigation : null;
-
-    function renderLinks(links: LinkAPI[]) {
-      return (
-        <>
-          {links?.map((link, id) => {
-            return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
-          })}
-        </>
-      );
-    }
-
+  function renderLinks(links: LinkAPI[]) {
     return (
+      <>
+        {links?.map((link, id) => {
+          return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
+        })}
+      </>
+    );
+  }
+
+  return (
+    <CSSThemeSwitcher
+      colorMode={navbar?.colorMode}
+      colorScheme={navbar?.colorScheme}
+      variant={navbar?.variant}
+    >
       <NavbarBase navbar={navbar} ref={ref} contentClassName={styles.content} {...commonProps}>
         {/*
          * Mobile
@@ -115,7 +117,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           draggable={false}
           justifyContent={['center']}
           className={styles.logoWrapper}
-          padding={[cssTheme.sizing.var.x2, 0]}
+          padding={[sizeVars.x2, 0]}
           AsElement={HomeLink}
         >
           <Logo name={LOGO.SYMBOL} className={styles.logo}></Logo>
@@ -138,17 +140,13 @@ export const NavbarStandard = React.forwardRef<any, Props>(
          */}
 
         {/* Standard logo & link */}
-        <Cluster
-          alignItems={['center']}
-          gap={[cssTheme.sizing.var.x2]}
-          className={styles.logoDesktopWrapper}
-        >
+        <Cluster alignItems={['center']} gap={[sizeVars.x2]} className={styles.logoDesktopWrapper}>
           <BoxV2
             draggable={false}
             aria-label={'Home'}
             alignItems={['center']}
             justifyContent={['center']}
-            padding={[cssTheme.sizing.var.x2, 0]}
+            padding={[sizeVars.x2, 0]}
             AsElement={HomeLink}
           >
             {/* Logo as a link to the home page */}
@@ -156,7 +154,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           </BoxV2>
 
           {/* Optional tag next to the logo */}
-          {tagText ? <Tag variant={Variant.primaryReversed}>{tagText}</Tag> : null}
+          {tagText ? <Tag>{tagText}</Tag> : null}
         </Cluster>
 
         <div className={styles.navLinksDesktop}>
@@ -169,14 +167,8 @@ export const NavbarStandard = React.forwardRef<any, Props>(
             const links = subNav.links;
 
             return (
-              <Cluster
-                key={subNavIndex}
-                gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
-              >
-                <Cluster
-                  key={subNavIndex}
-                  gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
-                >
+              <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
+                <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
                   {renderLinks(links as LinkAPI[])}
                 </Cluster>
               </Cluster>
@@ -208,6 +200,6 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           ) : null}
         </div>
       </NavbarBase>
-    );
-  }
-);
+    </CSSThemeSwitcher>
+  );
+});

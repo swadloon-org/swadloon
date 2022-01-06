@@ -51,7 +51,7 @@
       "packages/core-contentful-lib",
       "packages/core-design-system",
       "packages/core-common",
-      "packages/core-utils",
+      "packages/core-node-utils",
       "packages/core-react-ui",
       "packages/core-gatsby-config",
       "packages/core-webpack-config",

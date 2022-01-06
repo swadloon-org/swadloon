@@ -3,6 +3,10 @@
  * @deprecated use GLOBAL_CSS_THEME instead
  */
 export const globalThemeReversed = 'theme-reversed';
+/**
+ * Activate reversed color mode on component and its children
+ * @deprecated use GLOBAL_CSS_THEME instead
+ */
 export const globalThemeReversedSelector = '.theme-reversed';
 
 /**

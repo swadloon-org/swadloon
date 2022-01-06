@@ -145,7 +145,7 @@ All notable changes to this project will be documented in this file. See
   ([5f110db](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/5f110db5b56cc3c411d0940209c488b9d181eed5))
 - **build:** update ci sequence and yarn.lock
   ([712ac7b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -431,7 +431,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** make some env variable optional
   ([60a93d6](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

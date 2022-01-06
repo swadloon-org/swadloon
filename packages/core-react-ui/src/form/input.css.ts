@@ -75,24 +75,8 @@ export const getWrapperStyles = recipe({
           [backgroundColorDisabled]: colorVars.colors.grey[25],
         },
       },
-      primaryReversed: {
-        vars: {
-          [iconColor]: colorVars.colors.grey[700],
-          [iconColorDisabled]: colorVars.colorIntents.disabledText,
-          [textColor]: colorVars.colorIntents.primaryTextReversed,
-          [textColorActive]: colorVars.colorIntents.primaryReversed,
-          [textColorDisabled]: colorVars.colors.grey[200],
-          [borderColor]: colorVars.colorIntents.primary,
-          [borderColorDisabled]: `transparent`,
-          [backgroundColor]: colorVars.colors.grey[900],
-          [backgroundColorActive]: colorVars.colors.primary[100],
-          [backgroundColorDisabled]: colorVars.colors.grey[25],
-        },
-      },
       secondary: {},
       tertiary: {},
-      secondaryReversed: {},
-      tertiaryReversed: {},
     },
     /**
      * Sizes
@@ -210,11 +194,8 @@ export const getInputStyles = recipe({
      */
     variant: {
       primary: {},
-      primaryReversed: {},
       secondary: {},
       tertiary: {},
-      secondaryReversed: {},
-      tertiaryReversed: {},
     },
     /**
      * Sizes

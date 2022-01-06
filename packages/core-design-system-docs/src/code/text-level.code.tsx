@@ -26,13 +26,13 @@ export const TextLevel: React.FC<Props> = (props) => {
 
       <ReversedBox>
         <Stack gap={[cssTheme.sizing.var.x2]}>
-          <Heading variant={HEADING.h2} variantLevel={Variant.primaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.primary}>
             Primary Text
           </Heading>
-          <Heading variant={HEADING.h2} variantLevel={Variant.secondaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.secondary}>
             Secondary Text
           </Heading>
-          <Heading variant={HEADING.h2} variantLevel={Variant.tertiaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.tertiary}>
             Tertiary Text
           </Heading>
         </Stack>
@@ -45,7 +45,6 @@ export const TextLevel: React.FC<Props> = (props) => {
           secondaryText: theme.colors.colorIntents.secondaryText,
           tertiaryText: theme.colors.colorIntents.tertiaryText,
           disabledText: theme.colors.colorIntents.disabledText,
-          primaryReversed: theme.colors.colorIntents.primaryReversed,
         }}
       ></ColorPalette>
     </Stack>

@@ -27,15 +27,12 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
 
   /**
    *
-   * Primary
+   * Primary and secondary action colors
    *
    */
 
   primary: ColorType<Override>;
-  primaryReversed: ColorType<Override>;
-
   secondary: ColorType<Override>;
-  secondaryReversed: ColorType<Override>;
 
   /**
    *
@@ -44,16 +41,9 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    */
 
   primaryText: ColorType<Override>;
-  primaryTextReversed: ColorType<Override>;
-
   secondaryText: ColorType<Override>;
-  secondaryTextReversed: ColorType<Override>;
-
   tertiaryText: ColorType<Override>;
-  tertiaryTextReversed: ColorType<Override>;
-
   disabledText: ColorType<Override>;
-  disabledTextReversed: ColorType<Override>;
 
   /**
    *
