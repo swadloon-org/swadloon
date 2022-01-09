@@ -11,7 +11,6 @@ import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
 import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { svgLoader } from '../loaders/svg.loader';
-import { getTreatLoader } from '../loaders/treat.loader';
 import { txtLoader } from '../loaders/txt.loader';
 import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader';
 import { urlLoader } from '../loaders/url.loader';
@@ -93,9 +92,6 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         }),
         getTypescriptBabelReactLoader({
           isDevelopment,
-        }),
-        getTreatLoader({
-          hmr: isDevelopment,
         }),
       ].filter(Boolean) as RuleSetRule[],
     },

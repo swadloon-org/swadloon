@@ -2,13 +2,11 @@ import React from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
-import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, Stack } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const ButtonsIcon: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <Stack
       style={{

@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
-
 import * as styles from './stack.css';
+
+
 
 type Tag = 'ol' | 'ul' | 'div' | 'nav' | 'form' | 'footer';
 

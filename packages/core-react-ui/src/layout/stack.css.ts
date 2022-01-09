@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-
 import { layoutCSS } from '../theme';
+
 
 export const base = style({
   display: 'grid',

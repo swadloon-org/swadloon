@@ -20,7 +20,7 @@ export const GuidelineElevation: React.FC<Props> = (props) => {
     width: `100%`,
     height: `100%`,
     gridAutoRows: `1fr auto`,
-    padding: sizeVars.x5,
+    padding: sizeVars.x4,
   };
 
   return (

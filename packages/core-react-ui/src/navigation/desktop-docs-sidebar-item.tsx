@@ -1,5 +1,4 @@
 import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
 
 import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
 
@@ -9,7 +8,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './desktop-docs-sidebar-item.treat';
+import * as styles from './desktop-docs-sidebar-item.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -26,7 +25,6 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
   AsElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const commonProps = useCommonProps<'div'>({
     id,
     style,

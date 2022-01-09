@@ -1,16 +1,14 @@
 import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
 import { kebab } from 'case';
 
 import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { Label } from '../text/label';
 import { getCSSColor, getCSSHexColor } from '../utilities/colors.utilities';
 
-import * as stylesRef from './color-swatch.treat';
+import * as styles from './color-swatch.css';
 
 type OwnProps = HTMLAttributes<any> & {
   color: Color | string;
@@ -20,15 +18,14 @@ type OwnProps = HTMLAttributes<any> & {
 
 export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(stylesRef);
-  const { cssTheme } = useTreatTheme();
 
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
   const cssColorString = colorObject ? getCSSColor(colorObject) : '';
 
   return (
-    <Stack id={id} style={style} className={styles.wrapper} gap={[cssTheme.sizing.var.x2]}>
+    <Stack id={id} style={style} className={styles.wrapper} gap={[sizeVars.x2]}>
       <div className={styles.squareColor} style={{ backgroundColor: `${cssColorString}` }}>
-        <Stack gap={[cssTheme.sizing.var.x2]}>
+        <Stack gap={[sizeVars.x2]}>
           <Label
             variant={LABEL_SIZE.xSmall}
             variantLevel={Variant.primary}

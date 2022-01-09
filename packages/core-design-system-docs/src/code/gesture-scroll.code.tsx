@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { GestureScrollExample, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { GestureScrollExample, Stack } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const GestureScroll: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
+    <Stack gap={[sizeVars.x5]}>
       <GestureScrollExample />
     </Stack>
   );

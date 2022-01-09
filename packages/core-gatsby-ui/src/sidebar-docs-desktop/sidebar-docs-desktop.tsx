@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useStyles } from 'react-treat';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { LABEL_SIZE, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
@@ -16,7 +15,6 @@ import {
   useCommonProps,
   useEventListener,
   useIsSSR,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { LinkAPI, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
@@ -27,9 +25,10 @@ import { SidebarProps } from '../sidebar/sidebar.props';
 import { SidebarBase } from '../sidebar/sidebar-base';
 import { getPathParts, isPathActive } from '../utilities/navigation-api.utilities';
 
-import * as styleRefs from './sidebar-docs-desktop.treat';
 import { SidebarDocsDesktopGroup } from './sidebar-docs-desktop-group';
 import { SidebarDocsDesktopItem } from './sidebar-docs-desktop-item';
+
+import * as styles from './sidebar-docs-desktop.css';
 
 type Props = SidebarProps & {};
 
@@ -56,8 +55,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
     ref
   ) => {
     const isSSR = useIsSSR();
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
+
     const commonProps = useCommonProps({
       id,
       style,
@@ -245,7 +243,7 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
       >
         {/* Header */}
         <div className={styles.header}>
-          <Cluster gap={[cssTheme.sizing.var.x1]}>
+          <Cluster gap={[sizeVars.x1]}>
             {/* Title */}
             <Label variant={LABEL_SIZE.medium}>Documentation</Label>
             {/* Version */}

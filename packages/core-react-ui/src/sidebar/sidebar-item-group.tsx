@@ -1,12 +1,11 @@
-import React, { AnchorHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-
 import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-
+import React, { AnchorHTMLAttributes } from 'react';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
+import * as styles from './sidebar-item-group.css';
 
-import * as styleRefs from './sidebar-item-group.treat';
+
+
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -20,8 +19,6 @@ export const SidebarItemGroup: React.FC<Props> = ({
   AsElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
-
   const allClassName = `${styles.wrapper} ${className || ''}`;
 
   return (

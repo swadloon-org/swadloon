@@ -1,11 +1,11 @@
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import {
+  BlockAPI,
   BlockGoogleMapAPI,
   BlockImageAPIV1,
   BlockImageAPIV2,
   BlockType,
 } from '@newrade/core-website-api';
-import { BlockAPI } from '@newrade/core-website-api';
 
 /**
  * Props that all Block components should have

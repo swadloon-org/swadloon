@@ -1,15 +1,13 @@
 import React from 'react';
 
 import { LOGO } from '@newrade/core-design-system';
-import { Logo, SvgDownloader, useTreatTheme } from '@newrade/core-react-ui';
+import { Logo, SvgDownloader } from '@newrade/core-react-ui';
 import { globalThemeLight } from '@newrade/core-react-ui/global';
 
 type Props = {};
 
 export const Logos: { [key in LOGO]: React.FC<Props> } = {
   [LOGO.STANDARD]: (props) => {
-    const { theme, cssTheme } = useTreatTheme();
-
     return (
       <>
         <SvgDownloader filename={'logo-standard'}>
@@ -19,8 +17,6 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     );
   },
   [LOGO.SYMBOL]: (props) => {
-    const { theme, cssTheme } = useTreatTheme();
-
     return (
       <>
         <SvgDownloader filename={'logo-symbol'}>
@@ -30,8 +26,6 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     );
   },
   [LOGO.FAVICON]: (props) => {
-    const { theme, cssTheme } = useTreatTheme();
-
     return (
       <>
         <SvgDownloader filename={'logo-favicon'}>
@@ -45,8 +39,6 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     );
   },
   [LOGO.DEFS]: (props) => {
-    const { theme, cssTheme } = useTreatTheme();
-
     return (
       <>
         <Logo name={LOGO.DEFS} />

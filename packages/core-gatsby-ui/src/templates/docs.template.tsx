@@ -12,7 +12,6 @@ import {
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
   Stack,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 
@@ -150,8 +149,6 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <Helmet>
@@ -192,7 +189,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
       </Helmet>
 
       <Stack
-        gap={[cssTheme.sizing.var.x4]}
+        gap={[sizeVars.x4]}
         className={styles.content}
         style={{
           // @ts-ignore

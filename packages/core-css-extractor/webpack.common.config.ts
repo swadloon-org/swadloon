@@ -108,9 +108,6 @@ const localCommonConfig: Configuration = {
         isDevelopment,
         babelPlugins: [['@vanilla-extract/babel-plugin']],
       }),
-      core.getTreatLoader({
-        hmr: isDevelopment,
-      }),
       /**
        * @see https://vanilla-extract.style/documentation/setup/
        */

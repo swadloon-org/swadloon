@@ -1,12 +1,11 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef, useState } from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as stylesRef from './switch.treat';
+import * as styles from './switch.css';
 
 type Props = PrimitiveProps &
   Pick<AnchorHTMLAttributes<any>, 'href'> &
@@ -39,7 +38,6 @@ export const Switch = React.forwardRef<HTMLButtonElement, Props>(
     },
     forwardedRef
   ) => {
-    const styles = useStyles(stylesRef);
     const localRef = useRef<HTMLButtonElement>(null);
     const [state, setState] = useState<boolean>(value === 'on');
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;

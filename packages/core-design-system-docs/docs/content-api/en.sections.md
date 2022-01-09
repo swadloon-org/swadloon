@@ -2,7 +2,8 @@
 title: Sections
 description: High-level components to render pages.
 tags:
-  - website api
+  - website-api
+  - color-mode
 ---
 
 <!-- CODE IMPORTS -->
@@ -12,7 +13,7 @@ import { SectionsBase } from '../../src/code/sections-base.code';
 import SectionsBaseCode from '!!raw-loader!../../src/code/sections-base.code.tsx';
 import { SectionsDivider } from '../../src/code/sections-divider.code'; 
 import SectionsDividerCode from '!!raw-loader!../../src/code/sections-divider.code.tsx';
-import { SectionsSwitcher } from '../../src/code/sections-switcher.code'; 
+import { SectionsSwitcher, SectionsSwitcherReversed } from '../../src/code/sections-switcher.code'; 
 import SectionsSwitcherCode from '!!raw-loader!../../src/code/sections-switcher.code.tsx';
 import { SectionsBanner } from '../../src/code/sections-banner.code'; 
 import SectionsBannerCode from '!!raw-loader!../../src/code/sections-banner.code.tsx';
@@ -41,6 +42,17 @@ Sections should always be contained in one of the available Blocks.
 - Predefined responsive layouts
 - 3 variants (primary, secondary and tertiary)
 - Support reversed color mode
+
+## Color Mode
+
+Section components support color modes. For example, to reverse a section, pass
+the `colorMode` value in the section prop:
+
+```tsx
+<SectionSwitcher section={{colorMode: COLOR_MODE.REVERSED}}>...</SectionSwitcher
+```
+
+<SectionsSwitcherReversed/>
 
 ## Components
 

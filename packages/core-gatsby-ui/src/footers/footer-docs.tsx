@@ -29,7 +29,6 @@ import {
   Paragraph,
   Stack,
   useCommonProps,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { BlockAPI, LinkAPI, LinkType, NavComponent } from '@newrade/core-website-api';

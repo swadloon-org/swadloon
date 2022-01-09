@@ -1,6 +1,6 @@
+import { SIZE } from '@newrade/core-design-system';
 import { Property } from 'csstype';
 
-import { SIZE } from '@newrade/core-design-system';
 
 /**
  * 9 => 9px

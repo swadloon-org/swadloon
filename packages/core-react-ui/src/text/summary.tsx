@@ -1,7 +1,6 @@
 /// <reference types="@newrade/core-types/src/svg" />
 
 import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
 import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 
@@ -10,7 +9,8 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
 import { Label } from './label';
-import * as stylesRef from './summary.treat';
+
+import * as styles from './summary.css';
 
 type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & {

@@ -1,14 +1,13 @@
-import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
-
 import { LABEL_SIZE, LinkProps } from '@newrade/core-design-system';
-
+import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
+import * as styles from './sidebar-item.css';
 
-import * as styleRefs from './sidebar-item.treat';
+
+
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -26,7 +25,6 @@ export const SidebarItem: React.FC<Props> = ({
   AsElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const ref = useRef<HTMLButtonElement>(null);
   const commonProps = useCommonProps({
     id,

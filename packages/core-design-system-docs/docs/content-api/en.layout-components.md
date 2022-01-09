@@ -76,8 +76,8 @@ Vertical grid container.
 Used to separate 2 or more blocks horizontally on desktop and vertically on
 mobile.
 
-<ThemeWrapper>
-  <LayoutSwitcher />
+<ThemeWrapper displayControls={true} filename={'switcher.code.tsx'}
+code={LayoutSwitcherCode} viewportControl={true}> <LayoutSwitcher />
 </ThemeWrapper>
 
 <CodeBlock>{LayoutSwitcherCode}</CodeBlock>

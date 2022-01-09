@@ -2,23 +2,19 @@ import React from 'react';
 
 import { COLOR_MODE, HEADING, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
-import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Paragraph, Stack } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import SectionOpenSource from '../sections/section-open-source.md';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
-  const { cssTheme } = useTreatTheme();
-
   return (
     <>
       <SectionBanner
         section={{ variant: Variant.primary, colorMode: COLOR_MODE.REVERSED }}
         ContentBlock={
-          <Stack
-            gap={[cssTheme.sizing.var.x4]}
-            style={{ justifyItems: 'center', textAlign: 'center' }}
-          >
+          <Stack gap={[sizeVars.x4]} style={{ justifyItems: 'center', textAlign: 'center' }}>
             <Heading>Le système de design Ze</Heading>
             <Paragraph>Simple design system and components for ambitious projects.</Paragraph>
           </Stack>
@@ -36,7 +32,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
       <SectionDivider
         LeftBlock={
-          <Stack gap={[cssTheme.sizing.var.x4]}>
+          <Stack gap={[sizeVars.x4]}>
             <Heading variant={HEADING.h1}>A complete design system</Heading>
             <Paragraph>
               A default theme with useful components to build websites and apps.
@@ -56,7 +52,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
       <SectionDivider
         LeftBlock={
-          <Stack gap={[cssTheme.sizing.var.x4]}>
+          <Stack gap={[sizeVars.x4]}>
             <Heading variant={HEADING.h2}>Markdown based documentation generator</Heading>
             <Paragraph>
               A default theme with useful components to build websites and apps.

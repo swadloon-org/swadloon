@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-import { Tab, TabContent, TabList, Tabs, useTreatTheme } from '@newrade/core-react-ui';
+import { Tab, TabContent, TabList, Tabs } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const TabsExample: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
   const [activeTabId, setActiveTabId] = useState<string>('tab-1');
 
   function handleSelectTab(event: React.MouseEvent<HTMLDivElement>) {

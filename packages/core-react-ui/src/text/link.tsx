@@ -1,6 +1,5 @@
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { IoOpenOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import {
   LinkIcon,
@@ -15,7 +14,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getDefaultTextFromProps } from '../utilities/component.utilities';
 
-import * as stylesRef from './link.treat';
+import * as styles from './link.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -54,7 +53,7 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Hooks
      */
-    const styles = useStyles(stylesRef);
+
     const ref = useRef<HTMLElement>();
 
     /**

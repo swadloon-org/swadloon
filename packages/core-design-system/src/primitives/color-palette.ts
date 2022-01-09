@@ -8,6 +8,11 @@ export type ColorShadesGrey =
   | 'e2' // elevation 2
   | 'e3' // elevation 3
   | 'e4' // elevation 4
+  | 'e0-grey' // elevation 0 in grey shades for light scheme theme
+  | 'e1-grey' // elevation 1 in grey shades for light scheme theme
+  | 'e2-grey' // elevation 2 in grey shades for light scheme theme
+  | 'e3-grey' // elevation 3 in grey shades for light scheme theme
+  | 'e4-grey' // elevation 4 in grey shades for light scheme theme
   | '25'
   | '50'
   | '100'

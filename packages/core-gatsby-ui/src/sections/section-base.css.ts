@@ -13,13 +13,13 @@ export const wrapper = style({
  */
 
 export const primary = style({
-  backgroundColor: colorVars.colorIntents.background0,
+  backgroundColor: colorVars.colorIntents.elevation0,
 });
 
 export const secondary = style({
-  backgroundColor: colorVars.colorIntents.background1,
+  backgroundColor: colorVars.colorIntents.elevation1,
 });
 
 export const tertiary = style({
-  backgroundColor: colorVars.colorIntents.background2,
+  backgroundColor: colorVars.colorIntents.elevation2,
 });

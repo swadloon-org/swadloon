@@ -1,24 +1,14 @@
 import React from 'react';
 
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import {
-  Button,
-  InputLabel,
-  InputText,
-  InputWrapper,
-  Label,
-  Stack,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Button, InputLabel, InputText, InputWrapper, Label, Stack } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const FormLayout: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Stack gap={[cssTheme.sizing.var.x3]}>
+      <Stack gap={[sizeVars.x3]}>
         <InputWrapper>
           <InputLabel htmlFor={'label'}>Label</InputLabel>
           <Label variantStyle={TEXT_STYLE.normal} variant={LABEL_SIZE.xSmall}>

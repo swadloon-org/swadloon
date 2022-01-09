@@ -59,6 +59,7 @@ const config: conf.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig(),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      renderDocsPages: false,
     }),
     core.getGastbyPluginTsCacheConfig(),
     /** template */
@@ -68,7 +69,6 @@ const config: conf.GastbySiteConfig = {
     /** gatsby plugin image */
     ...core.getGatsbyImagePlugins(),
     /** css */
-    core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
     core.getGastbyPluginCssThemeConfig(),

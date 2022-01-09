@@ -18,17 +18,15 @@ export const getTextColorStyles = recipe({
         color: `var(--color-text-tertiary, ${colorVars.colorIntents.tertiaryText})`,
       },
     },
+    disableCapsize: {
+      true: {
+        '::before': {
+          marginBottom: 'initial !important',
+        },
+        '::after': {
+          marginTop: 'initial !important',
+        },
+      },
+    },
   },
-});
-
-const primary = getTextColorStyles({
-  variant: 'primary',
-});
-
-const secondary = getTextColorStyles({
-  variant: 'secondary',
-});
-
-const tertiary = getTextColorStyles({
-  variant: 'tertiary',
 });

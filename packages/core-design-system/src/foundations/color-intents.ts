@@ -93,4 +93,9 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
   elevation2: ColorType<Override>;
   elevation3: ColorType<Override>;
   elevation4: ColorType<Override>;
+  elevation0Grey: ColorType<Override>;
+  elevation1Grey: ColorType<Override>;
+  elevation2Grey: ColorType<Override>;
+  elevation3Grey: ColorType<Override>;
+  elevation4Grey: ColorType<Override>;
 };

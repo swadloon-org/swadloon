@@ -248,11 +248,16 @@ export function generateColorGreyPalette({
     '100-reversed': { h: hue, s: 10, l: 0 },
     50: { h: hue, s: 3, l: 93 },
     25: { h: hue, s: 0, l: 97 },
-    e4: { h: hue, s: 3, l: 89 },
-    e3: { h: hue, s: 3, l: 92 },
-    e2: { h: hue, s: 3, l: 95 },
-    e1: { h: hue, s: 3, l: 98 },
+    e4: { h: hue, s: 3, l: 100 },
+    e3: { h: hue, s: 3, l: 100 },
+    e2: { h: hue, s: 3, l: 100 },
+    e1: { h: hue, s: 3, l: 100 },
     e0: { h: hue, s: 3, l: 100 },
+    'e4-grey': { h: hue, s: 3, l: 89 },
+    'e3-grey': { h: hue, s: 3, l: 92 },
+    'e2-grey': { h: hue, s: 3, l: 95 },
+    'e1-grey': { h: hue, s: 3, l: 98 },
+    'e0-grey': { h: hue, s: 3, l: 100 },
     '0-reversed': { h: hue, s: 10, l: 100 },
     0: { h: hue, s: 0, l: 100 },
   };
@@ -285,6 +290,11 @@ export function generateColorGreyPaletteDark({
     e2: { h: hue, s: 3, l: 16 },
     e1: { h: hue, s: 3, l: 13 },
     e0: { h: hue, s: 3, l: 11 },
+    'e4-grey': { h: hue, s: 3, l: 26 },
+    'e3-grey': { h: hue, s: 3, l: 20 },
+    'e2-grey': { h: hue, s: 3, l: 16 },
+    'e1-grey': { h: hue, s: 3, l: 13 },
+    'e0-grey': { h: hue, s: 3, l: 11 },
     '0-reversed': { h: hue, s: 10, l: 100 },
     0: { h: hue, s: 0, l: 7 },
   };
@@ -530,6 +540,11 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     elevation2: colors.grey.e2,
     elevation3: colors.grey.e3,
     elevation4: colors.grey.e4,
+    elevation0Grey: colors.grey['e0-grey'],
+    elevation1Grey: colors.grey['e1-grey'],
+    elevation2Grey: colors.grey['e2-grey'],
+    elevation3Grey: colors.grey['e3-grey'],
+    elevation4Grey: colors.grey['e4-grey'],
   };
 }
 
@@ -579,6 +594,11 @@ export function getDefaultCSSVarColorIntents({
     elevation2: colors.grey.e2,
     elevation3: colors.grey.e3,
     elevation4: colors.grey.e4,
+    elevation0Grey: colors.grey['e0-grey'],
+    elevation1Grey: colors.grey['e1-grey'],
+    elevation2Grey: colors.grey['e2-grey'],
+    elevation3Grey: colors.grey['e3-grey'],
+    elevation4Grey: colors.grey['e4-grey'],
   };
 }
 

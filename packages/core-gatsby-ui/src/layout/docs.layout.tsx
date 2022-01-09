@@ -15,7 +15,6 @@ import {
   Theme,
   useCSSTheme,
   useIsSSR,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
@@ -61,15 +60,6 @@ type Props = {
   footer?: FooterAPI;
   companyInfo?: CompanyInfoAPI;
   /**
-   * A reference to the treatTheme that can be used to pass
-   * an other theme to specific sections of the app.
-   */
-  treatThemeRef?: string;
-  /**
-   * Theme object from Treat
-   */
-  theme?: Theme;
-  /**
    * The application's className for its theme
    */
   themeConfig: CSSThemeProviderConfig;
@@ -104,14 +94,7 @@ export type LayoutDocsProps = Partial<
  *  - navbar component with logo, tag, search theme switcher and links on the top right
  *  - sidebar with nested navigation links
  */
-export const LayoutDocs: React.FC<LayoutDocsProps> = ({
-  treatThemeRef,
-  theme,
-  themeConfig,
-  ...props
-}) => {
-  const { cssTheme } = useTreatTheme();
-
+export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props }) => {
   const isSSR = useIsSSR();
   const isFirstRender = useFirstRender();
 
@@ -121,7 +104,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    *
    */
 
-  const injectThemeWrapper = treatThemeRef && theme && themeConfig;
+  const injectThemeWrapper = !!themeConfig;
 
   /**
    *
@@ -243,14 +226,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
 
   const mdxComponents = {
     ThemeWrapper: injectThemeWrapper
-      ? (props: any) => (
-          <ThemeWrapper
-            treatThemeRef={treatThemeRef}
-            theme={theme}
-            themeConfig={themeConfig}
-            {...props}
-          />
-        )
+      ? (props: any) => <ThemeWrapper themeConfig={themeConfig} {...props} />
       : undefined,
   };
 

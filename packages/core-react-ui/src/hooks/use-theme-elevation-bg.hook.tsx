@@ -16,9 +16,9 @@ export function useThemeElevationBG(options: {
   //
   if (themeColorScheme === COLOR_SCHEME.LIGHT) {
     if (options.greyLevel !== undefined) {
-      return colorVars.colorIntents[`elevation${options.greyLevel}`];
+      return colorVars.colorIntents[`elevation${options.greyLevel}Grey`];
     }
-    return colorVars.colorIntents.elevation0;
+    return colorVars.colorIntents[`elevation${options.level}`];
   }
 
   //

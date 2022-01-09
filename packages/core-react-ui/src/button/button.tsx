@@ -1,5 +1,4 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
 
 import {
   ButtonIcon,
@@ -16,7 +15,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 
-import * as stylesRef from './button.treat';
+import * as styles from './button.css';
 
 type AsType = 'button' | 'a';
 
@@ -57,7 +56,6 @@ export const Button = React.forwardRef<any, Props>(
     },
     forwardedRef
   ) => {
-    const styles = useStyles(stylesRef);
     const localRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
     const type = as ? as : 'button';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, PaddingProps } from '@newrade/core-react-ui';
+import { BoxV2, Center, PaddingProps, useCSSTheme } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
@@ -23,6 +23,8 @@ export const SectionBase = React.forwardRef<HTMLElement, Props>(function Section
       variant = Variant.primary,
       baseLayout = SectionBaseLayout.center,
       padding = SectionPadding.large,
+      colorScheme,
+      colorMode,
     } = {
       variant: Variant.primary,
       baseLayout: SectionBaseLayout.center,
@@ -40,10 +42,13 @@ export const SectionBase = React.forwardRef<HTMLElement, Props>(function Section
    *
    */
 
+  const { getCSSColorModeClassnames } = useCSSTheme();
+
   const classNames = getMergedClassname([
     className,
     styles.wrapper,
     variant ? styles[variant] : variant === null ? styles.primary : '',
+    getCSSColorModeClassnames({ colorMode, colorScheme }),
   ]);
   const paddingProp = getPaddingProp((padding as SectionPadding) || SectionPadding.large);
 

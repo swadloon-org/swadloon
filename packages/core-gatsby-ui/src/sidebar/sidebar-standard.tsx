@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
@@ -21,7 +20,6 @@ import {
   SidebarItemGroup,
   Stack,
   useCommonProps,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { LinkAPI } from '@newrade/core-website-api';
 
@@ -30,7 +28,6 @@ import { LinkRenderer } from '../links/link-renderer';
 
 import { SidebarProps } from './sidebar.props';
 import { SidebarBase } from './sidebar-base';
-import * as styleRefs from './sidebar-standard.treat';
 
 type Props = SidebarProps & {};
 
@@ -52,8 +49,6 @@ export const SidebarStandard = React.forwardRef<any, Props>(
     },
     ref
   ) => {
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
       style,

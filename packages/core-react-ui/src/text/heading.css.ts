@@ -6,9 +6,10 @@ import { layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
   fontFamily: typographyVars.titles.font,
-  // position: 'relative', // 'relative' breaks useScrollSpy()
   wordBreak: 'normal',
   userSelect: 'text',
+
+  // position: 'relative', // 'relative' breaks useScrollSpy()
 });
 
 export const getVariantStyles = recipe({
@@ -48,16 +49,6 @@ export const getVariantStyles = recipe({
           [layoutCSS.media.desktopSmall]: createStyleObject(
             typographyVars.headings.desktop.h4.capsize
           ),
-        },
-      },
-    },
-    disableCapsize: {
-      true: {
-        '::before': {
-          marginBottom: 'initial !important',
-        },
-        '::after': {
-          marginTop: 'initial !important',
         },
       },
     },

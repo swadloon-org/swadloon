@@ -1,17 +1,15 @@
 import React from 'react';
 
-import { BoxV2, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2 } from '@newrade/core-react-ui';
 import { ShadowSwatch } from '@newrade/core-react-ui/doc-components';
 import { keys } from '@newrade/core-react-ui/utilities';
 
 type Props = {};
 
 export const BoxShadows: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <BoxV2
-      padding={[cssTheme.sizing.var.x6]}
+      padding={[sizeVars.x6]}
       style={{ height: `calc(${keys(theme.effects.boxShadows).length * 90 + 400}px)` }}
     >
       {theme.effects?.boxShadows &&

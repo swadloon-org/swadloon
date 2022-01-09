@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import { ButtonIcon, ButtonSize, ICON, LOGO, Variant } from '@newrade/core-design-system';
 import {
@@ -15,10 +14,9 @@ import {
   Switch,
   Tag,
   usePreventPinchZoom,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 
-import * as styleRefs from './navbar-docs.treat';
+import * as styles from './navbar-docs.css';
 
 export type NavBarDocsRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;
@@ -71,9 +69,6 @@ type Props = PrimitiveProps & {
  * and on desktop, a logo, and menu links
  */
 export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
-
   /**
    * Refs
    */
@@ -114,17 +109,14 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
 
             <BoxV2
               justifyContent={['center']}
-              padding={[cssTheme.sizing.var.x2, 0]}
+              padding={[sizeVars.x2, 0]}
               AsElement={props.HomeLink}
               aria-label={'Home'}
             >
               <Logo name={LOGO.SYMBOL} className={styles.logoMobile}></Logo>
             </BoxV2>
 
-            <BoxV2
-              justifyContent={['flex-end']}
-              padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}
-            >
+            <BoxV2 justifyContent={['flex-end']} padding={[sizeVars.x2, sizeVars.x3]}>
               <Label>EN</Label>
             </BoxV2>
           </div>
@@ -139,9 +131,9 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
-            <Cluster alignItems={['center']} gap={[cssTheme.sizing.var.x3]}>
+            <Cluster alignItems={['center']} gap={[sizeVars.x3]}>
               <BoxV2
-                padding={[cssTheme.sizing.var.x2, 0]}
+                padding={[sizeVars.x2, 0]}
                 className={styles.logoWrapper}
                 AsElement={props.HomeLink}
               >
@@ -151,7 +143,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
               {props.tagText ? <Tag variant={Variant.primary}>{props.tagText}</Tag> : null}
             </Cluster>
 
-            <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
+            <Cluster justifyContent={['space-between']} gap={[sizeVars.x4]}>
               {props.enableLayoutModeButton ? (
                 <Button
                   icon={ButtonIcon.icon}

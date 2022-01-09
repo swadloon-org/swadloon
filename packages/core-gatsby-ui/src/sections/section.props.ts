@@ -1,4 +1,3 @@
-import { ColorModeProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
 

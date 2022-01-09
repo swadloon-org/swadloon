@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
 import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
@@ -8,8 +7,9 @@ import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './google-maps.treat';
-import { mapStyles } from './google-maps-styles';
+import { googleMapThemeStyles } from './google-maps-styles';
+
+import * as styles from './google-maps.css';
 
 type Props = PrimitiveProps & {
   styleTheme?: Theme;
@@ -35,7 +35,7 @@ export const GoogleMaps: React.FC<Props> = React.memo(
     /**
      * Component props
      */
-    const { styles } = useStyles(styleRefs);
+
     const classNames = getMergedClassname([className || '', styles.wrapper]);
 
     /**
@@ -61,7 +61,7 @@ export const GoogleMaps: React.FC<Props> = React.memo(
         width: '100%',
       },
       options: {
-        styles: styleTheme ? mapStyles(styleTheme) : [],
+        styles: googleMapThemeStyles,
         disableDefaultUI: true,
         zoomControl: true,
       },

@@ -1,13 +1,13 @@
-import React, { InputHTMLAttributes, Suspense } from 'react';
-import { useStyles } from 'react-treat';
-
 import type { Props as CleaveProps } from 'cleave.js/react/props';
-
+import React, { InputHTMLAttributes, Suspense } from 'react';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-
-import * as styleRefs from './input.treat';
 import { InputTextCleaveLazy } from './input-text-cleave.lazy';
+import * as styles from './input.css';
+
+
+
+
 
 type Props = PrimitiveProps<'input'> &
   InputHTMLAttributes<any> & {
@@ -20,7 +20,6 @@ export const InputText = React.memo(
     { id, style, className, cleaveProps, type = 'text', state = 'rest', ...props },
     ref
   ) {
-    const { styles } = useStyles(styleRefs);
     const classNames = getMergedClassname([
       className,
       styles.rest,

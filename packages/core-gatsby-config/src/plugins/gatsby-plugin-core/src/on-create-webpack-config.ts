@@ -1,5 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 
+// @ts-ignore
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration, ProgressPlugin, RuleSetRule } from 'webpack';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
@@ -258,6 +260,25 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       lodash: 'lodash-es',
     },
   };
+
+  /**
+   * Add Speed Measure Plugin, only for development
+   *
+   * NOTE: does not work properly right now, keeping as example
+   */
+  if (false) {
+    // if (!isProduction || env.APP_ENV === DEPLOY_ENV.LOCAL) {
+    //   reporter.info(`[${pluginOptions.pluginName}] adding speed-measure-webpack-plugin plugin`);
+    //   const smp = new SpeedMeasurePlugin();
+    //   const wrappedConfig = smp.wrap(config);
+    //   //
+    //   // completely replace the webpack config with the wrapped one
+    //   //
+    //   reporter.info(`[${pluginOptions.pluginName}] replacing webpack config with modified one`);
+    //   actions.replaceWebpackConfig(wrappedConfig);
+    //   return;
+    // }
+  }
 
   //
   // completely replace the webpack config with the modified one

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-
 import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
-
+import React, { useEffect, useState } from 'react';
 import { IconComp } from '../icons/icon';
 import { getMergedClassname } from '../utilities/component.utilities';
-
+import * as styles from './input.css';
 import { InputSelectProps } from './input.props';
 
-import * as styles from './input.css';
+
+
+
 
 export const InputSelect = React.memo(
   React.forwardRef<HTMLSelectElement, InputSelectProps>(function InputText(

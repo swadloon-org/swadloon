@@ -1,15 +1,8 @@
 import React, { PropsWithChildren, Suspense } from 'react';
-import { useStyles } from 'react-treat';
 
 import debug from 'debug';
 
-import {
-  ErrorBoundary,
-  Stack,
-  useCommonProps,
-  useIsSSR,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { ErrorBoundary, Stack, useCommonProps, useIsSSR } from '@newrade/core-react-ui';
 import {
   BlockAlignment,
   BlockAPI,
@@ -25,7 +18,6 @@ import { BlockGoogleMapLazy } from './block-google-map.lazy';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
-import * as styleRefs from './block-renderer.treat';
 
 const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
@@ -46,8 +38,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
   ...props
 }: PropsWithChildren<BlockRendererProps<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
-  const { cssTheme, theme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
+
   const commonProps = useCommonProps({
     id,
     style,
@@ -89,7 +80,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       const blockText = block as BlockAPI;
       return (
         <ErrorBoundary>
-          <Stack gap={[cssTheme.sizing.var.x5]} {...commonProps}>
+          <Stack gap={[sizeVars.x5]} {...commonProps}>
             <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (

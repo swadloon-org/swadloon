@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 import { COLOR_MODE, COLOR_SCHEME, ColorModeProps, Variant } from '@newrade/core-design-system';
 
@@ -6,11 +6,13 @@ import { defaultTheme } from '../default-theme';
 import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '../design-system/css-theme-config';
 import {
   GLOBAL_CSS_THEME_SCHEME,
+  GLOBAL_CSS_THEME_SCHEME_REVERSED,
   LOCAL_STORAGE_CSS_THEME_NAME_PROP,
   LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
 } from '../global/global-theme-classnames';
 import { useIsSSR } from '../hooks/use-is-ssr';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { getMergedClassname } from '../utilities';
 import { debugInstance, NS } from '../utilities/log.utilities';
 
 import { usePreferColorScheme } from './use-prefer-color-scheme';
@@ -44,7 +46,7 @@ type CSSThemeContextOptions = {
    * Apply theme classnames to provided element instead of the documentElement (html)
    * @default window.document.documentElement
    */
-  rootElement?: HTMLElement;
+  rootElement?: HTMLElement | null;
   /**
    * Option to automatically save the last selected theme in local storage
    * @default false
@@ -78,7 +80,7 @@ CSSThemeContext.displayName = 'CSSThemeContext';
 /**
  * Provider for CSSThemeContext
  */
-export const CSSThemeProvider = ({
+export const CSSThemeProvider = function CSSThemeProvider({
   value,
   options,
   children,
@@ -86,7 +88,7 @@ export const CSSThemeProvider = ({
   value: CSSThemeContextType;
   options?: CSSThemeContextOptions;
   children: ReactNode;
-}) => {
+}) {
   const { applyThemeToRootElement, syncToLocalStorage, rootElement } = {
     ...defaultOptions,
     ...options,
@@ -415,27 +417,15 @@ export function useCSSTheme() {
     return currentCSSTheme;
   }
 
-  return { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme };
-}
-
-type CSSThemeSwitcherProps = ColorModeProps &
-  PrimitiveProps<'div'> & {
-    variant?: Variant | null;
-  };
-
-/**
- * Component to reverse the current theme (e.g. on a 'light' theme app, reverse a section to 'dark' theme)
- * or force a specific color scheme
- */
-export const CSSThemeSwitcher: React.FC<CSSThemeSwitcherProps> = React.memo(
-  function CSSThemeSwitcher({ children, theme, variant, colorMode, colorScheme }) {
-    /**
-     *
-     * CSS Themes
-     *
-     */
-
-    const { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme } = useCSSTheme();
+  function getCSSColorModeClassnames({
+    theme,
+    variant,
+    colorMode,
+    colorScheme,
+  }: Pick<CSSThemeSwitcherProps, 'theme' | 'variant' | 'colorMode' | 'colorScheme'>) {
+    if (!currentCSSTheme) {
+      throw new Error('CSSThemeContext must be defined');
+    }
 
     const themeIsReversed = theme === 'reversed';
     const variantIsReversed = variant ? /reversed/gi.test(variant) : false;
@@ -450,21 +440,113 @@ export const CSSThemeSwitcher: React.FC<CSSThemeSwitcherProps> = React.memo(
       : currentCSSTheme;
 
     if (colorSchemeIsForced) {
-      return (
-        <CSSThemeProvider value={forcedCSSTheme} options={{ syncToLocalStorage: false }}>
-          {children}
-        </CSSThemeProvider>
-      );
+      const forcedClassnames = getMergedClassname([
+        forcedCSSTheme.selected?.className,
+        colorScheme === COLOR_SCHEME.LIGHT
+          ? GLOBAL_CSS_THEME_SCHEME.LIGHT
+          : GLOBAL_CSS_THEME_SCHEME.DARK,
+      ]);
+
+      return forcedClassnames;
     }
 
     if (colorModeIsReversed) {
-      return (
-        <CSSThemeProvider value={reversedCSSTheme} options={{ syncToLocalStorage: false }}>
-          {children}
-        </CSSThemeProvider>
-      );
+      const reversedClassnames = getMergedClassname([
+        reversedCSSTheme.selected?.className,
+        GLOBAL_CSS_THEME_SCHEME_REVERSED,
+      ]);
+
+      return reversedClassnames;
     }
 
-    return <>{children}</>;
+    return '';
   }
-);
+
+  return { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme, getCSSColorModeClassnames };
+}
+
+type CSSThemeSwitcherProps = ColorModeProps &
+  PrimitiveProps<'div'> & {
+    variant?: Variant | null;
+  };
+
+/**
+ * Component to reverse the current theme (e.g. on a 'light' theme app, reverse a section to 'dark' theme)
+ * or force a specific color scheme
+ */
+export const CSSThemeSwitcher: FC<CSSThemeSwitcherProps> = function CSSThemeSwitcher({
+  children,
+  theme,
+  variant,
+  colorMode,
+  colorScheme,
+}) {
+  /**
+   *
+   * CSS Themes
+   *
+   */
+
+  const { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme, getCSSColorModeClassnames } =
+    useCSSTheme();
+
+  const themeIsReversed = theme === 'reversed';
+  const variantIsReversed = variant ? /reversed/gi.test(variant) : false;
+  const colorModeIsReversed =
+    colorMode === COLOR_MODE.REVERSED || themeIsReversed || variantIsReversed;
+
+  const reversedCSSTheme = colorModeIsReversed ? getReversedCSSTheme() : currentCSSTheme;
+
+  const colorSchemeIsForced = !!colorScheme;
+  const forcedCSSTheme = colorSchemeIsForced ? getCSSThemeForScheme(colorScheme) : currentCSSTheme;
+
+  const wrapperDivRef = useRef<HTMLDivElement>(null);
+
+  if (colorSchemeIsForced) {
+    const forcedClassnames = getMergedClassname([
+      forcedCSSTheme.selected?.className,
+      colorScheme === COLOR_SCHEME.LIGHT
+        ? GLOBAL_CSS_THEME_SCHEME.LIGHT
+        : GLOBAL_CSS_THEME_SCHEME.DARK,
+    ]);
+
+    return (
+      <CSSThemeProvider
+        value={forcedCSSTheme}
+        options={{
+          syncToLocalStorage: false,
+          rootElement: wrapperDivRef.current,
+          applyThemeToRootElement: !!wrapperDivRef.current,
+        }}
+      >
+        <div className={forcedClassnames} ref={wrapperDivRef}>
+          {children}
+        </div>
+      </CSSThemeProvider>
+    );
+  }
+
+  if (colorModeIsReversed) {
+    const reversedClassnames = getMergedClassname([
+      reversedCSSTheme.selected?.className,
+      GLOBAL_CSS_THEME_SCHEME_REVERSED,
+    ]);
+
+    return (
+      <CSSThemeProvider
+        value={reversedCSSTheme}
+        options={{
+          syncToLocalStorage: false,
+          rootElement: wrapperDivRef.current,
+          applyThemeToRootElement: !!wrapperDivRef.current,
+        }}
+      >
+        <div className={reversedClassnames} ref={wrapperDivRef}>
+          {children}
+        </div>
+      </CSSThemeProvider>
+    );
+  }
+
+  return <>{children}</>;
+};

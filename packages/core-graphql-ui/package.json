@@ -17,7 +17,6 @@
     "@newrade/core-types": "*",
     "@newrade/core-webpack-config": "^2.5.0",
     "fp-ts": "^2",
-    "io-ts": "^2",
-    "treat": "^2"
+    "io-ts": "^2"
   }
 }

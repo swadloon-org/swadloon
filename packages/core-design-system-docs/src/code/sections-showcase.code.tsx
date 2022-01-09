@@ -2,14 +2,12 @@ import React from 'react';
 
 import { ButtonSize, COLOR_MODE, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionShowcase } from '@newrade/core-gatsby-ui/src';
-import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, Heading } from '@newrade/core-react-ui';
 import { PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 
 export const SectionsShowCase: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <SectionShowcase

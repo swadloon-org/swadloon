@@ -1,14 +1,13 @@
 import React, { AnchorHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-
 import { PrimitiveProps } from '../primitive/primitive.props';
 import {
   AlignItemsViewportProps,
   JustifyContentViewportProps,
-  PaddingStringProps,
+  PaddingStringProps
 } from '../props/padding.props';
+import * as styles from './box-v3.css';
 
-import * as styleRefs from './box-v3.treat';
+
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -34,8 +33,6 @@ export const BoxV3 = React.forwardRef<any, Props>(
     },
     ref
   ) => {
-    const { styles } = useStyles(styleRefs);
-
     const type = as ? as : 'div';
     const mergedClassName = `${className || ''} ${styles.wrapper}`;
     const [mobileJustifyContent, tabletJustifyContent, desktopJustifyContent] = justifyContent;

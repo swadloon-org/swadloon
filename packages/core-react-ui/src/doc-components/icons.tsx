@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { useStyles } from 'react-treat';
 
 import { pascal } from 'case';
 
@@ -21,7 +20,6 @@ import { InputSelect } from '../form/input-select';
 import { InputText } from '../form/input-text';
 import { InputWrapper } from '../form/input-wrapper';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { IconComp } from '../icons/icon';
 import { iconMetadatas } from '../icons/icon-metadatas';
 import { useIconContext } from '../icons/icons-provider';
@@ -36,7 +34,8 @@ import { Paragraph } from '../text/paragraph';
 import { keys } from '../utilities/utilities';
 
 import { IconBox } from './icon-box';
-import * as stylesRef from './icons.treat';
+
+import * as styles from './icons.css';
 
 type Props = PrimitiveProps;
 
@@ -46,7 +45,7 @@ const allIconMetadataEntries = Object.entries(allIconMetadata);
 
 export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(stylesRef);
-  const { theme, cssTheme } = useTreatTheme();
+
   const commonProps = useCommonProps({
     id,
     style,
@@ -144,8 +143,8 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     );
   };
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]} {...commonProps}>
-      <Cluster wrap={true} gap={[cssTheme.sizing.var.x3]} justifyContent={['flex-start']}>
+    <Stack gap={[sizeVars.x5]} {...commonProps}>
+      <Cluster wrap={true} gap={[sizeVars.x3]} justifyContent={['flex-start']}>
         <InputWrapper className={styles.inputWrapper}>
           <InputLabel htmlFor={'search-icons'}>Search</InputLabel>
           <InputText
@@ -171,13 +170,13 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
       </Cluster>
 
       {searchTerm ? (
-        <Stack gap={[cssTheme.sizing.var.x2]}>
+        <Stack gap={[sizeVars.x2]}>
           <div className={styles.iconsGrid}>{icons.map(renderIcon)}</div>
         </Stack>
       ) : (
         iconsByGroup.map((group) => {
           return (
-            <Stack key={group.name} gap={[cssTheme.sizing.var.x3]}>
+            <Stack key={group.name} gap={[sizeVars.x3]}>
               <Label
                 variant={LABEL_SIZE.small}
                 variantStyle={TEXT_STYLE.boldUppercase}
@@ -192,8 +191,8 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
         })
       )}
 
-      <Stack gap={[cssTheme.sizing.var.x2]}>
-        <SvgDownloader filename={pascal(selectedIcon)} style={{ gap: cssTheme.sizing.var.x2 }}>
+      <Stack gap={[sizeVars.x2]}>
+        <SvgDownloader filename={pascal(selectedIcon)} style={{ gap: sizeVars.x2 }}>
           <div className={styles.usage}>
             <div className={`${styles.usageHeader}`}>
               <Label>{pascal(selectedIcon)}</Label>

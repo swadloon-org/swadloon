@@ -1,13 +1,11 @@
 import React from 'react';
 import { IoCheckmarkOutline, IoCloseOutline, IoMoon, IoSunny } from 'react-icons/io5';
 
-import { Switch, useTreatTheme } from '@newrade/core-react-ui';
+import { Switch } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const SwitchesIcons: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <Switch

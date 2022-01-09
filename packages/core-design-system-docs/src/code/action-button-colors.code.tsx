@@ -1,24 +1,22 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, Stack } from '@newrade/core-react-ui';
 import { ColorPalette, ReversedBox } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 
 export const ButtonColors: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x3]}>
+    <Stack gap={[sizeVars.x5]}>
+      <Stack gap={[sizeVars.x3]}>
         <Button variant={Variant.primary}></Button>
         <Button variant={Variant.secondary}></Button>
         <Button variant={Variant.tertiary}></Button>
       </Stack>
 
       <ReversedBox>
-        <Stack gap={[cssTheme.sizing.var.x3]}>
+        <Stack gap={[sizeVars.x3]}>
           <Button variant={Variant.primary}></Button>
           <Button variant={Variant.secondary}></Button>
           <Button variant={Variant.tertiary}></Button>

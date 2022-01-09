@@ -13,7 +13,6 @@ import {
   BoxV2,
   Button,
   Cluster,
-  CSSThemeSwitcher,
   IconComp,
   Link,
   Logo,
@@ -88,45 +87,104 @@ export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStanda
   }
 
   return (
-    <CSSThemeSwitcher
-      colorMode={navbar?.colorMode}
-      colorScheme={navbar?.colorScheme}
-      variant={navbar?.variant}
-    >
-      <NavbarBase navbar={navbar} ref={ref} contentClassName={styles.content} {...commonProps}>
-        {/*
-         * Mobile
-         */}
+    <NavbarBase navbar={navbar} ref={ref} contentClassName={styles.content} {...commonProps}>
+      {/*
+       * Mobile
+       */}
 
-        {/* Menu button */}
-        <Button
-          aria-pressed={true}
-          aria-label={'Menu'}
-          className={styles.button}
-          size={ButtonSize.large}
-          variant={Variant.tertiary}
-          collapsePadding={'left'}
-          Icon={<IconComp name={ICON.MENU} />}
-          icon={ButtonIcon.icon}
-          onClick={onClickMenuButton}
-        ></Button>
+      {/* Menu button */}
+      <Button
+        aria-pressed={true}
+        aria-label={'Menu'}
+        className={styles.button}
+        size={ButtonSize.large}
+        variant={Variant.tertiary}
+        collapsePadding={'left'}
+        Icon={<IconComp name={ICON.MENU} />}
+        icon={ButtonIcon.icon}
+        onClick={onClickMenuButton}
+      ></Button>
 
-        {/* Centered square logo & link */}
+      {/* Centered square logo & link */}
+      <BoxV2
+        aria-label={'Home'}
+        draggable={false}
+        justifyContent={['center']}
+        className={styles.logoWrapper}
+        padding={[sizeVars.x2, 0]}
+        AsElement={HomeLink}
+      >
+        <Logo name={LOGO.SYMBOL} className={styles.logo}></Logo>
+      </BoxV2>
+
+      {/* Language link */}
+      {alternativeLanguage?.lang && onChangeLang ? (
+        <Link
+          className={styles.lang}
+          onClick={(event: React.MouseEvent) =>
+            onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
+          }
+        >
+          {alternativeLanguage.label}
+        </Link>
+      ) : null}
+
+      {/*
+       * Desktop
+       */}
+
+      {/* Standard logo & link */}
+      <Cluster alignItems={['center']} gap={[sizeVars.x2]} className={styles.logoDesktopWrapper}>
         <BoxV2
-          aria-label={'Home'}
           draggable={false}
+          aria-label={'Home'}
+          alignItems={['center']}
           justifyContent={['center']}
-          className={styles.logoWrapper}
           padding={[sizeVars.x2, 0]}
           AsElement={HomeLink}
         >
-          <Logo name={LOGO.SYMBOL} className={styles.logo}></Logo>
+          {/* Logo as a link to the home page */}
+          <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
         </BoxV2>
+
+        {/* Optional tag next to the logo */}
+        {tagText ? <Tag>{tagText}</Tag> : null}
+      </Cluster>
+
+      <div className={styles.navLinksDesktop}>
+        {navbarNavigation?.links ? renderLinks(navbarNavigation?.links as LinkAPI[]) : null}
+        {navbarNavigation?.subNavigation?.map((subNav, subNavIndex) => {
+          if (!subNav) {
+            return null;
+          }
+
+          const links = subNav.links;
+
+          return (
+            <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
+              <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
+                {renderLinks(links as LinkAPI[])}
+              </Cluster>
+            </Cluster>
+          );
+        })}
+
+        <NavbarSeparatorItem />
+
+        <Button
+          aria-label={'Search'}
+          size={ButtonSize.xSmall}
+          variant={Variant.tertiary}
+          Icon={<IconComp name={ICON.SEARCH} />}
+          icon={ButtonIcon.icon}
+          // onClick={onClickMenuButton}
+        ></Button>
 
         {/* Language link */}
         {alternativeLanguage?.lang && onChangeLang ? (
           <Link
-            className={styles.lang}
+            variantSize={PARAGRAPH_SIZE.small}
+            className={styles.langDesktop}
             onClick={(event: React.MouseEvent) =>
               onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
             }
@@ -134,72 +192,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStanda
             {alternativeLanguage.label}
           </Link>
         ) : null}
-
-        {/*
-         * Desktop
-         */}
-
-        {/* Standard logo & link */}
-        <Cluster alignItems={['center']} gap={[sizeVars.x2]} className={styles.logoDesktopWrapper}>
-          <BoxV2
-            draggable={false}
-            aria-label={'Home'}
-            alignItems={['center']}
-            justifyContent={['center']}
-            padding={[sizeVars.x2, 0]}
-            AsElement={HomeLink}
-          >
-            {/* Logo as a link to the home page */}
-            <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
-          </BoxV2>
-
-          {/* Optional tag next to the logo */}
-          {tagText ? <Tag>{tagText}</Tag> : null}
-        </Cluster>
-
-        <div className={styles.navLinksDesktop}>
-          {navbarNavigation?.links ? renderLinks(navbarNavigation?.links as LinkAPI[]) : null}
-          {navbarNavigation?.subNavigation?.map((subNav, subNavIndex) => {
-            if (!subNav) {
-              return null;
-            }
-
-            const links = subNav.links;
-
-            return (
-              <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
-                <Cluster key={subNavIndex} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
-                  {renderLinks(links as LinkAPI[])}
-                </Cluster>
-              </Cluster>
-            );
-          })}
-
-          <NavbarSeparatorItem />
-
-          <Button
-            aria-label={'Search'}
-            size={ButtonSize.xSmall}
-            variant={Variant.tertiary}
-            Icon={<IconComp name={ICON.SEARCH} />}
-            icon={ButtonIcon.icon}
-            // onClick={onClickMenuButton}
-          ></Button>
-
-          {/* Language link */}
-          {alternativeLanguage?.lang && onChangeLang ? (
-            <Link
-              variantSize={PARAGRAPH_SIZE.small}
-              className={styles.langDesktop}
-              onClick={(event: React.MouseEvent) =>
-                onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
-              }
-            >
-              {alternativeLanguage.label}
-            </Link>
-          ) : null}
-        </div>
-      </NavbarBase>
-    </CSSThemeSwitcher>
+      </div>
+    </NavbarBase>
   );
 });

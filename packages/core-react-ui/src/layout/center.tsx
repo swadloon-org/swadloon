@@ -1,10 +1,9 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
-
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+import * as styles from './center.css';
 
-import * as styleRefs from './center.treat';
+
 
 type AsTypes = 'div' | 'footer' | 'section' | 'nav';
 
@@ -23,7 +22,7 @@ type Props = PrimitiveProps<AsTypes> &
 export const Center = React.forwardRef<HTMLElement, Props>(
   ({ id, as, AsElement, className, contentClassName, style, maxWidth, ...props }, ref) => {
     const type = as ? as : 'div';
-    const { styles } = useStyles(styleRefs);
+
     const classNames = getMergedClassname([className || '', styles.wrapper]);
 
     return React.createElement(

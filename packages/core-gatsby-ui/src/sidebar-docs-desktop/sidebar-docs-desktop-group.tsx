@@ -1,20 +1,11 @@
 import React, { AnchorHTMLAttributes, useEffect, useState } from 'react';
 import { IoChevronDownOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import { LABEL_SIZE, LinkProps, TagSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import {
-  Cluster,
-  Label,
-  PrimitiveProps,
-  Stack,
-  Tag,
-  useCommonProps,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Cluster, Label, PrimitiveProps, Stack, Tag, useCommonProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 
-import * as styleRefs from './sidebar-docs-desktop-group.treat';
+import * as styles from './sidebar-docs-desktop-group.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -39,9 +30,6 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   level = 0,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
-
   /**
    *
    * Levels

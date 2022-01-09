@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import {
   Color,
@@ -13,7 +12,8 @@ import { keys } from '../utilities/utilities';
 
 import { ColorIntentSwatchDark } from './color-intent-swatch-dark';
 import { ColorIntentSwatchLight } from './color-intent-swatch-light';
-import * as stylesRef from './color-palette.treat';
+
+import * as styles from './color-palette.css';
 
 type Props = {
   colorName: string;

@@ -1,10 +1,9 @@
 import React, { DetailsHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as stylesRef from './details.treat';
+import * as styles from './details.css';
 
 type Props = PrimitiveProps & DetailsHTMLAttributes<any> & {};
 

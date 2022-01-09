@@ -1,13 +1,11 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 
-import * as styleRefs from './online-indicator.treat';
+import * as styles from './online-indicator.css';
 
 type Props = PrimitiveProps & {
   status?: 'online' | 'offline' | 'loading';
@@ -23,8 +21,6 @@ export const OnlineIndicator: React.FC<Props> = ({
   AsElement,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps({
     id,
     style,
@@ -34,7 +30,7 @@ export const OnlineIndicator: React.FC<Props> = ({
   });
 
   return (
-    <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]} {...commonProps}>
+    <Cluster justifyContent={['flex-start']} gap={[sizeVars.x2]} {...commonProps}>
       <div className={styles.statusDot}></div>
       <Label style={{ color: 'inherit' }}>{children || status}</Label>
     </Cluster>

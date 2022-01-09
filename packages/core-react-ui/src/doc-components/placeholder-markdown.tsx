@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
-
 import MarkdownHeadingsText from './placeholder-md-headings-text.mdx';
 import MarkdownText from './placeholder-md-text.mdx';
+
 
 type Props = HTMLAttributes<any> & {
   variantContent?: 'text' | 'titles' | 'text-and-titles' | 'list';

@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { Cluster, Switch, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, Switch } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const Switches: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <Cluster justifyContent={['flex-start']} gap={[sizeVars.x4]} wrap={true}>
       <Switch value={'on'}></Switch>

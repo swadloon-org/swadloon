@@ -29,7 +29,7 @@ export const button = style({
 
   '@media': {
     [layoutCSS.media.desktopSmall]: {
-      display: 'none',
+      display: 'none !important',
     },
   },
 });
@@ -39,7 +39,7 @@ export const lang = style({
 
   '@media': {
     [layoutCSS.media.desktopSmall]: {
-      display: 'none',
+      display: 'none !important',
     },
   },
 });
@@ -50,7 +50,7 @@ export const langDesktop = style({
 
   '@media': {
     [layoutCSS.media.desktopSmall]: {
-      display: 'initial',
+      display: 'initial !important',
     },
   },
 });
@@ -66,7 +66,7 @@ export const logoWrapper = style({
 
   '@media': {
     [layoutCSS.media.desktopSmall]: {
-      display: 'none',
+      display: 'none !important',
     },
   },
 });

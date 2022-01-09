@@ -2,7 +2,7 @@
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 
-import { COLOR_MODE, Variant } from '@newrade/core-design-system';
+import { COLOR_SCHEME, Variant } from '@newrade/core-design-system';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import {
   getLinksFromTopSubNavigation,
@@ -24,7 +24,6 @@ import {
 import { cssThemeConfig } from '@newrade/ze-design-system/css';
 
 import { companyInfo } from './src/data/company-info';
-import { cssTheme, light, theme } from './src/design-system/theme.treat';
 import { locales } from './src/i18n/locales';
 import { Layout } from './src/layout/layout';
 import { ProvidersDocs } from './src/providers/providers-docs';
@@ -83,7 +82,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
   const navbar: NavbarAPI = {
     name: 'Navbar',
     variant: Variant.primary,
-    colorMode: COLOR_MODE.REVERSED,
+    colorScheme: COLOR_SCHEME.DARK,
     layout: NavbarLayout.standard,
     navigation: {
       component: NavComponent.navbar,
@@ -141,8 +140,6 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
             sidebar={sidebarDocs}
             footer={footer}
             themeConfig={cssThemeConfig}
-            treatThemeRef={light}
-            theme={{ theme, cssTheme }}
           >
             {element}
           </LayoutDocs>

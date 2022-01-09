@@ -9,20 +9,17 @@ import {
   InputWrapper,
   Stack,
   Switcher,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const FormSingleButton: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
+      <Stack gap={[sizeVars.x4]}>
         <Heading variant={HEADING.h4}>Contact</Heading>
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Switcher gap={[cssTheme.sizing.var.x3]}>
+        <Stack gap={[sizeVars.x3]}>
+          <Switcher gap={[sizeVars.x3]}>
             <InputWrapper>
               <InputLabel htmlFor={'firstName'}>First Name</InputLabel>
               <InputText name="firstName" autoComplete="given-name" placeholder={''} />

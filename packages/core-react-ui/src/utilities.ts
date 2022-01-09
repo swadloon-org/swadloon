@@ -4,7 +4,8 @@ export * from './utilities/css-variable.utilities';
 export * from './utilities/effects.utilities';
 export * from './utilities/filter-color.utility';
 export * from './utilities/log.utilities';
-export * from './utilities/text.utilities';
 export * from './utilities/text-capsize.utilities';
+export * from './utilities/text.utilities';
 export * from './utilities/theme.utilities';
 export * from './utilities/utilities';
+

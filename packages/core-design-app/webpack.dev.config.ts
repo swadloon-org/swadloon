@@ -29,12 +29,7 @@ const devConfig: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
       index: '/',
     },
   },
-  plugins: [
-    core.getTreatCSSPlugin({
-      isHmr: true,
-      isSSR: false,
-    }),
-  ],
+  plugins: [],
   stats: core.stats.dev,
   output: core.output.dev,
 };

@@ -30,7 +30,7 @@ export const base = style([
   resetButtonStyle,
   {
     vars: {
-      [padding]: `16px`,
+      [padding]: sizeVars.x3,
       [textColor]: colorVars.colorIntents.primaryText,
       [textColorActive]: colorVars.colorIntents.primary,
       [textColorDisabled]: colorVars.colorIntents.disabledText,

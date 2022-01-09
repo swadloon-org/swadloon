@@ -1,15 +1,13 @@
 import React, { useCallback, useRef } from 'react';
-import { useStyles } from 'react-treat';
 
 import { ButtonSize, Variant } from '@newrade/core-design-system';
 
 import { Button } from '../button/button';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as styleRefs from './img-downloader.treat';
+import * as styles from './img-downloader.css';
 
 type Props = PrimitiveProps & {
   filename?: string;
@@ -17,8 +15,6 @@ type Props = PrimitiveProps & {
 
 export const SvgDownloader: React.FC<Props> = ({ filename, children, ...props }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
 
   function downloadBlob(blob: Blob, filename: string) {
     const objectUrl = URL.createObjectURL(blob);
@@ -135,15 +131,11 @@ export const SvgDownloader: React.FC<Props> = ({ filename, children, ...props })
   }
 
   return (
-    <Stack {...props} ref={wrapperRef} gap={[cssTheme.sizing.var.x3]}>
+    <Stack {...props} ref={wrapperRef} gap={[sizeVars.x3]}>
       {/* svg must the first children */}
       {children}
 
-      <Cluster
-        className={styles.buttons}
-        gap={[cssTheme.sizing.var.x1]}
-        justifyContent={['flex-start']}
-      >
+      <Cluster className={styles.buttons} gap={[sizeVars.x1]} justifyContent={['flex-start']}>
         <Button
           variant={Variant.secondary}
           size={ButtonSize.small}

@@ -33,7 +33,7 @@ export type ColorType<Override extends undefined | string> = Override extends st
  * Font and text types
  */
 export type FontWeightType<Override extends undefined | string> = Override extends string
-  ? string | any // TODO remove any when treat is out
+  ? string
   : number;
 /**
  * 3 => '3%'

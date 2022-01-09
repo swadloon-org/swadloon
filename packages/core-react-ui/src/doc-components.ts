@@ -19,6 +19,6 @@ export * from './doc-components/reversed-box';
 export * from './doc-components/scale-steps';
 export * from './doc-components/scale-steps-v2';
 export * from './doc-components/shadow-swatch';
-export * from './doc-components/shadow-swatch';
 export * from './doc-components/text-color-intents-showcase';
 export * from './loren-ipsum/loren-ipsum';
+

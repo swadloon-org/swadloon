@@ -1,13 +1,13 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Switcher, useCommonProps } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
 import { SectionBase } from './section-base';
-import * as styleRefs from './section-divider.treat';
+
+import * as styles from './section-divider.css';
 
 type Props = SectionProps & {
   RightBlock: React.ReactNode;
@@ -37,8 +37,6 @@ export const SectionDivider = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const { styles } = useStyles(styleRefs);
-    const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
     return (
@@ -51,7 +49,7 @@ export const SectionDivider = React.forwardRef<HTMLElement, Props>(
         }}
         {...commonProps}
       >
-        <Switcher col={[1, 1, 2]} gap={['0px', '0px', cssTheme.sizing.var.x6]}>
+        <Switcher col={[1, 1, 2]} gap={['0px', '0px', sizeVars.x6]}>
           <div className={styles.left}>{LeftBlock}</div>
 
           <div className={styles.right}>{RightBlock}</div>

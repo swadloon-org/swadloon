@@ -1,21 +1,20 @@
 import React from 'react';
 import { IoStar, IoStarHalf } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
 import { title } from 'case';
 
 import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
+import { sizeVars } from '../theme';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './google-maps-info-window.treat';
+import * as styles from './google-maps-info-window.css';
 
 type Props = PrimitiveProps & {
   place: google.maps.places.PlaceResult;
@@ -37,9 +36,8 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({
   /**
    * Component props
    */
-  const { styles } = useStyles(styleRefs);
+
   const classNames = getMergedClassname([className || '', styles.wrapper]);
-  const { cssTheme } = useTreatTheme();
 
   if (!place) {
     return null;
@@ -62,7 +60,7 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({
   return (
     <InfoWindow {...props}>
       <div className={styles.wrapper}>
-        <Stack gap={[cssTheme.sizing.var.x2]}>
+        <Stack gap={[sizeVars.x2]}>
           <Label variant={LABEL_SIZE.medium}>{title(place.name)}</Label>
           <Link
             href={place.url}

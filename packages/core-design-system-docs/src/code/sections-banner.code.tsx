@@ -2,13 +2,12 @@ import React from 'react';
 
 import { COLOR_MODE, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner } from '@newrade/core-gatsby-ui/src';
-import { Heading, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading } from '@newrade/core-react-ui';
 import { PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 
 export const SectionsBanner: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
   return (
     <>
       <SectionBanner

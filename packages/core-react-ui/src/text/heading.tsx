@@ -36,18 +36,19 @@ const defaultProps: Props = {
 export const Heading = React.memo(
   React.forwardRef<any, Props>(function Heading(
     {
-      variant,
-      variantLevel,
+      variant = defaultProps.variant,
+      variantStyle = defaultProps.variantStyle,
+      variantLevel = defaultProps.variantLevel,
       disableCapsize,
       enableAnchorSign,
       display,
       id,
       className,
-      children,
+      children = defaultProps.children,
       style,
       as,
       ...props
-    },
+    } = defaultProps,
     forwardedRef
   ) {
     /**
@@ -69,10 +70,10 @@ export const Heading = React.memo(
 
     const variantClassname = styles.getVariantStyles({
       size: variant,
-      disableCapsize: disableCapsize,
     });
     const textColorClassname = textStyles.getTextColorStyles({
-      variant: variantLevel || Variant.primary,
+      variant: variantLevel,
+      disableCapsize: disableCapsize,
     });
     const classNames = [
       className,
@@ -88,7 +89,7 @@ export const Heading = React.memo(
      *
      */
 
-    const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
+    const defaultChildrenString = `${children as string} ${pascal(type)}`;
     const child = children ? children : defaultChildrenString;
     const renderedId = getFormattedAnchorId(id ? id : typeof children === 'string' ? children : '');
 

@@ -2,7 +2,7 @@
 title: Pages
 description:
 tags:
-  - test
+  - website-api
 ---
 
 <!-- CODE IMPORTS -->

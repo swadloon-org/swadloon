@@ -28,9 +28,7 @@
   "sideEffects": [
     "*.css",
     "*.css.ts",
-    "*.css.js",
-    "*.treat.ts",
-    "*.treat.js"
+    "*.css.js"
   ],
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
@@ -52,8 +50,6 @@
     "i18next": "^19",
     "io-ts": "^2",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^11",
-    "react-treat": "^2",
-    "treat": "^2"
+    "react-i18next": "^11"
   }
 }

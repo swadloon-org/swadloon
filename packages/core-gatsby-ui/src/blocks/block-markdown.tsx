@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
@@ -8,7 +7,8 @@ import { BlockAlignment, BlockAPI } from '@newrade/core-website-api';
 import { MarkdownRenderer } from '../markdown/markdown-renderer';
 
 import { BlockProps } from './block.props';
-import * as styleRefs from './block-markdown.treat';
+
+import * as styles from './block-markdown.css';
 
 type Props = BlockProps & { block?: BlockAPI } & {
   children?: string | null | React.ReactNode;
@@ -25,7 +25,6 @@ export const BlockMarkdown: React.FC<Props> = ({
   block,
   ...props
 }) => {
-  const styles = useStyles(styleRefs);
   const commonProps = useCommonProps({
     id,
     style,

@@ -1,12 +1,12 @@
 import GastbyImage, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
-import * as styleRefs from './image.treat';
+
+import * as styles from './image.css';
 
 type Props = Omit<PrimitiveProps, 'as'> & {
   effects?: BackgroundEffectConfig[];
@@ -21,7 +21,6 @@ export const Image: React.FC<Props> = ({
   children,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([className, styles.backgroundWrapper]);
 
   if (image) {

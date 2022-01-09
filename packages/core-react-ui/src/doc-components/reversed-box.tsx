@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react';
-
 import { COLOR_MODE } from '@newrade/core-design-system';
-
+import React, { HTMLAttributes } from 'react';
 import { CSSThemeSwitcher } from '../hooks/use-css-theme';
 import { BoxV2 } from '../layout/box-v2';
 import { colorVars, sizeVars } from '../theme';
+
+
 
 type Props = HTMLAttributes<any>;
 

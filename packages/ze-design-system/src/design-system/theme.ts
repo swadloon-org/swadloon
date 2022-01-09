@@ -15,7 +15,7 @@ import { typography } from './typography';
 
 /**
  * Note: Do not consume exports in this file directly
- * They must be imported only in .treat.ts or .css.ts files
+ * They must be imported only in .css.ts files
  */
 
 export const lightTheme: DesignSystem = {

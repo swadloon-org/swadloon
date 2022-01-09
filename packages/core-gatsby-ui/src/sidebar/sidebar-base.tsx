@@ -1,12 +1,10 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { SidebarContainer, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { SidebarContainer, Stack, useCommonProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 
 import { SidebarProps } from './sidebar.props';
-import * as styleRefs from './sidebar-base.treat';
 
 type Props = SidebarProps & {
   contentClassName?: string;
@@ -45,8 +43,7 @@ export const SidebarBase = React.forwardRef<HTMLElement, Props>(
     /**
      * Styling
      */
-    const { cssTheme } = useTreatTheme();
-    const styles = useStyles(styleRefs);
+
     const commonProps = useCommonProps({
       id,
       style,

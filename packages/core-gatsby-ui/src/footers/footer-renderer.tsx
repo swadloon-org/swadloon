@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import debug from 'debug';
 
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { useCommonProps } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 import { FooterLayout } from '@newrade/core-website-api';
 
@@ -35,7 +35,7 @@ export function FooterRenderer<
     threshold: 0,
     triggerOnce: true,
   });
-  const { cssTheme, theme } = useTreatTheme();
+
   const commonProps = useCommonProps<'footer'>({ id, style, className, ...props });
 
   if (!footer) {

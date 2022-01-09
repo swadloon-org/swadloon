@@ -7,15 +7,12 @@ import {
   TableCellHeader,
   TableHeader,
   TableRow,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities';
 
 type Props = {};
 
 export const Breakpoints: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   const breakpoints = keys(cssTheme.layout.breakpoints);
 
   if (!breakpoints.length) {

@@ -1,10 +1,9 @@
 import { GatsbyLinkProps, Link as GastbyLinkDefault } from 'gatsby';
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '@newrade/core-react-ui';
 
-import * as styleRefs from './gatsby-link.treat';
+import * as styles from './gatsby-link.css';
 
 type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
   noStyles?: boolean;
@@ -13,7 +12,6 @@ type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
 
 export const GatsbyLink = React.forwardRef<any, Props>(
   ({ id, style, className, noStyles, to = '', ...props }, ref) => {
-    const { styles } = useStyles(styleRefs);
     const commonProps = useCommonProps<any>({
       id,
       style,

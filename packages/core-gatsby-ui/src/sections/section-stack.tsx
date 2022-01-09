@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack, useCommonProps } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
@@ -33,7 +33,6 @@ export const SectionStack = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
     return (
@@ -46,7 +45,7 @@ export const SectionStack = React.forwardRef<HTMLElement, Props>(
         }}
         {...commonProps}
       >
-        <Stack gap={[cssTheme.sizing.var.x5]}>{Blocks}</Stack>
+        <Stack gap={[sizeVars.x5]}>{Blocks}</Stack>
       </SectionBase>
     );
   }

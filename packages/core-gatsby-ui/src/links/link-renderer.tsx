@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react';
-import { useStyles } from 'react-treat';
 
 import debug from 'debug';
 
@@ -10,19 +9,13 @@ import {
   PARAGRAPH_SIZE,
   Variant,
 } from '@newrade/core-design-system';
-import {
-  Button,
-  IconComp,
-  Link,
-  useCommonProps,
-  useIsSSR,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Button, IconComp, Link, useCommonProps, useIsSSR } from '@newrade/core-react-ui';
 import { LinkAPI, LinkComponent, LinkType } from '@newrade/core-website-api';
 
 import { GatsbyLink } from './gatsby-link';
 import { LinkRendererProps } from './link.props';
-import * as styleRefs from './link-renderer.treat';
+
+import * as styles from './link-renderer.css';
 
 const log = debug('nr:core-gatsby-ui:link-renderer');
 const logWarn = log.extend('warn');
@@ -42,8 +35,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
   ...props
 }: PropsWithChildren<LinkRendererProps<CustomLinkVariants>>) {
   const isSSR = useIsSSR();
-  const { cssTheme, theme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
+
   const commonProps = useCommonProps({
     id,
     style,

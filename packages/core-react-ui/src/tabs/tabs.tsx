@@ -1,12 +1,12 @@
-import React, { ButtonHTMLAttributes, useRef } from 'react';
-
 import { LABEL_SIZE, TabAs, TabProps, TEXT_STYLE } from '@newrade/core-design-system';
-
+import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-
 import * as styles from './tabs.css';
+
+
+
 
 type TabsProps = PrimitiveProps<'button'>;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { Center, Primitive, useThemeElevationBG } from '@newrade/core-react-ui';
+import { Center, Primitive, useCSSTheme } from '@newrade/core-react-ui';
 import { layoutVars } from '@newrade/core-react-ui/theme';
 
 import { NavbarProps } from './navbar.props';
@@ -21,7 +21,6 @@ const defaultProps: NavbarProps = {
 export const NavbarBase = React.forwardRef<HTMLElement, Props>(
   (
     {
-      style,
       contentClassName,
       navbar = defaultProps.navbar,
       navbarMode = 'fixed',
@@ -33,15 +32,17 @@ export const NavbarBase = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
+    const { getCSSColorModeClassnames } = useCSSTheme();
     const variant = navbar?.variant || Variant.primary;
-    const elevationBG = useThemeElevationBG({ level: 2 });
-
+    const colorModeClassnames = getCSSColorModeClassnames({
+      colorMode: navbar?.colorMode,
+      colorScheme: navbar?.colorScheme,
+    });
     return (
       <Primitive
         ref={ref}
-        style={{ ...style, backgroundColor: elevationBG }}
         variant={variant}
-        classNames={[styles.wrapper, styles[navbarMode]]}
+        classNames={[colorModeClassnames, styles.wrapper, styles[navbarMode]]}
         AsElement={
           <Center
             as={'nav'}

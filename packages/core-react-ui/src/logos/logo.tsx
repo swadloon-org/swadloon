@@ -1,15 +1,14 @@
 import React, { ErrorInfo } from 'react';
-import { useStyles } from 'react-treat';
 
 import { LOGO } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as styleRefs from './logo.treat';
 import { useLogosContext } from './logos-provider';
+
+import * as styles from './logo.css';
 
 type Props = PrimitiveProps<'svg'> & {
   name: LOGO;
@@ -17,9 +16,7 @@ type Props = PrimitiveProps<'svg'> & {
 
 export const LogoLoader = React.forwardRef<'svg', Props>(
   ({ id, style, className, name, height, width, as, ...props }, ref) => {
-    const { theme, cssTheme } = useTreatTheme();
     const context = useLogosContext();
-    const styles = useStyles(styleRefs);
 
     const commonProps = useCommonProps<'svg'>({
       id,

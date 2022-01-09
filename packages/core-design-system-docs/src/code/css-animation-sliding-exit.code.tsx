@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { CSSAnimation, Placeholder, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { CSSAnimation, Placeholder, Stack } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const CSSSlidingExit: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       <CSSAnimation
         animation={{
           name: 'slideOutDown',

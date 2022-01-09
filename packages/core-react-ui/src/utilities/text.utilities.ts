@@ -1,7 +1,7 @@
+import { StyleRule } from '@vanilla-extract/css';
 import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
-import { Style } from 'treat';
 
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 
@@ -108,12 +108,12 @@ export function convertLetterSpacingToEM({
 }
 
 /**
- * Return a Treat compatible style object from a theme text style
+ * Return a CSS compatible style object from a theme text style
  */
 export function getCSSTextStyles(
   textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
   options?: CSSTextStyleOptions
-): Style {
+): StyleRule {
   if (!textStyle) {
     return {};
   }
@@ -126,7 +126,7 @@ export function getCSSTextStyles(
 export function getCSSFontTextStyles(
   textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
   options?: CSSTextStyleOptions
-): Style {
+): StyleRule {
   if (!textStyle) {
     return {};
   }
@@ -150,7 +150,7 @@ type CSSTextStyleOptions = {
 export function getCSSSizeTextStyles(
   textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
   options?: CSSTextStyleOptions
-): Style {
+): StyleRule {
   if (!textStyle) {
     return {};
   }
@@ -184,7 +184,7 @@ export function getCSSSizeTextStyles(
 }
 
 /**
- * Return a Treat compatible style object from a theme text style
+ * Return a CSS compatible style object from a theme text style
  */
 export function getCSSTextDecoration(textDecoration?: TextDecoration): string | undefined {
   if (!textDecoration) {

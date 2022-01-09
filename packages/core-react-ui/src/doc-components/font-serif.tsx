@@ -1,16 +1,15 @@
-import React from 'react';
-import { useStyles } from 'react-treat';
-
-import { title } from 'case';
-
 import { HEADING } from '@newrade/core-design-system';
-
+import { title } from 'case';
+import React from 'react';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { Heading } from '../text/heading';
 import { sizeVars, typographyCSS } from '../theme';
+import * as styles from './font-serif.css';
 
-import * as styleRefs from './font-serif.treat';
+
+
+
 
 type Props = {};
 
@@ -18,7 +17,7 @@ const sampleText = `
 ABCČĆDĐEFGHIJKLMNOPQRSŠTUVWXYZŽabcčćdđefghijklmnopqrsštuvwxyzžАБВГҐДЂЕЁЄЖЗЅИІЇЙЈКЛЉМНЊОПРСТЋУЎФХЦЧЏШЩЪЫЬЭЮЯабвгґдђеёєжзѕиіїйјклљмнњопрстћуўфхцчџшщъыьэюяΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωάΆέΈέΉίϊΐΊόΌύΰϋΎΫΏĂÂÊÔƠƯăâêôơư1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*12345678910 $ 1 000 000 123,94$`;
 
 export const FontSerif: React.FC<Props> = (props) => {
-  const { styles } = useStyles(styleRefs);
+
 
   return (
     <Stack className={styles.wrapper} gap={[sizeVars.x5]}>
