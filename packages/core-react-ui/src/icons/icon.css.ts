@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { layoutCSS } from '../theme';
+
 const iconSize = `1.5em`;
 const iconPadding = `3em`;
 

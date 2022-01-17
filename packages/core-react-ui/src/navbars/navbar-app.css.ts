@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { getCSSColor } from '../utilities/colors.utilities';
+import { colorVars, layoutCSS } from '../theme';
+import { getCSSColor } from '../utilities-theme/colors.utilities';
 
 export const wrapper = style({
   position: 'fixed',
@@ -13,7 +14,7 @@ export const wrapper = style({
   backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
   boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
 
-  zIndex: layoutCSS.zIndex.navBar,
+  zIndex: layoutCSS.zIndex.navBar as any,
 });
 
 export const content = style({

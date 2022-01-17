@@ -1,18 +1,19 @@
 import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { IoOpenOutline } from 'react-icons/io5';
 
 import {
+  ICON,
   LinkIcon,
   LinkProps,
-  LinkState,
   LinkVariant,
   PARAGRAPH_SIZE,
+  TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getDefaultTextFromProps } from '../utilities/component.utilities';
+import { getDefaultTextFromProps } from '../utilities-components/component.utilities';
+import { IconComp } from '..';
 
 import * as styles from './link.css';
 
@@ -23,9 +24,21 @@ type Props = PrimitiveProps &
     'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel' | 'variantStyle'
   > & {
     as?: 'div' | 'a';
+    /**
+     * Render a long link with ellipsis in the center
+     * @example https://longlong...long.com/23
+     */
     shortenLongLink?: boolean;
     Icon?: React.ReactNode;
   };
+
+const defaultProps: Props = {
+  variant: LinkVariant.underline,
+  variantSize: PARAGRAPH_SIZE.medium,
+  variantLevel: Variant.primary,
+  variantStyle: TEXT_STYLE.bold,
+  children: 'Paragraph',
+};
 
 export const Link: React.FC<Props> = React.memo(
   ({
@@ -36,13 +49,13 @@ export const Link: React.FC<Props> = React.memo(
     rel,
     target,
     download,
-    variant,
+    variant = defaultProps.variant,
+    variantSize = defaultProps.variantSize,
+    variantLevel = defaultProps.variantLevel,
+    variantStyle = defaultProps.variantStyle,
     variantIcon,
     Icon,
     shortenLongLink,
-    variantSize,
-    variantLevel,
-    variantStyle,
     as,
     AsElement,
     children,
@@ -73,10 +86,12 @@ export const Link: React.FC<Props> = React.memo(
       style,
       className,
       classNames: [
-        styles[LinkState.rest],
-        styles[variant ? variant : LinkVariant.noUnderline],
-        styles[variantLevel ? variantLevel : Variant.primary],
-        styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium],
+        styles.base,
+        styles.variants({
+          variant: variantLevel,
+          size: variantSize,
+          style: variant,
+        }),
       ],
       target: target ? target : linkIsExternal ? '_blank' : undefined,
       ...props,
@@ -118,7 +133,7 @@ export const Link: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : variantIcon !== LinkIcon.none && linkIsExternal ? (
-      <IoOpenOutline className={styles.icon}></IoOpenOutline>
+      <IconComp name={ICON.OPEN} className={styles.icon}></IconComp>
     ) : null;
 
     /**

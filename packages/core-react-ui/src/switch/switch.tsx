@@ -3,7 +3,7 @@ import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef, useState } f
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
 
 import * as styles from './switch.css';
 

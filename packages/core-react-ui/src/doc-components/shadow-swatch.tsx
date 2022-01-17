@@ -7,7 +7,7 @@ import { BoxShadow, Variant } from '@newrade/core-design-system';
 import { Stack } from '../layout/stack';
 import { Label } from '../text/label';
 import { sizeVars } from '../theme';
-import { getCSSBoxShadow } from '../utilities/effects.utilities';
+import { getCSSBoxShadow } from '../utilities-theme/effects.utilities';
 
 import * as styles from './shadow-swatch.css';
 

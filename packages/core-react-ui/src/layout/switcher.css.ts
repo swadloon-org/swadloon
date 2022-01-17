@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { Property } from 'csstype';
-import { layoutCSS } from '../theme';
 
+import { layoutCSS } from '../theme';
 
 export const wrapper = style({
   vars: {

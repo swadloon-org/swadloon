@@ -1,12 +1,12 @@
 import { COLOR_SCHEME, DesignSystem } from '@newrade/core-design-system';
-import { CSSDesignSystem, CSSDesignSystemV2 } from '@newrade/core-react-ui';
+import { CSSDesignSystemV2 } from '@newrade/core-react-ui';
 import {
   defaultAnimations,
   defaultButtons,
   defaultIconography,
   defaultSizing,
 } from '@newrade/core-react-ui/default-theme';
-import { createCSSTheme, createCSSThemeV2 } from '@newrade/core-react-ui/utilities';
+import { createCSSThemeV2 } from '@newrade/core-react-ui/utilities-theme';
 
 import { colors, colorsDark } from './colors';
 import { effects } from './effects';
@@ -33,8 +33,7 @@ export const lightTheme: DesignSystem = {
   },
 };
 
-export const lightCssTheme: CSSDesignSystem = createCSSTheme(lightTheme);
-export const lightCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(lightTheme);
+export const lightCssTheme: CSSDesignSystemV2 = createCSSThemeV2(lightTheme);
 
 export const darkTheme: DesignSystem = {
   name: 'ze-dark',
@@ -51,5 +50,4 @@ export const darkTheme: DesignSystem = {
   },
 };
 
-export const darkCssTheme: CSSDesignSystem = createCSSTheme(darkTheme);
-export const darkCssThemeV2: CSSDesignSystemV2 = createCSSThemeV2(darkTheme);
+export const darkCssTheme: CSSDesignSystemV2 = createCSSThemeV2(darkTheme);

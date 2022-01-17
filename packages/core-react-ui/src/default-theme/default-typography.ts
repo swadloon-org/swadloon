@@ -1,6 +1,6 @@
 import { Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
 
-import { cssVar } from '../utilities/css-variable.utilities';
+import { cssVar } from '../utilities-iso/css-variables.utilities';
 
 import * as fonts from './default-fonts';
 

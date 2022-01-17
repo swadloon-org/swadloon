@@ -1,7 +1,7 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { colorVars, layoutCSS, typographyVars } from '../theme/default-theme.css';
 
+import { colorVars, layoutCSS, typographyVars } from '../theme/default-theme.css';
 
 /**
  *
@@ -32,7 +32,7 @@ const textColor = createVar();
 const textColorActive = createVar();
 const textColorDisabled = createVar();
 
-export const getWrapperStyles = recipe({
+export const variants = recipe({
   base: {
     vars: {
       [iconSize]: `clamp(16px, 1em, 28px)`,
@@ -151,7 +151,7 @@ export const text = style({
  *
  */
 
-export const getInputStyles = recipe({
+export const styleVariants = recipe({
   base: {
     position: 'relative',
     padding: `0 calc(${iconSize} + 2 * ${iconOffset}) 0 ${paddingX}`,
@@ -258,7 +258,7 @@ export const getInputStyles = recipe({
   },
 });
 
-export type InputVariants = RecipeVariants<typeof getInputStyles>;
+export type InputVariants = RecipeVariants<typeof styleVariants>;
 
 /**
  *
@@ -275,7 +275,7 @@ export const icon = style({
   pointerEvents: 'none', // let events go through
 });
 
-export const getInputIconStyles = recipe({
+export const iconVariants = recipe({
   base: {
     color: iconColor,
   },
@@ -296,4 +296,4 @@ export const getInputIconStyles = recipe({
   },
 });
 
-export type InputIconVariants = RecipeVariants<typeof getInputIconStyles>;
+export type InputIconVariants = RecipeVariants<typeof iconVariants>;

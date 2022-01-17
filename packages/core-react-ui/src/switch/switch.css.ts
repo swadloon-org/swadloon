@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { colorVars } from '../theme';
-import { px } from '../utilities/utilities';
+import { px } from '../utilities-iso/utilities';
 
 /**
  * Base

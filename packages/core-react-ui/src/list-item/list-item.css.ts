@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
+import { colorVars, layoutCSS } from '../theme';
+import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities-theme/text.utilities';
 
 const iconWidthNumber = `1.4`;
 const iconWidth = `1.4em`;

@@ -1,6 +1,6 @@
 import { CodeColors } from '@newrade/core-design-system';
 
-import { getColorFromHex } from '../utilities/colors.utilities';
+import { getColorFromHex } from '../utilities-theme/colors.utilities';
 
 /**
  * Inspired by Github dark dimmed theme

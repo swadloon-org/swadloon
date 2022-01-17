@@ -60,7 +60,7 @@ export const Label: React.FC<Props> = React.memo(
         classNames={[
           styles.base,
           textColorClassname,
-          styles.getVariantStyles({
+          styles.variants({
             size: variant as LABEL_SIZE,
             style: variantStyle,
           }),

@@ -1,16 +1,16 @@
-import { VIEWPORT } from '@newrade/core-design-system';
 import React, { useRef } from 'react';
 import { useDrag } from 'react-use-gesture';
+
+import { VIEWPORT } from '@newrade/core-design-system';
+
 import { CSSAnimation, CSSAnimationHandle } from '../animation/css-animation';
 import { useBodyScrollLock } from '../hooks/use-body-scroll-lock';
 import { useFirstRender } from '../hooks/use-first-render.hook';
 import { useViewportBreakpoint } from '../hooks/use-viewport';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
+
 import * as styles from './sidebar-container.css';
-
-
-
 
 type Props = PrimitiveProps<'div' | 'nav'> & {
   /**

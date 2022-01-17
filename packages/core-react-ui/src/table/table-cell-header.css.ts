@@ -17,7 +17,7 @@ const borderColor = createVar();
 
 const textColor = createVar();
 
-export const getVariantStyles = recipe({
+export const variants = recipe({
   base: {
     vars: {
       [paddingX]: `2em`,

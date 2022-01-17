@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { sizeVars } from '../theme';
+
 export const wrapper = style({
   padding: sizeVars.x6,
 });

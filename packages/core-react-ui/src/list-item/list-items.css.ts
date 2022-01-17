@@ -14,15 +14,15 @@ export const ul = style({});
 
 export const ol = style({});
 
-globalStyle(`${styles.ul} li::after`, {
+globalStyle(`${ul} li::after`, {
   content: 'inherit !important', // override capsize
 });
 
-globalStyle(`${styles.ul} li`, {
+globalStyle(`${ul} li`, {
   listStyleType: '"• "', // using a unicode to fix chrome margin on the default marker
 });
 
-globalStyle(`${styles.ul} li[data-custom-bullet]::before`, {
+globalStyle(`${ul} li[data-custom-bullet]::before`, {
   content: 'attr(data-custom-bullet) !important',
   marginRight: `1em !important`,
   borderRadius: '0ch',
@@ -30,15 +30,15 @@ globalStyle(`${styles.ul} li[data-custom-bullet]::before`, {
   marginInlineEnd: '1.3em',
 });
 
-globalStyle(`${styles.ul} li[data-custom-bullet=" "]::before`, {
+globalStyle(`${ul} li[data-custom-bullet=" "]::before`, {
   marginRight: `0.5em !important`,
 });
 
-globalStyle(`${styles.ol} li::after`, {
+globalStyle(`${ol} li::after`, {
   content: 'inherit !important', // override capsize
 });
 
-globalStyle(`${styles.ol} li::before`, {
+globalStyle(`${ol} li::before`, {
   content: '" " !important',
   // display: 'inline-block !important', // override capsize
   marginRight: `0.5em !important`,

@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { getCSSColor } from '../utilities/colors.utilities';
+import { colorVars, layoutCSS } from '../theme';
+import { getCSSColor } from '../utilities-theme/colors.utilities';
 
 /**
  * Sidebar
@@ -19,7 +20,7 @@ export const wrapper = style({
       width: layoutCSS.var.sidebarWidth,
     },
   },
-  zIndex: layoutCSS.zIndex.sideBarMobile,
+  zIndex: layoutCSS.zIndex.sideBarMobile as any,
   overflowY: 'scroll',
   overflowX: 'hidden',
 

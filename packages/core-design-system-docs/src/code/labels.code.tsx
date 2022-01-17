@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { Label, Stack } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 

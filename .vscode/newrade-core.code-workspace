@@ -17,6 +17,7 @@
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,
+      "**/*.dll.js": true,
       "**/*.tsbuildinfo": true
     },
     "files.watcherExclude": {
@@ -28,6 +29,8 @@
       "**/built/**": true,
       "**/public/**": true,
       "**/.cache/**": true,
+      "**/*.dll.js": true,
+      "**/*.js.map": true,
       "**/lib/**": true
     },
     "files.exclude": {

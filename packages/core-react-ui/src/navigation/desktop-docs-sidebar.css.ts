@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, layoutCSS, sizeVars } from '../theme';
+
 /**
  * Sidebar
  */
@@ -18,7 +20,7 @@ export const wrapper = style({
       display: 'inherit',
     },
   },
-  zIndex: layoutCSS.zIndex.sideBarDesktop,
+  zIndex: layoutCSS.zIndex.sideBarDesktop as any,
   overflowY: 'scroll',
   overflowX: 'hidden',
 

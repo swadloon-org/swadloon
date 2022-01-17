@@ -31,7 +31,8 @@ import { Tag } from '../tag/tag';
 import { Label } from '../text/label';
 import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
-import { keys } from '../utilities/utilities';
+import { colorVars, sizeVars } from '../theme';
+import { keys } from '../utilities-iso/utilities';
 
 import { IconBox } from './icon-box';
 
@@ -44,8 +45,6 @@ const allIconMetadata = iconMetadatas;
 const allIconMetadataEntries = Object.entries(allIconMetadata);
 
 export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
-  const { styles } = useStyles(stylesRef);
-
   const commonProps = useCommonProps({
     id,
     style,
@@ -131,8 +130,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
         key={index}
         style={{
           cursor: 'pointer',
-          border:
-            iconName === selectedIcon ? `2px dotted ${cssTheme.colors.colors.primary[500]}` : '',
+          border: iconName === selectedIcon ? `2px dotted ${colorVars.colors.primary[500]}` : '',
 
           borderRadius: 3,
         }}

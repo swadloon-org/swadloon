@@ -4,7 +4,7 @@ import { LOGO } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
 
 import { useLogosContext } from './logos-provider';
 

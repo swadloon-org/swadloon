@@ -1,12 +1,12 @@
-import { VIEWPORT } from '@newrade/core-design-system';
 import React, { IframeHTMLAttributes, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+
+import { VIEWPORT } from '@newrade/core-design-system';
+
 import { useIsSSR } from '../hooks/use-is-ssr';
-import { getMergedClassname } from '../utilities';
+import { getMergedClassname } from '../utilities-components';
+
 import * as styles from './iframe.css';
-
-
-
 
 type Props = IframeHTMLAttributes<HTMLIFrameElement> & {
   bodyWidth?: string;

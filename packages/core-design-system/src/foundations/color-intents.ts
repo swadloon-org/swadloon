@@ -86,6 +86,9 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    *
    * Elevation Levels
    *
+   * Note: Grey variants are usually useful on light themes, dark theme will probably
+   * have the same values for elevations and their grey counterparts
+   *
    */
 
   elevation0: ColorType<Override>;
@@ -98,4 +101,12 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
   elevation2Grey: ColorType<Override>;
   elevation3Grey: ColorType<Override>;
   elevation4Grey: ColorType<Override>;
+
+  /**
+   *
+   * Data Viz
+   *
+   */
+
+  // dataCombo1:
 };

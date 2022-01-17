@@ -5,7 +5,7 @@ import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
 
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './paragraph.css';
@@ -42,7 +42,7 @@ export const Paragraph: React.FC<Props> = React.memo(
     const classNames = [
       className,
       styles.base,
-      styles.getVariantStyles({
+      styles.variants({
         size: variant || defaultProps.variant,
         style: variantStyle || 'normal',
         displayMode: display,

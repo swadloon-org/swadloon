@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import debug from 'debug';
 
 import { useCommonProps } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { NavbarLayout } from '@newrade/core-website-api';
 
 import { NavbarProps, NavbarRendererProps } from './navbar.props';

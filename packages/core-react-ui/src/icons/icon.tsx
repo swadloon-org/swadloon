@@ -83,14 +83,24 @@ type State = {
   errorStack?: ErrorInfo;
 };
 
+/**
+ * Wrapper component for IconLoader that can handle errors
+ */
 export class IconComp extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { error: undefined };
   }
 
+  static getDerivedStateFromError(error: Error) {
+    // Update state so the next render will show the fallback UI.
+    return { error: error };
+  }
+
   componentDidCatch(error: Error, info: ErrorInfo) {
-    this.setState({ error: error, errorStack: info });
+    logError(error.message);
+    logError(error.stack);
+    logError(info);
   }
 
   render() {

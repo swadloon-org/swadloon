@@ -12,31 +12,47 @@ type Props = PrimitiveProps<'div'> &
     children?: any;
   };
 
-export const Tag: React.FC<Props> = React.memo(
-  ({ id, style, className, children, as, variant, kind, size = TagSize.medium, ...props }) => {
-    return (
+export const Tag: React.FC<Props> = React.memo(function Tag({
+  id,
+  style,
+  className,
+  children,
+  as,
+  variant = Variant.primary,
+  size = TagSize.medium,
+  ...props
+}) {
+  return (
+    //
+    // Rectangular container
+    //
+    <Primitive
+      {...{
+        id,
+        style,
+        className,
+        classNames: [
+          styles.base,
+          styles.variants({
+            variant: variant,
+            size: size,
+          }),
+        ],
+        ...props,
+      }}
+    >
+      {/**
+       * Text element
+       */}
       <Primitive
-        {...{
-          id,
-          style,
-          className,
-          classNames: [
-            styles.base,
-            size ? styles[size] : styles[TagSize.medium],
-            variant ? styles[variant] : styles[Variant.primary],
-          ],
-          ...props,
-        }}
+        classNames={[
+          styles.labelVariants({
+            size: size,
+          }),
+        ]}
       >
-        <Primitive
-          classNames={[
-            styles.label,
-            size === TagSize.medium ? styles.mediumLabel : styles.smallLabel,
-          ]}
-        >
-          {children}
-        </Primitive>
+        {children}
       </Primitive>
-    );
-  }
-);
+    </Primitive>
+  );
+});

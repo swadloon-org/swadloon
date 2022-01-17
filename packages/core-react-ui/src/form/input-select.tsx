@@ -1,13 +1,13 @@
-import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 import React, { useEffect, useState } from 'react';
+
+import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
+
 import { IconComp } from '../icons/icon';
-import { getMergedClassname } from '../utilities/component.utilities';
-import * as styles from './input.css';
+import { getMergedClassname } from '../utilities-components/component.utilities';
+
 import { InputSelectProps } from './input.props';
 
-
-
-
+import * as styles from './input.css';
 
 export const InputSelect = React.memo(
   React.forwardRef<HTMLSelectElement, InputSelectProps>(function InputText(
@@ -28,22 +28,22 @@ export const InputSelect = React.memo(
     },
     ref
   ) {
-    const wrapperClassNames = styles.getWrapperStyles({
+    const wrapperClassNames = styles.variants({
       variant: variant,
       size: variantSize,
     });
-    const inputClassNames = styles.getInputStyles({
+    const inputClassNames = styles.styleVariants({
       variant: variant,
       size: variantSize,
       icon: icon && Icon ? 'left' : undefined,
       validity: validity,
       disabled: disabled,
     });
-    const iconRightClassNames = styles.getInputIconStyles({
+    const iconRightClassNames = styles.iconVariants({
       position: 'right',
       disabled: disabled,
     });
-    const iconLeftClassNames = styles.getInputIconStyles({
+    const iconLeftClassNames = styles.iconVariants({
       position: 'left',
       disabled: disabled,
     });

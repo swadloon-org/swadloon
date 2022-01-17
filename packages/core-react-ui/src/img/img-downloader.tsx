@@ -6,6 +6,7 @@ import { Button } from '../button/button';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
 import * as styles from './img-downloader.css';
 

@@ -10,7 +10,6 @@ type Props = PrimitiveProps<'div'> & {
 };
 
 export const IconBox: React.FC<Props> = ({ id, style, className, iconName, ...props }) => {
-  const { styles } = useStyles(stylesRef);
   const commonProps = useCommonProps({
     id,
     style,

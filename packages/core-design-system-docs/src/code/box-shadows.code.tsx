@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BoxV2 } from '@newrade/core-react-ui';
 import { ShadowSwatch } from '@newrade/core-react-ui/doc-components';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 

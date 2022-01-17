@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 

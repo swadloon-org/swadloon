@@ -12,7 +12,7 @@ import {
   generateColorPalette5,
   getCSSVarForColors,
   getDefaultColorIntents,
-} from '../utilities/colors.utilities';
+} from '../utilities-theme/colors.utilities';
 
 import { defaultCodeColors } from './default-code-colors';
 

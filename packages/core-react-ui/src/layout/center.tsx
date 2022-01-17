@@ -1,9 +1,9 @@
 import React from 'react';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
+
 import * as styles from './center.css';
-
-
 
 type AsTypes = 'div' | 'footer' | 'section' | 'nav';
 

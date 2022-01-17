@@ -7,15 +7,18 @@ import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
 import * as styles from './css-animation.css';
+
+type AnimationName = Omit<keyof typeof styles, 'wrapper' | 'controlsWrapper' | 'controls'>;
 
 export type CSSAnimationState = 'running' | 'paused';
 export type CSSAnimationProps = {
   /**
    * Predefined keyframe animation
    */
-  name: keyof typeof styles.animations;
+  name: AnimationName;
   /**
    * Iteration count
    */
@@ -101,7 +104,8 @@ export const CSSAnimation = React.forwardRef<
       classNames: [
         ...(classNames ? classNames : []),
         styles.wrapper,
-        animations[animation?.name || 'bounce'],
+        // @ts-ignore
+        styles[animation?.name || 'bounce'],
       ],
       ...props,
     });

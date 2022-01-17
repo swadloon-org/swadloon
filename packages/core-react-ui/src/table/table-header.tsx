@@ -13,7 +13,7 @@ export const TableHeader: React.FC<Props> = React.memo(function TableHeader(prop
       as={'thead'}
       classNames={
         [
-          // styles.getVariantStyles({
+          // styles.variants({
           //   variant: variantLevel,
           //   size: variant,
           // }),

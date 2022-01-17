@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import debug from 'debug';
 
 import { useCommonProps } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';

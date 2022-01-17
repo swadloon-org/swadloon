@@ -8,7 +8,7 @@ import {
 } from '@newrade/core-design-system';
 
 import { Stack } from '../layout/stack';
-import { keys } from '../utilities/utilities';
+import { keys } from '../utilities-iso/utilities';
 
 import { ColorSwatchDark } from './color-swatch-dark';
 import { ColorSwatchLight } from './color-swatch-light';
@@ -26,8 +26,6 @@ type Props = {
 };
 
 export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => {
-  const { styles } = useStyles(stylesRef);
-
   if (typeof colorOrPalette === 'string') {
     return (
       <Stack gap={['10px']}>

@@ -7,7 +7,11 @@
   "module": "dist/newrade-core-react-ui.esm.js",
   "files": [
     "/dist",
-    "/utilities",
+    "/utilities-browser",
+    "/utilities-iso",
+    "/utilities-test",
+    "/utilities-theme",
+    "/utilities-vanilla-extract",
     "/global",
     "/default-theme",
     "/design-system",
@@ -37,7 +41,11 @@
   "preconstruct": {
     "entrypoints": [
       "index.ts",
-      "utilities.ts",
+      "utilities-browser.ts",
+      "utilities-iso.ts",
+      "utilities-test.ts",
+      "utilities-theme.ts",
+      "utilities-vanilla-extract.ts",
       "global.ts",
       "theme.ts",
       "default-theme.ts",

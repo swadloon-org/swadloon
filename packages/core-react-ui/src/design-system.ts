@@ -1,3 +1,9 @@
+/**
+ *
+ * Types for the CSS Design System implementation
+ *
+ */
+
 export * from './design-system/css-box';
 export * from './design-system/css-buttons';
 export * from './design-system/css-colors';

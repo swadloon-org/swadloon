@@ -1,6 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css";
-
-import { Theme } from '../design-system/css-design-system';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 export const wrapper = style({
   display: 'flex',
@@ -15,7 +13,6 @@ export const wrapper = style({
   paddingBottom: '7px',
 });
 
-
 /**
  *
  * Global classes for markdown documents
@@ -27,10 +24,9 @@ export const wrapper = style({
  * Gatsby
  * Styles for https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
  */
-globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, {
   marginLeft: 'inherit !important',
 });
-
 
 /**
  * Content sectioning
@@ -40,67 +36,51 @@ globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, { cssTheme, theme }: Theme)
 /** Headings */
 
 // the first element should not have margin top
-globalStyle(`${wrapper} > *:first-child`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > *:first-child`, {
   marginTop: '0',
 });
 
-
 // if there are only one element, no bottom margin
-globalStyle(`${wrapper} > *:only-child`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > *:only-child`, {
   marginBottom: '0',
 });
 
-
 // styles for h1-h2
-globalStyle(`${wrapper} > h1, ${wrapper} > h2`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > h1, ${wrapper} > h2`, {
   marginTop: '1.75em',
   marginBottom: '1.2em',
 });
 
-
 // styles for h3-h6
-globalStyle(
-  `${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-    marginBottom: '1.5em',
-  })
-);
+globalStyle(`${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`, {
+  marginTop: '2em',
+  marginBottom: '1.5em',
+});
 
 // headings following headings should not have a top margin
-globalStyle(
-  `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:is(h1,h2,h3,h4,h5,h6)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '0',
-  })
-);
+globalStyle(`${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:is(h1,h2,h3,h4,h5,h6)`, {
+  marginTop: '0',
+});
 
 // elements following headings should not have margins since headings already have one
-globalStyle(
-  `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '0',
-  })
-);
+globalStyle(`${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`, {
+  marginTop: '0',
+});
 
 /** Horizontal line */
 
-globalStyle(`${wrapper} > hr`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > hr`, {
   marginTop: '20px',
   marginBottom: '20px',
 });
-
 
 /**
  * Text content
  */
 
-globalStyle(
-  `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-  })
-);
+globalStyle(`${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`, {
+  marginTop: '2em',
+});
 
 // forces sup content to fits parent's font size
 globalStyle(`sup *`, {
@@ -109,62 +89,50 @@ globalStyle(`sup *`, {
 
 /** Paragraphs */
 
-globalStyle(`${wrapper} > p + p, blockquote p + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > p + p, blockquote p + p`, {
   marginTop: '2em',
 });
 
-
 // hide line break and handle it with margin
-globalStyle(`${wrapper} p + br`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} p + br`, {
   display: 'none',
 });
 
-globalStyle(`${wrapper} br + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} br + p`, {
   marginTop: '0.5em',
 });
 
-
 // disable capsize on paragraph internals
-globalStyle(
-  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
-  ({ cssTheme, theme }: Theme) => ({
-    display: 'inline',
-    content: 'none',
-    whiteSpace: 'normal',
-  })
-);
-
-globalStyle(`${wrapper} > p + table`, { cssTheme, theme }: Theme) => ({
-  marginBottom: '1.25em',
+globalStyle(`${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`, {
+  display: 'inline',
+  content: 'none',
+  whiteSpace: 'normal',
 });
 
+globalStyle(`${wrapper} > p + table`, {
+  marginBottom: '1.25em',
+});
 
 /** List items */
 
-globalStyle(
-  `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:is(ul,ol)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '1.7em',
-  })
-);
+globalStyle(`${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:is(ul,ol)`, {
+  marginTop: '1.7em',
+});
 
-globalStyle(`${wrapper} > *:is(ul,ol)`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > *:is(ul,ol)`, {
   marginBottom: '0',
 });
 
-
 // multi line list item
-globalStyle(`${wrapper} li p + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} li p + p`, {
   marginBottom: '1.25em',
 });
 
-
 /** Quotes */
 
-globalStyle(`${wrapper} > blockquote > blockquote`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > blockquote > blockquote`, {
   marginTop: '1em',
 });
-
 
 /** Footnotes */
 
@@ -177,36 +145,31 @@ globalStyle(`.footnotes *`, {
  * Details & summary
  */
 
-globalStyle(`${wrapper} details + details`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} details + details`, {
   marginTop: 0,
 });
 
-
-globalStyle(`${wrapper} details + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} details + p`, {
   marginBottom: '4em',
 });
 
-
-globalStyle(`${wrapper} details p + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} details p + p`, {
   marginTop: '1.5em',
 });
 
-
 /** Icons */
 
-globalStyle(`${wrapper} a svg path`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} a svg path`, {
   strokeWidth: '40',
 });
-
 
 /**
  * Tables
  */
 
-globalStyle(`${wrapper} table`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} table`, {
   marginBottom: '2em',
 });
-
 
 // forces all links to be of the same size as td text content
 globalStyle(`table a`, {
@@ -217,68 +180,57 @@ globalStyle(`table a`, {
  * Medias
  */
 
-globalStyle(`${wrapper} figure`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} figure`, {
   display: 'flex',
   flexDirection: 'column',
   margin: 0, // resets browser default margin on figure element
   marginBottom: '2em',
 });
 
-
-globalStyle(`${wrapper} img`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} img`, {
   maxWidth: '100%',
   alignSelf: 'flex-start',
 });
 
-
-globalStyle(`${wrapper} > figcaption`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > figcaption`, {
   marginBottom: '1.5em',
 });
 
-
-globalStyle(`${wrapper} p + iframe`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} p + iframe`, {
   marginBottom: '1em',
 });
-
 
 /**
  * Code
  */
 
-globalStyle(`${wrapper} > pre`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > pre`, {
   marginBottom: '1.5em',
 });
 
-
-globalStyle(`${wrapper} p + pre`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} p + pre`, {
   marginBottom: '1.5em',
 });
 
-
-globalStyle(`${wrapper} pre + p`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} pre + p`, {
   marginBottom: '1.5em',
 });
 
-
-// globalStyle(`${wrapper} p + pre + h1,h2,h3,h4,h5,h6`, { cssTheme, theme }: Theme) => ({
+// globalStyle(`${wrapper} p + pre + h1,h2,h3,h4,h5,h6`, {
 //   marginBottom: 0,
 // });
 
-
-globalStyle(`${wrapper} ul + pre`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} ul + pre`, {
   marginBottom: '1.5em',
 });
 
-
-globalStyle(`${wrapper} pre + pre`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} pre + pre`, {
   marginBottom: '2em',
 });
 
-
-globalStyle(`${wrapper} ul + p + pre`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} ul + p + pre`, {
   marginBottom: '1.125em',
 });
-
 
 /**
  * Styles for text element
@@ -296,7 +248,7 @@ globalStyle(`${wrapper} ul + p + pre`, { cssTheme, theme }: Theme) => ({
  * Styles for kbd element
  */
 
-globalStyle(`${wrapper} kbd`, { cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} kbd`, {
   boxSizing: 'border-box',
   WebkitTapHighlightColor: 'rgba(0,0,0,0)',
   fontFamily:
@@ -308,4 +260,3 @@ globalStyle(`${wrapper} kbd`, { cssTheme, theme }: Theme) => ({
   borderWidth: '1px 1px 2px 1px',
   fontSize: '0.8em',
 });
-

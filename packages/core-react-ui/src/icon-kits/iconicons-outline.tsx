@@ -1,4 +1,3 @@
-import { ICON } from '@newrade/core-design-system';
 import {
   IoAddCircleOutline,
   IoAddOutline,
@@ -59,13 +58,14 @@ import {
   IoRemoveCircleOutline,
   IoRemoveOutline,
   IoSearchOutline,
-  IoSunnyOutline
+  IoSunnyOutline,
 } from 'react-icons/io5';
+
+import { ICON } from '@newrade/core-design-system';
+
 import { IconComponents, IconConfig } from '../icons/icons-provider';
+
 import { newradeIconsKit } from './newrade-icons';
-
-
-
 
 export const ioniconsOutlineConfig: IconConfig = {
   iconFamilyName: 'ionicons',

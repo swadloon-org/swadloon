@@ -1,7 +1,12 @@
+/**
+ *
+ * All core-react-ui components
+ *
+ */
+
 export * from './animation/css-animation';
 export * from './badges/badge';
 export * from './button/button';
-export * from './button/button-v2';
 export * from './context/viewport.provider';
 export * from './css/reset-button.css';
 export * from './css/state-disabled.css';
@@ -100,5 +105,3 @@ export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
 export * from './text/title';
-export * from './utilities/location.utilities';
-export * from './utilities/useragent';

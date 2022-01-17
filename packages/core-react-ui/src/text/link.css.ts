@@ -1,11 +1,12 @@
+import { createStyleObject } from '@capsizecss/core';
 import { globalStyle, style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
-import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
+import { colorVars, layoutCSS, typographyVars } from '../theme';
 
-/**
- * States
- */
-export const rest = style({
+export const base = style({
+  fontFamily: typographyVars.paragraphs.font,
+  wordBreak: 'normal',
   outline: 'none',
   cursor: 'pointer',
   width: 'fit-content',
@@ -15,132 +16,96 @@ export const rest = style({
   ':active': {
     color: colorVars.colors.primary[700],
   },
+});
 
-  // ':active': {
-  //   color: colorVars.colors.primary[500],
-  // },
-  // ':focus': {
-  //   outline: `1px solid ${colorVars.colors.primary[500]}`,
-  //   outlineOffset: '10px',
-  // },
+export const variants = recipe({
+  variants: {
+    size: {
+      large: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.large.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.large.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.large.capsize
+          ),
+        },
+      },
+      medium: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.medium.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.medium.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.medium.capsize
+          ),
+        },
+      },
+      small: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.small.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.small.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.small.capsize
+          ),
+        },
+      },
+      xSmall: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.xSmall.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.xSmall.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.xSmall.capsize
+          ),
+        },
+      },
+    },
+    variant: {
+      primary: {
+        color: colorVars.colorIntents.primary,
+      },
+      secondary: {
+        color: colorVars.colorIntents.secondaryText,
+      },
+      tertiary: {
+        color: colorVars.colorIntents.tertiaryText,
+      },
+    },
+    style: {
+      underline: {
+        textDecoration: 'underline',
+        selectors: {
+          '&:hover': {
+            color: colorVars.colorIntents.primary,
+            textDecoration: 'underline',
+          },
+        },
+      },
+      noUnderline: {
+        textDecoration: 'none',
+        selectors: {
+          '&:hover': {
+            color: colorVars.colorIntents.primary,
+            textDecoration: 'underline',
+          },
+        },
+      },
+    },
+  },
 });
 
 /**
  *
- * Variants
- *
- */
-
-/**
- * Styles
- */
-export const underline = style({
-  textDecoration: 'underline',
-  selectors: {
-    '&:hover': {
-      color: colorVars.colorIntents.primary,
-      textDecoration: 'underline',
-    },
-  },
-});
-
-export const noUnderline = style({
-  textDecoration: 'none',
-  selectors: {
-    '&:hover': {
-      color: colorVars.colorIntents.primary,
-      textDecoration: 'underline',
-    },
-  },
-});
-
-/**
- * Primary
- */
-export const primary = style({
-  color: colorVars.colorIntents.primary,
-});
-
-/**
- * Secondary
- */
-export const secondary = style({
-  color: colorVars.colorIntents.secondaryText,
-});
-
-/**
- * Tertiary
- */
-export const tertiary = style({
-  color: colorVars.colorIntents.tertiaryText,
-});
-
-/**
- * Sizes
- */
-export const large = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
-  fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-  },
-});
-
-export const medium = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-  },
-});
-
-export const small = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
-  fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-  },
-});
-
-export const xSmall = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall),
-  fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall),
-      fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
-    },
-  },
-});
-
-/**
  * Icon
+ *
  */
+
 export const icon = style({
   display: 'inline-block',
 

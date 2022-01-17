@@ -7,20 +7,26 @@ import { HEADING } from '@newrade/core-design-system';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { Heading } from '../text/heading';
+import { sizeVars, typographyVars } from '../theme';
+import { getCSSVarValue } from '../utilities-browser/css-variables.utilities';
+
+import { sampleText } from './unicode-text';
 
 import * as styles from './font-showcase.css';
 
 type Props = {};
 
-const sampleText = `
-ABCČĆDĐEFGHIJKLMNOPQRSŠTUVWXYZŽabcčćdđefghijklmnopqrsštuvwxyzžАБВГҐДЂЕЁЄЖЗЅИІЇЙЈКЛЉМНЊОПРСТЋУЎФХЦЧЏШЩЪЫЬЭЮЯабвгґдђеёєжзѕиіїйјклљмнњопрстћуўфхцчџшщъыьэюяΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωάΆέΈέΉίϊΐΊόΌύΰϋΎΫΏĂÂÊÔƠƯăâêôơư1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*12345678910 $ 1 000 000 123,94$`;
-
 export const FontShowcase: React.FC<Props> = (props) => {
+  const serifFonts = getCSSVarValue(typographyVars.fonts.serif);
+  const monoFonts = getCSSVarValue(typographyVars.fonts.monospace);
+  const sansFonts = getCSSVarValue(typographyVars.fonts.sans);
+  const sansAlternateFonts = getCSSVarValue(typographyVars.fonts.sansAlternate);
+
   return (
     <Stack className={styles.wrapper} gap={[sizeVars.x5]}>
       <Stack gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Sans'} - {title(cssTheme.typography.fonts.sans)}
+          {'Sans'} - {title(sansFonts)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
@@ -34,10 +40,10 @@ export const FontShowcase: React.FC<Props> = (props) => {
         <p className={`${styles.paragraphSans}`}>{sampleText}</p>
       </Stack>
 
-      {cssTheme.typography.fonts.sans !== cssTheme.typography.fonts.sansAlternate ? (
+      {sansFonts !== sansAlternateFonts ? (
         <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
           <Heading variant={HEADING.h4}>
-            {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate)}
+            {'Sans Alternate'} - {title(sansAlternateFonts)}
           </Heading>
 
           <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
@@ -60,7 +66,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
       <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Serif'} - {title(cssTheme.typography.fonts.serif)}
+          {'Serif'} - {title(serifFonts)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
@@ -78,7 +84,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
       <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Mono'} - {title(cssTheme.typography.fonts.monospace)}
+          {'Mono'} - {title(monoFonts)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>

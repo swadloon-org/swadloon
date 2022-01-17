@@ -2,7 +2,7 @@ import { createGlobalTheme } from '@vanilla-extract/css';
 
 import { effectsVars } from '@newrade/core-react-ui/theme';
 
-import { lightCssThemeV2 } from '../design-system/theme';
+import { lightCssTheme } from '../design-system/theme';
 
 /**
  *
@@ -10,4 +10,4 @@ import { lightCssThemeV2 } from '../design-system/theme';
  *
  */
 
-createGlobalTheme(':root', effectsVars, lightCssThemeV2.effects);
+createGlobalTheme(':root', effectsVars, lightCssTheme.effects);

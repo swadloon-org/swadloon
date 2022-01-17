@@ -4,7 +4,10 @@ import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Paragraph } from '../text/paragraph';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import {
+  getDefaultTextFromProps,
+  getMergedClassname,
+} from '../utilities-components/component.utilities';
 
 import * as styles from './list-item-v2.css';
 
@@ -29,7 +32,6 @@ export const ListItemV2: React.FC<Props> = React.memo(
     /**
      * Hooks
      */
-    const { styles } = useStyles(stylesRef);
 
     /**
      * Props

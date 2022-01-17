@@ -12,7 +12,7 @@ import {
   defaultRatiosCSSVarNamesV2,
   defaultSizesCSSVarNamesV2,
   defaultSizesCSSVarV2,
-} from '../utilities/sizing.utilities';
+} from '../utilities-theme/sizing.utilities';
 
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
@@ -20,6 +20,12 @@ import { defaultCSSEffects } from './default-css-effects';
 import { defaultCSSLayoutV2 } from './default-css-layout-v2';
 import { defaultCSSSizing } from './default-css-sizing';
 import { defaultCSSTypography } from './default-css-typography';
+
+/**
+ *
+ * Create and export vanilla-extract theme contracts for the core-design-system and the core-react-ui components
+ *
+ */
 
 const propertyFormatFn: (value: string | null, path: string[]) => string = (value, path) =>
   `${path.map(kebab).join('-')}`;

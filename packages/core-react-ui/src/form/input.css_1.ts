@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, layoutCSS, sizeVars } from '../theme';
+
 /**
  * Wrapper for the select element and icon
  */

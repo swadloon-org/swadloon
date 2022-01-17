@@ -1,11 +1,11 @@
-import 'cleave.js/dist/addons/cleave-phone.ca';
+import React, { InputHTMLAttributes } from 'react';
+
 import Cleave from 'cleave.js/react';
 import type { Props as CleaveProps } from 'cleave.js/react/props';
-import React, { InputHTMLAttributes } from 'react';
+
+import 'cleave.js/dist/addons/cleave-phone.ca';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
-
-
-
 
 type Props = PrimitiveProps<'input'> &
   InputHTMLAttributes<any> & {

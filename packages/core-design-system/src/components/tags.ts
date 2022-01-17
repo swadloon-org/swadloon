@@ -16,11 +16,6 @@ export enum TagState {
   rest = 'rest',
 }
 
-export enum TagKind {
-  solid = 'solid',
-  outline = 'outline',
-}
-
 export type TagProps = Partial<TagStyleProps>;
 
 export interface TagStyleProps {
@@ -29,7 +24,6 @@ export interface TagStyleProps {
    */
   role: string;
   variant: Variant;
-  kind: TagKind;
   size: TagSize;
   state: TagState;
 }

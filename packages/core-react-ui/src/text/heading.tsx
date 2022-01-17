@@ -7,7 +7,7 @@ import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
-import { getFormattedAnchorId } from '../utilities/text.utilities';
+import { getFormattedAnchorId } from '../utilities-theme/text.utilities';
 
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './heading.css';
@@ -68,7 +68,7 @@ export const Heading = React.memo(
      *
      */
 
-    const variantClassname = styles.getVariantStyles({
+    const variantClassname = styles.variants({
       size: variant,
     });
     const textColorClassname = textStyles.getTextColorStyles({

@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { getCSSColor } from '../utilities/colors.utilities';
+import { colorVars, sizeVars } from '../theme';
+import { getCSSColor } from '../utilities-theme/colors.utilities';
 
 export const wrapper = style({
   width: '100%',

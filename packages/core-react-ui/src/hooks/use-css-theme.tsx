@@ -12,8 +12,8 @@ import {
 } from '../global/global-theme-classnames';
 import { useIsSSR } from '../hooks/use-is-ssr';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities';
-import { debugInstance, NS } from '../utilities/log.utilities';
+import { getMergedClassname } from '../utilities-components';
+import { debugInstance, NS } from '../utilities-iso/log.utilities';
 
 import { usePreferColorScheme } from './use-prefer-color-scheme';
 

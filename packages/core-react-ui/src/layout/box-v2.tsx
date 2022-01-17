@@ -1,13 +1,13 @@
 import React, { AnchorHTMLAttributes } from 'react';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import {
   AlignItemsViewportProps,
   JustifyContentViewportProps,
-  PaddingProps
+  PaddingProps,
 } from '../props/padding.props';
+
 import * as styles from './box-v2.css';
-
-
 
 type Tag = 'div' | 'section' | 'aside';
 

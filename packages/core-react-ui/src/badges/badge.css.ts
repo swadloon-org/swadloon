@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars } from '../theme';
+
 /**
  * Base
  */

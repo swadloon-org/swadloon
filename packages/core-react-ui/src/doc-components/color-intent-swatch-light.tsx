@@ -6,7 +6,8 @@ import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-sys
 
 import { Stack } from '../layout/stack';
 import { Label } from '../text/label';
-import { getCSSColor } from '../utilities/colors.utilities';
+import { sizeVars } from '../theme';
+import { getCSSColor } from '../utilities-theme/colors.utilities';
 
 import * as styles from './color-swatch.css';
 
@@ -17,8 +18,6 @@ type OwnProps = HTMLAttributes<any> & {
 };
 
 export const ColorIntentSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...props }) => {
-  const { styles } = useStyles(stylesRef);
-
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
   const cssColorString = colorObject ? getCSSColor(colorObject) : '';
 

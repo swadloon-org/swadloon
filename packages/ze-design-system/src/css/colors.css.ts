@@ -6,7 +6,7 @@ import {
 } from '@newrade/core-react-ui/global';
 import { colorVars } from '@newrade/core-react-ui/theme';
 
-import { darkCssThemeV2, lightCssThemeV2 } from '../design-system/theme';
+import { darkCssTheme, lightCssTheme } from '../design-system/theme';
 
 import { darkThemeConfig, lightThemeConfig } from './theme-config';
 
@@ -19,7 +19,7 @@ import { darkThemeConfig, lightThemeConfig } from './theme-config';
 createGlobalTheme(
   `${GLOBAL_LIGHT_THEME_SELECTOR}, .${lightThemeConfig.className}`,
   colorVars,
-  lightCssThemeV2.colors
+  lightCssTheme.colors
 );
 
 /**
@@ -31,5 +31,5 @@ createGlobalTheme(
 createGlobalTheme(
   `${GLOBAL_DARK_THEME_SELECTOR}, .${darkThemeConfig.className}`,
   colorVars,
-  darkCssThemeV2.colors
+  darkCssTheme.colors
 );

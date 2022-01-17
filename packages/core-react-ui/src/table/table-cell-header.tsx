@@ -23,7 +23,7 @@ export const TableCellHeader: React.FC<Props> = React.memo(function TableCellHea
     <Primitive
       as={'th'}
       classNames={[
-        styles.getVariantStyles({
+        styles.variants({
           size: variant,
         }),
       ]}

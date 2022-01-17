@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { getCSSColor } from '../utilities/colors.utilities';
+import { colorVars, sizeVars } from '../theme';
 
 export const wrapper = style({
   position: 'relative',
@@ -9,7 +9,7 @@ export const wrapper = style({
 });
 
 export const active = style({
-  backgroundColor: getCSSColor({ ...theme.colors.colors.primary[500], a: 10 }),
+  backgroundColor: `hsl(${colorVars.colors.primary.baseHue}, ${colorVars.colors.primary.baseSat}, 50%, 0.1)`,
   color: colorVars.colors.grey[1000],
   '::before': {
     content: '" "',

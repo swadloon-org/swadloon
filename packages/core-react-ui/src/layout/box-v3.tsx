@@ -1,13 +1,13 @@
 import React, { AnchorHTMLAttributes } from 'react';
+
 import { PrimitiveProps } from '../primitive/primitive.props';
 import {
   AlignItemsViewportProps,
   JustifyContentViewportProps,
-  PaddingStringProps
+  PaddingStringProps,
 } from '../props/padding.props';
+
 import * as styles from './box-v3.css';
-
-
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &

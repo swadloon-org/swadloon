@@ -1,4 +1,6 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
+
+import { colorVars, layoutCSS, sizeVars } from '../theme';
 
 const iconSize = `1.5em`;
 const iconOnlySize = `1.8em`;

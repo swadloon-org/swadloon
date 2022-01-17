@@ -12,7 +12,7 @@ import { Label } from '../text/label';
 import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
 import { sizeVars } from '../theme';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
 
 import * as styles from './google-maps-info-window.css';
 

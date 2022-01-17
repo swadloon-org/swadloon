@@ -3,7 +3,10 @@ import React, { HTMLAttributes } from 'react';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import {
+  getDefaultTextFromProps,
+  getMergedClassname,
+} from '../utilities-components/component.utilities';
 
 import * as styles from './list-items.css';
 
@@ -18,7 +21,6 @@ export const ListItems: React.FC<Props> = React.memo(
     /**
      * Hooks
      */
-    const { styles } = useStyles(stylesRef);
 
     /**
      * Props

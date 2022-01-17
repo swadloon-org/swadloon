@@ -5,7 +5,7 @@ import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-ur
 
 import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-components/component.utilities';
 
 import { googleMapThemeStyles } from './google-maps-styles';
 

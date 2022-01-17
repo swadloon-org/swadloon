@@ -1,8 +1,5 @@
 import { COLOR_SCHEME, DesignSystem } from '@newrade/core-design-system';
 
-import { CSSDesignSystem } from '../design-system';
-import { createCSSTheme } from '../utilities/theme.utilities';
-
 import { defaultAnimations } from './default-animations';
 import { defaultButtons } from './default-buttons';
 import { defaultColors } from './default-colors';
@@ -26,5 +23,3 @@ export const defaultTheme: DesignSystem = {
     buttons: defaultButtons,
   },
 };
-
-export const defaultCSSTheme: CSSDesignSystem = createCSSTheme(defaultTheme);

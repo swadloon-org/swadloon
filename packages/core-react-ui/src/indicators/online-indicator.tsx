@@ -4,6 +4,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
+import { sizeVars } from '../theme';
 
 import * as styles from './online-indicator.css';
 

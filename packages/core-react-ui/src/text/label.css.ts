@@ -15,7 +15,7 @@ export const inline = style({
   color: 'currentColor',
 });
 
-export const getVariantStyles = recipe({
+export const variants = recipe({
   variants: {
     size: {
       xSmall: {
@@ -86,7 +86,7 @@ export const getVariantStyles = recipe({
   },
 });
 
-export type LabelVariants = RecipeVariants<typeof getVariantStyles>;
+export type LabelVariants = RecipeVariants<typeof variants>;
 
 /**
  * Styles

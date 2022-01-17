@@ -16,6 +16,7 @@ import {
   useEventListener,
   useIsSSR,
 } from '@newrade/core-react-ui';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 import { LinkAPI, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
@@ -96,7 +97,8 @@ export const SidebarDocsDesktop = React.forwardRef<any, Props>(
         if (isSSR) {
           return;
         }
-        const isSticky = window.scrollY >= theme.layout.navbarHeight.desktop;
+        const navbarHeight = getCSSVarValue(layoutVars.varNames.navbarHeight);
+        const isSticky = window.scrollY >= ;
         if (isScrollSticky !== isSticky) {
           setIsScrollSticky(isSticky);
         }

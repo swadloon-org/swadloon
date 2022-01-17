@@ -28,7 +28,7 @@ export const TableCell: React.FC<Props> = React.memo(function TableCell({
     <Primitive
       as={'td'}
       classNames={[
-        styles.getVariantStyles({
+        styles.variants({
           size: variantSize,
         }),
       ]}

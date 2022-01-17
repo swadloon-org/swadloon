@@ -1,5 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
+import { colorVars, sizeVars } from '../theme';
+
 export const wrapper = style({
   userSelect: 'text',
   borderBottom: `0px solid ${colorVars.colors.grey[50]}`,

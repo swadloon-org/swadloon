@@ -4,7 +4,7 @@ import { CodeMarkupType } from '@newrade/core-design-system';
 import { Paragraph, Stack } from '@newrade/core-react-ui';
 import { Code } from '@newrade/core-react-ui/code';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 
