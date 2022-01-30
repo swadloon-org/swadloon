@@ -15,7 +15,7 @@ type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {
     href?: string;
     variant?: LABEL_SIZE;
-    variantStyle?: TEXT_STYLE;
+    textStyle?: TEXT_STYLE;
     variantLevel?: Variant;
     variantDisplay?: 'inline';
   };
@@ -29,7 +29,7 @@ const defaultProps: Props = {
 export const Label: React.FC<Props> = React.memo(
   ({
     as,
-    variantStyle = defaultProps.variantStyle,
+    textStyle = defaultProps.textStyle,
     variant = defaultProps.variant,
     variantLevel = defaultProps.variantLevel,
     variantDisplay,
@@ -44,11 +44,11 @@ export const Label: React.FC<Props> = React.memo(
     const type = htmlForIsSet ? 'label' : 'div';
 
     const defaultChildrenString = `${children as string} ${pascal(variant || '')} ${pascal(
-      variantStyle || ''
+      textStyle || ''
     )}`;
     const child = children ? children : defaultChildrenString;
 
-    const textColorClassname = textStyles.getTextColorStyles({
+    const textColorClassname = textStyles.textVariants({
       variant: variantLevel,
     });
 
@@ -62,9 +62,9 @@ export const Label: React.FC<Props> = React.memo(
           textColorClassname,
           styles.variants({
             size: variant as LABEL_SIZE,
-            style: variantStyle,
+            style: textStyle,
           }),
-          // variantStyle ? styles[variantStyle] : styles[TEXT_STYLE.bold],
+          // textStyle ? styles[textStyle] : styles[TEXT_STYLE.bold],
           // if inline mode don't apply colors
           // variantDisplay
           //   ? styles[variantDisplay]

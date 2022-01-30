@@ -8,7 +8,7 @@ import { useBodyScrollLock } from '../hooks/use-body-scroll-lock';
 import { useFirstRender } from '../hooks/use-first-render.hook';
 import { useViewportBreakpoint } from '../hooks/use-viewport';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './sidebar-container.css';
 

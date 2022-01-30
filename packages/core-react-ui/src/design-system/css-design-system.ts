@@ -16,13 +16,13 @@ export type CSSDesignSystem = Omit<DesignSystem<string>, 'animations'> & {
   components: CSSComponents;
 };
 
-export type CSSDesignSystemV2 = Omit<DesignSystemV2<string>, 'animations' | 'components'> & {
+export type CSSDesignSystemV2 = Omit<DesignSystemV2<string>, 'animations'> & {
   colors: CSSColorsV2;
   sizing: CSSSizingV2;
   typography: CSSTypographyV2;
   iconography: CSSIconography;
   layout: CSSLayoutV2;
-  // components: CSSComponents;
+  components: CSSComponents;
 };
 
 export interface Theme {

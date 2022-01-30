@@ -6,18 +6,17 @@ import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 
 import { IconComp } from '../icons/icon';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import { Label } from './label';
 
 import * as styles from './summary.css';
 
-type Props = PrimitiveProps<'summary'> &
-  HTMLAttributes<HTMLHeadingElement> & {
-    mode?: 'swap' | 'animate';
-    iconOpened?: React.ReactNode;
-    iconClosed?: React.ReactNode;
-  };
+type Props = PrimitiveProps<'summary'> & {
+  mode?: 'swap' | 'animate';
+  iconOpened?: React.ReactNode;
+  iconClosed?: React.ReactNode;
+};
 
 /**
  * The HTML Disclosure Summary element

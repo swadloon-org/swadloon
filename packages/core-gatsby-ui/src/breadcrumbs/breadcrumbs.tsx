@@ -40,7 +40,7 @@ export const Breadcrumbs = React.forwardRef<any, Props>(
                 <Paragraph
                   key={`${linkIndex}-separator`}
                   variant={PARAGRAPH_SIZE.small}
-                  variantStyle={TEXT_STYLE.boldUppercase}
+                  textStyle={TEXT_STYLE.boldUppercase}
                   variantLevel={Variant.tertiary}
                   style={{ userSelect: 'none', fontWeight: 400 }}
                 >
@@ -54,10 +54,10 @@ export const Breadcrumbs = React.forwardRef<any, Props>(
               {link?.page?.slug ? (
                 <Link
                   key={linkIndex}
-                  variantSize={PARAGRAPH_SIZE.xSmall}
-                  variantStyle={TEXT_STYLE.boldUppercase}
-                  variantLevel={Variant.tertiary}
-                  variant={LinkVariant.noUnderline}
+                  size={PARAGRAPH_SIZE.xSmall}
+                  textStyle={TEXT_STYLE.boldUppercase}
+                  kind={Variant.tertiary}
+                  linkStyle={LinkVariant.noUnderline}
                   style={{
                     userSelect: 'none',
                     fontWeight: 500,
@@ -70,10 +70,10 @@ export const Breadcrumbs = React.forwardRef<any, Props>(
               ) : (
                 <Link
                   key={linkIndex}
-                  variantSize={PARAGRAPH_SIZE.xSmall}
-                  variantStyle={TEXT_STYLE.boldUppercase}
-                  variantLevel={Variant.tertiary}
-                  variant={LinkVariant.noUnderline}
+                  size={PARAGRAPH_SIZE.xSmall}
+                  textStyle={TEXT_STYLE.boldUppercase}
+                  kind={Variant.tertiary}
+                  linkStyle={LinkVariant.noUnderline}
                   style={{
                     userSelect: 'none',
                     fontWeight: 500,

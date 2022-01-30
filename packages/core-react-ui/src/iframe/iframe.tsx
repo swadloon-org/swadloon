@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { VIEWPORT } from '@newrade/core-design-system';
 
 import { useIsSSR } from '../hooks/use-is-ssr';
-import { getMergedClassname } from '../utilities-components';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './iframe.css';
 

@@ -8,7 +8,6 @@ export const base = style({
   fontFamily: typographyVars.titles.font,
   wordBreak: 'normal',
   userSelect: 'text',
-
   // position: 'relative', // 'relative' breaks useScrollSpy()
 });
 

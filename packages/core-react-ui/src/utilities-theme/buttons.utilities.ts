@@ -39,8 +39,8 @@ export function getCSSButtons(theme: DesignSystem): CSSButtons {
   });
 
   return {
-    var: buttonsVar,
-    varNames: buttonsVarNames,
+    // var: buttonsVar,
+    // varNames: buttonsVarNames,
     variants: getCSSButtonVariants(buttons.variants),
     sizes: getCSSButtonSizes(buttons.sizes),
   };

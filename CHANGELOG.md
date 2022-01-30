@@ -4,6 +4,21 @@ All general changes to the repo or main dependencies will be documented in this
 file. This file is written manually where as other changelogs in `/packages/`
 are automated.
 
+# 2022 Jan Update - #1 - (2022-01)
+
+## Breaking changes
+
+- remove `ListItem` in favor of ListItemV2
+- rename `variantSize` in favor of `size` for all components
+- remove unneccessary `HTMLAttributes` type in props (already included in
+  Primitive typings)
+
+## Features
+
+## Fixes
+
+--
+
 # 2021 Oct Update - #1 - (2021-10)
 
 ## Breaking changes
@@ -14,8 +29,6 @@ are automated.
 - upgrade capsize `from 'capsize'` to `from '@capsizecss/core'`
 
 ## Features
-
-- d
 
 ## Fixes
 

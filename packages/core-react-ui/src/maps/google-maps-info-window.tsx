@@ -12,7 +12,7 @@ import { Label } from '../text/label';
 import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
 import { sizeVars } from '../theme';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './google-maps-info-window.css';
 
@@ -65,21 +65,21 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({
           <Link
             href={place.url}
             target={'_blank'}
-            variantSize={PARAGRAPH_SIZE.small}
-            variant={LinkVariant.underline}
-            variantIcon={LinkIcon.right}
+            size={PARAGRAPH_SIZE.small}
+            linkStyle={LinkVariant.underline}
+            icon={LinkIcon.right}
           >
             Itinéraire
           </Link>
           <Link
             href={`phone:${place.url}`}
-            variantSize={PARAGRAPH_SIZE.small}
-            variant={LinkVariant.underline}
+            size={PARAGRAPH_SIZE.small}
+            linkStyle={LinkVariant.underline}
           >
             {place.formatted_phone_number}
           </Link>
           {place.rating ? (
-            <Paragraph variant={PARAGRAPH_SIZE.small}>
+            <Paragraph size={PARAGRAPH_SIZE.small}>
               {place.rating} {RatingStars}
               {RatingHalfStars}
             </Paragraph>

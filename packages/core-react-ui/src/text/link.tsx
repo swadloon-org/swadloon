@@ -12,17 +12,14 @@ import {
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getDefaultTextFromProps } from '../utilities-components/component.utilities';
+import { getDefaultTextFromProps } from '../utilities-iso';
 import { IconComp } from '..';
 
 import * as styles from './link.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<
-    LinkProps,
-    'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel' | 'variantStyle'
-  > & {
+  Pick<LinkProps, 'role' | 'linkStyle' | 'icon' | 'size' | 'kind' | 'textStyle'> & {
     as?: 'div' | 'a';
     /**
      * Render a long link with ellipsis in the center
@@ -33,10 +30,10 @@ type Props = PrimitiveProps &
   };
 
 const defaultProps: Props = {
-  variant: LinkVariant.underline,
-  variantSize: PARAGRAPH_SIZE.medium,
-  variantLevel: Variant.primary,
-  variantStyle: TEXT_STYLE.bold,
+  linkStyle: LinkVariant.underline,
+  size: PARAGRAPH_SIZE.medium,
+  kind: Variant.primary,
+  textStyle: TEXT_STYLE.bold,
   children: 'Paragraph',
 };
 
@@ -49,11 +46,11 @@ export const Link: React.FC<Props> = React.memo(
     rel,
     target,
     download,
-    variant = defaultProps.variant,
-    variantSize = defaultProps.variantSize,
-    variantLevel = defaultProps.variantLevel,
-    variantStyle = defaultProps.variantStyle,
-    variantIcon,
+    linkStyle = defaultProps.linkStyle,
+    size = defaultProps.size,
+    kind = defaultProps.kind,
+    textStyle: textStyle = defaultProps.textStyle,
+    icon: icon,
     Icon,
     shortenLongLink,
     as,
@@ -88,9 +85,9 @@ export const Link: React.FC<Props> = React.memo(
       classNames: [
         styles.base,
         styles.variants({
-          variant: variantLevel,
-          size: variantSize,
-          style: variant,
+          variant: kind,
+          size: size,
+          style: linkStyle,
         }),
       ],
       target: target ? target : linkIsExternal ? '_blank' : undefined,
@@ -107,10 +104,10 @@ export const Link: React.FC<Props> = React.memo(
           : children
         : children
       : getDefaultTextFromProps('link', {
-          variant,
-          variantLevel,
-          variantSize,
-          variantIcon,
+          variant: linkStyle,
+          variantLevel: kind,
+          size: size,
+          icon,
         });
 
     function getShortLink(linkStr?: string) {
@@ -132,7 +129,7 @@ export const Link: React.FC<Props> = React.memo(
         className: styles.icon,
         preserveAspectRatio: `xMinYMin meet`,
       })
-    ) : variantIcon !== LinkIcon.none && linkIsExternal ? (
+    ) : icon !== LinkIcon.none && linkIsExternal ? (
       <IconComp name={ICON.OPEN} className={styles.icon}></IconComp>
     ) : null;
 

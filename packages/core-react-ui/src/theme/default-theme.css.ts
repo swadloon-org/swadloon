@@ -13,10 +13,12 @@ import {
   defaultSizesCSSVarNamesV2,
   defaultSizesCSSVarV2,
 } from '../utilities-theme/sizing.utilities';
+import { CSSButtons, CSSIconography } from '..';
 
 import { defaultCSSButtons } from './default-css-buttons';
 import { defaultCSSColors } from './default-css-colors';
 import { defaultCSSEffects } from './default-css-effects';
+import { defaultCSSIconography } from './default-css-iconography';
 import { defaultCSSLayoutV2 } from './default-css-layout-v2';
 import { defaultCSSSizing } from './default-css-sizing';
 import { defaultCSSTypography } from './default-css-typography';
@@ -71,6 +73,8 @@ export const sizingCSS = defaultCSSSizing;
  * Iconography
  *
  */
+export const iconographyVars: MapLeafNodes<CSSIconography, CSSVarFunction> =
+  createGlobalThemeContract<CSSIconography>(defaultCSSIconography, propertyFormatFn);
 
 /**
  * Typography
@@ -94,6 +98,5 @@ export const layoutCSS = defaultCSSLayoutV2;
 /**
  * Components
  */
-type Buttons = Pick<DesignSystem<string>['components'], 'buttons'>;
-export const buttonsVars: MapLeafNodes<Buttons, CSSVarFunction> =
-  createGlobalThemeContract<Buttons>(defaultCSSButtons, propertyFormatFn);
+export const buttonsVars: MapLeafNodes<CSSButtons, CSSVarFunction> =
+  createGlobalThemeContract<CSSButtons>(defaultCSSButtons, propertyFormatFn);

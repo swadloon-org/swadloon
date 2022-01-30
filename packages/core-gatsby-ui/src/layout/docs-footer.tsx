@@ -36,11 +36,7 @@ export const DocsPageFooter: React.FC<Props> = ({
     <footer {...commonProps}>
       <div className={styles.content}>
         {renderEditLink ? (
-          <Link
-            variant={LinkVariant.noUnderline}
-            variantSize={PARAGRAPH_SIZE.small}
-            href={editPageUrl}
-          >
+          <Link linkStyle={LinkVariant.noUnderline} size={PARAGRAPH_SIZE.small} href={editPageUrl}>
             Edit this page
           </Link>
         ) : null}

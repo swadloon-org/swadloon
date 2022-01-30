@@ -7,8 +7,11 @@ const iconOnlySize = `1.8em`;
 const iconPadding = `3em`;
 
 /**
- * Base
+ *
+ * Vars
+ *
  */
+
 export const base = style({
   display: 'block',
   position: 'relative',
@@ -22,9 +25,6 @@ export const base = style({
   whiteSpace: 'nowrap', // don't allow wrapping
   borderRadius: 4,
   width: 'fit-content',
-  ':focus': {
-    // boxShadow: `0 0 0 1px ${colorVars.colors.primary[700]}`,
-  },
 });
 
 /**
@@ -285,8 +285,11 @@ export const xSmall = style({
 });
 
 /**
+ *
  * Icon
+ *
  */
+
 export const iconBase = style({
   position: 'absolute',
   height: iconSize,

@@ -49,8 +49,8 @@ export function createCSSThemeV2(theme: DesignSystemV2): CSSDesignSystemV2 {
     }),
     layout: getCSSLayoutV2(theme.layout),
     // animations
-    // components: {
-    //   buttons: getCSSButtons(theme),
-    // },
+    components: {
+      buttons: getCSSButtons(theme),
+    },
   };
 }

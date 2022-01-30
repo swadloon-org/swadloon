@@ -2,6 +2,7 @@ import React from 'react';
 import { IoCheckmarkOutline, IoCloseOutline, IoMoon, IoSunny } from 'react-icons/io5';
 
 import { Switch } from '@newrade/core-react-ui';
+import { colorVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -11,16 +12,17 @@ export const SwitchesIcons: React.FC<Props> = (props) => {
       <Switch
         value={'on'}
         IconOff={<IoMoon />}
-        colorOff={cssTheme.colors.colors.grey[100]}
+        colorOff={colorVars.colors.grey[100]}
         IconOn={<IoSunny />}
-        colorOn={cssTheme.colors.colors.grey[100]}
+        colorOn={colorVars.colors.grey[100]}
       ></Switch>
+
       <Switch
         value={'on'}
         IconOff={<IoCloseOutline />}
-        colorOff={cssTheme.colors.colorIntents.backgroundDisabled}
+        colorOff={colorVars.colorIntents.backgroundDisabled}
         IconOn={<IoCheckmarkOutline />}
-        colorOn={cssTheme.colors.colorIntents.successAction}
+        colorOn={colorVars.colorIntents.successAction}
       ></Switch>
     </>
   );

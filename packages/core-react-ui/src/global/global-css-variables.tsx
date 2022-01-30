@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import './global-css-layout.css';
 import './global-css-scrollbar.css';

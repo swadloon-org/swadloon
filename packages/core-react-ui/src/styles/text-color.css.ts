@@ -5,7 +5,7 @@ import { colorVars } from '../theme';
 /**
  * Reusable classes to set text colors, also support reversed color mode
  */
-export const getTextColorStyles = recipe({
+export const textVariants = recipe({
   variants: {
     variant: {
       primary: {

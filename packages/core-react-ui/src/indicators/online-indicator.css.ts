@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { colorVars, sizeVars } from '../theme';
-import { getCSSColor } from '../utilities-theme/colors.utilities';
+import { getCSSColorVar } from '../utilities-iso';
 
 export const wrapper = style({
   width: '100%',
@@ -10,8 +10,14 @@ export const wrapper = style({
 export const status = style({
   justifySelf: 'flex-start',
   borderRadius: `6px`,
-  backgroundColor: getCSSColor({
-    ...theme.colors.colorIntents.primary,
+  // backgroundColor: getCSSColor({
+  //   ...theme.colors.colorIntents.primary,
+  //   a: 5,
+  // }),
+  backgroundColor: getCSSColorVar({
+    h: colorVars.colors.primary.baseHue,
+    s: colorVars.colors.primary.baseSat,
+    l: 50,
     a: 5,
   }),
   padding: sizeVars.x3,

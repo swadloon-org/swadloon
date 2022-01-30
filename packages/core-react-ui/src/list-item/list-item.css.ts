@@ -1,184 +1,154 @@
-import { style } from '@vanilla-extract/css';
+import { createStyleObject } from '@capsizecss/core';
+import { globalStyle, style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS } from '../theme';
-import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities-theme/text.utilities';
+import { layoutCSS, typographyVars } from '../theme';
 
-const iconWidthNumber = `1.4`;
-const iconWidth = `1.4em`;
-const iconMargin = `1em`;
+/**
+ * @see https://web.dev/css-marker-pseudo-element/
+ */
 
 /**
  * States
  */
-export const wrapper = style({
+export const base = style({
   position: 'relative',
-  maxWidth: `80ch`,
+
+  display: 'list-item',
+  width: '100%',
+  whiteSpace: `nowrap`,
+
   outline: 'none',
-  width: 'fit-content',
   userSelect: 'text',
-  flexWrap: 'nowrap',
-  display: 'flex',
 });
 
-export const iconWrapper = style({
+export const text = style({
   display: 'inline-block',
-});
+  minHeight: '1em',
+  width: `100%`,
+  maxWidth: 'min(60ch, 100% - 3em)', // collapse the content so it does not overflow
+  verticalAlign: 'top',
+  whiteSpace: `normal`,
 
-export const textWrapperIcon = style({
-  display: 'flex',
+  // more space between the marker and the content
   position: 'relative',
-
-  left: `calc(${iconWidth} + ${iconMargin})`,
+  left: `0px`,
 });
 
-export const content = style({
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-  paddingRight: `calc((${iconWidth} + ${iconMargin}))`,
-});
-
-/**
- * Variants
- */
-export const bullet = style({
-  marginRight: '0.5em',
-});
-
-export const number = style({
-  marginRight: '0.5em',
-});
-
-/**
- * Icon
- */
-export const icon = style({
-  position: 'absolute',
-  left: `calc(-1 * (${iconWidth} + ${iconMargin}) / ${iconWidthNumber})`,
-  top: `-0.3em`,
-  fontSize: `${iconWidth}`,
-  display: 'inline-block',
-  verticalAlign: 'middle',
-});
-
-export const bulletIcon = style({
-  position: 'absolute',
-  left: `calc(-1 * (${1}em + ${iconMargin}))`,
-  top: `-0.3em`,
-  display: 'inline-block',
-  verticalAlign: 'middle',
-});
-
-/**
- * Sizes (from link)
- */
-export const large = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large, {
-    stylePseudoElements: {
-      display: 'inline-block',
-    },
-  }),
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large, {
-        stylePseudoElements: {
-          display: 'inline-block',
+export const variants = recipe({
+  variants: {
+    size: {
+      large: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.large.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.large.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.large.capsize
+          ),
         },
-      }),
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large, {
-        stylePseudoElements: {
-          display: 'inline-block',
+      },
+      medium: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.medium.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.medium.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.medium.capsize
+          ),
         },
-      }),
-    },
-  },
-});
-
-export const medium = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium, {
-    stylePseudoElements: {
-      display: 'inline-block',
-    },
-  }),
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium, {
-        stylePseudoElements: {
-          display: 'inline-block',
+      },
+      small: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.small.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.small.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.small.capsize
+          ),
         },
-      }),
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium, {
-        stylePseudoElements: {
-          display: 'inline-block',
+      },
+      xSmall: {
+        ...createStyleObject(typographyVars.paragraphs.mobile.xSmall.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(
+            typographyVars.paragraphs.tablet.xSmall.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.xSmall.capsize
+          ),
         },
-      }),
+      },
     },
-  },
-});
-
-export const small = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small, {
-    stylePseudoElements: {
-      display: 'inline-block',
-    },
-  }),
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small, {
-        stylePseudoElements: {
-          display: 'inline-block',
-        },
-      }),
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small, {
-        stylePseudoElements: {
-          display: 'inline-block',
-        },
-      }),
-    },
-  },
-});
-
-export const xSmall = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall, {
-    stylePseudoElements: {
-      display: 'inline-block',
-    },
-  }),
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall, {
-        stylePseudoElements: {
-          display: 'inline-block',
-        },
-      }),
-    },
-    [layoutCSS.media.desktopSmall]: {
-      ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall, {
-        stylePseudoElements: {
-          display: 'inline-block',
-        },
-      }),
+    style: {
+      normal: {
+        fontWeight: typographyVars.paragraphs.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.fontStyle,
+        letterSpacing: typographyVars.paragraphs.letterSpacing,
+      },
+      bold: {
+        fontWeight: typographyVars.paragraphs.styles.bold.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.bold.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.bold.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.bold.letterSpacing,
+      },
+      italic: {
+        fontWeight: typographyVars.paragraphs.styles.italic.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.italic.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.italic.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.italic.letterSpacing,
+      },
+      uppercase: {
+        fontWeight: typographyVars.paragraphs.styles.uppercase.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.uppercase.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.uppercase.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.uppercase.letterSpacing,
+      },
+      boldUppercase: {
+        fontWeight: typographyVars.paragraphs.styles.boldUppercase.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.boldUppercase.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.boldUppercase.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.boldUppercase.letterSpacing,
+      },
+      italicBold: {
+        fontWeight: typographyVars.paragraphs.styles.italicBold.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.italicBold.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.italicBold.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.italicBold.letterSpacing,
+      },
     },
   },
 });
 
 /**
- * Text styles
+ * @see allowed props https://web.dev/css-marker-pseudo-element/#allowed-css-::marker-properties
  */
-export const primary = style({
-  color: colorVars.colorIntents.primaryText,
+globalStyle(`ul ${base}::marker`, {
+  fontWeight: typographyVars.paragraphs.styles?.bold?.fontWeight || 400,
 });
 
-export const secondary = style({
-  color: colorVars.colorIntents.secondaryText,
+globalStyle(`${base} p`, {
+  padding: 'inherit',
 });
 
-export const tertiary = style({
-  color: colorVars.colorIntents.tertiaryText,
+// make sure that enclosed elements wrap correctly
+globalStyle(`${text} *:is(em,p,strong)`, {
+  whiteSpace: 'normal',
+  display: 'inline !important',
+});
+
+// disable capsize on inner elements
+globalStyle(`${text} *::before, ${text} *::after`, {
+  display: 'none !important',
+});
+
+globalStyle(`${base} p::after`, {
+  content: 'none',
+});
+
+globalStyle(`${base} p::before`, {
+  content: 'none',
 });

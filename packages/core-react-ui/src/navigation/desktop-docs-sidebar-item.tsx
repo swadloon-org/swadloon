@@ -6,13 +6,13 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './desktop-docs-sidebar-item.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     active?: boolean;
   };
 
@@ -42,7 +42,7 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
         {},
         <div {...commonProps}>
           <Label
-            variantStyle={TEXT_STYLE.normal}
+            textStyle={TEXT_STYLE.normal}
             className={getMergedClassname([styles.link, active && styles.linkActive])}
           >
             {props.children}
@@ -58,7 +58,7 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
   return (
     <div {...commonProps}>
       <Label
-        variantStyle={TEXT_STYLE.normal}
+        textStyle={TEXT_STYLE.normal}
         className={getMergedClassname([styles.link, active && styles.linkActive])}
       >
         {props.children}

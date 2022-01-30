@@ -8,7 +8,7 @@ import * as styles from './sidebar-docs-desktop-item.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     active?: boolean;
     level?: 0 | 1;
   };
@@ -47,7 +47,7 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
         {},
         <div {...commonProps}>
           <Label
-            variantStyle={TEXT_STYLE.normal}
+            textStyle={TEXT_STYLE.normal}
             className={getMergedClassname([
               styles.link,
               styles[levelStyle],
@@ -67,7 +67,7 @@ export const SidebarDocsDesktopItem: React.FC<Props> = ({
   return (
     <div {...commonProps}>
       <Label
-        variantStyle={TEXT_STYLE.normal}
+        textStyle={TEXT_STYLE.normal}
         className={getMergedClassname([
           styles.link,
           styles[levelStyle],

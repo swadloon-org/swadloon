@@ -1,7 +1,6 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { IoPauseOutline, IoPlayOutline, IoReloadOutline } from 'react-icons/io5';
 
-import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, ICON, Variant } from '@newrade/core-design-system';
 
 import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
@@ -233,7 +232,7 @@ export const CSSAnimation = React.forwardRef<
             variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
-            Icon={previousState === 'paused' ? <IoPlayOutline /> : <IoPauseOutline />}
+            Icon={previousState === 'paused' ? ICON.PLAY : ICON.PAUSE}
             onClick={handlePlayPause}
           >
             {previousState === 'paused' ? 'Play' : 'Pause'}
@@ -242,7 +241,7 @@ export const CSSAnimation = React.forwardRef<
             variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
-            Icon={<IoReloadOutline />}
+            Icon={ICON.REPLAY}
             onClick={handleReset}
           >
             Reset

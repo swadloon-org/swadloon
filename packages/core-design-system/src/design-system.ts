@@ -24,9 +24,9 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    */
   colors: Colors<Override>;
   /**
-   * Shadows, elevation, blurs and other visual effects.
+   * Defines every text styles.
    */
-  effects: Effects<Override>;
+  typography: Typography<Override>;
   /**
    * Defines the system's sizing values.
    */
@@ -36,9 +36,13 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    */
   iconography: Iconography<Override>;
   /**
-   * Defines every text styles.
+   * TODO
    */
-  typography: Typography<Override>;
+  // illustrations: any;
+  /**
+   * Shadows, elevation, blurs and other visual effects.
+   */
+  effects: Effects<Override>;
   /**
    * Breakpoints, common content margins for different viewports.
    */
@@ -53,6 +57,10 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
   components: {
     buttons: Buttons<Override>;
   };
+  /**
+   * Everything dataviz
+   */
+  // dataviz: any;
 }
 
 export interface DesignSystemV2<Override extends undefined | string = undefined> {
@@ -71,21 +79,26 @@ export interface DesignSystemV2<Override extends undefined | string = undefined>
    */
   colors: Colors<Override>;
   /**
-   * Shadows, elevation, blurs and other visual effects.
+   * Defines every text styles.
    */
-  effects: Effects<Override>;
+  typography: TypographyV2<Override>;
   /**
    * Defines the system's sizing values.
    */
   sizing: Sizing<Override>;
+
   /**
    * TODO
    */
   iconography: Iconography<Override>;
   /**
-   * Defines every text styles.
+   * TODO
    */
-  typography: TypographyV2<Override>;
+  // illustrations: any;
+  /**
+   * Shadows, elevation, blurs and other visual effects.
+   */
+  effects: Effects<Override>;
   /**
    * Breakpoints, common content margins for different viewports.
    */

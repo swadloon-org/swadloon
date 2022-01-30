@@ -127,7 +127,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
             return (
               <Stack key={subNavIndex} gap={[sizeVars.x4]}>
                 <Label
-                  variantStyle={TEXT_STYLE.boldUppercase}
+                  textStyle={TEXT_STYLE.boldUppercase}
                   variant={LABEL_SIZE.xSmall}
                   variantLevel={Variant.tertiary}
                 >
@@ -140,9 +140,9 @@ export const FooterStandard = React.forwardRef<any, Props>(
                       return (
                         <Link
                           key={id}
-                          variantSize={PARAGRAPH_SIZE.small}
+                          size={PARAGRAPH_SIZE.small}
                           href={link?.url || ' '}
-                          variantIcon={LinkIcon.right}
+                          icon={LinkIcon.right}
                           Icon={<IconComp name={ICON.OPEN}></IconComp>}
                         >
                           {link?.label || link?.url || ' '}
@@ -153,7 +153,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
                     return (
                       <Link
                         key={id}
-                        variantSize={PARAGRAPH_SIZE.small}
+                        size={PARAGRAPH_SIZE.small}
                         AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
                       >
                         {link?.label || ' '}

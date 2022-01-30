@@ -1,6 +1,6 @@
-import { getFormattedAnchorId } from '../text.utilities';
+import { getFormattedAnchorId } from '../attributes.utilities';
 
-describe('text utilities', () => {
+describe('attributes utilities', () => {
   describe(`${getFormattedAnchorId.name}`, () => {
     it('should format id with leading digit', () => {
       expect(getFormattedAnchorId('1234')).toBe('id-1234');

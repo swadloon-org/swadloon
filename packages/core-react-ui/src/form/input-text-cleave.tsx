@@ -1,29 +1,24 @@
-import React, { InputHTMLAttributes } from 'react';
+import React from 'react';
 
 import Cleave from 'cleave.js/react';
 import type { Props as CleaveProps } from 'cleave.js/react/props';
 
 import 'cleave.js/dist/addons/cleave-phone.ca';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { InputTextProps } from './input.props';
 
-type Props = PrimitiveProps<'input'> &
-  InputHTMLAttributes<any> & {
-    cleaveProps: CleaveProps;
-    state?: 'rest' | 'error';
-  };
+type Props = InputTextProps;
 
 export const InputTextCleave = React.forwardRef<HTMLInputElement, Props>(function InputTextCleave(
-  { style, cleaveProps, type = 'text', state = 'rest', ...props },
+  { type = 'text', cleaveProps, size, ...props },
   ref
 ) {
   return (
     <Cleave
-      type={cleaveProps.type ? cleaveProps.type : type}
+      type={cleaveProps?.type ? cleaveProps.type : type}
       htmlRef={(htmlRef) => (ref = htmlRef)}
-      style={style}
       {...props}
-      {...cleaveProps}
+      {...(cleaveProps as CleaveProps)}
     ></Cleave>
   );
 });

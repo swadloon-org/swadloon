@@ -1,3 +1,4 @@
+import { ICON } from '../foundations/iconography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
@@ -17,7 +18,7 @@ export enum ButtonSize {
 }
 
 export enum ButtonIcon {
-  none = 'none', // default
+  none = 'none',
   icon = 'icon',
   left = 'left',
   right = 'right',
@@ -31,6 +32,13 @@ export enum ButtonState {
   disabled = 'disabled',
 }
 
+export enum ButtonIntention {
+  neutral = 'neutral',
+  positive = 'positive',
+  warning = 'warning',
+  negative = 'negative',
+}
+
 export type ButtonProps = Partial<ButtonStyleProps>;
 
 export interface ButtonStyleProps {
@@ -38,10 +46,34 @@ export interface ButtonStyleProps {
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
   role: string;
+  /**
+   * Visual importance
+   */
   variant: Variant;
-  icon: ButtonIcon;
+  /**
+   * Overall size of the button component
+   */
   size: ButtonSize;
-  state: ButtonState;
+  /**
+   * Additional variants for button intentions
+   */
+  intention: ButtonIntention;
+  /**
+   * Disabled state
+   */
+  disabled: boolean;
+  /**
+   * Loading state
+   */
+  loading: boolean;
+  /**
+   * Placement of the icon
+   */
+  icon: ButtonIcon;
+  /**
+   * What icon to render
+   */
+  Icon: ICON;
 }
 
 export type ButtonColors<Override extends undefined | string = undefined> = {

@@ -1,7 +1,6 @@
 import React, { useImperativeHandle, useRef, useState } from 'react';
-import { IoClose, IoMenu } from 'react-icons/io5';
 
-import { ButtonIcon, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ICON, Variant } from '@newrade/core-design-system';
 
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
@@ -117,7 +116,7 @@ export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
                 collapsePadding={'left'}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
@@ -152,7 +151,7 @@ export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
                 collapsePadding={'left'}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>

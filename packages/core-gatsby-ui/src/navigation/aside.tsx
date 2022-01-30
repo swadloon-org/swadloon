@@ -3,9 +3,13 @@ import React from 'react';
 import { WindowLocation } from '@reach/router';
 
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { BoxV2, Label, Link, PrimitiveProps, scrollIntoView, Stack } from '@newrade/core-react-ui';
+import { BoxV2, Label, Link, PrimitiveProps, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
+import {
+  getFormattedAnchorId,
+  getMergedClassname,
+} from '@newrade/core-react-ui/utilities-components';
 
 import { useI18next } from '../i18next/use-i18next.hook';
 
@@ -64,7 +68,7 @@ export const Aside: React.FC<Props> = ({
   return (
     <BoxV2 id={id} className={classNames} as={'aside'} style={style}>
       <Stack as={'nav'} gap={[sizeVars.x1]}>
-        <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
+        <Label variant={LABEL_SIZE.small} textStyle={TEXT_STYLE.boldUppercase}>
           {t('inThisPage')}
         </Label>
 
@@ -106,8 +110,8 @@ export const Aside: React.FC<Props> = ({
                   draggable={false}
                   className={styles.anchor}
                   style={{ color: 'inherit', fontWeight: 'inherit' }}
-                  variant={LinkVariant.noUnderline}
-                  variantSize={PARAGRAPH_SIZE.small}
+                  linkStyle={LinkVariant.noUnderline}
+                  size={PARAGRAPH_SIZE.small}
                   href={href}
                   id={`aside-link-${item?.value}`}
                   onClick={handleClick}

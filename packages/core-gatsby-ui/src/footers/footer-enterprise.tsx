@@ -1,8 +1,8 @@
 import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 
-import { ButtonIcon, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ICON, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Cluster, Link, Paragraph, Stack, useCommonProps } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { FooterProps } from './footer.props';
 
@@ -33,7 +33,11 @@ export const FooterEnterprise: React.FC<Props> = ({
 
   return (
     <Stack as={'footer'} {...commonProps} gap={[sizeVars.x4]}>
-      {/* Links */}
+      {/**
+       *
+       * Links
+       *
+       */}
       {MenuLinks ? (
         <div className={styles.links}>{MenuLinks}</div>
       ) : (
@@ -45,38 +49,46 @@ export const FooterEnterprise: React.FC<Props> = ({
           <Link>Contact</Link>
         </Cluster>
       )}
-      {/* Social */}
+      {/**
+       *
+       * Social
+       *
+       */}
       {SocialLinks ? (
         <div className={styles.links}>{SocialLinks}</div>
       ) : (
         <Cluster className={styles.links} gap={[sizeVars.x3]}>
           <Button
-            Icon={<IoLogoTwitter />}
+            Icon={ICON.LOGO_FACEBOOK}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoFacebook />}
+            Icon={ICON.LOGO_LINKEDIN}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoInstagram />}
+            Icon={ICON.LOGO_INSTAGRAM}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoLinkedin />}
+            Icon={ICON.LOGO_TWITTER}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
         </Cluster>
       )}
-      {/* Copyright */}
-      <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
+      {/**
+       *
+       * Copyrights
+       *
+       */}
+      <Paragraph className={styles.copyright} size={PARAGRAPH_SIZE.xSmall}>
         {Copyright}
       </Paragraph>
     </Stack>

@@ -11,8 +11,6 @@ import {
   MainDocs,
   MainDocsWrapper,
   NavbarSeparatorItem,
-  scrollIntoView,
-  Theme,
   useCSSTheme,
   useIsSSR,
 } from '@newrade/core-react-ui';
@@ -20,6 +18,7 @@ import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 import { sizeVars } from '@newrade/core-react-ui/theme';
+import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
 import {
   BreadcrumbsAPI,
   CompanyInfoAPI,
@@ -307,7 +306,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props })
               Icon: currentlySelectedThemeColorScheme === COLOR_SCHEME.LIGHT ? ICON.SUN : ICON.MOON,
               value: currentlySelectedTheme || '',
               onChange: handleChangeTheme,
-              variantSize: InputSize.small,
+              size: InputSize.small,
             }}
           >
             {themeConfig.themes.map((theme) => (
@@ -325,7 +324,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props })
           select={{
             value: getLangSimpleCode(currentLang),
             onChange: handleChangeLanguage,
-            variantSize: InputSize.small,
+            size: InputSize.small,
           }}
         >
           {siteLangs ? (

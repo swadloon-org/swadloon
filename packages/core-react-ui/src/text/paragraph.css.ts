@@ -59,16 +59,6 @@ export const variants = recipe({
         },
       },
     },
-    disableCapsize: {
-      true: {
-        '::before': {
-          marginBottom: 'initial !important',
-        },
-        '::after': {
-          marginTop: 'initial !important',
-        },
-      },
-    },
     style: {
       normal: {
         fontWeight: typographyVars.paragraphs.fontWeight as any,

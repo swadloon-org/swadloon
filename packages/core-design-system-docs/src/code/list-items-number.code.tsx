@@ -8,11 +8,11 @@ export const ListItemsNumber: React.FC<Props> = (props) => {
   return (
     <>
       <Stack as={'ol'} gap={[sizeVars.x3]}>
-        <ListItem variantIcon={'number'}></ListItem>
+        <ListItem icon={'number'}></ListItem>
 
-        <ListItem variantIcon={'number'}></ListItem>
+        <ListItem icon={'number'}></ListItem>
 
-        <ListItem variantIcon={'number'}></ListItem>
+        <ListItem icon={'number'}></ListItem>
       </Stack>
     </>
   );

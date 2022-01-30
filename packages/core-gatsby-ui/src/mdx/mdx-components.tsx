@@ -150,10 +150,10 @@ export const mdxComponents: Partial<
     ) {
       return (
         <Link
-          variant={LinkVariant.underline}
-          variantSize={PARAGRAPH_SIZE.medium}
+          linkStyle={LinkVariant.underline}
+          size={PARAGRAPH_SIZE.medium}
           style={{ display: 'inline-block' }}
-          variantIcon={LinkIcon.none}
+          icon={LinkIcon.none}
           {...props}
         />
       );
@@ -161,8 +161,8 @@ export const mdxComponents: Partial<
 
     return (
       <Link
-        variant={LinkVariant.underline}
-        variantSize={PARAGRAPH_SIZE.medium}
+        linkStyle={LinkVariant.underline}
+        size={PARAGRAPH_SIZE.medium}
         style={{ display: 'inline-block' }}
         {...props}
       />
@@ -184,7 +184,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'b'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.bold}
+      textStyle={TEXT_STYLE.bold}
       variant={PARAGRAPH_SIZE.large}
       {...props}
     />
@@ -201,7 +201,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'strong'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.bold}
+      textStyle={TEXT_STYLE.bold}
       {...props}
     />
   ),
@@ -209,7 +209,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'em'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.italic}
+      textStyle={TEXT_STYLE.italic}
       {...props}
     />
   ),
@@ -256,8 +256,8 @@ export const mdxComponents: Partial<
       return (
         <TableCell {...props}>
           <Link
-            variant={LinkVariant.underline}
-            variantSize={PARAGRAPH_SIZE.small}
+            linkStyle={LinkVariant.underline}
+            size={PARAGRAPH_SIZE.small}
             shortenLongLink={true}
             style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
             // @ts-ignore

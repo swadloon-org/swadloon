@@ -1,22 +1,18 @@
 import { createStyleObject } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 
-import { getCSSTextStyles } from '../utilities-theme/text.utilities';
+import { typographyVars } from '../theme';
 
 export const wrapper = style({});
 
 export const lettersSansSerif = style({
-  ...createStyleObject({
-    fontMetrics: typographyVars.fonts.serif[0].fontMetrics,
-    capHeight: 80,
-    lineGap: 10,
-  }),
-  fontFamily: typographyVars.fonts.serif[0].name,
+  fontSize: 30,
+  fontFamily: typographyVars.fonts.serif,
 });
 
 export const paragraphSerif = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontFamily: cssTheme.typography.fonts.serif,
+  ...createStyleObject(typographyVars.paragraphs.desktop.medium.capsize),
+  fontFamily: typographyVars.fonts.serif,
 });
 
 export const letters = style({

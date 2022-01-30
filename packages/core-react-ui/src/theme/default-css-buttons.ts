@@ -3,9 +3,10 @@ import {
   BorderStyles,
   ButtonBoxStyle,
   ButtonColors,
-  DesignSystem,
   OutlineStyles,
 } from '@newrade/core-design-system';
+
+import { CSSButtons } from '../design-system';
 
 export const placeholderButtonVariant: ButtonColors<string> = {
   // textColor: colorVars.colorIntents.primaryTextReversed,
@@ -62,18 +63,16 @@ export const defaultButtonBorder: BorderStyles<string> = {
   left: { width: '1px', style: 'solid', color: 'red', radius: '3px' },
 };
 
-export const defaultCSSButtons: Pick<DesignSystem<string>['components'], 'buttons'> = {
-  buttons: {
-    variants: {
-      primary: placeholderButtonVariant,
-      secondary: placeholderButtonVariant,
-      tertiary: placeholderButtonVariant,
-    },
-    sizes: {
-      large: placeholderButtonSize,
-      medium: placeholderButtonSize,
-      small: placeholderButtonSize,
-      xSmall: placeholderButtonSize,
-    },
+export const defaultCSSButtons: CSSButtons = {
+  variants: {
+    primary: placeholderButtonVariant,
+    secondary: placeholderButtonVariant,
+    tertiary: placeholderButtonVariant,
+  },
+  sizes: {
+    large: placeholderButtonSize,
+    medium: placeholderButtonSize,
+    small: placeholderButtonSize,
+    xSmall: placeholderButtonSize,
   },
 };

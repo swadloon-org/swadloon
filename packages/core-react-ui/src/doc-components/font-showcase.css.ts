@@ -1,64 +1,48 @@
 import { createStyleObject } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 
-import { getCSSTextStyles } from '../utilities-theme/text.utilities';
+import { typographyVars } from '../theme';
 
 export const wrapper = style({});
 
 export const lettersSans = style({
-  ...createStyleObject({
-    fontMetrics: typographyVars.fonts.sans[0].fontMetrics,
-    capHeight: 100,
-    lineGap: 10,
-  }),
-  fontFamily: typographyVars.fonts.sans[0].name,
+  fontSize: 30,
+  fontFamily: typographyVars.fonts.sans,
 });
 
 export const paragraphSans = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontFamily: typographyVars.fonts.sans[0].name,
+  ...createStyleObject(typographyVars.paragraphs.desktop.medium.capsize),
+  fontFamily: typographyVars.fonts.sans,
 });
 
 export const lettersSansAlternate = style({
-  ...createStyleObject({
-    fontMetrics: typographyVars.fonts.sansAlternate[0].fontMetrics,
-    capHeight: 100,
-    lineGap: 10,
-  }),
-  fontFamily: typographyVars.fonts.sansAlternate[0].name,
+  fontSize: 30,
+  fontFamily: typographyVars.fonts.sansAlternate,
 });
 
 export const paragraphSansAlternate = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontFamily: cssTheme.typography.fonts.sansAlternate,
+  ...createStyleObject(typographyVars.paragraphs.desktop.medium.capsize),
+  fontFamily: typographyVars.fonts.sansAlternate,
 });
 
 export const lettersSansSerif = style({
-  ...createStyleObject({
-    fontMetrics: typographyVars.fonts.serif[0].fontMetrics,
-    capHeight: 100,
-    lineGap: 10,
-  }),
-  fontFamily: typographyVars.fonts.serif[0].name,
+  fontSize: 30,
+  fontFamily: typographyVars.fonts.serif,
 });
 
 export const paragraphSerif = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontFamily: cssTheme.typography.fonts.serif,
+  ...createStyleObject(typographyVars.paragraphs.desktop.medium.capsize),
+  fontFamily: typographyVars.fonts.serif,
 });
 
 export const lettersSansMono = style({
-  ...createStyleObject({
-    fontMetrics: typographyVars.fonts.monospace[0].fontMetrics,
-    capHeight: 100,
-    lineGap: 10,
-  }),
-  fontFamily: typographyVars.fonts.monospace[0].name,
+  fontSize: 30,
+  fontFamily: typographyVars.fonts.monospace,
 });
 
 export const paragraphMono = style({
-  ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-  fontFamily: cssTheme.typography.fonts.monospace,
+  ...createStyleObject(typographyVars.paragraphs.desktop.medium.capsize),
+  fontFamily: typographyVars.fonts.monospace,
 });
 
 export const letters = style({

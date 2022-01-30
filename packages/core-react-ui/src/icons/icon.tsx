@@ -23,7 +23,7 @@ type Props = PrimitiveProps<'svg'> & {
   height?: number | string;
 };
 
-export const IconLoader: React.FC<Props> = ({
+const IconLoader: React.FC<Props> = ({
   id,
   style,
   className,
@@ -41,7 +41,12 @@ export const IconLoader: React.FC<Props> = ({
     id,
     style,
     className,
-    classNames: [styles.base, size ? styles[size] : ''],
+    classNames: [
+      styles.base,
+      styles.variants({
+        size: size,
+      }),
+    ],
     ...props,
   });
 
@@ -84,7 +89,7 @@ type State = {
 };
 
 /**
- * Wrapper component for IconLoader that can handle errors
+ * Error boundary wrapper component for IconLoader
  */
 export class IconComp extends React.Component<Props, State> {
   constructor(props: Props) {

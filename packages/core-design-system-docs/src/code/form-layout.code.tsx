@@ -11,7 +11,7 @@ export const FormLayout: React.FC<Props> = (props) => {
       <Stack gap={[sizeVars.x3]}>
         <InputWrapper>
           <InputLabel htmlFor={'label'}>Label</InputLabel>
-          <Label variantStyle={TEXT_STYLE.normal} variant={LABEL_SIZE.xSmall}>
+          <Label textStyle={TEXT_STYLE.normal} variant={LABEL_SIZE.xSmall}>
             Helper Text
           </Label>
           <InputText

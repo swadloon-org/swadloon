@@ -43,7 +43,7 @@ export const disabled = style({});
  * Primary
  */
 export const primary = style({
-  color: cssTheme.components.buttons.var.variants.primary.textColor,
+  // color: cssTheme.components.buttons.var.variants.primary.textColor,
   backgroundColor: colorVars.colors.primary[500],
   selectors: {
     '&:active': {

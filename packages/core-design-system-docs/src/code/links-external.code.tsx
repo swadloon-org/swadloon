@@ -11,9 +11,9 @@ export const LinksExternal: React.FC<Props> = (props) => {
       <Link
         href={'https://google.com'}
         target={'_blank'}
-        variant={LinkVariant.underline}
-        variantLevel={Variant.primary}
-        variantIcon={LinkIcon.right}
+        linkStyle={LinkVariant.underline}
+        kind={Variant.primary}
+        icon={LinkIcon.right}
       >
         www.google.com
       </Link>

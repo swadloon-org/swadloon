@@ -28,7 +28,7 @@ export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...
           <Label
             variant={LABEL_SIZE.xSmall}
             variantLevel={Variant.primary}
-            variantStyle={TEXT_STYLE.bold}
+            textStyle={TEXT_STYLE.bold}
           >
             {`${props.name ? `${kebab(props.name)}-` : ''}${
               props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''
@@ -37,7 +37,7 @@ export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...
           <Label
             variant={LABEL_SIZE.xSmall}
             variantLevel={Variant.primary}
-            variantStyle={TEXT_STYLE.normal}
+            textStyle={TEXT_STYLE.normal}
           >
             <code>{`${getCSSHexColor(props.color as Color)}`}</code>
           </Label>

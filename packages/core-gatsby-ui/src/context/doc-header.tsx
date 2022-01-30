@@ -58,7 +58,7 @@ export const DocHeader = ({ props }: Props) => {
       {/* {subject ? (
         <Label
           variant={LABEL_SIZE.small}
-          variantStyle={TEXT_STYLE.boldUppercase}
+          textStyle={TEXT_STYLE.boldUppercase}
           variantLevel={Variant.tertiary}
         >{`${subject.toUpperCase()}`}</Label>
       ) : null} */}
@@ -87,11 +87,7 @@ export const DocHeader = ({ props }: Props) => {
         ) : null}
         {renderTags
           ? tags?.map((tag, tagIndex) => (
-              <Link
-                variantLevel={Variant.primary}
-                variantSize={PARAGRAPH_SIZE.xSmall}
-                key={tagIndex}
-              >
+              <Link kind={Variant.primary} size={PARAGRAPH_SIZE.xSmall} key={tagIndex}>
                 {tag}
                 {tagIndex < tags.length - 1 ? ', ' : null}
               </Link>

@@ -3,10 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
-import {
-  getDefaultTextFromProps,
-  getMergedClassname,
-} from '../utilities-components/component.utilities';
+import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
 
 import * as styles from './list-items.css';
 

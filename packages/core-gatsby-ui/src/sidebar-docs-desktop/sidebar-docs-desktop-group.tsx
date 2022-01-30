@@ -9,7 +9,7 @@ import * as styles from './sidebar-docs-desktop-group.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     label?: string;
     count?: number;
     isOpen?: boolean;
@@ -70,7 +70,7 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
         />
 
         <Label
-          variantStyle={TEXT_STYLE.bold}
+          textStyle={TEXT_STYLE.bold}
           variant={LABEL_SIZE.small}
           variantLevel={Variant.primary}
         >

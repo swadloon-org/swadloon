@@ -8,13 +8,13 @@ import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './desktop-docs-sidebar-item-group.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     label?: string;
   };
 
@@ -44,7 +44,7 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({
     <Stack {...commonProps}>
       <Cluster onClick={handleOnClick} className={styles.group}>
         <Label
-          variantStyle={TEXT_STYLE.bold}
+          textStyle={TEXT_STYLE.bold}
           variant={LABEL_SIZE.small}
           variantLevel={Variant.primary}
         >

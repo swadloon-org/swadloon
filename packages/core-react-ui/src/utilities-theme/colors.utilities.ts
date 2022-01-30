@@ -9,6 +9,7 @@ import * as DS from '@newrade/core-design-system';
 import { CodeColors, Color, COLOR_SCHEME, ColorPalette } from '@newrade/core-design-system';
 
 import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
+import { getCSSColorVar } from '../utilities-iso';
 import { keys } from '../utilities-iso/utilities';
 
 /**
@@ -375,26 +376,6 @@ export function getCodeColors(colors: CodeColors) {
     previous[current] = getCSSColor(color);
     return previous;
   }, {} as CodeColors<string>);
-}
-
-/**
- * Create a CSS color string from css variables
- */
-export function getCSSColorVar({
-  h,
-  s,
-  l,
-  a,
-}: {
-  h?: number | string;
-  s?: number | string;
-  l?: number | string;
-  a?: number | string;
-}): Property.Color {
-  const sat = s ? (/var/gi.test(s.toString()) ? s : `${s}%`) : '';
-  const lum = l ? (/var/gi.test(l.toString()) ? l : `${l}%`) : '';
-
-  return `hsl(${h}, ${sat}, ${lum}, ${a === undefined ? 1 : a})`;
 }
 
 /**

@@ -100,8 +100,8 @@ export function LinkRenderer<CustomLinkVariants extends string>({
     case LinkComponent.link: {
       return (
         <Link
-          variantSize={linkSizes[linkSizeLink]}
-          variantLevel={(linkData.variant as Variant) || Variant.primary}
+          size={linkSizes[linkSizeLink]}
+          kind={(linkData.variant as Variant) || Variant.primary}
           Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
           AsElement={
             !linkIsExternal ? (

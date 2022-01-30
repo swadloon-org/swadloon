@@ -1,7 +1,5 @@
 import { StyleRule } from '@vanilla-extract/css';
 import { Property } from 'csstype';
-// @ts-ignore
-import GithubSlugger from 'github-slugger';
 
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 
@@ -193,17 +191,4 @@ export function getCSSTextDecoration(textDecoration?: TextDecoration): string | 
   }
   // text-decoration: underline dotted red;
   return `${textDecoration.line} ${textDecoration.style} ${textDecoration.color}`;
-}
-
-/**
- * Normalize and format anchor id.
- *
- * It removes leading digit since vanilla document.querySelector does not accept ids starting with number
- *
- * @see https://www.w3.org/TR/html401/types.html#type-name
- * @see https://github.com/Flet/github-slugger
- */
-export function getFormattedAnchorId(value?: string | null): string {
-  const validHtmlIdValue = value ? (/^\d/.test(value) ? `id-${value}` : value) : '';
-  return GithubSlugger.slug(validHtmlIdValue);
 }

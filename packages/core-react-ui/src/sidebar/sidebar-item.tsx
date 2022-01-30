@@ -1,17 +1,17 @@
-import { LABEL_SIZE, LinkProps } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
+
+import { LABEL_SIZE, LinkProps } from '@newrade/core-design-system';
+
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
+
 import * as styles from './sidebar-item.css';
-
-
-
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     disabled?: boolean;
     active?: boolean;
   };

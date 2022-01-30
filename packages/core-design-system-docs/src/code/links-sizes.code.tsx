@@ -8,10 +8,10 @@ type Props = {};
 export const LinksSizes: React.FC<Props> = (props) => {
   return (
     <>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.large}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.medium}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.small}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.xSmall}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.large}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.medium}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.small}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.xSmall}></Link>
     </>
   );
 };

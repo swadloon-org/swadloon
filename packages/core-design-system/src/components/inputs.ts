@@ -21,11 +21,6 @@ export enum InputSize {
   small = 'small',
 }
 
-export enum InputState {
-  rest = 'rest',
-  focused = 'focused',
-}
-
 export enum InputValidityState {
   neutral = 'neutral',
   valid = 'valid',
@@ -63,7 +58,7 @@ export interface InputStyleProps {
   /**
    * General size of the input
    */
-  variantSize: InputSize;
+  size: InputSize;
   /**
    * Validation state
    */

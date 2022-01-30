@@ -137,7 +137,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
           {/* Language link */}
           {alternativeLanguage?.lang && onChangeLang ? (
             <Link
-              variantSize={PARAGRAPH_SIZE.small}
+              size={PARAGRAPH_SIZE.small}
               className={styles.lang}
               onClick={(event: React.MouseEvent) =>
                 onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
@@ -148,7 +148,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
           ) : null}
 
           {/* Copyright and Version */}
-          <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
+          <Paragraph size={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
             {copyright}
             {version ? ` — ${version}` : ''}
           </Paragraph>

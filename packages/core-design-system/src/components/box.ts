@@ -30,9 +30,22 @@ export type OutlineStyles<Override extends undefined | string = undefined> = {
   radius?: RadiusType<Override>;
 };
 
+/**
+ * General style props for box model components
+ */
 export type BoxStyle<Override extends undefined | string = undefined> = {
   width?: SizeType<Override>;
   height?: SizeType<Override>;
+  padding: Padding<Override>;
+  border: BorderStyles<Override>;
+  outline: OutlineStyles<Override>;
+  backgroundColor?: ColorType<Override>;
+};
+
+/**
+ * Specific styles for tabular cell components
+ */
+export type CellStyle<Override extends undefined | string = undefined> = {
   padding: Padding<Override>;
   border: BorderStyles<Override>;
   outline: OutlineStyles<Override>;

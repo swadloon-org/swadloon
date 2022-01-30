@@ -8,10 +8,10 @@ type Props = {};
 export const LinksIcon: React.FC<Props> = (props) => {
   return (
     <>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.large} variantIcon={LinkIcon.right}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.medium} variantIcon={LinkIcon.right}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.small} variantIcon={LinkIcon.right}></Link>
-      <Link href={'#'} variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={LinkIcon.right}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.large} icon={LinkIcon.right}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.medium} icon={LinkIcon.right}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.small} icon={LinkIcon.right}></Link>
+      <Link href={'#'} size={PARAGRAPH_SIZE.xSmall} icon={LinkIcon.right}></Link>
     </>
   );
 };

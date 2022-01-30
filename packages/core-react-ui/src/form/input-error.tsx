@@ -4,7 +4,7 @@ import { LABEL_SIZE } from '@newrade/core-design-system';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities-components/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import * as styles from './input-error.css';
 

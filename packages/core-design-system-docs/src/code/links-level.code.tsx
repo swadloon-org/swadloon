@@ -8,9 +8,9 @@ type Props = {};
 export const LinksLevel: React.FC<Props> = (props) => {
   return (
     <>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.primary}></Link>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.secondary}></Link>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.tertiary}></Link>
+      <Link href={'#'} linkStyle={LinkVariant.underline} kind={Variant.primary}></Link>
+      <Link href={'#'} linkStyle={LinkVariant.underline} kind={Variant.secondary}></Link>
+      <Link href={'#'} linkStyle={LinkVariant.underline} kind={Variant.tertiary}></Link>
     </>
   );
 };

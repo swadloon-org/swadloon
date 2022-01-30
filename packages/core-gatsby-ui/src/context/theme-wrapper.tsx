@@ -273,7 +273,7 @@ const ThemeWrapperFn = React.memo(
                   <InputSelect
                     onChange={handleChangeTheme}
                     value={selectedTheme?.name || ''}
-                    variantSize={InputSize.small}
+                    size={InputSize.small}
                   >
                     {themeConfig.themes.map((theme) => {
                       return (
@@ -292,7 +292,7 @@ const ThemeWrapperFn = React.memo(
                   <InputSelect
                     onChange={handleViewportChange}
                     value={selectedViewport}
-                    variantSize={InputSize.small}
+                    size={InputSize.small}
                   >
                     <option value={'auto'}>Auto</option>
                     <option value={VIEWPORT.desktop}>Desktop</option>

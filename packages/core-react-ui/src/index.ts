@@ -58,7 +58,6 @@ export * from './layout/main-wrapper';
 export * from './layout/stack';
 export * from './layout/switcher';
 export * from './list-item/list-item';
-export * from './list-item/list-item-v2';
 export * from './list-item/list-items';
 export * from './logos/logo';
 export * from './logos/logos-provider';

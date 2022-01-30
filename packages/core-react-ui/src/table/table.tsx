@@ -7,6 +7,10 @@ import * as styles from './table.css';
 
 type Props = PrimitiveProps<'table'> & {};
 
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+ * @see https://css-tricks.com/complete-guide-table-element/
+ */
 export const Table: React.FC<Props> = React.memo((props) => {
   return (
     <div className={styles.wrapper}>

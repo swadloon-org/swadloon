@@ -37,6 +37,9 @@ export enum LinkState {
 
 export type LinkProps = Partial<LinkStyleProps>;
 
+/**
+ * Props that components can implements for Link
+ */
 export interface LinkStyleProps {
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
@@ -45,15 +48,23 @@ export interface LinkStyleProps {
   /**
    * icon placement
    */
-  variantIcon: LinkIcon;
+  icon: LinkIcon;
   /**
-   * Normal or reversed style
+   * Visual importance
    */
-  variantLevel: Variant;
-  variant: LinkVariant;
-  variantSize: PARAGRAPH_SIZE; // same as paragraph sizes
-  variantStyle: TEXT_STYLE; // same as paragraph style
-  state: LinkState;
+  kind: Variant;
+  /**
+   * Controls the font size and overall sizing (follows paragraph sizes)
+   */
+  size: PARAGRAPH_SIZE; // same as paragraph sizes
+  /**
+   * Variant for link rendering
+   */
+  linkStyle: LinkVariant;
+  /**
+   * Applies common text styles
+   */
+  textStyle: TEXT_STYLE;
 }
 
 export type LinkStyle<Override extends undefined | string = undefined> = {

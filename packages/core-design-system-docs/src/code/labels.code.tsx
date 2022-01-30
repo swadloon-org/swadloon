@@ -16,7 +16,7 @@ export const Labels: React.FC<Props> = (props) => {
       {keys(TEXT_STYLE)
         .filter((style) => cssTheme.typography.labels.styles[style])
         .map((variant, index) => (
-          <Label key={index} variantStyle={TEXT_STYLE[variant]}></Label>
+          <Label key={index} textStyle={TEXT_STYLE[variant]}></Label>
         ))}
     </Stack>
   );

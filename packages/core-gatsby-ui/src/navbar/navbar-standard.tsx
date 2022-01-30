@@ -183,7 +183,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStanda
         {/* Language link */}
         {alternativeLanguage?.lang && onChangeLang ? (
           <Link
-            variantSize={PARAGRAPH_SIZE.small}
+            size={PARAGRAPH_SIZE.small}
             className={styles.langDesktop}
             onClick={(event: React.MouseEvent) =>
               onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)

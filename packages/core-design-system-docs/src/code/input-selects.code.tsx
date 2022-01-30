@@ -49,15 +49,15 @@ export const InputSelects: React.FC<Props> = (props) => {
             gridTemplateRows: `repeat(4, 1fr)`,
           }}
         >
-          <InputSelect variantSize={InputSize.large}>
+          <InputSelect size={InputSize.large}>
             <option value={'value'}>Large</option>
           </InputSelect>
 
-          <InputSelect variantSize={InputSize.medium}>
+          <InputSelect size={InputSize.medium}>
             <option value={'value'}>Medium</option>
           </InputSelect>
 
-          <InputSelect variantSize={InputSize.small}>
+          <InputSelect size={InputSize.small}>
             <option value={'value'}>Small</option>
           </InputSelect>
         </div>

@@ -44,7 +44,7 @@ export const backdrop = style({
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: layoutCSS.zIndex.sideBarMobile - 1,
+  zIndex: Number(layoutCSS.zIndex.sideBarMobile) - 1,
 
   opacity: `0`, // inital animation state
   pointerEvents: 'none',

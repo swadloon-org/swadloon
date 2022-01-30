@@ -13,14 +13,14 @@ export type CSSButtonsVarNames = Buttons<string>;
 export type CSSButtonsVars = Buttons<string>;
 
 export type CSSButtons = Buttons<string> & {
-  /**
-   * CSS variable name for each color.
-   * @example `--button-primary-text`
-   */
-  varNames: CSSButtonsVarNames;
-  /**
-   * CSS statement to access CSS variables
-   * @example `var(--color-primary-500)`
-   */
-  var: CSSButtonsVars;
+  // /**
+  //  * CSS variable name for each color.
+  //  * @example `--button-primary-text`
+  //  */
+  // varNames: CSSButtonsVarNames;
+  // /**
+  //  * CSS statement to access CSS variables
+  //  * @example `var(--color-primary-500)`
+  //  */
+  // var: CSSButtonsVars;
 };

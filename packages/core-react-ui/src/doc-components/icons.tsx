@@ -177,7 +177,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
             <Stack key={group.name} gap={[sizeVars.x3]}>
               <Label
                 variant={LABEL_SIZE.small}
-                variantStyle={TEXT_STYLE.boldUppercase}
+                textStyle={TEXT_STYLE.boldUppercase}
                 variantLevel={Variant.secondary}
               >
                 {group.name}
@@ -199,7 +199,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
                 target={'_blank'}
                 href={iconContext?.iconFamilyWebsite}
                 Icon={<IconComp name={ICON.OPEN} />}
-                variantIcon={LinkIcon.right}
+                icon={LinkIcon.right}
               >
                 {`${iconContext?.iconFamilyName} `} / {iconContext?.iconFamilyStyle || ''}
               </Link>
@@ -225,7 +225,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.xSmall}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.right}
               >
                 Continue Reading
@@ -234,7 +234,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.xSmall}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
@@ -243,7 +243,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.tertiary}
                 size={ButtonSize.xSmall}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
@@ -254,7 +254,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.medium}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.right}
               >
                 Continue Reading
@@ -263,7 +263,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.medium}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
@@ -272,7 +272,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.tertiary}
                 size={ButtonSize.medium}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
@@ -283,7 +283,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.large}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.right}
               >
                 Continue Reading
@@ -292,7 +292,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.primary}
                 size={ButtonSize.large}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
@@ -301,7 +301,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Button
                 variant={Variant.tertiary}
                 size={ButtonSize.large}
-                Icon={<IconComp name={selectedIcon} />}
+                IconSVG={<IconComp name={selectedIcon} />}
                 icon={ButtonIcon.icon}
               >
                 Continue Reading
