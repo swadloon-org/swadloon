@@ -1,35 +1,28 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.5.0...@newrade/core-design-system-docs@2.6.0) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
 - **core-ui:** bug fixes
   ([c624ba0](https://github.com/newrade/newrade-core/commit/c624ba0d1103c546a18fcbeb12c8f0923039a4b9))
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
 - **core-ui:** refactor all table components
   ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.4.0...@newrade/core-design-system-docs@2.5.0) (2021-12-21)
 
@@ -46,14 +39,8 @@ All notable changes to this project will be documented in this file. See
 
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.3.0...@newrade/core-design-system-docs@2.4.0) (2021-11-18)
 
@@ -93,11 +80,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements to docs layout
   ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.2.1...@newrade/core-design-system-docs@2.3.0) (2021-10-05)
 
 ### Bug Fixes
@@ -114,22 +96,12 @@ All notable changes to this project will be documented in this file. See
 - **core:** adding updated navigation api hooks and utilities
   ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.2.0...@newrade/core-design-system-docs@2.2.1) (2021-09-09)
 
 ### Bug Fixes
 
 - **core:** fix code block issue in mdx + update sidebar documentation
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.1.0...@newrade/core-design-system-docs@2.2.0) (2021-08-31)
 
@@ -173,11 +145,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** refactor navigation components
   ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@2.0.0...@newrade/core-design-system-docs@2.1.0) (2021-07-15)
 
 ### Bug Fixes
@@ -192,11 +159,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add useLocalStorage hook
   ([47901a3](https://github.com/newrade/newrade-core/commit/47901a3709f012bbf0e39de581b6858de158256e))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.7.0...@newrade/core-design-system-docs@2.0.0) (2021-07-12)
 
 ### Features
@@ -210,11 +172,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.7.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.6.1...@newrade/core-design-system-docs@1.7.0) (2021-07-05)
 
 ### Features
@@ -222,19 +179,9 @@ All notable changes to this project will be documented in this file. See
 - **core-design-system-docs:** improve icons presentation
   ([594a5c6](https://github.com/newrade/newrade-core/commit/594a5c69e77e81196967c62089f2e2937b46ce3c))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.1](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.6.0...@newrade/core-design-system-docs@1.6.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/core-design-system-docs
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.5.1...@newrade/core-design-system-docs@1.6.0) (2021-07-03)
 
@@ -309,14 +256,11 @@ All notable changes to this project will be documented in this file. See
   ([c51956f](https://github.com/newrade/newrade-core/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **contentful-lib:** refactor website api and corresponding contentful scripts
   ([3d01ca3](https://github.com/newrade/newrade-core/commit/3d01ca326a8bb9a74522709a617406d240686d41))
-- **contentful-lib-update:** fix and update of the contentful lib for the export
-  of newrade
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade
   ([c970a83](https://github.com/newrade/newrade-core/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
-- **core-design-system-docs:** adding all the fondations parts and some
-  utilities
+- **core-design-system-docs:** adding all the fondations parts and some utilities
   ([f081ed9](https://github.com/newrade/newrade-core/commit/f081ed958b581ea86a58df2522e7e93dce2288df))
-- **core-design-system-docs:** adding markdown files for design system docs and
-  .code files
+- **core-design-system-docs:** adding markdown files for design system docs and .code files
   ([f776ec2](https://github.com/newrade/newrade-core/commit/f776ec285088977f141ef4b22045ff451ca2eeb3))
 - **core-design-system-docs:** fix nav sorting
   ([e7ff749](https://github.com/newrade/newrade-core/commit/e7ff74975ec72d5e9685c09fd93c64ac8ecab582))
@@ -328,8 +272,7 @@ All notable changes to this project will be documented in this file. See
   ([48e8a67](https://github.com/newrade/newrade-core/commit/48e8a675ebef58b2d0521cdf1707df6540a09434))
 - **core-gatsby-ui:** trying to use loadable component, wip
   ([2b1b310](https://github.com/newrade/newrade-core/commit/2b1b3104fda4381121ec0d5bd1d6c6692d776d3a))
-- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
-  the docs
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document the docs
   ([08893ba](https://github.com/newrade/newrade-core/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
 - **core-gatsby-uii:** footer standard
   ([b2bb84d](https://github.com/newrade/newrade-core/commit/b2bb84dbcb1880756fc48dd0e2e5716e8f8528a9))
@@ -355,8 +298,7 @@ All notable changes to this project will be documented in this file. See
   ([af90823](https://github.com/newrade/newrade-core/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
 - **core-react-ui:** adding animation
   ([ce5e946](https://github.com/newrade/newrade-core/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade-core/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **core-react-ui:** adding gesture animation
   ([1bf1b97](https://github.com/newrade/newrade-core/commit/1bf1b97e8502a4dc098aa48eae82650bee273753))
@@ -368,14 +310,11 @@ All notable changes to this project will be documented in this file. See
   ([0c99c77](https://github.com/newrade/newrade-core/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade-core/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/commit/ab033fb0c2bb83837499706b8337309b133c8703))
-- **core-react-ui & cdpq-design-website:** adding descriptions docs md and
-  adding fonts in cdpq
+- **core-react-ui & cdpq-design-website:** adding descriptions docs md and adding fonts in cdpq
   ([22f5b53](https://github.com/newrade/newrade-core/commit/22f5b532159a75c5e1f68ce9e15c0f65dbe7b194))
-- **core-react-ui core-design-system:** adding animations, add descriptions to
-  md docs
+- **core-react-ui core-design-system:** adding animations, add descriptions to md docs
   ([0e38a5d](https://github.com/newrade/newrade-core/commit/0e38a5d912f7d5106f9bbabba4f63bbfabab7ebf))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade-core/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
@@ -404,11 +343,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade-core/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.4.0...@newrade/core-design-system-docs@1.5.0) (2021-06-16)
 
 ### Bug Fixes
@@ -432,12 +366,10 @@ All notable changes to this project will be documented in this file. See
   ([a6b661c](https://github.com/newrade/newrade/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
 - **cdpq-design-system:** add colors intents
   ([090ddd4](https://github.com/newrade/newrade/commit/090ddd467c784e8ef70b1b3de7bfd8b84fec5ef9))
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **contentful-lib:** refactor website api and corresponding contentful scripts
   ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
-- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
-  the docs
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document the docs
   ([08893ba](https://github.com/newrade/newrade/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
 - **core-react-ui:** add inputs
   ([664c735](https://github.com/newrade/newrade/commit/664c735137436dd335f82e969681e5d167d67b1a))
@@ -449,11 +381,9 @@ All notable changes to this project will be documented in this file. See
   ([ae319b3](https://github.com/newrade/newrade/commit/ae319b3bd70f5ab3122642d22c058bad4e3edce5))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))
-- **core-react-ui & cdpq-design-website:** adding descriptions docs md and
-  adding fonts in cdpq
+- **core-react-ui & cdpq-design-website:** adding descriptions docs md and adding fonts in cdpq
   ([22f5b53](https://github.com/newrade/newrade/commit/22f5b532159a75c5e1f68ce9e15c0f65dbe7b194))
 - **core-website-api:** split api from core-gatsby-ui
   ([e697e80](https://github.com/newrade/newrade/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
@@ -461,11 +391,6 @@ All notable changes to this project will be documented in this file. See
   ([95d6fb5](https://github.com/newrade/newrade/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.3.0...@newrade/core-design-system-docs@1.4.0) (2021-05-25)
 
@@ -480,19 +405,12 @@ All notable changes to this project will be documented in this file. See
   ([af90823](https://github.com/newrade/newrade/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
 - **core-react-ui:** adding animation
   ([ce5e946](https://github.com/newrade/newrade/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
-- **core-react-ui core-design-system:** adding animations, add descriptions to
-  md docs
+- **core-react-ui core-design-system:** adding animations, add descriptions to md docs
   ([0e38a5d](https://github.com/newrade/newrade/commit/0e38a5d912f7d5106f9bbabba4f63bbfabab7ebf))
 - **react-core-ui:** update animations
   ([909caa3](https://github.com/newrade/newrade/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.2.1...@newrade/core-design-system-docs@1.3.0) (2021-05-21)
 
@@ -533,19 +451,13 @@ All notable changes to this project will be documented in this file. See
   ([0c99c77](https://github.com/newrade/newrade/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
-- **docs:** update docs
-  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
 - **docs:** update docs layout
   ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 - **mdx:** add and modify styles/spacing of table, list item, pre
   ([671edfb](https://github.com/newrade/newrade/commit/671edfbd5a0e31163d1b25c2d0d52013a849c903))
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.2.0...@newrade/core-design-system-docs@1.2.1) (2021-03-11)
 
@@ -590,14 +502,11 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **contentful-lib-update:** fix and update of the contentful lib for the export
-  of newrade
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade
   ([c970a83](https://github.com/newrade/newrade/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
-- **core-design-system-docs:** adding all the fondations parts and some
-  utilities
+- **core-design-system-docs:** adding all the fondations parts and some utilities
   ([f081ed9](https://github.com/newrade/newrade/commit/f081ed958b581ea86a58df2522e7e93dce2288df))
-- **core-design-system-docs:** adding markdown files for design system docs and
-  .code files
+- **core-design-system-docs:** adding markdown files for design system docs and .code files
   ([f776ec2](https://github.com/newrade/newrade/commit/f776ec285088977f141ef4b22045ff451ca2eeb3))
 - **design-system-docs:** adding animations deleteting deprecated .code
   ([69b8af1](https://github.com/newrade/newrade/commit/69b8af1b3fd053b942e0d07de3c4fdc0ef234395))

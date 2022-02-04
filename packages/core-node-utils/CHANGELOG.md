@@ -1,41 +1,29 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.4.1](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.4.0...@newrade/core-node-utils@2.4.1) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.3.1...@newrade/core-node-utils@2.4.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fixe dependencies
   ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.3.0...@newrade/core-node-utils@2.3.1) (2021-11-18)
 
@@ -43,11 +31,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-node-utils:** reorg files
   ([4108a26](https://github.com/newrade/newrade-core/commit/4108a263592b97b7750b24886bf680bf33280aea))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.2.0...@newrade/core-node-utils@2.3.0) (2021-10-05)
 
@@ -67,11 +50,6 @@ All notable changes to this project will be documented in this file. See
 - **core:** adding updated navigation api hooks and utilities
   ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.1.0...@newrade/core-node-utils@2.2.0) (2021-09-09)
 
 ### Bug Fixes
@@ -83,11 +61,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-figma-extractor:** rework utility functions
   ([6e96569](https://github.com/newrade/newrade-core/commit/6e9656917e1879152b72b87daaac484838595bf9))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-node-utils@2.0.0...@newrade/core-node-utils@2.1.0) (2021-08-31)
 
@@ -103,8 +76,7 @@ All notable changes to this project will be documented in this file. See
   ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
 - **core:** fix typecheck command
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-react-ui:** fix bad import
   ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
@@ -113,11 +85,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-cli:** add new command to copy github labels
   ([031f3c8](https://github.com/newrade/newrade-core/commit/031f3c80132fc9e85ef51db82e40f33b37b6d7ef))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.8.0...@newrade/core-node-utils@2.0.0) (2021-07-12)
 
@@ -219,11 +186,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.8.0](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.8.0...@newrade/core-node-utils@1.8.0) (2021-07-03)
 
 ### Bug Fixes
@@ -318,22 +280,12 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** add theme
   ([a93920b](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.7.1](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.7.0...@newrade/core-node-utils@1.7.1) (2021-06-16)
 
 ### Bug Fixes
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.6.4...@newrade/core-node-utils@1.7.0) (2021-05-25)
 
@@ -351,11 +303,6 @@ All notable changes to this project will be documented in this file. See
 - **core-github-action:** refactor set-app-env
   ([c31ca6c](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.4](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.6.3...@newrade/core-node-utils@1.6.4) (2021-05-21)
 
 ### Bug Fixes
@@ -366,11 +313,6 @@ All notable changes to this project will be documented in this file. See
   ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
 - **repo:** fix github actions config
   ([c092f86](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/commit/c092f8608ba83fca776ded373868770aa1123765))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.3](https://github.com/newrade/newrade-core/tree/master/packages/core-node-utils/compare/@newrade/core-node-utils@1.6.2...@newrade/core-node-utils@1.6.3) (2021-03-09)
 
@@ -582,43 +524,35 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-docs:** fix instructions for lerna
-  ([fc6f620](https://github.com/noveo-io/infra-starter/commit/fc6f620))
+- **core-docs:** fix instructions for lerna ([fc6f620](https://github.com/noveo-io/infra-starter/commit/fc6f620))
 - **core-infra-aws:** working on docs + infra with pulumi
   ([fbcb82e](https://github.com/noveo-io/infra-starter/commit/fbcb82e))
 - **core-node-auth:** add webpack config for node server
   ([a241266](https://github.com/noveo-io/infra-starter/commit/a241266))
 - **repo:** fixed bin generation (need to do it during preinstall)
   ([2767d35](https://github.com/noveo-io/infra-starter/commit/2767d35))
-- **repo:** init repository
-  ([8236120](https://github.com/noveo-io/infra-starter/commit/8236120))
-- **root:** ignore package-lock.json
-  ([a7d8331](https://github.com/noveo-io/infra-starter/commit/a7d8331))
+- **repo:** init repository ([8236120](https://github.com/noveo-io/infra-starter/commit/8236120))
+- **root:** ignore package-lock.json ([a7d8331](https://github.com/noveo-io/infra-starter/commit/a7d8331))
 
 ### Features
 
-- **core-cli:** test changelog generation
-  ([be9bcb3](https://github.com/noveo-io/infra-starter/commit/be9bcb3))
-- **core-infra-aws:** work on the pulumi setup
-  ([d99ba72](https://github.com/noveo-io/infra-starter/commit/d99ba72))
+- **core-cli:** test changelog generation ([be9bcb3](https://github.com/noveo-io/infra-starter/commit/be9bcb3))
+- **core-infra-aws:** work on the pulumi setup ([d99ba72](https://github.com/noveo-io/infra-starter/commit/d99ba72))
 
 ## [1.1.2](https://github.com/noveo-io/infra-starter/compare/@infra-starter/core-node-utils@1.1.1...@infra-starter/core-node-utils@1.1.2) (2019-08-23)
 
 ### Bug Fixes
 
-- **root:** ignore package-lock.json
-  ([a7d8331](https://github.com/noveo-io/infra-starter/commit/a7d8331))
+- **root:** ignore package-lock.json ([a7d8331](https://github.com/noveo-io/infra-starter/commit/a7d8331))
 
 ## [1.1.1](https://github.com/noveo-io/infra-starter/compare/@infra-starter/core-node-utils@1.1.0...@infra-starter/core-node-utils@1.1.1) (2019-08-22)
 
 ### Bug Fixes
 
-- **core-docs:** fix instructions for lerna
-  ([fc6f620](https://github.com/noveo-io/infra-starter/commit/fc6f620))
+- **core-docs:** fix instructions for lerna ([fc6f620](https://github.com/noveo-io/infra-starter/commit/fc6f620))
 
 # [1.1.0](https://github.com/noveo-io/infra-starter/compare/@infra-starter/core-node-utils@1.0.1...@infra-starter/core-node-utils@1.1.0) (2019-08-22)
 
 ### Features
 
-- **core-cli:** test changelog generation
-  ([be9bcb3](https://github.com/noveo-io/infra-starter/commit/be9bcb3))
+- **core-cli:** test changelog generation ([be9bcb3](https://github.com/noveo-io/infra-starter/commit/be9bcb3))

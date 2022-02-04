@@ -12,6 +12,7 @@ are automated.
 - rename `variantSize` in favor of `size` for all components
 - remove unneccessary `HTMLAttributes` type in props (already included in
   Primitive typings)
+- rename props for the `<Button/>` component
 
 ## Features
 

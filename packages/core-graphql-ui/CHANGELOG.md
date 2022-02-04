@@ -1,20 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.7](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.6...@newrade/core-graphql-ui@2.0.7) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.6](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.5...@newrade/core-graphql-ui@2.0.6) (2021-12-21)
 
@@ -22,11 +17,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fixe dependencies
   ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.5](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.4...@newrade/core-graphql-ui@2.0.5) (2021-11-18)
 
@@ -37,11 +27,6 @@ All notable changes to this project will be documented in this file. See
 - **core-gatsby-ui:** upgrade gastby and other deps
   ([e9742da](https://github.com/newrade/newrade-core/commit/e9742da54bc667c351cc3ba1bcb835efc173c339))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.3...@newrade/core-graphql-ui@2.0.4) (2021-10-05)
 
 ### Bug Fixes
@@ -49,19 +34,9 @@ All notable changes to this project will be documented in this file. See
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.2...@newrade/core-graphql-ui@2.0.3) (2021-09-09)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.2](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.1...@newrade/core-graphql-ui@2.0.2) (2021-08-31)
 
@@ -88,19 +63,9 @@ All notable changes to this project will be documented in this file. See
 - **root:** fixes for webpack and gatsby config
   ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.0...@newrade/core-graphql-ui@2.0.1) (2021-07-15)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.9.2...@newrade/core-graphql-ui@2.0.0) (2021-07-12)
 
@@ -113,28 +78,13 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.9.2](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.9.1...@newrade/core-graphql-ui@1.9.2) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.9.1](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.9.0...@newrade/core-graphql-ui@1.9.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.9.0](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.8.1...@newrade/core-graphql-ui@1.9.0) (2021-07-03)
 
@@ -158,11 +108,6 @@ All notable changes to this project will be documented in this file. See
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade-core/commit/d39e01045115db925a6a63001471de80e540702b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.7.1...@newrade/core-graphql-ui@1.8.0) (2021-06-16)
 
 ### Bug Fixes
@@ -172,27 +117,15 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.7.1](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.7.0...@newrade/core-graphql-ui@1.7.1) (2021-05-25)
 
 ### Bug Fixes
 
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 
 # 1.7.0 (2021-05-21)
 
@@ -205,11 +138,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-graphql-ui:** init package
   ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.2](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.6.1...@newrade/core-graphql-ui@1.6.2) (2021-03-11)
 
@@ -288,8 +216,7 @@ All notable changes to this project will be documented in this file. See
   ([9e6ffaa](https://github.com/newrade/newrade/commit/9e6ffaa854dabb24560f18d673f61e9542ddebe2))
 - **core-gatsby-starter:** refactor templates + setup pages and markdown
   ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
-- **core-react-ui:** wip
-  ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 - **repo:** add .env type checking to all packages
   ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
 
@@ -301,8 +228,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **repo:** fix typings
-  ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
+- **repo:** fix typings ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
 
 # 1.5.0 (2020-11-02)
 
@@ -314,16 +240,14 @@ All notable changes to this project will be documented in this file. See
   ([ab6b04b](https://github.com/newrade/newrade/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
 - **mir-website:** working on page & sections
   ([0fd275b](https://github.com/newrade/newrade/commit/0fd275b57d56cdc4bd583620d60a59ac0bce7b0d))
-- **repo:** fix scripts
-  ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
+- **repo:** fix scripts ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
 - **repo:** fix webpack config files
   ([b6d794a](https://github.com/newrade/newrade/commit/b6d794a6e2db73b7033f109e179e91147c87f881))
 - **repo:** fixes for refactor and react-ui-app
   ([91abbbd](https://github.com/newrade/newrade/commit/91abbbd1ee9fd658b3e02c016313292e88f19af0))
 - **repo:** fixes for tsconfigs
   ([3472b8e](https://github.com/newrade/newrade/commit/3472b8edfa5a83b1664dcabbfce30acb72d8daa9))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **typescript:** remove typeRoots which is almost a deprecated feature
   ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
 

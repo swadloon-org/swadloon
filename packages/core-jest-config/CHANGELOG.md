@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.3...@newrade/core-jest-config@2.0.4) (2022-01-03)
 
@@ -10,19 +11,9 @@ All notable changes to this project will be documented in this file. See
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.2...@newrade/core-jest-config@2.0.3) (2021-12-21)
 
 **Note:** Version bump only for package @newrade/core-jest-config
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.2](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.1...@newrade/core-jest-config@2.0.2) (2021-10-05)
 
@@ -30,11 +21,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.0...@newrade/core-jest-config@2.0.1) (2021-08-31)
 
@@ -50,8 +36,7 @@ All notable changes to this project will be documented in this file. See
   ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
 - **core:** fix for imports
   ([5cc63ef](https://github.com/newrade/newrade-core/commit/5cc63ef99078f5cf01835c9d2116f15300f5fb63))
-- **core:** fix issue with jest v27 setTimeout see
-  https://github.com/facebook/jest/issues/11607
+- **core:** fix issue with jest v27 setTimeout see https://github.com/facebook/jest/issues/11607
   ([52793a2](https://github.com/newrade/newrade-core/commit/52793a2176c623979b935df83f3693176033052d))
 - **core:** fix ls-lint config
   ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
@@ -59,14 +44,8 @@ All notable changes to this project will be documented in this file. See
   ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
 - **core:** fix typecheck command
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.7.0...@newrade/core-jest-config@2.0.0) (2021-07-12)
 
@@ -133,8 +112,7 @@ All notable changes to this project will be documented in this file. See
   ([106720e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/106720e4214f6491beac76c23977f5d52c1cd058))
 - **core-cli:** bump ts version
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** reorg and removing any css props from design-system
   ([b353e4f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b353e4f47107dc3b1e4ff363b600033655acd044))
@@ -154,11 +132,6 @@ All notable changes to this project will be documented in this file. See
 ### BREAKING CHANGES
 
 - **gatsby:** webpack v5 and gatsby v3
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.7.0...@newrade/core-jest-config@1.7.0) (2021-07-03)
 
@@ -225,8 +198,7 @@ All notable changes to this project will be documented in this file. See
   ([106720e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/106720e4214f6491beac76c23977f5d52c1cd058))
 - **core-cli:** bump ts version
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** reorg and removing any css props from design-system
   ([b353e4f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b353e4f47107dc3b1e4ff363b600033655acd044))
@@ -241,11 +213,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-api:** v1 of the /patients api
   ([a2ee1e2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.6.1...@newrade/core-jest-config@1.6.2) (2021-06-16)
 
 ### Bug Fixes
@@ -255,19 +222,9 @@ All notable changes to this project will be documented in this file. See
 - **jest:** upgrade jest and fix test for vanilla-extract
   ([f1fc133](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f1fc1336cf5b322598dc06685352041661c18091))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.6.0...@newrade/core-jest-config@1.6.1) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-jest-config
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.7...@newrade/core-jest-config@1.6.0) (2021-05-21)
 
@@ -282,11 +239,6 @@ All notable changes to this project will be documented in this file. See
   ([afb8e78](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
 - **vsb-api:** v1 of the /patients api
   ([a2ee1e2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.5.7](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.6...@newrade/core-jest-config@1.5.7) (2021-03-09)
 
@@ -400,8 +352,7 @@ All notable changes to this project will be documented in this file. See
   ([106720e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/106720e4214f6491beac76c23977f5d52c1cd058))
 - **core-cli:** bump ts version
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** reorg and removing any css props from design-system
   ([b353e4f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b353e4f47107dc3b1e4ff363b600033655acd044))
@@ -431,8 +382,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 
 ## [1.2.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-jest-config@1.2.0...core-jest-config@1.2.1) (2020-09-02)

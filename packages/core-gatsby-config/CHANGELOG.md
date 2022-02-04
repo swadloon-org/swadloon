@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.2.0...@newrade/core-gatsb-config@3.3.0) (2022-01-03)
 
@@ -9,11 +10,9 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
-  drunk)
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is drunk)
   ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
 - **core-webpack-config:** update some config for development setup
   ([e715c66](https://github.com/newrade/newrade-core/commit/e715c66dda1669ee8a01f7548b73ce150b953a9f))
@@ -22,21 +21,14 @@ All notable changes to this project will be documented in this file. See
 
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.1.1...@newrade/core-gatsb-config@3.2.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fix some small formatting, remove issue templates from core
   ([276b6a5](https://github.com/newrade/newrade-core/commit/276b6a537178bab38c2a018386d0012fc7e6cbff))
@@ -57,16 +49,10 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-gatsby-config:** add size-plugin for production build
   ([2d38bc0](https://github.com/newrade/newrade-core/commit/2d38bc0be41781dc916747151ac00e44e476fc56))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.1.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.1.0...@newrade/core-gatsb-config@3.1.1) (2021-11-18)
 
@@ -76,11 +62,6 @@ All notable changes to this project will be documented in this file. See
   ([17aec4e](https://github.com/newrade/newrade-core/commit/17aec4e5e2ecdebf80e362e952cd8e02e78bcae1))
 - **core-gatsby-ui:** upgrade gastby and other deps
   ([e9742da](https://github.com/newrade/newrade-core/commit/e9742da54bc667c351cc3ba1bcb835efc173c339))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.0.1...@newrade/core-gatsb-config@3.1.0) (2021-10-05)
 
@@ -117,14 +98,8 @@ All notable changes to this project will be documented in this file. See
   ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
 - **core-gatsby-config:** create plugin for cache in ts files
   ([3f45fb0](https://github.com/newrade/newrade-core/commit/3f45fb04d5dc7c27d77332e63a286fcb650ed2d4))
-- **core-gatsby-ui:** working on improvements to navigation api hooks and
-  utilities
+- **core-gatsby-ui:** working on improvements to navigation api hooks and utilities
   ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@3.0.0...@newrade/core-gatsb-config@3.0.1) (2021-09-09)
 
@@ -132,11 +107,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix code block issue in mdx + update sidebar documentation
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 3.0.0 (2021-08-31)
 
@@ -180,8 +150,7 @@ All notable changes to this project will be documented in this file. See
   ([a6985ed](https://github.com/newrade/newrade-core/commit/a6985ed2e5d630c8dff85ac8625a4ef5b318a602))
 - **core:** refactor core gatsby plugin
   ([1c71ce6](https://github.com/newrade/newrade-core/commit/1c71ce6f58922656b029a8e8ae0244320f0ab492))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
@@ -317,8 +286,7 @@ All notable changes to this project will be documented in this file. See
   ([e201a90](https://github.com/newrade/newrade-core/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
 - **newrade-website:** clean up
   ([9534e61](https://github.com/newrade/newrade-core/commit/9534e61b01545371bde739d05c4519ead5fbd143))
-- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't
-  support puppeteer
+- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't support puppeteer
   ([e5c42a8](https://github.com/newrade/newrade-core/commit/e5c42a84901b71a400f58ad72c173f6c68bf3773))
 - **newrade-website:** docs update
   ([08db9ce](https://github.com/newrade/newrade-core/commit/08db9ce60c3779684db9260c435792e532bd6729))
@@ -358,8 +326,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **root:** fixes for webpack and gatsby config
   ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
 - **sites:** fixes and all assets
@@ -372,8 +339,7 @@ All notable changes to this project will be documented in this file. See
   ([08bc333](https://github.com/newrade/newrade-core/commit/08bc333bc7044153c50f5cbdb077f2861a74d981))
 - **vsb-api:** fixes
   ([5a987dd](https://github.com/newrade/newrade-core/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade-core/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 - **vsb-website:** fix build issues
   ([11fd560](https://github.com/newrade/newrade-core/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
@@ -391,8 +357,7 @@ All notable changes to this project will be documented in this file. See
   ([884e643](https://github.com/newrade/newrade-core/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
 - **websites:** fixes for stability
   ([f398587](https://github.com/newrade/newrade-core/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
-- **wip:** wip
-  ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
+- **wip:** wip ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
 - **wip-react-ui:** wip
   ([d8dc726](https://github.com/newrade/newrade-core/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
 
@@ -426,8 +391,7 @@ All notable changes to this project will be documented in this file. See
   ([7d49add](https://github.com/newrade/newrade-core/commit/7d49adde7eb14b678c123933abdc12e7a76691e2))
 - **core-gatsby-config:** init package
   ([0bd1e36](https://github.com/newrade/newrade-core/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade-core/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-starter:** minimal markdown setup with RichText
   ([57fbac8](https://github.com/newrade/newrade-core/commit/57fbac8b2838945fdd5a9abca09348a0605df1ba))
@@ -498,11 +462,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@2.0.0...@newrade/core-gatsb-config@2.1.0) (2021-07-15)
 
 ### Bug Fixes
@@ -516,11 +475,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-react-ui:** add new navbar components
   ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@1.14.0...@newrade/core-gatsb-config@2.0.0) (2021-07-12)
 
@@ -660,8 +614,7 @@ All notable changes to this project will be documented in this file. See
   ([e201a90](https://github.com/newrade/newrade-core/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
 - **newrade-website:** clean up
   ([9534e61](https://github.com/newrade/newrade-core/commit/9534e61b01545371bde739d05c4519ead5fbd143))
-- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't
-  support puppeteer
+- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't support puppeteer
   ([e5c42a8](https://github.com/newrade/newrade-core/commit/e5c42a84901b71a400f58ad72c173f6c68bf3773))
 - **newrade-website:** docs update
   ([08db9ce](https://github.com/newrade/newrade-core/commit/08db9ce60c3779684db9260c435792e532bd6729))
@@ -701,8 +654,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **sites:** fixes and all assets
   ([c859573](https://github.com/newrade/newrade-core/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
 - **ts:** fix last non strict packages
@@ -713,8 +665,7 @@ All notable changes to this project will be documented in this file. See
   ([08bc333](https://github.com/newrade/newrade-core/commit/08bc333bc7044153c50f5cbdb077f2861a74d981))
 - **vsb-api:** fixes
   ([5a987dd](https://github.com/newrade/newrade-core/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade-core/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 - **vsb-website:** fix build issues
   ([11fd560](https://github.com/newrade/newrade-core/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
@@ -732,8 +683,7 @@ All notable changes to this project will be documented in this file. See
   ([884e643](https://github.com/newrade/newrade-core/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
 - **websites:** fixes for stability
   ([f398587](https://github.com/newrade/newrade-core/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
-- **wip:** wip
-  ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
+- **wip:** wip ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
 - **wip-react-ui:** wip
   ([d8dc726](https://github.com/newrade/newrade-core/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
 
@@ -759,8 +709,7 @@ All notable changes to this project will be documented in this file. See
   ([11d069b](https://github.com/newrade/newrade-core/commit/11d069b7ce0040cade3a0b5714ba4e2cf720afc1))
 - **core-gatsby-config:** add shared config
   ([7d49add](https://github.com/newrade/newrade-core/commit/7d49adde7eb14b678c123933abdc12e7a76691e2))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade-core/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-starter:** minimal markdown setup with RichText
   ([57fbac8](https://github.com/newrade/newrade-core/commit/57fbac8b2838945fdd5a9abca09348a0605df1ba))
@@ -828,11 +777,6 @@ All notable changes to this project will be documented in this file. See
 ### BREAKING CHANGES
 
 - **gatsby:** webpack v5 and gatsby v3
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@1.14.0...@newrade/core-gatsb-config@1.14.0) (2021-07-03)
 
@@ -970,8 +914,7 @@ All notable changes to this project will be documented in this file. See
   ([e201a90](https://github.com/newrade/newrade-core/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
 - **newrade-website:** clean up
   ([9534e61](https://github.com/newrade/newrade-core/commit/9534e61b01545371bde739d05c4519ead5fbd143))
-- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't
-  support puppeteer
+- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't support puppeteer
   ([e5c42a8](https://github.com/newrade/newrade-core/commit/e5c42a84901b71a400f58ad72c173f6c68bf3773))
 - **newrade-website:** docs update
   ([08db9ce](https://github.com/newrade/newrade-core/commit/08db9ce60c3779684db9260c435792e532bd6729))
@@ -1011,8 +954,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **sites:** fixes and all assets
   ([c859573](https://github.com/newrade/newrade-core/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
 - **ts:** fix last non strict packages
@@ -1023,8 +965,7 @@ All notable changes to this project will be documented in this file. See
   ([08bc333](https://github.com/newrade/newrade-core/commit/08bc333bc7044153c50f5cbdb077f2861a74d981))
 - **vsb-api:** fixes
   ([5a987dd](https://github.com/newrade/newrade-core/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade-core/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 - **vsb-website:** fix build issues
   ([11fd560](https://github.com/newrade/newrade-core/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
@@ -1042,8 +983,7 @@ All notable changes to this project will be documented in this file. See
   ([884e643](https://github.com/newrade/newrade-core/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
 - **websites:** fixes for stability
   ([f398587](https://github.com/newrade/newrade-core/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
-- **wip:** wip
-  ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
+- **wip:** wip ([3319697](https://github.com/newrade/newrade-core/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
 - **wip-react-ui:** wip
   ([d8dc726](https://github.com/newrade/newrade-core/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
 
@@ -1069,8 +1009,7 @@ All notable changes to this project will be documented in this file. See
   ([11d069b](https://github.com/newrade/newrade-core/commit/11d069b7ce0040cade3a0b5714ba4e2cf720afc1))
 - **core-gatsby-config:** add shared config
   ([7d49add](https://github.com/newrade/newrade-core/commit/7d49adde7eb14b678c123933abdc12e7a76691e2))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade-core/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-starter:** minimal markdown setup with RichText
   ([57fbac8](https://github.com/newrade/newrade-core/commit/57fbac8b2838945fdd5a9abca09348a0605df1ba))
@@ -1133,11 +1072,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** wip on the theme config
   ([6362338](https://github.com/newrade/newrade-core/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.12.0...@newrade/core-gatsb-config@1.13.0) (2021-06-16)
 
 ### Bug Fixes
@@ -1154,29 +1088,18 @@ All notable changes to this project will be documented in this file. See
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.11.0...@newrade/core-gatsb-config@1.12.0) (2021-05-25)
 
 ### Bug Fixes
 
 - **github-actions:** add utility to build url
   ([7ee6c90](https://github.com/newrade/newrade/commit/7ee6c90342c730088561dd6ba050b47790937c6d))
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 
 ### Features
 
 - **core-github-action:** refactor set-app-env
   ([c31ca6c](https://github.com/newrade/newrade/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.10.1...@newrade/core-gatsb-config@1.11.0) (2021-05-21)
 
@@ -1203,15 +1126,9 @@ All notable changes to this project will be documented in this file. See
   ([72c0330](https://github.com/newrade/newrade/commit/72c0330e06f18a6a55034ee124ce692e8dcdaefd))
 - **core-graphql-ui:** init package
   ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
-- **docs:** update docs
-  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
 - **newrade-website:** enable mermaid
   ([b9fcc5b](https://github.com/newrade/newrade/commit/b9fcc5b414a0d9a5add06c75365c66ebe469ff11))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.10.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.10.0...@newrade/core-gatsb-config@1.10.1) (2021-03-11)
 
@@ -1242,8 +1159,7 @@ All notable changes to this project will be documented in this file. See
   ([c28d6f3](https://github.com/newrade/newrade/commit/c28d6f3e688af0e4ad42abe1a8bc5630b663dbda))
 - **newrade-website:** clean up
   ([9534e61](https://github.com/newrade/newrade/commit/9534e61b01545371bde739d05c4519ead5fbd143))
-- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't
-  support puppeteer
+- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't support puppeteer
   ([e5c42a8](https://github.com/newrade/newrade/commit/e5c42a84901b71a400f58ad72c173f6c68bf3773))
 - **newrade-website:** docs update
   ([08db9ce](https://github.com/newrade/newrade/commit/08db9ce60c3779684db9260c435792e532bd6729))
@@ -1252,8 +1168,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-ui:** implemented section banner
   ([6514337](https://github.com/newrade/newrade/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
@@ -1281,8 +1196,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 
 ### Features
@@ -1296,8 +1210,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
-- **vsb-api:** fixes
-  ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
 - **vsb-website:** wip on fix for ssr bug
   ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
 
@@ -1435,16 +1348,14 @@ All notable changes to this project will be documented in this file. See
   ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
 - **core-gatsby-starter:** wip
   ([6457254](https://github.com/newrade/newrade/commit/6457254e0f99917a7d7d7444ee34596e030e3a5c))
-- **core-react-ui:** wip
-  ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 - **gastby:** fixes for markdown file generation
   ([2982616](https://github.com/newrade/newrade/commit/29826163498932d216cc22ec713d7de076812fbb))
 - **gatsby-starter:** fixes for nav queries
   ([170803a](https://github.com/newrade/newrade/commit/170803a87cb0bb657407d58a5084e211942fac89))
 - **repo:** add .env type checking to all packages
   ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
-- **wip-react-ui:** wip
-  ([d8dc726](https://github.com/newrade/newrade/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
+- **wip-react-ui:** wip ([d8dc726](https://github.com/newrade/newrade/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
 
 ### Features
 
@@ -1465,8 +1376,7 @@ All notable changes to this project will be documented in this file. See
   ([4cb9ee0](https://github.com/newrade/newrade/commit/4cb9ee0d6e34d93ced821f7187a7cb0a14504c7a))
 - **mir-website:** implement mdx based blog posts
   ([4fca42d](https://github.com/newrade/newrade/commit/4fca42db2a278de3047fb72e77332115579e84e5))
-- **repo:** fix typings
-  ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
+- **repo:** fix typings ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
 
 # 1.4.0 (2020-11-02)
 
@@ -1496,8 +1406,7 @@ All notable changes to this project will be documented in this file. See
   ([e201a90](https://github.com/newrade/newrade/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
 - **repo:** add missing prebuild commands
   ([aeebd40](https://github.com/newrade/newrade/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
-- **repo:** fix scripts
-  ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
+- **repo:** fix scripts ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
 - **repo:** fixes for refactor and react-ui-app
   ([91abbbd](https://github.com/newrade/newrade/commit/91abbbd1ee9fd658b3e02c016313292e88f19af0))
 - **repo:** fixes for tsconfigs
@@ -1506,14 +1415,12 @@ All notable changes to this project will be documented in this file. See
   ([7e8bd73](https://github.com/newrade/newrade/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
 - **repo:** rework .gitignore and eslint config files
   ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **typescript:** remove typeRoots which is almost a deprecated feature
   ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
 - **typescript:** revert to v3 since eslint and prettier are not ready
   ([08bc333](https://github.com/newrade/newrade/commit/08bc333bc7044153c50f5cbdb077f2861a74d981))
-- **wip:** wip
-  ([3319697](https://github.com/newrade/newrade/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
+- **wip:** wip ([3319697](https://github.com/newrade/newrade/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
 
 ### Features
 

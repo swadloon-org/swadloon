@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.5.0...@newrade/ze-design-website@2.6.0) (2022-01-03)
 
@@ -9,11 +10,9 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
-  drunk)
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is drunk)
   ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
 - **core-react-ui:** fix test snapshots
   ([701fb00](https://github.com/newrade/newrade-core/commit/701fb0032b4b14f80466dc890775decb6b77b4ad))
@@ -24,28 +23,20 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
 - **core-ui:** refactor all table components
   ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.4.0...@newrade/ze-design-website@2.5.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fix some small formatting, remove issue templates from core
   ([276b6a5](https://github.com/newrade/newrade-core/commit/276b6a537178bab38c2a018386d0012fc7e6cbff))
@@ -70,21 +61,14 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-gatsby-config:** add size-plugin for production build
   ([2d38bc0](https://github.com/newrade/newrade-core/commit/2d38bc0be41781dc916747151ac00e44e476fc56))
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.3.0...@newrade/ze-design-website@2.4.0) (2021-11-18)
 
@@ -134,11 +118,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements to docs layout
   ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.2.1...@newrade/ze-design-website@2.3.0) (2021-10-05)
 
 ### Bug Fixes
@@ -180,14 +159,8 @@ All notable changes to this project will be documented in this file. See
   ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
 - **core-gatsby-config:** create plugin for cache in ts files
   ([3f45fb0](https://github.com/newrade/newrade-core/commit/3f45fb04d5dc7c27d77332e63a286fcb650ed2d4))
-- **core-gatsby-ui:** working on improvements to navigation api hooks and
-  utilities
+- **core-gatsby-ui:** working on improvements to navigation api hooks and utilities
   ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.2.0...@newrade/ze-design-website@2.2.1) (2021-09-09)
 
@@ -199,11 +172,6 @@ All notable changes to this project will be documented in this file. See
   ([6d704df](https://github.com/newrade/newrade-core/commit/6d704df752c488b332b1ae7db58ead77e044ab40))
 - **ze:** fix dependencies
   ([77b25c0](https://github.com/newrade/newrade-core/commit/77b25c018d6d4c00b8fc2c193ce9a07d1b86f8a3))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.1.0...@newrade/ze-design-website@2.2.0) (2021-08-31)
 
@@ -241,8 +209,7 @@ All notable changes to this project will be documented in this file. See
   ([bcbee46](https://github.com/newrade/newrade-core/commit/bcbee46a144116bf1ec72067ede8ee41d5291da7))
 - **core:** refactor core gatsby plugin
   ([1c71ce6](https://github.com/newrade/newrade-core/commit/1c71ce6f58922656b029a8e8ae0244320f0ab492))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-gatsby-ui:** documentation improvements
   ([ec944bb](https://github.com/newrade/newrade-core/commit/ec944bbc27b0252024cf30ef948204d7ca5410ae))
@@ -264,11 +231,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** refactor navigation components
   ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.1.0](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@2.0.0...@newrade/ze-design-website@2.1.0) (2021-07-15)
 
 ### Bug Fixes
@@ -286,11 +248,6 @@ All notable changes to this project will be documented in this file. See
   ([6d5ac76](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
 - **core-react-ui:** add useLocalStorage hook
   ([47901a3](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/commit/47901a3709f012bbf0e39de581b6858de158256e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@1.2.0...@newrade/ze-design-website@2.0.0) (2021-07-12)
 
@@ -312,11 +269,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@1.1.1...@newrade/ze-design-website@1.2.0) (2021-07-05)
 
 ### Features
@@ -326,19 +278,9 @@ All notable changes to this project will be documented in this file. See
 - **core-gatsby-ui:** add icons family and website link to context
   ([c878ec9](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/commit/c878ec9bea7592ed223187b9bddd580e7c538578))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.1](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@1.1.0...@newrade/ze-design-website@1.1.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/ze-design-website
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 1.1.0 (2021-07-03)
 

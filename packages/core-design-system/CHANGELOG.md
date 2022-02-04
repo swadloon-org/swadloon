@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.17.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.16.0...@newrade/core-design-system@1.17.0) (2022-01-03)
 
@@ -12,18 +13,12 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
 - **core-ui:** refactor all table components
   ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.16.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.15.0...@newrade/core-design-system@1.16.0) (2021-12-21)
 
@@ -40,19 +35,12 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.15.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.14.2...@newrade/core-design-system@1.15.0) (2021-11-18)
 
@@ -74,22 +62,12 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** wip for iframe component, navitem components
   ([eed4b3e](https://github.com/newrade/newrade-core/commit/eed4b3ea3cb104ed31d34d856fafc1cd8c4165c6))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.14.2](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.14.1...@newrade/core-design-system@1.14.2) (2021-10-05)
 
 ### Bug Fixes
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.14.1](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system@1.14.0...@newrade/core-design-system@1.14.1) (2021-08-31)
 
@@ -107,16 +85,10 @@ All notable changes to this project will be documented in this file. See
   ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
 - **core:** fix typecheck command
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-gatsby-ui:** documentation improvements
   ([ec944bb](https://github.com/newrade/newrade-core/commit/ec944bbc27b0252024cf30ef948204d7ca5410ae))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.14.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.13.0...@newrade/core-design-system@1.14.0) (2021-07-12)
 
@@ -124,11 +96,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-react-ui:** improve theme-wrapper
   ([dcc5cc8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/dcc5cc88024f6227e4a11db27233d18631159fa4))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.13.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.12.0...@newrade/core-design-system@1.13.0) (2021-07-05)
 
@@ -225,8 +192,7 @@ All notable changes to this project will be documented in this file. See
 
 - **alto-design-system and ronin-design-system:** add colors and typography
   ([fce1af0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fce1af0051ec08b53bd4ddcb012fe55ef0d9081f))
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
 - **cdpq:** added design system styles
   ([175358b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/175358bf22d8499b07ef10fb971142414381d545))
@@ -252,8 +218,7 @@ All notable changes to this project will be documented in this file. See
   ([a6423bc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6423bcb72a9e8632ef7a350092413aaaf9c2c2a))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -339,8 +304,7 @@ All notable changes to this project will be documented in this file. See
   ([7974d81](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7974d813caa29f325729e37dc6328478fc2b403b))
 - **core-react-ui:** wip on buttons variants
   ([916547e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/916547e4c8907af33e92753959ff84931e7173b0))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
@@ -372,8 +336,7 @@ All notable changes to this project will be documented in this file. See
   ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
 - **typescript:** bumbed to typescript beta
   ([9e88ca9](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9e88ca924c61c19d8ffad069877fcb1f6811c10b))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-website:** accordions for faq section
   ([a19e65f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
@@ -381,11 +344,6 @@ All notable changes to this project will be documented in this file. See
   ([c38821a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c38821a9073313677c5e36dc8fd54c0629c1254a))
 - **vsb-website:** implement tiles
   ([508f9db](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/508f9db45c2a91a4b1f7c3e2ceb930be8289b971))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.12.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.12.0...@newrade/core-design-system@1.12.0) (2021-07-03)
 
@@ -482,8 +440,7 @@ All notable changes to this project will be documented in this file. See
 
 - **alto-design-system and ronin-design-system:** add colors and typography
   ([fce1af0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fce1af0051ec08b53bd4ddcb012fe55ef0d9081f))
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
 - **cdpq:** added design system styles
   ([175358b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/175358bf22d8499b07ef10fb971142414381d545))
@@ -509,8 +466,7 @@ All notable changes to this project will be documented in this file. See
   ([a6423bc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6423bcb72a9e8632ef7a350092413aaaf9c2c2a))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -594,8 +550,7 @@ All notable changes to this project will be documented in this file. See
   ([7974d81](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7974d813caa29f325729e37dc6328478fc2b403b))
 - **core-react-ui:** wip on buttons variants
   ([916547e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/916547e4c8907af33e92753959ff84931e7173b0))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
@@ -627,8 +582,7 @@ All notable changes to this project will be documented in this file. See
   ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
 - **typescript:** bumbed to typescript beta
   ([9e88ca9](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9e88ca924c61c19d8ffad069877fcb1f6811c10b))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-website:** accordions for faq section
   ([a19e65f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
@@ -636,11 +590,6 @@ All notable changes to this project will be documented in this file. See
   ([c38821a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c38821a9073313677c5e36dc8fd54c0629c1254a))
 - **vsb-website:** implement tiles
   ([508f9db](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/508f9db45c2a91a4b1f7c3e2ceb930be8289b971))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.10.1...@newrade/core-design-system@1.11.0) (2021-06-16)
 
@@ -671,18 +620,12 @@ All notable changes to this project will be documented in this file. See
   ([ae319b3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ae319b3bd70f5ab3122642d22c058bad4e3edce5))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **docs:** add icons to the ds docs
   ([95d6fb5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.10.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.10.0...@newrade/core-design-system@1.10.1) (2021-05-25)
 
@@ -690,11 +633,6 @@ All notable changes to this project will be documented in this file. See
 
 - **patch:** fix deps
   ([ea483f3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.10.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.2...@newrade/core-design-system@1.10.0) (2021-05-21)
 
@@ -717,11 +655,6 @@ All notable changes to this project will be documented in this file. See
   ([0c99c77](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
 - **docs:** update docs layout
   ([356e4c0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.9.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.1...@newrade/core-design-system@1.9.2) (2021-03-09)
 
@@ -773,8 +706,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
 - **core-react-ui:** add layout variables
   ([ad22c9e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad22c9e493142fcf75f93f3159b64dc7a63055fa))
@@ -792,8 +724,7 @@ All notable changes to this project will be documented in this file. See
   ([60b43ef](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
 - **link-style:** adding new enum of link-style
   ([364cf53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/364cf535802a1f852f6c836bdc07d1d2b291e93c))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-website:** accordions for faq section
   ([a19e65f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
@@ -921,8 +852,7 @@ All notable changes to this project will be documented in this file. See
   ([a6423bc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6423bcb72a9e8632ef7a350092413aaaf9c2c2a))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -950,8 +880,7 @@ All notable changes to this project will be documented in this file. See
   ([fe4c969](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fe4c9694e03302d193a49c990536277051ad5bc6))
 - **core-react-ui:** animations types core-react-ui
   ([b801265](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b801265ecbc762f6bb6e49c838c34c672c0e4aec))
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-react-ui:** sizing test
   ([911fd30](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/911fd301bf52f585920b8821daab87bf8f1a6dcc))
@@ -1001,8 +930,7 @@ All notable changes to this project will be documented in this file. See
   ([ec0b0c7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ec0b0c78731f4291cbc12e2c04300268ae613c93))
 - **core-design-system:** add components specs
   ([a6423bc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6423bcb72a9e8632ef7a350092413aaaf9c2c2a))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-react-ui:** adding the type of padding and width
   ([fe4c969](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fe4c9694e03302d193a49c990536277051ad5bc6))
@@ -1062,8 +990,7 @@ All notable changes to this project will be documented in this file. See
   ([f348e22](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/f348e226d61d5df706ae3228f435e74292c40838))
 - **core-design-system:** working on reusable design tokens
   ([96fdf9c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/96fdf9cd20462111f07175e554ab9ae177d0db0e))
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))

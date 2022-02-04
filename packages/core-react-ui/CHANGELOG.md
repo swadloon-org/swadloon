@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.5.0...@newrade/core-react-ui@2.6.0) (2022-01-03)
 
@@ -9,8 +10,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
 - **core-react-ui:** fix dependencies
   ([48a4dae](https://github.com/newrade/newrade-core/commit/48a4dae8459938822b7e5b042fd2211650ff503d))
@@ -23,28 +23,20 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
 - **core-ui:** refactor all table components
   ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.4.0...@newrade/core-react-ui@2.5.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fixe dependencies
   ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
@@ -63,19 +55,12 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.3.0...@newrade/core-react-ui@2.4.0) (2021-11-18)
 
@@ -127,11 +112,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements to docs layout
   ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.1...@newrade/core-react-ui@2.3.0) (2021-10-05)
 
 ### Bug Fixes
@@ -159,14 +139,8 @@ All notable changes to this project will be documented in this file. See
   ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
 - **core:** update ze nav with example to switch langs
   ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
-- **core-gatsby-ui:** working on improvements to navigation api hooks and
-  utilities
+- **core-gatsby-ui:** working on improvements to navigation api hooks and utilities
   ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.0...@newrade/core-react-ui@2.2.1) (2021-09-09)
 
@@ -176,11 +150,6 @@ All notable changes to this project will be documented in this file. See
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
 - **core-cli:** fix gatsby wrapper
   ([6d704df](https://github.com/newrade/newrade-core/commit/6d704df752c488b332b1ae7db58ead77e044ab40))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.1.0...@newrade/core-react-ui@2.2.0) (2021-08-31)
 
@@ -222,8 +191,7 @@ All notable changes to this project will be documented in this file. See
   ([a5ff9ab](https://github.com/newrade/newrade-core/commit/a5ff9ab5bb420b7bf5a7f5facd29f143d2e08aad))
 - **core:** update docs + fix badge component
   ([3fbb3a2](https://github.com/newrade/newrade-core/commit/3fbb3a2b5fc784cea661151d3896a3685de94649))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-gatsby-ui:** documentation improvements
   ([ec944bb](https://github.com/newrade/newrade-core/commit/ec944bbc27b0252024cf30ef948204d7ca5410ae))
@@ -243,11 +211,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** refactor navigation components
   ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.0.0...@newrade/core-react-ui@2.1.0) (2021-07-15)
 
 ### Bug Fixes
@@ -265,11 +228,6 @@ All notable changes to this project will be documented in this file. See
   ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
 - **core-react-ui:** add useLocalStorage hook
   ([47901a3](https://github.com/newrade/newrade-core/commit/47901a3709f012bbf0e39de581b6858de158256e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.18.0...@newrade/core-react-ui@2.0.0) (2021-07-12)
 
@@ -295,11 +253,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.18.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.17.0...@newrade/core-react-ui@1.18.0) (2021-07-05)
 
 ### Features
@@ -308,11 +261,6 @@ All notable changes to this project will be documented in this file. See
   ([594a5c6](https://github.com/newrade/newrade-core/commit/594a5c69e77e81196967c62089f2e2937b46ce3c))
 - **core-gatsby-ui:** add icons family and website link to context
   ([c878ec9](https://github.com/newrade/newrade-core/commit/c878ec9bea7592ed223187b9bddd580e7c538578))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.17.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.16.0...@newrade/core-react-ui@1.17.0) (2021-07-03)
 
@@ -358,8 +306,7 @@ All notable changes to this project will be documented in this file. See
   ([8f3404a](https://github.com/newrade/newrade-core/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
 - **core-react-ui:** fix build command
   ([c1e1af8](https://github.com/newrade/newrade-core/commit/c1e1af8048a0460826a7464df6a1404940133cc4))
-- **core-react-ui:** fix capHeight not being set in CSS DS when using fontSize
-  as input
+- **core-react-ui:** fix capHeight not being set in CSS DS when using fontSize as input
   ([0b15156](https://github.com/newrade/newrade-core/commit/0b15156411574ead2a077e8ca7fd1f9725badac1))
 - **core-react-ui:** fix code block treat imports
   ([4d092dd](https://github.com/newrade/newrade-core/commit/4d092dd0c44c3d80edee86bcdd668e3d04e00ad5))
@@ -508,8 +455,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **auto-complete:** resolving the change handler with the auto-complete of the
-  others inputs
+- **auto-complete:** resolving the change handler with the auto-complete of the others inputs
   ([f6ccb66](https://github.com/newrade/newrade-core/commit/f6ccb664c7d0ee6005238777e35396718f93acaa))
 - **cdpq:** added design system styles
   ([175358b](https://github.com/newrade/newrade-core/commit/175358bf22d8499b07ef10fb971142414381d545))
@@ -577,8 +523,7 @@ All notable changes to this project will be documented in this file. See
   ([af90823](https://github.com/newrade/newrade-core/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
 - **core-react-ui:** adding animation
   ([ce5e946](https://github.com/newrade/newrade-core/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade-core/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **core-react-ui:** adding gesture animation
   ([dd92d69](https://github.com/newrade/newrade-core/commit/dd92d699e27d062dcfa2d37801461e8f209d6cd9))
@@ -602,8 +547,7 @@ All notable changes to this project will be documented in this file. See
   ([10f9095](https://github.com/newrade/newrade-core/commit/10f9095cda31b61f7b1368141243f595c6468e65))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade-core/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade-core/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
@@ -617,8 +561,7 @@ All notable changes to this project will be documented in this file. See
   ([356e4c0](https://github.com/newrade/newrade-core/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 - **gatsby:** upgrade to latest v2 gatsby
   ([6ccfd11](https://github.com/newrade/newrade-core/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
-- **gsap:** wip
-  ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
 - **logging:** implement structured loggging
   ([713cb45](https://github.com/newrade/newrade-core/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
 - **newrade-website:** reorg docs
@@ -629,8 +572,7 @@ All notable changes to this project will be documented in this file. See
   ([16b3da4](https://github.com/newrade/newrade-core/commit/16b3da48ffe9f153852308126b5ce2700f3de05e))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade-core/commit/d39e01045115db925a6a63001471de80e540702b))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade-core/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-admin:** add navbar and sidebar
   ([21ac2a7](https://github.com/newrade/newrade-core/commit/21ac2a74f9dd719da952c5e09cf94b460de26e1e))
@@ -813,8 +755,7 @@ All notable changes to this project will be documented in this file. See
   ([5573215](https://github.com/newrade/newrade-core/commit/557321571155fda903f0082d4effb26bd29232e5))
 - **mir-website:** disable graph cms plugin
   ([153e6dc](https://github.com/newrade/newrade-core/commit/153e6dc994078fee69026d584b7d0ab43741e286))
-- **mir-website:** fix a problem with the treat theme crashing the production
-  build
+- **mir-website:** fix a problem with the treat theme crashing the production build
   ([555807a](https://github.com/newrade/newrade-core/commit/555807aeaad540e5a5d4ee51863e726315cbcd27))
 - **mir-website:** fix build
   ([ab6b04b](https://github.com/newrade/newrade-core/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
@@ -850,8 +791,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **sites:** fixes and all assets
   ([c859573](https://github.com/newrade/newrade-core/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
 - **test-fix:** fixing the current default color in default theme
@@ -867,11 +807,9 @@ All notable changes to this project will be documented in this file. See
 
 - **background-component:** adding background-position
   ([e98f60c](https://github.com/newrade/newrade-core/commit/e98f60c8504e3dc1b18943b3e9fb01a2c21c0770))
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade-core/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
-- **clinic-component:** modify global-mardown-css and working on clinic-preview
-  component
+- **clinic-component:** modify global-mardown-css and working on clinic-preview component
   ([fa1ee1d](https://github.com/newrade/newrade-core/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
 - **cluster:** adding wrap prop
   ([0787f36](https://github.com/newrade/newrade-core/commit/0787f36af3d9d04db244dff5b84b0a9b49414aa1))
@@ -881,8 +819,7 @@ All notable changes to this project will be documented in this file. See
   ([7cefb6e](https://github.com/newrade/newrade-core/commit/7cefb6eea594bebc47cdf42ddc79bb17add68e54))
 - **color-swatch:** adding the component in core react ui
   ([e4fd63f](https://github.com/newrade/newrade-core/commit/e4fd63f3b0084d56ee17bcd83c160c375f1bacb4))
-- **component-react-ui:** adding responsive change in label , paragraph and into
-  cluster
+- **component-react-ui:** adding responsive change in label , paragraph and into cluster
   ([620fbad](https://github.com/newrade/newrade-core/commit/620fbad997577fae42fbf0277467b3c41e5b6b08))
 - **core-\*:** refactor core-design-system and core-react-ui
   ([106720e](https://github.com/newrade/newrade-core/commit/106720e4214f6491beac76c23977f5d52c1cd058))
@@ -890,8 +827,7 @@ All notable changes to this project will be documented in this file. See
   ([df5be58](https://github.com/newrade/newrade-core/commit/df5be5823f9eac789ef489d9705b6df64aa7f4a7))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade-core/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade-core/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -1059,11 +995,9 @@ All notable changes to this project will be documented in this file. See
   ([e45ad7f](https://github.com/newrade/newrade-core/commit/e45ad7ffedb6dc0c1dbf1c4e5e694775a2e2979a))
 - **react-ui:** adding typography utilities
   ([bed28c6](https://github.com/newrade/newrade-core/commit/bed28c6e62523dbbd449679f0f02ba8e255e547d))
-- **table:** adding default style and reset to the table component in the
-  core-react-ui
+- **table:** adding default style and reset to the table component in the core-react-ui
   ([7679e6a](https://github.com/newrade/newrade-core/commit/7679e6a48cd73b0fe1bcd8471904b83784a363a7))
-- **table-component:** adding the essential component to start making default
-  layout for a table
+- **table-component:** adding the essential component to start making default layout for a table
   ([2d24e8a](https://github.com/newrade/newrade-core/commit/2d24e8a997191b62904fffffb475577f454546d3))
 - **vsb-website:** adding content to first component of section in the home page
   ([6d202b8](https://github.com/newrade/newrade-core/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
@@ -1075,11 +1009,6 @@ All notable changes to this project will be documented in this file. See
   ([6362338](https://github.com/newrade/newrade-core/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
 - **wip-react-ui:** adding new hooks and fixing test
   ([257f240](https://github.com/newrade/newrade-core/commit/257f2402ec434449df1a3bb605190ff11775b880))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.16.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.16.0...@newrade/core-react-ui@1.16.0) (2021-07-03)
 
@@ -1125,8 +1054,7 @@ All notable changes to this project will be documented in this file. See
   ([8f3404a](https://github.com/newrade/newrade-core/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
 - **core-react-ui:** fix build command
   ([c1e1af8](https://github.com/newrade/newrade-core/commit/c1e1af8048a0460826a7464df6a1404940133cc4))
-- **core-react-ui:** fix capHeight not being set in CSS DS when using fontSize
-  as input
+- **core-react-ui:** fix capHeight not being set in CSS DS when using fontSize as input
   ([0b15156](https://github.com/newrade/newrade-core/commit/0b15156411574ead2a077e8ca7fd1f9725badac1))
 - **core-react-ui:** fix code block treat imports
   ([4d092dd](https://github.com/newrade/newrade-core/commit/4d092dd0c44c3d80edee86bcdd668e3d04e00ad5))
@@ -1275,8 +1203,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **auto-complete:** resolving the change handler with the auto-complete of the
-  others inputs
+- **auto-complete:** resolving the change handler with the auto-complete of the others inputs
   ([f6ccb66](https://github.com/newrade/newrade-core/commit/f6ccb664c7d0ee6005238777e35396718f93acaa))
 - **cdpq:** added design system styles
   ([175358b](https://github.com/newrade/newrade-core/commit/175358bf22d8499b07ef10fb971142414381d545))
@@ -1344,8 +1271,7 @@ All notable changes to this project will be documented in this file. See
   ([af90823](https://github.com/newrade/newrade-core/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
 - **core-react-ui:** adding animation
   ([ce5e946](https://github.com/newrade/newrade-core/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade-core/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **core-react-ui:** adding gesture animation
   ([dd92d69](https://github.com/newrade/newrade-core/commit/dd92d699e27d062dcfa2d37801461e8f209d6cd9))
@@ -1369,8 +1295,7 @@ All notable changes to this project will be documented in this file. See
   ([10f9095](https://github.com/newrade/newrade-core/commit/10f9095cda31b61f7b1368141243f595c6468e65))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade-core/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade-core/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
@@ -1384,8 +1309,7 @@ All notable changes to this project will be documented in this file. See
   ([356e4c0](https://github.com/newrade/newrade-core/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 - **gatsby:** upgrade to latest v2 gatsby
   ([6ccfd11](https://github.com/newrade/newrade-core/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
-- **gsap:** wip
-  ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
 - **logging:** implement structured loggging
   ([713cb45](https://github.com/newrade/newrade-core/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
 - **newrade-website:** reorg docs
@@ -1396,8 +1320,7 @@ All notable changes to this project will be documented in this file. See
   ([16b3da4](https://github.com/newrade/newrade-core/commit/16b3da48ffe9f153852308126b5ce2700f3de05e))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade-core/commit/d39e01045115db925a6a63001471de80e540702b))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade-core/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-admin:** add navbar and sidebar
   ([21ac2a7](https://github.com/newrade/newrade-core/commit/21ac2a74f9dd719da952c5e09cf94b460de26e1e))
@@ -1580,8 +1503,7 @@ All notable changes to this project will be documented in this file. See
   ([5573215](https://github.com/newrade/newrade-core/commit/557321571155fda903f0082d4effb26bd29232e5))
 - **mir-website:** disable graph cms plugin
   ([153e6dc](https://github.com/newrade/newrade-core/commit/153e6dc994078fee69026d584b7d0ab43741e286))
-- **mir-website:** fix a problem with the treat theme crashing the production
-  build
+- **mir-website:** fix a problem with the treat theme crashing the production build
   ([555807a](https://github.com/newrade/newrade-core/commit/555807aeaad540e5a5d4ee51863e726315cbcd27))
 - **mir-website:** fix build
   ([ab6b04b](https://github.com/newrade/newrade-core/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
@@ -1617,8 +1539,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **sites:** fixes and all assets
   ([c859573](https://github.com/newrade/newrade-core/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
 - **test-fix:** fixing the current default color in default theme
@@ -1634,11 +1555,9 @@ All notable changes to this project will be documented in this file. See
 
 - **background-component:** adding background-position
   ([e98f60c](https://github.com/newrade/newrade-core/commit/e98f60c8504e3dc1b18943b3e9fb01a2c21c0770))
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade-core/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
-- **clinic-component:** modify global-mardown-css and working on clinic-preview
-  component
+- **clinic-component:** modify global-mardown-css and working on clinic-preview component
   ([fa1ee1d](https://github.com/newrade/newrade-core/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
 - **cluster:** adding wrap prop
   ([0787f36](https://github.com/newrade/newrade-core/commit/0787f36af3d9d04db244dff5b84b0a9b49414aa1))
@@ -1648,8 +1567,7 @@ All notable changes to this project will be documented in this file. See
   ([7cefb6e](https://github.com/newrade/newrade-core/commit/7cefb6eea594bebc47cdf42ddc79bb17add68e54))
 - **color-swatch:** adding the component in core react ui
   ([e4fd63f](https://github.com/newrade/newrade-core/commit/e4fd63f3b0084d56ee17bcd83c160c375f1bacb4))
-- **component-react-ui:** adding responsive change in label , paragraph and into
-  cluster
+- **component-react-ui:** adding responsive change in label , paragraph and into cluster
   ([620fbad](https://github.com/newrade/newrade-core/commit/620fbad997577fae42fbf0277467b3c41e5b6b08))
 - **core-\*:** refactor core-design-system and core-react-ui
   ([106720e](https://github.com/newrade/newrade-core/commit/106720e4214f6491beac76c23977f5d52c1cd058))
@@ -1657,8 +1575,7 @@ All notable changes to this project will be documented in this file. See
   ([df5be58](https://github.com/newrade/newrade-core/commit/df5be5823f9eac789ef489d9705b6df64aa7f4a7))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade-core/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade-core/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -1826,11 +1743,9 @@ All notable changes to this project will be documented in this file. See
   ([e45ad7f](https://github.com/newrade/newrade-core/commit/e45ad7ffedb6dc0c1dbf1c4e5e694775a2e2979a))
 - **react-ui:** adding typography utilities
   ([bed28c6](https://github.com/newrade/newrade-core/commit/bed28c6e62523dbbd449679f0f02ba8e255e547d))
-- **table:** adding default style and reset to the table component in the
-  core-react-ui
+- **table:** adding default style and reset to the table component in the core-react-ui
   ([7679e6a](https://github.com/newrade/newrade-core/commit/7679e6a48cd73b0fe1bcd8471904b83784a363a7))
-- **table-component:** adding the essential component to start making default
-  layout for a table
+- **table-component:** adding the essential component to start making default layout for a table
   ([2d24e8a](https://github.com/newrade/newrade-core/commit/2d24e8a997191b62904fffffb475577f454546d3))
 - **vsb-website:** adding content to first component of section in the home page
   ([6d202b8](https://github.com/newrade/newrade-core/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
@@ -1842,11 +1757,6 @@ All notable changes to this project will be documented in this file. See
   ([6362338](https://github.com/newrade/newrade-core/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
 - **wip-react-ui:** adding new hooks and fixing test
   ([257f240](https://github.com/newrade/newrade-core/commit/257f2402ec434449df1a3bb605190ff11775b880))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.15.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.14.0...@newrade/core-react-ui@1.15.0) (2021-06-16)
 
@@ -1877,8 +1787,7 @@ All notable changes to this project will be documented in this file. See
   ([175358b](https://github.com/newrade/newrade/commit/175358bf22d8499b07ef10fb971142414381d545))
 - **cdpq-design-system:** add color intents
   ([a6b661c](https://github.com/newrade/newrade/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **contentful-lib:** refactor website api and corresponding contentful scripts
   ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
 - **core-react-ui:** add inputs
@@ -1893,29 +1802,21 @@ All notable changes to this project will be documented in this file. See
   ([7d1ad9f](https://github.com/newrade/newrade/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **docs:** add icons to the ds docs
   ([95d6fb5](https://github.com/newrade/newrade/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.14.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.13.0...@newrade/core-react-ui@1.14.0) (2021-05-25)
 
 ### Bug Fixes
 
-- **build:** vsb-website
-  ([5aa4dee](https://github.com/newrade/newrade/commit/5aa4dee7b7d1339c1c10ab3e3476cdd0a5fd198b))
+- **build:** vsb-website ([5aa4dee](https://github.com/newrade/newrade/commit/5aa4dee7b7d1339c1c10ab3e3476cdd0a5fd198b))
 - **core-react-ui:** bug with destructuring of gap prop
   ([39491b6](https://github.com/newrade/newrade/commit/39491b6bf7cc7c93436b77f735a653db5d2c4f33))
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 - **vsb-website:** fix navigation for design system
   ([e1f1ad2](https://github.com/newrade/newrade/commit/e1f1ad2225bdc6e00860db0fd056172410c62284))
 
@@ -1925,16 +1826,10 @@ All notable changes to this project will be documented in this file. See
   ([af90823](https://github.com/newrade/newrade/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
 - **core-react-ui:** adding animation
   ([ce5e946](https://github.com/newrade/newrade/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **react-core-ui:** update animations
   ([909caa3](https://github.com/newrade/newrade/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.12.2...@newrade/core-react-ui@1.13.0) (2021-05-21)
 
@@ -1987,8 +1882,7 @@ All notable changes to this project will be documented in this file. See
   ([0c99c77](https://github.com/newrade/newrade/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
-- **docs:** update docs
-  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
 - **docs:** update docs layout
   ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 - **vsb-admin:** add navbar and sidebar
@@ -2001,11 +1895,6 @@ All notable changes to this project will be documented in this file. See
   ([afb8e78](https://github.com/newrade/newrade/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.12.2](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.12.1...@newrade/core-react-ui@1.12.2) (2021-03-11)
 
@@ -2070,8 +1959,7 @@ All notable changes to this project will be documented in this file. See
   ([4efaf57](https://github.com/newrade/newrade/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
 - **gatsby:** upgrade to latest v2 gatsby
   ([6ccfd11](https://github.com/newrade/newrade/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
-- **gsap:** wip
-  ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
 - **newrade-website:** reorg docs
   ([47856d1](https://github.com/newrade/newrade/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
 - **vsb-website:** fix fragments after refactor
@@ -2120,8 +2008,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
-- **vsb-api:** fixes
-  ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
 - **vsb-website:** finalize form valiation (client)
   ([7ddf34a](https://github.com/newrade/newrade/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
 - **vsb-website:** fix rerender bug
@@ -2204,12 +2091,10 @@ All notable changes to this project will be documented in this file. See
   ([bfc2e57](https://github.com/newrade/newrade/commit/bfc2e5720b37600f77fd7168756799d2f3d1a263))
 - **core-react-ui:** update script to copy assets
   ([2be3fad](https://github.com/newrade/newrade/commit/2be3fad963942094c4462abcdefe16c6d0efc294))
-- **linting:** fixes
-  ([6d6fd06](https://github.com/newrade/newrade/commit/6d6fd0636bffadd57e63a337da959861282a2a0f))
+- **linting:** fixes ([6d6fd06](https://github.com/newrade/newrade/commit/6d6fd0636bffadd57e63a337da959861282a2a0f))
 - **mir-website:** fix mobile sidebar initial animation
   ([a7a56a6](https://github.com/newrade/newrade/commit/a7a56a6185fa64ade15515b01e9ad36525854b44))
-- **mir-website:** fixes
-  ([7aec9c0](https://github.com/newrade/newrade/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
+- **mir-website:** fixes ([7aec9c0](https://github.com/newrade/newrade/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
 - **repo:** fix linting issues
   ([25cd3d4](https://github.com/newrade/newrade/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
 - **repo:** fixes after deepscan
@@ -2245,16 +2130,13 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **auto-complete:** resolving the change handler with the auto-complete of the
-  others inputs
+- **auto-complete:** resolving the change handler with the auto-complete of the others inputs
   ([f6ccb66](https://github.com/newrade/newrade/commit/f6ccb664c7d0ee6005238777e35396718f93acaa))
 - **background-component:** adding background-position
   ([e98f60c](https://github.com/newrade/newrade/commit/e98f60c8504e3dc1b18943b3e9fb01a2c21c0770))
-- **background-filter:** adding the component to wrap the background image to
-  apply any css filter
+- **background-filter:** adding the component to wrap the background image to apply any css filter
   ([2fa99b0](https://github.com/newrade/newrade/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
-- **clinic-component:** modify global-mardown-css and working on clinic-preview
-  component
+- **clinic-component:** modify global-mardown-css and working on clinic-preview component
   ([fa1ee1d](https://github.com/newrade/newrade/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
 - **cluster:** adding wrap prop
   ([0787f36](https://github.com/newrade/newrade/commit/0787f36af3d9d04db244dff5b84b0a9b49414aa1))
@@ -2302,14 +2184,11 @@ All notable changes to this project will be documented in this file. See
   ([364cf53](https://github.com/newrade/newrade/commit/364cf535802a1f852f6c836bdc07d1d2b291e93c))
 - **newrade-website:** add new config for theme
   ([fdf4ccd](https://github.com/newrade/newrade/commit/fdf4ccd0ebc2ec20ace1c4672b2d17ecb2b7d94a))
-- **table:** adding default style and reset to the table component in the
-  core-react-ui
+- **table:** adding default style and reset to the table component in the core-react-ui
   ([7679e6a](https://github.com/newrade/newrade/commit/7679e6a48cd73b0fe1bcd8471904b83784a363a7))
-- **table-component:** adding the essential component to start making default
-  layout for a table
+- **table-component:** adding the essential component to start making default layout for a table
   ([2d24e8a](https://github.com/newrade/newrade/commit/2d24e8a997191b62904fffffb475577f454546d3))
-- **update-button:** adding new props to the design system and updating the
-  button.tsx
+- **update-button:** adding new props to the design system and updating the button.tsx
   ([162056f](https://github.com/newrade/newrade/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
 - **vsb-website:** accordions for faq section
   ([a19e65f](https://github.com/newrade/newrade/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
@@ -2369,8 +2248,7 @@ All notable changes to this project will be documented in this file. See
   ([d4c6772](https://github.com/newrade/newrade/commit/d4c6772c720b886fc294a9befdebf8a6aadbd461))
 - **code-highlight:** adding the treat file for code highlighter
   ([7cefb6e](https://github.com/newrade/newrade/commit/7cefb6eea594bebc47cdf42ddc79bb17add68e54))
-- **component-react-ui:** adding responsive change in label , paragraph and into
-  cluster
+- **component-react-ui:** adding responsive change in label , paragraph and into cluster
   ([620fbad](https://github.com/newrade/newrade/commit/620fbad997577fae42fbf0277467b3c41e5b6b08))
 - **core-gatsby-config:** add new plugin
   ([2bd8c5c](https://github.com/newrade/newrade/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
@@ -2449,10 +2327,8 @@ All notable changes to this project will be documented in this file. See
   ([26ae597](https://github.com/newrade/newrade/commit/26ae597e4b88ecb1a677a12d45b101f75a979848))
 - **core-react-ui:** update jest snapshot
   ([024076e](https://github.com/newrade/newrade/commit/024076ef3bac86a62238ef496ca608622262e74b))
-- **core-react-ui:** wip
-  ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
-- **core-react-ui:** wip
-  ([c2f5aa3](https://github.com/newrade/newrade/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([c2f5aa3](https://github.com/newrade/newrade/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
 - **core-react-ui:** wip on layout components
   ([04f2cbb](https://github.com/newrade/newrade/commit/04f2cbb4e344c5f3892e1f791e9561705cc263d4))
 - **core-react-ui:** wip on layout components
@@ -2502,10 +2378,8 @@ All notable changes to this project will be documented in this file. See
   ([ad179dd](https://github.com/newrade/newrade/commit/ad179ddad6b3b6137dc382a612a33b48272be7dc))
 - **core-react-ui:** tweaks
   ([b9223dc](https://github.com/newrade/newrade/commit/b9223dc399cd17cb90afb0a7469e1f42172a1da7))
-- **core-react-ui:** wip
-  ([03ea0ea](https://github.com/newrade/newrade/commit/03ea0eac2447243b30e168a4ab689e431abcb9dd))
-- **core-react-ui:** wip
-  ([056953e](https://github.com/newrade/newrade/commit/056953e021d0717de906ad36c4da684617d66309))
+- **core-react-ui:** wip ([03ea0ea](https://github.com/newrade/newrade/commit/03ea0eac2447243b30e168a4ab689e431abcb9dd))
+- **core-react-ui:** wip ([056953e](https://github.com/newrade/newrade/commit/056953e021d0717de906ad36c4da684617d66309))
 - **core-react-ui:** wip for Stack component
   ([82261bf](https://github.com/newrade/newrade/commit/82261bfb46cd2358c8b8cec4f9b033218d4f0b2c))
 - **core-react-ui:** wip for Stack component
@@ -2589,8 +2463,7 @@ All notable changes to this project will be documented in this file. See
   ([643c85c](https://github.com/newrade/newrade/commit/643c85c12d6c78c8d924b22c6e458539a4bf87cb))
 - **core-react-ui:** remove prefix for meta tag
   ([5659760](https://github.com/newrade/newrade/commit/5659760db4654155ffdaa05e047a0251f35ab1db))
-- **core-react-ui:** wip
-  ([fbafca5](https://github.com/newrade/newrade/commit/fbafca59a7d94c841ad80fa45581d5d5feb41cb5))
+- **core-react-ui:** wip ([fbafca5](https://github.com/newrade/newrade/commit/fbafca59a7d94c841ad80fa45581d5d5feb41cb5))
 - **core-react-ui:** working webpack setup for development
   ([a7d9000](https://github.com/newrade/newrade/commit/a7d90008ee74bc279b1717553938d0b3219e7a1b))
 - **core-graphql-ui:** minimal setup
@@ -2599,8 +2472,7 @@ All notable changes to this project will be documented in this file. See
   ([6bb9d36](https://github.com/newrade/newrade/commit/6bb9d361e830c4a19a6cfc3fb59c72adfb95c4cc))
 - **mir-website:** disable graph cms plugin
   ([153e6dc](https://github.com/newrade/newrade/commit/153e6dc994078fee69026d584b7d0ab43741e286))
-- **mir-website:** fix a problem with the treat theme crashing the production
-  build
+- **mir-website:** fix a problem with the treat theme crashing the production build
   ([555807a](https://github.com/newrade/newrade/commit/555807aeaad540e5a5d4ee51863e726315cbcd27))
 - **mir-website:** fix build
   ([ab6b04b](https://github.com/newrade/newrade/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
@@ -2630,8 +2502,7 @@ All notable changes to this project will be documented in this file. See
   ([7e8bd73](https://github.com/newrade/newrade/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
 - **repo:** rework .gitignore and eslint config files
   ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **typescript:** remove typeRoots which is almost a deprecated feature
   ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
 
@@ -2645,8 +2516,7 @@ All notable changes to this project will be documented in this file. See
   ([df5be58](https://github.com/newrade/newrade/commit/df5be5823f9eac789ef489d9705b6df64aa7f4a7))
 - **core-design-system:** add letter spacing to the typography api
   ([0115e79](https://github.com/newrade/newrade/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-design-system:** adding diez integration
   ([9688dd4](https://github.com/newrade/newrade/commit/9688dd4521398a8ad3a50250ba9aa9f9e3300ee6))
@@ -2678,8 +2548,7 @@ All notable changes to this project will be documented in this file. See
   ([f081e18](https://github.com/newrade/newrade/commit/f081e1832cb979aa0397cac34fa915adefded222))
 - **core-react-ui:** animations types core-react-ui
   ([b801265](https://github.com/newrade/newrade/commit/b801265ecbc762f6bb6e49c838c34c672c0e4aec))
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-react-ui:** sizing test
   ([911fd30](https://github.com/newrade/newrade/commit/911fd301bf52f585920b8821daab87bf8f1a6dcc))
@@ -2693,8 +2562,7 @@ All notable changes to this project will be documented in this file. See
   ([3a9f06f](https://github.com/newrade/newrade/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
 - **mir-website:** add gatsby config for seo
   ([5a68bce](https://github.com/newrade/newrade/commit/5a68bce2df6ac71f533850e91f5686e3b7d352ec))
-- **mir-website:** wip
-  ([e56f728](https://github.com/newrade/newrade/commit/e56f72810db30bdc403c38ab3026dd20c8775d83))
+- **mir-website:** wip ([e56f728](https://github.com/newrade/newrade/commit/e56f72810db30bdc403c38ab3026dd20c8775d83))
 
 ## [1.4.2](https://github.com/newrade/newrade/compare/core-react-ui@1.4.1...core-react-ui@1.4.2) (2020-09-28)
 
@@ -2732,8 +2600,7 @@ All notable changes to this project will be documented in this file. See
   ([a7d9000](https://github.com/newrade/newrade/commit/a7d90008ee74bc279b1717553938d0b3219e7a1b))
 - **lakhos-website:** fix wrong import
   ([6bb9d36](https://github.com/newrade/newrade/commit/6bb9d361e830c4a19a6cfc3fb59c72adfb95c4cc))
-- **mir-website:** fix a problem with the treat theme crashing the production
-  build
+- **mir-website:** fix a problem with the treat theme crashing the production build
   ([555807a](https://github.com/newrade/newrade/commit/555807aeaad540e5a5d4ee51863e726315cbcd27))
 - **mir-website:** fix SSR issue caused by side-menu
   ([d53d386](https://github.com/newrade/newrade/commit/d53d38675475032a619a726f4a183d15a2850441))
@@ -2744,8 +2611,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-react-ui:** add seo models and components
   ([4861d62](https://github.com/newrade/newrade/commit/4861d626c4c25b96f1d3f22bf5a958d3417d2ad9))
@@ -2800,6 +2666,5 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
