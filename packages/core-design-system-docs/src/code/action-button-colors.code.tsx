@@ -26,13 +26,13 @@ export const ButtonColors: React.FC<Props> = (props) => {
       <Stack>
         <ColorPalette
           colorName={''}
-          colorOrPalette={{
+          color={{
             primary: theme.colors.colorIntents.primary,
           }}
         ></ColorPalette>
         <ColorPalette
           colorName={''}
-          colorOrPalette={{
+          color={{
             secondary: theme.colors.colorIntents.secondary,
           }}
         ></ColorPalette>

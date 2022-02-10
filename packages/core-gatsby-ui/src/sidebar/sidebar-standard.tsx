@@ -29,6 +29,8 @@ import { LinkRenderer } from '../links/link-renderer';
 import { SidebarProps } from './sidebar.props';
 import { SidebarBase } from './sidebar-base';
 
+import * as styles from './sidebar-standard.css';
+
 type Props = SidebarProps & {};
 
 export const SidebarStandard = React.forwardRef<any, Props>(
@@ -101,7 +103,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
             size={ButtonSize.large}
             variant={Variant.tertiary}
             collapsePadding={'left'}
-            Icon={<IconComp name={ICON.CLOSE} />}
+            Icon={ICON.CLOSE}
             icon={ButtonIcon.icon}
             onClick={onClickMenuButton}
           ></Button>
@@ -148,7 +150,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
           ) : null}
 
           {/* Copyright and Version */}
-          <Paragraph size={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
+          <Paragraph size={PARAGRAPH_SIZE.xSmall} kind={Variant.secondary}>
             {copyright}
             {version ? ` — ${version}` : ''}
           </Paragraph>

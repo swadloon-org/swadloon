@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 import { SidebarContainer, Stack, useCommonProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import { SidebarProps } from './sidebar.props';
+
+import * as styles from './sidebar-base.css';
 
 type Props = SidebarProps & {
   contentClassName?: string;

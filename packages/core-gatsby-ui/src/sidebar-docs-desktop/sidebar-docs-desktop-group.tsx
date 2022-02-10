@@ -3,7 +3,7 @@ import { IoChevronDownOutline } from 'react-icons/io5';
 
 import { LABEL_SIZE, LinkProps, TagSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { Cluster, Label, PrimitiveProps, Stack, Tag, useCommonProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import * as styles from './sidebar-docs-desktop-group.css';
 

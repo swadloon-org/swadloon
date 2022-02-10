@@ -23,7 +23,6 @@ import {
   IconComp,
   Label,
   Link,
-  ListItem,
   ListItems,
   ListItemV2,
   lorenipsum,
@@ -185,7 +184,7 @@ export const mdxComponents: Partial<
       as={'b'}
       style={{ display: 'inline-block' }}
       textStyle={TEXT_STYLE.bold}
-      variant={PARAGRAPH_SIZE.large}
+      size={PARAGRAPH_SIZE.large}
       {...props}
     />
   ),
@@ -193,7 +192,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'small'}
       style={{ display: 'inline-block' }}
-      variant={PARAGRAPH_SIZE.small}
+      size={PARAGRAPH_SIZE.small}
       {...props}
     />
   ),
@@ -237,7 +236,10 @@ export const mdxComponents: Partial<
   thead: (props: MDXProps) => <TableHeader {...props} />,
   tbody: (props: MDXProps) => <TableBody {...props} />,
   tr: (props: MDXProps) => <TableRow {...props} />,
-  td: ({ children, ...props }: MDXProps & AnchorHTMLAttributes<any>) => {
+  td: ({
+    children,
+    ...props
+  }: MDXProps & Omit<AnchorHTMLAttributes<HTMLTableCellElement>, 'type'>) => {
     //
     // if the child is a link tag with text inside, we make sure it does not overflow the cell
     //
@@ -335,7 +337,7 @@ export const mdxComponents: Partial<
   Cluster: (props: MDXProps) => <Cluster {...props} />,
 
   Details: (props: MDXProps) => <Details {...props} />,
-  ListItem: (props: MDXProps) => <ListItem {...props} />,
+  ListItem: (props: MDXProps) => <ListItemV2 {...props} />,
   ListItems: (props: MDXProps) => <ListItems {...props} />,
   Grid: (props: MDXProps) => <Grid {...props} />,
   BlockMarkdown: (props: MDXProps) => <BlockMarkdown {...props} />,

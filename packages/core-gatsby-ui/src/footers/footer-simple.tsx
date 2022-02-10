@@ -3,6 +3,7 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from '
 
 import { ButtonIcon, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Cluster, Link, Paragraph, Stack, useCommonProps } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { FooterProps } from './footer.props';
 
@@ -51,32 +52,32 @@ export const FooterSimple: React.FC<Props> = ({
       ) : (
         <Cluster className={styles.links} gap={[sizeVars.x3]}>
           <Button
-            Icon={<IoLogoTwitter />}
+            IconSVG={<IoLogoTwitter />}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoFacebook />}
+            IconSVG={<IoLogoFacebook />}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoInstagram />}
+            IconSVG={<IoLogoInstagram />}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            Icon={<IoLogoLinkedin />}
+            IconSVG={<IoLogoLinkedin />}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
         </Cluster>
       )}
       {/* Copyright */}
-      <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
+      <Paragraph className={styles.copyright} size={PARAGRAPH_SIZE.xSmall}>
         {Copyright}
       </Paragraph>
     </Stack>

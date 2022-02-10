@@ -1,16 +1,18 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, layoutCSS, layoutVars } from '@newrade/core-react-ui/theme';
+
 export const wrapper = style({
   position: 'fixed',
   top: 0,
   width: '100%',
-  height: layoutCSS.var.navbarHeight,
-  maxHeight: layoutCSS.var.navbarHeight,
+  height: layoutVars.var.navbarHeight,
+  maxHeight: layoutVars.var.navbarHeight,
   color: colorVars.colorIntents.primaryText,
 
   backgroundColor: colorVars.colors.grey[900],
 
-  zIndex: layoutCSS.zIndex.navBar,
+  zIndex: layoutVars.zIndex.navBar,
 });
 
 export const content = style({
@@ -59,5 +61,5 @@ export const logoDesktop = style({
 });
 
 export const logoWrapper = style({
-  height: layoutCSS.var.navbarHeight,
+  height: layoutVars.var.navbarHeight,
 });

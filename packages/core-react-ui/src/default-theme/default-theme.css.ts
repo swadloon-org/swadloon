@@ -4,7 +4,7 @@ import { kebab } from 'case';
 
 import { Colors, Effects } from '@newrade/core-design-system';
 
-import { CSSButtons, CSSFontsV2, CSSIconography } from '../design-system';
+import { CSSButtons, CSSEffects, CSSFontsV2, CSSIconography } from '../design-system';
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { CSSSizingV2 } from '../design-system/css-sizing';
 import { CSSTypographyV2 } from '../design-system/css-typography';
@@ -14,6 +14,7 @@ import {
   defaultSizesCSSVarNamesV2,
   defaultSizesCSSVarV2,
 } from '../utilities-theme/sizing.utilities';
+import { CSSColorsV2 } from '..';
 
 import { defaultCSSButtons } from './default-buttons-css';
 import { defaultCSSColors } from './default-colors-css';
@@ -35,8 +36,13 @@ import { defaultCSSTypography } from './default-typography-css';
  * Formatting function used to have plain (with short content hash) variable names
  * e.g. --fonts-sans-alternate: ...
  */
-const propertyFormatFn: (value: string | null, path: string[]) => string = (value, path) =>
-  `${path.map(kebab).join('-')}`;
+const propertyFormatFn: (prefix?: string) => (value: string | null, path: string[]) => string = (
+  prefix
+) => {
+  return (value, path) => {
+    return [prefix ? kebab(prefix) : '', ...path.map(kebab)].filter((part) => !!part).join('-');
+  };
+};
 
 /**
  *
@@ -44,9 +50,8 @@ const propertyFormatFn: (value: string | null, path: string[]) => string = (valu
  *
  */
 
-export const colorVars: MapLeafNodes<Colors<string>, CSSVarFunction> = createGlobalThemeContract<
-  Colors<string>
->(defaultCSSColors, propertyFormatFn);
+export const colorVars: MapLeafNodes<CSSColorsV2, CSSVarFunction> =
+  createGlobalThemeContract<CSSColorsV2>(defaultCSSColors, propertyFormatFn());
 export const colorCSS = defaultCSSColors;
 
 /**
@@ -55,9 +60,8 @@ export const colorCSS = defaultCSSColors;
  *
  */
 
-export const effectsVars: MapLeafNodes<Effects<string>, CSSVarFunction> = createGlobalThemeContract<
-  Effects<string>
->(defaultCSSEffects, propertyFormatFn);
+export const effectsVars: MapLeafNodes<CSSEffects, CSSVarFunction> =
+  createGlobalThemeContract<CSSEffects>(defaultCSSEffects, propertyFormatFn());
 export const effectsCSS = defaultCSSEffects;
 
 /**
@@ -67,7 +71,7 @@ export const effectsCSS = defaultCSSEffects;
  */
 
 export const sizingVars: MapLeafNodes<CSSSizingV2, CSSVarFunction> =
-  createGlobalThemeContract<CSSSizingV2>(defaultCSSSizing, propertyFormatFn);
+  createGlobalThemeContract<CSSSizingV2>(defaultCSSSizing, propertyFormatFn());
 export const sizeVars = defaultSizesCSSVarV2;
 export const sizeVarNames = defaultSizesCSSVarNamesV2;
 export const ratioVars = defaultRatiosCSSVar;
@@ -80,22 +84,22 @@ export const sizingCSS = defaultCSSSizing;
  *
  */
 export const iconographyVars: MapLeafNodes<CSSIconography, CSSVarFunction> =
-  createGlobalThemeContract<CSSIconography>(defaultCSSIconography, propertyFormatFn);
+  createGlobalThemeContract<CSSIconography>(defaultCSSIconography, propertyFormatFn());
 
 /**
  * Typography
  */
 export const fontsVars: MapLeafNodes<CSSFontsV2, CSSVarFunction> =
-  createGlobalThemeContract<CSSFontsV2>(defaultCSSTypography.fonts, propertyFormatFn);
+  createGlobalThemeContract<CSSFontsV2>(defaultCSSTypography.fonts, propertyFormatFn());
 export const typographyVars: MapLeafNodes<CSSTypographyV2, CSSVarFunction> =
-  createGlobalThemeContract<CSSTypographyV2>(defaultCSSTypography, propertyFormatFn);
+  createGlobalThemeContract<CSSTypographyV2>(defaultCSSTypography, propertyFormatFn());
 export const typographyCSS = defaultCSSTypography;
 
 /**
  * Layout
  */
 export const layoutVars: MapLeafNodes<CSSLayoutV2, CSSVarFunction> =
-  createGlobalThemeContract<CSSLayoutV2>(defaultCSSLayoutV2, propertyFormatFn);
+  createGlobalThemeContract<CSSLayoutV2>(defaultCSSLayoutV2, propertyFormatFn());
 export const layoutCSS = defaultCSSLayoutV2;
 
 /**
@@ -107,4 +111,4 @@ export const layoutCSS = defaultCSSLayoutV2;
  * Components
  */
 export const buttonsVars: MapLeafNodes<CSSButtons, CSSVarFunction> =
-  createGlobalThemeContract<CSSButtons>(defaultCSSButtons, propertyFormatFn);
+  createGlobalThemeContract<CSSButtons>(defaultCSSButtons, propertyFormatFn('buttons'));

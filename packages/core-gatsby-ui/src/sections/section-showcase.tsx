@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 import { BoxV2, useCommonProps } from '@newrade/core-react-ui';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
@@ -65,7 +66,7 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
             {LeftBGBlock}
             <BoxV2
               className={styles.leftInnerBlock}
-              padding={[sizeVars.x7, cssTheme.layout.var.contentMargins]}
+              padding={[sizeVars.x7, layoutVars.var.contentMargins]}
             >
               {LeftTextBlock}
             </BoxV2>
@@ -74,7 +75,7 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
             {RightBGBlock}
             <BoxV2
               className={styles.rightInnerBlock}
-              padding={[sizeVars.x7, cssTheme.layout.var.contentMargins]}
+              padding={[sizeVars.x7, layoutVars.var.contentMargins]}
             >
               {RightTextBlock}
             </BoxV2>

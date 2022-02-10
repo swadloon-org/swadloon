@@ -37,7 +37,7 @@ export const TextLevel: React.FC<Props> = (props) => {
 
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
+        color={{
           primaryText: theme.colors.colorIntents.primaryText,
           secondaryText: theme.colors.colorIntents.secondaryText,
           tertiaryText: theme.colors.colorIntents.tertiaryText,

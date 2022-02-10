@@ -43,7 +43,7 @@ export const floating = style({
   color: colorVars.colorIntents.primaryText,
   boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
 
-  zIndex: layoutCSS.zIndex.sideBarDesktop,
+  zIndex: layoutCSS.zIndex.sideBarDesktop as any,
 });
 
 globalStyle(`${floating} *`, {
@@ -66,7 +66,7 @@ export const hanging = style({
       display: 'inherit',
     },
   },
-  zIndex: layoutCSS.zIndex.sideBarDesktop,
+  zIndex: layoutCSS.zIndex.sideBarDesktop as any,
   overflowY: 'auto',
   overflowX: 'hidden',
 

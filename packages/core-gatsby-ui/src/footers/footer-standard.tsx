@@ -23,6 +23,7 @@ import {
   useCommonProps,
 } from '@newrade/core-react-ui';
 import { lorenipsumMedium, lorenipsumShort } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';
@@ -73,7 +74,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
         <Cluster className={styles.socialLinks} gap={[sizeVars.x3]}>
           {twitterURL ? (
             <Button
-              Icon={<IoLogoTwitter />}
+              IconSVG={<IoLogoTwitter />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -84,7 +85,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {facebookURL ? (
             <Button
-              Icon={<IoLogoFacebook />}
+              IconSVG={<IoLogoFacebook />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -95,7 +96,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {instagramURL ? (
             <Button
-              Icon={<IoLogoInstagram />}
+              IconSVG={<IoLogoInstagram />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -106,7 +107,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {linkedinURL ? (
             <Button
-              Icon={<IoLogoLinkedin />}
+              IconSVG={<IoLogoLinkedin />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -143,7 +144,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
                           size={PARAGRAPH_SIZE.small}
                           href={link?.url || ' '}
                           icon={LinkIcon.right}
-                          Icon={<IconComp name={ICON.OPEN}></IconComp>}
+                          IconSVG={<IconComp name={ICON.OPEN}></IconComp>}
                         >
                           {link?.label || link?.url || ' '}
                         </Link>
@@ -168,8 +169,8 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
         <Paragraph
           className={styles.copyright}
-          variant={PARAGRAPH_SIZE.small}
-          variantLevel={Variant.secondary}
+          size={PARAGRAPH_SIZE.small}
+          kind={Variant.secondary}
         >
           {copyright || `© ${lorenipsumShort}`}
           {version ? ` — ${version}` : ''}

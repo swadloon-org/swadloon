@@ -3,6 +3,7 @@ import React, { PropsWithChildren, Suspense } from 'react';
 import debug from 'debug';
 
 import { ErrorBoundary, Stack, useCommonProps, useIsSSR } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import {
   BlockAlignment,
   BlockAPI,
@@ -18,6 +19,8 @@ import { BlockGoogleMapLazy } from './block-google-map.lazy';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
+
+import * as styles from './block-renderer.css';
 
 const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');

@@ -1,11 +1,13 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, effectsVars } from '@newrade/core-react-ui/theme';
+
 export const wrapper = style({
   position: 'relative',
   height: `max(80vh, 500px)`,
   width: `100%`,
   color: colorVars.colorIntents.primary,
-  textShadow: cssTheme.effects.textShadows.light,
+  textShadow: effectsVars.textShadows.light,
 });
 
 export const callout = style({

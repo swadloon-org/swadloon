@@ -1,16 +1,17 @@
 import React, { useRef } from 'react';
 
-import { ButtonIcon, ButtonSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, TEXT_STYLE } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
+import { Primitive } from '..';
 
-import { ButtonCompProps } from './button.props';
+import { ButtonAsType, ButtonCompProps } from './button.props';
 import { getLabelSizeForButtonSize } from './button.utilities';
 
-import * as styles from './button_old.css';
+import * as styles from './button.css';
 
 type Props = ButtonCompProps;
 
@@ -20,9 +21,6 @@ const defaultProps: Props = {
 
 export const Button = React.forwardRef<any, Props>(function Button(
   {
-    id,
-    style,
-    className,
     role,
     children,
     as,
@@ -66,10 +64,10 @@ export const Button = React.forwardRef<any, Props>(function Button(
   const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
 
   const iconClassNames = getMergedClassname([
-    dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
-    dataicon === ButtonIcon.icon ? styles.icon : '',
-    dataicon === ButtonIcon.right ? styles.right : '',
-    dataicon === ButtonIcon.left ? styles.left : '',
+    // dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
+    // dataicon === ButtonIcon.icon ? styles.icon : '',
+    // dataicon === ButtonIcon.right ? styles.right : '',
+    // dataicon === ButtonIcon.left ? styles.left : '',
   ]);
 
   const IconSvg = IconSVG
@@ -87,18 +85,15 @@ export const Button = React.forwardRef<any, Props>(function Button(
 
   const type = as ? as : 'button';
 
-  const variantStateClassName = `${styles.base}`;
-  const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
-  const variantSizeClassName = styles[size ? size : ButtonSize.medium];
+  // const variantStateClassName = `${styles.base}`;
+  // const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
+  // const variantSizeClassName = styles[size ? size : ButtonSize.medium];
   const collapsePaddingProp =
     dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
 
   const commonProps = useCommonProps<'button'>({
-    id,
-    style,
-    className,
     role: as === 'button' ? '' : role,
-    classNames: [variantStateClassName, variantSizeClassName, variantClassName, className],
+    classNames: [styles.variants({})],
     // @ts-ignore
     dataicon: dataicon,
     datapaddingcollapse: collapsePaddingProp,
@@ -116,55 +111,8 @@ export const Button = React.forwardRef<any, Props>(function Button(
         disabled,
       });
 
-  const CustomElement = AsElement
-    ? React.cloneElement(
-        AsElement as React.ReactElement,
-        commonProps,
-        <>
-          {icon === ButtonIcon.icon ? null : (
-            <Label
-              variantDisplay={'inline'}
-              textStyle={TEXT_STYLE.bold}
-              variant={getLabelSizeForButtonSize(size)}
-            >
-              {renderedChildren}
-            </Label>
-          )}
-          {IconSvg}
-        </>
-      )
-    : null;
-
-  if (CustomElement) {
-    return CustomElement;
-  }
-
-  const CustomElementAs =
-    type !== 'button'
-      ? React.createElement(
-          type,
-          commonProps,
-          <>
-            {icon === ButtonIcon.icon ? null : (
-              <Label
-                variantDisplay={'inline'}
-                textStyle={TEXT_STYLE.bold}
-                variant={getLabelSizeForButtonSize(size)}
-              >
-                {renderedChildren}
-              </Label>
-            )}
-            {IconSvg}
-          </>
-        )
-      : null;
-
-  if (CustomElementAs) {
-    return CustomElementAs;
-  }
-
-  return (
-    <button ref={ref} disabled={disabled} {...commonProps}>
+  const ButtonContent = (
+    <>
       {icon === ButtonIcon.icon ? null : (
         <Label
           variantDisplay={'inline'}
@@ -175,6 +123,20 @@ export const Button = React.forwardRef<any, Props>(function Button(
         </Label>
       )}
       {IconSvg}
-    </button>
+    </>
+  );
+
+  const CustomElement = AsElement
+    ? React.cloneElement(AsElement as React.ReactElement, commonProps, <>{ButtonContent}</>)
+    : null;
+
+  if (CustomElement) {
+    return CustomElement;
+  }
+
+  return (
+    <Primitive<ButtonAsType> as={type} ref={ref} {...commonProps}>
+      {ButtonContent}
+    </Primitive>
   );
 });

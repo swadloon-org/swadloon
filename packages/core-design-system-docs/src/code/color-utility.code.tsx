@@ -10,20 +10,17 @@ export const ColorUtility: React.FC<Props> = (props) => {
     <Stack gap={[sizeVars.x5]}>
       <ColorPalette
         colorName={'Utility Blue'}
-        colorOrPalette={theme.colors.colors.utilityNeutral}
+        color={theme.colors.colors.utilityNeutral}
       ></ColorPalette>
       <ColorPalette
         colorName={'Utility Green'}
-        colorOrPalette={theme.colors.colors.utilityGreen}
+        color={theme.colors.colors.utilityGreen}
       ></ColorPalette>
       <ColorPalette
         colorName={'Utility Yellow'}
-        colorOrPalette={theme.colors.colors.utilityYellow}
+        color={theme.colors.colors.utilityYellow}
       ></ColorPalette>
-      <ColorPalette
-        colorName={'Utility Red'}
-        colorOrPalette={theme.colors.colors.utilityRed}
-      ></ColorPalette>
+      <ColorPalette colorName={'Utility Red'} color={theme.colors.colors.utilityRed}></ColorPalette>
     </Stack>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 
-import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { ICON, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Link, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 
 import * as styles from './docs-footer.css';
@@ -45,7 +45,7 @@ export const DocsPageFooter: React.FC<Props> = ({
           <Button
             as={'a'}
             variant={Variant.primary}
-            Icon={<IoArrowForwardOutline />}
+            Icon={ICON.ARROW_RIGHT}
             style={{ marginLeft: 'auto' }}
             href={nextPageUrl}
           >

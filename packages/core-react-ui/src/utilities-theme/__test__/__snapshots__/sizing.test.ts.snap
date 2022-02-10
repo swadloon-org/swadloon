@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shadows utilities getCSSSizing should create a valid CSS box-shadow property 1`] = `
+exports[`shadows utilities getCSSSizingV2 should create a valid CSS box-shadow property 1`] = `
 Object {
   "baseFontSize": "9px",
   "ratio": Object {
@@ -48,32 +48,6 @@ Object {
       "x8": "232px",
       "x9": "375px",
     },
-  },
-  "var": Object {
-    "x0": "var(--sizing-x0)",
-    "x1": "var(--sizing-x1)",
-    "x10": "var(--sizing-x10)",
-    "x2": "var(--sizing-x2)",
-    "x3": "var(--sizing-x3)",
-    "x4": "var(--sizing-x4)",
-    "x5": "var(--sizing-x5)",
-    "x6": "var(--sizing-x6)",
-    "x7": "var(--sizing-x7)",
-    "x8": "var(--sizing-x8)",
-    "x9": "var(--sizing-x9)",
-  },
-  "varNames": Object {
-    "x0": "--sizing-x0",
-    "x1": "--sizing-x1",
-    "x10": "--sizing-x10",
-    "x2": "--sizing-x2",
-    "x3": "--sizing-x3",
-    "x4": "--sizing-x4",
-    "x5": "--sizing-x5",
-    "x6": "--sizing-x6",
-    "x7": "--sizing-x7",
-    "x8": "--sizing-x8",
-    "x9": "--sizing-x9",
   },
 }
 `;

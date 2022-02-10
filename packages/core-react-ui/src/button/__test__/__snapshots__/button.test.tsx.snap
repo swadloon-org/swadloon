@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the button component should render correctly 1`] = `
-<button
-  class="style_theme style_theme style_theme"
-  dataicon="none"
->
-  <div
-    class="style_theme style_theme style_theme style_theme"
+<div>
+  <button
+    class="button__x17q3ri"
+    dataicon="none"
   >
-    Hello world
-  </div>
-</button>
+    <div
+      class="label__1i57ob90  text-color_variant_primary__11gow270  label_size_small__1i57ob93 label_style_bold__1i57ob96"
+    >
+      Hello world
+    </div>
+  </button>
+</div>
 `;

@@ -10,17 +10,17 @@ export const TextColorIntents: React.FC<Props> = (props) => {
     <Stack>
       <ColorPalette
         colorName={'PrimaryText'}
-        colorOrPalette={theme.colors.colorIntents.primaryText}
+        color={theme.colors.colorIntents.primaryText}
       ></ColorPalette>
 
       <ColorPalette
         colorName={'SecondaryText'}
-        colorOrPalette={theme.colors.colorIntents.secondaryText}
+        color={theme.colors.colorIntents.secondaryText}
       ></ColorPalette>
 
       <ColorPalette
         colorName={'TertiaryText'}
-        colorOrPalette={theme.colors.colorIntents.tertiaryText}
+        color={theme.colors.colorIntents.tertiaryText}
       ></ColorPalette>
     </Stack>
   );

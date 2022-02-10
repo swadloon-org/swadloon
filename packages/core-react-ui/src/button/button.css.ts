@@ -58,9 +58,18 @@ export const variants = recipe({
       [backgroundColorActive]: colorVars.colors.primary[100],
       [backgroundColorDisabled]: colorVars.colors.grey[25],
     },
-
+    display: 'block',
     position: 'relative',
-    height: 'fit-content',
+    outline: 'none',
+    lineHeight: 0,
+    cursor: 'pointer',
+    appearance: 'none',
+    userSelect: 'none',
+    touchAction: 'none',
+    WebkitAppearance: 'none',
+    whiteSpace: 'nowrap', // don't allow wrapping
+    borderRadius: 4,
+    width: 'fit-content',
   },
   variants: {
     /**

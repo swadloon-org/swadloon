@@ -102,7 +102,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
         <Link
           size={linkSizes[linkSizeLink]}
           kind={(linkData.variant as Variant) || Variant.primary}
-          Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
+          IconSVG={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
           AsElement={
             !linkIsExternal ? (
               <GatsbyLink to={linkData.page?.slug} />
@@ -124,7 +124,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
         <Button
           size={buttonSizes[linkSizeButton]}
           variant={(linkData.variant as Variant) || Variant.secondary}
-          Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
+          Icon={linkIcon ? linkIcon : undefined}
           AsElement={<GatsbyLink to={linkData.page?.slug} />}
         >
           {linkData.label}
@@ -140,7 +140,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
         <Button
           size={buttonSizes[linkSizeButton]}
           variant={(linkData.variant as Variant) || Variant.secondary}
-          Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
+          Icon={linkIcon ? linkIcon : undefined}
           AsElement={<GatsbyLink to={linkData.page?.slug} />}
         >
           {linkData.label}

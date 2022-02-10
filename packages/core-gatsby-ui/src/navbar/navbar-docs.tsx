@@ -15,6 +15,7 @@ import {
   Tag,
   usePreventPinchZoom,
 } from '@newrade/core-react-ui';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import * as styles from './navbar-docs.css';
 
@@ -102,7 +103,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 size={ButtonSize.small}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
@@ -148,7 +149,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 <Button
                   icon={ButtonIcon.icon}
                   variant={Variant.tertiary}
-                  Icon={
+                  IconSVG={
                     <IconComp
                       name={props.layoutMode === 'centered' ? ICON.LAYOUT_CENTER : ICON.LAYOUT_WIDE}
                       style={{ height: 24, width: 24 }}
@@ -162,15 +163,15 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
               <Switch
                 value={'on'}
                 IconOff={<IoMoon />}
-                colorOff={cssTheme.colors.colors.grey[100]}
+                colorOff={colorVars.colors.grey[100]}
                 IconOn={<IoSunny />}
-                colorOn={cssTheme.colors.colors.grey[100]}
+                colorOn={colorVars.colors.grey[100]}
               ></Switch>
 
               <Button
                 icon={ButtonIcon.icon}
                 variant={Variant.tertiary}
-                Icon={<IoSearchOutline size={24} style={{ color: 'white' }} />}
+                Icon={ICON.SEARCH}
                 aria-label={'Search button'}
               ></Button>
 

@@ -17,7 +17,7 @@ import {
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
-import { sizeVars } from '@newrade/core-react-ui/theme';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
 import {
   BreadcrumbsAPI,
@@ -198,11 +198,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props })
   }
 
   const contentWidth = [
-    cssTheme.layout.var.sidebarWidth,
-    cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
-    cssTheme.layout.var.asideWidth,
-    cssTheme.layout.var.contentMargins,
-    cssTheme.layout.var.contentMargins,
+    layoutVars.var.sidebarWidth,
+    layoutVars.var.contentWidth.desktopDocsMaxWidth,
+    layoutVars.var.asideWidth,
+    layoutVars.var.contentMargins,
+    layoutVars.var.contentMargins,
   ];
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 

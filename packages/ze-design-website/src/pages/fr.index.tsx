@@ -3,7 +3,7 @@ import React from 'react';
 import { COLOR_MODE, HEADING, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
 import { Heading, Paragraph, Stack } from '@newrade/core-react-ui';
-import { sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import SectionOpenSource from '../sections/section-open-source.md';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
@@ -80,7 +80,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         BackgroundBlock={
           <div
             style={{
-              background: cssTheme.colors.colorIntents.background1,
+              background: colorVars.colorIntents.background1,
               width: '100%',
               height: '100%',
             }}

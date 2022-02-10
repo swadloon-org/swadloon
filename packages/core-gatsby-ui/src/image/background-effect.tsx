@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import * as styles from './background-effect.css';
 

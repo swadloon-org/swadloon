@@ -4,7 +4,7 @@ import { getCSSButtons } from '../buttons.utilities';
 describe('buttons utilities', () => {
   describe(`${getCSSButtons.name}`, () => {
     it(`should generate CSS variable names for a given Colors object`, () => {
-      const buttonsCSS = getCSSButtons(defaultTheme);
+      const buttonsCSS = getCSSButtons(defaultTheme.components.buttons);
       expect(buttonsCSS).toMatchSnapshot();
     });
   });

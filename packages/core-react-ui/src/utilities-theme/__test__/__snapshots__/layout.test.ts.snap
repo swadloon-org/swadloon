@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`layout utilities getCSSLayout should create a valid CSS layout config 1`] = `
+exports[`layout utilities getCSSLayoutV2 should create a valid CSS layout config 1`] = `
 Object {
   "asideWidth": "260px",
   "breakpoints": Object {
@@ -100,13 +100,13 @@ Object {
     "sidebarWidth": "--layout-sidebar-width",
   },
   "zIndex": Object {
-    "chatBubble": 130,
-    "content": 50,
-    "dialog": 70,
-    "navBar": 100,
-    "notifications": 120,
-    "sideBarDesktop": 90,
-    "sideBarMobile": 110,
+    "chatBubble": "130",
+    "content": "50",
+    "dialog": "70",
+    "navBar": "100",
+    "notifications": "120",
+    "sideBarDesktop": "90",
+    "sideBarMobile": "110",
   },
 }
 `;

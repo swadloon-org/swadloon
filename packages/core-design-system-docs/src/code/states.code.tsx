@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Stack } from '@newrade/core-react-ui';
 import { ColorPalette } from '@newrade/core-react-ui/doc-components';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -10,7 +11,7 @@ export const StateColorPalette: React.FC<Props> = (props) => {
     <Stack gap={[sizeVars.x5]}>
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
+        color={{
           successBackground: theme.colors.colorIntents.successBackground,
           successAction: theme.colors.colorIntents.successAction,
           successText: theme.colors.colorIntents.successText,
@@ -19,7 +20,7 @@ export const StateColorPalette: React.FC<Props> = (props) => {
 
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
+        color={{
           warningBackground: theme.colors.colorIntents.warningBackground,
           warningAction: theme.colors.colorIntents.warningAction,
           warningText: theme.colors.colorIntents.warningText,
@@ -28,7 +29,7 @@ export const StateColorPalette: React.FC<Props> = (props) => {
 
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
+        color={{
           dangerBackground: theme.colors.colorIntents.dangerBackground,
           dangerAction: theme.colors.colorIntents.dangerAction,
           dangerText: theme.colors.colorIntents.dangerText,

@@ -6,10 +6,7 @@ import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/co
 import { BoxV2, Label, Link, PrimitiveProps, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
-import {
-  getFormattedAnchorId,
-  getMergedClassname,
-} from '@newrade/core-react-ui/utilities-components';
+import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import { useI18next } from '../i18next/use-i18next.hook';
 

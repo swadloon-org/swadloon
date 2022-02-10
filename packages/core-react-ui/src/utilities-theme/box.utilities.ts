@@ -1,24 +1,72 @@
-import * as DS from '@newrade/core-design-system';
-import { Border, BorderStyles, BoxStyle, Radius } from '@newrade/core-design-system';
+import {
+  Border,
+  BorderStyles,
+  BoxStyle,
+  Margin,
+  OutlineStyles,
+  Padding,
+  Radius,
+} from '@newrade/core-design-system';
 
-import { CSSBoxVarNames } from '../design-system/css-box';
 import { keys, px } from '../utilities-iso/utilities';
 
 import { getCSSColor } from './colors.utilities';
-import { getFormattedCSSVar, getFormattedCSSVarName } from './props.utilities';
 
 export function getCSSBoxStyle(box: BoxStyle): BoxStyle<string> {
   return {
     width: px({ value: box.width }),
     height: px({ value: box.height }),
-    // padding: box.padding,
+    padding: getCSSBoxPadding(box.padding),
     border: getCSSBorderStyles(box.border),
-    padding: {},
-    outline: {},
-    // outline: box.outline,
-    // backgroundColor: box.backgroundColor,
+    outline: getCSSOutlineStyles(box.outline),
+    backgroundColor: getCSSColor(box.backgroundColor),
   };
 }
+
+/**
+ *
+ * Box model
+ *
+ */
+
+export function getCSSBoxPadding(padding?: Padding): Padding<string> {
+  if (!padding) {
+    return {
+      default: '',
+      top: '',
+      right: '',
+      bottom: '',
+      left: '',
+    };
+  }
+
+  return keys(padding).reduce((previous, current) => {
+    previous[current] = px({ value: padding[current] });
+    return previous;
+  }, {} as Padding<string>);
+}
+
+export function getCSSBoxMargin(padding?: Margin): Margin<string> {
+  if (!padding) {
+    return {
+      top: '',
+      right: '',
+      bottom: '',
+      left: '',
+    };
+  }
+
+  return keys(padding).reduce((previous, current) => {
+    previous[current] = px({ value: padding[current] });
+    return previous;
+  }, {} as Margin<string>);
+}
+
+/**
+ *
+ * Borders
+ *
+ */
 
 export function getCSSBorderStyles(borders?: BorderStyles): BorderStyles<string> {
   if (!borders) {
@@ -41,6 +89,10 @@ export function getCSSBoxBorder(border?: Border): Border<string> {
     return {};
   }
 
+  if (!(border.width || border.color || border.radius || border.style)) {
+    return {};
+  }
+
   return {
     color: border.color ? getCSSColor(border.color) : undefined,
     width: border.width ? px({ value: border.width }) : undefined,
@@ -50,6 +102,35 @@ export function getCSSBoxBorder(border?: Border): Border<string> {
 }
 
 /**
+ *
+ * Outlines
+ *
+ */
+
+export function getCSSOutlineStyles(outline?: OutlineStyles): OutlineStyles<string> {
+  if (!outline) {
+    return {};
+  }
+
+  if (!(outline.width || outline.color || outline.radius || outline.style)) {
+    return {};
+  }
+
+  return {
+    color: outline.color ? getCSSColor(outline.color) : undefined,
+    width: outline.width ? px({ value: outline.width }) : undefined,
+    style: outline.style || 'solid',
+    radius: getCSSBoxRadius(outline.radius),
+  };
+}
+
+/**
+ *
+ * Radius
+ *
+ */
+
+/**
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
  */
 export function getCSSBoxRadius(radius?: Radius): string {
@@ -57,108 +138,12 @@ export function getCSSBoxRadius(radius?: Radius): string {
     return '';
   }
 
-  return radius.all
-    ? `${px({ value: radius.all })}`
-    : `${radius.topLeft} ${radius.topRight} ${radius.bottomRight} ${radius.bottomLeft}`;
-}
+  if (radius.all) {
+    return `${px({ value: radius.all })}`;
+  }
 
-export function getCSSVarNameForBox({
-  box,
-  prefix,
-  varBrackets,
-}: {
-  box: DS.BoxStyle;
-  prefix: string;
-  varBrackets: boolean;
-}): CSSBoxVarNames {
-  const formatter = varBrackets ? getFormattedCSSVar : getFormattedCSSVarName;
-
-  return {
-    width: formatter({
-      prefix,
-      propName: 'width',
-    }),
-    height: formatter({
-      prefix,
-      propName: 'height',
-    }),
-    backgroundColor: formatter({
-      prefix,
-      propName: 'backgroundColor',
-    }),
-    padding: {
-      default: formatter({
-        prefix,
-        category: 'padding',
-        propName: '',
-      }),
-      top: formatter({
-        prefix,
-        category: 'padding',
-        propName: 'top',
-      }),
-      right: formatter({
-        prefix,
-        category: 'padding',
-        propName: 'right',
-      }),
-      bottom: formatter({
-        prefix,
-        category: 'padding',
-        propName: 'bottom',
-      }),
-      left: formatter({
-        prefix,
-        category: 'padding',
-        propName: 'left',
-      }),
-    },
-    // @ts-ignore
-    border: {
-      default: {
-        color: formatter({
-          prefix,
-          category: 'border',
-          propName: 'color',
-        }),
-        style: formatter({
-          prefix,
-          category: 'border',
-          propName: 'style',
-        }) as 'solid' | 'dotted',
-        width: formatter({
-          prefix,
-          category: 'border',
-          propName: 'width',
-        }),
-        radius: formatter({
-          prefix,
-          category: 'border',
-          propName: 'radius',
-        }),
-      },
-    },
-    outline: {
-      color: formatter({
-        prefix,
-        category: 'out',
-        propName: 'color',
-      }),
-      style: formatter({
-        prefix,
-        category: 'out',
-        propName: 'style',
-      }) as 'solid' | 'dotted',
-      width: formatter({
-        prefix,
-        category: 'out',
-        propName: 'width',
-      }),
-      radius: formatter({
-        prefix,
-        category: 'out',
-        propName: 'radius',
-      }),
-    },
-  };
+  return keys(radius).reduce((previous, current) => {
+    previous = [previous, `${px({ value: radius[current] })}`].filter((part) => !!part).join(' ');
+    return previous;
+  }, '');
 }

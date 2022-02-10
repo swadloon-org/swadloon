@@ -69,19 +69,19 @@ export const DocHeader = ({ props }: Props) => {
       </Cluster>
 
       {description ? (
-        <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.large}>
+        <Paragraph kind={Variant.secondary} size={PARAGRAPH_SIZE.large}>
           {description}
         </Paragraph>
       ) : null}
 
       <Cluster justifyContent={['flex-start']} gap={[sizeVars.x0]} wrap={true}>
         {timeToRead ? (
-          <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
+          <Paragraph kind={Variant.secondary} size={PARAGRAPH_SIZE.xSmall}>
             {lastChangedAt} · {`${timeToRead} ${t('minutesToRead')}`}
           </Paragraph>
         ) : null}
         {renderTags && tags?.length ? (
-          <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
+          <Paragraph kind={Variant.secondary} size={PARAGRAPH_SIZE.xSmall}>
             -
           </Paragraph>
         ) : null}

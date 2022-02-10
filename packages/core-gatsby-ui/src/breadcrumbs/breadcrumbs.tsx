@@ -39,9 +39,9 @@ export const Breadcrumbs = React.forwardRef<any, Props>(
               {linkIndex > 0 ? (
                 <Paragraph
                   key={`${linkIndex}-separator`}
-                  variant={PARAGRAPH_SIZE.small}
+                  size={PARAGRAPH_SIZE.small}
                   textStyle={TEXT_STYLE.boldUppercase}
-                  variantLevel={Variant.tertiary}
+                  kind={Variant.tertiary}
                   style={{ userSelect: 'none', fontWeight: 400 }}
                 >
                   {'/'}

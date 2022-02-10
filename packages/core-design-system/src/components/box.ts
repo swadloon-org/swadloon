@@ -1,5 +1,12 @@
 import { ColorType, RadiusType, SizeType } from '../types';
 
+export type Margin<Override extends undefined | string = undefined> = {
+  top?: SizeType<Override>;
+  right?: SizeType<Override>;
+  bottom?: SizeType<Override>;
+  left?: SizeType<Override>;
+};
+
 export type Padding<Override extends undefined | string = undefined> = {
   default?: SizeType<Override>;
   top?: SizeType<Override>;

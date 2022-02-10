@@ -14,6 +14,7 @@ import {
   Stack,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
@@ -197,9 +198,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         }}
       >
         <MarkdownCSS>
-          <MDXRenderer {...{ ...props, theme, cssTheme }}>
-            {props.data.file?.childMdx?.body as string}
-          </MDXRenderer>
+          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
         </MarkdownCSS>
 
         <DocsPageFooter

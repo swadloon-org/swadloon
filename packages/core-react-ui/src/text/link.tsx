@@ -19,14 +19,20 @@ import * as styles from './link.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'linkStyle' | 'icon' | 'size' | 'kind' | 'textStyle'> & {
+  LinkProps & {
+    /**
+     * Rendering element types
+     */
     as?: 'div' | 'a';
     /**
      * Render a long link with ellipsis in the center
      * @example https://longlong...long.com/23
      */
     shortenLongLink?: boolean;
-    Icon?: React.ReactNode;
+    /**
+     * Pass custom svg icon
+     */
+    IconSVG?: React.ReactNode;
   };
 
 const defaultProps: Props = {
@@ -51,7 +57,7 @@ export const Link: React.FC<Props> = React.memo(
     kind = defaultProps.kind,
     textStyle: textStyle = defaultProps.textStyle,
     icon: icon,
-    Icon,
+    IconSVG: Icon,
     shortenLongLink,
     as,
     AsElement,

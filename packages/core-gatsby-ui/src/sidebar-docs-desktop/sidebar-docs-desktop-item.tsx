@@ -2,7 +2,7 @@ import React, { AnchorHTMLAttributes, useRef } from 'react';
 
 import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
 import { Label, PrimitiveProps, useCommonProps, usePreventPinchZoom } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import * as styles from './sidebar-docs-desktop-item.css';
 

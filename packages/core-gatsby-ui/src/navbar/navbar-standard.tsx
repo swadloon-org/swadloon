@@ -100,7 +100,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStanda
         size={ButtonSize.large}
         variant={Variant.tertiary}
         collapsePadding={'left'}
-        Icon={<IconComp name={ICON.MENU} />}
+        Icon={ICON.MENU}
         icon={ButtonIcon.icon}
         onClick={onClickMenuButton}
       ></Button>
@@ -175,7 +175,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(function NavbarStanda
           aria-label={'Search'}
           size={ButtonSize.xSmall}
           variant={Variant.tertiary}
-          Icon={<IconComp name={ICON.SEARCH} />}
+          Icon={ICON.SEARCH}
           icon={ButtonIcon.icon}
           // onClick={onClickMenuButton}
         ></Button>

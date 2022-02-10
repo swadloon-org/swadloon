@@ -7,6 +7,7 @@ import {
   TextShadows,
 } from '@newrade/core-design-system';
 
+import { CSSEffects } from '../design-system';
 import { keys } from '../utilities-iso/utilities';
 
 import { getCSSColor } from './colors.utilities';
@@ -14,7 +15,7 @@ import { getCSSColor } from './colors.utilities';
 /**
  * Transform the Effects object into a CSS compatible one.
  */
-export function getCSSEffects(options: Effects): Effects<string> {
+export function getCSSEffects(options: Effects): CSSEffects {
   const effects = keys(options).filter((effect) => effect !== 'vars') as (keyof Omit<
     Effects<undefined>,
     'vars'

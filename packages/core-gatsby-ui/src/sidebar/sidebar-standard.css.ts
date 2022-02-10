@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { sizeVars } from '@newrade/core-react-ui/theme';
+
 export const base = style({});
 
 export const content = style({

@@ -3,7 +3,7 @@ import React from 'react';
 import { Variant } from '@newrade/core-design-system';
 import { BoxV2, Center, PaddingProps, useCSSTheme } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';

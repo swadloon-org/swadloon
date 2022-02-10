@@ -1,10 +1,28 @@
-import { ICON } from '../foundations/iconography';
-import { ColorType, DeepPartial } from '../types';
+import React from 'react';
 
-import { BoxStyle } from './box';
+import { ICON } from '../foundations/iconography';
+import { ColorType, DeepPartial, SizeType } from '../types';
+
+import { BoxStyle, Margin } from './box';
 import { Variant } from './components';
 
-export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override>;
+/**
+ * Props for icons in buttons
+ */
+export type ButtonIconStyle<Override extends undefined | string = undefined> = {
+  /**
+   * The icon height and width
+   */
+  iconSize?: SizeType<Override>;
+  /**
+   * Used to control specific spacing around icons in button
+   * (will be ignored in Button rendering only the icon )
+   */
+  iconMargin: Margin<Override>;
+};
+
+export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> &
+  ButtonIconStyle<Override>;
 
 /**
  * Possible sizes for buttons
@@ -24,6 +42,7 @@ export type ButtonSizes<Override extends undefined | string = undefined> = {
  * Icon positions
  */
 export enum ButtonIcon {
+  /** default */
   none = 'none',
   /** Button with just an icon */
   icon = 'icon',
@@ -35,10 +54,9 @@ export enum ButtonIcon {
  * Intention variants for buttons
  */
 export enum ButtonIntention {
-  neutral = 'neutral',
   positive = 'positive',
   warning = 'warning',
-  negative = 'negative',
+  danger = 'danger',
 }
 
 /**
@@ -52,15 +70,11 @@ export type ButtonProps = Partial<{
   /**
    * Visual importance
    */
-  variant: Variant;
+  variant: Variant | ButtonIntention;
   /**
    * Overall size of the button component
    */
   size: ButtonSize;
-  /**
-   * Additional variants for button intentions
-   */
-  intention: ButtonIntention;
   /**
    * Disabled state
    */
@@ -90,8 +104,11 @@ export type ButtonColors<Override extends undefined | string = undefined> = {
   outlineColor?: ColorType<Override>;
 };
 
+/**
+ * Color configuration for buttons
+ */
 export type ButtonVariants<Override extends undefined | string = undefined> = {
-  [key in Variant]: ButtonColors<Override>;
+  [key in Variant | ButtonIntention]: ButtonColors<Override>;
 };
 
 /**

@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, layoutCSS, sizeVars } from '@newrade/core-react-ui/theme';
+
 export const base = style({
   display: 'grid',
   alignContent: 'flex-start',

@@ -2,7 +2,7 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
 import { PrimitiveProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
 

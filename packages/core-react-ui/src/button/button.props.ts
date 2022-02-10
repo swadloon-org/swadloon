@@ -4,9 +4,9 @@ import { ButtonProps } from '@newrade/core-design-system';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-type AsType = 'button' | 'a';
+export type ButtonAsType = 'button' | 'a';
 
-export type ButtonCompProps = PrimitiveProps<AsType> &
+export type ButtonCompProps = PrimitiveProps<ButtonAsType> &
   Pick<AnchorHTMLAttributes<any>, 'href' | 'target'> &
   ButtonProps & {
     /**
@@ -18,7 +18,7 @@ export type ButtonCompProps = PrimitiveProps<AsType> &
      */
     IconSVG?: React.ReactNode;
     /**
-     * Remove padding on either side which is usefull to align a button's text to a layout.
+     * Remove padding on either side which is usefull to align a button's text or icon to a layout.
      */
     collapsePadding?: 'left' | 'right';
   };

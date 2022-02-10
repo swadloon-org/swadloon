@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
+
 export const wrapper = style({
   display: 'grid',
   alignContent: 'center',

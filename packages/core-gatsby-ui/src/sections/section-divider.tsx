@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 import { Switcher, useCommonProps } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';

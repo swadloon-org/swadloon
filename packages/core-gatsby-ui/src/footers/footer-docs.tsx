@@ -80,7 +80,7 @@ export const FooterDocs = React.forwardRef<any, Props>(function FooterDocs(
                 size={PARAGRAPH_SIZE.small}
                 href={link?.url || ' '}
                 icon={LinkIcon.right}
-                Icon={<IconComp name={ICON.OPEN}></IconComp>}
+                IconSVG={ICON.OPEN}
               >
                 {link?.label || link?.url || ' '}
               </Link>
