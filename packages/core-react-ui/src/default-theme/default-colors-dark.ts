@@ -10,7 +10,6 @@ import {
 import {
   generateColorGreyPaletteDark,
   generateColorPalette5,
-  getCSSVarForColors,
   getDefaultColorIntents,
 } from '../utilities-theme/colors.utilities';
 
@@ -98,11 +97,6 @@ export const defaultColorIntentsDark: ColorIntents = {
   ...getDefaultColorIntents(defaultColorsColorsDark),
   isLight: `0`,
 };
-
-export const defaultColorVarDark = getCSSVarForColors({
-  colors: defaultColorsColorsDark,
-  colorIntents: defaultColorIntentsDark,
-});
 
 export const defaultColorsGradientsDark: ColorGradients = {
   gradient1: {

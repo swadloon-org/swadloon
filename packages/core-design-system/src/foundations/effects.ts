@@ -44,13 +44,13 @@ export type BoxShadows<Override extends undefined | string = undefined> = {
   light: Override extends string ? string : BoxShadow | BoxShadow[];
   medium: Override extends string ? string : BoxShadow | BoxShadow[];
   heavy: Override extends string ? string : BoxShadow | BoxShadow[];
-} & { [key: string]: Override extends string ? string : BoxShadow };
+};
 
 export type TextShadows<Override extends undefined | string = undefined> = {
   light: Override extends string ? string : TextShadow;
   medium: Override extends string ? string : TextShadow;
   heavy: Override extends string ? string : TextShadow;
-} & { [key: string]: Override extends string ? string : TextShadow };
+};
 
 export type OutlineShadows<Override extends undefined | string = undefined> = {
   focus: Override extends string ? string : BoxShadow | BoxShadow[];

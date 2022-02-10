@@ -1,4 +1,11 @@
-import { BoxShadow, Effects, TextShadow } from '@newrade/core-design-system';
+import {
+  BoxShadow,
+  BoxShadows,
+  Effects,
+  OutlineShadows,
+  TextShadow,
+  TextShadows,
+} from '@newrade/core-design-system';
 
 import { keys } from '../utilities-iso/utilities';
 
@@ -8,25 +15,53 @@ import { getCSSColor } from './colors.utilities';
  * Transform the Effects object into a CSS compatible one.
  */
 export function getCSSEffects(options: Effects): Effects<string> {
-  const effects = keys(options);
+  const effects = keys(options).filter((effect) => effect !== 'vars') as (keyof Omit<
+    Effects<undefined>,
+    'vars'
+  >)[];
+
   return effects.reduce((previous, current) => {
     const shadows = options[current];
-    const shadowsKey = keys(shadows);
+    if (!shadows) {
+      return previous;
+    }
+    const shadowsProp = keys(shadows) as (
+      | keyof BoxShadows
+      | keyof TextShadows
+      | keyof OutlineShadows
+    )[];
     if (!previous[current]) {
       previous[current] = {} as any;
     }
-    shadowsKey.forEach((shadowName) => {
+    shadowsProp.forEach((shadowName) => {
+      if (!(options[current] as any)[shadowName]) {
+        return;
+      }
+
       if (current === 'textShadows') {
-        const shadow = options[current][shadowName];
-        previous[current][shadowName] = getCSSTextShadow(shadow);
+        const textShadow = options[current][shadowName as keyof TextShadows];
+        previous[current][shadowName as keyof TextShadows] = getCSSTextShadow(textShadow);
         return;
       }
-      const shadowOrShadows = options[current][shadowName];
-      if (Array.isArray(shadowOrShadows)) {
-        previous[current][shadowName] = shadowOrShadows.map(getCSSBoxShadow).join(', ');
+
+      if (current === 'outlineShadows') {
+        const outlineShadows = options[current][shadowName as keyof OutlineShadows];
+        if (Array.isArray(outlineShadows)) {
+          previous[current][shadowName as keyof OutlineShadows] = outlineShadows
+            .map(getCSSBoxShadow)
+            .join(', ');
+          return;
+        }
+        previous[current][shadowName as keyof OutlineShadows] = getCSSBoxShadow(outlineShadows);
         return;
       }
-      previous[current][shadowName] = getCSSBoxShadow(shadowOrShadows as BoxShadow);
+      const shadows = options[current][shadowName as keyof BoxShadows];
+      if (Array.isArray(shadows)) {
+        previous[current][shadowName as keyof BoxShadows] = shadows.map(getCSSBoxShadow).join(', ');
+        return;
+      }
+      previous[current][shadowName as keyof BoxShadows] = getCSSBoxShadow(shadows);
+      return;
     });
     return previous;
   }, {} as Effects<string>);

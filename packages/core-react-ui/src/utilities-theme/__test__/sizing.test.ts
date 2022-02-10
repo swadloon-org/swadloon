@@ -1,12 +1,12 @@
 import { Sizing } from '@newrade/core-design-system';
 
 import { defaultSizing } from '../../default-theme/default-sizing';
-import { getCSSSizing } from '../sizing.utilities';
+import { getCSSSizingV2 } from '../sizing.utilities';
 
 describe('shadows utilities', () => {
-  describe(`${getCSSSizing.name}`, () => {
+  describe(`${getCSSSizingV2.name}`, () => {
     it('should create a valid CSS box-shadow property', () => {
-      const sizing = getCSSSizing(defaultSizing) as Sizing<string>;
+      const sizing = getCSSSizingV2(defaultSizing) as Sizing<string>;
       expect(sizing).toMatchSnapshot();
     });
   });

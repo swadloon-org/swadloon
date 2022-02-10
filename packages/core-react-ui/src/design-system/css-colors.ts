@@ -1,32 +1,24 @@
-import { Colors } from '@newrade/core-design-system';
+import { ColorGradients, ColorIntents, Colors, ColorsColors } from '@newrade/core-design-system';
 
-/**
- * Contains CSS variable names for each color
- * @example `--color-primary-500`
- */
-export type CSSColorsVarNames = Pick<Colors<string>, 'colors' | 'colorIntents'>;
-
-/**
- * Contains CSS statement to access CSS variables
- * @example `var(--color-primary-500)`
- */
-export type CSSColorsVars = Pick<Colors<string>, 'colors' | 'colorIntents'>;
-
-export type CSSColors = Colors<string> & {
-  /**
-   * CSS variable name for each color.
-   * @example `--color-primary-500`
-   */
-  varNames: CSSColorsVarNames;
-  /**
-   * CSS statement to access CSS variables
-   * @example `var(--color-primary-500)`
-   */
-  var: CSSColorsVars;
-};
+export type CSSColors = Colors<string>;
 
 /**
  * V2 introduces the following changes
  *  - removes `varNames` and `var` since we generated the names automatically based on the path
  */
-export type CSSColorsV2 = Colors<string>;
+export type CSSColorsV2 = Pick<Colors<string>, 'colorScheme'> & {
+  /**
+   * Raw colors
+   */
+  colors: Omit<ColorsColors<string>, 'vars'>;
+
+  /**
+   * Contextual use of certain colors (text, action, state, etc).
+   */
+  colorIntents: Omit<ColorIntents<string>, 'vars'>;
+
+  /**
+   * Gradients
+   */
+  gradients: Omit<ColorGradients<string>, 'vars'>;
+};

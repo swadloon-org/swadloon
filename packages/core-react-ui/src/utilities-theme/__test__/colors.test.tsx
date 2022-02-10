@@ -4,20 +4,8 @@ import { cleanup, render } from '@testing-library/react';
 
 import { Color } from '@newrade/core-design-system';
 
-import { defaultCodeColors } from '../../default-theme/default-code-colors';
-import {
-  defaultColorIntents,
-  defaultColors,
-  defaultColorsColors,
-} from '../../default-theme/default-colors';
-import {
-  getColorFromHex,
-  getCSSColor,
-  getCSSColors,
-  getCSSHexColor,
-  getCSSVarForColors,
-  getCSSVarNamesForColors,
-} from '../colors.utilities';
+import { defaultColors } from '../../default-theme/default-colors';
+import { getColorFromHex, getCSSColor, getCSSColorsV2, getCSSHexColor } from '../colors.utilities';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {
@@ -99,27 +87,9 @@ describe('colors utilities', () => {
     });
   });
 
-  describe(`${getCSSVarNamesForColors.name}`, () => {
-    it(`should generate CSS variable names for a given Colors object`, () => {
-      const vars = getCSSVarNamesForColors({
-        colors: defaultColorsColors,
-        colorIntents: defaultColorIntents,
-      });
-      expect(vars).toMatchSnapshot();
-    });
-
-    it(`should generate CSS statement to access Colors CSS vars`, () => {
-      const vars = getCSSVarForColors({
-        colors: defaultColorsColors,
-        colorIntents: defaultColorIntents,
-      });
-      expect(vars).toMatchSnapshot();
-    });
-  });
-
-  describe(`${getCSSColors.name}`, () => {
+  describe(`${getCSSColorsV2.name}`, () => {
     it(`should generate a CSS colors from a Colors object`, () => {
-      const colors = getCSSColors(defaultColors);
+      const colors = getCSSColorsV2(defaultColors);
       expect(colors).toMatchSnapshot();
     });
   });

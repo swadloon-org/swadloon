@@ -26,9 +26,15 @@ export function createCSSTextStyle({
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
   if (fontFamily || font?.length) {
+    const cssFontFamily = fontFamily ? fontFamily : font?.length ? getCSSFonts(font) : undefined;
+
     return {
-      fontFamily: fontFamily ? fontFamily : font?.length ? getCSSFonts(font) : undefined,
-      font: getCSSFonts(font),
+      //
+      // if fontFamily is defined on the text style directly, we take the value
+      // otherwise, we derive the fontFamily from the font config object (Font[])
+      //
+      fontFamily: cssFontFamily,
+      font: cssFontFamily,
       fontWeight: fontWeight ? fontWeight.toString() : `400`,
       fontStyle,
       letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
@@ -104,22 +110,6 @@ export function convertLetterSpacingToEM({
   }
 
   return `${convertedValue / 100}em`;
-}
-
-/**
- * Return a CSS compatible style object from a theme text style
- */
-export function getCSSTextStyles(
-  textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
-  options?: CSSTextStyleOptions
-): StyleRule {
-  if (!textStyle) {
-    return {};
-  }
-  return {
-    ...getCSSFontTextStyles(textStyle),
-    ...getCSSSizeTextStyles(textStyle, options),
-  };
 }
 
 export function getCSSFontTextStyles(

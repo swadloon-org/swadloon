@@ -13,7 +13,7 @@ import { defaultSansFont, defaultSerifFont } from '../default-theme';
 import { CSSTypographyV2 } from '../design-system';
 import { keys } from '../utilities-iso/utilities';
 
-import { getCSSFonts, getCSSFontsObject } from './font.utilities';
+import { getCSSFontsObject } from './font.utilities';
 import { createCSSTextStyle } from './text.utilities';
 import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
 
@@ -24,12 +24,13 @@ import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
  *  -v2: uses version 2 of text styles which don't include capsize styles
  */
 export function getCSSTypographyV2({
-  baseFontSize,
   fonts,
   titles,
   headings,
   paragraphs,
   labels,
+  baseFontSize,
+  vars,
 }: TypographyV2 & { baseFontSize: number }): CSSTypographyV2 {
   const titlesFontMetrics = titles.font?.[0].fontMetrics
     ? titles.font[0].fontMetrics
@@ -90,6 +91,7 @@ function createCSSVariantTextStylesV2({
     | TypographyV2['labels'];
   baseFontSize: number;
   fontMetrics: FontMetrics;
+  vars?: Partial<CSSTypographyV2>;
 }) {
   const parentTextStyles = keys(variant)
     // remove 'desktop' | 'tablet' | 'mobile'
@@ -114,7 +116,7 @@ function createCSSVariantTextStylesV2({
           ...styles[title],
         };
         //
-        // create the css text style
+        // create css text style
         //
         const cssTextStyle: TextStyle<string> = createCSSCapsizeTextStyleV2({
           ...textStyle,

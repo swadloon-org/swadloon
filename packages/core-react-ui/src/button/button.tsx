@@ -10,7 +10,7 @@ import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
 import { ButtonCompProps } from './button.props';
 import { getLabelSizeForButtonSize } from './button.utilities';
 
-import * as styles from './button.css';
+import * as styles from './button_old.css';
 
 type Props = ButtonCompProps;
 
@@ -25,10 +25,10 @@ export const Button = React.forwardRef<any, Props>(function Button(
     className,
     role,
     children,
-    variant,
-    collapsePadding,
     as,
     AsElement,
+    variant,
+    collapsePadding,
     size = defaultProps.size,
     disabled,
     loading,

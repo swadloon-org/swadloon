@@ -3,7 +3,6 @@ import React from 'react';
 import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
 import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
 
-import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities-iso';
 
@@ -12,7 +11,6 @@ import { googleMapThemeStyles } from './google-maps-styles';
 import * as styles from './google-maps.css';
 
 type Props = PrimitiveProps & {
-  styleTheme?: Theme;
   /**
    * LoadingScripts props
    */
@@ -31,7 +29,7 @@ const defaultLibraries: Libraries = ['places'];
  * @see https://developers.google.com/places/web-service/overview
  */
 export const GoogleMaps: React.FC<Props> = React.memo(
-  ({ id, className, style, as, script, map, children, styleTheme, ...props }) => {
+  ({ id, className, style, as, script, map, children, ...props }) => {
     /**
      * Component props
      */

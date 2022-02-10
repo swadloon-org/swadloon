@@ -11,6 +11,9 @@ export function getCSSFonts(fonts?: Font[]): string {
   return fonts.map((font) => font.name).join(',');
 }
 
+/**
+ * Convert a Fonts config object into a CSS compatible version
+ */
 export function getCSSFontsObject(fonts: Fonts): Fonts<string> {
   return {
     sans: getCSSFonts(fonts.sans),

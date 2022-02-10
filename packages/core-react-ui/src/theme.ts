@@ -4,7 +4,7 @@
  *
  */
 
-export * from './theme/default-css-buttons';
-export * from './theme/default-css-colors';
-export * from './theme/default-css-sizing';
-export * from './theme/default-theme.css';
+export * from './default-theme/default-buttons-css';
+export * from './default-theme/default-colors-css';
+export * from './default-theme/default-sizing-css';
+export * from './default-theme/default-theme.css';

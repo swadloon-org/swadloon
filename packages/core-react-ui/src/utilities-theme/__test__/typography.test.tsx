@@ -1,17 +1,12 @@
 import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
 
-import { defaultTheme } from '../../default-theme';
 import { defaultFallbackSansFonts, defaultSansFont } from '../../default-theme/default-fonts';
 import { defaultBaseFontSize } from '../../default-theme/default-sizing';
 import { defaultTypography } from '../../default-theme/default-typography';
-import { getCSSTextStyles } from '../text.utilities';
 import { createCSSCapsizeTextStyle } from '../text-capsize.utilities';
-import { createCSSTheme } from '../theme.utilities';
-import { getCSSTypography } from '../typography.utilities';
+import { getCSSTypographyV2 } from '../typography-v2.utilities';
 
 describe('typography utilities', () => {
-  const defaultCSSTheme = createCSSTheme(defaultTheme);
-
   describe(`${createCSSCapsizeTextStyle.name}`, () => {
     it('should create a valid CSS typography object', () => {
       const textStyle: TextStyle & CapsizeTextStyle = {
@@ -40,18 +35,10 @@ describe('typography utilities', () => {
     });
   });
 
-  describe(`${getCSSTypography.name}`, () => {
+  describe(`${getCSSTypographyV2.name}`, () => {
     it('should create a valid CSS typography object', () => {
       expect(
-        getCSSTypography({ ...defaultTypography, baseFontSize: defaultBaseFontSize })
-      ).toMatchSnapshot();
-    });
-  });
-
-  describe(`${getCSSTextStyles.name}`, () => {
-    it('should retrieve valid text styles', () => {
-      expect(
-        getCSSTextStyles({ ...defaultCSSTheme.typography.headings.desktop.h1 })
+        getCSSTypographyV2({ ...defaultTypography, baseFontSize: defaultBaseFontSize })
       ).toMatchSnapshot();
     });
   });

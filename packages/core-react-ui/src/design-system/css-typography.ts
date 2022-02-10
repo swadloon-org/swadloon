@@ -6,4 +6,4 @@ export type CSSTypography = Omit<Typography<string>, 'fonts'> & {
   fonts: CSSFonts;
 };
 
-export type CSSTypographyV2 = TypographyV2<string>;
+export type CSSTypographyV2 = Omit<TypographyV2<string>, 'vars'>;

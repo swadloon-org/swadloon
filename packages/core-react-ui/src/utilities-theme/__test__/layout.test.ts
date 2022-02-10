@@ -1,12 +1,12 @@
-import { Layout } from '@newrade/core-design-system';
+import { LayoutV2 } from '@newrade/core-design-system';
 
 import { defaultLayout } from '../../default-theme/default-layout';
-import { getCSSLayout } from '../layout.utilities';
+import { getCSSLayoutV2 } from '../layout.utilities';
 
 describe('layout utilities', () => {
-  describe(`${getCSSLayout.name}`, () => {
+  describe(`${getCSSLayoutV2.name}`, () => {
     it('should create a valid CSS layout config', () => {
-      const layout = getCSSLayout(defaultLayout) as Layout<string>;
+      const layout = getCSSLayoutV2(defaultLayout) as LayoutV2<string>;
       expect(layout).toMatchSnapshot();
     });
   });

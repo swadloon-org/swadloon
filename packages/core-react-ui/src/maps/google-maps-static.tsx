@@ -3,7 +3,6 @@ import React from 'react';
 import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
 import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
 
-import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities-iso';
 
@@ -12,7 +11,6 @@ import { googleMapThemeStyles } from './google-maps-styles';
 import * as styles from './google-maps.css';
 
 type Props = PrimitiveProps & {
-  theme?: Theme;
   /**
    * LoadingScripts props
    */
@@ -49,8 +47,7 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
     );
     const libraries: Libraries = script.libraries || defaultLibraries;
     const language: string = script.language || 'fr';
-    const googleMapsApiKey: string =
-      script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
+    const googleMapsApiKey: string = script.googleMapsApiKey;
 
     /**
      * Maps props

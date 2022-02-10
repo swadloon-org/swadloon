@@ -166,8 +166,7 @@ export function createCSSCapsizeTextStyleV2({
       textTransform,
       textDecoration,
     }),
-    font: getCSSFonts(font),
-    fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
+
     capsize: precomputeValues({ capHeight: capHeightNumber, lineGap, fontMetrics }),
   };
 }

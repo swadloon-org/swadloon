@@ -14,7 +14,7 @@ import {
 } from '@newrade/core-design-system';
 
 import { defaultPartialLayout } from '../default-theme/default-layout';
-import { CSSLayout, CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system';
+import { CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system';
 import { cssVar } from '../utilities-iso/css-variables.utilities';
 import { keys, px } from '../utilities-iso/utilities';
 
@@ -25,49 +25,6 @@ export const defaultLayoutVarNames: LayoutVarNames = getCSSVarNamesForLayout({
 export const defaultLayoutVar: LayoutVars = getCSSVarForLayout({
   layout: defaultPartialLayout,
 });
-
-/**
- * Transform the Layout object into a CSS compatible one.
- */
-export function getCSSLayout(options: Layout): CSSLayout {
-  return {
-    media: getCSSMediaQueries(options.media),
-    breakpoints: keys(options.breakpoints).reduce((previous, current) => {
-      const value = options.breakpoints[current];
-      previous = { ...previous, [current]: px({ value: value }) };
-      return previous;
-    }, {} as Breakpoints<string>),
-    contentMargins: keys(options.contentMargins).reduce((previous, current) => {
-      const value = options.contentMargins[current];
-      previous = { ...previous, [current]: px({ value }) };
-      return previous;
-    }, {} as Layout<string>['contentMargins']),
-    contentWidth: keys(options.contentWidth).reduce((previous, current) => {
-      const value = options.contentWidth[current];
-      previous = { ...previous, [current]: px({ value }) };
-      return previous;
-    }, {} as Layout<string>['contentWidth']),
-    sidebarWidth: keys(options.sidebarWidth).reduce((previous, current) => {
-      const value = options.sidebarWidth[current];
-      previous = { ...previous, [current]: px({ value }) };
-      return previous;
-    }, {} as Layout<string>['sidebarWidth']),
-    navbarHeight: keys(options.navbarHeight).reduce((previous, current) => {
-      const value = options.navbarHeight[current];
-      previous = { ...previous, [current]: px({ value }) };
-      return previous;
-    }, {} as Layout<string>['navbarHeight']),
-    asideWidth: px({ value: options.asideWidth }),
-    footerHeight: keys(options.footerHeight).reduce((previous, current) => {
-      const value = options.footerHeight[current];
-      previous = { ...previous, [current]: px({ value }) };
-      return previous;
-    }, {} as Layout<string>['footerHeight']),
-    varNames: defaultLayoutVarNames,
-    var: defaultLayoutVar,
-    zIndex: options.zIndex,
-  };
-}
 
 /**
  * Transform the Layout object into a CSS compatible one.

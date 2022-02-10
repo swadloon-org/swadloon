@@ -1,4 +1,4 @@
-import { COLOR_SCHEME, DesignSystem } from '@newrade/core-design-system';
+import { COLOR_SCHEME, DesignSystemV2 } from '@newrade/core-design-system';
 
 import { defaultAnimations } from './default-animations';
 import { defaultButtons } from './default-buttons';
@@ -9,7 +9,7 @@ import { defaultLayout } from './default-layout';
 import { defaultSizing } from './default-sizing';
 import { defaultTypography } from './default-typography';
 
-export const defaultTheme: DesignSystem = {
+export const defaultTheme: DesignSystemV2 = {
   name: 'core-react-ui',
   colorScheme: COLOR_SCHEME.LIGHT,
   colors: defaultColors,

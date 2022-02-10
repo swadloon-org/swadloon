@@ -7,7 +7,7 @@
 /**
  * Wrapper for Objects.keys
  */
-export function keys<T extends object>(object: T) {
+export function keys<T extends object | undefined>(object: T) {
   if (!object) {
     return [] as (keyof T)[];
   }

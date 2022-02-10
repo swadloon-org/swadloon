@@ -1,7 +1,7 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS, typographyVars } from '../theme/default-theme.css';
+import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css';
 
 /**
  *
@@ -31,6 +31,12 @@ const backgroundColorDisabled = createVar();
 const textColor = createVar();
 const textColorActive = createVar();
 const textColorDisabled = createVar();
+
+/**
+ *
+ * Variants
+ *
+ */
 
 export const variants = recipe({
   base: {
@@ -238,10 +244,16 @@ export const styleVariants = recipe({
         boxShadow: `0 0 0 1px ${colorVars.colorIntents.dangerAction}`,
       },
     },
+    /**
+     * Loading states
+     */
     loading: {
       true: {},
       false: {},
     },
+    /**
+     * Disabled states
+     */
     disabled: {
       true: {
         cursor: 'not-allowed',
@@ -281,12 +293,15 @@ export const iconVariants = recipe({
   },
   variants: {
     /**
-     * Position
+     * Icon position
      */
     position: {
       left: { left: paddingX },
       right: { right: iconOffset },
     },
+    /**
+     * Disabled states
+     */
     disabled: {
       true: {
         color: iconColorDisabled,

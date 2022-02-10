@@ -10,3 +10,5 @@ export * from './utilities-theme/filter-color.utility';
 export * from './utilities-theme/text.utilities';
 export * from './utilities-theme/text-capsize.utilities';
 export * from './utilities-theme/theme.utilities';
+export * from './utilities-theme/typography.utilities';
+export * from './utilities-theme/typography-v2.utilities';

@@ -1,9 +1,12 @@
-import { Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
+import { DefaultTypographyV2, Fonts, TEXT_TRANSFORM } from '@newrade/core-design-system';
 
 import { cssVar } from '../utilities-iso/css-variables.utilities';
 
 import * as fonts from './default-fonts';
 
+/**
+ * @deprecated (will be removed once getCSSTypography is replaced with getCSSTypographyV2)
+ */
 export const defaultFontVars: Fonts<string> = {
   sans: '--font-family-monospace',
   sansAlternate: '--font-family-sans',
@@ -11,6 +14,9 @@ export const defaultFontVars: Fonts<string> = {
   monospace: '--font-family-serif',
 };
 
+/**
+ * @deprecated (will be removed once getCSSTypography is replaced with getCSSTypographyV2)
+ */
 export const defaultFontVarNames: Fonts<string> = {
   sans: cssVar('--font-family-monospace'),
   sansAlternate: cssVar('--font-family-sans'),
@@ -18,7 +24,7 @@ export const defaultFontVarNames: Fonts<string> = {
   monospace: cssVar('--font-family-serif'),
 };
 
-export const defaultTypography: Typography = {
+export const defaultTypography: DefaultTypographyV2 = {
   fonts: {
     serif: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],

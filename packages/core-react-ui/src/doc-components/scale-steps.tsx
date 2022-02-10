@@ -9,7 +9,7 @@ import { keys } from '../utilities-iso/utilities';
 
 import { Placeholder } from './placeholder';
 
-import { sizeVars } from '../theme/default-theme.css';
+import { sizeVars } from '../default-theme/default-theme.css';
 
 export const ScaleSteps: React.FC<{ steps: SizingSteps<string>['mobile'] }> = ({ steps }) => {
   return (

@@ -1,18 +1,8 @@
 import { ICON } from '../foundations/iconography';
-import { ColorType } from '../types';
+import { ColorType, DeepPartial } from '../types';
 
 import { BoxStyle } from './box';
 import { Variant } from './components';
-
-/**
- * Buttons
- *
- * @description Types to describe every variants and styles of our buttons.
- */
-export type Buttons<Override extends undefined | string = undefined> = {
-  variants: ButtonVariants<Override>;
-  sizes: ButtonSizes<Override>;
-};
 
 export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override>;
 
@@ -102,4 +92,20 @@ export type ButtonColors<Override extends undefined | string = undefined> = {
 
 export type ButtonVariants<Override extends undefined | string = undefined> = {
   [key in Variant]: ButtonColors<Override>;
+};
+
+/**
+ * Buttons
+ *
+ * @description Types to describe every variants and styles of our buttons.
+ */
+export type Buttons<Override extends undefined | string = undefined> = {
+  variants: ButtonVariants<Override>;
+  sizes: ButtonSizes<Override>;
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<Buttons<string>>, 'vars'>;
 };

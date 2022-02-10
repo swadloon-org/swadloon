@@ -2,8 +2,9 @@ import { createGlobalThemeContract } from '@vanilla-extract/css';
 import { CSSVarFunction, MapLeafNodes } from '@vanilla-extract/private';
 import { kebab } from 'case';
 
-import { Colors, DesignSystem, Effects } from '@newrade/core-design-system';
+import { Colors, Effects } from '@newrade/core-design-system';
 
+import { CSSButtons, CSSFontsV2, CSSIconography } from '../design-system';
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { CSSSizingV2 } from '../design-system/css-sizing';
 import { CSSTypographyV2 } from '../design-system/css-typography';
@@ -13,22 +14,27 @@ import {
   defaultSizesCSSVarNamesV2,
   defaultSizesCSSVarV2,
 } from '../utilities-theme/sizing.utilities';
-import { CSSButtons, CSSIconography } from '..';
 
-import { defaultCSSButtons } from './default-css-buttons';
-import { defaultCSSColors } from './default-css-colors';
-import { defaultCSSEffects } from './default-css-effects';
-import { defaultCSSIconography } from './default-css-iconography';
-import { defaultCSSLayoutV2 } from './default-css-layout-v2';
-import { defaultCSSSizing } from './default-css-sizing';
-import { defaultCSSTypography } from './default-css-typography';
+import { defaultCSSButtons } from './default-buttons-css';
+import { defaultCSSColors } from './default-colors-css';
+import { defaultCSSEffects } from './default-effects-css';
+import { defaultCSSIconography } from './default-iconography-css';
+import { defaultCSSLayoutV2 } from './default-layout-v2-css';
+import { defaultCSSSizing } from './default-sizing-css';
+import { defaultCSSTypography } from './default-typography-css';
 
 /**
  *
- * Create and export vanilla-extract theme contracts for the core-design-system and the core-react-ui components
+ * Create and export vanilla-extract theme contracts for the
+ * core-design-system and the core-react-ui components
  *
+ * Those are derived from the default themes to create reference variables objects
  */
 
+/**
+ * Formatting function used to have plain (with short content hash) variable names
+ * e.g. --fonts-sans-alternate: ...
+ */
 const propertyFormatFn: (value: string | null, path: string[]) => string = (value, path) =>
   `${path.map(kebab).join('-')}`;
 
@@ -79,6 +85,8 @@ export const iconographyVars: MapLeafNodes<CSSIconography, CSSVarFunction> =
 /**
  * Typography
  */
+export const fontsVars: MapLeafNodes<CSSFontsV2, CSSVarFunction> =
+  createGlobalThemeContract<CSSFontsV2>(defaultCSSTypography.fonts, propertyFormatFn);
 export const typographyVars: MapLeafNodes<CSSTypographyV2, CSSVarFunction> =
   createGlobalThemeContract<CSSTypographyV2>(defaultCSSTypography, propertyFormatFn);
 export const typographyCSS = defaultCSSTypography;

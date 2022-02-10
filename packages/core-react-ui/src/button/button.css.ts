@@ -1,10 +1,7 @@
-import { style } from '@vanilla-extract/css';
+import { createVar, style } from '@vanilla-extract/css';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS, sizeVars } from '../theme';
-
-const iconSize = `1.5em`;
-const iconOnlySize = `1.8em`;
-const iconPadding = `3em`;
+import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css';
 
 /**
  *
@@ -12,29 +9,28 @@ const iconPadding = `3em`;
  *
  */
 
-export const base = style({
-  display: 'block',
-  position: 'relative',
-  outline: 'none',
-  lineHeight: 0,
-  cursor: 'pointer',
-  appearance: 'none',
-  userSelect: 'none',
-  touchAction: 'none',
-  WebkitAppearance: 'none',
-  whiteSpace: 'nowrap', // don't allow wrapping
-  borderRadius: 4,
-  width: 'fit-content',
-});
+const iconSize = createVar();
+const iconOffset = createVar();
+const iconColor = createVar();
+const iconColorDisabled = createVar();
 
-/**
- * States
- */
-export const rest = style({});
+const paddingX = createVar();
+const paddingY = createVar();
+const height = createVar();
 
-export const loading = style({});
+const borderWidth = createVar();
+const borderColor = createVar();
+const borderColorActive = createVar();
+const borderColorDisabled = createVar();
+const borderRadius = createVar();
 
-export const disabled = style({});
+const backgroundColor = createVar();
+const backgroundColorActive = createVar();
+const backgroundColorDisabled = createVar();
+
+const textColor = createVar();
+const textColorActive = createVar();
+const textColorDisabled = createVar();
 
 /**
  *
@@ -42,281 +38,277 @@ export const disabled = style({});
  *
  */
 
-/**
- * Primary
- */
-export const primary = style({
-  color: cssTheme.components.buttons.var.variants.primary.textColor,
-  border: `2px solid ${cssTheme.components.buttons.var.variants.primary.borderColor}`,
-  backgroundColor: colorVars.colors.primary[500],
-  selectors: {
-    '&:active': {
-      filter: `brightness(90%)`,
+export const variants = recipe({
+  base: {
+    vars: {
+      [iconSize]: `clamp(16px, 1em, 28px)`,
+      [iconOffset]: `0.6em`,
+      [iconColor]: colorVars.colors.grey[700],
+      [iconColorDisabled]: colorVars.colorIntents.disabledText,
+      [paddingX]: `0.5em`,
+      [paddingY]: `0px`,
+      [borderWidth]: `1px`,
+      [borderRadius]: `4px`,
+      [textColor]: colorVars.colorIntents.primaryText,
+      [textColorActive]: colorVars.colorIntents.primary,
+      [textColorDisabled]: colorVars.colors.grey[600],
+      [borderColor]: colorVars.colorIntents.primary,
+      [borderColorDisabled]: `transparent`,
+      [backgroundColor]: colorVars.colors.grey[0],
+      [backgroundColorActive]: colorVars.colors.primary[100],
+      [backgroundColorDisabled]: colorVars.colors.grey[25],
     },
-    '&[disabled]': {
-      cursor: 'not-allowed',
-      color: colorVars.colorIntents.disabledText,
-      borderColor: colorVars.colorIntents.backgroundDisabled,
-      backgroundColor: colorVars.colorIntents.backgroundDisabled,
-    },
-  },
-});
 
-/**
- * Secondary
- */
-export const secondary = style({
-  color: colorVars.colorIntents.primary,
-  border: `2px solid ${colorVars.colorIntents.primary}`,
-  selectors: {
-    '&:active': {
-      backgroundColor: colorVars.colors.primary[100],
-    },
-    '&[disabled]': {
-      cursor: 'not-allowed',
-      color: colorVars.colorIntents.disabledText,
-      borderColor: colorVars.colorIntents.backgroundDisabled,
-      backgroundColor: colorVars.colorIntents.backgroundDisabled,
-    },
+    position: 'relative',
+    height: 'fit-content',
   },
-});
-
-/**
- * Tertiary
- */
-export const tertiary = style({
-  color: colorVars.colorIntents.primary,
-  selectors: {
-    '&:active': {
-      backgroundColor: colorVars.colors.primary[100],
+  variants: {
+    /**
+     * Variants
+     */
+    variant: {
+      primary: {
+        vars: {
+          [iconColor]: colorVars.colors.grey[700],
+          [iconColorDisabled]: colorVars.colorIntents.disabledText,
+          [textColor]: colorVars.colorIntents.primaryText,
+          [textColorActive]: colorVars.colorIntents.primary,
+          [textColorDisabled]: colorVars.colors.grey[600],
+          [borderColor]: colorVars.colorIntents.primary,
+          [borderColorDisabled]: `transparent`,
+          [backgroundColor]: colorVars.colors.grey[0],
+          [backgroundColorActive]: colorVars.colors.primary[100],
+          [backgroundColorDisabled]: colorVars.colors.grey[25],
+        },
+      },
+      secondary: {},
+      tertiary: {},
     },
-    '&[disabled]': {
-      cursor: 'not-allowed',
-      color: colorVars.colorIntents.disabledText,
-      backgroundColor: colorVars.colorIntents.backgroundDisabled,
-    },
-  },
-});
-
-/**
- * Sizes
- */
-export const large = style({
-  height: `calc(2 * ${sizeVars.x3} + ${
-    cssTheme.typography.labels.mobile.medium.capHeight
-  }px + ${4}px)`,
-  minWidth: `calc(2 * ${sizeVars.x3} + ${
-    cssTheme.typography.labels.mobile.medium.capHeight
-  }px + ${4}px)`,
-  padding: `${sizeVars.x3} ${sizeVars.x3}`,
-  fontSize: cssTheme.typography.labels.mobile.medium.capsize?.fontSize,
-  borderRadius: cssTheme.components.buttons.var.sizes.large.border?.default?.radius,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      height: `calc(2 * ${sizeVars.x3} + ${
-        cssTheme.typography.labels.tablet.medium.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x3} + ${
-        cssTheme.typography.labels.tablet.medium.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.tablet.medium.capsize?.fontSize,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      height: `calc(2 * ${sizeVars.x3} + ${
-        cssTheme.typography.labels.desktop.medium.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x3} + ${
-        cssTheme.typography.labels.desktop.medium.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.desktop.medium.capsize?.fontSize,
-    },
-  },
-  selectors: {
-    '&[datapaddingcollapse="left"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x3} + (${iconSize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[datapaddingcollapse="left-icon"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x3} + (${iconOnlySize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[dataicon="right"]': {
-      padding: `${sizeVars.x3} ${iconPadding} ${sizeVars.x3} ${sizeVars.x3}`,
-    },
-    '&[dataicon="left"]': {
-      padding: `${sizeVars.x3} ${sizeVars.x3} ${sizeVars.x3} ${iconPadding}`,
-    },
-  },
-});
-
-export const collapsePaddingLeft = style({});
-
-export const medium = style({
-  height: `calc(2 * ${sizeVars.x2} + ${
-    cssTheme.typography.labels.mobile.small.capHeight
-  }px + ${4}px)`,
-  minWidth: `calc(2 * ${sizeVars.x2} + ${
-    cssTheme.typography.labels.mobile.small.capHeight
-  }px + ${4}px)`,
-  padding: `${sizeVars.x2} ${sizeVars.x2}`,
-  fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      height: `calc(2 * ${sizeVars.x2} + ${
-        cssTheme.typography.labels.tablet.small.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x2} + ${
-        cssTheme.typography.labels.tablet.small.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      height: `calc(2 * ${sizeVars.x2} + ${
-        cssTheme.typography.labels.desktop.small.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x2} + ${
-        cssTheme.typography.labels.desktop.small.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
-    },
-  },
-  selectors: {
-    '&[datapaddingcollapse="left"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x2} + (${iconSize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[datapaddingcollapse="left-icon"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x2} + (${iconOnlySize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[dataicon="right"]': {
-      padding: `${sizeVars.x2} ${iconPadding} ${sizeVars.x2} ${sizeVars.x2} `,
-    },
-    '&[dataicon="left"]': {
-      padding: `${sizeVars.x2} ${sizeVars.x2} ${sizeVars.x2} ${iconPadding}`,
-    },
-  },
-});
-
-export const small = style({
-  height: `calc(2 * ${sizeVars.x1} + ${
-    cssTheme.typography.labels.mobile.small.capHeight
-  }px + ${4}px)`,
-  minWidth: `calc(2 * ${sizeVars.x1} + ${
-    cssTheme.typography.labels.mobile.small.capHeight
-  }px + ${4}px)`,
-  padding: `${sizeVars.x1} ${sizeVars.x2}`,
-  fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      height: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.tablet.small.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.tablet.small.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      height: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.desktop.small.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.desktop.small.capHeight
-      }px + ${4}px)`,
-      fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
-    },
-  },
-  selectors: {
-    '&[datapaddingcollapse="left"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x2} + (${iconSize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[datapaddingcollapse="left-icon"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x2} + (${iconOnlySize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[dataicon="right"]': {
-      padding: `${sizeVars.x1} ${iconPadding} ${sizeVars.x1} ${sizeVars.x2}`,
-    },
-    '&[dataicon="left"]': {
-      padding: `${sizeVars.x1} ${sizeVars.x1} ${sizeVars.x2} ${iconPadding}`,
-    },
-  },
-});
-
-export const xSmall = style({
-  height: `calc(2 * ${sizeVars.x1} + ${
-    cssTheme.typography.labels.mobile.xSmall.capHeight
-  }px + ${4}px)`,
-  minWidth: `calc(2 * ${sizeVars.x1} + ${
-    cssTheme.typography.labels.mobile.xSmall.capHeight
-  }px + ${4}px)`,
-  padding: `${sizeVars.x1} ${sizeVars.x1}`,
-  fontSize: cssTheme.typography.labels.mobile.xSmall.capsize?.fontSize,
-  '@media': {
-    [layoutCSS.media.tablet]: {
-      fontSize: cssTheme.typography.labels.tablet.xSmall.capsize?.fontSize,
-    },
-    [layoutCSS.media.desktopSmall]: {
-      fontSize: cssTheme.typography.labels.desktop.xSmall.capsize?.fontSize,
-    },
-  },
-  selectors: {
-    '&[datapaddingcollapse="left"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x1} + (${iconSize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[datapaddingcollapse="left-icon"]': {
-      marginLeft: `calc(-1 * ${sizeVars.x1} + (${iconOnlySize} - ${sizeVars.x3}) / 2)`,
-    },
-    '&[dataicon="right"]': {
-      height: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.tablet.xSmall.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.tablet.xSmall.capHeight
-      }px + ${4}px)`,
-      padding: `${sizeVars.x1} ${iconPadding} ${sizeVars.x1} ${sizeVars.x1}`,
-    },
-    '&[dataicon="left"]': {
-      height: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.desktop.xSmall.capHeight
-      }px + ${4}px)`,
-      minWidth: `calc(2 * ${sizeVars.x1} + ${
-        cssTheme.typography.labels.desktop.xSmall.capHeight
-      }px + ${4}px)`,
-      padding: `${sizeVars.x1} ${sizeVars.x1} ${sizeVars.x1} ${iconPadding}`,
+    /**
+     * Sizes
+     */
+    size: {
+      small: {
+        vars: {
+          [height]: `2.2em`,
+          [iconOffset]: `0.6em`,
+          [paddingX]: `0.6em`,
+        },
+        fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
+        '@media': {
+          [layoutCSS.media.tablet]: {
+            fontSize: typographyVars.labels.tablet.small.capsize.fontSize,
+          },
+          [layoutCSS.media.desktopSmall]: {
+            fontSize: typographyVars.labels.desktop.small.capsize.fontSize,
+          },
+        },
+      },
+      medium: {
+        vars: {
+          [height]: `2.6em`,
+          [iconOffset]: `0.7em`,
+          [paddingX]: `0.7em`,
+        },
+        fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
+        '@media': {
+          [layoutCSS.media.tablet]: {
+            fontSize: typographyVars.labels.tablet.small.capsize.fontSize,
+          },
+          [layoutCSS.media.desktopSmall]: {
+            fontSize: typographyVars.labels.desktop.small.capsize.fontSize,
+          },
+        },
+      },
+      large: {
+        vars: {
+          [height]: `4em`,
+          [iconOffset]: `0.9em`,
+          [paddingX]: `0.9em`,
+        },
+        fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
+        '@media': {
+          [layoutCSS.media.tablet]: {
+            fontSize: typographyVars.labels.tablet.small.capsize.fontSize,
+          },
+          [layoutCSS.media.desktopSmall]: {
+            fontSize: typographyVars.labels.desktop.small.capsize.fontSize,
+          },
+        },
+      },
     },
   },
 });
 
 /**
  *
- * Icon
+ * Typography
  *
  */
 
-export const iconBase = style({
-  position: 'absolute',
-  height: iconSize,
-  maxHeight: iconSize,
-  width: iconSize,
-  maxWidth: iconSize,
+export const text = style({
+  fontFamily: typographyVars.labels.font,
+  userSelect: 'none',
 });
 
-export const iconOnly = style({
-  position: 'absolute',
-  height: iconOnlySize,
-  maxHeight: iconOnlySize,
-  width: iconOnlySize,
-  maxWidth: iconOnlySize,
+/**
+ *
+ * Base
+ *
+ */
+
+export const styleVariants = recipe({
+  base: {
+    position: 'relative',
+    padding: `0 calc(${iconSize} + 2 * ${iconOffset}) 0 ${paddingX}`,
+    height: height,
+    lineHeight: `calc(${height} - 2 * ${borderWidth})`,
+    minWidth: `100%`,
+    width: 'fit-content',
+    verticalAlign: 'middle',
+    ':focus': {
+      boxShadow: `0 0 1px 1px ${colorVars.colors.primary[300]}`,
+    },
+    '::-webkit-input-placeholder': {
+      color: colorVars.colors.grey[200],
+      verticalAlign: 'middle',
+      lineHeight: height,
+    },
+
+    borderStyle: 'solid',
+    borderWidth: borderWidth,
+    borderRadius: borderRadius,
+
+    color: textColor,
+    backgroundColor: backgroundColor,
+
+    outline: 'none',
+    whiteSpace: 'nowrap',
+
+    cursor: 'auto',
+    appearance: 'none',
+
+    userSelect: 'auto',
+    touchAction: 'none',
+    WebkitAppearance: 'none',
+
+    transition: `box-shadow 0.3s ease-out`,
+  },
+  variants: {
+    /**
+     * Variants
+     */
+    variant: {
+      primary: {},
+      secondary: {},
+      tertiary: {},
+    },
+    /**
+     * Sizes
+     */
+    size: {
+      small: {},
+      medium: {},
+      large: {},
+    },
+    /**
+     * Icons
+     */
+    icon: {
+      left: { paddingLeft: `calc(2 * ${paddingX} + ${iconSize})` },
+      right: { paddingRight: `calc(2 * ${paddingX} + ${iconSize})` },
+    },
+    /**
+     * States (internal)
+     */
+    state: {
+      rest: {},
+      focused: {
+        color: textColorActive,
+        borderColor: borderColorActive,
+        backgroundColor: backgroundColorActive,
+      },
+    },
+    /**
+     * Validity states
+     */
+    validity: {
+      neutral: {},
+      valid: {
+        boxShadow: `0 0 0 1px ${colorVars.colorIntents.successAction}`,
+      },
+      warning: {
+        boxShadow: `0 0 0 1px ${colorVars.colorIntents.warningAction}`,
+      },
+      error: {
+        boxShadow: `0 0 0 1px ${colorVars.colorIntents.dangerAction}`,
+      },
+    },
+    /**
+     * Loading states
+     */
+    loading: {
+      true: {},
+      false: {},
+    },
+    /**
+     * Disabled states
+     */
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        color: textColorDisabled,
+        borderColor: borderColorDisabled,
+        backgroundColor: backgroundColorDisabled,
+        ':focus': {
+          outline: 'none',
+          boxShadow: 'none',
+        },
+      },
+      false: {},
+    },
+  },
 });
+
+export type InputVariants = RecipeVariants<typeof styleVariants>;
+
+/**
+ *
+ * Icons
+ *
+ */
 
 export const icon = style({
-  top: `calc(50% - ${iconOnlySize} / 2)`,
-  left: `calc(50% - ${iconOnlySize} / 2)`,
+  position: 'absolute',
+  height: iconSize,
+  width: iconSize,
+  top: `calc(50% - ${iconSize} / 2)`,
+  zIndex: 1,
+  pointerEvents: 'none', // let events go through
 });
 
-export const right = style({
-  top: `calc(50% - ${iconSize} / 2)`,
-  right: `0.8em`,
+export const iconVariants = recipe({
+  base: {
+    color: iconColor,
+  },
+  variants: {
+    /**
+     * Icon position
+     */
+    position: {
+      left: { left: paddingX },
+      right: { right: iconOffset },
+    },
+    /**
+     * Disabled states
+     */
+    disabled: {
+      true: {
+        color: iconColorDisabled,
+      },
+      false: {},
+    },
+  },
 });
 
-export const left = style({
-  top: `calc(50% - ${iconSize} / 2)`,
-  left: `0.8em`,
-});
+export type InputIconVariants = RecipeVariants<typeof iconVariants>;
