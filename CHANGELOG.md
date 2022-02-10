@@ -12,6 +12,10 @@ Please note that this file is written **manually** where as other changelogs in 
 - rename `variantSize` in favor of `size` for all components
 - remove unneccessary `HTMLAttributes` type in props (already included in Primitive typings)
 - rename props for the `<Button/>` component
+- remove `getCSSTextStyles`
+- remove `createCSSTheme` in favor of `createCSSThemeV2`
+- remove deprecated props from Colors, Typography
+- remove DesignSystem (V1) in favor of V2
 
 ## Features
 

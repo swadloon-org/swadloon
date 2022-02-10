@@ -75,7 +75,6 @@ export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = ({
     <div style={{ height: `max(100%, 50vh)`, minHeight: `50vh` }}>
       {shouldLoad && googleMapsApiKey ? (
         <GoogleMaps
-          styleTheme={theme}
           script={{
             // ...script,
             id: 'contact-map-script',
