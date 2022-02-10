@@ -4,12 +4,21 @@ import { ColorType } from '../types';
 import { BoxStyle } from './box';
 import { Variant } from './components';
 
-export enum ButtonAs {
-  button = 'button',
-  a = 'a',
-  div = 'div',
-}
+/**
+ * Buttons
+ *
+ * @description Types to describe every variants and styles of our buttons.
+ */
+export type Buttons<Override extends undefined | string = undefined> = {
+  variants: ButtonVariants<Override>;
+  sizes: ButtonSizes<Override>;
+};
 
+export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override>;
+
+/**
+ * Possible sizes for buttons
+ */
 export enum ButtonSize {
   large = 'large',
   medium = 'medium',
@@ -17,21 +26,24 @@ export enum ButtonSize {
   xSmall = 'xSmall',
 }
 
+export type ButtonSizes<Override extends undefined | string = undefined> = {
+  [key in ButtonSize]: ButtonBoxStyle<Override>;
+};
+
+/**
+ * Icon positions
+ */
 export enum ButtonIcon {
   none = 'none',
+  /** Button with just an icon */
   icon = 'icon',
   left = 'left',
   right = 'right',
 }
 
-export enum ButtonState {
-  rest = 'rest',
-  pressed = 'pressed',
-  focused = 'focused',
-  loading = 'loading',
-  disabled = 'disabled',
-}
-
+/**
+ * Intention variants for buttons
+ */
 export enum ButtonIntention {
   neutral = 'neutral',
   positive = 'positive',
@@ -39,9 +51,10 @@ export enum ButtonIntention {
   negative = 'negative',
 }
 
-export type ButtonProps = Partial<ButtonStyleProps>;
-
-export interface ButtonStyleProps {
+/**
+ * Props that component libraries can implement
+ */
+export type ButtonProps = Partial<{
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
@@ -74,8 +87,11 @@ export interface ButtonStyleProps {
    * What icon to render
    */
   Icon: ICON;
-}
+}>;
 
+/**
+ * Properties for each color type in a button
+ */
 export type ButtonColors<Override extends undefined | string = undefined> = {
   textColor?: ColorType<Override>;
   iconColor?: ColorType<Override>;
@@ -84,17 +100,6 @@ export type ButtonColors<Override extends undefined | string = undefined> = {
   outlineColor?: ColorType<Override>;
 };
 
-export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override>;
-
 export type ButtonVariants<Override extends undefined | string = undefined> = {
   [key in Variant]: ButtonColors<Override>;
-};
-
-export type ButtonSizes<Override extends undefined | string = undefined> = {
-  [key in ButtonSize]: ButtonBoxStyle<Override>;
-};
-
-export type Buttons<Override extends undefined | string = undefined> = {
-  variants: ButtonVariants<Override>;
-  sizes: ButtonSizes<Override>;
 };

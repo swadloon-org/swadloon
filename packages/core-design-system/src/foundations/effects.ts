@@ -1,5 +1,5 @@
 import { Color } from '../primitives/color';
-import { ColorType, NumberType } from '../types';
+import { ColorType, DeepPartial, NumberType } from '../types';
 
 /**
  * Representation of a box shadow.
@@ -84,4 +84,16 @@ export type Effects<Override extends undefined | string = undefined> = {
   outlineShadows: OutlineShadows<Override>;
   // TODO
   // overlays: Overlays;
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<Effects<string>>, 'vars'>;
 };
+
+/**
+ * Effects object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultEffects = Omit<Effects, 'vars'>;

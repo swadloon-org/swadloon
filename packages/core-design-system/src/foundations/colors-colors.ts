@@ -1,5 +1,5 @@
 import { ColorPalette, ColorShades5, ColorShadesGrey } from '../primitives/color-palette';
-import { ColorType } from '../types';
+import { ColorType, DeepPartial } from '../types';
 
 import { CodeColors } from './code-colors';
 import { DataVizColors } from './data-viz-colors';
@@ -67,4 +67,16 @@ export type ColorsColors<Override extends undefined | string = undefined> = {
    */
 
   code: CodeColors<Override>;
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<ColorsColors<string>>, 'vars'>;
 };
+
+/**
+ * ColorsColors object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultColorsColors = Omit<ColorsColors, 'vars'>;

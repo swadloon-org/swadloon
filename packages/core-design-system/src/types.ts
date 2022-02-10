@@ -93,3 +93,21 @@ export type SizingType<Override extends undefined | string> = Override extends s
 export type MediaQueryType<Override extends undefined | string> = Override extends string
   ? string
   : MediaQueryGroup;
+
+/**
+ *
+ * Utilities
+ *
+ */
+
+export type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T extends any[]
+  ? {
+      [P in keyof T]?: T[P] extends T[number] ? DeepPartial<T[P]> : never;
+    }
+  : T extends string
+  ? T | undefined
+  : T | undefined;

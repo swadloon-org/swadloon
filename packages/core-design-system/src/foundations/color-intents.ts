@@ -1,4 +1,4 @@
-import { ColorType } from '../types';
+import { ColorType, DeepPartial } from '../types';
 
 /**
  * Contextual use of certain colors (text, action, state, etc).
@@ -109,4 +109,16 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
    */
 
   // dataCombo1:
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<ColorIntents<string>>, 'vars'>;
 };
+
+/**
+ * ColorIntents object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultColorIntents = Omit<ColorIntents, 'vars'>;
