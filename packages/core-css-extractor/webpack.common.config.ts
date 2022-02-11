@@ -3,7 +3,7 @@ import path from 'path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
+import webpack, { Configuration, EntryObject, RuleSetRule, WebpackPluginInstance } from 'webpack';
 // @ts-ignore
 import WebpackWatchedGlobEntries from 'webpack-watched-glob-entries-plugin';
 
@@ -44,8 +44,9 @@ const localCommonConfig: Configuration = {
     [path.resolve(process.cwd(), env.CSS_EXTRACTOR_ENTRIES_GLOB)],
     {
       ignore: '**/*.test.js',
-    }
-  ),
+    },
+    undefined
+  ) as () => EntryObject,
   cache: false,
   output: {
     publicPath: '/',

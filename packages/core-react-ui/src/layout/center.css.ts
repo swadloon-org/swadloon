@@ -24,10 +24,10 @@ export const content = style({
   justifySelf: 'center',
   overflowX: 'visible',
 
-  maxWidth: `calc(100vw - 2 * ${layoutVars.contentMargins.mobile}px)`,
+  maxWidth: `calc(100vw - 2 * ${layoutVars.contentMargins.mobile})`,
   '@media': {
     [layoutCSS.media.desktopSmall]: {
-      maxWidth: `var(--max-content-width, ${layoutVars.contentWidth.desktopMaxWidth}px)`,
+      maxWidth: `var(--max-content-width, ${layoutVars.contentWidth.desktopMaxWidth})`,
     },
   },
 });
