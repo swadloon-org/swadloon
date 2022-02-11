@@ -11,6 +11,7 @@ import {
   Stack,
   Switcher,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

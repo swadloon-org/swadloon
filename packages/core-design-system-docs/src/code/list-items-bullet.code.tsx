@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ListItems, ListItemV2 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

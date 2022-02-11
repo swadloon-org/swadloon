@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 import { Cluster, Tag } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

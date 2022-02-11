@@ -4,6 +4,7 @@ import { Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBase } from '@newrade/core-gatsby-ui/src';
 import { Stack } from '@newrade/core-react-ui';
 import { PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

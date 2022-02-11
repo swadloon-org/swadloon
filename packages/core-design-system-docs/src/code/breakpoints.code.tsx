@@ -8,12 +8,13 @@ import {
   TableHeader,
   TableRow,
 } from '@newrade/core-react-ui';
+import { layoutVars } from '@newrade/core-react-ui/theme';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 
 export const Breakpoints: React.FC<Props> = (props) => {
-  const breakpoints = keys(cssTheme.layout.breakpoints);
+  const breakpoints = keys(layoutVars.breakpoints);
 
   if (!breakpoints.length) {
     return null;
@@ -33,7 +34,7 @@ export const Breakpoints: React.FC<Props> = (props) => {
           return (
             <TableRow key={index}>
               <TableCell key={index}>{breakpoint}</TableCell>
-              <TableCell key={index}>{cssTheme.layout.breakpoints[breakpoint]}</TableCell>
+              <TableCell key={index}>{layoutVars.breakpoints[breakpoint]}</TableCell>
             </TableRow>
           );
         })}

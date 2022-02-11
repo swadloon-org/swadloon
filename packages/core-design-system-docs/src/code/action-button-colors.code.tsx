@@ -3,6 +3,7 @@ import React from 'react';
 import { Variant } from '@newrade/core-design-system';
 import { Button, Stack } from '@newrade/core-react-ui';
 import { ColorPalette, ReversedBox } from '@newrade/core-react-ui/doc-components';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -27,13 +28,13 @@ export const ButtonColors: React.FC<Props> = (props) => {
         <ColorPalette
           colorName={''}
           color={{
-            primary: theme.colors.colorIntents.primary,
+            primary: colorVars.colorIntents.primary,
           }}
         ></ColorPalette>
         <ColorPalette
           colorName={''}
           color={{
-            secondary: theme.colors.colorIntents.secondary,
+            secondary: colorVars.colorIntents.secondary,
           }}
         ></ColorPalette>
       </Stack>

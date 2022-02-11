@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { ListItem, Stack } from '@newrade/core-react-ui';
+import { ListItems, ListItemV2 } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const ListItemsNumber: React.FC<Props> = (props) => {
   return (
     <>
-      <Stack as={'ol'} gap={[sizeVars.x3]}>
-        <ListItem icon={'number'}></ListItem>
+      <ListItems as={'ol'}>
+        <ListItemV2></ListItemV2>
 
-        <ListItem icon={'number'}></ListItem>
+        <ListItemV2></ListItemV2>
 
-        <ListItem icon={'number'}></ListItem>
-      </Stack>
+        <ListItemV2></ListItemV2>
+      </ListItems>
     </>
   );
 };

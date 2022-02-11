@@ -87,35 +87,3 @@ export const variants = recipe({
 });
 
 export type LabelVariants = RecipeVariants<typeof variants>;
-
-/**
- * Styles
- */
-// export const normal = style({});
-// export const italic = style({
-//   ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
-// });
-// export const bold = style({
-//   ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
-// });
-// export const uppercase = style({
-//   ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),
-// });
-// export const boldUppercase = style({
-//   ...getCSSTextStyles(cssTheme.typography.labels.styles.boldUppercase),
-// });
-// export const italicBold = style({
-//   ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
-// });
-
-// export const primary = style({
-//   color: colorVars.colorIntents.primaryText,
-// });
-
-// export const secondary = style({
-//   color: cssTheme.colors.colorIntents.secondaryText,
-// });
-
-// export const tertiary = style({
-//   color: cssTheme.colors.colorIntents.tertiaryText,
-// });

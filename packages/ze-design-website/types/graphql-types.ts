@@ -584,7 +584,6 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
   readonly limit: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
 };
 
 type SitePluginPackageJson = {
@@ -13074,7 +13073,6 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
   readonly limit: Maybe<IntQueryOperatorInput>;
-  readonly name: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPackageJsonFilterInput = {
@@ -13692,7 +13690,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.urlSvgOptions.ref'
   | 'pluginOptions.urlSvgOptions.svgoConfig.plugins'
   | 'pluginOptions.urlSvgOptions.urlLoaderOptions.limit'
-  | 'pluginOptions.urlSvgOptions.urlLoaderOptions.name'
   | 'pluginOptions.createLinkInHead'
   | 'pluginOptions.entryLimit'
   | 'pluginOptions.query'
@@ -66460,8 +66457,14 @@ type DocumentationJsFragmentFragment = (
     DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
   )>, readonly type: Maybe<(
     DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
   )> }
@@ -66497,10 +66500,26 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+type JSDocQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DesignSystemLayoutPageQuery = { readonly pages: (
+type JSDocQuery = { readonly jsdoc: { readonly nodes: ReadonlyArray<(
+      { readonly params: Maybe<ReadonlyArray<Maybe<(
+        Pick<DocumentationJs, 'name'>
+        & { readonly type: Maybe<Pick<DoctrineType, 'name'>>, readonly description: Maybe<DocumentationJSComponentDescriptionFragmentFragment> }
+      )>>>, readonly properties: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly examples: Maybe<ReadonlyArray<Maybe<Pick<DocumentationJsExample, 'raw'>>>>, readonly deprecated: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'rawBody'>> }>, readonly members: Maybe<{ readonly static: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly inner: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly global: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly events: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>> }> }
+      & DocumentationJsFragmentFragment
+    )> } };
+
+type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
+type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavigationQuery = { readonly pages: (
     Pick<SitePageConnection, 'totalCount'>
     & { readonly nodes: ReadonlyArray<(
       Pick<SitePage, 'id' | 'path'>
@@ -66543,22 +66562,15 @@ type DocsPagesQuery = { readonly pages: (
     )> }
   ) };
 
-type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+type MarkdownPageTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+}>;
 
 
-type NavigationQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
-        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
-      )> }
-    )> }
-  ) };
+type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -66586,30 +66598,21 @@ type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type JSDocQueryVariables = Exact<{ [key: string]: never; }>;
+type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type JSDocQuery = { readonly jsdoc: { readonly nodes: ReadonlyArray<(
-      { readonly params: Maybe<ReadonlyArray<Maybe<(
-        Pick<DocumentationJs, 'name'>
-        & { readonly type: Maybe<Pick<DoctrineType, 'name'>>, readonly description: Maybe<DocumentationJSComponentDescriptionFragmentFragment> }
-      )>>>, readonly properties: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly examples: Maybe<ReadonlyArray<Maybe<Pick<DocumentationJsExample, 'raw'>>>>, readonly deprecated: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'rawBody'>> }>, readonly members: Maybe<{ readonly static: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly inner: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly global: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly events: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>> }> }
-      & DocumentationJsFragmentFragment
-    )> } };
-
-type MarkdownPageTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-}>;
-
-
-type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }> };
-
-type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
+type DesignSystemLayoutPageQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
+        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
+      )> }
+    )> }
+  ) };
 
 }

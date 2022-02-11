@@ -56,8 +56,9 @@ export const Link: React.FC<Props> = React.memo(
     size = defaultProps.size,
     kind = defaultProps.kind,
     textStyle: textStyle = defaultProps.textStyle,
-    icon: icon,
-    IconSVG: Icon,
+    icon,
+    Icon,
+    IconSVG,
     shortenLongLink,
     as,
     AsElement,
@@ -130,8 +131,8 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Icon insertion
      */
-    const IconSvg = Icon ? (
-      React.cloneElement(Icon as React.ReactElement, {
+    const IconSvg = IconSVG ? (
+      React.cloneElement(IconSVG as React.ReactElement, {
         className: styles.icon,
         preserveAspectRatio: `xMinYMin meet`,
       })

@@ -14,7 +14,7 @@ import {
   Stack,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
-import { sizeVars } from '@newrade/core-react-ui/theme';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
@@ -193,8 +193,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         gap={[sizeVars.x4]}
         className={styles.content}
         style={{
-          // @ts-ignore
-          maxWidth: cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
+          maxWidth: layoutVars.var.contentWidth.desktopDocsMaxWidth,
         }}
       >
         <MarkdownCSS>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import { Cluster, IconComp } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

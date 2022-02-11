@@ -5,11 +5,9 @@
  */
 
 export * from './doc-components/color-intent-palette';
-export * from './doc-components/color-intent-swatch-dark';
-export * from './doc-components/color-intent-swatch-light';
+export * from './doc-components/color-intent-swatch';
 export * from './doc-components/color-palette';
-export * from './doc-components/color-swatch-dark';
-export * from './doc-components/color-swatch-light';
+export * from './doc-components/color-swatch';
 export * from './doc-components/font-mono';
 export * from './doc-components/font-sans';
 export * from './doc-components/font-sans-alternate';

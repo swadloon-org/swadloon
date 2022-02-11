@@ -10,8 +10,7 @@ import {
 import { Stack } from '../layout/stack';
 import { keys } from '../utilities-iso/utilities';
 
-import { ColorIntentSwatchDark } from './color-intent-swatch-dark';
-import { ColorIntentSwatchLight } from './color-intent-swatch-light';
+import { ColorIntentSwatch } from './color-intent-swatch';
 
 import * as styles from './color-palette.css';
 
@@ -29,7 +28,7 @@ export const ColorIntentPalette: React.FC<Props> = ({ colorName, colorOrPalette 
   if (typeof colorOrPalette === 'string') {
     return (
       <Stack gap={['10px']}>
-        <ColorIntentSwatchLight name={colorName} color={colorOrPalette}></ColorIntentSwatchLight>
+        <ColorIntentSwatch name={colorName} color={colorOrPalette}></ColorIntentSwatch>
       </Stack>
     );
   }
@@ -42,22 +41,13 @@ export const ColorIntentPalette: React.FC<Props> = ({ colorName, colorOrPalette 
       <div className={styles.wrapper}>
         {intents.map((shadeName, index) => {
           const color = palette[shadeName];
-          if (shadeName === '25' || shadeName === '200' || shadeName === '300')
-            return (
-              <ColorIntentSwatchLight
-                key={index}
-                name={colorName}
-                color={color as any}
-              ></ColorIntentSwatchLight>
-            );
-          else
-            return (
-              <ColorIntentSwatchDark
-                key={index}
-                name={colorName}
-                color={color as any}
-              ></ColorIntentSwatchDark>
-            );
+          return (
+            <ColorIntentSwatch
+              key={index}
+              name={colorName}
+              color={color as any}
+            ></ColorIntentSwatch>
+          );
         })}
       </div>
     );

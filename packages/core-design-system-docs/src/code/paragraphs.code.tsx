@@ -11,7 +11,7 @@ export const Paragraphs: React.FC<Props> = (props) => {
   return (
     <Stack gap={[sizeVars.x4]}>
       {keys(PARAGRAPH_SIZE).map((variant, index) => (
-        <Paragraph key={index} variant={PARAGRAPH_SIZE[variant]}>
+        <Paragraph key={index} size={PARAGRAPH_SIZE[variant]}>
           {variant} - {lorenipsum}
         </Paragraph>
       ))}

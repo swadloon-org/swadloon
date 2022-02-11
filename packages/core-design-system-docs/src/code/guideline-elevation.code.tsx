@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { BoxShadow } from '@newrade/core-design-system';
 import { BoxV2, useThemeElevationBG } from '@newrade/core-react-ui';
 import { ShadowSwatch } from '@newrade/core-react-ui/doc-components';
 import { effectsVars, sizeVars } from '@newrade/core-react-ui/theme';
@@ -8,7 +7,7 @@ import { effectsVars, sizeVars } from '@newrade/core-react-ui/theme';
 type Props = {};
 
 export const GuidelineElevation: React.FC<Props> = (props) => {
-  const shadow = effectsVars.boxShadows.light as BoxShadow;
+  const shadow = effectsVars.boxShadows.light;
 
   const elevation0BG = useThemeElevationBG({ level: 0 });
   const elevation1BG = useThemeElevationBG({ level: 1 });

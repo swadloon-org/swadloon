@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Stack } from '@newrade/core-react-ui';
 import { ColorPalette } from '@newrade/core-react-ui/doc-components';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -10,17 +11,17 @@ export const ColorUtility: React.FC<Props> = (props) => {
     <Stack gap={[sizeVars.x5]}>
       <ColorPalette
         colorName={'Utility Blue'}
-        color={theme.colors.colors.utilityNeutral}
+        color={colorVars.colors.utilityNeutral}
       ></ColorPalette>
       <ColorPalette
         colorName={'Utility Green'}
-        color={theme.colors.colors.utilityGreen}
+        color={colorVars.colors.utilityGreen}
       ></ColorPalette>
       <ColorPalette
         colorName={'Utility Yellow'}
-        color={theme.colors.colors.utilityYellow}
+        color={colorVars.colors.utilityYellow}
       ></ColorPalette>
-      <ColorPalette colorName={'Utility Red'} color={theme.colors.colors.utilityRed}></ColorPalette>
+      <ColorPalette colorName={'Utility Red'} color={colorVars.colors.utilityRed}></ColorPalette>
     </Stack>
   );
 };

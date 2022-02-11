@@ -1,7 +1,5 @@
 import React, { CSSProperties } from 'react';
 
-import { COLOR_SCHEME } from '@newrade/core-design-system';
-
 export type AsTypes = keyof React.ReactHTML | keyof React.ReactSVG;
 
 /**

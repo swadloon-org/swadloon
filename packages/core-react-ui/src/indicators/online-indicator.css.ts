@@ -10,10 +10,6 @@ export const wrapper = style({
 export const status = style({
   justifySelf: 'flex-start',
   borderRadius: `6px`,
-  // backgroundColor: getCSSColor({
-  //   ...theme.colors.colorIntents.primary,
-  //   a: 5,
-  // }),
   backgroundColor: getCSSColorVar({
     h: colorVars.colors.primary.baseHue,
     s: colorVars.colors.primary.baseSat,

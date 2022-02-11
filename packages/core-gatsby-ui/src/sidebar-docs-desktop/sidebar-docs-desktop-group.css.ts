@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutCSS, sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 export const level0 = style({
   padding: `0 0 0 0`,

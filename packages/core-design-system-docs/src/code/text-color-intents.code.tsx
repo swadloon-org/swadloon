@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Stack } from '@newrade/core-react-ui';
 import { ColorPalette } from '@newrade/core-react-ui/doc-components';
+import { colorVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -10,17 +11,17 @@ export const TextColorIntents: React.FC<Props> = (props) => {
     <Stack>
       <ColorPalette
         colorName={'PrimaryText'}
-        color={theme.colors.colorIntents.primaryText}
+        color={colorVars.colorIntents.primaryText}
       ></ColorPalette>
 
       <ColorPalette
         colorName={'SecondaryText'}
-        color={theme.colors.colorIntents.secondaryText}
+        color={colorVars.colorIntents.secondaryText}
       ></ColorPalette>
 
       <ColorPalette
         colorName={'TertiaryText'}
-        color={theme.colors.colorIntents.tertiaryText}
+        color={colorVars.colorIntents.tertiaryText}
       ></ColorPalette>
     </Stack>
   );

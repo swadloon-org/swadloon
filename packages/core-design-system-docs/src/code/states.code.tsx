@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Stack } from '@newrade/core-react-ui';
 import { ColorPalette } from '@newrade/core-react-ui/doc-components';
-import { sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -12,27 +12,27 @@ export const StateColorPalette: React.FC<Props> = (props) => {
       <ColorPalette
         colorName={''}
         color={{
-          successBackground: theme.colors.colorIntents.successBackground,
-          successAction: theme.colors.colorIntents.successAction,
-          successText: theme.colors.colorIntents.successText,
+          successBackground: colorVars.colorIntents.successBackground,
+          successAction: colorVars.colorIntents.successAction,
+          successText: colorVars.colorIntents.successText,
         }}
       ></ColorPalette>
 
       <ColorPalette
         colorName={''}
         color={{
-          warningBackground: theme.colors.colorIntents.warningBackground,
-          warningAction: theme.colors.colorIntents.warningAction,
-          warningText: theme.colors.colorIntents.warningText,
+          warningBackground: colorVars.colorIntents.warningBackground,
+          warningAction: colorVars.colorIntents.warningAction,
+          warningText: colorVars.colorIntents.warningText,
         }}
       ></ColorPalette>
 
       <ColorPalette
         colorName={''}
         color={{
-          dangerBackground: theme.colors.colorIntents.dangerBackground,
-          dangerAction: theme.colors.colorIntents.dangerAction,
-          dangerText: theme.colors.colorIntents.dangerText,
+          dangerBackground: colorVars.colorIntents.dangerBackground,
+          dangerAction: colorVars.colorIntents.dangerAction,
+          dangerText: colorVars.colorIntents.dangerText,
         }}
       ></ColorPalette>
     </Stack>

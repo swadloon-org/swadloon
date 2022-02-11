@@ -198,7 +198,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               <Link
                 target={'_blank'}
                 href={iconContext?.iconFamilyWebsite}
-                IconSVG={ICON.OPEN}
+                Icon={ICON.OPEN}
                 icon={LinkIcon.right}
               >
                 {`${iconContext?.iconFamilyName} `} / {iconContext?.iconFamilyStyle || ''}

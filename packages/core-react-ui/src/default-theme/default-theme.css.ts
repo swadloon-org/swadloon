@@ -2,8 +2,6 @@ import { createGlobalThemeContract } from '@vanilla-extract/css';
 import { CSSVarFunction, MapLeafNodes } from '@vanilla-extract/private';
 import { kebab } from 'case';
 
-import { Colors, Effects } from '@newrade/core-design-system';
-
 import { CSSButtons, CSSEffects, CSSFontsV2, CSSIconography } from '../design-system';
 import { CSSLayoutV2 } from '../design-system/css-layout';
 import { CSSSizingV2 } from '../design-system/css-sizing';

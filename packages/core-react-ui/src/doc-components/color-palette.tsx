@@ -10,7 +10,7 @@ import {
 import { Stack } from '../layout/stack';
 import { keys } from '../utilities-iso/utilities';
 
-import { ColorSwatchLight } from './color-swatch-light';
+import { ColorSwatch } from './color-swatch';
 
 import * as styles from './color-palette.css';
 
@@ -21,14 +21,15 @@ type Props = {
     | Record<ColorShades5, string>
     | Record<ColorShades7, string>
     | Record<ColorShades10, string>
-    | Record<ColorShadesGrey, string>;
+    | Record<ColorShadesGrey, string>
+    | Record<string, string>;
 };
 
 export const ColorPalette: React.FC<Props> = ({ colorName, color }) => {
   if (typeof color === 'string') {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatchLight name={colorName} color={color}></ColorSwatchLight>
+        <ColorSwatch name={colorName} color={color}></ColorSwatch>
       </Stack>
     );
   }
@@ -43,12 +44,12 @@ export const ColorPalette: React.FC<Props> = ({ colorName, color }) => {
           const color = palette[shadeName];
 
           return (
-            <ColorSwatchLight
+            <ColorSwatch
               key={index}
               shadeNumber={shadeName}
               name={colorName}
               color={color as any}
-            ></ColorSwatchLight>
+            ></ColorSwatch>
           );
         })}
       </div>

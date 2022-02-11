@@ -10,6 +10,7 @@ import {
   Placeholder,
   Stack,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

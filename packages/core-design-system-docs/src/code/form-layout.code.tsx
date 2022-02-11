@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { Button, InputLabel, InputText, InputWrapper, Label, Stack } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 

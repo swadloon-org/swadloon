@@ -3,6 +3,7 @@ import React from 'react';
 import { HEADING, Variant } from '@newrade/core-design-system';
 import { Heading, Stack } from '@newrade/core-react-ui';
 import { ColorPalette, ReversedBox } from '@newrade/core-react-ui/doc-components';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -38,10 +39,10 @@ export const TextLevel: React.FC<Props> = (props) => {
       <ColorPalette
         colorName={''}
         color={{
-          primaryText: theme.colors.colorIntents.primaryText,
-          secondaryText: theme.colors.colorIntents.secondaryText,
-          tertiaryText: theme.colors.colorIntents.tertiaryText,
-          disabledText: theme.colors.colorIntents.disabledText,
+          primaryText: colorVars.colorIntents.primaryText,
+          secondaryText: colorVars.colorIntents.secondaryText,
+          tertiaryText: colorVars.colorIntents.tertiaryText,
+          disabledText: colorVars.colorIntents.disabledText,
         }}
       ></ColorPalette>
     </Stack>

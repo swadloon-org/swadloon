@@ -7,7 +7,7 @@ import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-sys
 import { Stack } from '../layout/stack';
 import { Label } from '../text/label';
 import { sizeVars } from '../theme';
-import { getCSSColor, getCSSHexColor } from '../utilities-theme/colors.utilities';
+import { getCSSColor } from '../utilities-theme/colors.utilities';
 
 import * as styles from './color-swatch.css';
 
@@ -17,7 +17,7 @@ type OwnProps = HTMLAttributes<any> & {
   shadeNumber?: string;
 };
 
-export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...props }) => {
+export const ColorIntentSwatch: React.FC<OwnProps> = ({ id, style, className, ...props }) => {
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
   const cssColorString = colorObject ? getCSSColor(colorObject) : '';
 
@@ -30,8 +30,7 @@ export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...
             variantLevel={Variant.primary}
             textStyle={TEXT_STYLE.bold}
           >
-            {`${props.name ? `${kebab(props.name)}-` : ''}${
-              props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''
+            {`${props.name ? `${kebab(props.name)}-` : ''}
             }`}
           </Label>
           <Label
@@ -39,7 +38,7 @@ export const ColorSwatchLight: React.FC<OwnProps> = ({ id, style, className, ...
             variantLevel={Variant.primary}
             textStyle={TEXT_STYLE.normal}
           >
-            <code>{`${getCSSHexColor(props.color as Color)}`}</code>
+            <code>{`${getCSSColor(props.color as Color)}`}</code>
           </Label>
         </Stack>
       </div>
