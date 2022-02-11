@@ -225,7 +225,7 @@
     "graphql-tools": "^8",
     "history": "^5.0.0",
     "html-loader": "^2.1.2",
-    "http-server": "^0.12.3",
+    "http-server": "^14.1.0",
     "husky": "^4.3.8",
     "jaeger-client": "^3.18.1",
     "jest": "^27",
