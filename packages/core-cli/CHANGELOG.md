@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.15.0...@newrade/core-cli@1.16.0) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** set internal packages version to \* which means any version found
+  locally
+  ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
+
+### Features
+
+- **core-cli:** add new flag for webpack (for wds v4)
+  ([4ff4e96](https://github.com/newrade/newrade-core/commit/4ff4e96a7cea0cdad58d73972d354b5390ec46fc))
+- **core-ui:** add colors for code syntax highlighting and simplify sizing
+  variables exports
+  ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.15.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.14.1...@newrade/core-cli@1.15.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fix bad global import in core-react-ui/global and other fixes in
+  gatsby config
+  ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
+- **core:** fixes for fork-ts-checker and ts-loader config
+  ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
+- **core-cli:** fix deps and update version after new command
+  ([16a26b2](https://github.com/newrade/newrade-core/commit/16a26b2bf91b61e11ac8ae84f542ab480d2aac62))
+- **core-cli:** fix manifest
+  ([456c0b6](https://github.com/newrade/newrade-core/commit/456c0b60b9565b931e24e9587d415d252f3242e2))
+- **core-gatsby-config:** enable progress plugin only for build
+  ([4a8ec4d](https://github.com/newrade/newrade-core/commit/4a8ec4d5d83f426e6aaf0104c32ccb1ca872cf6c))
+- **core-ui:** improvements for theming selection and organization
+  ([5a49a03](https://github.com/newrade/newrade-core/commit/5a49a03bdf9d0a5c571906745f4594e400ed09f0))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.14.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.14.0...@newrade/core-cli@1.14.1) (2021-11-23)
 
 ### Bug Fixes

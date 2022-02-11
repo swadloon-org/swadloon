@@ -1,11 +1,10 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
 
-import * as styleRefs from './stack.treat';
+import * as styles from './stack.css';
 
 type Tag = 'ol' | 'ul' | 'div' | 'nav' | 'form' | 'footer';
 
@@ -18,7 +17,6 @@ export const Stack = React.forwardRef<any, Props>(function Stack(
   { style, as, gap = ['0px'], ...props } = {},
   ref
 ) {
-  const { styles } = useStyles(styleRefs);
   const [mobileGap, tabletGap, desktopGap] = gap;
 
   const customStyle = {
@@ -29,7 +27,5 @@ export const Stack = React.forwardRef<any, Props>(function Stack(
     '--desktop-gap': desktopGap || tabletGap || mobileGap,
   };
 
-  return (
-    <Primitive as={as} classNames={[styles.wrapper]} style={customStyle} {...props} ref={ref} />
-  );
+  return <Primitive as={as} classNames={[styles.base]} style={customStyle} {...props} ref={ref} />;
 });

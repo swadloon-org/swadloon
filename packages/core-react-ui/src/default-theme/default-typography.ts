@@ -23,7 +23,7 @@ export const defaultTypography: Typography = {
     serif: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     sansAlternate: [fonts.defaultSansAlternateFont, ...fonts.defaultFallbackSansFonts],
-    monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
+    monospace: [...fonts.defaultFallbackMonospaceFonts],
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
@@ -72,16 +72,19 @@ export const defaultTypography: Typography = {
       h2: {
         capHeight: 20,
         lineGap: 18,
+        fontWeight: 600,
       },
       h3: {
         capHeight: 16,
         lineGap: 16,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
     tablet: {
@@ -93,16 +96,19 @@ export const defaultTypography: Typography = {
       h2: {
         capHeight: 20,
         lineGap: 18,
+        fontWeight: 600,
       },
       h3: {
         capHeight: 16,
         lineGap: 16,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
     desktop: {
@@ -114,29 +120,48 @@ export const defaultTypography: Typography = {
       h2: {
         fontSize: 28,
         lineGap: 16,
+        fontWeight: 600,
       },
       h3: {
         fontSize: 20,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
       h4: {
         fontSize: 16,
         lineGap: 14,
         fontWeight: 600,
+        letterSpacing: 0,
       },
     },
   },
   paragraphs: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
+      normal: {
+        fontWeight: 400,
+      },
       bold: {
         fontWeight: 600,
       },
       italic: {
         fontWeight: 400,
         fontStyle: 'italic',
+      },
+      boldUppercase: {
+        fontWeight: 600,
+        textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 3,
+      },
+      uppercase: {
+        textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 3,
+      },
+      italicBold: {
+        fontStyle: 'italic',
+        fontWeight: 600,
       },
     },
     mobile: {
@@ -195,11 +220,18 @@ export const defaultTypography: Typography = {
     },
   },
   labels: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [...fonts.defaultFallbackSansFonts],
     fontWeight: 600,
     styles: {
+      normal: {
+        fontWeight: 600,
+      },
+      italic: { fontStyle: 'italic' },
       bold: {
         fontWeight: 600,
+      },
+      italicBold: {
+        fontStyle: 'italic',
       },
       boldUppercase: {
         fontWeight: 600,

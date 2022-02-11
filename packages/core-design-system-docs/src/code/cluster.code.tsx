@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { Cluster } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { Placeholder } from '@newrade/core-react-ui/doc-components';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 type Props = {};
 
 export const LayoutCluster: React.FC<Props> = (props) => {
@@ -10,7 +10,7 @@ export const LayoutCluster: React.FC<Props> = (props) => {
     <>
       <Cluster>
         <Placeholder>1</Placeholder>
-        <Cluster gap={[sizingVars.var.x2]}>
+        <Cluster gap={[sizeVars.x2]}>
           <Placeholder>1</Placeholder>
           <Placeholder>2</Placeholder>
           <Placeholder>3</Placeholder>

@@ -1,24 +1,15 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { WindowLocation } from '@reach/router';
 
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Label,
-  Link,
-  PrimitiveProps,
-  scrollIntoView,
-  Stack,
-  useIsSSR,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { BoxV2, Label, Link, PrimitiveProps, scrollIntoView, Stack } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities';
 
 import { useI18next } from '../i18next/use-i18next.hook';
 
-import * as styleRefs from './aside.treat';
+import * as styles from './aside.css';
 
 type AsideItem = {
   value?: string | null;
@@ -44,9 +35,6 @@ export const Aside: React.FC<Props> = ({
   location,
   ...props
 }) => {
-  const isSSR = useIsSSR();
-  const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
   const renderedItems = items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
   const { t } = useI18next();
@@ -75,10 +63,11 @@ export const Aside: React.FC<Props> = ({
 
   return (
     <BoxV2 id={id} className={classNames} as={'aside'} style={style}>
-      <Stack as={'nav'} gap={[cssTheme.sizing.var.x1]}>
+      <Stack as={'nav'} gap={[sizeVars.x1]}>
         <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
           {t('inThisPage')}
         </Label>
+
         <ul className={styles.linksWrapper}>
           {renderedItems?.map((item, itemIndex, items) => {
             const formattedId = getFormattedAnchorId(item?.value);

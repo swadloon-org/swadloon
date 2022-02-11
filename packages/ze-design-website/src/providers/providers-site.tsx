@@ -6,7 +6,6 @@ import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
 import { mdxComponents } from '@newrade/core-gatsby-ui/src/mdx/mdx-components';
 import {
-  createPersistedState,
   CSSThemeProvider,
   IconProvider,
   LogosProvider,
@@ -23,8 +22,6 @@ import { logosComponents } from '@newrade/ze-design-system';
 import * as CssTheme from '@newrade/ze-design-system/css';
 
 import { cssTheme, light, theme } from '../design-system/theme.treat';
-
-const useSelectedThemeState = createPersistedState<string>('docs-css-theme');
 
 /**
  * Provide context on the website site pages (other than /docs/ and /design-system/)

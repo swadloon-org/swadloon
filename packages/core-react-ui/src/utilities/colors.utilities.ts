@@ -1,10 +1,12 @@
 import { kebab } from 'case';
 import { Property } from 'csstype';
+import parseToHsl from 'polished/lib/color/parseToHsl';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import toColorString from 'polished/lib/color/toColorString';
+import { HslaColor } from 'polished/lib/types/color';
 
 import * as DS from '@newrade/core-design-system';
-import { Color, ColorPalette } from '@newrade/core-design-system';
+import { CodeColors, Color, ColorPalette } from '@newrade/core-design-system';
 
 import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 
@@ -85,6 +87,7 @@ export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
       baseHue: colors.colors.utilityRed.baseHue,
       baseSat: colors.colors.utilityRed.baseSat,
     }),
+    code: getCodeColors(colors.colors.code),
   };
 
   return {
@@ -186,6 +189,7 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
         baseHue: colorVar.colors.utilityRed.baseHue,
         baseSat: colorVar.colors.utilityRed.baseSat,
       }),
+      code: getCodeColors(colors.colors.code),
     },
     colorIntents: getDefaultCSSVarColorIntents(colorVar),
     gradients: getCSSColorGradients(colors.gradients),
@@ -355,6 +359,15 @@ export function getCSSColorGradients(intents: DS.ColorGradients) {
   }, {} as DS.ColorGradients<string>);
 }
 
+export function getCodeColors(colors: CodeColors) {
+  const codeColorNames = keys(colors);
+  return codeColorNames.reduce((previous, current) => {
+    const color = colors[current];
+    previous[current] = getCSSColor(color);
+    return previous;
+  }, {} as CodeColors<string>);
+}
+
 /**
  * Create a CSS color string from css variables
  */
@@ -401,13 +414,33 @@ export function getCSSColor(
  * Create a hex CSS color string from a Color object
  */
 export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): Property.Color {
-  // toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
   return toColorString({
     hue: h,
     saturation: s !== undefined ? s / 100 : 1,
     lightness: l !== undefined ? l / 100 : 1,
     alpha: a !== undefined ? a / 100 : 1,
   });
+}
+
+/**
+ * Create a Color object from a hex color
+ */
+export function getColorFromHex(colorHex?: string): Color {
+  if (!colorHex) {
+    return {
+      h: 0,
+      s: 0,
+      l: 0,
+      a: 1,
+    };
+  }
+  const parsedColor = parseToHsl(colorHex) as HslaColor;
+  return {
+    h: Math.round(parsedColor.hue),
+    s: Math.round(100 * parsedColor.saturation),
+    l: Math.round(100 * parsedColor.lightness),
+    a: parsedColor.alpha !== undefined ? Math.round(100 * parsedColor.alpha) : 100,
+  };
 }
 
 /**

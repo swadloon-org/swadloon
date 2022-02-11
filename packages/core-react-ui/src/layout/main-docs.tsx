@@ -28,10 +28,10 @@ type Props = PrimitiveProps & {
 };
 
 /**
- * High level layout component to create a <main/> area in a page.
- * Should be used inside <MainDocsWrapper/>
+ * High level layout component to create a `<main/>` area in a page.
+ * Should be used inside `<MainDocsWrapper/>`
  *
- * <MainDocs/> layout is made to have 1 column on mobile and 3 on desktop, the direct children should be:
+ * `<MainDocs/>` layout is made to have 1 column on mobile and 3 on desktop, the direct children should be:
  * - a sidebar
  * - the main content
  * - an aside component

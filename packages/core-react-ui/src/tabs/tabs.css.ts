@@ -67,9 +67,7 @@ export const active = style({});
  *
  */
 
-export const primary = style({
-  backgroundColor: colorVars.colors.grey[0],
-});
+export const primary = style({});
 
 /**
  *

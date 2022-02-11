@@ -1,0 +1,51 @@
+<% const package = require('../../../package.json')%>
+{
+    "name": "<%=package.name%>",
+    "short_name": "Code Design App",
+    "default_locale": "en",
+    "description": "Code Design App",
+    "display": "standalone",
+    "lang": "en",
+    "start_url": "/",
+    "theme_color": "#7C997D",
+    "background_color": "#202223",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "<%=require('./images/favicons/android-icon-36x36.png').default%>",
+            "sizes": "36x36",
+            "type": "image\/png",
+            "density": "0.75"
+        },
+        {
+            "src": "<%=require('./images/favicons/android-icon-48x48.png').default%>",
+            "sizes": "48x48",
+            "type": "image\/png",
+            "density": "1.0"
+        },
+        {
+            "src": "<%=require('./images/favicons/android-icon-72x72.png').default%>",
+            "sizes": "72x72",
+            "type": "image\/png",
+            "density": "1.5"
+        },
+        {
+            "src": "<%=require('./images/favicons/android-icon-96x96.png').default%>",
+            "sizes": "96x96",
+            "type": "image\/png",
+            "density": "2.0"
+        },
+        {
+            "src": "<%=require('./images/favicons/android-icon-144x144.png').default%>",
+            "sizes": "144x144",
+            "type": "image\/png",
+            "density": "3.0"
+        },
+        {
+            "src": "<%=require('./images/favicons/android-icon-192x192.png').default%>",
+            "sizes": "192x192",
+            "type": "image\/png",
+            "density": "4.0"
+        }
+    ]
+}

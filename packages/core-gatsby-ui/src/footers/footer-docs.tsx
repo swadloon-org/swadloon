@@ -6,7 +6,6 @@ import {
   IoLogoLinkedin,
   IoLogoTwitter,
 } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import {
   ButtonIcon,
@@ -32,6 +31,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { BlockAPI, LinkAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';
@@ -39,14 +39,13 @@ import { GatsbyLink } from '../links/gatsby-link';
 
 import { FooterProps } from './footer.props';
 import { FooterBase } from './footer-base';
-import * as styleRefs from './footer-docs.treat';
+
+import * as styles from './footer-docs.css';
 
 type Props = FooterProps;
 
 export const FooterDocs = React.forwardRef<any, Props>(
   ({ id, style, className, footer, ...props }, ref) => {
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
       style,
@@ -239,7 +238,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
             const links = subNav.links;
 
             return (
-              <Stack key={subNavIndex} gap={[cssTheme.sizing.var.x4]}>
+              <Stack key={subNavIndex} gap={[sizeVars.x4]}>
                 <Label
                   variantStyle={TEXT_STYLE.boldUppercase}
                   variant={LABEL_SIZE.xSmall}
@@ -248,10 +247,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
                   {subNav.label || ' '}
                 </Label>
 
-                <Stack
-                  key={id}
-                  gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
-                >
+                <Stack key={id} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
                   {renderLinks(links as LinkAPI[])}
                 </Stack>
               </Stack>
@@ -270,7 +266,7 @@ export const FooterDocs = React.forwardRef<any, Props>(
         </Paragraph>
 
         {/* Desktop Footer */}
-        <Cluster className={styles.profileLinksDesktop} gap={[cssTheme.sizing.var.x5]}>
+        <Cluster className={styles.profileLinksDesktop} gap={[sizeVars.x5]}>
           {/* Copyright */}
           <Paragraph
             className={styles.copyrightDesktop}

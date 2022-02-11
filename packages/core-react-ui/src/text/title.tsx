@@ -4,10 +4,10 @@ import { kebab, pascal } from 'case';
 
 import { TITLE, Variant } from '@newrade/core-design-system';
 
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
 
-import * as textStyles from '../styles/color-text.css';
+import * as textStyles from '../styles/text-color.css';
 import * as styles from './title.css';
 
 type Props = PrimitiveProps &
@@ -23,31 +23,32 @@ const defaultProps: Props = {
 };
 
 export const Title = React.memo(
-  React.forwardRef<any, Props>(
-    ({ variant = TITLE.t1, variantLevel, id, className, children, ...props }, ref) => {
-      const type = variant === TITLE.t1 ? 'h1' : 'h2';
-      const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
-      const child = children ? children : defaultChildrenString;
-      const classNames = getMergedClassname([
-        className || '',
-        styles.title({
-          size: variant ? variant : (defaultProps.variant as TITLE),
-        }),
-        textStyles.colorText({
-          variant: variantLevel ? variantLevel : (defaultProps.variantLevel as Variant),
-        }),
-      ]);
+  React.forwardRef<any, Props>(function Title(
+    { variant = TITLE.t1, variantLevel, id, className, children, ...props },
+    ref
+  ) {
+    const type = variant === TITLE.t1 ? 'h1' : 'h2';
+    const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
+    const child = children ? children : defaultChildrenString;
 
-      return React.createElement(
-        type,
-        {
-          ref,
-          id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
-          className: classNames,
-          ...props,
-        },
-        child
-      );
-    }
-  )
+    return (
+      <Primitive
+        ref={ref}
+        as={type}
+        id={id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString)}
+        classNames={[
+          className || '',
+          styles.title({
+            size: variant ? variant : (defaultProps.variant as TITLE),
+          }),
+          textStyles.getTextColorStyles({
+            variant: variantLevel ? variantLevel : (defaultProps.variantLevel as Variant),
+          }),
+        ]}
+        {...props}
+      >
+        {child}
+      </Primitive>
+    );
+  })
 );

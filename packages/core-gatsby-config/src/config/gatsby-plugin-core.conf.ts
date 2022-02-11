@@ -15,6 +15,18 @@ import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
 
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 
+const ignoredPatterns = [
+  `**/*.treat.ts`,
+  `**/*.css.ts`,
+  `**/*.jsx?`,
+  `**/fragment.ts`,
+  `**/locales.ts`,
+  `**/*.d.ts`,
+  `**/__test__/**`,
+  `**/*.json`,
+  `graphql-types.ts`,
+];
+
 const defaultOptions: Required<GatsbyCorePluginOptions> = {
   packageName: 'package',
   pluginName: 'gastby-plugin-core',
@@ -32,6 +44,10 @@ const defaultOptions: Required<GatsbyCorePluginOptions> = {
   renderDesignSystemPages: true,
   designSystemPagesPath: path.resolve('..', 'core-design-system-docs', 'docs'),
   designSystemPagesPathPrefix: '/design-system/',
+  jsdocSourcePaths: [
+    path.resolve('..', 'core-gatsby-ui', 'src'),
+    path.resolve('..', 'core-react-ui', 'src'),
+  ],
 
   renderDocsPages: true,
   docsPagesPath: path.resolve('src', 'docs'),
@@ -68,6 +84,7 @@ export function getGastbyCorePluginConfig({
   renderDesignSystemPages = defaultOptions.renderDesignSystemPages,
   designSystemPagesPath = defaultOptions.designSystemPagesPath,
   designSystemPagesPathPrefix = defaultOptions.designSystemPagesPathPrefix,
+  jsdocSourcePaths = defaultOptions.jsdocSourcePaths,
 
   renderCoreDocsPages = defaultOptions.renderCoreDocsPages,
   coreDocsPagesPath = defaultOptions.coreDocsPagesPath,
@@ -85,7 +102,7 @@ export function getGastbyCorePluginConfig({
           options: {
             name: SOURCE_INSTANCE_NAME.MDX_PAGES,
             path: pagesPath,
-            ignore: [`**/*.treat.ts`, `**/*.mdx`, `**/*.md`],
+            ignore: [`**/*.mdx?`, ...ignoredPatterns],
           },
         }
       : null,
@@ -98,7 +115,7 @@ export function getGastbyCorePluginConfig({
           options: {
             name: SOURCE_INSTANCE_NAME.MDX_PAGES,
             path: markdownPagesPath,
-            ignore: [`**/*.ts?x`],
+            ignore: [`**/*.ts?x`, ...ignoredPatterns],
           },
         }
       : null,
@@ -111,7 +128,7 @@ export function getGastbyCorePluginConfig({
           options: {
             name: SOURCE_INSTANCE_NAME.DOCS,
             path: docsPagesPath,
-            ignore: [`**/*.ts?x`],
+            ignore: [`**/*.ts?x`, ...ignoredPatterns],
           },
         }
       : null,
@@ -124,10 +141,26 @@ export function getGastbyCorePluginConfig({
           options: {
             name: SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS,
             path: designSystemPagesPath,
-            ignore: [`**/*.ts?x`],
+            ignore: [`**/*.ts?x`, ...ignoredPatterns],
           },
         }
       : null,
+
+    /**
+     * Design system pages
+     */
+    ...(jsdocSourcePaths
+      ? jsdocSourcePaths.map((jsDocPath) => {
+          return {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: SOURCE_INSTANCE_NAME.JSDOC_SOURCE_FILES,
+              path: jsDocPath,
+              ignore: [`**/*.mdx?`, ...ignoredPatterns],
+            },
+          };
+        })
+      : []),
 
     /**
      * Core packages docs
@@ -139,7 +172,7 @@ export function getGastbyCorePluginConfig({
             options: {
               name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
               path: coreDocsPagesPath,
-              ignore: [`**/*.ts?x`],
+              ignore: [`**/*.ts?x`, ...ignoredPatterns],
             },
           },
           {

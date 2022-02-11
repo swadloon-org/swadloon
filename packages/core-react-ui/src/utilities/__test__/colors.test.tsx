@@ -4,12 +4,14 @@ import { cleanup, render } from '@testing-library/react';
 
 import { Color } from '@newrade/core-design-system';
 
+import { defaultCodeColors } from '../../default-theme/default-code-colors';
 import {
   defaultColorIntents,
   defaultColors,
   defaultColorsColors,
 } from '../../default-theme/default-colors';
 import {
+  getColorFromHex,
   getCSSColor,
   getCSSColors,
   getCSSHexColor,
@@ -82,6 +84,18 @@ describe('colors utilities', () => {
       };
       const cssColor = getCSSHexColor(color);
       expect(cssColor).toBe('#f00');
+    });
+  });
+
+  describe(`${getColorFromHex.name}`, () => {
+    it('should create a valid Color object from a hex color', () => {
+      const color = getColorFromHex('#36acaa');
+      expect(color).toEqual({
+        h: 179,
+        s: 52,
+        l: 44,
+        a: 100,
+      });
     });
   });
 

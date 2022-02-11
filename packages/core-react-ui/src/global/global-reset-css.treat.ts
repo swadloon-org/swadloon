@@ -38,7 +38,7 @@ globalStyle(`html`, {
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
   // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
   // @ts-ignore
-  WebkitFontSmoothing: 'antialiased',
+  WebkitFontSmoothing: 'auto',
   // @ts-ignore
   '-moz-osx-font-smoothing': 'grayscale',
   // ensure fast clicks on ios safari 9, 10

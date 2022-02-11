@@ -74,6 +74,15 @@ export type GatsbyCorePluginOptions = {
    * @default: '/design-system/`
    */
   designSystemPagesPathPrefix?: string;
+  /**
+   * Path to sources files for `gatsby-transformer-documentationjs`
+   * @default
+   * [
+   *   path.resolve('..', 'core-gatsby-ui', 'src'),
+   *   path.resolve('..', 'core-react-ui', 'src'),
+   * ]
+   */
+  jsdocSourcePaths?: string[];
 
   /**
    * Enable or disable the generation of doc pages (.mdx?) in /docs

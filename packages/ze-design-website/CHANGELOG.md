@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.5.0...@newrade/ze-design-website@2.6.0) (2022-01-03)
+
+### Bug Fixes
+
+- **core:** fix imports and error in jsdoc comment block
+  ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
+- **core:** set internal packages version to \* which means any version found
+  locally
+  ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
+  drunk)
+  ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
+- **core-react-ui:** fix test snapshots
+  ([701fb00](https://github.com/newrade/newrade-core/commit/701fb0032b4b14f80466dc890775decb6b77b4ad))
+- **core-ui:** bug fixes
+  ([c624ba0](https://github.com/newrade/newrade-core/commit/c624ba0d1103c546a18fcbeb12c8f0923039a4b9))
+- **core-webpack-config:** update some config for development setup
+  ([e715c66](https://github.com/newrade/newrade-core/commit/e715c66dda1669ee8a01f7548b73ce150b953a9f))
+
+### Features
+
+- **core-ui:** add colors for code syntax highlighting and simplify sizing
+  variables exports
+  ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
+- **core-ui:** add light dark mode to code components
+  ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
+- **core-ui:** add new capabilities to the docs engine with documentation.js
+  (extract jsdoc)
+  ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
+- **core-ui:** refactor all table components
+  ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.4.0...@newrade/ze-design-website@2.5.0) (2021-12-21)
+
+### Bug Fixes
+
+- **core:** fix bad global import in core-react-ui/global and other fixes in
+  gatsby config
+  ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
+- **core:** fix some small formatting, remove issue templates from core
+  ([276b6a5](https://github.com/newrade/newrade-core/commit/276b6a537178bab38c2a018386d0012fc7e6cbff))
+- **core:** fixe dependencies
+  ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
+- **core:** fixes for fork-ts-checker and ts-loader config
+  ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
+- **core:** update vanilla-extract and css related packages
+  ([ac06dae](https://github.com/newrade/newrade-core/commit/ac06daea6a6f5a1d55b98321c8bf51bffa3effc1))
+- **core-css-extractor:** fixes webpack plugin
+  ([17b944f](https://github.com/newrade/newrade-core/commit/17b944fc9eba00b029af5f1a9a252caa2643db32))
+- **core-gatsby-config:** enable progress plugin only for build
+  ([4a8ec4d](https://github.com/newrade/newrade-core/commit/4a8ec4d5d83f426e6aaf0104c32ccb1ca872cf6c))
+- **core-react-ui:** fix hsl conversion
+  ([bee26e7](https://github.com/newrade/newrade-core/commit/bee26e73b91d9a8aa9416df3fb100064ea4d52d4))
+- **core-react-ui:** refactor theming selection
+  ([92c8d03](https://github.com/newrade/newrade-core/commit/92c8d0330b858702131191539d77282e621c8e4e))
+- **core-ui:** improvements for theming selection and organization
+  ([5a49a03](https://github.com/newrade/newrade-core/commit/5a49a03bdf9d0a5c571906745f4594e400ed09f0))
+- **core-webpack-config:** fix ts-loader config for vanilla files
+  ([9bd0507](https://github.com/newrade/newrade-core/commit/9bd050727a6d1f067850df2391a0561e57ea72b8))
+
+### Features
+
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
+  styles
+  ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
+- **core-gatsby-config:** add size-plugin for production build
+  ([2d38bc0](https://github.com/newrade/newrade-core/commit/2d38bc0be41781dc916747151ac00e44e476fc56))
+- **core-react-ui:** add new input and nav items
+  ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
+- **core-react-ui:** rework theming and remove reverse color mode (will use
+  React.Context)
+  ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-website@2.3.0...@newrade/ze-design-website@2.4.0) (2021-11-18)
 
 ### Bug Fixes

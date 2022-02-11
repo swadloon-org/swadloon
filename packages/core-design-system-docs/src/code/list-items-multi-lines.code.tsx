@@ -1,11 +1,8 @@
 import React from 'react';
 
 import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import {
-  lorenipsum,
-  lorenipsumShort,
-} from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { lorenipsum, lorenipsumShort } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 

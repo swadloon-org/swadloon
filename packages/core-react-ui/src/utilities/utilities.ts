@@ -8,6 +8,9 @@
  * Wrapper for Objects.keys
  */
 export function keys<T extends object>(object: T) {
+  if (!object) {
+    return [] as (keyof T)[];
+  }
   return Object.keys(object) as (keyof T)[];
 }
 

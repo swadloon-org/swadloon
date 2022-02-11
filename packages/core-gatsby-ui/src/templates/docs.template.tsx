@@ -27,7 +27,10 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownDocsTemplate($fileId: String!, $locale: String!) {
+  query MarkdownDocsTemplate($fileId: String!, $locale: String!, $jsdocImports: [String]!) {
+    #
+    # retrive the markdown file along with its metadata, frontmatter and mdx content
+    #
     file(id: { eq: $fileId }) {
       changeTime(formatString: "ll", locale: $locale)
       childMdx {
@@ -60,6 +63,85 @@ export const markdownTemplateQuery = graphql`
         tableOfContents(maxDepth: 2)
         body
       }
+    }
+    #
+    # if provided, retrieve for extracted JSDoc nodes with passed names
+    #
+    jsdoc: allDocumentationJs(filter: { name: { in: $jsdocImports } }) {
+      nodes {
+        ...DocumentationJsFragment
+        params {
+          name
+          type {
+            name
+          }
+          description {
+            ...DocumentationJSComponentDescriptionFragment
+          }
+        }
+        properties {
+          ...DocumentationJsFragment
+        }
+        examples {
+          raw
+        }
+        deprecated {
+          childMdx {
+            rawBody
+          }
+        }
+        members {
+          static {
+            ...DocumentationJsFragment
+          }
+          inner {
+            ...DocumentationJsFragment
+          }
+          global {
+            ...DocumentationJsFragment
+          }
+          events {
+            ...DocumentationJsFragment
+          }
+        }
+      }
+    }
+  }
+
+  fragment DocumentationJsFragment on DocumentationJs {
+    name
+    level
+    memberof
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+    kind
+    optional
+    default
+    type {
+      ...DoctrineTypeFragment
+    }
+    type {
+      ...DoctrineTypeFragment
+    }
+    description {
+      ...DocumentationJSComponentDescriptionFragment
+    }
+  }
+
+  fragment DoctrineTypeFragment on DoctrineType {
+    name
+    type
+    result
+    params
+    fields
+    expression
+    elements
+  }
+
+  fragment DocumentationJSComponentDescriptionFragment on DocumentationJSComponentDescription {
+    childMdx {
+      body
     }
   }
 `;

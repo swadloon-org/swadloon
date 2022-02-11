@@ -20,8 +20,8 @@ type Props = PrimitiveProps &
   };
 
 /**
- * <summary> The HTML Disclosure Summary element (<summary>) element
- * specifies a summary, caption, or legend for a <details> element's disclosure box.
+ * The HTML Disclosure Summary element
+ * specifies a summary, caption, or legend for a <details/> element's disclosure box.
  * @see https://devdocs.io/html/element/summary
  */
 export const Summary: React.FC<Props> = React.memo(

@@ -17,7 +17,7 @@ import {
   useIsSSR,
 } from '@newrade/core-react-ui';
 import { CodeBlock } from '@newrade/core-react-ui/code';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { getCSSVar, keys } from '@newrade/core-react-ui/utilities';
 
 type Props = {
@@ -51,7 +51,7 @@ export const CSSVariables: React.FC<Props> = React.memo(
     });
 
     return (
-      <Stack gap={[sizingVars.var.x5]}>
+      <Stack gap={[sizeVars.x5]}>
         <Tabs>
           <TabList>
             <Tab id={'list'} selected={activeTabId === 'list'} onClick={handleSelectTab}>

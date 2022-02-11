@@ -1,31 +1,16 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
+import React from 'react';
 
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './table.treat';
+import * as styles from './table.css';
 
-type Props = PrimitiveProps & HTMLAttributes<HTMLHeadingElement> & {};
+type Props = PrimitiveProps<'table'> & {};
 
-const defaultProps: Props = {
-  children: 'Table',
-};
-
-/**
- * The HTMLParagraphElement interface provides special properties
- * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
- * @see https://devdocs.io/dom/htmlparagraphelement
- */
-export const Table: React.FC<Props> = React.memo(({ className, ...props }) => {
-  const styles = useStyles(stylesRef);
-
-  const type = 'table';
-
-  const Table = React.createElement(type, {
-    className: `${className || ''} ${styles.table}
-  }`,
-    ...props,
-  });
-
-  return <div className={styles.wrapper}>{Table}</div>;
+export const Table: React.FC<Props> = React.memo((props) => {
+  return (
+    <div className={styles.wrapper}>
+      <Primitive as={'table'} classNames={[styles.table]} {...props}></Primitive>
+    </div>
+  );
 });

@@ -6,9 +6,17 @@ export const devServerConfig = {
   historyApiFallback: true,
   watchContentBase: false,
   watchOptions: {
-    aggregateTimeout: 300,
-    ignored: /node_modules|dist|public|src\/server/,
-    poll: 500,
+    aggregateTimeout: 5,
+    ignored: [
+      '**/.git/**',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/public/**',
+      '**/.cache/**',
+      '**/*.d.ts',
+      '**/*.js.map',
+      'graphql-types.ts',
+    ],
   },
   headers: {
     'Access-Control-Allow-Origin': '*',

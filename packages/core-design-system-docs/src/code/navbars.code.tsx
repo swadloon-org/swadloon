@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NavbarLinkItem, NavbarModular, NavbarStandard } from '@newrade/core-gatsby-ui/src';
 import { Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
@@ -18,7 +18,7 @@ export const Navbars: React.FC<Props> = (props) => {
   );
 
   return (
-    <Stack gap={[sizingVars.var.x4]}>
+    <Stack gap={[sizeVars.x4]}>
       <NavbarModular navbarMode="normal" left={left} leftDesktop={left}></NavbarModular>
 
       <NavbarStandard navbarMode="normal" />

@@ -6,7 +6,7 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
 
 import { getBabelReactLoader } from '../loaders/babel-react.loader';
-import { extractCssLoader } from '../loaders/extract-css.loader';
+import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
 import { inlineCssLoader } from '../loaders/inline-css.loader';
@@ -18,9 +18,11 @@ import { urlLoader } from '../loaders/url.loader';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
 import { compressionPlugin } from '../plugins/compression.plugin.conf';
 import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
+import { mdxLoader } from '..';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
+ * @see https://webpack.js.org/guides/build-performance/
  */
 export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Configuration = ({
   isDevelopment,
@@ -80,9 +82,11 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         htmlLoader,
         txtLoader,
         fileLoader,
+        mdxLoader,
         urlLoader,
-        isDevelopment && inlineCssLoader,
-        !isDevelopment && extractCssLoader,
+        // isDevelopment && inlineCssLoader,
+        extractCssLoader,
+        extractVanillaCssLibLoader,
         getBabelReactLoader({
           hmr: isDevelopment,
           plugins: [['@vanilla-extract/babel-plugin']],
@@ -119,8 +123,12 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
       getWebpackCleanPlugin(),
       getForkTsCheckerWebpackPlugin(),
       isDevelopment && new webpack.HotModuleReplacementPlugin(),
-      isDevelopment && new ReactRefreshWebpackPlugin(),
-      !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
+      isDevelopment &&
+        new ReactRefreshWebpackPlugin({
+          overlay: false,
+        }),
+      // !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
+      new MiniCssExtractPlugin() as unknown as WebpackPluginInstance,
       !isDevelopment && compressionPlugin,
     ].filter(Boolean) as WebpackPluginInstance[],
     resolveLoader: {

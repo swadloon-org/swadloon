@@ -21,7 +21,7 @@ import {
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
-import { sizingVars } from '@newrade/core-react-ui/theme';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import {
   BreadcrumbsAPI,
   CompanyInfoAPI,
@@ -244,12 +244,6 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    */
 
   const mdxComponents = {
-    h1: (props: MDXProps) => <Heading enableAnchorSign={true} {...props} />,
-    h2: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h2} {...props} />,
-    h3: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h3} {...props} />,
-    h4: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
-    h5: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
-    h6: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
     ThemeWrapper: injectThemeWrapper
       ? (props: any) => (
           <ThemeWrapper
@@ -294,7 +288,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
       </>
     ),
     leftDesktop: (
-      <Cluster gap={[sizingVars.var.x4]}>
+      <Cluster gap={[sizeVars.x4]}>
         <Cluster gap={['0px']}>
           <NavbarLogoLinkItem
             tagText={'Docs'}

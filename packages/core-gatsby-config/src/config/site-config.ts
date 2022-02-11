@@ -15,6 +15,9 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
     PARALLEL_SOURCING: boolean;
     PARALLEL_QUERY_RUNNING: boolean;
     LMDB_STORE: boolean;
+    QUERY_ON_DEMAND: boolean;
+    FUNCTIONS: boolean;
+    LAZY_IMAGES: boolean;
   };
   siteMetadata: GatsbySiteMetadata;
 }
@@ -26,4 +29,7 @@ export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   PARALLEL_SOURCING: true,
   PARALLEL_QUERY_RUNNING: false, // see https://github.com/gatsbyjs/gatsby/discussions/32389
   LMDB_STORE: true,
+  FUNCTIONS: false,
+  QUERY_ON_DEMAND: false,
+  LAZY_IMAGES: true,
 };

@@ -55,7 +55,10 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = (props) => {
 /**
  * Component for Gatsby's 'wrapPageElement' with i18n context
  */
-const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, props }) => {
+export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function WrapElementI18n({
+  element,
+  props,
+}) {
   const pageProps = props as Props;
 
   /**
@@ -163,7 +166,3 @@ const WrapElementI18nFn: React.FC<WrapPageElementBrowserArgs> = ({ element, prop
     }
   }
 };
-
-WrapElementI18nFn.displayName = 'WrapElementI18n';
-
-export const WrapElementI18n = WrapElementI18nFn;

@@ -40,29 +40,7 @@ export type CSSSizing = Sizing<string> & {
 /**
  * String only representation of the Sizing object
  *
- * for v2:
- *  - varNames is a constant
- *  - added ratioVarNames & ratioVar
+ * V2:
+ *  - no need for `varNames` or `var` since they are constants
  */
-export type CSSSizingV2 = Sizing<string> & {
-  /**
-   * CSS variable name for each step.
-   * @example `--sizing-x1`
-   */
-  varNames: SizingVarNames;
-  /**
-   * CSS statement to access CSS variables
-   * @example `var(--sizing-x1)`
-   */
-  var: SizingVars;
-  /**
-   * CSS variable name for each sizing ratio.
-   * @example `--sizing-ratio-mobile`
-   */
-  ratioVarNames: SizingRatioVarNames;
-  /**
-   * CSS statement to access CSS sizing ratio
-   * @example `var(--sizing-ratio-mobile)`
-   */
-  ratioVar: SizingRatioVars;
-};
+export type CSSSizingV2 = Sizing<string>;

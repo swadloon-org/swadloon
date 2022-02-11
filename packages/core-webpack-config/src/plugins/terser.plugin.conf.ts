@@ -1,15 +1,14 @@
-// @ts-ignore
 import TerserPlugin from 'terser-webpack-plugin';
-import type * as Terser from 'terser-webpack-plugin/types';
 import { WebpackPluginInstance } from 'webpack';
 
-export const terserOptions: Terser.TerserPluginOptions = {
+export const terserOptions: TerserPlugin.BasePluginOptions & {
+  terserOptions: TerserPlugin.TerserOptions;
+} = {
   terserOptions: {
     compress: {
       side_effects: true,
     },
     ecma: undefined,
-    warnings: false,
     mangle: true,
     module: false,
     keep_classnames: false,

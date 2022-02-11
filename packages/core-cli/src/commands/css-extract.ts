@@ -1,12 +1,8 @@
-import { spawnSync } from 'child_process';
-import * as t from 'io-ts';
-
-import { Command, flags } from '@oclif/command';
-
-import { getShellForPlatform, loadDotEnv } from '@newrade/core-utils';
-
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 import { Env, ENV } from '@newrade/core-css-extractor';
+import { getShellForPlatform, loadDotEnv } from '@newrade/core-utils';
+import { Command } from '@oclif/command';
+import { spawnSync } from 'child_process';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class CssExtract extends Command {
   log = debugInstance(`${NS}:css-extract`);

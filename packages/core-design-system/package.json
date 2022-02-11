@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-design-system",
-  "version": "1.15.0",
+  "version": "1.17.0",
   "description": "Theme API to style entire application",
   "author": {
     "email": "info@newrade.ca",
@@ -28,8 +28,6 @@
   },
   "dependencies": {
     "@capsizecss/core": "^3.0.0",
-    "@capsizecss/metrics": "^0.1.0",
-    "@capsizecss/vanilla-extract": "^1",
     "framer-motion": "^4"
   }
 }

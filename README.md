@@ -13,6 +13,7 @@
 ![core-jest-config](https://github.com/newrade/newrade-core/actions/workflows/core-jest-config-workflow.yml/badge.svg)
 ![core-webpack-config](https://github.com/newrade/newrade-core/actions/workflows/core-webpack-config-workflow.yml/badge.svg)
 ![core-figma-extractor](https://github.com/newrade/newrade-core/actions/workflows/core-figma-extractor-workflow.yml/badge.svg)
+![core-utils](https://github.com/newrade/newrade-core/actions/workflows/core-utils-workflow.yml/badge.svg)
 ![ze-design-website](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
 ![code-ql](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
 

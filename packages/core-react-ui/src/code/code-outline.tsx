@@ -1,18 +1,15 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
-import * as styleRefs from './code-outline.treat';
+import * as styles from './code-outline.css';
 
 type Props = PrimitiveProps;
 
 export const CodeOutline: React.FC<Props> = ({ id, style, className, ...props }) => {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps({
     id,
     style,
@@ -22,7 +19,7 @@ export const CodeOutline: React.FC<Props> = ({ id, style, className, ...props })
   });
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x3]} {...commonProps}>
+    <Stack gap={[sizeVars.x3]} {...commonProps}>
       {props.children}
     </Stack>
   );

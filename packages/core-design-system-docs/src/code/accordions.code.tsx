@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { lorenipsum } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
-import { Details, Paragraph, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { lorenipsum } from '@newrade/core-react-ui';
+import { Details, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 
 type Props = {};
 
@@ -9,24 +9,21 @@ export const Accordions: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (
-    <>
+    <Stack>
       <Details>
-        <Summary>Accordion</Summary>
-
+        <Summary>Summary 1</Summary>
         <Paragraph>{lorenipsum}</Paragraph>
       </Details>
 
       <Details>
-        <Summary>Accordion</Summary>
-
+        <Summary>Summary 2</Summary>
         <Paragraph>{lorenipsum}</Paragraph>
       </Details>
 
       <Details>
-        <Summary>Accordion</Summary>
-
+        <Summary>Summary 3</Summary>
         <Paragraph>{lorenipsum}</Paragraph>
       </Details>
-    </>
+    </Stack>
   );
 };

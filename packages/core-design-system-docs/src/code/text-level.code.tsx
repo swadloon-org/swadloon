@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { HEADING, Variant } from '@newrade/core-design-system';
-import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
-import { ReversedBox } from '@newrade/core-gatsby-ui/src/docs-components/reversed-box';
 import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { ColorPalette } from '@newrade/core-react-ui/doc-components';
+import { ReversedBox } from '@newrade/core-react-ui/doc-components';
 
 type Props = {};
 

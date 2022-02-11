@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.2...@newrade/core-common@1.4.3) (2021-12-21)
+
+**Note:** Version bump only for package @newrade/core-common
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.2](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.1...@newrade/core-common@1.4.2) (2021-10-05)
 
 ### Bug Fixes

@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
 
+import { HEADING } from '@newrade/core-design-system';
+import { Heading } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeHighlightLazy } from '@newrade/core-react-ui/code';
-
-import { IconsLazy } from '../docs-components/icons.lazy';
+import { IconsLazy } from '@newrade/core-react-ui/doc-components';
 
 import { mdxComponents, MDXProps } from './mdx-components';
 
@@ -11,6 +12,16 @@ import { mdxComponents, MDXProps } from './mdx-components';
  */
 export const docsMdxComponents = {
   ...mdxComponents,
+  /**
+   * Headings with anchor enabled
+   */
+  h1: (props: MDXProps) => <Heading enableAnchorSign={true} {...props} />,
+  h2: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h2} {...props} />,
+  h3: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h3} {...props} />,
+  h4: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+  h5: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+  h6: (props: MDXProps) => <Heading enableAnchorSign={true} variant={HEADING.h4} {...props} />,
+
   Icons: ({ children, ...props }: MDXProps) => {
     return (
       <Suspense fallback={''}>
