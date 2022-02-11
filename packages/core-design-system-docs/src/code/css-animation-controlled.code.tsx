@@ -9,14 +9,12 @@ import {
   CSSAnimationState,
   Placeholder,
   Stack,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const CSSAnimationControlled: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   const [animationState, setAnimationState] = useState<CSSAnimationState>('paused');
 
   const bounceRef = useRef<CSSAnimationHandle>(null);
@@ -31,8 +29,8 @@ export const CSSAnimationControlled: React.FC<Props> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x2]}>
-      <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]}>
+    <Stack gap={[sizeVars.x2]}>
+      <Cluster justifyContent={['flex-start']} gap={[sizeVars.x1]}>
         <Button style={{ width: 100 }} onClick={handlePlayPause}>
           {animationState === 'paused' ? 'Play' : 'Pause'}
         </Button>

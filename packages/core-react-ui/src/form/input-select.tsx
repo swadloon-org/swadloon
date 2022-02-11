@@ -3,23 +3,31 @@ import React, { useEffect, useState } from 'react';
 import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 
 import { IconComp } from '../icons/icon';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
 import { InputSelectProps } from './input.props';
 
 import * as styles from './input.css';
 
+type Props = InputSelectProps;
+
+const defaultProps: Props = {
+  variant: Variant.primary,
+  size: InputSize.medium,
+  validity: InputValidityState.neutral,
+};
+
 export const InputSelect = React.memo(
-  React.forwardRef<HTMLSelectElement, InputSelectProps>(function InputText(
+  React.forwardRef<HTMLSelectElement, Props>(function InputText(
     {
       id,
       style,
       className,
-      variant = Variant.primary,
-      variantSize = InputSize.medium,
+      variant = defaultProps.variant,
+      size = defaultProps.size,
       icon,
       Icon,
-      validity = InputValidityState.neutral,
+      validity = defaultProps.validity,
       loading = false,
       disabled = false,
       value,
@@ -28,22 +36,22 @@ export const InputSelect = React.memo(
     },
     ref
   ) {
-    const wrapperClassNames = styles.getWrapperStyles({
+    const wrapperClassNames = styles.variants({
       variant: variant,
-      size: variantSize,
+      size: size,
     });
-    const inputClassNames = styles.getInputStyles({
+    const inputClassNames = styles.styleVariants({
       variant: variant,
-      size: variantSize,
+      size: size,
       icon: icon && Icon ? 'left' : undefined,
       validity: validity,
       disabled: disabled,
     });
-    const iconRightClassNames = styles.getInputIconStyles({
+    const iconRightClassNames = styles.iconVariants({
       position: 'right',
       disabled: disabled,
     });
-    const iconLeftClassNames = styles.getInputIconStyles({
+    const iconLeftClassNames = styles.iconVariants({
       position: 'left',
       disabled: disabled,
     });

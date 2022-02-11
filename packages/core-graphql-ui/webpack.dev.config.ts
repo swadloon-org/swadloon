@@ -10,7 +10,6 @@ import path from 'path';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { TreatPlugin } from 'treat/webpack-plugin';
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack, { WebpackOptionsNormalized } from 'webpack';
@@ -99,10 +98,6 @@ const config: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-    }),
-    new TreatPlugin({
-      outputLoaders: [MiniCssExtractPlugin.loader],
-      hmr: true,
     }),
     new MiniCssExtractPlugin(),
   ],

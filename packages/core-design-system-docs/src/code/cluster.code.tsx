@@ -3,6 +3,7 @@ import React from 'react';
 import { Cluster } from '@newrade/core-react-ui';
 import { Placeholder } from '@newrade/core-react-ui/doc-components';
 import { sizeVars } from '@newrade/core-react-ui/theme';
+
 type Props = {};
 
 export const LayoutCluster: React.FC<Props> = (props) => {

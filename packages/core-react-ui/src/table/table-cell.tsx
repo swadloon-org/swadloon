@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  PARAGRAPH_SIZE,
+  TableCellAlignment,
+  TableCellSize,
+  TableCellType,
+  Variant,
+} from '@newrade/core-design-system';
 
 import { Primitive } from '../primitive/primitive';
 
@@ -20,16 +26,18 @@ type Props = TableCellProps;
  */
 export const TableCell: React.FC<Props> = React.memo(function TableCell({
   variant = Variant.primary,
-  variantStyle,
-  size: variantSize = PARAGRAPH_SIZE.small,
+  type = TableCellType.text,
+  size = TableCellSize.small,
+  alignment = TableCellAlignment.left,
+  textStyle,
   ...props
 }) {
   return (
     <Primitive
       as={'td'}
       classNames={[
-        styles.getVariantStyles({
-          size: variantSize,
+        styles.variants({
+          size: size,
         }),
       ]}
       {...props}

@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { Cluster, Tag, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, Tag } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const Tags: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
+      <Cluster justifyContent={['flex-start']} gap={[sizeVars.x1]} wrap={true}>
         <Tag variant={Variant.primary}>Loren</Tag>
         <Tag variant={Variant.primary}>Ipsum</Tag>
         <Tag variant={Variant.primary}>dolor</Tag>
@@ -18,7 +17,7 @@ export const Tags: React.FC<Props> = (props) => {
         <Tag variant={Variant.primary}>architecto</Tag>
         <Tag variant={Variant.primary}>exercitationem</Tag>
       </Cluster>
-      <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
+      <Cluster justifyContent={['flex-start']} gap={[sizeVars.x1]} wrap={true}>
         <Tag variant={Variant.secondary}>architecto</Tag>
         <Tag variant={Variant.secondary}>dolor</Tag>
         <Tag variant={Variant.secondary}>amet</Tag>
@@ -26,7 +25,7 @@ export const Tags: React.FC<Props> = (props) => {
         <Tag variant={Variant.secondary}>exercitationem</Tag>
         <Tag variant={Variant.secondary}>Ipsum</Tag>
       </Cluster>
-      <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
+      <Cluster justifyContent={['flex-start']} gap={[sizeVars.x1]} wrap={true}>
         <Tag variant={Variant.tertiary}>amet</Tag>
         <Tag variant={Variant.tertiary}>architecto</Tag>
         <Tag variant={Variant.tertiary}>dolor</Tag>

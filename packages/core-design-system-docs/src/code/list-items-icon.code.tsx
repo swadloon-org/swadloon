@@ -1,27 +1,17 @@
 import React from 'react';
 import { IoMailOutline, IoPhonePortraitOutline } from 'react-icons/io5';
 
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { ListItemV2, Stack } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const ListItemsIcon: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
-        <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-          info@website.ca
-        </ListItem>
-
-        <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-          info@website.ca
-        </ListItem>
-
-        <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />}>
-          444-555-2222
-        </ListItem>
+      <Stack as={'ul'} gap={[sizeVars.x2]}>
+        <ListItemV2 IconSVG={<IoMailOutline />}>info@website.ca</ListItemV2>
+        <ListItemV2 IconSVG={<IoPhonePortraitOutline />}>444-555-2222</ListItemV2>
       </Stack>
     </>
   );

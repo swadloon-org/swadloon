@@ -1,5 +1,6 @@
 import {
   ANGLE_UNIT,
+  COLOR_SCHEME,
   ColorGradients,
   ColorIntents,
   Colors,
@@ -9,9 +10,8 @@ import {
 import {
   generateColorGreyPaletteDark,
   generateColorPalette5,
-  getCSSVarForColors,
   getDefaultColorIntents,
-} from '../utilities/colors.utilities';
+} from '../utilities-theme/colors.utilities';
 
 import { defaultCodeColorsDark } from './default-code-colors-dark';
 
@@ -98,11 +98,6 @@ export const defaultColorIntentsDark: ColorIntents = {
   isLight: `0`,
 };
 
-export const defaultColorVarDark = getCSSVarForColors({
-  colors: defaultColorsColorsDark,
-  colorIntents: defaultColorIntentsDark,
-});
-
 export const defaultColorsGradientsDark: ColorGradients = {
   gradient1: {
     angle: {
@@ -137,7 +132,7 @@ export const defaultColorsGradientsDark: ColorGradients = {
 };
 
 export const defaultColorsDark: Colors = {
-  colorScheme: 'dark',
+  colorScheme: COLOR_SCHEME.DARK,
   colors: defaultColorsColorsDark,
   colorIntents: defaultColorIntentsDark,
   gradients: defaultColorsGradientsDark,

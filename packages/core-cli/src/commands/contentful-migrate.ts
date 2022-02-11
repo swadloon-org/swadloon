@@ -5,7 +5,7 @@ import { runMigration } from 'contentful-migration';
 import debug from 'debug';
 import * as t from 'io-ts';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 
 import { NS } from '../utilities/log.utilities';
 

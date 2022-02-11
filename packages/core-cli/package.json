@@ -47,7 +47,7 @@
     "@contentful-tools/store": "^0.7.3",
     "@newrade/core-css-extractor": "^1.2.0",
     "@newrade/core-figma-extractor": "^1.6.1",
-    "@newrade/core-utils": "^2.4.1",
+    "@newrade/core-node-utils": "^2.4.1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/dev-cli": "^1",

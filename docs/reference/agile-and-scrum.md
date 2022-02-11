@@ -1,7 +1,7 @@
 ---
 subject: Reference
 title: Agile and Scrum - 🔁
-description: Definitions and link to ressources on Agile and SCRUM
+description: Definitions and link to Resources on Agile and SCRUM
 tags:
   - dev
   - practices

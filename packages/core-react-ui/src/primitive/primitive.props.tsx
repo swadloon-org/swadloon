@@ -57,10 +57,6 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    */
   theme?: 'normal' | 'reversed';
   /**
-   * Inverse components colors
-   */
-  colorMode?: 'normal' | 'reversed';
-  /**
    * Preset for component's sizes
    * @version 2
    */

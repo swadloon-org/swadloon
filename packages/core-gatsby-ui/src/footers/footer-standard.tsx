@@ -1,6 +1,5 @@
 import React from 'react';
 import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import {
   ButtonIcon,
@@ -22,9 +21,9 @@ import {
   Paragraph,
   Stack,
   useCommonProps,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { lorenipsumMedium, lorenipsumShort } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';
@@ -32,14 +31,13 @@ import { GatsbyLink } from '../links/gatsby-link';
 
 import { FooterProps } from './footer.props';
 import { FooterBase } from './footer-base';
-import * as styleRefs from './footer-standard.treat';
+
+import * as styles from './footer-standard.css';
 
 type Props = FooterProps;
 
 export const FooterStandard = React.forwardRef<any, Props>(
   ({ id, style, className, footer, ...props }, ref) => {
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
       style,
@@ -73,10 +71,10 @@ export const FooterStandard = React.forwardRef<any, Props>(
           <Paragraph className={styles.block}>{lorenipsumMedium}</Paragraph>
         )}
 
-        <Cluster className={styles.socialLinks} gap={[cssTheme.sizing.var.x3]}>
+        <Cluster className={styles.socialLinks} gap={[sizeVars.x3]}>
           {twitterURL ? (
             <Button
-              Icon={<IoLogoTwitter />}
+              IconSVG={<IoLogoTwitter />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -87,7 +85,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {facebookURL ? (
             <Button
-              Icon={<IoLogoFacebook />}
+              IconSVG={<IoLogoFacebook />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -98,7 +96,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {instagramURL ? (
             <Button
-              Icon={<IoLogoInstagram />}
+              IconSVG={<IoLogoInstagram />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -109,7 +107,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {linkedinURL ? (
             <Button
-              Icon={<IoLogoLinkedin />}
+              IconSVG={<IoLogoLinkedin />}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -128,28 +126,25 @@ export const FooterStandard = React.forwardRef<any, Props>(
             const links = subNav.links;
 
             return (
-              <Stack key={subNavIndex} gap={[cssTheme.sizing.var.x4]}>
+              <Stack key={subNavIndex} gap={[sizeVars.x4]}>
                 <Label
-                  variantStyle={TEXT_STYLE.boldUppercase}
+                  textStyle={TEXT_STYLE.boldUppercase}
                   variant={LABEL_SIZE.xSmall}
                   variantLevel={Variant.tertiary}
                 >
                   {subNav.label || ' '}
                 </Label>
 
-                <Stack
-                  key={id}
-                  gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
-                >
+                <Stack key={id} gap={[sizeVars.x4, sizeVars.x4, sizeVars.x3]}>
                   {links?.map((link, id) => {
                     if (link?.type === LinkType.externalUrl) {
                       return (
                         <Link
                           key={id}
-                          variantSize={PARAGRAPH_SIZE.small}
+                          size={PARAGRAPH_SIZE.small}
                           href={link?.url || ' '}
-                          variantIcon={LinkIcon.right}
-                          Icon={<IconComp name={ICON.OPEN}></IconComp>}
+                          icon={LinkIcon.right}
+                          IconSVG={<IconComp name={ICON.OPEN}></IconComp>}
                         >
                           {link?.label || link?.url || ' '}
                         </Link>
@@ -159,7 +154,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
                     return (
                       <Link
                         key={id}
-                        variantSize={PARAGRAPH_SIZE.small}
+                        size={PARAGRAPH_SIZE.small}
                         AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
                       >
                         {link?.label || ' '}
@@ -174,8 +169,8 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
         <Paragraph
           className={styles.copyright}
-          variant={PARAGRAPH_SIZE.small}
-          variantLevel={Variant.secondary}
+          size={PARAGRAPH_SIZE.small}
+          kind={Variant.secondary}
         >
           {copyright || `© ${lorenipsumShort}`}
           {version ? ` — ${version}` : ''}

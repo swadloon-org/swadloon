@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { Marker } from '@react-google-maps/api';
 
-import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
+import { GoogleMaps, GoogleMapsInfoWindow } from '@newrade/core-react-ui';
 import { BlockGoogleMapAPI } from '@newrade/core-website-api';
 
 import { BlockProps } from './block.props';
@@ -23,7 +23,6 @@ export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = ({
   blockGoogleMaps,
   googleMapsApiKey = GOOGLE_MAP_API_KEY,
 }) => {
-  const theme = useTreatTheme();
   const [shouldLoad, setShouldLoad] = useState<boolean>(false);
 
   // when in view, load once and stay visible
@@ -76,7 +75,6 @@ export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = ({
     <div style={{ height: `max(100%, 50vh)`, minHeight: `50vh` }}>
       {shouldLoad && googleMapsApiKey ? (
         <GoogleMaps
-          styleTheme={theme}
           script={{
             // ...script,
             id: 'contact-map-script',

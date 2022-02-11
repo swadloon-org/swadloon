@@ -28,9 +28,7 @@
   "sideEffects": [
     "*.css",
     "*.css.ts",
-    "*.css.js",
-    "*.treat.ts",
-    "*.treat.js"
+    "*.css.js"
   ],
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
@@ -39,21 +37,19 @@
     "@newrade/core-figma-extractor": "^1.6.1",
     "@newrade/core-gatsb-config": "^3.3.0",
     "@newrade/core-gatsby-ui": "^2.6.0",
+    "@newrade/core-node-utils": "^2.4.1",
     "@newrade/core-react-ui": "^2.6.0",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.4.1",
     "@newrade/core-website-api": "^1.5.2",
     "@newrade/ze-design-system": "^1.8.0",
     "@vanilla-extract/css": "^1.6.3",
     "@vanilla-extract/recipes": "^0.2.1",
     "fp-ts": "^2",
-    "gatsby": "^3.14.1",
+    "gatsby": "^3.14.6",
     "gatsby-plugin-image": "^1.11.0-next.2",
     "i18next": "^19",
     "io-ts": "^2",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^11",
-    "react-treat": "^2",
-    "treat": "^2"
+    "react-i18next": "^11"
   }
 }

@@ -1,10 +1,9 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as styleRefs from './main-docs-wrapper.treat';
+import * as styles from './main-docs-wrapper.css';
 
 type Props = PrimitiveProps & {};
 
@@ -15,7 +14,6 @@ type Props = PrimitiveProps & {};
  * This docs variant allows for sticky element since there are no overflow applied
  */
 export const MainDocsWrapper: React.FC<Props> = ({ id, style, className, as, ...props }) => {
-  const { styles } = useStyles(styleRefs);
   const type = as ? as : 'div';
   const commonProps = useCommonProps({
     id,

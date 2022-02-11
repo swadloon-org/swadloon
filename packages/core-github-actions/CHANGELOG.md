@@ -1,20 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.1.1](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.1.0...@newrade/core-github-actions@2.1.1) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.4...@newrade/core-github-actions@2.1.0) (2021-12-21)
 
@@ -28,11 +23,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.4](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.3...@newrade/core-github-actions@2.0.4) (2021-11-18)
 
 ### Bug Fixes
@@ -44,11 +34,6 @@ All notable changes to this project will be documented in this file. See
 - **core-github-actions:** fix set-app-env for pull_request_target event
   ([db2e601](https://github.com/newrade/newrade-core/commit/db2e601e18e5987d55a035fe8d69ccb81f1a9b9e))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.2...@newrade/core-github-actions@2.0.3) (2021-10-05)
 
 ### Bug Fixes
@@ -58,19 +43,9 @@ All notable changes to this project will be documented in this file. See
 - **core-cli:** fix path of bin for windows
   ([eb15ad4](https://github.com/newrade/newrade-core/commit/eb15ad4dcdb18223b4cef860478ac4c1a52c00da))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.0.2](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.1...@newrade/core-github-actions@2.0.2) (2021-09-09)
 
 **Note:** Version bump only for package @newrade/core-github-actions
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.0...@newrade/core-github-actions@2.0.1) (2021-08-31)
 
@@ -100,16 +75,10 @@ All notable changes to this project will be documented in this file. See
   ([3d25903](https://github.com/newrade/newrade-core/commit/3d25903450b874a5bf805549ecb17ae59361132f))
 - **core:** improvements for workflows
   ([7a2710e](https://github.com/newrade/newrade-core/commit/7a2710e9e861b4d88ee56524a6ea141864a9c8ce))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **root:** fixes for webpack and gatsby config
   ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.4.0...@newrade/core-github-actions@2.0.0) (2021-07-12)
 
@@ -121,11 +90,6 @@ All notable changes to this project will be documented in this file. See
 ### BREAKING CHANGES
 
 - **gatsby:** webpack v5 and gatsby v3
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.3.1...@newrade/core-github-actions@1.4.0) (2021-07-03)
 
@@ -145,7 +109,7 @@ All notable changes to this project will be documented in this file. See
   ([5f110db](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/5f110db5b56cc3c411d0940209c488b9d181eed5))
 - **build:** update ci sequence and yarn.lock
   ([712ac7b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -226,8 +190,7 @@ All notable changes to this project will be documented in this file. See
   ([c31ca6c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
 - **core-github-actions:** add new action
   ([9dbfbd8](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/9dbfbd83228932aa50de7d483eb1171cd5a48f2d))
-- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN
-  into account
+- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN into account
   ([b3afba0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b3afba03a8c2316b42688233c984221e7408a24e))
 - **core-graphql-ui:** init package
   ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
@@ -253,11 +216,6 @@ All notable changes to this project will be documented in this file. See
   ([0941709](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/094170962aee78d608bafe7c8aae70ebc16713fe))
 - **vsb-website-next:** init nextjs (proxy)
   ([de60f6b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/de60f6b2d6dd9dbdb6aee0c36a8a3e80b2e10bb7))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.2.0...@newrade/core-github-actions@1.3.0) (2021-06-16)
 
@@ -291,11 +249,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** adding gesture animation
   ([96689f0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/96689f0e2568e69fd02ee3cb7e2c1790e224c85c))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.1.0...@newrade/core-github-actions@1.2.0) (2021-05-25)
 
 ### Bug Fixes
@@ -317,16 +270,10 @@ All notable changes to this project will be documented in this file. See
 
 - **core-github-action:** refactor set-app-env
   ([c31ca6c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
-- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN
-  into account
+- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN into account
   ([b3afba0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b3afba03a8c2316b42688233c984221e7408a24e))
 - **github-actions:** fix pr number
   ([ae96a0d](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/ae96a0d8b01b3924bb56d586a705010f31734123))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.1.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.0.9...@newrade/core-github-actions@1.1.0) (2021-05-21)
 
@@ -384,11 +331,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website-next:** init nextjs (proxy)
   ([de60f6b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/de60f6b2d6dd9dbdb6aee0c36a8a3e80b2e10bb7))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.0.9](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.0.8...@newrade/core-github-actions@1.0.9) (2021-03-09)
 
 **Note:** Version bump only for package @newrade/core-github-actions
@@ -431,7 +373,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** make some env variable optional
   ([60a93d6](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

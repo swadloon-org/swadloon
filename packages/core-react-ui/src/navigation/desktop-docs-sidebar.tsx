@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
-import { useStyles } from 'react-treat';
 
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './desktop-docs-sidebar.treat';
+import * as styles from './desktop-docs-sidebar.css';
 
 type Props = PrimitiveProps & {};
 
@@ -13,7 +12,6 @@ type Props = PrimitiveProps & {};
  * Desktop Sidebar that floats near the content.
  */
 export const DesktopDocsSideBar: React.FC<Props> = ({ id, style, className, ...props }) => {
-  const { styles } = useStyles(styleRefs);
   const classNames = getMergedClassname([className, styles.wrapper]);
 
   /**

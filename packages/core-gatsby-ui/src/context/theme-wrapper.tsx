@@ -1,5 +1,4 @@
 import React, { ReactNode, Suspense, useRef, useState } from 'react';
-import { TreatProvider } from 'react-treat';
 
 import type { Property } from 'csstype';
 
@@ -14,8 +13,6 @@ import {
   TabContent,
   TabList,
   Tabs,
-  Theme,
-  TreatThemeProvider,
   useCommonProps,
   useCSSTheme,
   useViewportBreakpoint,
@@ -37,14 +34,6 @@ enum ThemeWrapperTab {
  * @description Props for ThemeWrapper
  */
 type ThemeWrapperProps = Omit<PrimitiveProps<'div'>, 'theme'> & {
-  /**
-   * Treat theme ref (classname)
-   */
-  treatThemeRef: string;
-  /**
-   * Full treat theme config object
-   */
-  theme: Theme;
   /**
    * Classname to apply vanilla-extra theme css variables
    */
@@ -127,9 +116,7 @@ const ThemeWrapperFn = React.memo(
     id,
     style,
     className,
-    treatThemeRef,
     themeConfig,
-    theme,
     children,
     displayTabs = true,
     displayControls,
@@ -169,11 +156,11 @@ const ThemeWrapperFn = React.memo(
      * Themes
      *
      */
-    const currentTheme = useCSSTheme();
+    const { currentCSSTheme } = useCSSTheme();
 
     const [selectedTheme, setSelectedTheme] = useState<CSSRuntimeThemeConfig | undefined>(
-      currentTheme.selected
-        ? currentTheme.selected
+      currentCSSTheme.selected
+        ? currentCSSTheme.selected
         : themeConfig.themes.find((theme) => theme.default)
     );
 
@@ -286,7 +273,7 @@ const ThemeWrapperFn = React.memo(
                   <InputSelect
                     onChange={handleChangeTheme}
                     value={selectedTheme?.name || ''}
-                    variantSize={InputSize.small}
+                    size={InputSize.small}
                   >
                     {themeConfig.themes.map((theme) => {
                       return (
@@ -305,7 +292,7 @@ const ThemeWrapperFn = React.memo(
                   <InputSelect
                     onChange={handleViewportChange}
                     value={selectedViewport}
-                    variantSize={InputSize.small}
+                    size={InputSize.small}
                   >
                     <option value={'auto'}>Auto</option>
                     <option value={VIEWPORT.desktop}>Desktop</option>
@@ -317,34 +304,30 @@ const ThemeWrapperFn = React.memo(
             ) : null}
 
             <div className={styles.content}>
-              <TreatProvider theme={treatThemeRef}>
-                <TreatThemeProvider theme={theme}>
-                  <CSSThemeProvider
-                    value={{
-                      config: themeConfig,
-                      onChangeTheme: handleChangeThemeName,
-                      selected: selectedTheme,
-                    }}
+              <CSSThemeProvider
+                value={{
+                  config: themeConfig,
+                  onChangeTheme: handleChangeThemeName,
+                  selected: selectedTheme,
+                }}
+              >
+                <div
+                  ref={iframeWrapperRef}
+                  className={styles.iframeWrapper}
+                  style={{ overflowX: viewportOverflowX, overflowY: viewportOverflowY }}
+                >
+                  <IFrame
+                    title={filename}
+                    style={{ width: iframeBodyWidth }}
+                    bodyWidth={viewportOverflowX === 'hidden' ? iframeBodyWidth : ''}
+                    viewport={selectedViewport}
                   >
-                    <div
-                      ref={iframeWrapperRef}
-                      className={styles.iframeWrapper}
-                      style={{ overflowX: viewportOverflowX, overflowY: viewportOverflowY }}
-                    >
-                      <IFrame
-                        title={filename}
-                        style={{ width: iframeBodyWidth }}
-                        bodyWidth={viewportOverflowX === 'hidden' ? iframeBodyWidth : ''}
-                        viewport={selectedViewport}
-                      >
-                        <GlobalCSSVariables>
-                          <CodeOutline {...commonProps}>{children}</CodeOutline>
-                        </GlobalCSSVariables>
-                      </IFrame>
-                    </div>
-                  </CSSThemeProvider>
-                </TreatThemeProvider>
-              </TreatProvider>
+                    <GlobalCSSVariables>
+                      <CodeOutline {...commonProps}>{children}</CodeOutline>
+                    </GlobalCSSVariables>
+                  </IFrame>
+                </div>
+              </CSSThemeProvider>
             </div>
           </TabContent>
 

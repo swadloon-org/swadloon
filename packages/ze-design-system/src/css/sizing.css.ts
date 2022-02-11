@@ -2,9 +2,9 @@ import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 
 import { layoutCSS, ratioVarNames, sizeVarNames, sizingVars } from '@newrade/core-react-ui/theme';
 
-import { lightCssThemeV2 } from '../design-system/theme';
+import { lightCssTheme } from '../design-system/theme';
 
-createGlobalTheme(':root', sizingVars, lightCssThemeV2.sizing);
+createGlobalTheme(':root', sizingVars, lightCssTheme.sizing);
 
 globalStyle(`:root`, {
   vars: {

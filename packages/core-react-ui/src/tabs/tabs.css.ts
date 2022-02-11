@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars } from '../theme/default-theme.css';
+import { colorVars } from '../default-theme/default-theme.css';
 
 /**
  *
@@ -20,9 +20,7 @@ export const tab = style({
   WebkitAppearance: 'none',
   whiteSpace: 'nowrap', // don't allow wrapping
   width: 'fit-content',
-  ':focus': {
-    // boxShadow: `0 0 0 1px ${cssTheme.colors.colors.primary[700]}`,
-  },
+  ':focus': {},
   selectors: {
     '&[aria-selected=true]': {
       borderBottom: `2px solid ${colorVars.colorIntents.primary}`,

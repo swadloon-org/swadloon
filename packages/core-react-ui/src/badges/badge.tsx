@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { TagProps } from '@newrade/core-design-system';
 
@@ -7,7 +6,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './badge.treat';
+import * as styles from './badge.css';
 
 type Props = PrimitiveProps &
   Omit<TagProps, 'kind'> & {
@@ -20,7 +19,6 @@ type Props = PrimitiveProps &
 
 export const Badge: React.FC<Props> = React.memo(
   ({ id, style, className, children, as, variant, kind, type, name, status, ...props }) => {
-    const styles = useStyles(stylesRef);
     const commonProps = useCommonProps({
       id,
       style,

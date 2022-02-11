@@ -8,6 +8,8 @@
 # see https://github.com/github/linguist/blob/master/docs/overrides.md#using-gitattributes
 #
 **/*.dll.js linguist-generated
-**/bin/* linguist-generated
-**/public/* linguist-generated
-**/built/* linguist-generated
+**/dll/** linguist-generated
+**/bin/** linguist-generated
+**/vendor/** linguist-generated
+**/public/** linguist-generated
+**/built/** linguist-generated

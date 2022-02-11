@@ -2,7 +2,7 @@ import path from 'path';
 
 import { GatsbyNode } from 'gatsby';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 
 import { ENV, Env } from './types/dot-env';
 import { CLIENT_ENV } from './types/dot-env-client';

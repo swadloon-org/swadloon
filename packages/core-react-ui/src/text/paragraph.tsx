@@ -1,75 +1,49 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
-import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, ParagraphProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
-import { getMergedClassname } from '../utilities/component.utilities';
 
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './paragraph.css';
 
 type Tag = 'p' | 'b' | 'div' | 'small' | 'strong' | 'em' | 'del';
 
-type Props = PrimitiveProps<Tag> &
-  TextCommonProps &
-  HTMLAttributes<HTMLParagraphElement> & {
-    variant?: PARAGRAPH_SIZE;
-    variantStyle?: TEXT_STYLE;
-    variantLevel?: Variant;
-  };
+type Props = PrimitiveProps<Tag> & ParagraphProps & TextCommonProps;
 
 const defaultProps: Props = {
-  variantLevel: Variant.primary,
-  variant: PARAGRAPH_SIZE.medium,
+  kind: Variant.primary,
+  size: PARAGRAPH_SIZE.medium,
+  textStyle: TEXT_STYLE.normal,
   children: 'Paragraph',
 };
 
-export const Paragraph: React.FC<Props> = React.memo(
-  ({
-    variant,
-    variantStyle,
-    variantLevel = Variant.primary,
-    display,
-    disableCapsize,
-    readableWidth,
-    className,
-    as,
-    ...props
-  }) => {
-    const type = as ? as : 'p';
-    const classNames = [
-      className,
-      styles.base,
-      styles.getVariantStyles({
-        size: variant || defaultProps.variant,
-        style: variantStyle || 'normal',
-        displayMode: display,
-        disableCapsize: disableCapsize,
-        readableWidth: readableWidth,
-      }),
-      textStyles.getTextColorStyles({
-        variant: variantLevel || defaultProps.variantLevel,
-      }),
-    ];
+export const Paragraph: React.FC<Props> = React.memo(function Paragraph({
+  as,
+  kind = Variant.primary,
+  size = defaultProps.size,
+  textStyle = defaultProps.textStyle,
+  display,
+  disableCapsize,
+  readableWidth,
+  ...props
+}) {
+  const type = as ? as : 'p';
+  const classNames = [
+    styles.base,
+    styles.variants({
+      size: size,
+      style: textStyle,
+      displayMode: display,
+      readableWidth: readableWidth,
+    }),
+    textStyles.textVariants({
+      variant: kind,
+      disableCapsize: disableCapsize,
+    }),
+  ];
 
-    return <Primitive as={type} classNames={classNames} {...props} />;
-  }
-);
-
-export const ParagraphBold: React.FC<Props> = React.memo(
-  ({ variant, variantStyle, variantLevel, className, display = 'inline-block', as, ...props }) => {
-    const classNames = getMergedClassname([className]);
-
-    return (
-      <Paragraph
-        as={'b'}
-        variantStyle={TEXT_STYLE.bold}
-        className={classNames}
-        display={display}
-        {...props}
-      ></Paragraph>
-    );
-  }
-);
+  return <Primitive as={type} classNames={classNames} {...props} />;
+});

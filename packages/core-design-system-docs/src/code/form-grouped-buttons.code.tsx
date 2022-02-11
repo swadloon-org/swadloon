@@ -10,20 +10,18 @@ import {
   InputWrapper,
   Stack,
   Switcher,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const FormGroupedButtons: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
+      <Stack gap={[sizeVars.x4]}>
         <Heading variant={HEADING.h4}>Contact</Heading>
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Switcher gap={[cssTheme.sizing.var.x3]}>
+        <Stack gap={[sizeVars.x3]}>
+          <Switcher gap={[sizeVars.x3]}>
             <InputWrapper>
               <InputLabel htmlFor={'firstName'}>First Name</InputLabel>
               <InputText name="firstName" autoComplete="given-name" placeholder={''} />
@@ -45,7 +43,7 @@ export const FormGroupedButtons: React.FC<Props> = (props) => {
             <InputLabel htmlFor={'message'}>Message</InputLabel>
             <InputText name="message" autoComplete="given-name" placeholder={''} />
           </InputWrapper>
-          <Cluster wrap={true} gap={[cssTheme.sizing.var.x2]} justifyContent={['flex-start']}>
+          <Cluster wrap={true} gap={[sizeVars.x2]} justifyContent={['flex-start']}>
             <Button variant={Variant.secondary}>Cancel</Button>
             <Button variant={Variant.primary}>Send</Button>
           </Cluster>

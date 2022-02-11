@@ -1,14 +1,13 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
 import { Center } from './center';
-import * as styleRefs from './main-docs.treat';
 
-type Props = PrimitiveProps & {
+import * as styles from './main-docs.css';
+
+type Props = PrimitiveProps<'main' | 'div'> & {
   /**
    * Offset the navbar height
    */
@@ -37,10 +36,7 @@ type Props = PrimitiveProps & {
  * - an aside component
  */
 export const MainDocs: React.FC<Props> = ({
-  id,
   as,
-  style,
-  className,
   navbarPadding,
   contentPadding,
   minHeight,
@@ -48,26 +44,20 @@ export const MainDocs: React.FC<Props> = ({
   children,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
   const type = as ? as : 'main';
-  const commonProps = useCommonProps({
-    id,
-    style,
-    className,
-    classNames: [
-      className,
-      navbarPadding ? styles.navbar : '',
-      contentPadding ? styles.contentPadding : '',
-      minHeight ? styles.minHeight : '',
-      fullHeight ? styles.fullHeight : '',
-    ],
-    ...props,
-  });
 
-  return React.createElement(
-    type,
-    commonProps,
-    <Center contentClassName={styles.wrapper}>{children}</Center>
+  return (
+    <Primitive
+      as={type}
+      classNames={[
+        navbarPadding ? styles.navbar : '',
+        contentPadding ? styles.contentPadding : '',
+        minHeight ? styles.minHeight : '',
+        fullHeight ? styles.fullHeight : '',
+      ]}
+      {...props}
+    >
+      <Center contentClassName={styles.wrapper}>{children}</Center>
+    </Primitive>
   );
 };

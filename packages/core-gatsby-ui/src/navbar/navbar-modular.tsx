@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Cluster, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, useCommonProps } from '@newrade/core-react-ui';
 
 import { NavbarModularProps } from './navbar.props';
 import { NavbarBase } from './navbar-base';
@@ -30,8 +30,6 @@ export const NavbarModular = React.forwardRef<any, Props>(
     },
     ref
   ) => {
-    const { theme, cssTheme } = useTreatTheme();
-
     const commonProps = useCommonProps({
       id,
       style,

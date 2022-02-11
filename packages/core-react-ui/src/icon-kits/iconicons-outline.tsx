@@ -43,6 +43,7 @@ import {
   IoLayersOutline,
   IoLocationOutline,
   IoLogoFacebook,
+  IoLogoGithub,
   IoLogoInstagram,
   IoLogoLinkedin,
   IoLogoTwitter,
@@ -150,6 +151,7 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.LOGO_INSTAGRAM]: IoLogoInstagram,
   [ICON.LOGO_LINKEDIN]: IoLogoLinkedin,
   [ICON.LOGO_YOUTUBE]: IoLogoYoutube,
+  [ICON.LOGO_GITHUB]: IoLogoGithub,
   // custom icons that fits with ionicons
   ...newradeIconsKit,
 };

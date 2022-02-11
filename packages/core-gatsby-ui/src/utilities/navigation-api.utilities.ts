@@ -31,16 +31,29 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /guides/i,
     /packages/i,
     /reference/i,
+
     /brand/i,
+    /gallery/i,
+
+    /colors/i,
+    /typography/i,
+    /iconography/i,
+    /illustration/i,
+    /photography/i,
     /templates/i,
+
     /data viz/i,
     /data visualization/i,
+
     /guidelines/i,
-    /animations/i,
     /components/i,
-    /print/i,
-    /tokens/i,
+    /animations/i,
+    /print and business documents/i,
+
+    /assets/i,
+    /design tokens/i,
     /tools/i,
+
     /Content API/i,
   ],
   sortOrderItems: [

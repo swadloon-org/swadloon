@@ -2,7 +2,6 @@ import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useStyles } from 'react-treat';
 
 import {
   GatsbyMarkdownFilePageContext,
@@ -16,7 +15,7 @@ import {
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 
-import * as styleRefs from './docs.css';
+import * as styles from './docs.css';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
@@ -49,8 +48,6 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const styles = useStyles(styleRefs);
-
   return (
     <>
       <Helmet>

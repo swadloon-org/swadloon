@@ -3,7 +3,7 @@ import path from 'path';
 import webpack, { Configuration, WebpackPluginInstance } from 'webpack';
 import merge from 'webpack-merge';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 import * as core from '@newrade/core-webpack-config';
 import { isDevelopment } from '@newrade/core-webpack-config';
 import { getReactCommonConfig } from '@newrade/core-webpack-config/config';

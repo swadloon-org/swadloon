@@ -4,24 +4,21 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
+import { COLOR_SCHEME, ICON, InputIcon, InputSize } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import {
   Cluster,
-  Heading,
   MainDocs,
   MainDocsWrapper,
   NavbarSeparatorItem,
-  scrollIntoView,
-  Theme,
   useCSSTheme,
   useIsSSR,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
-import { sizeVars } from '@newrade/core-react-ui/theme';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
+import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
 import {
   BreadcrumbsAPI,
   CompanyInfoAPI,
@@ -37,7 +34,6 @@ import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
-import { MDXProps } from '../mdx/mdx-components';
 import { NavbarModular } from '../navbar/navbar-modular';
 import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
 import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
@@ -62,15 +58,6 @@ type Props = {
   sidebar?: SidebarAPI;
   footer?: FooterAPI;
   companyInfo?: CompanyInfoAPI;
-  /**
-   * A reference to the treatTheme that can be used to pass
-   * an other theme to specific sections of the app.
-   */
-  treatThemeRef?: string;
-  /**
-   * Theme object from Treat
-   */
-  theme?: Theme;
   /**
    * The application's className for its theme
    */
@@ -106,14 +93,7 @@ export type LayoutDocsProps = Partial<
  *  - navbar component with logo, tag, search theme switcher and links on the top right
  *  - sidebar with nested navigation links
  */
-export const LayoutDocs: React.FC<LayoutDocsProps> = ({
-  treatThemeRef,
-  theme,
-  themeConfig,
-  ...props
-}) => {
-  const { cssTheme } = useTreatTheme();
-
+export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props }) => {
   const isSSR = useIsSSR();
   const isFirstRender = useFirstRender();
 
@@ -123,7 +103,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    *
    */
 
-  const injectThemeWrapper = treatThemeRef && theme && themeConfig;
+  const injectThemeWrapper = !!themeConfig;
 
   /**
    *
@@ -218,11 +198,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
   }
 
   const contentWidth = [
-    cssTheme.layout.var.sidebarWidth,
-    cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
-    cssTheme.layout.var.asideWidth,
-    cssTheme.layout.var.contentMargins,
-    cssTheme.layout.var.contentMargins,
+    layoutVars.var.sidebarWidth,
+    layoutVars.var.contentWidth.desktopDocsMaxWidth,
+    layoutVars.var.asideWidth,
+    layoutVars.var.contentMargins,
+    layoutVars.var.contentMargins,
   ];
   const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
 
@@ -245,14 +225,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
 
   const mdxComponents = {
     ThemeWrapper: injectThemeWrapper
-      ? (props: any) => (
-          <ThemeWrapper
-            treatThemeRef={treatThemeRef}
-            theme={theme}
-            themeConfig={themeConfig}
-            {...props}
-          />
-        )
+      ? (props: any) => <ThemeWrapper themeConfig={themeConfig} {...props} />
       : undefined,
   };
 
@@ -262,14 +235,14 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
    *
    */
 
-  const currentTheme = useCSSTheme();
-  const currentlySelectedTheme = currentTheme.selected?.name;
-  const currentlySelectedThemeColorScheme = currentTheme.selected?.colorScheme;
+  const { currentCSSTheme } = useCSSTheme();
+  const currentlySelectedTheme = currentCSSTheme.selected?.name;
+  const currentlySelectedThemeColorScheme = currentCSSTheme.selected?.colorScheme;
 
   function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value as string;
-    if (currentTheme.onChangeTheme) {
-      currentTheme.onChangeTheme(value);
+    if (currentCSSTheme.onChangeTheme) {
+      currentCSSTheme.onChangeTheme(value);
     }
   }
 
@@ -330,10 +303,10 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
           <NavbarSelectItem
             select={{
               icon: InputIcon.left,
-              Icon: currentlySelectedThemeColorScheme === 'light' ? ICON.SUN : ICON.MOON,
+              Icon: currentlySelectedThemeColorScheme === COLOR_SCHEME.LIGHT ? ICON.SUN : ICON.MOON,
               value: currentlySelectedTheme || '',
               onChange: handleChangeTheme,
-              variantSize: InputSize.small,
+              size: InputSize.small,
             }}
           >
             {themeConfig.themes.map((theme) => (
@@ -351,7 +324,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
           select={{
             value: getLangSimpleCode(currentLang),
             onChange: handleChangeLanguage,
-            variantSize: InputSize.small,
+            size: InputSize.small,
           }}
         >
           {siteLangs ? (
@@ -452,12 +425,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({
        *
        */}
 
-      <FooterDocs
-        ref={footerRef}
-        footer={footer}
-        colorMode={'reversed'}
-        contentMaxWidth={contentMaxWidth}
-      ></FooterDocs>
+      <FooterDocs ref={footerRef} footer={footer} contentMaxWidth={contentMaxWidth}></FooterDocs>
     </MainDocsWrapper>
   );
 };

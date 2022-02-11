@@ -18,7 +18,7 @@ on:
       - 'packages/core-jest-config/**/*'
       - 'packages/core-common/**/*'
       - 'packages/core-types/**/*'
-      - 'packages/core-utils/**/*'
+      - 'packages/core-node-utils/**/*'
     branches:
       - dev
       - master

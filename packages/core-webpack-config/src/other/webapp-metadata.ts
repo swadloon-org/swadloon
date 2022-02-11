@@ -1,4 +1,4 @@
-import { DeployEnvType } from '@newrade/core-utils';
+import { DeployEnvType } from '@newrade/core-node-utils';
 
 export type WebAppMetadata = Record<string, unknown> & {
   title: string;

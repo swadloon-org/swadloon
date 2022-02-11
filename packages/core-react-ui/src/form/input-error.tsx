@@ -1,20 +1,16 @@
 import React, { LabelHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
 import { LABEL_SIZE } from '@newrade/core-design-system';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './input-error.treat';
+import * as styles from './input-error.css';
 
 type Props = PrimitiveProps & LabelHTMLAttributes<any> & {};
 
 export const InputError: React.FC<Props> = ({ id, style, className, ...props }) => {
-  const { styles } = useStyles(styleRefs);
-  const { cssTheme } = useTreatTheme();
   const classNames = getMergedClassname([className, styles.wrapper]);
 
   return (

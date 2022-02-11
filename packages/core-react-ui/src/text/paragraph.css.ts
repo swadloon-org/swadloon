@@ -11,7 +11,7 @@ export const base = style({
   userSelect: 'text',
 });
 
-export const getVariantStyles = recipe({
+export const variants = recipe({
   variants: {
     size: {
       large: {
@@ -56,16 +56,6 @@ export const getVariantStyles = recipe({
           [layoutCSS.media.desktopSmall]: createStyleObject(
             typographyVars.paragraphs.desktop.xSmall.capsize
           ),
-        },
-      },
-    },
-    disableCapsize: {
-      true: {
-        '::before': {
-          marginBottom: 'initial !important',
-        },
-        '::after': {
-          marginTop: 'initial !important',
         },
       },
     },
@@ -122,4 +112,4 @@ export const getVariantStyles = recipe({
   },
 });
 
-export type ParagraphVariants = RecipeVariants<typeof getVariantStyles>;
+export type ParagraphVariants = RecipeVariants<typeof variants>;

@@ -1,14 +1,12 @@
 import React from 'react';
 
 import { NavbarLinkItem, NavbarModular, NavbarStandard } from '@newrade/core-gatsby-ui/src';
-import { Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const Navbars: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   const left = (
     <>
       <NavbarLinkItem>Link</NavbarLinkItem>

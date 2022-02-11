@@ -34,7 +34,7 @@
   "dependencies": {
     "@newrade/core-design-system": "^1.17.0",
     "@newrade/core-jest-config": "^2.0.4",
-    "@newrade/core-utils": "^2.4.1",
+    "@newrade/core-node-utils": "^2.4.1",
     "@newrade/core-website-api": "^1.5.2",
     "case": "^1",
     "contentful-migration": "^2.0.4",

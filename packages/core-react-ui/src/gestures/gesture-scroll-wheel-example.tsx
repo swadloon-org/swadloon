@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useStyles } from 'react-treat';
 import { useWheel } from 'react-use-gesture';
 
 // @ts-ignore
@@ -7,12 +6,11 @@ import { Lethargy } from 'lethargy';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as styleRefs from './gesture-scroll-wheel-example.treat';
+import * as styles from './gesture-scroll-wheel-example.css';
 
 type Props = PrimitiveProps;
 
 export const GestureScrollWheelExample: React.FC<Props> = (props) => {
-  const { styles } = useStyles(styleRefs);
   const lethargy = new Lethargy();
   const boxs = [0, 1, 2, 3, 4, 5];
   const clamp = (value: number, min: number, max: number) => Math.max(Math.min(max, value), min);

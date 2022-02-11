@@ -13,11 +13,10 @@
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
+    "@newrade/core-node-utils": "^2.4.1",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.4.1",
     "@newrade/core-webpack-config": "^2.5.0",
     "fp-ts": "^2",
-    "io-ts": "^2",
-    "treat": "^2"
+    "io-ts": "^2"
   }
 }

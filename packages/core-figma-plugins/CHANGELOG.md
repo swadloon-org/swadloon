@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.2.4](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.3...@newrade/core-figma-plugins@1.2.4) (2021-11-18)
 
@@ -10,22 +11,12 @@ All notable changes to this project will be documented in this file. See
 - **core:** fix typecheck command
   ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.2.3](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.2...@newrade/core-figma-plugins@1.2.3) (2021-10-05)
 
 ### Bug Fixes
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.2.2](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.1...@newrade/core-figma-plugins@1.2.2) (2021-08-31)
 
@@ -46,19 +37,9 @@ All notable changes to this project will be documented in this file. See
 - **root:** fixes for webpack and gatsby config
   ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.2.0...@newrade/core-figma-plugins@1.2.1) (2021-07-12)
 
 **Note:** Version bump only for package @newrade/core-figma-plugins
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-plugins@1.1.10...@newrade/core-figma-plugins@1.2.0) (2021-07-03)
 
@@ -66,7 +47,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-figma-plugins:** fix typing issue
   ([6470406](https://github.com/newrade/newrade-core/commit/6470406039821897e86b1edbb7477f80990c5a6f))
@@ -88,11 +69,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add img-downloader component
   ([b7f89c8](https://github.com/newrade/newrade-core/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.9](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.8...@newrade/core-figma-plugins@1.1.9) (2021-06-16)
 
 ### Bug Fixes
@@ -100,28 +76,13 @@ All notable changes to this project will be documented in this file. See
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.8](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.7...@newrade/core-figma-plugins@1.1.8) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-figma-plugins
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.7](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.6...@newrade/core-figma-plugins@1.1.7) (2021-05-21)
 
 **Note:** Version bump only for package @newrade/core-figma-plugins
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.1.6](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.5...@newrade/core-figma-plugins@1.1.6) (2021-03-09)
 
@@ -166,12 +127,11 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-gatsby-starter:** refactor templates + setup pages and markdown
   ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
-- **core-react-ui:** wip
-  ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 
 ## 1.0.1 (2020-11-02)
 

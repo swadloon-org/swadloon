@@ -1,97 +1,101 @@
-import React, { HTMLAttributes } from 'react';
-import { BsDot } from 'react-icons/bs';
-import { useStyles } from 'react-treat';
+import React from 'react';
 
-import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '../primitive/primitive';
 import { Paragraph } from '../text/paragraph';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import { getDefaultTextFromProps } from '../utilities-iso';
 
-import * as stylesRef from './list-item.treat';
+import { ListItemCompProps } from './list-item.props';
 
-type Props = PrimitiveProps &
-  HTMLAttributes<HTMLLIElement> &
-  Pick<LinkProps, 'variantSize' | 'variantLevel'> & {
-    variantIcon?: 'bullet' | 'icon' | 'number';
-    Icon?: React.ReactNode;
-  };
+import * as textStyles from '../styles/text-color.css';
+import * as styles from './list-item.css';
 
-/**
- * @deprecated
- */
-export const ListItem: React.FC<Props> = React.memo(
-  ({
-    id,
-    style,
-    className,
-    variantIcon = 'bullet',
-    variantLevel,
-    variantSize = PARAGRAPH_SIZE.medium,
-    Icon,
-    as,
-    AsElement,
-    children,
-    ...props
-  }) => {
-    /**
-     * Hooks
-     */
-    const { styles } = useStyles(stylesRef);
+type Props = ListItemCompProps;
 
-    /**
-     * Props
-     */
-    const wrapperClassNames = getMergedClassname([styles.wrapper, styles.iconWrapper, className]);
-    const classNames = getMergedClassname([
-      styles.textWrapperIcon,
-      variantLevel ? styles[variantLevel] : '',
-      variantSize ? styles[variantSize] : styles.small,
-    ]);
+const defaultProps: Props = {
+  kind: Variant.primary,
+  size: PARAGRAPH_SIZE.medium,
+  textStyle: TEXT_STYLE.normal,
+  children: 'List Item',
+};
 
-    /**
-     * Default children
-     */
-    const renderedChildren = children
-      ? children
-      : getDefaultTextFromProps('list item', {
-          variantIcon,
-          variantSize,
-        });
+export const ListItemV2: React.FC<Props> = function ListItemV2({
+  as,
+  AsElement,
+  style,
+  children,
+  kind = defaultProps.kind,
+  size = defaultProps.size,
+  textStyle = defaultProps.textStyle,
+  ...props
+}) {
+  /**
+   * Hooks
+   */
 
-    /**
-     * Icon insertion
-     */
-    const IconSvg = Icon ? (
-      React.cloneElement(Icon as React.ReactElement, {
-        className: styles.icon,
-        preserveAspectRatio: `xMinYMin meet`,
-      })
-    ) : (
-      <BsDot className={styles.bulletIcon} size={'1.6em'} preserveAspectRatio={`xMinYMin meet`} />
-    );
+  /**
+   *
+   * Props
+   *
+   */
 
-    /**
-     * Render
-     */
-    return React.createElement(
-      'li',
-      {
-        id,
-        style,
-        className: wrapperClassNames,
-        ...props,
-      },
-      <div className={classNames}>
-        {IconSvg}
-        <div className={styles.content}>
-          {typeof renderedChildren === 'string' ? (
-            <Paragraph variant={variantSize}>{renderedChildren}</Paragraph>
-          ) : (
-            <>{renderedChildren}</>
-          )}
-        </div>
-      </div>
-    );
-  }
-);
+  const classNames = [
+    styles.base,
+    styles.variants({
+      size: size,
+      style: textStyle,
+    }),
+    textStyles.textVariants({
+      variant: kind,
+      disableCapsize: true,
+    }),
+  ];
+
+  /**
+   *
+   * Default children
+   *
+   */
+
+  const renderedChildren = children
+    ? children
+    : getDefaultTextFromProps('list item', {
+        size,
+      });
+
+  /**
+   *
+   * Custom bullet
+   *
+   */
+
+  const renderCustomBullet = !!props['data-custom-bullet'];
+
+  /**
+   *
+   * Icon
+   *
+   */
+
+  return (
+    <Primitive
+      as={'li'}
+      style={
+        renderCustomBullet
+          ? {
+              ...style,
+              listStyleType: 'none',
+            }
+          : style
+      }
+      classNames={classNames}
+      data-custom-bullet={renderCustomBullet ? props['data-custom-bullet'] : ' '}
+      {...props}
+    >
+      <Paragraph size={size} className={styles.text} as={'div'} disableCapsize={true}>
+        {renderedChildren}
+      </Paragraph>
+    </Primitive>
+  );
+};

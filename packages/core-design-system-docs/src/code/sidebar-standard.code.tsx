@@ -1,12 +1,11 @@
 import React, { Suspense } from 'react';
 
 import { SidebarStandardLazy, useSidebarState } from '@newrade/core-gatsby-ui/src';
-import { Button, useTreatTheme } from '@newrade/core-react-ui';
+import { Button } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const SidebarsStandard: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
   const [sidebarOpened, setSidebarOpened] = useSidebarState({
     initial: false,
     autoCloseOnDesktop: false,

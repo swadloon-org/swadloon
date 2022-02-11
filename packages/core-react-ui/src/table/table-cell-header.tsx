@@ -7,7 +7,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 
 import * as styles from './table-cell-header.css';
 
-type Props = PrimitiveProps & { variantStyle?: TEXT_STYLE; variant?: LABEL_SIZE };
+type Props = PrimitiveProps & { textStyle?: TEXT_STYLE; variant?: LABEL_SIZE };
 
 /**
  * @description Render a td element using paragraph text
@@ -16,14 +16,14 @@ type Props = PrimitiveProps & { variantStyle?: TEXT_STYLE; variant?: LABEL_SIZE 
  */
 export const TableCellHeader: React.FC<Props> = React.memo(function TableCellHeader({
   variant = LABEL_SIZE.small,
-  variantStyle,
+  textStyle,
   ...props
 }) {
   return (
     <Primitive
       as={'th'}
       classNames={[
-        styles.getVariantStyles({
+        styles.variants({
           size: variant,
         }),
       ]}

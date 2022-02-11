@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 // import { useState, useMemo } from 'react';
@@ -8,7 +7,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 // import throttle from 'lodash/throttle';
 import { GapProp, VariantGrid } from '../props/layout.prop';
 
-import * as styleRefs from './grid.treat';
+import * as styles from './grid.css';
 
 // export function useDebouncedResizeObserver(wait: number) {
 //   const [size, setSize] = useState<{ width?: number; height?: number }>({});
@@ -47,8 +46,6 @@ export const Grid: React.FC<OwnProps> = ({
   gap = [],
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
-
   const [mobileRows, tabletRows, desktopRows] = rows;
   const [mobileCol, tabletCol, desktopCol] = columns;
   const [mobileGap, tabletGap, desktopGap] = gap;

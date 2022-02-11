@@ -1,18 +1,16 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-google-maps/api';
 import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
 
-import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './google-maps.treat';
-import { mapStyles } from './google-maps-styles';
+import { googleMapThemeStyles } from './google-maps-styles';
+
+import * as styles from './google-maps.css';
 
 type Props = PrimitiveProps & {
-  theme?: Theme;
   /**
    * LoadingScripts props
    */
@@ -35,7 +33,7 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
     /**
      * Component props
      */
-    const { styles } = useStyles(styleRefs);
+
     const classNames = getMergedClassname([className || '', styles.wrapper]);
 
     /**
@@ -49,8 +47,7 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
     );
     const libraries: Libraries = script.libraries || defaultLibraries;
     const language: string = script.language || 'fr';
-    const googleMapsApiKey: string =
-      script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
+    const googleMapsApiKey: string = script.googleMapsApiKey;
 
     /**
      * Maps props
@@ -62,7 +59,7 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
         width: '100%',
       },
       options: {
-        styles: theme ? mapStyles(theme) : [],
+        styles: googleMapThemeStyles,
         disableDefaultUI: true,
         zoomControl: true,
       },

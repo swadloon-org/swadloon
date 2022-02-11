@@ -1,16 +1,14 @@
-import React, { FormHTMLAttributes } from 'react';
+import React from 'react';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
-type Props = PrimitiveProps & FormHTMLAttributes<any>;
+type Props = PrimitiveProps<'form'>;
 
 export const Form = React.forwardRef<any, Props>((props, ref) => {
-  const { cssTheme } = useTreatTheme();
-
   return (
-    <Stack ref={ref} as={'form'} gap={[cssTheme.sizing.var.x3]} {...props}>
+    <Stack ref={ref} as={'form'} gap={[sizeVars.x3]} {...props}>
       {props.children}
     </Stack>
   );

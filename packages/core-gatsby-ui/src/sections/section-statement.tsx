@@ -1,13 +1,14 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { Stack, Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack, Switcher, useCommonProps } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
 import { SectionBase } from './section-base';
-import * as styleRefs from './section-statement.treat';
+
+import * as styles from './section-statement.css';
 
 type Props = SectionProps & {
   TopBlock: React.ReactNode;
@@ -39,8 +40,6 @@ export const SectionStatement = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const { styles } = useStyles(styleRefs);
-    const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
     return (
@@ -53,12 +52,12 @@ export const SectionStatement = React.forwardRef<HTMLElement, Props>(
         }}
         {...commonProps}
       >
-        <Stack gap={[cssTheme.sizing.var.x6]}>
+        <Stack gap={[sizeVars.x6]}>
           <div className={styles.top}>{TopBlock}</div>
 
           <Switcher
             col={2}
-            gap={[cssTheme.sizing.var.x6]}
+            gap={[sizeVars.x6]}
             alignItems={['flex-start', 'flex-start', 'flex-start']}
           >
             <div className={styles.left}>{LeftBlock}</div>

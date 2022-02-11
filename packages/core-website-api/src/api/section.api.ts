@@ -5,6 +5,7 @@ import { PartialOrNull } from '../utilities';
 import { BlockAPI } from './block.api';
 import { BlockGoogleMapAPI } from './block-google-map.api';
 import { BlockImageAPIV1, BlockImageAPIV2 } from './block-image.api';
+import { ColorModeAPI } from './color-mode.api';
 
 export enum SectionBaseLayout {
   /**
@@ -49,29 +50,30 @@ export type SectionBlock =
   | null
   | undefined;
 
-export type SectionAPI = PartialOrNull<{
-  /**
-   * name should be required
-   */
-  name: string;
-  /**
-   * Controls the visual importance of the section.
-   */
-  variant: Variant;
-  /**
-   * Predefined layouts for the section
-   */
-  layout: SectionLayout | string;
-  /**
-   * Common layout options for wide or centered content
-   */
-  baseLayout: SectionBaseLayout | string;
-  /**
-   * Presets for vertical padding.
-   */
-  padding: SectionPadding | string;
-  /**
-   * Content block
-   */
-  blocks: SectionBlock[];
-}>;
+export type SectionAPI = ColorModeAPI &
+  PartialOrNull<{
+    /**
+     * name should be required
+     */
+    name: string;
+    /**
+     * Controls the visual importance of the section.
+     */
+    variant: Variant;
+    /**
+     * Predefined layouts for the section
+     */
+    layout: SectionLayout | string;
+    /**
+     * Common layout options for wide or centered content
+     */
+    baseLayout: SectionBaseLayout | string;
+    /**
+     * Presets for vertical padding.
+     */
+    padding: SectionPadding | string;
+    /**
+     * Content block
+     */
+    blocks: SectionBlock[];
+  }>;

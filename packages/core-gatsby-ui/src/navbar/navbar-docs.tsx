@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import { ButtonIcon, ButtonSize, ICON, LOGO, Variant } from '@newrade/core-design-system';
 import {
@@ -15,11 +14,10 @@ import {
   Switch,
   Tag,
   usePreventPinchZoom,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
-import { globalThemeReversed } from '@newrade/core-react-ui/global';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
-import * as styleRefs from './navbar-docs.treat';
+import * as styles from './navbar-docs.css';
 
 export type NavBarDocsRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;
@@ -72,9 +70,6 @@ type Props = PrimitiveProps & {
  * and on desktop, a logo, and menu links
  */
 export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
-
   /**
    * Refs
    */
@@ -98,7 +93,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       <header
         ref={mobileNavbar}
         style={props.style}
-        className={`${styles.wrapper} ${styles.mobileMenu} ${globalThemeReversed}`}
+        className={`${styles.wrapper} ${styles.mobileMenu}`}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
@@ -108,24 +103,21 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 size={ButtonSize.small}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
 
             <BoxV2
               justifyContent={['center']}
-              padding={[cssTheme.sizing.var.x2, 0]}
+              padding={[sizeVars.x2, 0]}
               AsElement={props.HomeLink}
               aria-label={'Home'}
             >
               <Logo name={LOGO.SYMBOL} className={styles.logoMobile}></Logo>
             </BoxV2>
 
-            <BoxV2
-              justifyContent={['flex-end']}
-              padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}
-            >
+            <BoxV2 justifyContent={['flex-end']} padding={[sizeVars.x2, sizeVars.x3]}>
               <Label>EN</Label>
             </BoxV2>
           </div>
@@ -135,29 +127,29 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       {/* Desktop */}
       <header
         ref={desktopNavbar}
-        className={`${styles.wrapper} ${styles.desktopMenu} ${globalThemeReversed}`}
+        className={`${styles.wrapper} ${styles.desktopMenu}`}
         style={props.style}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
-            <Cluster alignItems={['center']} gap={[cssTheme.sizing.var.x3]}>
+            <Cluster alignItems={['center']} gap={[sizeVars.x3]}>
               <BoxV2
-                padding={[cssTheme.sizing.var.x2, 0]}
+                padding={[sizeVars.x2, 0]}
                 className={styles.logoWrapper}
                 AsElement={props.HomeLink}
               >
                 <Logo name={LOGO.STANDARD} className={styles.logoDesktop}></Logo>
               </BoxV2>
 
-              {props.tagText ? <Tag variant={Variant.primaryReversed}>{props.tagText}</Tag> : null}
+              {props.tagText ? <Tag variant={Variant.primary}>{props.tagText}</Tag> : null}
             </Cluster>
 
-            <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
+            <Cluster justifyContent={['space-between']} gap={[sizeVars.x4]}>
               {props.enableLayoutModeButton ? (
                 <Button
                   icon={ButtonIcon.icon}
                   variant={Variant.tertiary}
-                  Icon={
+                  IconSVG={
                     <IconComp
                       name={props.layoutMode === 'centered' ? ICON.LAYOUT_CENTER : ICON.LAYOUT_WIDE}
                       style={{ height: 24, width: 24 }}
@@ -171,15 +163,15 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
               <Switch
                 value={'on'}
                 IconOff={<IoMoon />}
-                colorOff={cssTheme.colors.colors.grey[100]}
+                colorOff={colorVars.colors.grey[100]}
                 IconOn={<IoSunny />}
-                colorOn={cssTheme.colors.colors.grey[100]}
+                colorOn={colorVars.colors.grey[100]}
               ></Switch>
 
               <Button
                 icon={ButtonIcon.icon}
                 variant={Variant.tertiary}
-                Icon={<IoSearchOutline size={24} style={{ color: 'white' }} />}
+                Icon={ICON.SEARCH}
                 aria-label={'Search button'}
               ></Button>
 

@@ -1,25 +1,21 @@
 import React from 'react';
 
-import { HEADING, Variant } from '@newrade/core-design-system';
+import { COLOR_MODE, HEADING, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
-import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Paragraph, Stack, Title } from '@newrade/core-react-ui';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import SectionOpenSource from '../sections/section-open-source.md';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
-  const { cssTheme } = useTreatTheme();
-
   return (
     <>
       <SectionBanner
-        section={{ variant: Variant.primaryReversed }}
+        section={{ variant: Variant.primary, colorMode: COLOR_MODE.REVERSED }}
         ContentBlock={
-          <Stack
-            gap={[cssTheme.sizing.var.x4]}
-            style={{ justifyItems: 'center', textAlign: 'center' }}
-          >
-            <Heading>Ze Design System</Heading>
+          <Stack gap={[sizeVars.x4]} style={{ justifyItems: 'center', textAlign: 'center' }}>
+            <Title>Ze Design System</Title>
             <Paragraph>Simple design system and components for ambitious projects.</Paragraph>
           </Stack>
         }
@@ -36,7 +32,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
       <SectionDivider
         LeftBlock={
-          <Stack gap={[cssTheme.sizing.var.x4]}>
+          <Stack gap={[sizeVars.x4]}>
             <Heading variant={HEADING.h1}>A complete design system</Heading>
             <Paragraph>
               A default theme with useful components to build websites and apps.
@@ -56,7 +52,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
       <SectionDivider
         LeftBlock={
-          <Stack gap={[cssTheme.sizing.var.x4]}>
+          <Stack gap={[sizeVars.x4]}>
             <Heading variant={HEADING.h2}>Markdown based documentation generator</Heading>
             <Paragraph>
               A default theme with useful components to build websites and apps.
@@ -84,7 +80,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         BackgroundBlock={
           <div
             style={{
-              background: cssTheme.colors.colorIntents.background1,
+              background: colorVars.colorIntents.background1,
               width: '100%',
               height: '100%',
             }}

@@ -1,10 +1,11 @@
 import { AriaRole } from 'react';
 
+import { ICON } from '../foundations/iconography';
 import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
-import { Variant } from './components.props';
+import { Variant } from './components';
 
 export enum LinkAs {
   button = 'button',
@@ -35,9 +36,7 @@ export enum LinkState {
   disabled = 'disabled',
 }
 
-export type LinkProps = Partial<LinkStyleProps>;
-
-export interface LinkStyleProps {
+export type LinkProps = Partial<{
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
@@ -45,16 +44,28 @@ export interface LinkStyleProps {
   /**
    * icon placement
    */
-  variantIcon: LinkIcon;
+  icon: LinkIcon;
   /**
-   * Normal or reversed style
+   * What icon to render
    */
-  variantLevel: Variant;
-  variant: LinkVariant;
-  variantSize: PARAGRAPH_SIZE; // same as paragraph sizes
-  variantStyle: TEXT_STYLE; // same as paragraph style
-  state: LinkState;
-}
+  Icon: ICON;
+  /**
+   * Visual importance
+   */
+  kind: Variant;
+  /**
+   * Controls the font size and overall sizing (follows paragraph sizes)
+   */
+  size: PARAGRAPH_SIZE; // same as paragraph sizes
+  /**
+   * Variant for link rendering
+   */
+  linkStyle: LinkVariant;
+  /**
+   * Applies common text styles
+   */
+  textStyle: TEXT_STYLE;
+}>;
 
 export type LinkStyle<Override extends undefined | string = undefined> = {
   textColor?: ColorType<Override>;

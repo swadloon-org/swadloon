@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.5](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.4...@newrade/core-yo-generator@1.6.5) (2022-01-03)
 
@@ -10,19 +11,9 @@ All notable changes to this project will be documented in this file. See
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.4](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.3...@newrade/core-yo-generator@1.6.4) (2021-12-21)
 
 **Note:** Version bump only for package @newrade/core-yo-generator
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.3](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.2...@newrade/core-yo-generator@1.6.3) (2021-11-18)
 
@@ -31,22 +22,12 @@ All notable changes to this project will be documented in this file. See
 - **core:** fix typecheck command
   ([a4ee25e](https://github.com/newrade/newrade-core/commit/a4ee25eb09e9aee5d363acdf106f0420aeb9cf33))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.6.2](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.1...@newrade/core-yo-generator@1.6.2) (2021-10-05)
 
 ### Bug Fixes
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.1](https://github.com/newrade/newrade-core/compare/@newrade/core-yo-generator@1.6.0...@newrade/core-yo-generator@1.6.1) (2021-08-31)
 
@@ -64,14 +45,8 @@ All notable changes to this project will be documented in this file. See
   ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
 - **core:** fix typecheck command
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.5.0...@newrade/core-yo-generator@1.6.0) (2021-07-12)
 
@@ -79,7 +54,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -124,11 +99,6 @@ All notable changes to this project will be documented in this file. See
   ([b7f89c8](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.5.0...@newrade/core-yo-generator@1.5.0) (2021-07-03)
 
@@ -136,7 +106,7 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -181,11 +151,6 @@ All notable changes to this project will be documented in this file. See
   ([b7f89c8](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.13](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.12...@newrade/core-yo-generator@1.4.13) (2021-06-16)
 
@@ -194,11 +159,6 @@ All notable changes to this project will be documented in this file. See
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.4.12](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.11...@newrade/core-yo-generator@1.4.12) (2021-05-25)
 
 ### Bug Fixes
@@ -206,22 +166,12 @@ All notable changes to this project will be documented in this file. See
 - **patch:** fix deps
   ([ea483f3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.4.11](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.10...@newrade/core-yo-generator@1.4.11) (2021-05-21)
 
 ### Bug Fixes
 
 - **lint:** fix line width to 100
   ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.10](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.9...@newrade/core-yo-generator@1.4.10) (2021-03-09)
 
@@ -261,7 +211,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -319,8 +269,7 @@ All notable changes to this project will be documented in this file. See
   ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
 - **core-jest-config:** add base jest config package along with test
   ([668dca4](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/668dca4388008d859e7c2f7c02b9457cae481ee5))
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
@@ -373,8 +322,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 
 # 1.1.0 (2020-06-07)

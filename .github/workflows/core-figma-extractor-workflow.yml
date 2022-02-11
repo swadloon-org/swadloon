@@ -19,7 +19,7 @@ on:
       - 'packages/core-common/**/*'
       - 'packages/core-jest-config/**/*'
       - 'packages/core-types/**/*'
-      - 'packages/core-utils/**/*'
+      - 'packages/core-node-utils/**/*'
     branches:
       - dev
       - master
@@ -49,15 +49,15 @@ jobs:
   build-test:
     runs-on: ${{ matrix.os }}
     strategy:
-        fail-fast: false
-        matrix:
-            os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
 
     # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
     # Otherwise, clone it normally.
     if: |
-        (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
-        (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
+      (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+      (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
 
     steps:
       - name: Checkout

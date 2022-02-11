@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 
+import { COLOR_SCHEME } from '@newrade/core-design-system';
+
 import { useIsSSR } from './use-is-ssr';
 
 export function usePreferColorScheme() {
   const isSSR = useIsSSR();
-  const [colorScheme, setColorScheme] = React.useState<'light' | 'dark' | undefined>(undefined);
+  const [colorScheme, setColorScheme] = React.useState<COLOR_SCHEME | undefined>(undefined);
 
   useEffect(() => {
     if (isSSR) {
@@ -43,7 +45,7 @@ export function usePreferColorScheme() {
     return window.matchMedia(`(prefers-color-scheme: dark)`);
   }
 
-  function getThemeForActiveScheme(matches: boolean) {
-    return matches ? 'dark' : 'light';
+  function getThemeForActiveScheme(matches: boolean): COLOR_SCHEME {
+    return matches ? COLOR_SCHEME.DARK : COLOR_SCHEME.LIGHT;
   }
 }

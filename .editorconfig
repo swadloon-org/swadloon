@@ -20,5 +20,8 @@ indent_size = 2
 max_line_length = 80
 trim_trailing_whitespace = false
 
+[CHANGELOG.md]
+max_line_length = 120
+
 [COMMIT_EDITMSG]
 max_line_length = 80

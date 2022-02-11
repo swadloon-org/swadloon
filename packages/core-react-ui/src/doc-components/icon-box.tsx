@@ -1,17 +1,15 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './icon-box.treat';
+import * as styles from './icon-box.css';
 
 type Props = PrimitiveProps<'div'> & {
   iconName?: string;
 };
 
 export const IconBox: React.FC<Props> = ({ id, style, className, iconName, ...props }) => {
-  const { styles } = useStyles(stylesRef);
   const commonProps = useCommonProps({
     id,
     style,

@@ -1,23 +1,23 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { IoPauseOutline, IoPlayOutline, IoReloadOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
-import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, ICON, Variant } from '@newrade/core-design-system';
 
 import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
-import * as styleRefs from './css-animation.treat';
+import * as styles from './css-animation.css';
+
+type AnimationName = Omit<keyof typeof styles, 'wrapper' | 'controlsWrapper' | 'controls'>;
 
 export type CSSAnimationState = 'running' | 'paused';
 export type CSSAnimationProps = {
   /**
    * Predefined keyframe animation
    */
-  name: keyof typeof styleRefs.animations;
+  name: AnimationName;
   /**
    * Iteration count
    */
@@ -82,9 +82,6 @@ export const CSSAnimation = React.forwardRef<
     },
     ref
   ) => {
-    const { styles, animations } = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
-
     // pass animation values as custom properties
     const animationCssProps = {
       '--animation-delay':
@@ -106,7 +103,8 @@ export const CSSAnimation = React.forwardRef<
       classNames: [
         ...(classNames ? classNames : []),
         styles.wrapper,
-        animations[animation?.name || 'bounce'],
+        // @ts-ignore
+        styles[animation?.name || 'bounce'],
       ],
       ...props,
     });
@@ -229,16 +227,12 @@ export const CSSAnimation = React.forwardRef<
 
     function ControlButtons() {
       return (
-        <Cluster
-          justifyContent={['flex-start']}
-          gap={[cssTheme.sizing.var.x1]}
-          className={styles.controls}
-        >
+        <Cluster justifyContent={['flex-start']} gap={[sizeVars.x1]} className={styles.controls}>
           <Button
             variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
-            Icon={previousState === 'paused' ? <IoPlayOutline /> : <IoPauseOutline />}
+            Icon={previousState === 'paused' ? ICON.PLAY : ICON.PAUSE}
             onClick={handlePlayPause}
           >
             {previousState === 'paused' ? 'Play' : 'Pause'}
@@ -247,7 +241,7 @@ export const CSSAnimation = React.forwardRef<
             variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
-            Icon={<IoReloadOutline />}
+            Icon={ICON.REPLAY}
             onClick={handleReset}
           >
             Reset
