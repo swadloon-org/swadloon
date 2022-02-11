@@ -58,7 +58,7 @@
     "remark-external-links": "^8.0.0",
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
-    "remark-toc": "^7.0.0",
+    "remark-toc": "^8.0.1",
     "remark-unwrap-images": "^2.0.0",
     "remark-wiki-link": "^0.0.4",
     "size-plugin": "2.0.2",
