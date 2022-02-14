@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-  IoLogoFacebook,
-  IoLogoGithub,
-  IoLogoInstagram,
-  IoLogoLinkedin,
-  IoLogoTwitter,
-} from 'react-icons/io5';
 
 import {
   ButtonIcon,
@@ -21,7 +14,6 @@ import {
 import {
   Button,
   Cluster,
-  IconComp,
   Label,
   Link,
   Logo,

@@ -1,5 +1,4 @@
 import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 
 import {
   ButtonIcon,
@@ -74,7 +73,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
         <Cluster className={styles.socialLinks} gap={[sizeVars.x3]}>
           {twitterURL ? (
             <Button
-              IconSVG={<IoLogoTwitter />}
+              Icon={ICON.LOGO_TWITTER}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -85,7 +84,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {facebookURL ? (
             <Button
-              IconSVG={<IoLogoFacebook />}
+              Icon={ICON.LOGO_FACEBOOK}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -96,7 +95,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {instagramURL ? (
             <Button
-              IconSVG={<IoLogoInstagram />}
+              Icon={ICON.LOGO_INSTAGRAM}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}
@@ -107,7 +106,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
           {linkedinURL ? (
             <Button
-              IconSVG={<IoLogoLinkedin />}
+              Icon={ICON.LOGO_LINKEDIN}
               icon={ButtonIcon.icon}
               variant={Variant.tertiary}
               as={'a'}

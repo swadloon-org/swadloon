@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
 
 import { ButtonIcon, ButtonSize, ICON, LOGO, Variant } from '@newrade/core-design-system';
 import {
@@ -162,9 +161,9 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
 
               <Switch
                 value={'on'}
-                IconOff={<IoMoon />}
+                IconOff={<IconComp name={ICON.MOON} />}
                 colorOff={colorVars.colors.grey[100]}
-                IconOn={<IoSunny />}
+                IconOn={<IconComp name={ICON.SUN} />}
                 colorOn={colorVars.colors.grey[100]}
               ></Switch>
 

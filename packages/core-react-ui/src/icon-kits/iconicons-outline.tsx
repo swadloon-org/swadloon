@@ -59,6 +59,8 @@ import {
   IoRemoveCircleOutline,
   IoRemoveOutline,
   IoSearchOutline,
+  IoStarHalfOutline,
+  IoStarOutline,
   IoSunnyOutline,
 } from 'react-icons/io5';
 
@@ -138,14 +140,24 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.PERSON_CIRCLE]: IoPersonCircleOutline,
   [ICON.RADIO_ON]: IoRadioButtonOnOutline,
   [ICON.RADIO_OFF]: IoRadioButtonOffOutline,
+
   /**
+   *
    * Nature
+   *
    */
+
   [ICON.SUN]: IoSunnyOutline,
   [ICON.MOON]: IoMoonOutline,
+  [ICON.STAR]: IoStarOutline,
+  [ICON.HALF_STAR]: IoStarHalfOutline,
+
   /**
-   * Logos
+   *
+   * Social Media
+   *
    */
+
   [ICON.LOGO_TWITTER]: IoLogoTwitter,
   [ICON.LOGO_FACEBOOK]: IoLogoFacebook,
   [ICON.LOGO_INSTAGRAM]: IoLogoInstagram,

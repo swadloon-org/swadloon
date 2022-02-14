@@ -1,8 +1,22 @@
 import React, { AnchorHTMLAttributes, useEffect, useState } from 'react';
-import { IoChevronDownOutline } from 'react-icons/io5';
 
-import { LABEL_SIZE, LinkProps, TagSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { Cluster, Label, PrimitiveProps, Stack, Tag, useCommonProps } from '@newrade/core-react-ui';
+import {
+  ICON,
+  LABEL_SIZE,
+  LinkProps,
+  TagSize,
+  TEXT_STYLE,
+  Variant,
+} from '@newrade/core-design-system';
+import {
+  Cluster,
+  IconComp,
+  Label,
+  PrimitiveProps,
+  Stack,
+  Tag,
+  useCommonProps,
+} from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import * as styles from './sidebar-docs-desktop-group.css';
@@ -65,7 +79,8 @@ export const SidebarDocsDesktopGroup: React.FC<Props> = ({
   return (
     <Stack {...commonProps}>
       <Cluster onClick={handleOnClick} className={styles.group} justifyContent={['flex-start']}>
-        <IoChevronDownOutline
+        <IconComp
+          name={ICON.CHEVRON_DOWN}
           className={getMergedClassname([styles.icon, localIsOpened ? styles.iconOpened : ''])}
         />
 

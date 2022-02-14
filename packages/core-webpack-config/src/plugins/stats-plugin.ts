@@ -4,4 +4,7 @@ import { StatsWriterPlugin } from 'webpack-stats-plugin';
 /**
  * @see https://github.com/FormidableLabs/webpack-stats-plugin#readme
  */
-export const getWebpackStatsPlugin: () => WebpackPluginInstance = () => new StatsWriterPlugin({});
+export const getWebpackStatsPlugin: () => WebpackPluginInstance = () =>
+  new StatsWriterPlugin({
+    filename: 'stats-plugin.json',
+  });

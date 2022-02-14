@@ -1,5 +1,4 @@
 import React from 'react';
-import { IoArrowForwardOutline } from 'react-icons/io5';
 
 import { ICON, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Link, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';

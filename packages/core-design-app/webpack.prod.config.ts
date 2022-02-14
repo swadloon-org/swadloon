@@ -16,7 +16,6 @@ import { commonConfig } from './webpack.common.config';
 
 const prodConfig: Configuration.Configuration = {
   mode: 'production',
-  devtool: false,
   optimization: {
     minimizer: [core.terserPlugin],
   },

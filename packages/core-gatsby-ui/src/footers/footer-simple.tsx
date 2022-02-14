@@ -1,7 +1,6 @@
 import React from 'react';
-import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 
-import { ButtonIcon, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ICON, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Cluster, Link, Paragraph, Stack, useCommonProps } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
@@ -52,25 +51,25 @@ export const FooterSimple: React.FC<Props> = ({
       ) : (
         <Cluster className={styles.links} gap={[sizeVars.x3]}>
           <Button
-            IconSVG={<IoLogoTwitter />}
+            Icon={ICON.LOGO_TWITTER}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            IconSVG={<IoLogoFacebook />}
+            Icon={ICON.LOGO_FACEBOOK}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            IconSVG={<IoLogoInstagram />}
+            Icon={ICON.LOGO_INSTAGRAM}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>
 
           <Button
-            IconSVG={<IoLogoLinkedin />}
+            Icon={ICON.LOGO_LINKEDIN}
             icon={ButtonIcon.icon}
             variant={Variant.tertiary}
           ></Button>

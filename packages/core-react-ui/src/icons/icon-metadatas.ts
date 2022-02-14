@@ -20,6 +20,7 @@ export const iconMetadatas: IconMetadata<ICON> = {
    * Navigation
    *
    */
+
   [ICON.MENU]: {
     description: 'A toggle menu',
     tags: ['menu', 'hamburger'],
@@ -349,6 +350,14 @@ export const iconMetadatas: IconMetadata<ICON> = {
   [ICON.MOON]: {
     description: 'Moon',
     tags: ['nature', 'night'],
+  },
+  [ICON.STAR]: {
+    description: 'Star',
+    tags: ['nature', 'sky'],
+  },
+  [ICON.HALF_STAR]: {
+    description: 'Half star',
+    tags: ['nature', 'sky'],
   },
 
   /**

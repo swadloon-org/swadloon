@@ -38,7 +38,7 @@ const defaultOptions: Options = {
  */
 export function getBabelReactLoader(options: Options = defaultOptions): RuleSetRule {
   return {
-    test: /\.tsx?$|\.jsx?$/,
+    test: /\.jsx?$/,
     use: [
       {
         loader: 'babel-loader',
@@ -46,7 +46,11 @@ export function getBabelReactLoader(options: Options = defaultOptions): RuleSetR
           cacheDirectory: true,
           cacheCompression: false,
           plugins: options.hmr
-            ? [['react-refresh/babel'], ...babelPluginBrowserConf, ...(options.plugins || [])]
+            ? [
+                ['react-refresh/babel', { skipEnvCheck: true }],
+                ...babelPluginBrowserConf,
+                ...(options.plugins || []),
+              ]
             : [...babelPluginBrowserConf, ...(options.plugins || [])],
           presets: [...babelTypeScriptPresetBrowserConf, ...babelPresetBrowserConf],
         },

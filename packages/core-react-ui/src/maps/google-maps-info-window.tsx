@@ -1,10 +1,15 @@
 import React from 'react';
-import { IoStar, IoStarHalf } from 'react-icons/io5';
 
 import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
 import { title } from 'case';
 
-import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import {
+  ICON,
+  LABEL_SIZE,
+  LinkIcon,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+} from '@newrade/core-design-system';
 
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -13,6 +18,7 @@ import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
 import { sizeVars } from '../theme';
 import { getMergedClassname } from '../utilities-iso';
+import { IconComp } from '..';
 
 import * as styles from './google-maps-info-window.css';
 
@@ -47,13 +53,17 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({
     ? Array(Math.floor(place.rating))
         .fill(0)
         .map((i, index) => (
-          <IoStar key={index} color={'#fbbc04'} style={{ verticalAlign: '-1px' }} />
+          <IconComp
+            key={index}
+            name={ICON.STAR}
+            style={{ verticalAlign: '-1px', fill: '#fbbc04' }}
+          />
         ))
     : null;
 
   const RatingHalfStars = place.rating ? (
     place.rating - Math.floor(place.rating) > 0 ? (
-      <IoStarHalf color={'#fbbc04'} style={{ verticalAlign: '-2px' }} />
+      <IconComp name={ICON.HALF_STAR} style={{ verticalAlign: '-2px', fill: '#fbbc04' }} />
     ) : null
   ) : null;
 

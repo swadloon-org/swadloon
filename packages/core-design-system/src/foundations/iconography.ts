@@ -155,6 +155,8 @@ export enum ICON {
 
   SUN = 'SUN',
   MOON = 'MOON',
+  STAR = 'STAR',
+  HALF_STAR = 'HALF_STAR',
 
   /**
    *
