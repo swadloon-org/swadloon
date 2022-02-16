@@ -21,9 +21,11 @@ export const textVariants = recipe({
     disableCapsize: {
       true: {
         '::before': {
+          display: 'initial !important',
           marginBottom: 'initial !important',
         },
         '::after': {
+          display: 'initial !important',
           marginTop: 'initial !important',
         },
       },

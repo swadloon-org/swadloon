@@ -14,7 +14,7 @@ export const base = style({
 
 export const bar = style({
   border: 'none',
-  borderRight: `2px solid ${colorVars.colors.grey[100]}`,
+  borderRight: `2px solid ${colorVars.colors.grey[300]}`,
   margin: 0,
   height: `min(25%, 24px)`,
 });

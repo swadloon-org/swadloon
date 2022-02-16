@@ -9,6 +9,7 @@ import {
   TableRow,
 } from '@newrade/core-react-ui';
 import { layoutVars } from '@newrade/core-react-ui/theme';
+import { getCSSVarValue } from '@newrade/core-react-ui/utilities-browser';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
@@ -26,6 +27,7 @@ export const Breakpoints: React.FC<Props> = (props) => {
         <TableRow>
           <TableCellHeader>Name</TableCellHeader>
           <TableCellHeader>Value</TableCellHeader>
+          <TableCellHeader style={{ minWidth: '280px' }}>Var</TableCellHeader>
         </TableRow>
       </TableHeader>
 
@@ -33,8 +35,11 @@ export const Breakpoints: React.FC<Props> = (props) => {
         {breakpoints.map((breakpoint, index) => {
           return (
             <TableRow key={index}>
-              <TableCell key={index}>{breakpoint}</TableCell>
-              <TableCell key={index}>{layoutVars.breakpoints[breakpoint]}</TableCell>
+              <TableCell key={`name-${index}`}>{breakpoint}</TableCell>
+              <TableCell key={`value-${index}`}>
+                {getCSSVarValue(layoutVars.breakpoints[breakpoint])}
+              </TableCell>
+              <TableCell key={`var-${index}`}>{layoutVars.breakpoints[breakpoint]}</TableCell>
             </TableRow>
           );
         })}

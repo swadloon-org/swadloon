@@ -51,7 +51,16 @@ export const extractCssModuleLoader: RuleSetRule = {
     {
       loader: MiniCssExtractPlugin.loader,
     },
-    { ...cssLoader, options: { ...cssLoader.options, modules: true, importLoaders: 1 } },
+    {
+      ...cssLoader,
+      options: {
+        ...cssLoader.options,
+        modules: true,
+        importLoaders: 1,
+        sourceMap: false,
+        url: false, // required as image imports should be handled via JS/TS import statements
+      },
+    },
     postCssLoader,
   ],
 };

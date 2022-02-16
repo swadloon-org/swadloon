@@ -1,6 +1,6 @@
 ---
 title: Markdown Elements
-description:
+description: Examples of each markdown element
 tags:
   - markdown
 ---
@@ -22,9 +22,9 @@ incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
 pariatur.
 
-- <p><strong>Some text:</strong> <Lorenipsum/></p><br/><p><strong>Some text:</strong> <Lorenipsum/></p>
-- <p><Lorenipsum/></p>
-- <p><Lorenipsum/></p>
+- <p><strong>Some text:</strong> <LorenipsumShort/></p><br/><p><strong>Some text:</strong> <LorenipsumShort/></p>
+- <p><LorenipsumShort/></p>
+- <p><LorenipsumShort/></p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut esse cillum dolore eu fugiat nulla pariatur.
@@ -98,7 +98,16 @@ With short text
 
 - List item
 - List item
+  - Nested list item
+    - Nested list item
+  - Nested list item
+    - Nested list item
+    - Nested list item
+    - Nested list item
 - List item
+  - Nested list item
+  - Nested list item
+  - Nested list item
 
 With longer text
 
@@ -134,11 +143,11 @@ With longer text
 #### Nested List
 
 1. List item
-   1. <p><Lorenipsum/></p>
-   2. <p><Lorenipsum/></p>
+   1. <p><LorenipsumShort/></p>
+   2. <p><LorenipsumShort/></p>
 2. List item
    1. List item with `code` List item with
-      1. <p><Lorenipsum/></p>
+      1. <p><LorenipsumShort/></p>
 3. List item
    1. List item
 
@@ -171,6 +180,8 @@ commodo consequat.
 ### Keyboard Keys
 
 Please, input "<kbd>Yes</kbd>" or "<kbd>No</kbd>"
+
+Press <kbd>⌘</kbd> + <kbd>K</kbd> to open search
 
 ### Code
 
@@ -255,9 +266,7 @@ Combined emphasis with **asterisks and _underscores_**.
 Strikethrough uses two tildes. ~~Scratch this.~~
 
 There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but
-<del>thinking</del>
-
-<ins>running it</ins> makes it so.
+thinking <del>thinking</del> ok <ins>running it</ins> makes it so.
 
 ## Table content
 

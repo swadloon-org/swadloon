@@ -48,7 +48,6 @@ export const ListItemV2: React.FC<Props> = function ListItemV2({
     }),
     textStyles.textVariants({
       variant: kind,
-      disableCapsize: true,
     }),
   ];
 
@@ -69,8 +68,8 @@ export const ListItemV2: React.FC<Props> = function ListItemV2({
    * Custom bullet
    *
    */
-
-  const renderCustomBullet = !!props['data-custom-bullet'];
+  const dataCustomBullet = props['data-custom-bullet'];
+  const renderCustomBullet = !!dataCustomBullet;
 
   /**
    *
@@ -90,8 +89,8 @@ export const ListItemV2: React.FC<Props> = function ListItemV2({
           : style
       }
       classNames={classNames}
-      data-custom-bullet={renderCustomBullet ? props['data-custom-bullet'] : ' '}
       {...props}
+      data-custom-bullet={renderCustomBullet ? dataCustomBullet : 'none'}
     >
       <Paragraph size={size} className={styles.text} as={'div'} disableCapsize={true}>
         {renderedChildren}

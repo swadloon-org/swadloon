@@ -4,6 +4,7 @@ description: Models for html signature
 tags:
   - marketing
   - email
+publish: false
 ---
 
 <!-- CODE IMPORTS -->

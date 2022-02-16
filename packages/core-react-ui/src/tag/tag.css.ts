@@ -11,7 +11,7 @@ import { colorVars, layoutCSS, typographyVars } from '../theme';
  */
 
 export const base = style({
-  display: 'inline-block',
+  display: 'flex',
   width: 'fit-content',
   maxWidth: '100%', // ensure it respect the parent's width
   wordBreak: 'normal',
@@ -51,19 +51,19 @@ export const variants = recipe({
     },
     variant: {
       primary: {
-        borderColor: colorVars.colors.grey[50],
+        borderColor: colorVars.colors.grey[300],
         color: colorVars.colors.grey[700],
-        backgroundColor: colorVars.colors.grey[50],
+        backgroundColor: colorVars.colorIntents.elevation1,
       },
       secondary: {
-        borderColor: colorVars.colors.accent1[100],
+        borderColor: colorVars.colors.accent1[300],
         color: colorVars.colors.accent1[500],
-        backgroundColor: colorVars.colors.accent1[100],
+        backgroundColor: colorVars.colorIntents.elevation1,
       },
       tertiary: {
-        borderColor: colorVars.colors.accent2[100],
+        borderColor: colorVars.colors.accent2[300],
         color: colorVars.colors.accent2[500],
-        backgroundColor: colorVars.colors.accent2[100],
+        backgroundColor: colorVars.colorIntents.elevation1,
       },
     },
   },
@@ -78,6 +78,7 @@ export const variants = recipe({
 export const labelVariants = recipe({
   base: {
     color: 'inherit !important',
+    fontFamily: typographyVars.labels.fontFamily,
   },
   variants: {
     size: {

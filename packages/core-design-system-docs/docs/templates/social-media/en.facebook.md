@@ -4,6 +4,7 @@ description: Branding assets for Facebook's profiles
 tags:
   - marketing
   - socia-media
+publish: false
 ---
 
 <!-- CODE IMPORTS -->

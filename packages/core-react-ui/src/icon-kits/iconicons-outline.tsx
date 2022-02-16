@@ -52,15 +52,19 @@ import {
   IoMenuOutline,
   IoMoonOutline,
   IoOpenOutline,
+  IoPauseOutline,
   IoPersonCircleOutline,
+  IoPlayOutline,
   IoPrintOutline,
   IoRadioButtonOffOutline,
   IoRadioButtonOnOutline,
   IoRemoveCircleOutline,
   IoRemoveOutline,
+  IoRepeatOutline,
   IoSearchOutline,
   IoStarHalfOutline,
   IoStarOutline,
+  IoStopOutline,
   IoSunnyOutline,
 } from 'react-icons/io5';
 
@@ -78,23 +82,38 @@ export const ioniconsOutlineConfig: IconConfig = {
 
 export const ionicons5OutlineComponents: IconComponents<ICON> = {
   /**
-   * Arrows
+   *
+   * Navigation
+   *
    */
+
   [ICON.ARROW_UP]: IoArrowUpOutline,
   [ICON.ARROW_DOWN]: IoArrowDownOutline,
   [ICON.ARROW_LEFT]: IoArrowBackOutline,
   [ICON.ARROW_RIGHT]: IoArrowForwardOutline,
+
+  /**
+   *
+   * Chevrons
+   *
+   */
+
   [ICON.CHEVRON_UP]: IoChevronUpOutline,
   [ICON.CHEVRON_DOWN]: IoChevronDownOutline,
   [ICON.CHEVRON_LEFT]: IoChevronBackOutline,
   [ICON.CHEVRON_RIGHT]: IoChevronForwardOutline,
+
+  /**
+   *
+   * Carets
+   *
+   */
+
   [ICON.CARET_UP]: IoCaretUpOutline,
   [ICON.CARET_DOWN]: IoCaretDownOutline,
   [ICON.CARET_LEFT]: IoCaretBackOutline,
   [ICON.CARET_RIGHT]: IoCaretForwardOutline,
-  /**
-   * Interface
-   */
+
   [ICON.MENU]: IoMenuOutline,
   [ICON.ELLIPSIS_VERTICAL]: IoEllipsisVertical,
   [ICON.APPS]: IoAppsOutline,
@@ -143,6 +162,18 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
 
   /**
    *
+   * Communication
+   *
+   */
+
+  /**
+   *
+   * People
+   *
+   */
+
+  /**
+   *
    * Nature
    *
    */
@@ -151,6 +182,17 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.MOON]: IoMoonOutline,
   [ICON.STAR]: IoStarOutline,
   [ICON.HALF_STAR]: IoStarHalfOutline,
+
+  /**
+   *
+   * Media
+   *
+   */
+
+  [ICON.PLAY]: IoPlayOutline,
+  [ICON.PAUSE]: IoPauseOutline,
+  [ICON.STOP]: IoStopOutline,
+  [ICON.REPLAY]: IoRepeatOutline,
 
   /**
    *
@@ -164,6 +206,12 @@ export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.LOGO_LINKEDIN]: IoLogoLinkedin,
   [ICON.LOGO_YOUTUBE]: IoLogoYoutube,
   [ICON.LOGO_GITHUB]: IoLogoGithub,
-  // custom icons that fits with ionicons
+
+  /**
+   *
+   * Additional icons (custom)
+   *
+   */
+
   ...newradeIconsKit,
 };

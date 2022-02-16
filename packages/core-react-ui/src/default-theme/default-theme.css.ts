@@ -82,7 +82,7 @@ export const sizingCSS = defaultCSSSizing;
  *
  */
 export const iconographyVars: MapLeafNodes<CSSIconography, CSSVarFunction> =
-  createGlobalThemeContract<CSSIconography>(defaultCSSIconography, propertyFormatFn());
+  createGlobalThemeContract<CSSIconography>(defaultCSSIconography, propertyFormatFn('icons'));
 
 /**
  * Typography

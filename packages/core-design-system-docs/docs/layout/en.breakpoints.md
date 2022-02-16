@@ -13,8 +13,6 @@ import { Breakpoints } from '../../src/code/breakpoints.code';
 
 <DocHeader props={props}/>
 
-## Breakpoints
-
-### Layout
+We list every breakpoint for our system.
 
 <Breakpoints/>

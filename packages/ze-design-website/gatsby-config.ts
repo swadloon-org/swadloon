@@ -1,6 +1,7 @@
 import path from 'path';
 
 import * as common from '@newrade/core-common';
+import { DEPLOY_ENV } from '@newrade/core-common';
 import * as core from '@newrade/core-gatsb-config';
 import * as conf from '@newrade/core-gatsb-config/config';
 import { getAppUrl, loadDotEnv } from '@newrade/core-node-utils';
@@ -60,6 +61,7 @@ const config: conf.GastbySiteConfig = {
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       renderDocsPages: false,
+      renderUnpublishedPages: env.APP_ENV === DEPLOY_ENV.LOCAL ? true : false,
     }),
     core.getGastbyPluginTsCacheConfig(),
     /** template */

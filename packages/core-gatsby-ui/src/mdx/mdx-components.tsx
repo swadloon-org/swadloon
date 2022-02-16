@@ -21,6 +21,7 @@ import {
   Heading,
   Hr,
   IconComp,
+  Kdb,
   Label,
   Link,
   ListItems,
@@ -213,6 +214,7 @@ export const mdxComponents: Partial<
     />
   ),
   del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
+  ins: (props: MDXProps) => <Paragraph as={'ins'} style={{ display: 'inline-block' }} {...props} />,
 
   /**
    *
@@ -282,6 +284,7 @@ export const mdxComponents: Partial<
 
   pre: (props: MDXProps) => <>{props.children}</>,
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
+  kbd: (props: MDXProps) => <Kdb>{props.children}</Kdb>,
   code: ({ children, ...props }: MDXProps) => {
     return (
       <Suspense fallback={''}>
@@ -328,8 +331,8 @@ export const mdxComponents: Partial<
   BoxV3: (props: MDXProps) => <BoxV3 {...props} />,
 
   /**
-
-  * Layout
+   *
+   * Layout
    *
    */
 
@@ -369,8 +372,11 @@ export const mdxComponents: Partial<
   Badge: (props: MDXProps) => <Badge {...props} />,
 
   /**
+   *
    * Icon
+   *
    */
+
   // @ts-ignore
   Icon: (props: MDXProps) => <IconComp {...props} />,
   IconBox: (props: MDXProps) => <IconBox {...props} />,
