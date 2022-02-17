@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { InputSelect, InputText, InputWrapper, useTreatTheme } from '@newrade/core-react-ui';
+import { InputSelect, InputText, InputWrapper } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const InputsSize: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <InputWrapper>

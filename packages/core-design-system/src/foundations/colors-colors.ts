@@ -1,32 +1,16 @@
 import { ColorPalette, ColorShades5, ColorShadesGrey } from '../primitives/color-palette';
-import { ColorType } from '../types';
+import { ColorType, DeepPartial } from '../types';
 
-import { CodeMarkupType } from './colors-code';
-
-/**
- * Token colors used in highlighted code
- */
-export type CodeMarkupColors<Override extends undefined | string = undefined> = {
-  [key in `code${keyof typeof CodeMarkupType}`]: ColorType<Override>;
-};
-
-/**
- * Code for each tokens and additional UI colors for the editor. Inspired by VSCode's theming  system.
- *
- * @see https://code.visualstudio.com/api/references/theme-color
- */
-export type CodeColors<Override extends undefined | string = undefined> =
-  CodeMarkupColors<Override> & {
-    editorBackground: ColorType<Override>;
-    editorForeground: ColorType<Override>;
-    editorSelectionBackground: ColorType<Override>;
-    editorHeaderBackground: ColorType<Override>;
-    editorHeaderForeground: ColorType<Override>;
-    editorHeaderTagBackground: ColorType<Override>;
-    editorHeaderTagForeground: ColorType<Override>;
-  };
+import { CodeColors } from './code-colors';
+import { DataVizColors } from './data-viz-colors';
 
 export type ColorsColors<Override extends undefined | string = undefined> = {
+  /**
+   *
+   * Brand
+   *
+   */
+
   primary: ColorPalette<Override, ColorShades5, ColorType<Override>>;
 
   accent1: ColorPalette<Override, ColorShades5, ColorType<Override>>;
@@ -37,18 +21,62 @@ export type ColorsColors<Override extends undefined | string = undefined> = {
   accent6: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   accent7: ColorPalette<Override, ColorShades5, ColorType<Override>>;
 
+  /**
+   *
+   * Greyscale
+   *
+   */
+
   current: string;
   transparent: ColorType<Override>;
   grey: ColorPalette<Override, ColorShadesGrey, ColorType<Override>>;
 
+  /**
+   *
+   * Effects
+   *
+   */
+
   effectTransparentLight: ColorType<Override>;
   effectTransparentMedium: ColorType<Override>;
   effectTransparentHeavy: ColorType<Override>;
+
+  /**
+   *
+   * Utility
+   *
+   */
 
   utilityNeutral: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   utilityGreen: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   utilityYellow: ColorPalette<Override, ColorShades5, ColorType<Override>>;
   utilityRed: ColorPalette<Override, ColorShades5, ColorType<Override>>;
 
+  /**
+   *
+   * Data Visualization-specific colors
+   *
+   */
+
+  // dataviz: DataVizColors<Override>;
+
+  /**
+   *
+   * Code and development colors
+   *
+   */
+
   code: CodeColors<Override>;
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<ColorsColors<string>>, 'vars'>;
 };
+
+/**
+ * ColorsColors object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultColorsColors = Omit<ColorsColors, 'vars'>;

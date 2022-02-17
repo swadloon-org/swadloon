@@ -1,24 +1,23 @@
 import React from 'react';
 
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { Label, Stack } from '@newrade/core-react-ui';
+import { sizeVars, typographyVars } from '@newrade/core-react-ui/theme';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {};
 
 export const Labels: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x3]}>
+    <Stack gap={[sizeVars.x3]}>
       {keys(LABEL_SIZE).map((variant, index) => (
         <Label key={index} variant={LABEL_SIZE[variant]}></Label>
       ))}
 
       {keys(TEXT_STYLE)
-        .filter((style) => cssTheme.typography.labels.styles[style])
+        .filter((style) => !!typographyVars.labels.styles?.[style])
         .map((variant, index) => (
-          <Label key={index} variantStyle={TEXT_STYLE[variant]}></Label>
+          <Label key={index} textStyle={TEXT_STYLE[variant]}></Label>
         ))}
     </Stack>
   );

@@ -14,7 +14,7 @@ type Props = PrimitiveProps<Tag> &
   }>;
 
 export const Stack = React.forwardRef<any, Props>(function Stack(
-  { style, as, gap = ['0px'], ...props } = {},
+  { style, as, classNames, gap = ['0px'], ...props } = {},
   ref
 ) {
   const [mobileGap, tabletGap, desktopGap] = gap;
@@ -27,5 +27,13 @@ export const Stack = React.forwardRef<any, Props>(function Stack(
     '--desktop-gap': desktopGap || tabletGap || mobileGap,
   };
 
-  return <Primitive as={as} classNames={[styles.base]} style={customStyle} {...props} ref={ref} />;
+  return (
+    <Primitive
+      as={as}
+      classNames={[styles.base, ...(classNames || [])]}
+      style={customStyle}
+      {...props}
+      ref={ref}
+    />
+  );
 });

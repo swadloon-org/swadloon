@@ -1,29 +1,22 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.8.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.7.0...@newrade/ze-design-system@1.8.0) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.7.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.6.0...@newrade/ze-design-system@1.7.0) (2021-12-21)
 
@@ -46,17 +39,10 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.5.1...@newrade/ze-design-system@1.6.0) (2021-11-18)
 
@@ -72,22 +58,12 @@ All notable changes to this project will be documented in this file. See
 - **core:** adding new components
   ([a122348](https://github.com/newrade/newrade-core/commit/a1223488c070672a10e2121047154a8666a8987e))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.5.0...@newrade/ze-design-system@1.5.1) (2021-10-05)
 
 ### Bug Fixes
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.4.0...@newrade/ze-design-system@1.5.0) (2021-09-09)
 
@@ -102,11 +78,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-figma-extractor:** finalize v1
   ([3da3cfe](https://github.com/newrade/newrade-core/commit/3da3cfefcc6f8c3efd2ea1025b7bef2125f1742f))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.3.0...@newrade/ze-design-system@1.4.0) (2021-08-31)
 
@@ -138,8 +109,7 @@ All notable changes to this project will be documented in this file. See
   ([bcbee46](https://github.com/newrade/newrade-core/commit/bcbee46a144116bf1ec72067ede8ee41d5291da7))
 - **core:** improvements for workflows
   ([7a2710e](https://github.com/newrade/newrade-core/commit/7a2710e9e861b4d88ee56524a6ea141864a9c8ce))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-react-ui:** fix bad import
   ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
@@ -150,11 +120,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** upgrade gatsby, gatsby-plugin-image
   ([d05676e](https://github.com/newrade/newrade-core/commit/d05676e05fc6b37d9ce82a56109c8e94398f18fd))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.2.0...@newrade/ze-design-system@1.3.0) (2021-07-15)
 
@@ -168,11 +133,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add new navbar components
   ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.2.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.2...@newrade/ze-design-system@1.2.0) (2021-07-12)
 
 ### Features
@@ -180,28 +140,13 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** improve theme-wrapper
   ([dcc5cc8](https://github.com/newrade/newrade-core/commit/dcc5cc88024f6227e4a11db27233d18631159fa4))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.2](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.1...@newrade/ze-design-system@1.1.2) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/ze-design-system
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.0...@newrade/ze-design-system@1.1.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/ze-design-system
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 1.1.0 (2021-07-03)
 
@@ -211,11 +156,6 @@ All notable changes to this project will be documented in this file. See
   ([48e8a67](https://github.com/newrade/newrade-core/commit/48e8a675ebef58b2d0521cdf1707df6540a09434))
 - **ze:** init design system and website
   ([1de86f8](https://github.com/newrade/newrade-core/commit/1de86f8ce18814f476440372b1d21ee5b8773876))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 1.1.0 (2021-06-16)
 
@@ -238,8 +178,6 @@ All notable changes to this project will be documented in this file. See
   ([bdf74c5](https://github.com/newrade/newrade/commit/bdf74c5a996e05bf3644a43e3d2e53476e80efeb))
 - **cdpq-website:** adding the default design-system docs in the demo of cdpq
   ([302144d](https://github.com/newrade/newrade/commit/302144d5f4a61da1dcae5d3960bd62edfab35a5a))
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))

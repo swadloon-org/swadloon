@@ -1,21 +1,19 @@
 import React from 'react';
 
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { ListItems, ListItemV2 } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const ListItemsNumber: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
-      <Stack as={'ol'} gap={[cssTheme.sizing.var.x3]}>
-        <ListItem variantIcon={'number'}></ListItem>
+      <ListItems as={'ol'}>
+        <ListItemV2></ListItemV2>
 
-        <ListItem variantIcon={'number'}></ListItem>
+        <ListItemV2></ListItemV2>
 
-        <ListItem variantIcon={'number'}></ListItem>
-      </Stack>
+        <ListItemV2></ListItemV2>
+      </ListItems>
     </>
   );
 };

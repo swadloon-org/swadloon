@@ -1,11 +1,14 @@
 import { GatsbyNode } from 'gatsby';
 
+// @ts-ignore
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration, ProgressPlugin, RuleSetRule } from 'webpack';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { CommonEnvType } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-node-utils';
 import {
   devServerConfig,
+  getBundleVisualizerPlugin,
   getForkTsCheckerWebpackPlugin,
   getLodashPlugin,
   getSizePlugin,
@@ -27,11 +30,18 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 ) => {
   const pluginOptions = options as unknown as GatsbyCorePluginOptions;
 
+  reporter.info(`[${pluginOptions.pluginName}] stage: ${stage}`);
+
   /**
    *
    * Prepare env and gatsby stage information
    *
    */
+
+  //   1) develop: for `gatsby develop` command, hot reload and CSS injection into page
+  //   2) develop-html: same as develop without react-hmre in the babel config for html renderer
+  //   3) build-javascript: Build JS and CSS chunks for production
+  //   4) build-html: build all HTML files
 
   const env = process.env as CommonEnvType;
   const isProduction = process.env.NODE_ENV === 'production';
@@ -66,7 +76,8 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    *
    * @see https://webpack.js.org/configuration/devtool/#devtool
    */
-  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
+  // config.devtool = isProduction ? 'eval-cheap-module-source-map' : 'eval-cheap-module-source-map';
+  // config.devtool = 'eval-cheap-module-source-map';
 
   /**
    * Remove es5 target
@@ -106,13 +117,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
-   * Add webpack stats plugin in production
-   */
-  if (isProduction) {
-    config.plugins?.push(getWebpackStatsPlugin());
-  }
-
-  /**
    * Alias for core-js
    *
    * This is needed since gatsby uses only core-js and not the pure version
@@ -140,56 +144,26 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     });
   }
 
-  /**
-   *
-   * Add tsx support with ts-loader
-   *
-   */
-
-  // const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
-  // const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
-
-  // if (config.module?.rules) {
-  //   reporter.info(`[${pluginOptions.pluginName}] adding .tsx file support`);
-  //   reporter.info(`[${pluginOptions.pluginName}] current rules: `);
-  //   printOutRules(config.module.rules);
-
-  //   (config.module.rules as RuleSetRule[]) = [
-  //     ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
-  //     getBabelReactLoader({
-  //       hmr: isDevelopStage,
-  //       plugins: [['@vanilla-extract/babel-plugin']],
-  //     }),
-  //     //
-  //     // adding ts-loader and babel increases build times... using babel with the ts preset instead for now
-  //     //
-  //     // getTypescriptBabelReactLoader({
-  //     //   isDevelopment: isDevelopStage,
-  //     //   tsLoaderOptions: {
-  //     //     projectReferences: false,
-  //     //     compilerOptions: {
-  //     //       declaration: false,
-  //     //       composite: false,
-  //     //       incremental: false,
-  //     //     },
-  //     //   },
-  //     //   babelPlugins: [['@vanilla-extract/babel-plugin']],
-  //     // }),
-  //   ] as RuleSetRule[];
-
-  //   reporter.info(`[${pluginOptions.pluginName}] updated rules:`);
-  //   printOutRules(config.module.rules);
-
-  // }
+  if (config.module?.rules) {
+    /**
+     * Add support for react-icons
+     */
+    config.module.rules.push({
+      test: /\.js$/,
+      include: /react-icons/,
+      use: jsLoader,
+    });
+  }
 
   /**
    *
    * Add type checking with fork-ts-checker-webpack-plugin
    *
    */
-
-  reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
-  config.plugins?.push(getForkTsCheckerWebpackPlugin());
+  if (isBuildJavaScriptStage) {
+    reporter.info(`[${pluginOptions.pluginName}] adding fork-ts-checker-webpack-plugin`);
+    config.plugins?.push(getForkTsCheckerWebpackPlugin());
+  }
 
   /**
    *
@@ -197,39 +171,23 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    *
    */
 
-  // // add tsconfig path to webpack aliases
-  // config.resolve = {
-  //   ...config.resolve,
-  //   alias: {
-  //     ...config.resolve?.alias,
-  //   },
-  //   extensions: ['.js', '.json', '.wasm', '.ts', '.jsx', '.tsx'],
-  //   plugins: [
-  //     ...(config.resolve?.plugins || []),
-  //     new TsconfigPathsPlugin({
-  //       configFile: 'tsconfig.json',
-  //       logLevel: 'INFO',
-  //       logInfoToStdOut: true,
-  //       extensions: ['.js', '.json', '.wasm', '.ts', '.jsx', '.tsx'],
-  //     }),
-  //   ],
-  // };
-
   /**
-   * Avoid parsing react and react-dom
+   * Add webpack stats plugin in production
    */
-
-  // config.module = {
-  //   ...config.module,
-  //   noParse: /node_modules\/(react|react-dom)\//,
-  // };
+  if (isBuildJavaScriptStage) {
+    if (isProduction) {
+      config.plugins?.push(getWebpackStatsPlugin());
+    }
+  }
 
   /**
    * Add SizePlugin
    */
-  if (isProduction) {
-    reporter.info(`[${pluginOptions.pluginName}] adding size-plugin plugin`);
-    config.plugins = [...(config.plugins || []), getSizePlugin()];
+  if (isBuildJavaScriptStage) {
+    if (isProduction) {
+      reporter.info(`[${pluginOptions.pluginName}] adding size-plugin plugin`);
+      config.plugins = [...(config.plugins || []), getSizePlugin()];
+    }
   }
 
   /**
@@ -248,6 +206,19 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
+   * Add webpack-bundle-analyzer only for development
+   */
+  if ((isBuildJavaScriptStage || isDevelopStage) && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+    reporter.info(`[${pluginOptions.pluginName}] adding webpack-bundle-analyzer plugin`);
+    config.plugins = [
+      ...(config.plugins || []),
+      getBundleVisualizerPlugin({
+        analyzerMode: isProduction ? 'static' : 'server',
+      }),
+    ];
+  }
+
+  /**
    * Add lodash plugin
    */
   config.plugins?.push(getLodashPlugin());
@@ -258,6 +229,23 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       lodash: 'lodash-es',
     },
   };
+
+  /**
+   * Add Speed Measure Plugin, only for development
+   *
+   * NOTE: does not work properly right now, keeping as example
+   */
+  // if (!isProduction || env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  //   reporter.info(`[${pluginOptions.pluginName}] adding speed-measure-webpack-plugin plugin`);
+  //   const smp = new SpeedMeasurePlugin();
+  //   const wrappedConfig = smp.wrap(config);
+  //   //
+  //   // completely replace the webpack config with the wrapped one
+  //   //
+  //   reporter.info(`[${pluginOptions.pluginName}] replacing webpack config with modified one`);
+  //   actions.replaceWebpackConfig(wrappedConfig);
+  //   return;
+  // }
 
   //
   // completely replace the webpack config with the modified one

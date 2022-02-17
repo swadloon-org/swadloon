@@ -1,13 +1,14 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
 import { AlignItemsViewportProps, JustifyContentViewportProps } from '../props/padding.props';
 
-import * as styleRefs from './switcher.treat';
+import * as styles from './switcher.css';
 
-type OwnProps = PrimitiveProps &
+type Tag = 'div';
+
+type Props = PrimitiveProps<Tag> &
   Partial<{
     gap: GapProp;
     col: number | [number] | [number, number] | [number, number, number];
@@ -17,7 +18,7 @@ type OwnProps = PrimitiveProps &
     justifySelf: JustifyContentViewportProps;
   }>;
 
-export const Switcher: React.FC<OwnProps> = ({
+export const Switcher: React.FC<Props> = function Switcher({
   id,
   className,
   style,
@@ -28,8 +29,7 @@ export const Switcher: React.FC<OwnProps> = ({
   justifySelf = ['flex-start'],
   alignItems = ['center'],
   ...props
-} = {}) => {
-  const styles = useStyles(styleRefs);
+} = {}) {
   const [mobileCol, tabletCol, desktopCol] = col ? (typeof col === 'number' ? [col] : col) : [2];
   const [mobileGap, tabletGap, desktopGap] = gap;
   const [mobileJustifyContent, tabletJustifyContent, desktopJustifyContent] = justifyContent;

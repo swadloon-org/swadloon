@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import { pascal } from 'case';
 
@@ -7,7 +7,7 @@ import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
-import { getFormattedAnchorId } from '../utilities/text.utilities';
+import { getFormattedAnchorId } from '../utilities-iso';
 
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './heading.css';
@@ -15,10 +15,9 @@ import * as styles from './heading.css';
 type Tags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 
 type Props = PrimitiveProps<Tags> &
-  TextCommonProps &
-  HTMLAttributes<HTMLHeadingElement> & {
+  TextCommonProps & {
     variant?: HEADING;
-    variantStyle?: TYPOGRAPHIC_STYLE;
+    textStyle?: TYPOGRAPHIC_STYLE;
     variantLevel?: Variant;
     /**
      * Display or hide the '#' on hover
@@ -27,7 +26,7 @@ type Props = PrimitiveProps<Tags> &
   };
 
 const defaultProps: Props = {
-  variantStyle: TYPOGRAPHIC_STYLE.sans,
+  textStyle: TYPOGRAPHIC_STYLE.sans,
   variant: HEADING.h1,
   variantLevel: Variant.primary,
   children: 'Heading',
@@ -36,18 +35,19 @@ const defaultProps: Props = {
 export const Heading = React.memo(
   React.forwardRef<any, Props>(function Heading(
     {
-      variant,
-      variantLevel,
+      variant = defaultProps.variant,
+      textStyle = defaultProps.textStyle,
+      variantLevel = defaultProps.variantLevel,
       disableCapsize,
       enableAnchorSign,
       display,
       id,
       className,
-      children,
+      children = defaultProps.children,
       style,
       as,
       ...props
-    },
+    } = defaultProps,
     forwardedRef
   ) {
     /**
@@ -67,12 +67,12 @@ export const Heading = React.memo(
      *
      */
 
-    const variantClassname = styles.getVariantStyles({
+    const variantClassname = styles.variants({
       size: variant,
-      disableCapsize: disableCapsize,
     });
-    const textColorClassname = textStyles.getTextColorStyles({
-      variant: variantLevel || Variant.primary,
+    const textColorClassname = textStyles.textVariants({
+      variant: variantLevel,
+      disableCapsize: disableCapsize,
     });
     const classNames = [
       className,
@@ -88,7 +88,7 @@ export const Heading = React.memo(
      *
      */
 
-    const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
+    const defaultChildrenString = `${children as string} ${pascal(type)}`;
     const child = children ? children : defaultChildrenString;
     const renderedId = getFormattedAnchorId(id ? id : typeof children === 'string' ? children : '');
 

@@ -1,0 +1,44 @@
+{
+  "name": "@newrade/core-node-utils",
+  "version": "2.4.1",
+  "description": "@newrade/core utilities shared across packages.",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": {
+    "directory": "packages/core-node-utils",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
+  "license": "MIT",
+  "bin": {
+    "newrade-cli-clear": "./lib/console-clear.js",
+    "newrade-cli-newline": "./lib/console-newline.js"
+  },
+  "main": "dist/newrade-core-node-utils.cjs.js",
+  "module": "dist/newrade-core-node-utils.esm.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
+    "typecheck": "tsc --noEmit --composite false --incremental false"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@newrade/core-common": "*",
+    "@newrade/core-jest-config": "*",
+    "chalk": "^4",
+    "dotenv": "^10",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "prettier": "^2"
+  }
+}

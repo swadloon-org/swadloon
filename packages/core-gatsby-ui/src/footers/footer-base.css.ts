@@ -24,15 +24,3 @@ export const secondary = style({
 export const tertiary = style({
   backgroundColor: colorVars.colorIntents.elevation1,
 });
-
-export const primaryReversed = style({
-  backgroundColor: colorVars.colorIntents.elevation1,
-});
-
-export const secondaryReversed = style({
-  backgroundColor: colorVars.colorIntents.elevation1,
-});
-
-export const tertiaryReversed = style({
-  backgroundColor: colorVars.colorIntents.elevation1,
-});

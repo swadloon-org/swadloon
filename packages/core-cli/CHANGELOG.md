@@ -1,35 +1,28 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.16.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.15.0...@newrade/core-cli@1.16.0) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
 
 ### Features
 
 - **core-cli:** add new flag for webpack (for wds v4)
   ([4ff4e96](https://github.com/newrade/newrade-core/commit/4ff4e96a7cea0cdad58d73972d354b5390ec46fc))
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.15.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.14.1...@newrade/core-cli@1.15.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fixes for fork-ts-checker and ts-loader config
   ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
@@ -44,14 +37,8 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.14.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.14.0...@newrade/core-cli@1.14.1) (2021-11-23)
 
@@ -61,11 +48,6 @@ All notable changes to this project will be documented in this file. See
   ([b6f228c](https://github.com/newrade/newrade-core/commit/b6f228cd34113a7830edea5d3b43ae552c36a875))
 - **core-cli:** fix release package
   ([67ba069](https://github.com/newrade/newrade-core/commit/67ba069c4c6133c37f0c35d86a78c2f8bd9f274e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.1...@newrade/core-cli@1.14.0) (2021-11-18)
 
@@ -79,18 +61,13 @@ All notable changes to this project will be documented in this file. See
   ([b36690b](https://github.com/newrade/newrade-core/commit/b36690be1d9fecc7b31e52e40517752030f7652f))
 - **core-ui:** fix iframe style replication
   ([e25915b](https://github.com/newrade/newrade-core/commit/e25915b4416bc2f340ecc47d534a59d5e3eabc98))
-- **core-utils:** reorg files
+- **core-node-utils:** reorg files
   ([4108a26](https://github.com/newrade/newrade-core/commit/4108a263592b97b7750b24886bf680bf33280aea))
 
 ### Features
 
 - **core-cli:** add lerna-version command
   ([833337e](https://github.com/newrade/newrade-core/commit/833337ec237c77f342d965e1fac65e26a7b2cf43))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.13.1](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.13.0...@newrade/core-cli@1.13.1) (2021-10-05)
 
@@ -127,11 +104,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** fixes for bodyscrolllock for ios 15
   ([544178d](https://github.com/newrade/newrade-core/commit/544178d23d8b34ef2d326df8d8f3d39676c57954))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.13.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.12.0...@newrade/core-cli@1.13.0) (2021-09-09)
 
 ### Bug Fixes
@@ -155,11 +127,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core-figma-extractor:** finalize v1
   ([3da3cfe](https://github.com/newrade/newrade-core/commit/3da3cfefcc6f8c3efd2ea1025b7bef2125f1742f))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.12.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.11.0...@newrade/core-cli@1.12.0) (2021-08-31)
 
@@ -197,8 +164,7 @@ All notable changes to this project will be documented in this file. See
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
 - **core:** fix typescript version and husky push hook
   ([3b8e031](https://github.com/newrade/newrade-core/commit/3b8e0318e64ccaf58afd948b1d6d127cbbfe85d2))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-cli:** fixes after merge
   ([6fb4f7a](https://github.com/newrade/newrade-core/commit/6fb4f7adfd1c6b38cf9631c7a4683c0398c51c5b))
@@ -218,11 +184,6 @@ All notable changes to this project will be documented in this file. See
 - **core-cli:** add new command to copy github labels
   ([031f3c8](https://github.com/newrade/newrade-core/commit/031f3c80132fc9e85ef51db82e40f33b37b6d7ef))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.2...@newrade/core-cli@1.11.0) (2021-07-15)
 
 ### Features
@@ -230,35 +191,19 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add new navbar components
   ([6d5ac76](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.10.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.1...@newrade/core-cli@1.10.2) (2021-07-12)
 
 **Note:** Version bump only for package @newrade/core-cli
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.10.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.0...@newrade/core-cli@1.10.1) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/core-cli
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.10.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.9.0...@newrade/core-cli@1.10.0) (2021-07-03)
 
 ### Bug Fixes
 
-- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new
-  logError
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError
   ([ad7d646](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
@@ -299,8 +244,7 @@ All notable changes to this project will be documented in this file. See
   ([1f03fa8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
 - **gsap:** wip
   ([0d099eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
-- **new-figma-request-model:** adding thefigma style request in the current
-  color extractor
+- **new-figma-request-model:** adding thefigma style request in the current color extractor
   ([8f63750](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f637506d77f9df0936c142d87f29f5452702c43))
 - **parsing-color:** parsing all the color of the style
   ([6124b85](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))
@@ -321,7 +265,7 @@ All notable changes to this project will be documented in this file. See
   ([1ad420e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
 - **core-cli:** revert bad change
   ([bde6146](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bde6146922385b342b96ab600046cd32daf0d474))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -354,8 +298,7 @@ All notable changes to this project will be documented in this file. See
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
 - **core-cli:** clean up core-cli project files
   ([09fe51e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/09fe51e5db9f6a6de5d9e9da18236780fea8d9cb))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-react-ui:** shadow test resolved
   ([ad179dd](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad179ddad6b3b6137dc382a612a33b48272be7dc))
@@ -364,17 +307,11 @@ All notable changes to this project will be documented in this file. See
 - **mir-website:** some fixes
   ([254280a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/254280a3c72c579d6a6f7689e7ad602291638dee))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.9.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.9.0...@newrade/core-cli@1.9.0) (2021-07-03)
 
 ### Bug Fixes
 
-- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new
-  logError
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError
   ([ad7d646](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
@@ -413,8 +350,7 @@ All notable changes to this project will be documented in this file. See
   ([1f03fa8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
 - **gsap:** wip
   ([0d099eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
-- **new-figma-request-model:** adding thefigma style request in the current
-  color extractor
+- **new-figma-request-model:** adding thefigma style request in the current color extractor
   ([8f63750](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f637506d77f9df0936c142d87f29f5452702c43))
 - **parsing-color:** parsing all the color of the style
   ([6124b85](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))
@@ -435,7 +371,7 @@ All notable changes to this project will be documented in this file. See
   ([1ad420e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1ad420e3c909f0f1fc183fb256bfc24d5fa721a8))
 - **core-cli:** revert bad change
   ([bde6146](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bde6146922385b342b96ab600046cd32daf0d474))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -468,8 +404,7 @@ All notable changes to this project will be documented in this file. See
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
 - **core-cli:** clean up core-cli project files
   ([09fe51e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/09fe51e5db9f6a6de5d9e9da18236780fea8d9cb))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-react-ui:** shadow test resolved
   ([ad179dd](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad179ddad6b3b6137dc382a612a33b48272be7dc))
@@ -478,11 +413,6 @@ All notable changes to this project will be documented in this file. See
 - **mir-website:** some fixes
   ([254280a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/254280a3c72c579d6a6f7689e7ad602291638dee))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.8.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.8.1...@newrade/core-cli@1.8.2) (2021-06-16)
 
 ### Bug Fixes
@@ -490,19 +420,9 @@ All notable changes to this project will be documented in this file. See
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.8.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.8.0...@newrade/core-cli@1.8.1) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-cli
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.8.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.7.0...@newrade/core-cli@1.8.0) (2021-05-21)
 
@@ -516,17 +436,11 @@ All notable changes to this project will be documented in this file. See
 - **core-graphql-ui:** init package
   ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.6.1...@newrade/core-cli@1.7.0) (2021-03-09)
 
 ### Bug Fixes
 
-- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new
-  logError
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError
   ([ad7d646](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
 - **core-cli:** fix tsconfig path
   ([15ff3d4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/15ff3d4ca98070f5bc2ff19452f00eb04b51c0c1))
@@ -545,8 +459,7 @@ All notable changes to this project will be documented in this file. See
 
 - **gsap:** wip
   ([0d099eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
-- **new-figma-request-model:** adding thefigma style request in the current
-  color extractor
+- **new-figma-request-model:** adding thefigma style request in the current color extractor
   ([8f63750](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f637506d77f9df0936c142d87f29f5452702c43))
 - **parsing-color:** parsing all the color of the style
   ([6124b85](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))
@@ -600,7 +513,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -671,8 +584,7 @@ All notable changes to this project will be documented in this file. See
   ([bed9c6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bed9c6b049879f9f10e35b000cf3640d34f447d3))
 - **core-cli:** clean up core-cli project files
   ([09fe51e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/09fe51e5db9f6a6de5d9e9da18236780fea8d9cb))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-gatsby-config:** init package
   ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
@@ -700,8 +612,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily
-  (var())
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var())
   ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **mir-website:** some fixes
   ([254280a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/254280a3c72c579d6a6f7689e7ad602291638dee))

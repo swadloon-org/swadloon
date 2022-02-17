@@ -1,12 +1,11 @@
 import React, { BlockquoteHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
+import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as stylesRef from './blockquote.treat';
+import * as styles from './blockquote.css';
 
-type Props = PrimitiveProps & BlockquoteHTMLAttributes<any> & {};
+type Props = PrimitiveProps<'blockquote'> & BlockquoteHTMLAttributes<any> & {};
 
 /*
  * <blockquote> The HTML <blockquote> Element (or HTML Block Quotation Element)
@@ -17,12 +16,5 @@ type Props = PrimitiveProps & BlockquoteHTMLAttributes<any> & {};
  * @see https://devdocs.io/html/element/blockquote
  */
 export const Blockquote: React.FC<Props> = React.memo((props) => {
-  const type = 'blockquote';
-  const { styles } = useStyles(stylesRef);
-  const classNames = [styles.normal];
-  const commonProps = useCommonProps({ ...props, classNames });
-
-  return React.createElement(type, {
-    ...commonProps,
-  });
+  return <Primitive as={'blockquote'} classNames={[styles.base]} {...props}></Primitive>;
 });

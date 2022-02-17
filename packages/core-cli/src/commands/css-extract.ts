@@ -1,5 +1,5 @@
 import { Env, ENV } from '@newrade/core-css-extractor';
-import { getShellForPlatform, loadDotEnv } from '@newrade/core-utils';
+import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
 import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
@@ -9,7 +9,8 @@ export default class CssExtract extends Command {
   logWarn = debugInstance(`${NS}:css-extract:warn`);
   logError = debugInstance(`${NS}:css-extract:error`);
 
-  static description = 'Create CSS tokens from Vanilla-extract styles definition files (*.css.ts)';
+  static description =
+    'Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)';
 
   static examples = [`$ nr css-extract`];
 

@@ -2,7 +2,7 @@ import { spawnSync } from 'child_process';
 
 import { Command } from '@oclif/command';
 
-import { getShellForPlatform } from '@newrade/core-utils';
+import { getShellForPlatform } from '@newrade/core-node-utils';
 
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 

@@ -10,7 +10,7 @@ export type FontVarNames = Fonts<string>;
  * Contains CSS statement to access CSS variables
  * @example `var(--font-monospace)`
  */
-export type FontVars = Fonts<string>;
+export type CSSFontsV2 = Fonts<string>;
 
 export type CSSFonts = Fonts<string> & {
   /**
@@ -22,5 +22,5 @@ export type CSSFonts = Fonts<string> & {
    * CSS statement to access font CSS variables
    * @example `var(--font-sans-alternate)`
    */
-  var: FontVars;
+  var: CSSFontsV2;
 };

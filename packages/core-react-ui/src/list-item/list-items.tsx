@@ -1,13 +1,11 @@
 import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
 
-import * as stylesRef from './list-items.treat';
+import * as styles from './list-items.css';
 
 type Props = PrimitiveProps<'ol' | 'ul'> &
   HTMLAttributes<HTMLUListElement | HTMLOListElement> &
@@ -16,22 +14,15 @@ type Props = PrimitiveProps<'ol' | 'ul'> &
   }>;
 
 export const ListItems: React.FC<Props> = React.memo(
-  ({ id, style, className, as = 'ul', AsElement, children, gap, ...props }) => {
+  ({ id, style, as = 'ul', AsElement, children, gap, ...props }) => {
     /**
      * Hooks
      */
-    const { styles } = useStyles(stylesRef);
-    const { cssTheme } = useTreatTheme();
 
     /**
      * Props
      */
-    const variantStateClassName = styles.wrapper;
-    const allClassName = getMergedClassname([
-      variantStateClassName,
-      className,
-      as === 'ul' ? styles.ul : styles.ol,
-    ]);
+    const classNames = [styles.wrapper, as === 'ul' ? styles.ul : styles.ol];
 
     /**
      * Default children
@@ -50,7 +41,7 @@ export const ListItems: React.FC<Props> = React.memo(
         as={as}
         id={id}
         style={style}
-        className={allClassName}
+        classNames={classNames}
         gap={gap || [`0.5em`]}
         {...props}
       >

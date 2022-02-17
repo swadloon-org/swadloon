@@ -16,7 +16,6 @@ import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 
 const ignoredPatterns = [
-  `**/*.treat.ts`,
   `**/*.css.ts`,
   `**/*.jsx?`,
   `**/fragment.ts`,

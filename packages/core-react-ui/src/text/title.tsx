@@ -10,11 +10,10 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './title.css';
 
-type Props = PrimitiveProps &
-  HTMLAttributes<HTMLHeadingElement> & {
-    variant?: TITLE;
-    variantLevel?: Variant;
-  };
+type Props = PrimitiveProps & {
+  variant?: TITLE;
+  variantLevel?: Variant;
+};
 
 const defaultProps: Props = {
   variantLevel: Variant.primary,
@@ -41,7 +40,7 @@ export const Title = React.memo(
           styles.title({
             size: variant ? variant : (defaultProps.variant as TITLE),
           }),
-          textStyles.getTextColorStyles({
+          textStyles.textVariants({
             variant: variantLevel ? variantLevel : (defaultProps.variantLevel as Variant),
           }),
         ]}

@@ -1,18 +1,16 @@
 import React, { useImperativeHandle, useRef, useState } from 'react';
-import { IoClose, IoMenu } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
-import { ButtonIcon, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ICON, Variant } from '@newrade/core-design-system';
 
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../theme';
 
-import * as styleRefs from './navbar-app.treat';
+import * as styles from './navbar-app.css';
 
 export type NavBarAppRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;
@@ -54,9 +52,6 @@ type Props = PrimitiveProps & {
  * a logo in the center and buttons and links on the right side.
  */
 export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
-
   const [isInstalled, setIsInstalled] = useState<boolean>(false);
 
   const MobileSvgLogo = props.MobileSvgLogo ? (
@@ -121,21 +116,21 @@ export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
                 collapsePadding={'left'}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
 
             <BoxV2
               justifyContent={['center']}
-              padding={[cssTheme.sizing.var.x2, 0]}
+              padding={[sizeVars.x2, 0]}
               AsElement={props.HomeLink}
               aria-label={'Home'}
             >
               {MobileSvgLogo || DesktopSvgLogo}
             </BoxV2>
 
-            <Cluster justifyContent={['flex-end']} gap={[cssTheme.sizing.var.x4]}>
+            <Cluster justifyContent={['flex-end']} gap={[sizeVars.x4]}>
               {props.MobileMenuLinks}
             </Cluster>
           </div>
@@ -156,21 +151,21 @@ export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
                 collapsePadding={'left'}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
-                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                Icon={props.menuOpened ? ICON.CLOSE : ICON.MENU}
                 onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
 
             <BoxV2
               justifyContent={['center']}
-              padding={[cssTheme.sizing.var.x2, 0]}
+              padding={[sizeVars.x2, 0]}
               className={styles.logoWrapper}
               AsElement={props.HomeLink}
             >
               {DesktopSvgLogo || MobileSvgLogo}
             </BoxV2>
 
-            <Cluster justifyContent={['flex-end']} gap={[cssTheme.sizing.var.x4]}>
+            <Cluster justifyContent={['flex-end']} gap={[sizeVars.x4]}>
               {props.DesktopMenuLinks}
             </Cluster>
           </div>

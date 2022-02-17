@@ -1,13 +1,14 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Stack, useCommonProps } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
 import { SectionBase } from './section-base';
-import * as styleRefs from './section-messenger.treat';
+
+import * as styles from './section-messenger.css';
 
 type Props = SectionProps & {
   LeftBlock: React.ReactNode;
@@ -37,8 +38,6 @@ export const SectionMessenger = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const { styles } = useStyles(styleRefs);
-    const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps<'section'>({
       id,
       style,
@@ -65,7 +64,7 @@ export const SectionMessenger = React.forwardRef<HTMLElement, Props>(
             {LeftBlock}
           </BoxV2>
 
-          <Stack gap={[cssTheme.sizing.var.x5]} className={styles.gridMessages}>
+          <Stack gap={[sizeVars.x5]} className={styles.gridMessages}>
             {RightBlocks}
           </Stack>
         </div>

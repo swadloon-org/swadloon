@@ -1,8 +1,7 @@
-import { createVar, globalStyle, style } from '@vanilla-extract/css';
+import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { resetButtonStyle } from '@newrade/core-react-ui';
-import { globalThemeReversedSelector } from '@newrade/core-react-ui/global';
 import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 /**
@@ -113,24 +112,6 @@ export const navbarButton = recipe({
 });
 
 export type NavbarItemLinkVariants = RecipeVariants<typeof navbarButton>;
-
-/**
- *
- * Color Modes
- *
- */
-
-globalStyle(`${globalThemeReversedSelector} ${base}`, {
-  vars: {
-    [textColor]: colorVars.colorIntents.primaryReversed,
-    [textColorActive]: colorVars.colorIntents.primaryReversed,
-    [textColorDisabled]: colorVars.colorIntents.disabledTextReversed,
-    [borderColor]: colorVars.colorIntents.primaryReversed,
-    [borderColorDisabled]: `transparent`,
-    [backgroundColorActive]: colorVars.colors.grey[900],
-    [backgroundColorDisabled]: `transparent`,
-  },
-});
 
 /**
  *

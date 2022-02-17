@@ -1,14 +1,11 @@
 import React from 'react';
 
 import { FooterStandard } from '@newrade/core-gatsby-ui/src';
-import { useTreatTheme } from '@newrade/core-react-ui';
 import { FooterAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
 type Props = {};
 
 export const FootersStandard: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   const navigation = {
     name: 'Services',
     label: 'Services',

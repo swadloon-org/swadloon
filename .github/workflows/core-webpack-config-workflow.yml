@@ -19,7 +19,7 @@ on:
       - 'packages/core-common/**/*'
       - 'packages/core-jest-config/**/*'
       - 'packages/core-types/**/*'
-      - 'packages/core-utils/**/*'
+      - 'packages/core-node-utils/**/*'
     branches:
       - dev
       - master

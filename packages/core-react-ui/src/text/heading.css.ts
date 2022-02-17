@@ -6,12 +6,12 @@ import { layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
   fontFamily: typographyVars.titles.font,
-  // position: 'relative', // 'relative' breaks useScrollSpy()
   wordBreak: 'normal',
   userSelect: 'text',
+  // position: 'relative', // 'relative' breaks useScrollSpy()
 });
 
-export const getVariantStyles = recipe({
+export const variants = recipe({
   variants: {
     size: {
       h1: {
@@ -51,20 +51,10 @@ export const getVariantStyles = recipe({
         },
       },
     },
-    disableCapsize: {
-      true: {
-        '::before': {
-          marginBottom: 'initial !important',
-        },
-        '::after': {
-          marginTop: 'initial !important',
-        },
-      },
-    },
   },
 });
 
-export type HeadingVariants = RecipeVariants<typeof getVariantStyles>;
+export type HeadingVariants = RecipeVariants<typeof variants>;
 
 export const enableAnchor = style({
   userSelect: 'text',

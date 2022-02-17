@@ -27,7 +27,7 @@ export const linksWrapper = style({
   display: 'grid',
   paddingTop: '0.2em',
   paddingBottom: '0.3em',
-  paddingLeft: '1.5em',
+  paddingLeft: '1.7em',
   overflow: 'hidden',
 });
 
@@ -48,7 +48,7 @@ export const link = style({
       width: '.9em',
       position: 'absolute',
       left: '-1.5em',
-      border: `1px solid ${colorVars.colors.grey[100]}`,
+      border: `1px solid ${colorVars.colors.grey[400]}`,
       borderWidth: '0 0 1px 1px',
     },
   },
@@ -69,7 +69,7 @@ export const linkAfter = style({
       width: '.9em',
       position: 'absolute',
       left: '-1.5em',
-      borderLeft: `1px solid ${colorVars.colors.grey[100]}`,
+      borderLeft: `1px solid ${colorVars.colors.grey[400]}`,
       borderWidth: '0 0 1px 1px',
     },
   },

@@ -1,20 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.1](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.6.0...@newrade/core-figma-extractor@1.6.1) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.2...@newrade/core-figma-extractor@1.6.0) (2021-12-21)
 
@@ -29,23 +24,12 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.5.2](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.1...@newrade/core-figma-extractor@1.5.2) (2021-11-18)
 
 **Note:** Version bump only for package @newrade/core-figma-extractor
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.5.0...@newrade/core-figma-extractor@1.5.1) (2021-10-05)
 
@@ -63,11 +47,6 @@ All notable changes to this project will be documented in this file. See
   ([038eea7](https://github.com/newrade/newrade-core/commit/038eea7de819a1316e2d638f5594d34dff193e8a))
 - **core-cli:** potential fix for windows issue with oclif
   ([cf2b71f](https://github.com/newrade/newrade-core/commit/cf2b71f835aad373d92fcefc4141ac74ff3a40d6))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.3...@newrade/core-figma-extractor@1.5.0) (2021-09-09)
 
@@ -87,11 +66,6 @@ All notable changes to this project will be documented in this file. See
 - **core-figma-extractor:** rework utility functions
   ([6e96569](https://github.com/newrade/newrade-core/commit/6e9656917e1879152b72b87daaac484838595bf9))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.4.3](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.2...@newrade/core-figma-extractor@1.4.3) (2021-08-31)
 
 ### Bug Fixes
@@ -104,8 +78,7 @@ All notable changes to this project will be documented in this file. See
   ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
 - **core:** fix deps in packages
   ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
-- **core:** fix issue with jest v27 setTimeout see
-  https://github.com/facebook/jest/issues/11607
+- **core:** fix issue with jest v27 setTimeout see https://github.com/facebook/jest/issues/11607
   ([52793a2](https://github.com/newrade/newrade-core/commit/52793a2176c623979b935df83f3693176033052d))
 - **core:** fix ls-lint config
   ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
@@ -118,35 +91,19 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** fix bad import
   ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.4.2](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.1...@newrade/core-figma-extractor@1.4.2) (2021-07-12)
 
 **Note:** Version bump only for package @newrade/core-figma-extractor
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.1](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.0...@newrade/core-figma-extractor@1.4.1) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/core-figma-extractor
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.3.1...@newrade/core-figma-extractor@1.4.0) (2021-07-03)
 
 ### Bug Fixes
 
-- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new
-  logError
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError
   ([ad7d646](https://github.com/newrade/newrade-core/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
@@ -177,8 +134,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **adding-figma-model:** adding new feat for typing figma-style-response and
-  configuring export
+- **adding-figma-model:** adding new feat for typing figma-style-response and configuring export
   ([dfcf3b3](https://github.com/newrade/newrade-core/commit/dfcf3b3cdd9ef2f1e11fcbd634a9ae3b6b0d1da8))
 - **core:** upgrade to typescript 4.4.0 beta
   ([98064e3](https://github.com/newrade/newrade-core/commit/98064e3096af4cb5a12c46d880fa3bd09708f954))
@@ -198,19 +154,12 @@ All notable changes to this project will be documented in this file. See
   ([4f661f4](https://github.com/newrade/newrade-core/commit/4f661f41f2403ca1ea1bdebe955f8e180952e617))
 - **extractor-text:** adding extractor-text (work in progress)
   ([54c3905](https://github.com/newrade/newrade-core/commit/54c39050dbd0338695e9a0369d673b43f1585e02))
-- **format-colors-extract:** formating the color token extracted to be in an
-  object colors
+- **format-colors-extract:** formating the color token extracted to be in an object colors
   ([f0e9942](https://github.com/newrade/newrade-core/commit/f0e9942d5dfbe5abc3520c4115ca6320c8ecb7b0))
-- **new-figma-request-model:** adding thefigma style request in the current
-  color extractor
+- **new-figma-request-model:** adding thefigma style request in the current color extractor
   ([8f63750](https://github.com/newrade/newrade-core/commit/8f637506d77f9df0936c142d87f29f5452702c43))
 - **parsing-color:** parsing all the color of the style
   ([6124b85](https://github.com/newrade/newrade-core/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.2.1...@newrade/core-figma-extractor@1.3.0) (2021-06-16)
 
@@ -224,24 +173,13 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** wip for icon provider
   ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.2.0...@newrade/core-figma-extractor@1.2.1) (2021-05-25)
 
 ### Bug Fixes
 
 - **build:** update ci sequence and yarn.lock
   ([712ac7b](https://github.com/newrade/newrade/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 
 # [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.1.0...@newrade/core-figma-extractor@1.2.0) (2021-05-21)
 
@@ -257,17 +195,11 @@ All notable changes to this project will be documented in this file. See
 - **docs:** update docs layout
   ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # 1.1.0 (2021-03-09)
 
 ### Bug Fixes
 
-- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new
-  logError
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError
   ([ad7d646](https://github.com/newrade/newrade/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
 - **core-figma-extractor:** fix bad import
   ([68b3c64](https://github.com/newrade/newrade/commit/68b3c645928aa2c65719d8b3b54740a2042ef782))
@@ -288,8 +220,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **adding-figma-model:** adding new feat for typing figma-style-response and
-  configuring export
+- **adding-figma-model:** adding new feat for typing figma-style-response and configuring export
   ([dfcf3b3](https://github.com/newrade/newrade/commit/dfcf3b3cdd9ef2f1e11fcbd634a9ae3b6b0d1da8))
 - **core-gatsy-ui:** add block-google-maps
   ([4efaf57](https://github.com/newrade/newrade/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
@@ -301,11 +232,9 @@ All notable changes to this project will be documented in this file. See
   ([4f661f4](https://github.com/newrade/newrade/commit/4f661f41f2403ca1ea1bdebe955f8e180952e617))
 - **extractor-text:** adding extractor-text (work in progress)
   ([54c3905](https://github.com/newrade/newrade/commit/54c39050dbd0338695e9a0369d673b43f1585e02))
-- **format-colors-extract:** formating the color token extracted to be in an
-  object colors
+- **format-colors-extract:** formating the color token extracted to be in an object colors
   ([f0e9942](https://github.com/newrade/newrade/commit/f0e9942d5dfbe5abc3520c4115ca6320c8ecb7b0))
-- **new-figma-request-model:** adding thefigma style request in the current
-  color extractor
+- **new-figma-request-model:** adding thefigma style request in the current color extractor
   ([8f63750](https://github.com/newrade/newrade/commit/8f637506d77f9df0936c142d87f29f5452702c43))
 - **parsing-color:** parsing all the color of the style
   ([6124b85](https://github.com/newrade/newrade/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))

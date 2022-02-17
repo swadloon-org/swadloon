@@ -1,6 +1,6 @@
 import * as t from 'io-ts';
 
-import { DebugEnv } from '@newrade/core-utils';
+import { DebugEnv } from '@newrade/core-node-utils';
 
 /**
  * Local, typed representation of the .env file for core-css-extractor options

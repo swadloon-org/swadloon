@@ -1,5 +1,5 @@
 import { extract } from '../src/extract';
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 import { Env, ENV } from '../types/dot-env';
 import path from 'path';
 import packageJson from '../package.json';

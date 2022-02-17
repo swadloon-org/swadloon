@@ -1,9 +1,10 @@
 import path from 'path';
 
 import * as common from '@newrade/core-common';
+import { DEPLOY_ENV } from '@newrade/core-common';
 import * as core from '@newrade/core-gatsb-config';
 import * as conf from '@newrade/core-gatsb-config/config';
-import { getAppUrl, loadDotEnv } from '@newrade/core-utils';
+import { getAppUrl, loadDotEnv } from '@newrade/core-node-utils';
 
 import { ENV, Env } from './types/dot-env';
 import packageJson from './package.json';
@@ -59,6 +60,8 @@ const config: conf.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig(),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      renderDocsPages: false,
+      renderUnpublishedPages: false,
     }),
     core.getGastbyPluginTsCacheConfig(),
     /** template */
@@ -68,7 +71,6 @@ const config: conf.GastbySiteConfig = {
     /** gatsby plugin image */
     ...core.getGatsbyImagePlugins(),
     /** css */
-    core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
     core.getGastbyPluginCssThemeConfig(),

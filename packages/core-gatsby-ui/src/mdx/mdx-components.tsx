@@ -21,9 +21,9 @@ import {
   Heading,
   Hr,
   IconComp,
+  Kdb,
   Label,
   Link,
-  ListItem,
   ListItems,
   ListItemV2,
   lorenipsum,
@@ -150,10 +150,10 @@ export const mdxComponents: Partial<
     ) {
       return (
         <Link
-          variant={LinkVariant.underline}
-          variantSize={PARAGRAPH_SIZE.medium}
+          linkStyle={LinkVariant.underline}
+          size={PARAGRAPH_SIZE.medium}
           style={{ display: 'inline-block' }}
-          variantIcon={LinkIcon.none}
+          icon={LinkIcon.none}
           {...props}
         />
       );
@@ -161,8 +161,8 @@ export const mdxComponents: Partial<
 
     return (
       <Link
-        variant={LinkVariant.underline}
-        variantSize={PARAGRAPH_SIZE.medium}
+        linkStyle={LinkVariant.underline}
+        size={PARAGRAPH_SIZE.medium}
         style={{ display: 'inline-block' }}
         {...props}
       />
@@ -184,8 +184,8 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'b'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.bold}
-      variant={PARAGRAPH_SIZE.large}
+      textStyle={TEXT_STYLE.bold}
+      size={PARAGRAPH_SIZE.large}
       {...props}
     />
   ),
@@ -193,7 +193,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'small'}
       style={{ display: 'inline-block' }}
-      variant={PARAGRAPH_SIZE.small}
+      size={PARAGRAPH_SIZE.small}
       {...props}
     />
   ),
@@ -201,7 +201,7 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'strong'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.bold}
+      textStyle={TEXT_STYLE.bold}
       {...props}
     />
   ),
@@ -209,11 +209,12 @@ export const mdxComponents: Partial<
     <Paragraph
       as={'em'}
       style={{ display: 'inline-block' }}
-      variantStyle={TEXT_STYLE.italic}
+      textStyle={TEXT_STYLE.italic}
       {...props}
     />
   ),
   del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
+  ins: (props: MDXProps) => <Paragraph as={'ins'} style={{ display: 'inline-block' }} {...props} />,
 
   /**
    *
@@ -237,7 +238,10 @@ export const mdxComponents: Partial<
   thead: (props: MDXProps) => <TableHeader {...props} />,
   tbody: (props: MDXProps) => <TableBody {...props} />,
   tr: (props: MDXProps) => <TableRow {...props} />,
-  td: ({ children, ...props }: MDXProps & AnchorHTMLAttributes<any>) => {
+  td: ({
+    children,
+    ...props
+  }: MDXProps & Omit<AnchorHTMLAttributes<HTMLTableCellElement>, 'type'>) => {
     //
     // if the child is a link tag with text inside, we make sure it does not overflow the cell
     //
@@ -256,8 +260,8 @@ export const mdxComponents: Partial<
       return (
         <TableCell {...props}>
           <Link
-            variant={LinkVariant.underline}
-            variantSize={PARAGRAPH_SIZE.small}
+            linkStyle={LinkVariant.underline}
+            size={PARAGRAPH_SIZE.small}
             shortenLongLink={true}
             style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
             // @ts-ignore
@@ -280,6 +284,7 @@ export const mdxComponents: Partial<
 
   pre: (props: MDXProps) => <>{props.children}</>,
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
+  kbd: (props: MDXProps) => <Kdb>{props.children}</Kdb>,
   code: ({ children, ...props }: MDXProps) => {
     return (
       <Suspense fallback={''}>
@@ -326,8 +331,8 @@ export const mdxComponents: Partial<
   BoxV3: (props: MDXProps) => <BoxV3 {...props} />,
 
   /**
-
-  * Layout
+   *
+   * Layout
    *
    */
 
@@ -335,7 +340,7 @@ export const mdxComponents: Partial<
   Cluster: (props: MDXProps) => <Cluster {...props} />,
 
   Details: (props: MDXProps) => <Details {...props} />,
-  ListItem: (props: MDXProps) => <ListItem {...props} />,
+  ListItem: (props: MDXProps) => <ListItemV2 {...props} />,
   ListItems: (props: MDXProps) => <ListItems {...props} />,
   Grid: (props: MDXProps) => <Grid {...props} />,
   BlockMarkdown: (props: MDXProps) => <BlockMarkdown {...props} />,
@@ -367,8 +372,11 @@ export const mdxComponents: Partial<
   Badge: (props: MDXProps) => <Badge {...props} />,
 
   /**
+   *
    * Icon
+   *
    */
+
   // @ts-ignore
   Icon: (props: MDXProps) => <IconComp {...props} />,
   IconBox: (props: MDXProps) => <IconBox {...props} />,

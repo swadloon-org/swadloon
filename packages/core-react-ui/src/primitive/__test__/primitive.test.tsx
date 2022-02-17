@@ -2,7 +2,7 @@ import React from 'react';
 
 import { fireEvent } from '@testing-library/dom';
 
-import { renderTest } from '../../utilities/test-render';
+import { renderTest } from '../../utilities-test/test-render.utilities';
 
 import { TestComponent } from './test-component';
 import { TestFormComponent } from './test-form-component';

@@ -3,8 +3,8 @@ import { useInView } from 'react-intersection-observer';
 
 import debug from 'debug';
 
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/utilities';
+import { useCommonProps } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
 
 import { BlockRenderer } from '../blocks/block-renderer';
@@ -44,7 +44,7 @@ export function SectionRenderer<
     threshold: 0,
     triggerOnce: true,
   });
-  const { cssTheme, theme } = useTreatTheme();
+
   const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
   if (!section) {

@@ -18,7 +18,7 @@ import {
 } from '@newrade/core-react-ui';
 import { CodeBlock } from '@newrade/core-react-ui/code';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { getCSSVar, keys } from '@newrade/core-react-ui/utilities';
+import { getCSSVar, keys } from '@newrade/core-react-ui/utilities-iso';
 
 type Props = {
   namespace: string;

@@ -1,3 +1,5 @@
+import { DeepPartial } from '../types';
+
 import { Font } from './font';
 import { VIEWPORT } from './layout';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from './text';
@@ -23,7 +25,6 @@ export enum TITLE {
 /**
  * The headings (e.g. <h1/>, <h2/>...) levels.
  */
-
 export enum HEADING {
   h1 = 'h1',
   h2 = 'h2',
@@ -103,6 +104,47 @@ export type Labels<Override extends undefined | string = undefined> = {
   [key in LABEL_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
+export type Typography<Override extends undefined | string = undefined> = {
+  /**
+   * Available fonts in the design system.
+   */
+  fonts: Fonts<Override>;
+
+  /**
+   * Titles are larger version of Headings
+   */
+  titles: {
+    [key in VIEWPORT]: Titles<Override>;
+  } &
+    TextStyle<Override>;
+
+  /**
+   * Text styles for headings (1-4)
+   */
+  headings: {
+    [key in VIEWPORT]: Headings<Override>;
+  } &
+    TextStyle<Override>;
+
+  /**
+   * Text styles for paragraphs
+   */
+  paragraphs: {
+    [key in VIEWPORT]: Paragraphs<Override>;
+  } &
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
+
+  /**
+   * Text styles for labels
+   */
+  labels: {
+    [key in VIEWPORT]: Labels<Override>;
+  } &
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
+
+  vars?: Omit<Typography<string>, 'vars'>;
+};
+
 /**
  *
  * V2
@@ -163,33 +205,6 @@ export type TextVariantStyles<Override extends undefined | string> = {
   [key in TEXT_STYLE]: TextStyle<Override>;
 };
 
-export type Typography<Override extends undefined | string = undefined> = {
-  /**
-   * Available fonts in the design system.
-   */
-  fonts: Fonts<Override>;
-
-  titles: {
-    [key in VIEWPORT]: Titles<Override>;
-  } &
-    TextStyle<Override>;
-
-  headings: {
-    [key in VIEWPORT]: Headings<Override>;
-  } &
-    TextStyle<Override>;
-
-  paragraphs: {
-    [key in VIEWPORT]: Paragraphs<Override>;
-  } &
-    TextStyle<Override> & { styles: TextVariantStyles<Override> };
-
-  labels: {
-    [key in VIEWPORT]: Labels<Override>;
-  } &
-    TextStyle<Override> & { styles: TextVariantStyles<Override> };
-};
-
 /**
  * @version
  *  - v2: uses version 2 of Fonts, Titles, Headings, Paragraphs, Labels
@@ -200,23 +215,47 @@ export type TypographyV2<Override extends undefined | string = undefined> = {
    */
   fonts: FontsV2<Override>;
 
+  /**
+   * Titles are larger version of Headings
+   */
   titles: {
     [key in VIEWPORT]: TitlesV2<Override>;
   } &
     TextStyle<Override>;
 
+  /**
+   * Text styles for headings (1-4)
+   */
   headings: {
     [key in VIEWPORT]: HeadingsV2<Override>;
   } &
     TextStyle<Override>;
 
+  /**
+   * Text styles for paragraphs
+   */
   paragraphs: {
     [key in VIEWPORT]: ParagraphsV2<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 
+  /**
+   * Text styles for labels
+   */
   labels: {
     [key in VIEWPORT]: LabelsV2<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
+
+  /**
+   * Reference to variables (string) to be used in place of defined values when a theme is created.
+   * This should not be used for default themes since they are used to generate the base contracts.
+   */
+  vars?: Omit<DeepPartial<TypographyV2<string>>, 'vars'>;
 };
+
+/**
+ * TypographyV2 object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultTypographyV2 = Omit<TypographyV2, 'vars'>;

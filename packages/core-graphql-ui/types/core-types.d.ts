@@ -6,6 +6,6 @@
 /// <reference types="@newrade/core-types/src/react-helmet" />
 /// <reference types="@newrade/core-types/src/svg" />
 /// <reference types="@newrade/core-types/src/react-lazyload" />
-/// <reference types="@newrade/core-types/src/treat-webpack-plugin" />
+
 /// <reference types="@newrade/core-types/src/webpack-copy-plugin" />
 /// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />

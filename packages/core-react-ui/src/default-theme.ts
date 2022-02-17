@@ -1,3 +1,9 @@
+/**
+ *
+ * Export the default theme values
+ *
+ */
+
 export * from './default-theme/default-animations';
 export * from './default-theme/default-buttons';
 export * from './default-theme/default-code-colors';

@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.4.0...@newrade/core-webpack-config@2.5.0) (2022-01-03)
 
@@ -9,32 +10,23 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** add missing mdx dependencies and update react webpack config
   ([87a5355](https://github.com/newrade/newrade-core/commit/87a535506af9e0439b6e68fbd75886a81d6baadd))
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-- **core-gatsby-ui:** update deps and completely disable caching (gatsby is
-  drunk)
+- **core-gatsby-ui:** update deps and completely disable caching (gatsby is drunk)
   ([25561bb](https://github.com/newrade/newrade-core/commit/25561bb9b971482008bf38e7bf6f3abcd26e803a))
 - **core-webpack-config:** update some config for development setup
   ([e715c66](https://github.com/newrade/newrade-core/commit/e715c66dda1669ee8a01f7548b73ce150b953a9f))
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.3.0...@newrade/core-webpack-config@2.4.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fixe dependencies
   ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
@@ -51,16 +43,10 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-gatsby-config:** add size-plugin for production build
   ([2d38bc0](https://github.com/newrade/newrade-core/commit/2d38bc0be41781dc916747151ac00e44e476fc56))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.2.0...@newrade/core-webpack-config@2.3.0) (2021-11-18)
 
@@ -76,11 +62,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements and fixes for scrolling restoration
   ([4333b6e](https://github.com/newrade/newrade-core/commit/4333b6eb84ab343887deca95c05b4a5287d31fe6))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.1.1...@newrade/core-webpack-config@2.2.0) (2021-10-05)
 
 ### Bug Fixes
@@ -95,22 +76,12 @@ All notable changes to this project will be documented in this file. See
 - **core:** add new components for docs layout
   ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [2.1.1](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.1.0...@newrade/core-webpack-config@2.1.1) (2021-09-09)
 
 ### Bug Fixes
 
 - **core:** fix code block issue in mdx + update sidebar documentation
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.0.0...@newrade/core-webpack-config@2.1.0) (2021-08-31)
 
@@ -152,11 +123,6 @@ All notable changes to this project will be documented in this file. See
 - **core:** upgrade gatsby, gatsby-plugin-image
   ([d05676e](https://github.com/newrade/newrade-core/commit/d05676e05fc6b37d9ce82a56109c8e94398f18fd))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@1.8.0...@newrade/core-webpack-config@2.0.0) (2021-07-12)
 
 ### Bug Fixes
@@ -165,7 +131,7 @@ All notable changes to this project will be documented in this file. See
   ([38bc97f](https://github.com/newrade/newrade-core/commit/38bc97f74cbad6e4d9cf135e7a88c372244f3876))
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -231,8 +197,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **ts:** fix last non strict packages
   ([ce1a8cb](https://github.com/newrade/newrade-core/commit/ce1a8cbf6b459f1f0e0510d4df0c2885eb0d60d6))
 - **typescript:** remove typeRoots which is almost a deprecated feature
@@ -247,8 +212,7 @@ All notable changes to this project will be documented in this file. See
   ([22fda36](https://github.com/newrade/newrade-core/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
 - **vsb-api:** rework the deployment sequence
   ([12c79c6](https://github.com/newrade/newrade-core/commit/12c79c61f7db17d85a49b260405eb21bf6af048a))
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade-core/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 - **vsb-website:** fix build issues
   ([11fd560](https://github.com/newrade/newrade-core/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
@@ -306,11 +270,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.8.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@1.8.0...@newrade/core-webpack-config@1.8.0) (2021-07-03)
 
 ### Bug Fixes
@@ -319,7 +278,7 @@ All notable changes to this project will be documented in this file. See
   ([38bc97f](https://github.com/newrade/newrade-core/commit/38bc97f74cbad6e4d9cf135e7a88c372244f3876))
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -385,8 +344,7 @@ All notable changes to this project will be documented in this file. See
   ([f8f584e](https://github.com/newrade/newrade-core/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
 - **repo:** share .d.ts files in core-types
   ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade-core/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **ts:** fix last non strict packages
   ([ce1a8cb](https://github.com/newrade/newrade-core/commit/ce1a8cbf6b459f1f0e0510d4df0c2885eb0d60d6))
 - **typescript:** remove typeRoots which is almost a deprecated feature
@@ -401,8 +359,7 @@ All notable changes to this project will be documented in this file. See
   ([22fda36](https://github.com/newrade/newrade-core/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
 - **vsb-api:** rework the deployment sequence
   ([12c79c6](https://github.com/newrade/newrade-core/commit/12c79c61f7db17d85a49b260405eb21bf6af048a))
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade-core/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 - **vsb-website:** fix build issues
   ([11fd560](https://github.com/newrade/newrade-core/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
@@ -454,11 +411,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade-core/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.6.1...@newrade/core-webpack-config@1.7.0) (2021-06-16)
 
 ### Bug Fixes
@@ -470,15 +422,9 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.1](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.6.0...@newrade/core-webpack-config@1.6.1) (2021-05-25)
 
@@ -486,13 +432,7 @@ All notable changes to this project will be documented in this file. See
 
 - **core-react-ui:** bug with destructuring of gap prop
   ([39491b6](https://github.com/newrade/newrade/commit/39491b6bf7cc7c93436b77f735a653db5d2c4f33))
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.5.0...@newrade/core-webpack-config@1.6.0) (2021-05-21)
 
@@ -534,11 +474,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.4...@newrade/core-webpack-config@1.5.0) (2021-03-09)
 
 ### Bug Fixes
@@ -566,8 +501,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **vsb-common:** fix esm build that would prevent treeshaking for
-  gastby/webpack
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack
   ([ad116b3](https://github.com/newrade/newrade/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
 
 ## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.1...@newrade/core-webpack-config@1.4.2) (2021-02-15)
@@ -615,7 +549,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -625,8 +559,7 @@ All notable changes to this project will be documented in this file. See
   ([ffe7715](https://github.com/newrade/newrade/commit/ffe771547de87fd75b3745cf76ed136731c5f232))
 - **core-gatsby-starter:** refactor templates + setup pages and markdown
   ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
-- **core-react-ui:** wip
-  ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
 - **repo:** add .env type checking to all packages
   ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
 
@@ -662,8 +595,7 @@ All notable changes to this project will be documented in this file. See
   ([7e8bd73](https://github.com/newrade/newrade/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
 - **repo:** rework .gitignore and eslint config files
   ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **typescript:** remove typeRoots which is almost a deprecated feature
   ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
 
@@ -679,8 +611,7 @@ All notable changes to this project will be documented in this file. See
   ([b353e4f](https://github.com/newrade/newrade/commit/b353e4f47107dc3b1e4ff363b600033655acd044))
 - **core-gatsby-config:** add shared config
   ([7d49add](https://github.com/newrade/newrade/commit/7d49adde7eb14b678c123933abdc12e7a76691e2))
-- **core-react-ui:** init repos for webpack, a react ui lib and the design
-  system package
+- **core-react-ui:** init repos for webpack, a react ui lib and the design system package
   ([190c9ae](https://github.com/newrade/newrade/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-react-ui:** wip on graphql voyager
   ([1462fc2](https://github.com/newrade/newrade/commit/1462fc20bbd60602e9f8aad788fbdf35dd461700))

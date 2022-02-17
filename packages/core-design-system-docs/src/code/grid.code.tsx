@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Grid, useTreatTheme } from '@newrade/core-react-ui';
+import { Grid } from '@newrade/core-react-ui';
 import { Placeholder } from '@newrade/core-react-ui/doc-components';
+
 type Props = {};
 
 export const LayoutGrid: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <Grid gap={['1em']} variantGrid={'col'} columns={[1, 3, 3]}>

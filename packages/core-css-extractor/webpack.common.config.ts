@@ -3,11 +3,11 @@ import path from 'path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
+import webpack, { Configuration, EntryObject, RuleSetRule, WebpackPluginInstance } from 'webpack';
 // @ts-ignore
 import WebpackWatchedGlobEntries from 'webpack-watched-glob-entries-plugin';
 
-import { loadDotEnv } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
 import * as core from '@newrade/core-webpack-config';
 
 import { ENV, Env } from './types/dot-env';
@@ -44,8 +44,9 @@ const localCommonConfig: Configuration = {
     [path.resolve(process.cwd(), env.CSS_EXTRACTOR_ENTRIES_GLOB)],
     {
       ignore: '**/*.test.js',
-    }
-  ),
+    },
+    undefined
+  ) as () => EntryObject,
   cache: false,
   output: {
     publicPath: '/',
@@ -100,39 +101,34 @@ const localCommonConfig: Configuration = {
       core.txtLoader,
       core.fileLoader,
       core.urlLoader,
-      core.getBabelReactLoader({
-        hmr: isDevelopment,
-        plugins: [['@vanilla-extract/babel-plugin']],
-      }),
+      core.extractCssLoader,
+      core.extractVanillaCssLibLoader,
       core.getTypescriptBabelReactLoader({
         isDevelopment,
         babelPlugins: [['@vanilla-extract/babel-plugin']],
       }),
-      core.getTreatLoader({
-        hmr: isDevelopment,
-      }),
-      /**
-       * @see https://vanilla-extract.style/documentation/setup/
-       */
-      {
-        test: /\.(css)$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            ...core.cssLoader,
-            options: {
-              ...core.cssLoader.options,
-              modules: false,
-              importLoaders: 1,
-              sourceMap: false,
-              url: false, // Required as image imports should be handled via JS/TS import statements
-            },
-          },
-          core.postCssLoader,
-        ],
-      },
+      // /**
+      //  * @see https://vanilla-extract.style/documentation/setup/
+      //  */
+      // {
+      //   test: /\.(css)$/,
+      //   use: [
+      //     {
+      //       loader: MiniCssExtractPlugin.loader,
+      //     },
+      //     {
+      //       ...core.cssLoader,
+      //       options: {
+      //         ...core.cssLoader.options,
+      //         modules: false,
+      //         importLoaders: 1,
+      //         sourceMap: false,
+      //         url: false, // Required as image imports should be handled via JS/TS import statements
+      //       },
+      //     },
+      //     core.postCssLoader,
+      //   ],
+      // },
     ].filter(Boolean) as RuleSetRule[],
   },
   plugins: [

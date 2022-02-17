@@ -1,11 +1,10 @@
+import { CSSDesignSystemV2 } from '../design-system';
 import { GlobalCssTypeName } from '../global/global-theme-classnames';
-
-import { CSSDesignSystem } from './css-design-system';
 
 /**
  * Object to hold the CSSDesignSystem runtime data
  */
-export type CSSRuntimeThemeConfig = Pick<CSSDesignSystem, 'name' | 'colorScheme'> & {
+export type CSSRuntimeThemeConfig = Pick<CSSDesignSystemV2, 'name' | 'colorScheme'> & {
   /**
    * if autoDetect is false and there were no previously set theme, the first default theme matching the user's color scheme is selected from the list
    * @default false

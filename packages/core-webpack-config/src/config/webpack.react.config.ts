@@ -9,9 +9,7 @@ import { getBabelReactLoader } from '../loaders/babel-react.loader';
 import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
-import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { svgLoader } from '../loaders/svg.loader';
-import { getTreatLoader } from '../loaders/treat.loader';
 import { txtLoader } from '../loaders/txt.loader';
 import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader';
 import { urlLoader } from '../loaders/url.loader';
@@ -59,6 +57,11 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
             chunks: 'all',
             test: /[\\/]core-react-ui[\\/]/,
           },
+          reactIcons: {
+            name: 'react-icons',
+            chunks: 'all',
+            test: /[\\/]react-icons[\\/]/,
+          },
           styles: {
             name: 'styles',
             test: /\.(s?css)$/,
@@ -84,7 +87,6 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         fileLoader,
         mdxLoader,
         urlLoader,
-        // isDevelopment && inlineCssLoader,
         extractCssLoader,
         extractVanillaCssLibLoader,
         getBabelReactLoader({
@@ -93,9 +95,7 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         }),
         getTypescriptBabelReactLoader({
           isDevelopment,
-        }),
-        getTreatLoader({
-          hmr: isDevelopment,
+          babelPlugins: [['@vanilla-extract/babel-plugin']],
         }),
       ].filter(Boolean) as RuleSetRule[],
     },
@@ -127,7 +127,6 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         new ReactRefreshWebpackPlugin({
           overlay: false,
         }),
-      // !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
       new MiniCssExtractPlugin() as unknown as WebpackPluginInstance,
       !isDevelopment && compressionPlugin,
     ].filter(Boolean) as WebpackPluginInstance[],

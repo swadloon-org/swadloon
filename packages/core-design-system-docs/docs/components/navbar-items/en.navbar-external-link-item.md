@@ -44,6 +44,6 @@ The `<NavbarExternalLinkItem/>` component has similar features as the
 
 - Focus outline
 
-## Ressources
+## Resources
 
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a

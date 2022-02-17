@@ -36,7 +36,7 @@ export type IconConfig = {
 };
 
 export type IconComponents<Icons extends string | undefined = undefined> = {
-  [key in Icons extends string ? Icons : string]?: (props: IconBaseProps) => JSX.Element;
+  [key in Icons extends string ? Icons : string]: (props: IconBaseProps) => JSX.Element;
 };
 
 export type IconMetadata<Icons extends string | undefined = undefined> = {

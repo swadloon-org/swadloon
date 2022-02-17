@@ -1,5 +1,4 @@
 import React, { LabelHTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 
 import { kebab, pascal } from 'case';
 
@@ -7,74 +6,76 @@ import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '..';
 
-import * as stylesRef from './label.treat';
+import * as textStyles from '../styles/text-color.css';
+import * as styles from './label.css';
 
 type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {
     href?: string;
     variant?: LABEL_SIZE;
-    variantStyle?: TEXT_STYLE;
+    textStyle?: TEXT_STYLE;
     variantLevel?: Variant;
     variantDisplay?: 'inline';
   };
 
 const defaultProps: Props = {
+  variantLevel: Variant.primary,
   variant: LABEL_SIZE.small,
   children: 'Label',
 };
 
 export const Label: React.FC<Props> = React.memo(
   ({
-    id,
-    style,
-    className,
     as,
-    variantStyle,
-    variant,
-    variantLevel,
+    textStyle = defaultProps.textStyle,
+    variant = defaultProps.variant,
+    variantLevel = defaultProps.variantLevel,
     variantDisplay,
     htmlFor,
-    children,
+    children = defaultProps.children,
     ...props
   }) => {
-    const styles = useStyles(stylesRef);
-
+    //
     // only render label when htmlFor is set
+    //
     const htmlForIsSet = !!htmlFor;
     const type = htmlForIsSet ? 'label' : 'div';
 
-    const defaultChildrenString = `${defaultProps.children as string} ${pascal(
-      variant || (defaultProps.variant as string)
-    )} ${pascal(kebab(variantStyle || '') || '')}`;
+    const defaultChildrenString = `${children as string} ${pascal(variant || '')} ${pascal(
+      textStyle || ''
+    )}`;
     const child = children ? children : defaultChildrenString;
-    const commonProps = useCommonProps({
-      id,
-      style,
-      className,
-      classNames: [
-        styles.base,
-        variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE],
-        variantStyle ? styles[variantStyle] : styles[TEXT_STYLE.bold],
-        // if inline mode don't apply colors
-        variantDisplay
-          ? styles[variantDisplay]
-          : variantLevel
-          ? styles[variantLevel]
-          : styles[Variant.primary],
-        ,
-      ],
 
-      ...props,
+    const textColorClassname = textStyles.textVariants({
+      variant: variantLevel,
     });
 
-    return React.createElement(
-      type,
-      {
-        htmlFor,
-        ...commonProps,
-      },
-      child
+    return (
+      <Primitive
+        as={type}
+        // @ts-ignore
+        htmlFor={htmlFor}
+        classNames={[
+          styles.base,
+          textColorClassname,
+          styles.variants({
+            size: variant as LABEL_SIZE,
+            style: textStyle,
+          }),
+          // textStyle ? styles[textStyle] : styles[TEXT_STYLE.bold],
+          // if inline mode don't apply colors
+          // variantDisplay
+          //   ? styles[variantDisplay]
+          //   : variantLevel
+          //   ? styles[variantLevel]
+          //   : styles[Variant.primary],
+        ]}
+        {...props}
+      >
+        {child}
+      </Primitive>
     );
   }
 );

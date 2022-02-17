@@ -1,7 +1,7 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
-import { BoxV2, PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 
 import { BlockProps } from './block.props';
@@ -9,7 +9,6 @@ import { BlockProps } from './block.props';
 type Props = PrimitiveProps & BlockProps;
 
 export const BlockImage: React.FC<Props> = ({ id, style, className, inView, block, ...props }) => {
-  const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps({
     id,
     style,

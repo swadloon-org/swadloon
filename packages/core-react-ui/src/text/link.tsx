@@ -1,32 +1,47 @@
 import React, { AnchorHTMLAttributes, useRef } from 'react';
-import { IoOpenOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
 import {
+  ICON,
   LinkIcon,
   LinkProps,
-  LinkState,
   LinkVariant,
   PARAGRAPH_SIZE,
+  TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getDefaultTextFromProps } from '../utilities/component.utilities';
+import { getDefaultTextFromProps } from '../utilities-iso';
+import { IconComp } from '..';
 
-import * as stylesRef from './link.treat';
+import * as styles from './link.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<
-    LinkProps,
-    'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel' | 'variantStyle'
-  > & {
+  LinkProps & {
+    /**
+     * Rendering element types
+     */
     as?: 'div' | 'a';
+    /**
+     * Render a long link with ellipsis in the center
+     * @example https://longlong...long.com/23
+     */
     shortenLongLink?: boolean;
-    Icon?: React.ReactNode;
+    /**
+     * Pass custom svg icon
+     */
+    IconSVG?: React.ReactNode;
   };
+
+const defaultProps: Props = {
+  linkStyle: LinkVariant.underline,
+  size: PARAGRAPH_SIZE.medium,
+  kind: Variant.primary,
+  textStyle: TEXT_STYLE.bold,
+  children: 'Paragraph',
+};
 
 export const Link: React.FC<Props> = React.memo(
   ({
@@ -37,13 +52,14 @@ export const Link: React.FC<Props> = React.memo(
     rel,
     target,
     download,
-    variant,
-    variantIcon,
+    linkStyle = defaultProps.linkStyle,
+    size = defaultProps.size,
+    kind = defaultProps.kind,
+    textStyle: textStyle = defaultProps.textStyle,
+    icon,
     Icon,
+    IconSVG,
     shortenLongLink,
-    variantSize,
-    variantLevel,
-    variantStyle,
     as,
     AsElement,
     children,
@@ -54,7 +70,7 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Hooks
      */
-    const styles = useStyles(stylesRef);
+
     const ref = useRef<HTMLElement>();
 
     /**
@@ -74,10 +90,12 @@ export const Link: React.FC<Props> = React.memo(
       style,
       className,
       classNames: [
-        styles[LinkState.rest],
-        styles[variant ? variant : LinkVariant.noUnderline],
-        styles[variantLevel ? variantLevel : Variant.primary],
-        styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium],
+        styles.base,
+        styles.variants({
+          variant: kind,
+          size: size,
+          style: linkStyle,
+        }),
       ],
       target: target ? target : linkIsExternal ? '_blank' : undefined,
       ...props,
@@ -93,10 +111,10 @@ export const Link: React.FC<Props> = React.memo(
           : children
         : children
       : getDefaultTextFromProps('link', {
-          variant,
-          variantLevel,
-          variantSize,
-          variantIcon,
+          variant: linkStyle,
+          variantLevel: kind,
+          size: size,
+          icon,
         });
 
     function getShortLink(linkStr?: string) {
@@ -113,13 +131,13 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Icon insertion
      */
-    const IconSvg = Icon ? (
-      React.cloneElement(Icon as React.ReactElement, {
+    const IconSvg = IconSVG ? (
+      React.cloneElement(IconSVG as React.ReactElement, {
         className: styles.icon,
         preserveAspectRatio: `xMinYMin meet`,
       })
-    ) : variantIcon !== LinkIcon.none && linkIsExternal ? (
-      <IoOpenOutline className={styles.icon}></IoOpenOutline>
+    ) : icon !== LinkIcon.none && linkIsExternal ? (
+      <IconComp name={ICON.OPEN} className={styles.icon}></IconComp>
     ) : null;
 
     /**

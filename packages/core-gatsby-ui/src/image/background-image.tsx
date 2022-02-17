@@ -3,13 +3,13 @@ import GatsbyBackgroundImage, {
   InferExtraProps,
 } from 'gatsby-background-image';
 import React from 'react';
-import { useStyles } from 'react-treat';
 
-import { PrimitiveProps, useTreatTheme } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { PrimitiveProps } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
-import * as styleRefs from './background-image.treat';
+
+import * as styles from './background-image.css';
 
 type Props = Omit<PrimitiveProps, 'as'> & {
   effects?: BackgroundEffectConfig[];
@@ -33,8 +33,6 @@ export const BackgroundImage = React.forwardRef<any, Props>(
     { id, style, className, effects, children, backgroundImage, backgroundPosition, src, ...props },
     ref
   ) => {
-    const { cssTheme } = useTreatTheme();
-    const { styles } = useStyles(styleRefs);
     const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
     return (

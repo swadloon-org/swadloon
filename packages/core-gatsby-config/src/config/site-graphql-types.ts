@@ -1,7 +1,6 @@
 import { Node } from 'gatsby';
 
 import {
-  DoctrineType,
   DoctrineTypeFragmentFragment,
   DocumentationJs,
   DocumentationJSComponentDescriptionFragmentFragment,

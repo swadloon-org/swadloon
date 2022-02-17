@@ -80,7 +80,7 @@ Here is an example of a `package.json`:
   "version": "1.0.0",
   "description": "Loren ipsum",
   "author": {
-    "email": "info@newrade.ca",
+    "email": "info@email",
     "name": "Newrade",
     "url": "https://github.com/<org-name>/<repo-name>"
   },

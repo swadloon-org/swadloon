@@ -18,7 +18,7 @@ export type NavbarItemStateProps = {
    * Offset elements by their padding with negative margins
    * so that their content aligns with page content
    */
-  collapsePadding?: 'left' | 'right';
+  collapsePadding?: 'left' | 'right' | 'both';
 };
 
 export type NavbarLinkProps = PrimitiveProps<'a'> &

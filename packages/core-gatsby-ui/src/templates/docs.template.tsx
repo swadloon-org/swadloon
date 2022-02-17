@@ -12,9 +12,9 @@ import {
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
   Stack,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import { DocsPageFooter } from '../layout/docs-footer';
 import { Aside } from '../navigation/aside';
@@ -150,8 +150,6 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <>
       <Helmet>
@@ -192,17 +190,14 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
       </Helmet>
 
       <Stack
-        gap={[cssTheme.sizing.var.x4]}
+        gap={[sizeVars.x4]}
         className={styles.content}
         style={{
-          // @ts-ignore
-          maxWidth: cssTheme.layout.var.contentWidth.desktopDocsMaxWidth,
+          maxWidth: layoutVars.var.contentWidth.desktopDocsMaxWidth,
         }}
       >
         <MarkdownCSS>
-          <MDXRenderer {...{ ...props, theme, cssTheme }}>
-            {props.data.file?.childMdx?.body as string}
-          </MDXRenderer>
+          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
         </MarkdownCSS>
 
         <DocsPageFooter

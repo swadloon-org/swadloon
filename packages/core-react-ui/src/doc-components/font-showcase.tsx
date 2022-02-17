@@ -1,34 +1,35 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { title } from 'case';
 
 import { HEADING } from '@newrade/core-design-system';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { Heading } from '../text/heading';
+import { sizeVars, typographyVars } from '../theme';
+import { getCSSVarValue } from '../utilities-browser/css-variables.utilities';
 
-import * as styleRefs from './font-showcase.treat';
+import { sampleText } from './unicode-text';
+
+import * as styles from './font-showcase.css';
 
 type Props = {};
 
-const sampleText = `
-ABCČĆDĐEFGHIJKLMNOPQRSŠTUVWXYZŽabcčćdđefghijklmnopqrsštuvwxyzžАБВГҐДЂЕЁЄЖЗЅИІЇЙЈКЛЉМНЊОПРСТЋУЎФХЦЧЏШЩЪЫЬЭЮЯабвгґдђеёєжзѕиіїйјклљмнњопрстћуўфхцчџшщъыьэюяΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωάΆέΈέΉίϊΐΊόΌύΰϋΎΫΏĂÂÊÔƠƯăâêôơư1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*12345678910 $ 1 000 000 123,94$`;
-
 export const FontShowcase: React.FC<Props> = (props) => {
-  const { cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
+  const serifFonts = getCSSVarValue(typographyVars.fonts.serif);
+  const monoFonts = getCSSVarValue(typographyVars.fonts.monospace);
+  const sansFonts = getCSSVarValue(typographyVars.fonts.sans);
+  const sansAlternateFonts = getCSSVarValue(typographyVars.fonts.sansAlternate);
 
   return (
-    <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x3]}>
+    <Stack className={styles.wrapper} gap={[sizeVars.x5]}>
+      <Stack gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Sans'} - {title(cssTheme.typography.fonts.sans)}
+          {'Sans'} - {title(sansFonts)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
+        <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
           <div className={`${styles.letters} ${styles.lettersSans}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSans}`}>
             Aa
@@ -39,13 +40,13 @@ export const FontShowcase: React.FC<Props> = (props) => {
         <p className={`${styles.paragraphSans}`}>{sampleText}</p>
       </Stack>
 
-      {cssTheme.typography.fonts.sans !== cssTheme.typography.fonts.sansAlternate ? (
-        <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
+      {sansFonts !== sansAlternateFonts ? (
+        <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
           <Heading variant={HEADING.h4}>
-            {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate)}
+            {'Sans Alternate'} - {title(sansAlternateFonts)}
           </Heading>
 
-          <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
+          <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
             <div className={`${styles.letters} ${styles.lettersSansAlternate}`}>Aa</div>
             <div
               className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansAlternate}`}
@@ -63,12 +64,12 @@ export const FontShowcase: React.FC<Props> = (props) => {
         </Stack>
       ) : null}
 
-      <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
+      <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Serif'} - {title(cssTheme.typography.fonts.serif)}
+          {'Serif'} - {title(serifFonts)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
+        <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
           <div className={`${styles.letters} ${styles.lettersSansSerif}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansSerif}`}>
             Aa
@@ -81,12 +82,12 @@ export const FontShowcase: React.FC<Props> = (props) => {
         <p className={`${styles.paragraphSerif}`}>{sampleText}</p>
       </Stack>
 
-      <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
+      <Stack className={styles.wrapper} gap={[sizeVars.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Mono'} - {title(cssTheme.typography.fonts.monospace)}
+          {'Mono'} - {title(monoFonts)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
+        <Cluster justifyContent={['flex-start']} gap={[sizeVars.x3]}>
           <div className={`${styles.letters} ${styles.lettersSansMono}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansMono}`}>
             Aa
