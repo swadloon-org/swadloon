@@ -43,6 +43,7 @@ export const navbarSelectItem = recipe({
     padding: {
       left: { marginLeft: `calc(-1 * ${padding})` },
       right: { marginRight: `calc(-1 * ${padding})` },
+      both: { marginRight: `calc(-1 * ${padding})`, marginLeft: `calc(-1 * ${padding})` },
     },
   },
 });

@@ -15,9 +15,10 @@ import {
   useIsSSR,
 } from '@newrade/core-react-ui';
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
+import { GLOBAL_CSS_THEME_SCHEME_REVERSED } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
-import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
 import {
   BreadcrumbsAPI,
@@ -262,13 +263,22 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props })
     ),
     leftDesktop: (
       <Cluster gap={[sizeVars.x4]}>
-        <Cluster gap={['0px']}>
+        <Cluster gap={[sizeVars.x2]}>
           <NavbarLogoLinkItem
             tagText={'Docs'}
             AsElement={<GatsbyLink to={'/'} />}
-            collapsePadding={'left'}
+            collapsePadding={'both'}
           />
-          <NavbarLogoTagItem tagText={tagText} />
+          <NavbarLogoTagItem
+            tagText={tagText}
+            tagProps={{
+              style: {
+                zIndex: 1,
+                backgroundColor: 'transparent',
+                borderColor: colorVars.colors.grey[400],
+              },
+            }}
+          />
         </Cluster>
 
         <Cluster gap={['0px']}>

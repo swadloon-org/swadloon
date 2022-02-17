@@ -101,36 +101,34 @@ const localCommonConfig: Configuration = {
       core.txtLoader,
       core.fileLoader,
       core.urlLoader,
-      core.getBabelReactLoader({
-        hmr: isDevelopment,
-        plugins: [['@vanilla-extract/babel-plugin']],
-      }),
+      core.extractCssLoader,
+      core.extractVanillaCssLibLoader,
       core.getTypescriptBabelReactLoader({
         isDevelopment,
         babelPlugins: [['@vanilla-extract/babel-plugin']],
       }),
-      /**
-       * @see https://vanilla-extract.style/documentation/setup/
-       */
-      {
-        test: /\.(css)$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            ...core.cssLoader,
-            options: {
-              ...core.cssLoader.options,
-              modules: false,
-              importLoaders: 1,
-              sourceMap: false,
-              url: false, // Required as image imports should be handled via JS/TS import statements
-            },
-          },
-          core.postCssLoader,
-        ],
-      },
+      // /**
+      //  * @see https://vanilla-extract.style/documentation/setup/
+      //  */
+      // {
+      //   test: /\.(css)$/,
+      //   use: [
+      //     {
+      //       loader: MiniCssExtractPlugin.loader,
+      //     },
+      //     {
+      //       ...core.cssLoader,
+      //       options: {
+      //         ...core.cssLoader.options,
+      //         modules: false,
+      //         importLoaders: 1,
+      //         sourceMap: false,
+      //         url: false, // Required as image imports should be handled via JS/TS import statements
+      //       },
+      //     },
+      //     core.postCssLoader,
+      //   ],
+      // },
     ].filter(Boolean) as RuleSetRule[],
   },
   plugins: [

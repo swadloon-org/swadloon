@@ -9,7 +9,7 @@ import { TextCommonProps } from '../props/text-common.props';
 import * as textStyles from '../styles/text-color.css';
 import * as styles from './paragraph.css';
 
-type Tag = 'p' | 'b' | 'div' | 'small' | 'strong' | 'em' | 'del';
+type Tag = 'p' | 'b' | 'div' | 'small' | 'strong' | 'em' | 'del' | 'ins';
 
 type Props = PrimitiveProps<Tag> & ParagraphProps & TextCommonProps;
 
@@ -20,7 +20,7 @@ const defaultProps: Props = {
   children: 'Paragraph',
 };
 
-export const Paragraph: React.FC<Props> = React.memo(function Paragraph({
+export const Paragraph: React.FC<Props> = function Paragraph({
   as,
   kind = Variant.primary,
   size = defaultProps.size,
@@ -34,16 +34,15 @@ export const Paragraph: React.FC<Props> = React.memo(function Paragraph({
   const classNames = [
     styles.base,
     styles.variants({
-      size: size,
+      size: disableCapsize ? (size ? `${size}NoCapsize` : size) : size,
       style: textStyle,
       displayMode: display,
       readableWidth: readableWidth,
     }),
     textStyles.textVariants({
       variant: kind,
-      disableCapsize: disableCapsize,
     }),
   ];
 
   return <Primitive as={type} classNames={classNames} {...props} />;
-});
+};

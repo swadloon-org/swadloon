@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
-    "@newrade/core-node-utils": "^2.4.1",
+    "@newrade/core-node-utils": "*",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-beta.8",
     "@types/cssnano": "^5",
     "@vanilla-extract/webpack-plugin": "^2.1.0",

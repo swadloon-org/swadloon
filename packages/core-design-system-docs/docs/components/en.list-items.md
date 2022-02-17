@@ -42,28 +42,37 @@ Bullet list items are used to list elements without any specific order.
 
 Icons can be used instead of bullet points to list elements.
 
-<ThemeWrapper>
-<ListItemsIcon />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  displayControls={true} 
+  filename={'list-items-icon.code.tsx'} 
+  code={ListItemsIconCode}>
+  <ListItemsIcon />
 </ThemeWrapper>
-<CodeBlock>{ListItemsIconCode}</CodeBlock>
 
 ### Size
 
 Four sizes are available for list items.
 
-<ThemeWrapper>
-<ListItemsSizes />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  displayControls={true} 
+  filename={'list-items-sizes.code.tsx'} 
+  code={ListItemsSizesCode}>
+  <ListItemsSizes />
 </ThemeWrapper>
-<CodeBlock>{ListItemsSizesCode}</CodeBlock>
 
 ### Multi-lines
 
 Multi-lines list items are always align to item on the right.
 
-<ThemeWrapper>
-<ListItemsMultiLine />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  displayControls={true} 
+  filename={'list-items-multi-line.code.tsx'} 
+  code={ListItemsMultiLineCode}>
+  <ListItemsMultiLine />
 </ThemeWrapper>
-<CodeBlock>{ListItemsMultiLineCode}</CodeBlock>
 
 ## Ordered
 
@@ -71,7 +80,10 @@ Ordered list items are used to list elements with a specific order.
 
 ### Number
 
-<ThemeWrapper>
-<ListItemsNumber />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  displayControls={true} 
+  filename={'list-items-number.code.tsx'} 
+  code={ListItemsNumberCode}>
+  <ListItemsNumber />
 </ThemeWrapper>
-<CodeBlock>{ListItemsNumberCode}</CodeBlock>

@@ -3,6 +3,7 @@ import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 import { layoutCSS, typographyVars } from '../theme';
+import { getNormalTextStyles } from '../utilities-vanilla-extract';
 
 /**
  * @see https://web.dev/css-marker-pseudo-element/
@@ -20,6 +21,8 @@ export const base = style({
 
   outline: 'none',
   userSelect: 'text',
+
+  fontFamily: typographyVars.paragraphs.fontFamily,
 });
 
 export const text = style({
@@ -39,45 +42,45 @@ export const variants = recipe({
   variants: {
     size: {
       large: {
-        ...createStyleObject(typographyVars.paragraphs.mobile.large.capsize),
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.large.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(
+          [layoutCSS.media.tablet]: getNormalTextStyles(
             typographyVars.paragraphs.tablet.large.capsize
           ),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.large.capsize
           ),
         },
       },
       medium: {
-        ...createStyleObject(typographyVars.paragraphs.mobile.medium.capsize),
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.medium.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(
+          [layoutCSS.media.tablet]: getNormalTextStyles(
             typographyVars.paragraphs.tablet.medium.capsize
           ),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.medium.capsize
           ),
         },
       },
       small: {
-        ...createStyleObject(typographyVars.paragraphs.mobile.small.capsize),
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.small.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(
+          [layoutCSS.media.tablet]: getNormalTextStyles(
             typographyVars.paragraphs.tablet.small.capsize
           ),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.small.capsize
           ),
         },
       },
       xSmall: {
-        ...createStyleObject(typographyVars.paragraphs.mobile.xSmall.capsize),
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.xSmall.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(
+          [layoutCSS.media.tablet]: getNormalTextStyles(
             typographyVars.paragraphs.tablet.xSmall.capsize
           ),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.xSmall.capsize
           ),
         },
@@ -128,20 +131,35 @@ export const variants = recipe({
  */
 globalStyle(`ul ${base}::marker`, {
   fontWeight: typographyVars.paragraphs.styles?.bold?.fontWeight || 400,
+  fontSize: '1.3em',
+});
+
+/**
+ * @see allowed props https://web.dev/css-marker-pseudo-element/#allowed-css-::marker-properties
+ */
+globalStyle(`ol ${base}::marker`, {
+  fontWeight: typographyVars.paragraphs.styles?.normal?.fontWeight || 400,
 });
 
 globalStyle(`${base} p`, {
   padding: 'inherit',
 });
 
+//
 // make sure that enclosed elements wrap correctly
+//
 globalStyle(`${text} *:is(em,p,strong)`, {
   whiteSpace: 'normal',
   display: 'inline !important',
 });
 
-// disable capsize on inner elements
-globalStyle(`${text} *::before, ${text} *::after`, {
+//
+// disable capsize
+//
+globalStyle(`${text} *::before`, {
+  display: 'none !important',
+});
+globalStyle(`${text} *::after`, {
   display: 'none !important',
 });
 

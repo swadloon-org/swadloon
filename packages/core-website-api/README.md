@@ -1,8 +1,8 @@
 # Website API
 
-> Primitive models, types and enums to structure content rendered on website and
+> Primitive models, types and enums to build structured content for websites and
 > apps.
 
-Docs: https://www.newrade.ca/design-system/
+Docs: https://zedesignsystem.com/design-system/website-api
 
 ---

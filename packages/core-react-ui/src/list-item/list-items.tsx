@@ -14,7 +14,7 @@ type Props = PrimitiveProps<'ol' | 'ul'> &
   }>;
 
 export const ListItems: React.FC<Props> = React.memo(
-  ({ id, style, className, as = 'ul', AsElement, children, gap, ...props }) => {
+  ({ id, style, as = 'ul', AsElement, children, gap, ...props }) => {
     /**
      * Hooks
      */
@@ -22,12 +22,7 @@ export const ListItems: React.FC<Props> = React.memo(
     /**
      * Props
      */
-    const variantStateClassName = styles.wrapper;
-    const allClassName = getMergedClassname([
-      variantStateClassName,
-      className,
-      as === 'ul' ? styles.ul : styles.ol,
-    ]);
+    const classNames = [styles.wrapper, as === 'ul' ? styles.ul : styles.ol];
 
     /**
      * Default children
@@ -46,7 +41,7 @@ export const ListItems: React.FC<Props> = React.memo(
         as={as}
         id={id}
         style={style}
-        className={allClassName}
+        classNames={classNames}
         gap={gap || [`0.5em`]}
         {...props}
       >

@@ -1,18 +1,14 @@
 import React from 'react';
 
-import { TagProps, TagSize, Variant } from '@newrade/core-design-system';
+import { TagSize, Variant } from '@newrade/core-design-system';
 
 import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+
+import { TagCompProps } from './tag.props';
 
 import * as styles from './tag.css';
 
-type Props = PrimitiveProps<'div'> &
-  TagProps & {
-    children?: any;
-  };
-
-export const Tag: React.FC<Props> = React.memo(function Tag({
+export const Tag: React.FC<TagCompProps> = React.memo(function Tag({
   id,
   style,
   className,

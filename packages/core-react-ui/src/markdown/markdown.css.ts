@@ -70,8 +70,7 @@ globalStyle(`${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`, {
 /** Horizontal line */
 
 globalStyle(`${wrapper} > hr`, {
-  marginTop: '20px',
-  marginBottom: '20px',
+  marginTop: '2em',
 });
 
 /**
@@ -243,20 +242,3 @@ globalStyle(`${wrapper} ul + p + pre`, {
 /**
  * Styles for tables
  */
-
-/**
- * Styles for kbd element
- */
-
-globalStyle(`${wrapper} kbd`, {
-  boxSizing: 'border-box',
-  WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-  fontFamily:
-    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI", "Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol"',
-  borderRadius: '0.25em',
-  backgroundColor: '#EBEBEB',
-  padding: '0.3em 0.5em 0.25em',
-  border: '1px solid #C8C8C8',
-  borderWidth: '1px 1px 2px 1px',
-  fontSize: '0.8em',
-});

@@ -24,6 +24,7 @@
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
+      "**/yarn.lock": true,
       "**/.hg/store/**": true,
       "**/dist/**": true,
       "**/built/**": true,

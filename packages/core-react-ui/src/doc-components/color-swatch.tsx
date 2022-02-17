@@ -26,6 +26,7 @@ export const ColorSwatch: React.FC<OwnProps> = ({ color, name, shadeNumber, ...p
             variant={LABEL_SIZE.xSmall}
             variantLevel={Variant.primary}
             textStyle={TEXT_STYLE.bold}
+            className={styles.text}
           >
             {`${name ? `${kebab(name)}-` : ''}${shadeNumber ? `${kebab(shadeNumber)}` : ''}`}
           </Label>
@@ -33,6 +34,7 @@ export const ColorSwatch: React.FC<OwnProps> = ({ color, name, shadeNumber, ...p
             variant={LABEL_SIZE.xSmall}
             variantLevel={Variant.primary}
             textStyle={TEXT_STYLE.normal}
+            className={styles.text}
           >
             <code>{`${getCSSVarValue(color)}`}</code>
           </Label>

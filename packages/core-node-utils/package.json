@@ -34,7 +34,7 @@
   "sideEffects": false,
   "dependencies": {
     "@newrade/core-common": "*",
-    "@newrade/core-jest-config": "^2.0.4",
+    "@newrade/core-jest-config": "*",
     "chalk": "^4",
     "dotenv": "^10",
     "fp-ts": "^2.11.1",

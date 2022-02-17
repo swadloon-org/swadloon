@@ -1,9 +1,9 @@
 import React, { AnchorHTMLAttributes, useState } from 'react';
-import { IoChevronDownOutline } from 'react-icons/io5';
 
-import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { ICON, LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
+import { IconComp } from '../icons/icon';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -51,7 +51,8 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({
           {label}
         </Label>
 
-        <IoChevronDownOutline
+        <IconComp
+          name={ICON.CHEVRON_DOWN}
           className={getMergedClassname([styles.icon, isOpened && styles.iconOpened])}
         />
       </Cluster>

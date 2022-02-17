@@ -28,18 +28,26 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /where to start/i,
     /get started/i,
     /development process/i,
+    /tutorials/i,
     /guides/i,
     /packages/i,
     /reference/i,
 
     /brand/i,
+    /principles/i,
+    /design philosophy/i,
+    /identity/i,
     /gallery/i,
 
+    /foundations/i,
     /colors/i,
     /typography/i,
+    /sizing/i,
     /iconography/i,
     /illustration/i,
     /photography/i,
+    /animations/i,
+
     /templates/i,
 
     /data viz/i,
@@ -47,14 +55,19 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
 
     /guidelines/i,
     /components/i,
-    /animations/i,
-    /print and business documents/i,
+    /print/i,
+
+    /guidelines/i,
 
     /assets/i,
     /design tokens/i,
     /tools/i,
 
-    /Content API/i,
+    /website api/i,
+
+    /pages/i,
+    /sections/i,
+    /blocks/i,
   ],
   sortOrderItems: [
     /overview/i,
@@ -64,6 +77,10 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /tech/i,
     /theming/i,
     /demos/i,
+
+    /pages/i,
+    /sections/i,
+    /blocks/i,
   ],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],
