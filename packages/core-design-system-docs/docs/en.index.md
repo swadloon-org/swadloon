@@ -85,3 +85,16 @@ there:
 | IBM        | [website](https://www.ibm.com/)        | [link](https://www.carbondesignsystem.com/)    |
 | Salesforce | [website](https://www.salesforce.com/) | [link](https://www.lightningdesignsystem.com/) |
 | Modulz     | [website](https://www.modulz.app/)     | [Radix UI](https://radix-ui.com/)              |
+
+<!-- TODO https://designsystem.digital.gov/
+https://www.carbondesignsystem.com/
+https://garden.zendesk.com/
+https://blueprintjs.com/
+https://atlaskit.atlassian.com/
+https://baseweb.design/
+https://developer.apple.com/design/human-interface-guidelines/
+https://brand.uber.com/ca/en/
+https://conception.canadapost-postescanada.ca/fr/mercure/accueil.page
+https://www.microsoft.com/design/fluent/#/
+https://ux.mailchimp.com/patterns/color
+https://spectrum.adobe.com/ -->

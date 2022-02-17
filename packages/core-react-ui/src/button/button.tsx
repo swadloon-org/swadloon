@@ -141,7 +141,7 @@ export const Button = React.forwardRef<any, Props>(
             {icon === ButtonIcon.icon ? null : (
               <Label
                 variantDisplay={'inline'}
-                variantStyle={TEXT_STYLE.bold}
+                textStyle={TEXT_STYLE.bold}
                 variant={getLabelSizeForButtonSize(size)}
               >
                 {renderedChildren}
@@ -165,7 +165,7 @@ export const Button = React.forwardRef<any, Props>(
               {icon === ButtonIcon.icon ? null : (
                 <Label
                   variantDisplay={'inline'}
-                  variantStyle={TEXT_STYLE.bold}
+                  textStyle={TEXT_STYLE.bold}
                   variant={getLabelSizeForButtonSize(size)}
                 >
                   {renderedChildren}
@@ -185,7 +185,7 @@ export const Button = React.forwardRef<any, Props>(
         {icon === ButtonIcon.icon ? null : (
           <Label
             variantDisplay={'inline'}
-            variantStyle={TEXT_STYLE.bold}
+            textStyle={TEXT_STYLE.bold}
             variant={getLabelSizeForButtonSize(size)}
           >
             {renderedChildren}
