@@ -46,6 +46,8 @@ How icons are used in the system.
 
 How illustrations are used in the system to convey meaning.
 
+### Photography
+
 ### Effects
 
 > How shadows, transparency and other special effects are used.

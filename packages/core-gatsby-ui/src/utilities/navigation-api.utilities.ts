@@ -33,13 +33,20 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /reference/i,
 
     /brand/i,
+    /principles/i,
+    /design philosophy/i,
+    /identity/i,
     /gallery/i,
 
+    /foundations/i,
     /colors/i,
     /typography/i,
+    /sizing/i,
     /iconography/i,
     /illustration/i,
     /photography/i,
+    /animations/i,
+
     /templates/i,
 
     /data viz/i,
@@ -47,8 +54,7 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
 
     /guidelines/i,
     /components/i,
-    /animations/i,
-    /print and business documents/i,
+    /print/i,
 
     /assets/i,
     /design tokens/i,

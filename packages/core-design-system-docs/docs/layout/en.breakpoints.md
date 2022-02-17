@@ -1,5 +1,5 @@
 ---
-title: Breakpoints
+title: Breakpoints - 📏
 description:
 tags:
   - guidelines
@@ -7,7 +7,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 <!-- prettier-ignore -->
-import { Breakpoints } from '../../src/code/breakpoints.code';
+import { Breakpoints } from '../../src/code/layout.code';
 
 <!-- END CODE IMPORTS -->
 

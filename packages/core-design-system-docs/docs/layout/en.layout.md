@@ -5,14 +5,30 @@ tags:
   - guidelines
 ---
 
+<!-- CODE IMPORTS -->
+<!-- prettier-ignore -->
+import { ContentMargins, ContentWidths, SidebarWidths, NavbarHeights, ZIndexes } from '../../src/code/layout.code';
+
+<!-- END CODE IMPORTS -->
+
 <DocHeader props={props}/>
 
 ## Content Margins
 
+<ContentMargins/>
+
 ## Content Width
 
-## Layout Sizes
+<ContentWidths/>
 
-## Media Queries
+## Sidebar Widths
+
+<SidebarWidths/>
+
+## Navbar Heights
+
+<NavbarHeights/>
 
 ## Stacking Indez (z-index)
+
+<ZIndexes/>
