@@ -9,15 +9,15 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { CSSAnimationAttentionSeeker } from '../../src/code/css-animation-attention-seeker.code';
-import { CSSBouncingEntrance } from '../../src/code/css-animation-bouncing-entrance.code';
-import { CSSBouncingExit } from '../../src/code/css-animation-bouncing-exit.code';
-import { CSSFadingEntrance } from '../../src/code/css-animation-fading-entrance.code';
-import { CSSFadingExit } from '../../src/code/css-animation-fading-exit.code';
-import { CSSZoomingEntrance } from '../../src/code/css-animation-zooming-entrance.code';
-import { CSSZoomingExit } from '../../src/code/css-animation-zooming-exit.code';
-import { CSSSlidingEntrance } from '../../src/code/css-animation-sliding-entrance.code';
-import { CSSSlidingExit } from '../../src/code/css-animation-sliding-exit.code';
+import { CSSAnimationAttentionSeeker } from '../../../src/code/css-animation-attention-seeker.code';
+import { CSSBouncingEntrance } from '../../../src/code/css-animation-bouncing-entrance.code';
+import { CSSBouncingExit } from '../../../src/code/css-animation-bouncing-exit.code';
+import { CSSFadingEntrance } from '../../../src/code/css-animation-fading-entrance.code';
+import { CSSFadingExit } from '../../../src/code/css-animation-fading-exit.code';
+import { CSSZoomingEntrance } from '../../../src/code/css-animation-zooming-entrance.code';
+import { CSSZoomingExit } from '../../../src/code/css-animation-zooming-exit.code';
+import { CSSSlidingEntrance } from '../../../src/code/css-animation-sliding-entrance.code';
+import { CSSSlidingExit } from '../../../src/code/css-animation-sliding-exit.code';
 
 <!-- END CODE IMPORTS -->
 

@@ -3,7 +3,7 @@ title: Email Templates
 tags:
   - templates
   - email
-publish: false
+published: false
 ---
 
 <DocHeader props={props}/>

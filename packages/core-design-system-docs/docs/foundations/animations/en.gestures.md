@@ -10,9 +10,9 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { GestureDrag } from '../../src/code/gesture-drag.code';
-import { GestureScroll } from '../../src/code/gesture-scroll.code';
-import { GestureScrollWheel } from '../../src/code/gesture-scroll-wheel.code';
+import { GestureDrag } from '../../../src/code/gesture-drag.code';
+import { GestureScroll } from '../../../src/code/gesture-scroll.code';
+import { GestureScrollWheel } from '../../../src/code/gesture-scroll-wheel.code';
 
 <!-- END CODE IMPORTS -->
 

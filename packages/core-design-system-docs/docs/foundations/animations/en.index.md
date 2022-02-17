@@ -11,10 +11,10 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { CSSAnimationControlled } from '../../src/code/css-animation-controlled.code';
-import CSSAnimationControlledCode from '!!raw-loader!../../src/code/css-animation-controlled.code';
-import { CSSAnimationUncontrolled } from '../../src/code/css-animation-uncontrolled.code';
-import CSSAnimationUncontrolledCode from '!!raw-loader!../../src/code/css-animation-uncontrolled.code';
+import { CSSAnimationControlled } from '../../../src/code/css-animation-controlled.code';
+import CSSAnimationControlledCode from '!!raw-loader!../../../src/code/css-animation-controlled.code';
+import { CSSAnimationUncontrolled } from '../../../src/code/css-animation-uncontrolled.code';
+import CSSAnimationUncontrolledCode from '!!raw-loader!../../../src/code/css-animation-uncontrolled.code';
 
 <!-- END CODE IMPORTS -->
 

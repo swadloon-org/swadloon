@@ -9,8 +9,21 @@ tags:
 
 <DocHeader props={props}/>
 
-There are principles and rules that guide the rest of the system. This system
-includes the following subjects.
+The main purpose of this section is to present concisely the rules, guidelines
+and principles we use in the design system.
+
+> **2022-01:** At this point in time everything here is organized as a technical
+> reference. Additional tutorials, how-to guides and explanation content will be
+> added at some point.
+
+The documentation for the system is divided in 4 parts:
+
+- Tutorials (_coming soon_)
+- How to guides (_coming soon_)
+- The technical reference (_available_)
+- Explanation and theory (_coming soon_)
+
+---
 
 ## Brand - 💎
 
@@ -18,19 +31,28 @@ General presentation of our brand, its principles and philosophy.
 
 ### Principles
 
+_Coming soon_
+
 ### Design Philosophy
+
+_Coming soon_
 
 ### Identity
 
+_Coming soon_
+
 ### Gallery
+
+_Coming soon_
+
+---
 
 ## Foundations - 📐
 
 ### Colors
 
-> What colors are available to use and how colors should be used.
-
-#### Elevation
+What colors are available to use and how colors should be used in various
+scenarios.
 
 ### Typography
 
@@ -68,15 +90,33 @@ those.
 
 How motion is applied in components and navigation.
 
+---
+
 ## Templates - 📱 💻
 
-Complete website or application designs that implements our design system.
+### Landing Pages and Web
+
+### Documentation
+
+### Print - 📄
+
+---
 
 ## Patterns - ⚛️
 
 ### Navigation
 
+_Coming soon_
+
 ### Search
+
+_Coming soon_
+
+### Tabular Data
+
+_Coming soon_
+
+---
 
 ## Components - 🔶
 
@@ -89,23 +129,32 @@ This organisation follows the
 where smaller components (atoms) compose slightly larger ones (molecules) which
 go into even larger and more complete components (organisms).
 
-![Atomic Design Illustration](https://bradfrost.com/wp-content/uploads/2019/06/atomic-design-product.jpg)
+Get started by exploring available components.
 
-## Print - 📄
+---
 
 ## Data Visualization - 📊
 
-### Gallery
+_Coming soon_
+
+<!-- ### Gallery
 
 ### Colors
 
 ### Spacing
 
-### Charts
+### Charts -->
+
+---
 
 ## Design Tokens - 🎛️
 
-## Content API
+Design tokens are variables, styles and other assets extracted from our styling
+files.
+
+---
+
+## Website API - 🍱
 
 Every website or app has to place content (text, images, video, forms, etc) in a
 page or a view. As designers and developers we have to think about this for
@@ -114,16 +163,18 @@ every project.
 The following is an opinionated way of seeing the content we place on pages. We
 call this the **Website API**.
 
-Content is organized with [Pages](/design-system/content/pages/),
-[Sections](/design-system/content/sections/) and
-[Blocks](/design-system/content/blocks/).
+Content is organized with [Pages](/design-system/website-api/pages/),
+[Sections](/design-system/website-api/sections/) and
+[Blocks](/design-system/website-api/blocks/).
 
 ## Utilities
 
-## Additional Resources
+_Coming soon_
 
-No design system is made in a vacuum. Here are our recommended reading list,
-references and design systems.
+## Resources
+
+No design work is made in a vacuum. Here are our recommended reading list,
+references and most notable design systems for your references.
 
 ### Reading
 

@@ -7,9 +7,9 @@ tags:
 
 <!-- CODE IMPORTS -->
 <!-- prettier-ignore -->
-import { SizingDesktop } from '../../src/code/sizing-desktop.code';
-import { SizingTablet } from '../../src/code/sizing-tablet.code';
-import { SizingMobile } from '../../src/code/sizing-mobile.code';
+import { SizingDesktop } from '../../../src/code/sizing-desktop.code';
+import { SizingTablet } from '../../../src/code/sizing-tablet.code';
+import { SizingMobile } from '../../../src/code/sizing-mobile.code';
 
 <!-- END CODE IMPORTS -->
 <DocHeader props={props}/>

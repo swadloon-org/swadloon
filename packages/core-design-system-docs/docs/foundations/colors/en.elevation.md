@@ -10,7 +10,7 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { GuidelineElevation } from '../../src/code/guideline-elevation.code';
+import { GuidelineElevation } from '../../../src/code/guideline-elevation.code';
 
 <!-- END CODE IMPORTS -->
 

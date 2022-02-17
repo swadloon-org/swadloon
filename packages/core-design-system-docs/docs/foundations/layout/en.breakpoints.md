@@ -7,7 +7,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 <!-- prettier-ignore -->
-import { Breakpoints } from '../../src/code/layout.code';
+import { Breakpoints } from '../../../src/code/layout.code';
 
 <!-- END CODE IMPORTS -->
 

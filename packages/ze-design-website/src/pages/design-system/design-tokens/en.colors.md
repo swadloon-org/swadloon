@@ -1,17 +1,23 @@
 ---
-title: Color Tokens
+title: Colors
 tags:
   - css
-  - scss
+  - colors
   - tokens
+layout: designSystem
+template: designSystem
 ---
 
 <!-- CODE IMPORTS -->
 
-import ColorTokensCode from '!!raw-loader!./color-tokens.scss';
+<!-- prettier-ignore -->
+import ColorTokensCode from '!!raw-loader!../../../../../ze-design-system/src/css-tokens/colors.css';
 
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
 
-<CodeBlock className={'language-scss'}>{ColorTokensCode}</CodeBlock>
+Here are our colors (in both light and dark themes) in CSS format, including
+global selectors.
+
+<CodeBlock className={'language-css'}>{ColorTokensCode}</CodeBlock>

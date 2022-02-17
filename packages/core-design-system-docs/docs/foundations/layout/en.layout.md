@@ -7,7 +7,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 <!-- prettier-ignore -->
-import { ContentMargins, ContentWidths, SidebarWidths, NavbarHeights, ZIndexes } from '../../src/code/layout.code';
+import { ContentMargins, ContentWidths, SidebarWidths, NavbarHeights, ZIndexes } from '../../../src/code/layout.code';
 
 <!-- END CODE IMPORTS -->
 

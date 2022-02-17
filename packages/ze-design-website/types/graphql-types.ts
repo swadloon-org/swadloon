@@ -372,15 +372,33 @@ type SitePluginPluginOptions = {
   readonly disableBgImage: Maybe<Scalars['Boolean']>;
   readonly path: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
+  readonly packageName: Maybe<Scalars['String']>;
+  readonly pluginName: Maybe<Scalars['String']>;
+  readonly renderPages: Maybe<Scalars['Boolean']>;
+  readonly pagesPath: Maybe<Scalars['String']>;
+  readonly pagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderMarkdownPages: Maybe<Scalars['Boolean']>;
+  readonly markdownPagesPath: Maybe<Scalars['String']>;
+  readonly markdownPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderDocsPages: Maybe<Scalars['Boolean']>;
+  readonly docsPagesPath: Maybe<Scalars['String']>;
+  readonly docsPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderDesignSystemPages: Maybe<Scalars['Boolean']>;
+  readonly designSystemPagesPath: Maybe<Scalars['String']>;
+  readonly designSystemPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderCoreDocsPages: Maybe<Scalars['Boolean']>;
+  readonly coreDocsPagesPath: Maybe<Scalars['String']>;
+  readonly coreDocsPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderUnpublishedPages: Maybe<Scalars['Boolean']>;
+  readonly allExtensions: Maybe<Scalars['Boolean']>;
+  readonly isTSX: Maybe<Scalars['Boolean']>;
+  readonly jsxPragma: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
   readonly ignore: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly failOnError: Maybe<Scalars['Boolean']>;
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
-  readonly allExtensions: Maybe<Scalars['Boolean']>;
-  readonly isTSX: Maybe<Scalars['Boolean']>;
-  readonly jsxPragma: Maybe<Scalars['String']>;
   readonly host: Maybe<Scalars['String']>;
   readonly sitemap: Maybe<Scalars['String']>;
   readonly output: Maybe<Scalars['String']>;
@@ -400,24 +418,6 @@ type SitePluginPluginOptions = {
   readonly cache_busting_mode: Maybe<Scalars['String']>;
   readonly crossOrigin: Maybe<Scalars['String']>;
   readonly cacheDigest: Maybe<Scalars['String']>;
-  readonly packageName: Maybe<Scalars['String']>;
-  readonly pluginName: Maybe<Scalars['String']>;
-  readonly renderPages: Maybe<Scalars['Boolean']>;
-  readonly pagesPath: Maybe<Scalars['String']>;
-  readonly pagesPathPrefix: Maybe<Scalars['String']>;
-  readonly renderMarkdownPages: Maybe<Scalars['Boolean']>;
-  readonly markdownPagesPath: Maybe<Scalars['String']>;
-  readonly markdownPagesPathPrefix: Maybe<Scalars['String']>;
-  readonly renderDocsPages: Maybe<Scalars['Boolean']>;
-  readonly docsPagesPath: Maybe<Scalars['String']>;
-  readonly docsPagesPathPrefix: Maybe<Scalars['String']>;
-  readonly renderDesignSystemPages: Maybe<Scalars['Boolean']>;
-  readonly designSystemPagesPath: Maybe<Scalars['String']>;
-  readonly designSystemPagesPathPrefix: Maybe<Scalars['String']>;
-  readonly renderCoreDocsPages: Maybe<Scalars['Boolean']>;
-  readonly coreDocsPagesPath: Maybe<Scalars['String']>;
-  readonly coreDocsPagesPathPrefix: Maybe<Scalars['String']>;
-  readonly renderUnpublishedPages: Maybe<Scalars['Boolean']>;
   readonly outputPath: Maybe<Scalars['String']>;
   readonly extensions: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly gatsbyRemarkPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
@@ -690,7 +690,6 @@ type MdxFrontmatter = {
   readonly componentVersion: Maybe<Scalars['String']>;
   readonly componentTests: Maybe<Scalars['String']>;
   readonly jsdocImports: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly publish: Maybe<Scalars['Boolean']>;
 };
 
 type Mdx = Node & {
@@ -1615,14 +1614,6 @@ type MdxFrontmatterFilterInput = {
   readonly componentVersion: Maybe<StringQueryOperatorInput>;
   readonly componentTests: Maybe<StringQueryOperatorInput>;
   readonly jsdocImports: Maybe<StringQueryOperatorInput>;
-  readonly publish: Maybe<BooleanQueryOperatorInput>;
-};
-
-type BooleanQueryOperatorInput = {
-  readonly eq: Maybe<Scalars['Boolean']>;
-  readonly ne: Maybe<Scalars['Boolean']>;
-  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['Boolean']>>>;
-  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Boolean']>>>;
 };
 
 type MdxHeadingMdxFilterListInput = {
@@ -1673,6 +1664,13 @@ type InternalFilterInput = {
   readonly mediaType: Maybe<StringQueryOperatorInput>;
   readonly owner: Maybe<StringQueryOperatorInput>;
   readonly type: Maybe<StringQueryOperatorInput>;
+};
+
+type BooleanQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['Boolean']>;
+  readonly ne: Maybe<Scalars['Boolean']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['Boolean']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Boolean']>>>;
 };
 
 type ImageSharpFilterListInput = {
@@ -1990,7 +1988,6 @@ type FileFieldsEnum =
   | 'childrenMdx.frontmatter.componentVersion'
   | 'childrenMdx.frontmatter.componentTests'
   | 'childrenMdx.frontmatter.jsdocImports'
-  | 'childrenMdx.frontmatter.publish'
   | 'childrenMdx.slug'
   | 'childrenMdx.body'
   | 'childrenMdx.excerpt'
@@ -2064,7 +2061,6 @@ type FileFieldsEnum =
   | 'childMdx.frontmatter.componentVersion'
   | 'childMdx.frontmatter.componentTests'
   | 'childMdx.frontmatter.jsdocImports'
-  | 'childMdx.frontmatter.publish'
   | 'childMdx.slug'
   | 'childMdx.body'
   | 'childMdx.excerpt'
@@ -12814,15 +12810,33 @@ type SitePluginPluginOptionsFilterInput = {
   readonly disableBgImage: Maybe<BooleanQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
+  readonly packageName: Maybe<StringQueryOperatorInput>;
+  readonly pluginName: Maybe<StringQueryOperatorInput>;
+  readonly renderPages: Maybe<BooleanQueryOperatorInput>;
+  readonly pagesPath: Maybe<StringQueryOperatorInput>;
+  readonly pagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderMarkdownPages: Maybe<BooleanQueryOperatorInput>;
+  readonly markdownPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly markdownPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderDocsPages: Maybe<BooleanQueryOperatorInput>;
+  readonly docsPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly docsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderDesignSystemPages: Maybe<BooleanQueryOperatorInput>;
+  readonly designSystemPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly designSystemPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderCoreDocsPages: Maybe<BooleanQueryOperatorInput>;
+  readonly coreDocsPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly coreDocsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderUnpublishedPages: Maybe<BooleanQueryOperatorInput>;
+  readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
+  readonly isTSX: Maybe<BooleanQueryOperatorInput>;
+  readonly jsxPragma: Maybe<StringQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly ignore: Maybe<StringQueryOperatorInput>;
   readonly failOnError: Maybe<BooleanQueryOperatorInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
-  readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
-  readonly isTSX: Maybe<BooleanQueryOperatorInput>;
-  readonly jsxPragma: Maybe<StringQueryOperatorInput>;
   readonly host: Maybe<StringQueryOperatorInput>;
   readonly sitemap: Maybe<StringQueryOperatorInput>;
   readonly output: Maybe<StringQueryOperatorInput>;
@@ -12842,24 +12856,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
   readonly crossOrigin: Maybe<StringQueryOperatorInput>;
   readonly cacheDigest: Maybe<StringQueryOperatorInput>;
-  readonly packageName: Maybe<StringQueryOperatorInput>;
-  readonly pluginName: Maybe<StringQueryOperatorInput>;
-  readonly renderPages: Maybe<BooleanQueryOperatorInput>;
-  readonly pagesPath: Maybe<StringQueryOperatorInput>;
-  readonly pagesPathPrefix: Maybe<StringQueryOperatorInput>;
-  readonly renderMarkdownPages: Maybe<BooleanQueryOperatorInput>;
-  readonly markdownPagesPath: Maybe<StringQueryOperatorInput>;
-  readonly markdownPagesPathPrefix: Maybe<StringQueryOperatorInput>;
-  readonly renderDocsPages: Maybe<BooleanQueryOperatorInput>;
-  readonly docsPagesPath: Maybe<StringQueryOperatorInput>;
-  readonly docsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
-  readonly renderDesignSystemPages: Maybe<BooleanQueryOperatorInput>;
-  readonly designSystemPagesPath: Maybe<StringQueryOperatorInput>;
-  readonly designSystemPagesPathPrefix: Maybe<StringQueryOperatorInput>;
-  readonly renderCoreDocsPages: Maybe<BooleanQueryOperatorInput>;
-  readonly coreDocsPagesPath: Maybe<StringQueryOperatorInput>;
-  readonly coreDocsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
-  readonly renderUnpublishedPages: Maybe<BooleanQueryOperatorInput>;
   readonly outputPath: Maybe<StringQueryOperatorInput>;
   readonly extensions: Maybe<StringQueryOperatorInput>;
   readonly gatsbyRemarkPlugins: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
@@ -13208,7 +13204,6 @@ type SitePageFieldsEnum =
   | 'context.frontmatter.componentVersion'
   | 'context.frontmatter.componentTests'
   | 'context.frontmatter.jsdocImports'
-  | 'context.frontmatter.publish'
   | 'context.absolutePath'
   | 'context.alternateLocales'
   | 'context.alternateLocales.locale'
@@ -13273,33 +13268,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.disableBgImage'
   | 'pluginCreator.pluginOptions.path'
   | 'pluginCreator.pluginOptions.pathCheck'
-  | 'pluginCreator.pluginOptions.name'
-  | 'pluginCreator.pluginOptions.ignore'
-  | 'pluginCreator.pluginOptions.failOnError'
-  | 'pluginCreator.pluginOptions.base64Width'
-  | 'pluginCreator.pluginOptions.stripMetadata'
-  | 'pluginCreator.pluginOptions.defaultQuality'
-  | 'pluginCreator.pluginOptions.allExtensions'
-  | 'pluginCreator.pluginOptions.isTSX'
-  | 'pluginCreator.pluginOptions.jsxPragma'
-  | 'pluginCreator.pluginOptions.host'
-  | 'pluginCreator.pluginOptions.sitemap'
-  | 'pluginCreator.pluginOptions.output'
-  | 'pluginCreator.pluginOptions.source'
-  | 'pluginCreator.pluginOptions.destination'
-  | 'pluginCreator.pluginOptions.purge'
-  | 'pluginCreator.pluginOptions.short_name'
-  | 'pluginCreator.pluginOptions.start_url'
-  | 'pluginCreator.pluginOptions.background_color'
-  | 'pluginCreator.pluginOptions.theme_color'
-  | 'pluginCreator.pluginOptions.display'
-  | 'pluginCreator.pluginOptions.icon'
-  | 'pluginCreator.pluginOptions.include_favicon'
-  | 'pluginCreator.pluginOptions.legacy'
-  | 'pluginCreator.pluginOptions.theme_color_in_head'
-  | 'pluginCreator.pluginOptions.cache_busting_mode'
-  | 'pluginCreator.pluginOptions.crossOrigin'
-  | 'pluginCreator.pluginOptions.cacheDigest'
   | 'pluginCreator.pluginOptions.packageName'
   | 'pluginCreator.pluginOptions.pluginName'
   | 'pluginCreator.pluginOptions.renderPages'
@@ -13318,6 +13286,33 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.coreDocsPagesPath'
   | 'pluginCreator.pluginOptions.coreDocsPagesPathPrefix'
   | 'pluginCreator.pluginOptions.renderUnpublishedPages'
+  | 'pluginCreator.pluginOptions.allExtensions'
+  | 'pluginCreator.pluginOptions.isTSX'
+  | 'pluginCreator.pluginOptions.jsxPragma'
+  | 'pluginCreator.pluginOptions.name'
+  | 'pluginCreator.pluginOptions.ignore'
+  | 'pluginCreator.pluginOptions.failOnError'
+  | 'pluginCreator.pluginOptions.base64Width'
+  | 'pluginCreator.pluginOptions.stripMetadata'
+  | 'pluginCreator.pluginOptions.defaultQuality'
+  | 'pluginCreator.pluginOptions.host'
+  | 'pluginCreator.pluginOptions.sitemap'
+  | 'pluginCreator.pluginOptions.output'
+  | 'pluginCreator.pluginOptions.source'
+  | 'pluginCreator.pluginOptions.destination'
+  | 'pluginCreator.pluginOptions.purge'
+  | 'pluginCreator.pluginOptions.short_name'
+  | 'pluginCreator.pluginOptions.start_url'
+  | 'pluginCreator.pluginOptions.background_color'
+  | 'pluginCreator.pluginOptions.theme_color'
+  | 'pluginCreator.pluginOptions.display'
+  | 'pluginCreator.pluginOptions.icon'
+  | 'pluginCreator.pluginOptions.include_favicon'
+  | 'pluginCreator.pluginOptions.legacy'
+  | 'pluginCreator.pluginOptions.theme_color_in_head'
+  | 'pluginCreator.pluginOptions.cache_busting_mode'
+  | 'pluginCreator.pluginOptions.crossOrigin'
+  | 'pluginCreator.pluginOptions.cacheDigest'
   | 'pluginCreator.pluginOptions.outputPath'
   | 'pluginCreator.pluginOptions.extensions'
   | 'pluginCreator.pluginOptions.gatsbyRemarkPlugins'
@@ -13614,15 +13609,33 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.disableBgImage'
   | 'pluginOptions.path'
   | 'pluginOptions.pathCheck'
+  | 'pluginOptions.packageName'
+  | 'pluginOptions.pluginName'
+  | 'pluginOptions.renderPages'
+  | 'pluginOptions.pagesPath'
+  | 'pluginOptions.pagesPathPrefix'
+  | 'pluginOptions.renderMarkdownPages'
+  | 'pluginOptions.markdownPagesPath'
+  | 'pluginOptions.markdownPagesPathPrefix'
+  | 'pluginOptions.renderDocsPages'
+  | 'pluginOptions.docsPagesPath'
+  | 'pluginOptions.docsPagesPathPrefix'
+  | 'pluginOptions.renderDesignSystemPages'
+  | 'pluginOptions.designSystemPagesPath'
+  | 'pluginOptions.designSystemPagesPathPrefix'
+  | 'pluginOptions.renderCoreDocsPages'
+  | 'pluginOptions.coreDocsPagesPath'
+  | 'pluginOptions.coreDocsPagesPathPrefix'
+  | 'pluginOptions.renderUnpublishedPages'
+  | 'pluginOptions.allExtensions'
+  | 'pluginOptions.isTSX'
+  | 'pluginOptions.jsxPragma'
   | 'pluginOptions.name'
   | 'pluginOptions.ignore'
   | 'pluginOptions.failOnError'
   | 'pluginOptions.base64Width'
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
-  | 'pluginOptions.allExtensions'
-  | 'pluginOptions.isTSX'
-  | 'pluginOptions.jsxPragma'
   | 'pluginOptions.host'
   | 'pluginOptions.sitemap'
   | 'pluginOptions.output'
@@ -13645,24 +13658,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.cache_busting_mode'
   | 'pluginOptions.crossOrigin'
   | 'pluginOptions.cacheDigest'
-  | 'pluginOptions.packageName'
-  | 'pluginOptions.pluginName'
-  | 'pluginOptions.renderPages'
-  | 'pluginOptions.pagesPath'
-  | 'pluginOptions.pagesPathPrefix'
-  | 'pluginOptions.renderMarkdownPages'
-  | 'pluginOptions.markdownPagesPath'
-  | 'pluginOptions.markdownPagesPathPrefix'
-  | 'pluginOptions.renderDocsPages'
-  | 'pluginOptions.docsPagesPath'
-  | 'pluginOptions.docsPagesPathPrefix'
-  | 'pluginOptions.renderDesignSystemPages'
-  | 'pluginOptions.designSystemPagesPath'
-  | 'pluginOptions.designSystemPagesPathPrefix'
-  | 'pluginOptions.renderCoreDocsPages'
-  | 'pluginOptions.coreDocsPagesPath'
-  | 'pluginOptions.coreDocsPagesPathPrefix'
-  | 'pluginOptions.renderUnpublishedPages'
   | 'pluginOptions.outputPath'
   | 'pluginOptions.extensions'
   | 'pluginOptions.gatsbyRemarkPlugins'
@@ -14119,7 +14114,6 @@ type SitePageContextFieldsEnum =
   | 'frontmatter.componentVersion'
   | 'frontmatter.componentTests'
   | 'frontmatter.jsdocImports'
-  | 'frontmatter.publish'
   | 'absolutePath'
   | 'alternateLocales'
   | 'alternateLocales.locale'
@@ -14325,7 +14319,6 @@ type MdxFieldsEnum =
   | 'frontmatter.componentVersion'
   | 'frontmatter.componentTests'
   | 'frontmatter.jsdocImports'
-  | 'frontmatter.publish'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -15213,7 +15206,6 @@ type DocumentationJsFieldsEnum =
   | 'description.childrenMdx.frontmatter.componentVersion'
   | 'description.childrenMdx.frontmatter.componentTests'
   | 'description.childrenMdx.frontmatter.jsdocImports'
-  | 'description.childrenMdx.frontmatter.publish'
   | 'description.childrenMdx.slug'
   | 'description.childrenMdx.body'
   | 'description.childrenMdx.excerpt'
@@ -15263,7 +15255,6 @@ type DocumentationJsFieldsEnum =
   | 'description.childMdx.frontmatter.componentVersion'
   | 'description.childMdx.frontmatter.componentTests'
   | 'description.childMdx.frontmatter.jsdocImports'
-  | 'description.childMdx.frontmatter.publish'
   | 'description.childMdx.slug'
   | 'description.childMdx.body'
   | 'description.childMdx.excerpt'
@@ -15352,7 +15343,6 @@ type DocumentationJsFieldsEnum =
   | 'deprecated.childrenMdx.frontmatter.componentVersion'
   | 'deprecated.childrenMdx.frontmatter.componentTests'
   | 'deprecated.childrenMdx.frontmatter.jsdocImports'
-  | 'deprecated.childrenMdx.frontmatter.publish'
   | 'deprecated.childrenMdx.slug'
   | 'deprecated.childrenMdx.body'
   | 'deprecated.childrenMdx.excerpt'
@@ -15402,7 +15392,6 @@ type DocumentationJsFieldsEnum =
   | 'deprecated.childMdx.frontmatter.componentVersion'
   | 'deprecated.childMdx.frontmatter.componentTests'
   | 'deprecated.childMdx.frontmatter.jsdocImports'
-  | 'deprecated.childMdx.frontmatter.publish'
   | 'deprecated.childMdx.slug'
   | 'deprecated.childMdx.body'
   | 'deprecated.childMdx.excerpt'
@@ -65756,7 +65745,6 @@ type DocumentationJsFieldsEnum =
   | 'childrenDocumentationJsComponentDescription.childrenMdx.frontmatter.componentVersion'
   | 'childrenDocumentationJsComponentDescription.childrenMdx.frontmatter.componentTests'
   | 'childrenDocumentationJsComponentDescription.childrenMdx.frontmatter.jsdocImports'
-  | 'childrenDocumentationJsComponentDescription.childrenMdx.frontmatter.publish'
   | 'childrenDocumentationJsComponentDescription.childrenMdx.slug'
   | 'childrenDocumentationJsComponentDescription.childrenMdx.body'
   | 'childrenDocumentationJsComponentDescription.childrenMdx.excerpt'
@@ -65806,7 +65794,6 @@ type DocumentationJsFieldsEnum =
   | 'childrenDocumentationJsComponentDescription.childMdx.frontmatter.componentVersion'
   | 'childrenDocumentationJsComponentDescription.childMdx.frontmatter.componentTests'
   | 'childrenDocumentationJsComponentDescription.childMdx.frontmatter.jsdocImports'
-  | 'childrenDocumentationJsComponentDescription.childMdx.frontmatter.publish'
   | 'childrenDocumentationJsComponentDescription.childMdx.slug'
   | 'childrenDocumentationJsComponentDescription.childMdx.body'
   | 'childrenDocumentationJsComponentDescription.childMdx.excerpt'
@@ -65895,7 +65882,6 @@ type DocumentationJsFieldsEnum =
   | 'childDocumentationJsComponentDescription.childrenMdx.frontmatter.componentVersion'
   | 'childDocumentationJsComponentDescription.childrenMdx.frontmatter.componentTests'
   | 'childDocumentationJsComponentDescription.childrenMdx.frontmatter.jsdocImports'
-  | 'childDocumentationJsComponentDescription.childrenMdx.frontmatter.publish'
   | 'childDocumentationJsComponentDescription.childrenMdx.slug'
   | 'childDocumentationJsComponentDescription.childrenMdx.body'
   | 'childDocumentationJsComponentDescription.childrenMdx.excerpt'
@@ -65945,7 +65931,6 @@ type DocumentationJsFieldsEnum =
   | 'childDocumentationJsComponentDescription.childMdx.frontmatter.componentVersion'
   | 'childDocumentationJsComponentDescription.childMdx.frontmatter.componentTests'
   | 'childDocumentationJsComponentDescription.childMdx.frontmatter.jsdocImports'
-  | 'childDocumentationJsComponentDescription.childMdx.frontmatter.publish'
   | 'childDocumentationJsComponentDescription.childMdx.slug'
   | 'childDocumentationJsComponentDescription.childMdx.body'
   | 'childDocumentationJsComponentDescription.childMdx.excerpt'
@@ -66213,7 +66198,6 @@ type DocumentationJSComponentDescriptionFieldsEnum =
   | 'childrenMdx.frontmatter.componentVersion'
   | 'childrenMdx.frontmatter.componentTests'
   | 'childrenMdx.frontmatter.jsdocImports'
-  | 'childrenMdx.frontmatter.publish'
   | 'childrenMdx.slug'
   | 'childrenMdx.body'
   | 'childrenMdx.excerpt'
@@ -66287,7 +66271,6 @@ type DocumentationJSComponentDescriptionFieldsEnum =
   | 'childMdx.frontmatter.componentVersion'
   | 'childMdx.frontmatter.componentTests'
   | 'childMdx.frontmatter.jsdocImports'
-  | 'childMdx.frontmatter.publish'
   | 'childMdx.slug'
   | 'childMdx.body'
   | 'childMdx.excerpt'
@@ -66471,16 +66454,6 @@ type DocumentationJSComponentDescriptionSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type MarkdownPageTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-}>;
-
-
-type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }> };
-
 type DocumentationJsFragmentFragment = (
   Pick<DocumentationJs, 'name' | 'level' | 'memberof' | 'kind' | 'optional' | 'default'>
   & { readonly description: Maybe<(
@@ -66488,8 +66461,260 @@ type DocumentationJsFragmentFragment = (
     & DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
   )>, readonly type: Maybe<(
     DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
@@ -66525,6 +66750,23 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DesignSystemLayoutPageQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
+        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
+      )> }
+    )> }
+  ) };
 
 type DocsPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -66572,22 +66814,26 @@ type NavigationQuery = { readonly pages: (
     )> }
   ) };
 
-type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+type MarkdownPageTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+}>;
 
 
-type DesignSystemLayoutPageQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
-        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
-      )> }
-    )> }
-  ) };
+type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }> };
+
+type JSDocQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type JSDocQuery = { readonly jsdoc: { readonly nodes: ReadonlyArray<(
+      { readonly params: Maybe<ReadonlyArray<Maybe<(
+        Pick<DocumentationJs, 'name'>
+        & { readonly type: Maybe<Pick<DoctrineType, 'name'>>, readonly description: Maybe<DocumentationJSComponentDescriptionFragmentFragment> }
+      )>>>, readonly properties: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly examples: Maybe<ReadonlyArray<Maybe<Pick<DocumentationJsExample, 'raw'>>>>, readonly deprecated: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'rawBody'>> }>, readonly members: Maybe<{ readonly static: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly inner: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly global: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly events: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>> }> }
+      & DocumentationJsFragmentFragment
+    )> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -66619,16 +66865,5 @@ type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
     Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
     & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
-
-type JSDocQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type JSDocQuery = { readonly jsdoc: { readonly nodes: ReadonlyArray<(
-      { readonly params: Maybe<ReadonlyArray<Maybe<(
-        Pick<DocumentationJs, 'name'>
-        & { readonly type: Maybe<Pick<DoctrineType, 'name'>>, readonly description: Maybe<DocumentationJSComponentDescriptionFragmentFragment> }
-      )>>>, readonly properties: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly examples: Maybe<ReadonlyArray<Maybe<Pick<DocumentationJsExample, 'raw'>>>>, readonly deprecated: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'rawBody'>> }>, readonly members: Maybe<{ readonly static: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly inner: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly global: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>>, readonly events: Maybe<ReadonlyArray<Maybe<DocumentationJsFragmentFragment>>> }> }
-      & DocumentationJsFragmentFragment
-    )> } };
 
 }

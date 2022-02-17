@@ -1,6 +1,6 @@
 ---
 title: Layout Components
-description: Responsive layout components to handle basic layout needs.
+description: High level and responsive components to handle common layout needs.
 tags:
   - layout
   - component

@@ -2,8 +2,8 @@
 subject: Introduction
 title: Vue d'ensemble de la documentation - 🏔
 description:
-  Une collection de méthodes et de bibliothèque de code pour designer et
-  construire des sites web et applications.
+  Méthodes, bibliothèques de code et utilitaires pour designer et construire des
+  sites web et applications.
 ---
 
 <DocHeader props={props}/>

@@ -28,6 +28,7 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /where to start/i,
     /get started/i,
     /development process/i,
+    /tutorials/i,
     /guides/i,
     /packages/i,
     /reference/i,
@@ -56,11 +57,17 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /components/i,
     /print/i,
 
+    /guidelines/i,
+
     /assets/i,
     /design tokens/i,
     /tools/i,
 
-    /Content API/i,
+    /website api/i,
+
+    /pages/i,
+    /sections/i,
+    /blocks/i,
   ],
   sortOrderItems: [
     /overview/i,
@@ -70,6 +77,10 @@ export const defaultOptions: Required<GetNavigationAPIOptions> = {
     /tech/i,
     /theming/i,
     /demos/i,
+
+    /pages/i,
+    /sections/i,
+    /blocks/i,
   ],
   includedPaths: [],
   excludePaths: ['/dev-404-page/', '/404/'],

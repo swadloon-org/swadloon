@@ -1,10 +1,12 @@
 ---
-title: Blocks
+title: Blocks - 🍤
 description:
   High-level components to render text, markdown content, images, medias etc.
 tags:
   - markdown
   - content
+  - website-api
+status: draft
 ---
 
 <!-- CODE IMPORTS -->

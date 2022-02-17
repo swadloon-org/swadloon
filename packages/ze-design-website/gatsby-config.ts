@@ -61,7 +61,7 @@ const config: conf.GastbySiteConfig = {
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       renderDocsPages: false,
-      renderUnpublishedPages: env.APP_ENV === DEPLOY_ENV.LOCAL ? true : false,
+      renderUnpublishedPages: false,
     }),
     core.getGastbyPluginTsCacheConfig(),
     /** template */

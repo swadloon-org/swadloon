@@ -70,8 +70,7 @@ globalStyle(`${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`, {
 /** Horizontal line */
 
 globalStyle(`${wrapper} > hr`, {
-  marginTop: '20px',
-  marginBottom: '20px',
+  marginTop: '2em',
 });
 
 /**

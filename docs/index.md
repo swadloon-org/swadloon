@@ -2,8 +2,8 @@
 subject: Introduction
 title: Project Overview - 🏔
 description:
-  Our methodology, libraries and utilities to design and build (serverless)
-  website and apps.
+  Methodology, libraries and utilities to design and build (serverless) website
+  and apps.
 ---
 
 <DocHeader props={props}/>

@@ -88,7 +88,7 @@ export const iconographyVars: MapLeafNodes<CSSIconography, CSSVarFunction> =
  * Typography
  */
 export const fontsVars: MapLeafNodes<CSSFontsV2, CSSVarFunction> =
-  createGlobalThemeContract<CSSFontsV2>(defaultCSSTypography.fonts, propertyFormatFn());
+  createGlobalThemeContract<CSSFontsV2>(defaultCSSTypography.fonts, propertyFormatFn('font'));
 export const typographyVars: MapLeafNodes<CSSTypographyV2, CSSVarFunction> =
   createGlobalThemeContract<CSSTypographyV2>(defaultCSSTypography, propertyFormatFn());
 export const typographyCSS = defaultCSSTypography;

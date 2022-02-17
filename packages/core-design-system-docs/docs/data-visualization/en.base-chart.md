@@ -1,3 +1,9 @@
-#
+---
+title: Charts
+tags:
+  - components
+  - data-viz
+published: false
+---
 
-## Scaling
+<DocHeader props={props}/>

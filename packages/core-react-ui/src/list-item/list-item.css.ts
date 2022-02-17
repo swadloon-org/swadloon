@@ -145,10 +145,22 @@ globalStyle(`${base} p`, {
   padding: 'inherit',
 });
 
+//
 // make sure that enclosed elements wrap correctly
+//
 globalStyle(`${text} *:is(em,p,strong)`, {
   whiteSpace: 'normal',
-  display: 'inline',
+  display: 'inline !important',
+});
+
+//
+// disable capsize
+//
+globalStyle(`${text} *::before`, {
+  display: 'none !important',
+});
+globalStyle(`${text} *::after`, {
+  display: 'none !important',
 });
 
 globalStyle(`${base} p::after`, {
