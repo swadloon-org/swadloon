@@ -1,7 +1,7 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS, typographyVars } from '../theme/default-theme.css';
+import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css';
 
 /**
  *
@@ -32,7 +32,13 @@ const textColor = createVar();
 const textColorActive = createVar();
 const textColorDisabled = createVar();
 
-export const getWrapperStyles = recipe({
+/**
+ *
+ * Variants
+ *
+ */
+
+export const variants = recipe({
   base: {
     vars: {
       [iconSize]: `clamp(16px, 1em, 28px)`,
@@ -75,24 +81,8 @@ export const getWrapperStyles = recipe({
           [backgroundColorDisabled]: colorVars.colors.grey[25],
         },
       },
-      primaryReversed: {
-        vars: {
-          [iconColor]: colorVars.colors.grey[700],
-          [iconColorDisabled]: colorVars.colorIntents.disabledText,
-          [textColor]: colorVars.colorIntents.primaryTextReversed,
-          [textColorActive]: colorVars.colorIntents.primaryReversed,
-          [textColorDisabled]: colorVars.colors.grey[200],
-          [borderColor]: colorVars.colorIntents.primary,
-          [borderColorDisabled]: `transparent`,
-          [backgroundColor]: colorVars.colors.grey[900],
-          [backgroundColorActive]: colorVars.colors.primary[100],
-          [backgroundColorDisabled]: colorVars.colors.grey[25],
-        },
-      },
       secondary: {},
       tertiary: {},
-      secondaryReversed: {},
-      tertiaryReversed: {},
     },
     /**
      * Sizes
@@ -167,7 +157,7 @@ export const text = style({
  *
  */
 
-export const getInputStyles = recipe({
+export const styleVariants = recipe({
   base: {
     position: 'relative',
     padding: `0 calc(${iconSize} + 2 * ${iconOffset}) 0 ${paddingX}`,
@@ -210,11 +200,8 @@ export const getInputStyles = recipe({
      */
     variant: {
       primary: {},
-      primaryReversed: {},
       secondary: {},
       tertiary: {},
-      secondaryReversed: {},
-      tertiaryReversed: {},
     },
     /**
      * Sizes
@@ -257,10 +244,16 @@ export const getInputStyles = recipe({
         boxShadow: `0 0 0 1px ${colorVars.colorIntents.dangerAction}`,
       },
     },
+    /**
+     * Loading states
+     */
     loading: {
       true: {},
       false: {},
     },
+    /**
+     * Disabled states
+     */
     disabled: {
       true: {
         cursor: 'not-allowed',
@@ -277,7 +270,7 @@ export const getInputStyles = recipe({
   },
 });
 
-export type InputVariants = RecipeVariants<typeof getInputStyles>;
+export type InputVariants = RecipeVariants<typeof styleVariants>;
 
 /**
  *
@@ -294,18 +287,21 @@ export const icon = style({
   pointerEvents: 'none', // let events go through
 });
 
-export const getInputIconStyles = recipe({
+export const iconVariants = recipe({
   base: {
     color: iconColor,
   },
   variants: {
     /**
-     * Position
+     * Icon position
      */
     position: {
       left: { left: paddingX },
       right: { right: iconOffset },
     },
+    /**
+     * Disabled states
+     */
     disabled: {
       true: {
         color: iconColorDisabled,
@@ -315,4 +311,4 @@ export const getInputIconStyles = recipe({
   },
 });
 
-export type InputIconVariants = RecipeVariants<typeof getInputIconStyles>;
+export type InputIconVariants = RecipeVariants<typeof iconVariants>;

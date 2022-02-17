@@ -1,20 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.5.2](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.5.1...@newrade/core-website-api@1.5.2) (2022-01-03)
 
 ### Bug Fixes
 
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.5.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.5.0...@newrade/core-website-api@1.5.1) (2021-12-21)
 
@@ -24,11 +19,6 @@ All notable changes to this project will be documented in this file. See
   ([7f36061](https://github.com/newrade/newrade-core/commit/7f360614cf376bd26a75cc4420dad599f55d6123))
 - **core:** fixes for fork-ts-checker and ts-loader config
   ([3ae9b37](https://github.com/newrade/newrade-core/commit/3ae9b37fb43e12cf9d375fb85cea6d81f6efbecd))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.4.0...@newrade/core-website-api@1.5.0) (2021-11-18)
 
@@ -46,11 +36,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements to docs layout
   ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.1...@newrade/core-website-api@1.4.0) (2021-10-05)
 
 ### Bug Fixes
@@ -66,14 +51,8 @@ All notable changes to this project will be documented in this file. See
   ([f745ef1](https://github.com/newrade/newrade-core/commit/f745ef13ebe1183a582cf5524591f68f5ced4e3f))
 - **core:** adding updated navigation api hooks and utilities
   ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
-- **core-gatsby-ui:** working on improvements to navigation api hooks and
-  utilities
+- **core-gatsby-ui:** working on improvements to navigation api hooks and utilities
   ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.0...@newrade/core-website-api@1.3.1) (2021-09-09)
 
@@ -81,11 +60,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix code block issue in mdx + update sidebar documentation
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.2.2...@newrade/core-website-api@1.3.0) (2021-08-31)
 
@@ -119,28 +93,13 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** refactor navigation components
   ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.2.2](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.2.1...@newrade/core-website-api@1.2.2) (2021-07-12)
 
 **Note:** Version bump only for package @newrade/core-website-api
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.2.0...@newrade/core-website-api@1.2.1) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/core-website-api
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.1.1...@newrade/core-website-api@1.2.0) (2021-07-03)
 
@@ -169,11 +128,6 @@ All notable changes to this project will be documented in this file. See
   ([0beca10](https://github.com/newrade/newrade-core/commit/0beca10a3ea3c705765c43bca6920a6f1cea622b))
 - **core-website-api:** split api from core-gatsby-ui
   ([e697e80](https://github.com/newrade/newrade-core/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 1.1.0 (2021-06-16)
 

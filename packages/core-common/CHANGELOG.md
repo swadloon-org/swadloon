@@ -1,16 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.3](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.2...@newrade/core-common@1.4.3) (2021-12-21)
 
 **Note:** Version bump only for package @newrade/core-common
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.2](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.1...@newrade/core-common@1.4.2) (2021-10-05)
 
@@ -18,11 +14,6 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** update scripts and doc to support windows
   ([22694d7](https://github.com/newrade/newrade-core/commit/22694d7dd96f8d72669fa480f3a4354876e2f319))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.4.1](https://github.com/newrade/newrade-core/compare/@newrade/core-common@1.4.0...@newrade/core-common@1.4.1) (2021-08-31)
 
@@ -40,14 +31,8 @@ All notable changes to this project will be documented in this file. See
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
 - **core:** fixes for page generation (i18)
   ([d16b451](https://github.com/newrade/newrade-core/commit/d16b4517a8a8c676cf60c5e7cb239905ac0b2bfd))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.3.2...@newrade/core-common@1.4.0) (2021-07-03)
 
@@ -55,11 +40,11 @@ All notable changes to this project will be documented in this file. See
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 - **deepscan-fixes:** fixing error flag by deepscan
   ([fee3386](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/fee3386d881f78036447523e48f7455ace636645))
@@ -76,8 +61,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **controller-status:** adding route and controller for knowing the current
-  status of cliniko
+- **controller-status:** adding route and controller for knowing the current status of cliniko
   ([e357a5b](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/e357a5b5c3865d664184bb659370f7b4fdc2c9a2))
 - **core-common:** add form api
   ([b25a7a7](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b25a7a7a7ea7232b039a4cf6aa130de8304a67cc))
@@ -100,22 +84,12 @@ All notable changes to this project will be documented in this file. See
 - **vsb-api:** adding new apis
   ([b9e43a6](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.3.0...@newrade/core-common@1.3.1) (2021-06-16)
 
 ### Bug Fixes
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.3...@newrade/core-common@1.3.0) (2021-05-21)
 
@@ -130,11 +104,6 @@ All notable changes to this project will be documented in this file. See
 
 - **vsb-api:** adding new apis
   ([b9e43a6](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.2.3](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.2...@newrade/core-common@1.2.3) (2021-03-09)
 
@@ -158,7 +127,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-utils:** refactor envs
+- **core-node-utils:** refactor envs
   ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
 
 ### Features
@@ -177,8 +146,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **controller-status:** adding route and controller for knowing the current
-  status of cliniko
+- **controller-status:** adding route and controller for knowing the current status of cliniko
   ([e357a5b](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/e357a5b5c3865d664184bb659370f7b4fdc2c9a2))
 - **core-common:** add form api
   ([b25a7a7](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b25a7a7a7ea7232b039a4cf6aa130de8304a67cc))
@@ -199,7 +167,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))

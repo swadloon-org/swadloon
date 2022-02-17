@@ -1,14 +1,7 @@
 import React from 'react';
-import { IoArrowForwardOutline } from 'react-icons/io5';
 
-import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
-import {
-  Button,
-  Link,
-  PrimitiveProps,
-  useCommonProps,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { ICON, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import { Button, Link, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 
 import * as styles from './docs-footer.css';
 
@@ -28,7 +21,6 @@ export const DocsPageFooter: React.FC<Props> = ({
   as,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps<'footer'>({
     id,
     style,
@@ -43,11 +35,7 @@ export const DocsPageFooter: React.FC<Props> = ({
     <footer {...commonProps}>
       <div className={styles.content}>
         {renderEditLink ? (
-          <Link
-            variant={LinkVariant.noUnderline}
-            variantSize={PARAGRAPH_SIZE.small}
-            href={editPageUrl}
-          >
+          <Link linkStyle={LinkVariant.noUnderline} size={PARAGRAPH_SIZE.small} href={editPageUrl}>
             Edit this page
           </Link>
         ) : null}
@@ -56,7 +44,7 @@ export const DocsPageFooter: React.FC<Props> = ({
           <Button
             as={'a'}
             variant={Variant.primary}
-            Icon={<IoArrowForwardOutline />}
+            Icon={ICON.ARROW_RIGHT}
             style={{ marginLeft: 'auto' }}
             href={nextPageUrl}
           >

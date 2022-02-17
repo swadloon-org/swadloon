@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 
-import { globalThemeReversed } from '../global/global-theme-classnames';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 
 import { AsTypes, PrimitiveProps } from './primitive.props';
@@ -43,7 +42,11 @@ function PrimitiveFn<As extends AsTypes = 'div', ElementRef extends Element = an
   { id, style, className, classNames = [], as, AsElement, theme, variant, ...props }: Props<As>,
   forwardedRef: React.ForwardedRef<ElementRef>
 ) {
-  const mergedTheme = theme ? theme : variant?.match(/reversed/i) ? 'reversed' : 'normal';
+  /**
+   *
+   * Props
+   *
+   */
 
   // merge props (normalize id, combine classNames...)
   // @ts-ignore
@@ -51,17 +54,21 @@ function PrimitiveFn<As extends AsTypes = 'div', ElementRef extends Element = an
     id,
     style,
     className,
-    classNames: [
-      ...classNames,
-      // set the correct theme class to reverse components if they are set to a reversed variant
-      mergedTheme === 'reversed' ? globalThemeReversed : '',
-    ],
+    classNames,
     ...props,
   });
 
   const mergedProps = { ...commonProps, ref: forwardedRef };
 
+  /**
+   *
+   * Rendering
+   *
+   */
+
+  //
   // when a AsElement node is passed, we clone it and spread the props to it
+  //
   const ClonedComponent = AsElement
     ? React.cloneElement(AsElement as React.ReactElement, mergedProps)
     : null;
@@ -70,7 +77,9 @@ function PrimitiveFn<As extends AsTypes = 'div', ElementRef extends Element = an
     return ClonedComponent;
   }
 
-  return React.createElement(as || 'div', mergedProps);
+  const NormalElement = React.createElement(as || 'div', mergedProps);
+
+  return NormalElement;
 }
 
 (PrimitiveFn as React.NamedExoticComponent).displayName = NAME;

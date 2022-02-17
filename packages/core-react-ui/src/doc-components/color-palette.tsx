@@ -1,88 +1,56 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import {
-  Color,
-  ColorPalette as ColorPaletteType,
   ColorShades5,
+  ColorShades7,
+  ColorShades10,
   ColorShadesGrey,
 } from '@newrade/core-design-system';
 
 import { Stack } from '../layout/stack';
-import { keys } from '../utilities/utilities';
+import { keys } from '../utilities-iso/utilities';
 
-import * as stylesRef from './color-palette.treat';
-import { ColorSwatchDark } from './color-swatch-dark';
-import { ColorSwatchLight } from './color-swatch-light';
+import { ColorSwatch } from './color-swatch';
+
+import * as styles from './color-palette.css';
 
 type Props = {
   colorName: string;
-  colorOrPalette:
+  color:
     | string
-    | Color
-    | Record<ColorShades5, Color>
-    | Record<ColorShadesGrey, Color>
-    | Record<string, Color>;
+    | Record<ColorShades5, string>
+    | Record<ColorShades7, string>
+    | Record<ColorShades10, string>
+    | Record<ColorShadesGrey, string>
+    | Record<string, string>;
 };
 
-export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => {
-  const { styles } = useStyles(stylesRef);
-
-  if (typeof colorOrPalette === 'string') {
+export const ColorPalette: React.FC<Props> = ({ colorName, color }) => {
+  if (typeof color === 'string') {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatchLight name={colorName} color={colorOrPalette}></ColorSwatchLight>
-      </Stack>
-    );
-  }
-  if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
-    return (
-      <Stack gap={['10px']}>
-        <ColorSwatchDark name={colorName} color={colorOrPalette as any}></ColorSwatchDark>{' '}
+        <ColorSwatch name={colorName} color={color}></ColorSwatch>
       </Stack>
     );
   }
 
-  if (typeof colorOrPalette === 'object') {
-    const palette = colorOrPalette as ColorPaletteType;
+  if (typeof color === 'object') {
+    const palette = color;
     const shades = keys(palette);
 
     return (
       <div className={styles.wrapper}>
         {shades.map((shadeName, index) => {
           const color = palette[shadeName];
-          if (shadeName === 'baseHue' || shadeName === 'baseSat') {
-            return null;
-          }
-          if (
-            shadeName === '0' ||
-            shadeName === '0-reversed' ||
-            shadeName === '25' ||
-            shadeName === '50' ||
-            shadeName === '100' ||
-            shadeName === '100-reversed' ||
-            shadeName === '200' ||
-            shadeName === '200-reversed' ||
-            shadeName === '300' ||
-            shadeName === '400'
-          )
-            return (
-              <ColorSwatchLight
-                key={index}
-                shadeNumber={shadeName}
-                name={colorName}
-                color={color as any}
-              ></ColorSwatchLight>
-            );
-          else
-            return (
-              <ColorSwatchDark
-                key={index}
-                shadeNumber={shadeName}
-                name={colorName}
-                color={color as any}
-              ></ColorSwatchDark>
-            );
+
+          return (
+            <ColorSwatch
+              key={index}
+              shadeNumber={shadeName}
+              name={colorName}
+              color={color as any}
+            ></ColorSwatch>
+          );
         })}
       </div>
     );

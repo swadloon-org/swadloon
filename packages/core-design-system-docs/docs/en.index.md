@@ -9,34 +9,70 @@ tags:
 
 <DocHeader props={props}/>
 
-## Foundations
+The main purpose of this section is to present concisely the rules, guidelines
+and principles we use in the design system.
 
-Foundations are principles and rules that guide the rest of the system. This
-system includes the following subjects:
+> **2022-01:** At this point in time everything here is organized as a technical
+> reference. Additional tutorials, how-to guides and explanation content will be
+> added at some point.
 
-- **Colors**: What colors are available to use
-- **Colors Intents**: How colors should be used
-- **Effects**: How shadows, transparency and other special effects are used
-- **Sizing**: How to size and space out components
-- **Iconography**: What and how icons are used in the system
-- **Typography**: What fonts to use and how text, headings, labels are presented
-- **Layout**: How to organize content, for different viewports
-- **Animations**: How to animate layers and effects
+The documentation for the system is divided in 4 parts:
 
-## Components
+- Tutorials (_coming soon_)
+- How to guides (_coming soon_)
+- The technical reference (_available_)
+- Explanation and theory (_coming soon_)
 
-Components include all UI elements starting from small, undivisible ones like
-icons, separators... to more complex ones like buttons, inputs and then, larger
-ones like forms, data charts and other high-level components.
+---
 
-This organisation follows the
-[Atomic Design Principles](https://bradfrost.com/blog/post/atomic-web-design/)
-where smaller components (atoms) compose slightly larger ones (molecules) which
-go into even larger and more complete components (organisms).
+## Brand - 💎
 
-![Atomic Design Illustration](https://bradfrost.com/wp-content/uploads/2019/06/atomic-design-product.jpg)
+General presentation of our brand, its principles and philosophy.
 
-## Effects
+### Principles
+
+_Coming soon_
+
+### Design Philosophy
+
+_Coming soon_
+
+### Identity
+
+_Coming soon_
+
+### Gallery
+
+_Coming soon_
+
+---
+
+## Foundations - 📐
+
+### Colors
+
+What colors are available to use and how colors should be used in various
+scenarios.
+
+### Typography
+
+### Sizing
+
+How to size and space out components and content.
+
+### Iconography
+
+How icons are used in the system.
+
+### Illustrations
+
+How illustrations are used in the system to convey meaning.
+
+### Photography
+
+### Effects
+
+> How shadows, transparency and other special effects are used.
 
 Effects are applied usually used by components, they include:
 
@@ -48,9 +84,77 @@ One way to have consistency between effect is to have predefined effects, e.g. 3
 level of box shadow, that components can use, resulting in fewer versions of
 those.
 
-## Animations
+### Layout
 
-## Content
+### Animations
+
+How motion is applied in components and navigation.
+
+---
+
+## Templates - 📱 💻
+
+### Landing Pages and Web
+
+### Documentation
+
+### Print - 📄
+
+---
+
+## Patterns - ⚛️
+
+### Navigation
+
+_Coming soon_
+
+### Search
+
+_Coming soon_
+
+### Tabular Data
+
+_Coming soon_
+
+---
+
+## Components - 🔶
+
+Components include all UI elements starting from small, undivisible ones like
+icons, separators... to more complex ones like buttons, inputs and then, larger
+ones like forms, data charts and other high-level components.
+
+This organisation follows the
+[Atomic Design Principles](https://bradfrost.com/blog/post/atomic-web-design/)
+where smaller components (atoms) compose slightly larger ones (molecules) which
+go into even larger and more complete components (organisms).
+
+Get started by exploring available components.
+
+---
+
+## Data Visualization - 📊
+
+_Coming soon_
+
+<!-- ### Gallery
+
+### Colors
+
+### Spacing
+
+### Charts -->
+
+---
+
+## Design Tokens - 🎛️
+
+Design tokens are variables, styles and other assets extracted from our styling
+files.
+
+---
+
+## Website API - 🍱
 
 Every website or app has to place content (text, images, video, forms, etc) in a
 page or a view. As designers and developers we have to think about this for
@@ -59,14 +163,18 @@ every project.
 The following is an opinionated way of seeing the content we place on pages. We
 call this the **Website API**.
 
-Content is organized with [Pages](/design-system/content/pages/),
-[Sections](/design-system/content/sections/) and
-[Blocks](/design-system/content/blocks/).
+Content is organized with [Pages](/design-system/website-api/pages/),
+[Sections](/design-system/website-api/sections/) and
+[Blocks](/design-system/website-api/blocks/).
 
-## Additional Resources
+## Utilities
 
-No design system is made in a vacuum. Here are our recommended reading list,
-references and design systems.
+_Coming soon_
+
+## Resources
+
+No design work is made in a vacuum. Here are our recommended reading list,
+references and most notable design systems for your references.
 
 ### Reading
 

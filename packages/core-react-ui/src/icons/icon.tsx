@@ -1,5 +1,4 @@
 import React, { ErrorInfo } from 'react';
-import { useStyles } from 'react-treat';
 
 import { snake } from 'case';
 import debug from 'debug';
@@ -7,11 +6,11 @@ import debug from 'debug';
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-import * as styleRefs from './icon.treat';
 import { useIconContext } from './icons-provider';
+
+import * as styles from './icon.css';
 
 const log = debug('nr:core-react-ui:icon');
 const logWarn = log.extend('warn');
@@ -24,7 +23,7 @@ type Props = PrimitiveProps<'svg'> & {
   height?: number | string;
 };
 
-export const IconLoader: React.FC<Props> = ({
+const IconLoader: React.FC<Props> = ({
   id,
   style,
   className,
@@ -36,14 +35,18 @@ export const IconLoader: React.FC<Props> = ({
   AsElement,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
   const context = useIconContext();
-  const styles = useStyles(styleRefs);
+
   const commonProps = useCommonProps<'svg'>({
     id,
     style,
     className,
-    classNames: [styles.base, size ? styles[size] : ''],
+    classNames: [
+      styles.base,
+      styles.variants({
+        size: size,
+      }),
+    ],
     ...props,
   });
 
@@ -85,14 +88,24 @@ type State = {
   errorStack?: ErrorInfo;
 };
 
+/**
+ * Error boundary wrapper component for IconLoader
+ */
 export class IconComp extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { error: undefined };
   }
 
+  static getDerivedStateFromError(error: Error) {
+    // Update state so the next render will show the fallback UI.
+    return { error: error };
+  }
+
   componentDidCatch(error: Error, info: ErrorInfo) {
-    this.setState({ error: error, errorStack: info });
+    logError(error.message);
+    logError(error.stack);
+    logError(info);
   }
 
   render() {

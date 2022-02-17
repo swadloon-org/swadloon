@@ -16,7 +16,6 @@ import { commonConfig } from './webpack.common.config';
 
 const prodConfig: Configuration.Configuration = {
   mode: 'production',
-  devtool: false,
   optimization: {
     minimizer: [core.terserPlugin],
   },
@@ -25,14 +24,7 @@ const prodConfig: Configuration.Configuration = {
     maxAssetSize: 800000,
     maxEntrypointSize: 800000,
   },
-  plugins: [
-    core.getBundleVisualizerPlugin(),
-    core.getTreatCSSPlugin({
-      isHmr: false,
-      isSSR: false,
-    }),
-    core.getSizePlugin(),
-  ],
+  plugins: [core.getBundleVisualizerPlugin(), core.getSizePlugin()],
   stats: core.stats.prod,
   output: core.output.prod,
 };

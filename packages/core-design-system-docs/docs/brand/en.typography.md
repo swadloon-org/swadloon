@@ -38,7 +38,7 @@ Visual importance of text has 3 levels: primary, secondary and tertiary.
 <!-- prettier-ignore -->
 <ThemeWrapper viewport={'auto'}> 
   <Heading variantLevel={'primary'} variant={'h2'}>Title</Heading>
-  <Label variantLevel={'secondary'} variantStyle={'boldUppercase'}>Subtitle</Label>
+  <Label variantLevel={'secondary'} textStyle={'boldUppercase'}>Subtitle</Label>
   <Paragraph variantLevel={'primary'}><Lorenipsum/></Paragraph>
   <Paragraph variantLevel={'tertiary'} variant={'small'}>Published 4h ago</Paragraph>
 </ThemeWrapper>

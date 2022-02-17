@@ -3,7 +3,7 @@ import path from 'path';
 
 import { GatsbyNode } from 'gatsby';
 
-import { CommonEnvType } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-node-utils';
 
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 

@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-core-react-ui-utilities-test.cjs.js",
+  "module": "dist/newrade-core-react-ui-utilities-test.esm.js"
+}

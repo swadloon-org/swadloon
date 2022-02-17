@@ -1,20 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-types@2.0.1...@newrade/core-types@2.1.0) (2021-12-21)
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-types@2.0.0...@newrade/core-types@2.0.1) (2021-08-31)
 
@@ -28,14 +23,8 @@ All notable changes to this project will be documented in this file. See
   ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
 - **core:** fix typecheck command
   ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.6.0...@newrade/core-types@2.0.0) (2021-07-12)
 
@@ -47,11 +36,6 @@ All notable changes to this project will be documented in this file. See
 ### BREAKING CHANGES
 
 - **gatsby:** webpack v5 and gatsby v3
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.5.2...@newrade/core-types@1.6.0) (2021-07-03)
 
@@ -105,22 +89,12 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** fixes list items
   ([1cda7d1](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1cda7d1276c520dc8ad470880b9755407d300338))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.5.1](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.5.0...@newrade/core-types@1.5.1) (2021-06-16)
 
 ### Bug Fixes
 
 - **build:** simplify build commands
   ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.4.0...@newrade/core-types@1.5.0) (2021-05-21)
 
@@ -135,11 +109,6 @@ All notable changes to this project will be documented in this file. See
   ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
 - **vsb-api:** add error handling for auth0
   ([0941709](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/094170962aee78d608bafe7c8aae70ebc16713fe))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.3.2...@newrade/core-types@1.4.0) (2021-03-09)
 

@@ -1,13 +1,14 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, useCommonProps } from '@newrade/core-react-ui';
+import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
 import { SectionProps } from './section.props';
 import { SectionBase } from './section-base';
-import * as styleRefs from './section-showcase.treat';
+
+import * as styles from './section-showcase.css';
 
 type Props = SectionProps & {
   LeftTextBlock: React.ReactNode;
@@ -42,8 +43,6 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
     },
     ref
   ) => {
-    const { styles } = useStyles(styleRefs);
-    const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps<'section'>({
       id,
       style,
@@ -67,7 +66,7 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
             {LeftBGBlock}
             <BoxV2
               className={styles.leftInnerBlock}
-              padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}
+              padding={[sizeVars.x7, layoutVars.var.contentMargins]}
             >
               {LeftTextBlock}
             </BoxV2>
@@ -76,7 +75,7 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
             {RightBGBlock}
             <BoxV2
               className={styles.rightInnerBlock}
-              padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}
+              padding={[sizeVars.x7, layoutVars.var.contentMargins]}
             >
               {RightTextBlock}
             </BoxV2>

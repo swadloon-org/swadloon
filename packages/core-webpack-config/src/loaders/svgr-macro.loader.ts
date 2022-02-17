@@ -27,7 +27,11 @@ export function getSvgMacroLoader(options: Options = defaultOptions): RuleSetRul
           cacheDirectory: true,
           cacheCompression: false,
           plugins: options.hmr
-            ? [['react-refresh/babel'], ...babelPluginBrowserConf, ...(options.plugins || [])]
+            ? [
+                ['react-refresh/babel', { skipEnvCheck: true }],
+                ...babelPluginBrowserConf,
+                ...(options.plugins || []),
+              ]
             : [...babelPluginBrowserConf, ...(options.plugins || [])],
           presets: [...babelTypeScriptPresetBrowserConf, ...babelPresetBrowserConf],
         },

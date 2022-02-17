@@ -1,14 +1,19 @@
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+
+import { COLOR_MODE, COLOR_SCHEME, ColorModeProps, Variant } from '@newrade/core-design-system';
 
 import { defaultTheme } from '../default-theme';
 import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '../design-system/css-theme-config';
 import {
   GLOBAL_CSS_THEME_SCHEME,
+  GLOBAL_CSS_THEME_SCHEME_REVERSED,
   LOCAL_STORAGE_CSS_THEME_NAME_PROP,
   LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
 } from '../global/global-theme-classnames';
 import { useIsSSR } from '../hooks/use-is-ssr';
-import { debugInstance, NS } from '../utilities/log.utilities';
+import { PrimitiveProps } from '../primitive/primitive.props';
+import { getMergedClassname } from '../utilities-iso';
+import { debugInstance, NS } from '../utilities-iso/log.utilities';
 
 import { usePreferColorScheme } from './use-prefer-color-scheme';
 
@@ -37,6 +42,11 @@ type CSSThemeContextOptions = {
    * @default false
    */
   applyThemeToRootElement?: boolean;
+  /**
+   * Apply theme classnames to provided element instead of the documentElement (html)
+   * @default window.document.documentElement
+   */
+  rootElement?: HTMLElement | null;
   /**
    * Option to automatically save the last selected theme in local storage
    * @default false
@@ -70,7 +80,7 @@ CSSThemeContext.displayName = 'CSSThemeContext';
 /**
  * Provider for CSSThemeContext
  */
-export const CSSThemeProvider = ({
+export const CSSThemeProvider = function CSSThemeProvider({
   value,
   options,
   children,
@@ -78,8 +88,11 @@ export const CSSThemeProvider = ({
   value: CSSThemeContextType;
   options?: CSSThemeContextOptions;
   children: ReactNode;
-}) => {
-  const { applyThemeToRootElement, syncToLocalStorage } = { ...defaultOptions, ...options };
+}) {
+  const { applyThemeToRootElement, syncToLocalStorage, rootElement } = {
+    ...defaultOptions,
+    ...options,
+  };
   const isSSR = useIsSSR();
 
   const { colorScheme } = usePreferColorScheme();
@@ -116,7 +129,7 @@ export const CSSThemeProvider = ({
       log(`changing theme to: ${themeName}`);
       const foundTheme = themes?.find((theme) => theme.name === themeName);
       const foundThemeSchemeClassName =
-        foundTheme && foundTheme.colorScheme === 'dark'
+        foundTheme && foundTheme.colorScheme === COLOR_SCHEME.DARK
           ? GLOBAL_CSS_THEME_SCHEME.DARK
           : GLOBAL_CSS_THEME_SCHEME.LIGHT;
       if (foundTheme) {
@@ -204,10 +217,10 @@ export const CSSThemeProvider = ({
     );
     const foundThemeByScheme = themes?.find((theme) => {
       if (localStorageThemeScheme.current === GLOBAL_CSS_THEME_SCHEME.LIGHT) {
-        return theme.colorScheme === 'light';
+        return theme.colorScheme === COLOR_SCHEME.LIGHT;
       }
       if (localStorageThemeScheme.current === GLOBAL_CSS_THEME_SCHEME.DARK) {
-        return theme.colorScheme === 'dark';
+        return theme.colorScheme === COLOR_SCHEME.DARK;
       }
     });
 
@@ -285,42 +298,43 @@ export const CSSThemeProvider = ({
     const globalThemeClassNamesToRemove = themes
       ?.filter((theme) => theme.name !== selectedTheme?.name)
       .map((theme) => theme.className);
-    const rootElement = window.document.documentElement;
+    const element = rootElement ? rootElement : window.document.documentElement;
 
     //
     // update the global theme scheme classname
     //
-    if (internalValue.selected.colorScheme === 'light') {
-      if (rootElement.classList.contains(GLOBAL_CSS_THEME_SCHEME.DARK)) {
-        rootElement.classList.remove(GLOBAL_CSS_THEME_SCHEME.DARK);
+    if (internalValue.selected.colorScheme === COLOR_SCHEME.LIGHT) {
+      if (element.classList.contains(GLOBAL_CSS_THEME_SCHEME.DARK)) {
+        element.classList.remove(GLOBAL_CSS_THEME_SCHEME.DARK);
       }
-      rootElement.classList.add(GLOBAL_CSS_THEME_SCHEME.LIGHT);
+      element.classList.add(GLOBAL_CSS_THEME_SCHEME.LIGHT);
     }
-    if (internalValue.selected.colorScheme === 'dark') {
-      if (rootElement.classList.contains(GLOBAL_CSS_THEME_SCHEME.LIGHT)) {
-        rootElement.classList.remove(GLOBAL_CSS_THEME_SCHEME.LIGHT);
+    if (internalValue.selected.colorScheme === COLOR_SCHEME.DARK) {
+      if (element.classList.contains(GLOBAL_CSS_THEME_SCHEME.LIGHT)) {
+        element.classList.remove(GLOBAL_CSS_THEME_SCHEME.LIGHT);
       }
-      rootElement.classList.add(GLOBAL_CSS_THEME_SCHEME.DARK);
+      element.classList.add(GLOBAL_CSS_THEME_SCHEME.DARK);
     }
     //
     // clean up classes from other themes
     //
     globalThemeClassNamesToRemove?.forEach((themeClassNameToRemove) => {
-      if (rootElement.classList.contains(themeClassNameToRemove)) {
-        rootElement.classList.remove(themeClassNameToRemove);
+      if (element.classList.contains(themeClassNameToRemove)) {
+        element.classList.remove(themeClassNameToRemove);
       }
     });
     //
     // add classname from selected theme
     //
-    if (!rootElement.classList.contains(globalThemeClassNameToAdd)) {
+    if (!element.classList.contains(globalThemeClassNameToAdd)) {
       log(`adding className: ${globalThemeClassNameToAdd}`);
-      rootElement.classList.add(globalThemeClassNameToAdd);
+      element.classList.add(globalThemeClassNameToAdd);
     }
   }, [
     isSSR,
     applyThemeToRootElement,
     themes,
+    rootElement,
     internalValue?.selected?.colorScheme,
     internalValue?.selected?.className,
     selectedTheme?.name,
@@ -333,12 +347,206 @@ export const CSSThemeProvider = ({
 /**
  * Hook to consume the context's value
  */
-export function useCSSTheme(): CSSThemeContextType {
-  const value = React.useContext(CSSThemeContext);
+export function useCSSTheme() {
+  const currentCSSTheme = React.useContext(CSSThemeContext);
 
-  if (!value) {
+  if (!currentCSSTheme) {
+    logError('CSSThemeContext must be defined');
     throw new Error('CSSThemeContext must be defined');
   }
 
-  return value;
+  /**
+   * Utility function to find a light theme when the current is dark and vice versa
+   */
+  function getReversedCSSTheme() {
+    if (!currentCSSTheme) {
+      logError('CSSThemeContext must be defined');
+      throw new Error('CSSThemeContext must be defined');
+    }
+
+    const reversedCSSTheme = currentCSSTheme.config.themes.find((theme) => {
+      if (currentCSSTheme.selected?.colorScheme === COLOR_SCHEME.LIGHT) {
+        return theme.colorScheme === COLOR_SCHEME.DARK;
+      }
+      if (currentCSSTheme.selected?.colorScheme === COLOR_SCHEME.DARK) {
+        return theme.colorScheme === COLOR_SCHEME.LIGHT;
+      }
+    });
+    const reversedCSSThemeConfig = reversedCSSTheme
+      ? {
+          ...currentCSSTheme,
+          selected: reversedCSSTheme,
+        }
+      : undefined;
+
+    if (reversedCSSThemeConfig) {
+      return reversedCSSThemeConfig as CSSThemeContextType;
+    }
+
+    logWarn('no reversed theme found in your config');
+
+    return currentCSSTheme;
+  }
+
+  /**
+   * Utility function to find a light theme when the current is dark and vice versa
+   */
+  function getCSSThemeForScheme(scheme?: COLOR_SCHEME) {
+    if (!currentCSSTheme) {
+      throw new Error('CSSThemeContext must be defined');
+    }
+
+    if (!scheme) {
+      return currentCSSTheme;
+    }
+
+    const specificColorScheme = currentCSSTheme.config.themes.find((theme) => {
+      return theme.colorScheme === scheme;
+    });
+    const specificCSSThemeConfig = specificColorScheme
+      ? {
+          ...currentCSSTheme,
+          selected: specificColorScheme,
+        }
+      : undefined;
+
+    if (specificCSSThemeConfig) {
+      return specificCSSThemeConfig as CSSThemeContextType;
+    }
+
+    return currentCSSTheme;
+  }
+
+  function getCSSColorModeClassnames({
+    theme,
+    variant,
+    colorMode,
+    colorScheme,
+  }: Pick<CSSThemeSwitcherProps, 'theme' | 'variant' | 'colorMode' | 'colorScheme'>) {
+    if (!currentCSSTheme) {
+      throw new Error('CSSThemeContext must be defined');
+    }
+
+    const themeIsReversed = theme === 'reversed';
+    const variantIsReversed = variant ? /reversed/gi.test(variant) : false;
+    const colorModeIsReversed =
+      colorMode === COLOR_MODE.REVERSED || themeIsReversed || variantIsReversed;
+
+    const reversedCSSTheme = colorModeIsReversed ? getReversedCSSTheme() : currentCSSTheme;
+
+    const colorSchemeIsForced = !!colorScheme;
+    const forcedCSSTheme = colorSchemeIsForced
+      ? getCSSThemeForScheme(colorScheme)
+      : currentCSSTheme;
+
+    if (colorSchemeIsForced) {
+      const forcedClassnames = getMergedClassname([
+        forcedCSSTheme.selected?.className,
+        colorScheme === COLOR_SCHEME.LIGHT
+          ? GLOBAL_CSS_THEME_SCHEME.LIGHT
+          : GLOBAL_CSS_THEME_SCHEME.DARK,
+      ]);
+
+      return forcedClassnames;
+    }
+
+    if (colorModeIsReversed) {
+      const reversedClassnames = getMergedClassname([
+        reversedCSSTheme.selected?.className,
+        GLOBAL_CSS_THEME_SCHEME_REVERSED,
+      ]);
+
+      return reversedClassnames;
+    }
+
+    return '';
+  }
+
+  return { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme, getCSSColorModeClassnames };
 }
+
+type CSSThemeSwitcherProps = ColorModeProps &
+  PrimitiveProps<'div'> & {
+    variant?: Variant | null;
+  };
+
+/**
+ * Component to reverse the current theme (e.g. on a 'light' theme app, reverse a section to 'dark' theme)
+ * or force a specific color scheme
+ */
+export const CSSThemeSwitcher: FC<CSSThemeSwitcherProps> = function CSSThemeSwitcher({
+  children,
+  theme,
+  variant,
+  colorMode,
+  colorScheme,
+}) {
+  /**
+   *
+   * CSS Themes
+   *
+   */
+
+  const { currentCSSTheme, getReversedCSSTheme, getCSSThemeForScheme, getCSSColorModeClassnames } =
+    useCSSTheme();
+
+  const themeIsReversed = theme === 'reversed';
+  const variantIsReversed = variant ? /reversed/gi.test(variant) : false;
+  const colorModeIsReversed =
+    colorMode === COLOR_MODE.REVERSED || themeIsReversed || variantIsReversed;
+
+  const reversedCSSTheme = colorModeIsReversed ? getReversedCSSTheme() : currentCSSTheme;
+
+  const colorSchemeIsForced = !!colorScheme;
+  const forcedCSSTheme = colorSchemeIsForced ? getCSSThemeForScheme(colorScheme) : currentCSSTheme;
+
+  const wrapperDivRef = useRef<HTMLDivElement>(null);
+
+  if (colorSchemeIsForced) {
+    const forcedClassnames = getMergedClassname([
+      forcedCSSTheme.selected?.className,
+      colorScheme === COLOR_SCHEME.LIGHT
+        ? GLOBAL_CSS_THEME_SCHEME.LIGHT
+        : GLOBAL_CSS_THEME_SCHEME.DARK,
+    ]);
+
+    return (
+      <CSSThemeProvider
+        value={forcedCSSTheme}
+        options={{
+          syncToLocalStorage: false,
+          rootElement: wrapperDivRef.current,
+          applyThemeToRootElement: !!wrapperDivRef.current,
+        }}
+      >
+        <div className={forcedClassnames} ref={wrapperDivRef}>
+          {children}
+        </div>
+      </CSSThemeProvider>
+    );
+  }
+
+  if (colorModeIsReversed) {
+    const reversedClassnames = getMergedClassname([
+      reversedCSSTheme.selected?.className,
+      GLOBAL_CSS_THEME_SCHEME_REVERSED,
+    ]);
+
+    return (
+      <CSSThemeProvider
+        value={reversedCSSTheme}
+        options={{
+          syncToLocalStorage: false,
+          rootElement: wrapperDivRef.current,
+          applyThemeToRootElement: !!wrapperDivRef.current,
+        }}
+      >
+        <div className={reversedClassnames} ref={wrapperDivRef}>
+          {children}
+        </div>
+      </CSSThemeProvider>
+    );
+  }
+
+  return <>{children}</>;
+};

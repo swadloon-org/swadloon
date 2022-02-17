@@ -4,7 +4,7 @@
 /// <reference types="@newrade/core-types/src/autoprefixer" />
 /// <reference types="@newrade/core-types/src/cssnano" />
 /// <reference types="@newrade/core-types/src/postcss-preset-env" />
-/// <reference types="@newrade/core-types/src/treat-webpack-plugin" />
+
 /// <reference types="@newrade/core-types/src/webpack-copy-plugin" />
 /// <reference types="@newrade/core-types/src/webpack-stats-plugin" />
 /// <reference types="@newrade/core-types/src/webpack-lodash-plugin" />

@@ -1,5 +1,4 @@
-import { Theme } from '../design-system';
-import { getCSSHexColor } from '../utilities/colors.utilities';
+import { colorVars } from '../theme';
 
 /**
  * @see https://developers.google.com/maps/documentation/javascript/style-reference
@@ -8,10 +7,7 @@ import { getCSSHexColor } from '../utilities/colors.utilities';
  *
  * TODO: plug in grey levels and background for light / dark theme
  */
-export const mapStyles: (theme: Theme) => google.maps.MapTypeStyle[] = ({
-  theme,
-  cssTheme,
-}: Theme) => [
+export const googleMapThemeStyles: google.maps.MapTypeStyle[] = [
   /**
    * Global
    */
@@ -33,7 +29,7 @@ export const mapStyles: (theme: Theme) => google.maps.MapTypeStyle[] = ({
   {
     elementType: 'labels.icon',
     featureType: 'landscape',
-    stylers: [{ color: getCSSHexColor(theme.colors.colorIntents.primary) }],
+    stylers: [{ color: colorVars.colorIntents.primary }],
   },
   { elementType: 'labels.text.fill', featureType: 'landscape', stylers: [{ color: '#ff454545' }] },
   {
@@ -59,12 +55,12 @@ export const mapStyles: (theme: Theme) => google.maps.MapTypeStyle[] = ({
   {
     elementType: 'geometry.fill',
     featureType: 'poi',
-    stylers: [{ color: getCSSHexColor(theme.colors.colorIntents.primary) }, { lightness: 67 }],
+    stylers: [{ color: colorVars.colorIntents.primary }, { lightness: 67 }],
   },
   {
     elementType: 'labels.icon',
     featureType: 'poi',
-    stylers: [{ color: getCSSHexColor(theme.colors.colorIntents.primary) }],
+    stylers: [{ color: colorVars.colorIntents.primary }],
   },
   { elementType: 'labels.text.fill', featureType: 'poi', stylers: [{ color: '#ff454545' }] },
   { elementType: 'geometry', featureType: 'poi.business', stylers: [{ visibility: 'off' }] },

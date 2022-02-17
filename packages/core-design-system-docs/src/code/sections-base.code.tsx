@@ -2,16 +2,15 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBase } from '@newrade/core-gatsby-ui/src';
-import { Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack } from '@newrade/core-react-ui';
 import { PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
+import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const SectionsBase: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x1]}>
+    <Stack gap={[sizeVars.x1]}>
       <SectionBase section={{ variant: Variant.primary }}>
         <BlockMarkdown>
           <PlaceholderMarkdown />

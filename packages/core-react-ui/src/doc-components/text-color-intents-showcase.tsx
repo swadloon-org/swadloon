@@ -1,24 +1,21 @@
-import { default as React } from 'react';
-import { useStyles } from 'react-treat';
+import React from 'react';
 
-import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
+import { sizeVars } from '../theme';
+import { Label } from '..';
 
-import * as styleRefs from './text-color-intents-showcase.treat';
+import * as styles from './text-color-intents-showcase.css';
 
 type Props = {};
 
 export const TextColorIntentsShowcase: React.FC<Props> = (props) => {
-  const { cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
-
   return (
-    <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x3]}>
-        <div className={`${styles.text} ${styles.textSans}`}>Primary</div>
-        <div className={`${styles.text} ${styles.textSans}`}>Secondary</div>
-        <div className={`${styles.text} ${styles.textSans}`}>Tertiary</div>
-        <div className={`${styles.text} ${styles.textSans}`}>Fourth</div>
+    <Stack className={styles.wrapper} gap={[sizeVars.x5]}>
+      <Stack gap={[sizeVars.x3]}>
+        <Label>Primary</Label>
+        <Label>Secondary</Label>
+        <Label>Tertiary</Label>
+        <Label>Fourth</Label>
       </Stack>
     </Stack>
   );

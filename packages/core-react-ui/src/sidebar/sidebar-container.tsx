@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { useStyles } from 'react-treat';
 import { useDrag } from 'react-use-gesture';
 
 import { VIEWPORT } from '@newrade/core-design-system';
@@ -9,9 +8,9 @@ import { useBodyScrollLock } from '../hooks/use-body-scroll-lock';
 import { useFirstRender } from '../hooks/use-first-render.hook';
 import { useViewportBreakpoint } from '../hooks/use-viewport';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './sidebar-container.treat';
+import * as styles from './sidebar-container.css';
 
 type Props = PrimitiveProps<'div' | 'nav'> & {
   /**
@@ -37,7 +36,6 @@ export const SidebarContainer = React.memo(
       { id, style, className, sidebarOpened, disableBodyScroll, onClickBackdrop, as, ...props },
       ref
     ) => {
-      const { styles } = useStyles(styleRefs);
       const { viewport } = useViewportBreakpoint();
       const isFirstRender = useFirstRender();
       const classNames = getMergedClassname([className, styles.wrapper]);

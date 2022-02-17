@@ -4,8 +4,8 @@ import { Command, flags } from '@oclif/command';
 import debug from 'debug';
 import * as t from 'io-ts';
 
-import { loadDotEnv } from '@newrade/core-utils';
-import { getShellForPlatform } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-node-utils';
+import { getShellForPlatform } from '@newrade/core-node-utils';
 
 import { NS } from '../utilities/log.utilities';
 

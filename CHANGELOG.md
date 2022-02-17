@@ -1,8 +1,27 @@
 # Change Log
 
-All general changes to the repo or main dependencies will be documented in this
-file. This file is written manually where as other changelogs in `/packages/`
-are automated.
+All general changes to the repo or main dependencies will be documented in this file.
+
+Please note that this file is written **manually** where as other changelogs in `/packages/` are automated.
+
+# 2022 Jan Update - #1 - (2022-01)
+
+## Breaking changes
+
+- remove `ListItem` in favor of ListItemV2
+- rename `variantSize` in favor of `size` for all components
+- remove unneccessary `HTMLAttributes` type in props (already included in Primitive typings)
+- rename props for the `<Button/>` component
+- remove `getCSSTextStyles`
+- remove `createCSSTheme` in favor of `createCSSThemeV2`
+- remove deprecated props from Colors, Typography
+- remove DesignSystem (V1) in favor of V2
+
+## Features
+
+## Fixes
+
+--
 
 # 2021 Oct Update - #1 - (2021-10)
 
@@ -14,8 +33,6 @@ are automated.
 - upgrade capsize `from 'capsize'` to `from '@capsizecss/core'`
 
 ## Features
-
-- d
 
 ## Fixes
 
@@ -38,8 +55,7 @@ are automated.
 
 ## Breaking changes
 
-- remove .env at root requirements and move ENV variable to specific core-cli
-  command
+- remove .env at root requirements and move ENV variable to specific core-cli command
 
 ## Features
 
@@ -115,8 +131,7 @@ export * from './mdx/docs-mdx-components';
 
 ## Fixes
 
-- Consume core-react-ui with /src/ intead of compiled lib because of issues with
-  Treat and Vanilla-Extract (see
+- Consume core-react-ui with /src/ intead of compiled lib because of issues with Treat and Vanilla-Extract (see
   [issue](https://github.com/seek-oss/vanilla-extract/issues/231))
 
 ## Features

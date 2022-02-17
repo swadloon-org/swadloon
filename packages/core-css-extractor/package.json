@@ -21,14 +21,17 @@
   },
   "dependencies": {
     "@newrade/core-common": "*",
-    "@newrade/core-design-system": "^1.17.0",
-    "@newrade/core-jest-config": "^2.0.4",
-    "@newrade/core-react-ui": "^2.6.0",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-jest-config": "*",
+    "@newrade/core-node-utils": "*",
+    "@newrade/core-react-ui": "*",
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "^2.4.1",
-    "@newrade/core-webpack-config": "^2.5.0",
-    "add-asset-html-webpack-plugin": "^3.2.0",
+    "@newrade/core-webpack-config": "*",
+    "@newrade/ze-design-system": "*",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-beta.8",
+    "@vanilla-extract/css": "^1.6.8",
     "fp-ts": "^2",
-    "io-ts": "^2"
+    "io-ts": "^2",
+    "webpack-watched-glob-entries-plugin": "^2.2.2"
   }
 }

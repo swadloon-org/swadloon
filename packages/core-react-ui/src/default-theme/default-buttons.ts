@@ -25,6 +25,8 @@ export const defaultButtons: Buttons = {
       },
       border: defaultButtonBorder,
       outline: {},
+      iconSize: 16,
+      iconMargin: {},
     },
     medium: {
       padding: {
@@ -32,6 +34,8 @@ export const defaultButtons: Buttons = {
       },
       border: defaultButtonBorder,
       outline: {},
+      iconSize: 16,
+      iconMargin: {},
     },
     small: {
       padding: {
@@ -39,6 +43,8 @@ export const defaultButtons: Buttons = {
       },
       border: defaultButtonBorder,
       outline: {},
+      iconSize: 16,
+      iconMargin: {},
     },
     xSmall: {
       padding: {
@@ -46,6 +52,8 @@ export const defaultButtons: Buttons = {
       },
       border: defaultButtonBorder,
       outline: {},
+      iconSize: 16,
+      iconMargin: {},
     },
   },
   variants: {
@@ -56,26 +64,12 @@ export const defaultButtons: Buttons = {
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
     },
-    primaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
-    },
     secondary: {
       textColor: defaultColorIntents.primaryText,
       backgroundColor: defaultColorIntents.primaryText,
       iconColor: defaultColorIntents.primaryText,
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
-    },
-    secondaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
     },
     tertiary: {
       textColor: defaultColorIntents.primaryText,
@@ -84,12 +78,32 @@ export const defaultButtons: Buttons = {
       borderColor: defaultColorIntents.primaryText,
       outlineColor: defaultColorIntents.primaryText,
     },
-    tertiaryReversed: {
-      textColor: defaultColorIntents.primaryTextReversed,
-      backgroundColor: defaultColorIntents.primaryTextReversed,
-      iconColor: defaultColorIntents.primaryTextReversed,
-      borderColor: defaultColorIntents.primaryTextReversed,
-      outlineColor: defaultColorIntents.primaryTextReversed,
+    positive: {
+      textColor: defaultColorIntents.primaryText,
+      backgroundColor: defaultColorIntents.primaryText,
+      iconColor: defaultColorIntents.primaryText,
+      borderColor: defaultColorIntents.primaryText,
+      outlineColor: defaultColorIntents.primaryText,
+    },
+    warning: {
+      textColor: defaultColorIntents.warningText,
+      backgroundColor: defaultColorIntents.primaryText,
+      iconColor: defaultColorIntents.primaryText,
+      borderColor: defaultColorIntents.primaryText,
+      outlineColor: defaultColorIntents.primaryText,
+    },
+    danger: {
+      textColor: defaultColorIntents.dangerText,
+      backgroundColor: defaultColorIntents.primaryText,
+      iconColor: defaultColorIntents.primaryText,
+      borderColor: defaultColorIntents.primaryText,
+      outlineColor: defaultColorIntents.primaryText,
     },
   },
 };
+
+/**
+ * DefaultButtons object without the `vars` property which is used only
+ * in application-defined theme configuration
+ */
+export type DefaultButtons = Omit<Buttons, 'vars'>;

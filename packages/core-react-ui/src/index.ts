@@ -1,7 +1,12 @@
+/**
+ *
+ * All core-react-ui components
+ *
+ */
+
 export * from './animation/css-animation';
 export * from './badges/badge';
 export * from './button/button';
-export * from './button/button-v2';
 export * from './context/viewport.provider';
 export * from './css/reset-button.css';
 export * from './css/state-disabled.css';
@@ -30,7 +35,6 @@ export * from './hooks/use-page-visibility.hook';
 export * from './hooks/use-prevent-long-press';
 export * from './hooks/use-prevent-pinch-zoom';
 export * from './hooks/use-theme-elevation-bg.hook';
-export * from './hooks/use-treat-theme';
 export * from './hooks/use-update-document-color.hook';
 export * from './hooks/use-viewport';
 export * from './hooks/use-window-scroll-position';
@@ -42,6 +46,7 @@ export * from './icons/icons-provider';
 export * from './iframe/iframe';
 export * from './img/img-downloader';
 export * from './indicators/online-indicator';
+export * from './kdb/kdb';
 export * from './layout/box-v2';
 export * from './layout/box-v3';
 export * from './layout/center';
@@ -54,7 +59,6 @@ export * from './layout/main-wrapper';
 export * from './layout/stack';
 export * from './layout/switcher';
 export * from './list-item/list-item';
-export * from './list-item/list-item-v2';
 export * from './list-item/list-items';
 export * from './logos/logo';
 export * from './logos/logos-provider';
@@ -92,6 +96,7 @@ export * from './table/table-header';
 export * from './table/table-row';
 export * from './tabs/tabs';
 export * from './tag/tag';
+export * from './tag/tag.props';
 export * from './text/blockquote';
 export * from './text/details';
 export * from './text/heading';
@@ -101,5 +106,3 @@ export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
 export * from './text/title';
-export * from './utilities/location.utilities';
-export * from './utilities/useragent';

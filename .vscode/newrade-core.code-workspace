@@ -17,17 +17,21 @@
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,
+      "**/*.dll.js": true,
       "**/*.tsbuildinfo": true
     },
     "files.watcherExclude": {
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
+      "**/yarn.lock": true,
       "**/.hg/store/**": true,
       "**/dist/**": true,
       "**/built/**": true,
       "**/public/**": true,
       "**/.cache/**": true,
+      "**/*.dll.js": true,
+      "**/*.js.map": true,
       "**/lib/**": true
     },
     "files.exclude": {
@@ -114,7 +118,27 @@
       "typescript",
       "javascriptreact",
       "typescriptreact"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#95fe98",
+      "activityBar.activeBorder": "#8481fe",
+      "activityBar.background": "#95fe98",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#8481fe",
+      "activityBarBadge.foreground": "#15202b",
+      "sash.hoverBorder": "#95fe98",
+      "statusBar.background": "#63fd67",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#31fc36",
+      "statusBarItem.remoteBackground": "#63fd67",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#63fd67",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#63fd6799",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#63fd67"
   },
   "extensions": {
     "recommendations": [
@@ -169,6 +193,10 @@
     {
       "name": "core-design-system",
       "path": "../packages/core-design-system"
+    },
+    {
+      "name": "core-design-system-compiler",
+      "path": "../packages/core-design-system-compiler"
     },
     {
       "name": "core-design-system-docs",
@@ -227,8 +255,8 @@
       "path": "../packages/core-types"
     },
     {
-      "name": "core-utils",
-      "path": "../packages/core-utils"
+      "name": "core-node-utils",
+      "path": "../packages/core-node-utils"
     },
     {
       "name": "core-webpack-config",

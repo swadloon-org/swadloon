@@ -3,6 +3,10 @@
  * @deprecated use GLOBAL_CSS_THEME instead
  */
 export const globalThemeReversed = 'theme-reversed';
+/**
+ * Activate reversed color mode on component and its children
+ * @deprecated use GLOBAL_CSS_THEME instead
+ */
 export const globalThemeReversedSelector = '.theme-reversed';
 
 /**
@@ -44,3 +48,8 @@ export enum GLOBAL_CSS_THEME_SCHEME {
   LIGHT = 'global-css-theme-scheme-light',
   DARK = 'global-css-theme-scheme-dark',
 }
+
+export const GLOBAL_CSS_THEME_SCHEME_REVERSED = 'global-css-theme-scheme-reversed';
+
+export const GLOBAL_LIGHT_THEME_SELECTOR = `.${GLOBAL_CSS_THEME_SCHEME.LIGHT}, .${GLOBAL_CSS_THEME_SCHEME.DARK} .${GLOBAL_CSS_THEME_SCHEME_REVERSED}`;
+export const GLOBAL_DARK_THEME_SELECTOR = `.${GLOBAL_CSS_THEME_SCHEME.DARK}, .${GLOBAL_CSS_THEME_SCHEME.LIGHT} .${GLOBAL_CSS_THEME_SCHEME_REVERSED}`;

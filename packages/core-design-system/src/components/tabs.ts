@@ -1,7 +1,7 @@
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
-import { Variant } from './components.props';
+import { Variant } from './components';
 
 export enum TabAs {
   div = 'div',

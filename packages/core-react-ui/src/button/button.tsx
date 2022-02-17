@@ -1,198 +1,142 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
-import { useStyles } from 'react-treat';
+import React, { useRef } from 'react';
 
-import {
-  ButtonIcon,
-  ButtonProps,
-  ButtonSize,
-  LABEL_SIZE,
-  TEXT_STYLE,
-  Variant,
-} from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, TEXT_STYLE } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
+import { Primitive } from '..';
 
-import * as stylesRef from './button.treat';
+import { ButtonAsType, ButtonCompProps } from './button.props';
+import { getLabelSizeForButtonSize } from './button.utilities';
 
-type AsType = 'button' | 'a';
+import * as styles from './button.css';
 
-type Props = PrimitiveProps<AsType> &
-  Pick<AnchorHTMLAttributes<any>, 'href' | 'target'> &
-  ButtonHTMLAttributes<any> &
-  Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {
-    as?: 'button' | 'a' | 'div';
-  } & {
-    disabled?: boolean;
-    loading?: boolean;
-    /**
-     * Pass svg icon
-     */
-    Icon?: React.ReactNode;
-    dataPressed?: boolean;
-    collapsePadding?: 'left' | 'right';
-  };
+type Props = ButtonCompProps;
 
-export const Button = React.forwardRef<any, Props>(
-  (
-    {
-      id,
-      style,
-      className,
-      role,
-      children,
-      variant,
-      collapsePadding,
-      as,
-      AsElement,
-      size,
-      state,
-      disabled,
-      icon,
-      Icon,
-      ...props
-    },
-    forwardedRef
-  ) => {
-    const styles = useStyles(stylesRef);
-    const localRef = useRef<HTMLButtonElement>(null);
-    const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
-    const type = as ? as : 'button';
+const defaultProps: Props = {
+  size: ButtonSize.medium,
+};
 
-    /**
-     * Event handling
-     */
-    usePreventPinchZoom(ref.current);
-    // usePreventLongPress(ref.current);
+export const Button = React.forwardRef<any, Props>(function Button(
+  {
+    role,
+    children,
+    as,
+    AsElement,
+    variant,
+    collapsePadding,
+    size = defaultProps.size,
+    disabled,
+    loading,
+    icon,
+    Icon,
+    IconSVG,
+    ...props
+  },
+  forwardedRef
+) {
+  /**
+   *
+   * Ref forwarding
+   *
+   */
 
-    /**
-     * Icon
-     */
-    const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
+  const localRef = useRef<HTMLButtonElement>(null);
+  const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
 
-    const iconClassNames = getMergedClassname([
-      dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
-      dataicon === ButtonIcon.icon ? styles.icon : '',
-      dataicon === ButtonIcon.right ? styles.right : '',
-      dataicon === ButtonIcon.left ? styles.left : '',
-    ]);
+  /**
+   *
+   * Event handling
+   *
+   */
 
-    const IconSvg = Icon
-      ? React.cloneElement(Icon as React.ReactElement, {
-          className: iconClassNames,
-          preserveAspectRatio: `xMinYMin meet`,
-        })
-      : null;
+  usePreventPinchZoom(ref.current);
+  // usePreventLongPress(ref.current);
 
-    const variantStateClassName = `${styles.base}`;
-    const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
-    const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-    const collapsePaddingProp =
-      dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
-    const commonProps = useCommonProps<'button'>({
-      id,
-      style,
-      className,
-      role: as === 'button' ? '' : role,
-      classNames: [variantStateClassName, variantSizeClassName, variantClassName, className],
-      // @ts-ignore
-      dataicon: dataicon,
-      datapaddingcollapse: collapsePaddingProp,
-      ...props,
-    });
+  /**
+   *
+   * Icon
+   *
+   */
 
-    const renderedChildren = children
-      ? children
-      : dataicon === ButtonIcon.icon
-      ? ' '
-      : getDefaultTextFromProps('button', {
-          variant,
-          size,
-          icon,
-          disabled,
-        });
+  const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
 
-    function getLabelSizeForButtonSize(size?: ButtonSize): LABEL_SIZE {
-      switch (size) {
-        case ButtonSize.large: {
-          return LABEL_SIZE.medium;
-        }
-        case ButtonSize.medium: {
-          return LABEL_SIZE.small;
-        }
-        default:
-        case ButtonSize.small: {
-          return LABEL_SIZE.small;
-        }
-        case ButtonSize.xSmall: {
-          return LABEL_SIZE.xSmall;
-        }
-      }
-    }
+  const iconClassNames = getMergedClassname([
+    // dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
+    // dataicon === ButtonIcon.icon ? styles.icon : '',
+    // dataicon === ButtonIcon.right ? styles.right : '',
+    // dataicon === ButtonIcon.left ? styles.left : '',
+  ]);
 
-    const CustomElement = AsElement
-      ? React.cloneElement(
-          AsElement as React.ReactElement,
-          commonProps,
-          <>
-            {icon === ButtonIcon.icon ? null : (
-              <Label
-                variantDisplay={'inline'}
-                variantStyle={TEXT_STYLE.bold}
-                variant={getLabelSizeForButtonSize(size)}
-              >
-                {renderedChildren}
-              </Label>
-            )}
-            {IconSvg}
-          </>
-        )
-      : null;
+  const IconSvg = IconSVG
+    ? React.cloneElement(IconSVG as React.ReactElement, {
+        className: iconClassNames,
+        preserveAspectRatio: `xMinYMin meet`,
+      })
+    : null;
 
-    if (CustomElement) {
-      return CustomElement;
-    }
+  /**
+   *
+   * Rendering
+   *
+   */
 
-    const CustomElementAs =
-      type !== 'button'
-        ? React.createElement(
-            type,
-            commonProps,
-            <>
-              {icon === ButtonIcon.icon ? null : (
-                <Label
-                  variantDisplay={'inline'}
-                  variantStyle={TEXT_STYLE.bold}
-                  variant={getLabelSizeForButtonSize(size)}
-                >
-                  {renderedChildren}
-                </Label>
-              )}
-              {IconSvg}
-            </>
-          )
-        : null;
+  const type = as ? as : 'button';
 
-    if (CustomElementAs) {
-      return CustomElementAs;
-    }
+  // const variantStateClassName = `${styles.base}`;
+  // const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
+  // const variantSizeClassName = styles[size ? size : ButtonSize.medium];
+  const collapsePaddingProp =
+    dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
 
-    return (
-      <button ref={ref} disabled={disabled} {...commonProps}>
-        {icon === ButtonIcon.icon ? null : (
-          <Label
-            variantDisplay={'inline'}
-            variantStyle={TEXT_STYLE.bold}
-            variant={getLabelSizeForButtonSize(size)}
-          >
-            {renderedChildren}
-          </Label>
-        )}
-        {IconSvg}
-      </button>
-    );
+  const commonProps = useCommonProps<'button'>({
+    role: as === 'button' ? '' : role,
+    classNames: [styles.variants({})],
+    // @ts-ignore
+    dataicon: dataicon,
+    datapaddingcollapse: collapsePaddingProp,
+    ...props,
+  });
+
+  const renderedChildren = children
+    ? children
+    : dataicon === ButtonIcon.icon
+    ? ' '
+    : getDefaultTextFromProps('button', {
+        variant,
+        size,
+        icon,
+        disabled,
+      });
+
+  const ButtonContent = (
+    <>
+      {icon === ButtonIcon.icon ? null : (
+        <Label
+          variantDisplay={'inline'}
+          textStyle={TEXT_STYLE.bold}
+          variant={getLabelSizeForButtonSize(size)}
+        >
+          {renderedChildren}
+        </Label>
+      )}
+      {IconSvg}
+    </>
+  );
+
+  const CustomElement = AsElement
+    ? React.cloneElement(AsElement as React.ReactElement, commonProps, <>{ButtonContent}</>)
+    : null;
+
+  if (CustomElement) {
+    return CustomElement;
   }
-);
+
+  return (
+    <Primitive<ButtonAsType> as={type} ref={ref} {...commonProps}>
+      {ButtonContent}
+    </Primitive>
+  );
+});

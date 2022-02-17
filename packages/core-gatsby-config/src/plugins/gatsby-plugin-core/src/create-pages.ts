@@ -290,6 +290,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       const renderUnpublishedDocsPages = pluginOptions.renderUnpublishedPages;
       if (!renderUnpublishedDocsPages) {
         if (node.childMdx?.frontmatter?.published === 'false') {
+          reporter.info(
+            `[${pluginOptions.pluginName}] ignoring ${node.name} (publish is ${node.childMdx?.frontmatter?.published})`
+          );
           return;
         }
       }

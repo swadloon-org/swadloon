@@ -1,13 +1,10 @@
 import React from 'react';
 
-import { lorenipsum } from '@newrade/core-react-ui';
-import { Details, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { Details, lorenipsum, Paragraph, Stack, Summary } from '@newrade/core-react-ui';
 
 type Props = {};
 
 export const Accordions: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
     <Stack>
       <Details>

@@ -41,6 +41,6 @@ import NavbavSelectItemsCode from '!!raw-loader!../../../src/code/navbar-select-
 
 - TODO
 
-## Ressources
+## Resources
 
 - https://www.w3.org/TR/wai-aria-practices/#Listbox

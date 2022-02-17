@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { layoutCSS, typographyVars } from '../theme';
+import { getCapsizeTextStyles, getNormalTextStyles } from '../utilities-vanilla-extract';
 
 export const base = style({
   fontFamily: typographyVars.paragraphs.font,
@@ -11,7 +12,7 @@ export const base = style({
   userSelect: 'text',
 });
 
-export const getVariantStyles = recipe({
+export const variants = recipe({
   variants: {
     size: {
       large: {
@@ -21,6 +22,17 @@ export const getVariantStyles = recipe({
             typographyVars.paragraphs.tablet.large.capsize
           ),
           [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.large.capsize
+          ),
+        },
+      },
+      largeNoCapsize: {
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.large.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: getNormalTextStyles(
+            typographyVars.paragraphs.tablet.large.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.large.capsize
           ),
         },
@@ -36,6 +48,17 @@ export const getVariantStyles = recipe({
           ),
         },
       },
+      mediumNoCapsize: {
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.medium.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: getNormalTextStyles(
+            typographyVars.paragraphs.tablet.medium.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
+            typographyVars.paragraphs.desktop.medium.capsize
+          ),
+        },
+      },
       small: {
         ...createStyleObject(typographyVars.paragraphs.mobile.small.capsize),
         '@media': {
@@ -43,6 +66,17 @@ export const getVariantStyles = recipe({
             typographyVars.paragraphs.tablet.small.capsize
           ),
           [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.paragraphs.desktop.small.capsize
+          ),
+        },
+      },
+      smallNoCapsize: {
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.small.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: getNormalTextStyles(
+            typographyVars.paragraphs.tablet.small.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
             typographyVars.paragraphs.desktop.small.capsize
           ),
         },
@@ -58,14 +92,15 @@ export const getVariantStyles = recipe({
           ),
         },
       },
-    },
-    disableCapsize: {
-      true: {
-        '::before': {
-          marginBottom: 'initial !important',
-        },
-        '::after': {
-          marginTop: 'initial !important',
+      xSmallNoCapsize: {
+        ...getNormalTextStyles(typographyVars.paragraphs.mobile.xSmall.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: getNormalTextStyles(
+            typographyVars.paragraphs.tablet.xSmall.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getNormalTextStyles(
+            typographyVars.paragraphs.desktop.xSmall.capsize
+          ),
         },
       },
     },
@@ -122,4 +157,4 @@ export const getVariantStyles = recipe({
   },
 });
 
-export type ParagraphVariants = RecipeVariants<typeof getVariantStyles>;
+export type ParagraphVariants = RecipeVariants<typeof variants>;

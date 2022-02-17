@@ -41,6 +41,6 @@ or others)
 
 - TODO
 
-## Ressources
+## Resources
 
 - https://www.w3.org/TR/wai-aria-practices/#menu

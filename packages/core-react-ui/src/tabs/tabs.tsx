@@ -66,7 +66,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabCompProps>(
         tabIndex={-1}
         {...props}
       >
-        <Label variantDisplay={'inline'} variantStyle={TEXT_STYLE.bold} variant={LABEL_SIZE.small}>
+        <Label variantDisplay={'inline'} textStyle={TEXT_STYLE.bold} variant={LABEL_SIZE.small}>
           {children}
         </Label>
       </Primitive>

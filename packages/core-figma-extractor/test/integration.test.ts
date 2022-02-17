@@ -2,7 +2,7 @@ import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-import { getShellForPlatform } from '@newrade/core-utils';
+import { getShellForPlatform } from '@newrade/core-node-utils';
 
 import { extract } from '../src/extract';
 

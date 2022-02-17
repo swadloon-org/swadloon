@@ -1,39 +1,38 @@
 import React from 'react';
 
-import { Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack } from '@newrade/core-react-ui';
 import { ColorPalette } from '@newrade/core-react-ui/doc-components';
+import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};
 
 export const StateColorPalette: React.FC<Props> = (props) => {
-  const { theme, cssTheme } = useTreatTheme();
-
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
+    <Stack gap={[sizeVars.x5]}>
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
-          successBackground: theme.colors.colorIntents.successBackground,
-          successAction: theme.colors.colorIntents.successAction,
-          successText: theme.colors.colorIntents.successText,
+        color={{
+          successBackground: colorVars.colorIntents.successBackground,
+          successAction: colorVars.colorIntents.successAction,
+          successText: colorVars.colorIntents.successText,
         }}
       ></ColorPalette>
 
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
-          warningBackground: theme.colors.colorIntents.warningBackground,
-          warningAction: theme.colors.colorIntents.warningAction,
-          warningText: theme.colors.colorIntents.warningText,
+        color={{
+          warningBackground: colorVars.colorIntents.warningBackground,
+          warningAction: colorVars.colorIntents.warningAction,
+          warningText: colorVars.colorIntents.warningText,
         }}
       ></ColorPalette>
 
       <ColorPalette
         colorName={''}
-        colorOrPalette={{
-          dangerBackground: theme.colors.colorIntents.dangerBackground,
-          dangerAction: theme.colors.colorIntents.dangerAction,
-          dangerText: theme.colors.colorIntents.dangerText,
+        color={{
+          dangerBackground: colorVars.colorIntents.dangerBackground,
+          dangerAction: colorVars.colorIntents.dangerAction,
+          dangerText: colorVars.colorIntents.dangerText,
         }}
       ></ColorPalette>
     </Stack>

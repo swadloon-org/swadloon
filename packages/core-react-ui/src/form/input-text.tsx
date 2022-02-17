@@ -1,61 +1,99 @@
-import React, { InputHTMLAttributes, Suspense } from 'react';
-import { useStyles } from 'react-treat';
+import React, { Suspense } from 'react';
 
-import type { Props as CleaveProps } from 'cleave.js/react/props';
+import { InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './input.treat';
+import { InputTextProps } from './input.props';
 import { InputTextCleaveLazy } from './input-text-cleave.lazy';
 
-type Props = PrimitiveProps<'input'> &
-  InputHTMLAttributes<any> & {
-    cleaveProps?: CleaveProps;
-    state?: 'rest' | 'error';
-  };
+import * as styles from './input.css';
 
+type Props = InputTextProps;
+
+const defaultProps: Props = {
+  variant: Variant.primary,
+  size: InputSize.medium,
+  validity: InputValidityState.neutral,
+};
+
+/**
+ * @todo add icon support
+ */
 export const InputText = React.memo(
   React.forwardRef<HTMLInputElement, Props>(function InputText(
-    { id, style, className, cleaveProps, type = 'text', state = 'rest', ...props },
+    {
+      id,
+      style,
+      className,
+      cleaveProps,
+      type = 'text',
+      variant = defaultProps.variant,
+      size = defaultProps.size,
+      icon,
+      Icon,
+      validity = defaultProps.validity,
+      loading = false,
+      disabled = false,
+      value,
+      onChange,
+      ...props
+    },
     ref
   ) {
-    const { styles } = useStyles(styleRefs);
-    const classNames = getMergedClassname([
-      className,
-      styles.rest,
-      styles.primary,
-      styles.medium,
-      state === 'error' ? styles.error : '',
-    ]);
+    const wrapperClassNames = styles.variants({
+      variant: variant,
+      size: size,
+    });
+    const inputClassNames = styles.styleVariants({
+      variant: variant,
+      size: size,
+      icon: icon && Icon ? 'left' : undefined,
+      validity: validity,
+      disabled: disabled,
+    });
+    const iconRightClassNames = styles.iconVariants({
+      position: 'right',
+      disabled: disabled,
+    });
+    const iconLeftClassNames = styles.iconVariants({
+      position: 'left',
+      disabled: disabled,
+    });
+    const classNames = getMergedClassname([className, styles.text, inputClassNames]);
+
     const renderedId = id || cleaveProps?.id || props.name || '';
 
     const CleaveComp = cleaveProps ? (
       <Suspense fallback={''}>
-        <InputTextCleaveLazy
-          type={cleaveProps.type ? cleaveProps.type : type}
-          // @ts-ignore
-          htmlRef={(htmlRef) => (ref = htmlRef)}
-          id={renderedId}
-          style={style}
-          className={classNames}
-          cleaveProps={cleaveProps}
-          {...props}
-        ></InputTextCleaveLazy>
+        <div className={wrapperClassNames}>
+          <InputTextCleaveLazy
+            id={renderedId}
+            style={style}
+            className={classNames}
+            type={cleaveProps.type ? cleaveProps.type : type}
+            // @ts-ignore
+            htmlRef={(htmlRef) => (ref = htmlRef)}
+            cleaveProps={cleaveProps}
+            {...props}
+          ></InputTextCleaveLazy>
+        </div>
       </Suspense>
     ) : null;
 
     return CleaveComp ? (
       CleaveComp
     ) : (
-      <input
-        ref={ref}
-        type={type}
-        id={renderedId}
-        style={style}
-        className={classNames}
-        {...props}
-      />
+      <div className={wrapperClassNames}>
+        <input
+          ref={ref}
+          id={renderedId}
+          style={style}
+          className={classNames}
+          type={type}
+          {...props}
+        />
+      </div>
     );
   })
 );

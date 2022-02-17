@@ -2,7 +2,7 @@ import { ICON } from '../foundations/iconography';
 import { ColorType } from '../types';
 
 import { BoxStyle } from './box';
-import { Variant } from './components.props';
+import { Variant } from './components';
 
 export enum InputType {
   normal = 'normal',
@@ -19,11 +19,6 @@ export enum InputSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
-}
-
-export enum InputState {
-  rest = 'rest',
-  focused = 'focused',
 }
 
 export enum InputValidityState {
@@ -63,7 +58,7 @@ export interface InputStyleProps {
   /**
    * General size of the input
    */
-  variantSize: InputSize;
+  size: InputSize;
   /**
    * Validation state
    */

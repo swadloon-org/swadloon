@@ -1,22 +1,20 @@
 import React, { AnchorHTMLAttributes, useState } from 'react';
-import { IoChevronDownOutline } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 
-import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { ICON, LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
+import { IconComp } from '../icons/icon';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities/component.utilities';
+import { getMergedClassname } from '../utilities-iso';
 
-import * as styleRefs from './desktop-docs-sidebar-item-group.treat';
+import * as styles from './desktop-docs-sidebar-item-group.css';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
+  Pick<LinkProps, 'role' | 'kind' | 'icon' | 'size' | 'linkStyle'> & {
     label?: string;
   };
 
@@ -29,8 +27,6 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({
   label,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
   const commonProps = useCommonProps<'div'>({
     id,
     style,
@@ -48,14 +44,15 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({
     <Stack {...commonProps}>
       <Cluster onClick={handleOnClick} className={styles.group}>
         <Label
-          variantStyle={TEXT_STYLE.bold}
+          textStyle={TEXT_STYLE.bold}
           variant={LABEL_SIZE.small}
           variantLevel={Variant.primary}
         >
           {label}
         </Label>
 
-        <IoChevronDownOutline
+        <IconComp
+          name={ICON.CHEVRON_DOWN}
           className={getMergedClassname([styles.icon, isOpened && styles.iconOpened])}
         />
       </Cluster>

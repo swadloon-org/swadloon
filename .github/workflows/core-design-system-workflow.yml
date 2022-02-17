@@ -36,8 +36,6 @@ env:
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
 
-
-
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -45,8 +43,8 @@ jobs:
     # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
     # Otherwise, clone it normally.
     if: |
-        (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
-        (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
+      (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+      (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
 
     steps:
       - name: Checkout
@@ -66,7 +64,7 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-design-system*
+        run: yarn lerna:depcheck --scope @newrade/core-design-system
 
       - name: Lint (ls-lint) source files
         run: yarn lerna:ls-lint --scope @newrade/core-design-system

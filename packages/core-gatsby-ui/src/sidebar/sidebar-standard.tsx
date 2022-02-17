@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import {
@@ -21,7 +20,6 @@ import {
   SidebarItemGroup,
   Stack,
   useCommonProps,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { LinkAPI } from '@newrade/core-website-api';
 
@@ -30,7 +28,8 @@ import { LinkRenderer } from '../links/link-renderer';
 
 import { SidebarProps } from './sidebar.props';
 import { SidebarBase } from './sidebar-base';
-import * as styleRefs from './sidebar-standard.treat';
+
+import * as styles from './sidebar-standard.css';
 
 type Props = SidebarProps & {};
 
@@ -52,8 +51,6 @@ export const SidebarStandard = React.forwardRef<any, Props>(
     },
     ref
   ) => {
-    const styles = useStyles(styleRefs);
-    const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
       style,
@@ -106,7 +103,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
             size={ButtonSize.large}
             variant={Variant.tertiary}
             collapsePadding={'left'}
-            Icon={<IconComp name={ICON.CLOSE} />}
+            Icon={ICON.CLOSE}
             icon={ButtonIcon.icon}
             onClick={onClickMenuButton}
           ></Button>
@@ -142,7 +139,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
           {/* Language link */}
           {alternativeLanguage?.lang && onChangeLang ? (
             <Link
-              variantSize={PARAGRAPH_SIZE.small}
+              size={PARAGRAPH_SIZE.small}
               className={styles.lang}
               onClick={(event: React.MouseEvent) =>
                 onChangeLang(alternativeLanguage.lang as SITE_LANGUAGES)
@@ -153,7 +150,7 @@ export const SidebarStandard = React.forwardRef<any, Props>(
           ) : null}
 
           {/* Copyright and Version */}
-          <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>
+          <Paragraph size={PARAGRAPH_SIZE.xSmall} kind={Variant.secondary}>
             {copyright}
             {version ? ` — ${version}` : ''}
           </Paragraph>

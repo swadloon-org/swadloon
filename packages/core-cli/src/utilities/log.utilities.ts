@@ -11,7 +11,7 @@ export const debugInstance = debug;
 // always enable logging for the cli tools
 export function enableDebug() {
   if (!process.env.DEBUG) {
-    debugInstance.enable('nr:core-cli:*');
+    debugInstance.enable('nr:core-cli*');
   }
 
   /**

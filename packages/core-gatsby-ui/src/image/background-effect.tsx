@@ -1,10 +1,9 @@
 import React from 'react';
-import { useStyles } from 'react-treat';
 
 import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/utilities';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
-import * as styleRefs from './background-effect.treat';
+import * as styles from './background-effect.css';
 
 export type BackgroundEffectConfig = Partial<{
   background: string;
@@ -25,7 +24,6 @@ export const BackgroundEffect: React.FC<Props> = ({
   children,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
   return <div id={id} style={{ ...style, ...effect }} className={mergedClassNames}></div>;

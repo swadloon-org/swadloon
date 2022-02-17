@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 
 import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities';
+import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities-iso';
 
 /**
  * @see https://webpack.js.org/guides/dependency-management/#require-context
@@ -61,7 +61,7 @@ export const lazyComponentImports = importComponentsLazy(
   require.context(
     '@newrade/core-design-system-docs/src/code/',
     true,
-    /(titles|headings|labels|paragraphs-?|links|buttons)(.*)\.code\.tsx$/i,
+    /(titles|headings|labels|paragraphs-?|links|buttons|icon-sizes)(.*)\.code\.tsx$/i,
     'lazy'
   )
 );

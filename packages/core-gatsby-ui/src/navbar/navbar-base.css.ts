@@ -12,6 +12,7 @@ export const wrapper = style({
   height: layoutVars.var.navbarHeight,
   maxHeight: layoutVars.var.navbarHeight,
   color: colorVars.colorIntents.primaryText,
+  backgroundColor: colorVars.colorIntents.elevation2,
   boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
   zIndex: layoutVars.zIndex.navBar,
 });

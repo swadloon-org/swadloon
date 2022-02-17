@@ -1,7 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.5.0...@newrade/core-gatsby-ui@2.6.0) (2022-01-03)
 
@@ -9,36 +10,27 @@ All notable changes to this project will be documented in this file. See
 
 - **core:** fix imports and error in jsdoc comment block
   ([44b5893](https://github.com/newrade/newrade-core/commit/44b58930bfdc7c258c9a6516667ab9bfeabd3537))
-- **core:** set internal packages version to \* which means any version found
-  locally
+- **core:** set internal packages version to \* which means any version found locally
   ([70e0413](https://github.com/newrade/newrade-core/commit/70e0413057146e125018ba6d5f7781a9a1a329f5))
 - **core-ui:** bug fixes
   ([c624ba0](https://github.com/newrade/newrade-core/commit/c624ba0d1103c546a18fcbeb12c8f0923039a4b9))
 
 ### Features
 
-- **core-ui:** add colors for code syntax highlighting and simplify sizing
-  variables exports
+- **core-ui:** add colors for code syntax highlighting and simplify sizing variables exports
   ([7d1c447](https://github.com/newrade/newrade-core/commit/7d1c44723a8064037786c212310c45c2d7e9456d))
 - **core-ui:** add light dark mode to code components
   ([c1b508b](https://github.com/newrade/newrade-core/commit/c1b508b928fdf5e312928a29578fc25f8b33899f))
-- **core-ui:** add new capabilities to the docs engine with documentation.js
-  (extract jsdoc)
+- **core-ui:** add new capabilities to the docs engine with documentation.js (extract jsdoc)
   ([c8df57e](https://github.com/newrade/newrade-core/commit/c8df57e9aaeb72525848d2e2eb13a046137e2be8))
 - **core-ui:** refactor all table components
   ([99a650e](https://github.com/newrade/newrade-core/commit/99a650e1ece0d45d3db20e109ad23c0e5a2940d0))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.4.0...@newrade/core-gatsby-ui@2.5.0) (2021-12-21)
 
 ### Bug Fixes
 
-- **core:** fix bad global import in core-react-ui/global and other fixes in
-  gatsby config
+- **core:** fix bad global import in core-react-ui/global and other fixes in gatsby config
   ([b039f05](https://github.com/newrade/newrade-core/commit/b039f05dfe91716bbf62ea36e5f14927761d2d32))
 - **core:** fix some small formatting, remove issue templates from core
   ([276b6a5](https://github.com/newrade/newrade-core/commit/276b6a537178bab38c2a018386d0012fc7e6cbff))
@@ -55,19 +47,12 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-css-extractor:** new utility to extract css tokens from vanilla-extract
-  styles
+- **core-css-extractor:** new utility to extract css tokens from vanilla-extract styles
   ([567d698](https://github.com/newrade/newrade-core/commit/567d6984e197123c559b00cfdf62e516dda7e838))
 - **core-react-ui:** add new input and nav items
   ([54ed45e](https://github.com/newrade/newrade-core/commit/54ed45e6a43fbd0a2c4fefdfddef40eacb82097d))
-- **core-react-ui:** rework theming and remove reverse color mode (will use
-  React.Context)
+- **core-react-ui:** rework theming and remove reverse color mode (will use React.Context)
   ([75b0ceb](https://github.com/newrade/newrade-core/commit/75b0cebc0c7066370a9617b763857ee6761ea088))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.4.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.3.0...@newrade/core-gatsby-ui@2.4.0) (2021-11-18)
 
@@ -119,11 +104,6 @@ All notable changes to this project will be documented in this file. See
 - **core-ui:** improvements to docs layout
   ([fd1192d](https://github.com/newrade/newrade-core/commit/fd1192d25637eb61b2836caa9c5ea34c6182618f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.2.1...@newrade/core-gatsby-ui@2.3.0) (2021-10-05)
 
 ### Bug Fixes
@@ -163,14 +143,8 @@ All notable changes to this project will be documented in this file. See
   ([8c9eef3](https://github.com/newrade/newrade-core/commit/8c9eef3469968b7d919167cdc843ce67eb30cdcb))
 - **core:** update ze nav with example to switch langs
   ([2f082a7](https://github.com/newrade/newrade-core/commit/2f082a7e8a5bd442fdc58215b39ba78e079743d6))
-- **core-gatsby-ui:** working on improvements to navigation api hooks and
-  utilities
+- **core-gatsby-ui:** working on improvements to navigation api hooks and utilities
   ([6a59bce](https://github.com/newrade/newrade-core/commit/6a59bce5de600e5dd8b997a5f4a627ccac5786a8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.2.0...@newrade/core-gatsby-ui@2.2.1) (2021-09-09)
 
@@ -180,11 +154,6 @@ All notable changes to this project will be documented in this file. See
   ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
 - **core-gatsby-ui:** fix regression for code blocks in markdown
   ([8f2ef7c](https://github.com/newrade/newrade-core/commit/8f2ef7cdf06d2f700262ee261847f19cddf0bb53))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.1.0...@newrade/core-gatsby-ui@2.2.0) (2021-08-31)
 
@@ -230,8 +199,7 @@ All notable changes to this project will be documented in this file. See
   ([a5ff9ab](https://github.com/newrade/newrade-core/commit/a5ff9ab5bb420b7bf5a7f5facd29f143d2e08aad))
 - **core:** update docs + fix badge component
   ([3fbb3a2](https://github.com/newrade/newrade-core/commit/3fbb3a2b5fc784cea661151d3896a3685de94649))
-- **core:** various fixes for core packages targeting documentation & core docs
-  update
+- **core:** various fixes for core packages targeting documentation & core docs update
   ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
 - **core-gatsby-ui:** documentation improvements
   ([ec944bb](https://github.com/newrade/newrade-core/commit/ec944bbc27b0252024cf30ef948204d7ca5410ae))
@@ -249,11 +217,6 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** refactor navigation components
   ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@2.0.0...@newrade/core-gatsby-ui@2.1.0) (2021-07-15)
 
 ### Bug Fixes
@@ -267,11 +230,6 @@ All notable changes to this project will be documented in this file. See
   ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
 - **core-react-ui:** add useLocalStorage hook
   ([47901a3](https://github.com/newrade/newrade-core/commit/47901a3709f012bbf0e39de581b6858de158256e))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.11.0...@newrade/core-gatsby-ui@2.0.0) (2021-07-12)
 
@@ -295,11 +253,6 @@ All notable changes to this project will be documented in this file. See
 
 - **gatsby:** webpack v5 and gatsby v3
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.11.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.10.1...@newrade/core-gatsby-ui@1.11.0) (2021-07-05)
 
 ### Features
@@ -309,19 +262,9 @@ All notable changes to this project will be documented in this file. See
 - **core-gatsby-ui:** add icons family and website link to context
   ([c878ec9](https://github.com/newrade/newrade-core/commit/c878ec9bea7592ed223187b9bddd580e7c538578))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.10.1](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.10.0...@newrade/core-gatsby-ui@1.10.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/core-gatsby-ui
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.10.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.9.1...@newrade/core-gatsby-ui@1.10.0) (2021-07-03)
 
@@ -335,7 +278,7 @@ All notable changes to this project will be documented in this file. See
   ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
 - **cdpq-website:** fix imports
   ([86ffeb9](https://github.com/newrade/newrade-core/commit/86ffeb96b028af4fad2c287d16a782a31b343fdf))
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -498,8 +441,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **alto-design-system & ronin-design-system:** update typography for alto &
-  ronin
+- **alto-design-system & ronin-design-system:** update typography for alto & ronin
   ([948af39](https://github.com/newrade/newrade-core/commit/948af39917c0beec8d534083877581dc3739086a))
 - **alto-website:** init website
   ([e1f17f2](https://github.com/newrade/newrade-core/commit/e1f17f275a08e5fc75351e5c5d0567fdb447fd29))
@@ -515,8 +457,7 @@ All notable changes to this project will be documented in this file. See
   ([c94c2a3](https://github.com/newrade/newrade-core/commit/c94c2a3756d127345898c272bdd2e86a911f43e1))
 - **contentful-lib:** refactor website api and corresponding contentful scripts
   ([3d01ca3](https://github.com/newrade/newrade-core/commit/3d01ca326a8bb9a74522709a617406d240686d41))
-- **contentful-lib-update:** fix and update of the contentful lib for the export
-  of newrade
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade
   ([c970a83](https://github.com/newrade/newrade-core/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
 - **core-design-system-docs:** fix nav sorting
   ([e7ff749](https://github.com/newrade/newrade-core/commit/e7ff74975ec72d5e9685c09fd93c64ac8ecab582))
@@ -524,8 +465,7 @@ All notable changes to this project will be documented in this file. See
   ([8287aa5](https://github.com/newrade/newrade-core/commit/8287aa5a4e7e261c7bd867b7e3975c67f027ae9a))
 - **core-gatsby-config:** add new plugin
   ([2bd8c5c](https://github.com/newrade/newrade-core/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade-core/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-ui:** add block alignment
   ([546b2a0](https://github.com/newrade/newrade-core/commit/546b2a03f655d7403ec9b141712689861c6fb1d1))
@@ -543,8 +483,7 @@ All notable changes to this project will be documented in this file. See
   ([aa67282](https://github.com/newrade/newrade-core/commit/aa67282fb497895abe7f7583d2a573f07b392cc0))
 - **core-gatsby-ui:** working on sections and blocks
   ([4d55bfd](https://github.com/newrade/newrade-core/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
-- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
-  the docs
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document the docs
   ([08893ba](https://github.com/newrade/newrade-core/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
 - **core-gatsby-uii:** footer standard
   ([b2bb84d](https://github.com/newrade/newrade-core/commit/b2bb84dbcb1880756fc48dd0e2e5716e8f8528a9))
@@ -570,8 +509,7 @@ All notable changes to this project will be documented in this file. See
   ([881e2ff](https://github.com/newrade/newrade-core/commit/881e2ff3ade1197c71da23cf9f5ad8677d6aaf6f))
 - **core-react-ui:** added v1 of switch component
   ([f68d87c](https://github.com/newrade/newrade-core/commit/f68d87c76ac95e28a0ed61bd82dd6bee0caa09eb))
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade-core/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **core-react-ui:** adding icons
   ([7d1ad9f](https://github.com/newrade/newrade-core/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
@@ -593,8 +531,7 @@ All notable changes to this project will be documented in this file. See
   ([fed7406](https://github.com/newrade/newrade-core/commit/fed74064c7803b4dc00338964ac7deea352c1864))
 - **core-react-ui:** wip for typography
   ([7974d81](https://github.com/newrade/newrade-core/commit/7974d813caa29f325729e37dc6328478fc2b403b))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade-core/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade-core/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
@@ -612,8 +549,7 @@ All notable changes to this project will be documented in this file. See
   ([7ac5f9a](https://github.com/newrade/newrade-core/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
 - **gatsby-ui-api:** adding the missing part of the data models of all .api
   ([9bb9da9](https://github.com/newrade/newrade-core/commit/9bb9da94cc6deb386b72bca31bea1fd20d830b55))
-- **gsap:** wip
-  ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade-core/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
 - **layout-page:** deleting the box v1 and remplacing it by boxV2
   ([3f3f60e](https://github.com/newrade/newrade-core/commit/3f3f60e4e35d666935eaa6940e57be6bf764ce0b))
 - **mdx:** add and modify styles/spacing of table, list item, pre
@@ -622,8 +558,7 @@ All notable changes to this project will be documented in this file. See
   ([47856d1](https://github.com/newrade/newrade-core/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
 - **newrade-website:** update docs
   ([999fa76](https://github.com/newrade/newrade-core/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
-- **newrade-website docs:** figcaption, pre, h1,h2,h3,h4, ul, ol, li, ul and li
-  nested, table
+- **newrade-website docs:** figcaption, pre, h1,h2,h3,h4, ul, ol, li, ul and li nested, table
   ([13d3dcd](https://github.com/newrade/newrade-core/commit/13d3dcdec6fb593072e0f22c080e79022fdfd0af))
 - **react-core-ui:** update animations
   ([909caa3](https://github.com/newrade/newrade-core/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
@@ -654,11 +589,6 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade-core/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.8.0...@newrade/core-gatsby-ui@1.9.0) (2021-06-16)
 
 ### Bug Fixes
@@ -674,26 +604,22 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **alto-design-system & ronin-design-system:** update typography for alto &
-  ronin
+- **alto-design-system & ronin-design-system:** update typography for alto & ronin
   ([948af39](https://github.com/newrade/newrade/commit/948af39917c0beec8d534083877581dc3739086a))
 - **cdpq-design-system:** add color intents
   ([a6b661c](https://github.com/newrade/newrade/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
 - **cdpq-design-system:** add colors intents
   ([090ddd4](https://github.com/newrade/newrade/commit/090ddd467c784e8ef70b1b3de7bfd8b84fec5ef9))
-- **cdpq-website:** init
-  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **cdpq-website:** init ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
 - **contentful-lib:** adding footer, navbar and other contenttype
   ([c94c2a3](https://github.com/newrade/newrade/commit/c94c2a3756d127345898c272bdd2e86a911f43e1))
 - **contentful-lib:** refactor website api and corresponding contentful scripts
   ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
-- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
-  the docs
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document the docs
   ([08893ba](https://github.com/newrade/newrade/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
 - **core-react-ui:** adding icons
   ([7d1ad9f](https://github.com/newrade/newrade/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
-- **core-react-ui & cdpq-design-system:** update color palette and add
-  typography and colors in cdpq
+- **core-react-ui & cdpq-design-system:** update color palette and add typography and colors in cdpq
   ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))
 - **core-website-api:** split api from core-gatsby-ui
   ([e697e80](https://github.com/newrade/newrade/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
@@ -702,34 +628,22 @@ All notable changes to this project will be documented in this file. See
 - **treat:** add vanilla extract
   ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
 
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.7.0...@newrade/core-gatsby-ui@1.8.0) (2021-05-25)
 
 ### Bug Fixes
 
 - **core-react-ui:** bug with destructuring of gap prop
   ([39491b6](https://github.com/newrade/newrade/commit/39491b6bf7cc7c93436b77f735a653db5d2c4f33))
-- **patch:** fix deps
-  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **patch:** fix deps ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
 - **vsb-website:** fix navigation for design system
   ([e1f1ad2](https://github.com/newrade/newrade/commit/e1f1ad2225bdc6e00860db0fd056172410c62284))
 
 ### Features
 
-- **core-react-ui:** adding description in docs and change typo styles from the
-  markdown
+- **core-react-ui:** adding description in docs and change typo styles from the markdown
   ([d915abb](https://github.com/newrade/newrade/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
 - **react-core-ui:** update animations
   ([909caa3](https://github.com/newrade/newrade/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.2...@newrade/core-gatsby-ui@1.7.0) (2021-05-21)
 
@@ -772,26 +686,19 @@ All notable changes to this project will be documented in this file. See
   ([0c99c77](https://github.com/newrade/newrade/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
 - **core-react-ui/src/footers:** edit footer standard, but not finished
   ([b425f6e](https://github.com/newrade/newrade/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
-- **docs:** update docs
-  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
 - **docs:** update docs layout
   ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
 - **docs-mdx-components:** fix import
   ([20bbd81](https://github.com/newrade/newrade/commit/20bbd818f2adba45b57fb3b00851012450adf003))
 - **mdx:** add and modify styles/spacing of table, list item, pre
   ([671edfb](https://github.com/newrade/newrade/commit/671edfbd5a0e31163d1b25c2d0d52013a849c903))
-- **newrade-website docs:** figcaption, pre, h1,h2,h3,h4, ul, ol, li, ul and li
-  nested, table
+- **newrade-website docs:** figcaption, pre, h1,h2,h3,h4, ul, ol, li, ul and li nested, table
   ([13d3dcd](https://github.com/newrade/newrade/commit/13d3dcdec6fb593072e0f22c080e79022fdfd0af))
 - **vsb-admin:** add auth0 flows
   ([fcdd0a8](https://github.com/newrade/newrade/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
 - **vsb-website:** refactor server to be served under /api/
   ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.6.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.1...@newrade/core-gatsby-ui@1.6.2) (2021-03-11)
 
@@ -846,26 +753,21 @@ All notable changes to this project will be documented in this file. See
   ([def91cc](https://github.com/newrade/newrade/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
 - **vsb-website:** fix custom form section and block
   ([206f09b](https://github.com/newrade/newrade/commit/206f09b90c3418f984392deb55509c7edf2943f6))
-- **vsb-website:** fixes
-  ([41a0aa2](https://github.com/newrade/newrade/commit/41a0aa279971986f0a2d7f598cf1966715083fd2))
+- **vsb-website:** fixes ([41a0aa2](https://github.com/newrade/newrade/commit/41a0aa279971986f0a2d7f598cf1966715083fd2))
 - **vsb-website:** fixing build
   ([5b446af](https://github.com/newrade/newrade/commit/5b446afda481089b7ec00c85b36f4233db305689))
 - **vsb-website:** remove old sections
   ([c8292a4](https://github.com/newrade/newrade/commit/c8292a46868d22dc9229481f974f2d9bde8fff06))
-- **vsb-website:** wip
-  ([3b87b81](https://github.com/newrade/newrade/commit/3b87b815f1a9062da29341c234defa8ab5d63e24))
+- **vsb-website:** wip ([3b87b81](https://github.com/newrade/newrade/commit/3b87b815f1a9062da29341c234defa8ab5d63e24))
 - **vsb-website:** working on sections & blocks
   ([8641d04](https://github.com/newrade/newrade/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
 
 ### Features
 
-- **cdpq-website:** init
-  ([abe071b](https://github.com/newrade/newrade/commit/abe071bd2a3834d32dd96f25f5831649cdd2618f))
-- **contentful-lib-update:** fix and update of the contentful lib for the export
-  of newrade
+- **cdpq-website:** init ([abe071b](https://github.com/newrade/newrade/commit/abe071bd2a3834d32dd96f25f5831649cdd2618f))
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade
   ([c970a83](https://github.com/newrade/newrade/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
-  files
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files
   ([02cb1bb](https://github.com/newrade/newrade/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
 - **core-gatsby-ui:** implemented section banner
   ([6514337](https://github.com/newrade/newrade/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
@@ -875,8 +777,7 @@ All notable changes to this project will be documented in this file. See
   ([4efaf57](https://github.com/newrade/newrade/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
 - **gatsby-ui-api:** adding the missing part of the data models of all .api
   ([9bb9da9](https://github.com/newrade/newrade/commit/9bb9da94cc6deb386b72bca31bea1fd20d830b55))
-- **gsap:** wip
-  ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
 - **newrade-website:** reorg docs
   ([47856d1](https://github.com/newrade/newrade/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
 - **newrade-website:** update docs
@@ -956,8 +857,7 @@ All notable changes to this project will be documented in this file. See
   ([36407cc](https://github.com/newrade/newrade/commit/36407ccdd4cedaa9422f40dca2e04b9a9c6460c0))
 - **mir-website:** config fixes
   ([8128983](https://github.com/newrade/newrade/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
-- **mir-website:** fixes
-  ([7aec9c0](https://github.com/newrade/newrade/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
+- **mir-website:** fixes ([7aec9c0](https://github.com/newrade/newrade/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
 - **repo:** fixes after deepscan
   ([4e6e58f](https://github.com/newrade/newrade/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
 - **repo:** improve tsconfigs and build references
@@ -999,8 +899,7 @@ All notable changes to this project will be documented in this file. See
   ([406fbda](https://github.com/newrade/newrade/commit/406fbda81f8cb1979168794e19e75b170504d5b6))
 - **vsb-website:** finish steps section
   ([4c622a1](https://github.com/newrade/newrade/commit/4c622a1cce7f71c0eb84ff6529fa76590000559d))
-- **vsb-website:** fixes
-  ([3196c2c](https://github.com/newrade/newrade/commit/3196c2c8cd4a5fb784b9f65e72ee51158e17e13f))
+- **vsb-website:** fixes ([3196c2c](https://github.com/newrade/newrade/commit/3196c2c8cd4a5fb784b9f65e72ee51158e17e13f))
 - **vsb-website:** fixes list items
   ([1cda7d1](https://github.com/newrade/newrade/commit/1cda7d1276c520dc8ad470880b9755407d300338))
 - **vsb-website:** implement sidenav
@@ -1044,7 +943,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Bug Fixes
 
-- **core-common:** remove browser code from core-utils
+- **core-common:** remove browser code from core-node-utils
   ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
 - **core-contentful-lib:** changes
   ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
@@ -1074,8 +973,7 @@ All notable changes to this project will be documented in this file. See
   ([4cb9ee0](https://github.com/newrade/newrade/commit/4cb9ee0d6e34d93ced821f7187a7cb0a14504c7a))
 - **mir-website:** implement mdx based blog posts
   ([4fca42d](https://github.com/newrade/newrade/commit/4fca42db2a278de3047fb72e77332115579e84e5))
-- **repo:** fix typings
-  ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
+- **repo:** fix typings ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
 
 # 1.4.0 (2020-11-02)
 
@@ -1105,8 +1003,7 @@ All notable changes to this project will be documented in this file. See
   ([e201a90](https://github.com/newrade/newrade/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
 - **repo:** add missing prebuild commands
   ([aeebd40](https://github.com/newrade/newrade/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
-- **repo:** fix scripts
-  ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
+- **repo:** fix scripts ([1468532](https://github.com/newrade/newrade/commit/1468532b791600a47b2b8082ef822148a72d764c))
 - **repo:** fixes for refactor and react-ui-app
   ([91abbbd](https://github.com/newrade/newrade/commit/91abbbd1ee9fd658b3e02c016313292e88f19af0))
 - **repo:** fixes for tsconfigs
@@ -1115,14 +1012,12 @@ All notable changes to this project will be documented in this file. See
   ([7e8bd73](https://github.com/newrade/newrade/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
 - **repo:** rework .gitignore and eslint config files
   ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
-- **repo:** wip
-  ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **repo:** wip ([68d9f77](https://github.com/newrade/newrade/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
 - **typescript:** remove typeRoots which is almost a deprecated feature
   ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
 - **typescript:** revert to v3 since eslint and prettier are not ready
   ([08bc333](https://github.com/newrade/newrade/commit/08bc333bc7044153c50f5cbdb077f2861a74d981))
-- **wip:** wip
-  ([3319697](https://github.com/newrade/newrade/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
+- **wip:** wip ([3319697](https://github.com/newrade/newrade/commit/3319697e314d643fb809a790b2d9c3b1bf1c749b))
 
 ### Features
 

@@ -2,12 +2,12 @@
 
 exports[`props should render correctly 1`] = `
 <div
-  class="center style_theme"
+  class="center center__iky36j0"
   style="color: red;"
 >
   <div />
   <div
-    class="style_theme center-div"
+    class="center__iky36j1 center-div"
     style="--max-content-width: 800px;"
   >
     Hello world
