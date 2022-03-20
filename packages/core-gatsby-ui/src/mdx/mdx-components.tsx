@@ -40,7 +40,6 @@ import {
   TableHeader,
   TableRow,
   Tag,
-  Title,
 } from '@newrade/core-react-ui';
 import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
 import { IconBox, Placeholder, PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
@@ -52,6 +51,19 @@ import { DocPropsTable } from '../context/doc-props-table';
 import { SectionBase } from '../sections/section-base';
 import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
+
+export type MDXComponents = Partial<
+  Record<keyof React.ReactHTML, React.ReactNode> & {
+    pragmaFrag: React.ReactNode;
+    inlineCode: React.ReactNode;
+  } & {
+    [key: string]: React.ReactNode;
+  }
+>;
+
+export type MDXProps = {
+  children?: React.ReactNode | React.ReactElement | string | null;
+};
 
 /**
  * Components configuration object for `<MDXProvider/>`.
@@ -65,14 +77,7 @@ import { SectionSwitcher } from '../sections/section-switcher';
  * </MDXProvider>
  * ```
  */
-export const mdxComponents: Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & {
-    pragmaFrag: React.ReactNode;
-    inlineCode: React.ReactNode;
-  } & {
-    [key: string]: React.ReactNode;
-  }
-> = {
+export const mdxComponents: MDXComponents = {
   /**
    *
    * Content sectioning
@@ -117,7 +122,7 @@ export const mdxComponents: Partial<
    *
    */
 
-  Title: (props: MDXProps) => <Title {...props} />,
+  Title: (props: MDXProps) => <Heading {...props} />,
   Heading: (props: MDXProps) => <Heading {...props} />,
   h1: (props: MDXProps) => <Heading {...props} />,
   h2: (props: MDXProps) => <Heading variant={HEADING.h2} {...props} />,
@@ -380,8 +385,4 @@ export const mdxComponents: Partial<
   // @ts-ignore
   Icon: (props: MDXProps) => <IconComp {...props} />,
   IconBox: (props: MDXProps) => <IconBox {...props} />,
-};
-
-export type MDXProps = {
-  children?: React.ReactNode | React.ReactElement | string | null;
 };

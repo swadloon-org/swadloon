@@ -34,14 +34,14 @@ export const defaultTypography: DefaultTypographyV2 = {
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     fontWeight: 700,
-    mobile: {
+    desktop: {
       t1: {
-        capHeight: 34,
-        lineGap: 24,
+        capHeight: 42,
+        lineGap: 45,
       },
       t2: {
-        capHeight: 28,
-        lineGap: 22,
+        capHeight: 36,
+        lineGap: 32,
       },
     },
     tablet: {
@@ -54,42 +54,39 @@ export const defaultTypography: DefaultTypographyV2 = {
         lineGap: 26,
       },
     },
-    desktop: {
+    mobile: {
       t1: {
-        capHeight: 42,
-        lineGap: 45,
+        capHeight: 34,
+        lineGap: 24,
       },
       t2: {
-        capHeight: 36,
-        lineGap: 32,
+        capHeight: 28,
+        lineGap: 22,
       },
     },
   },
   headings: {
     font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 700,
+    fontWeight: 500,
     letterSpacing: -2,
-    mobile: {
+    desktop: {
       h1: {
-        capHeight: 26,
-        lineGap: 20,
+        fontSize: 36,
+        lineGap: 18,
         letterSpacing: -3,
       },
       h2: {
-        capHeight: 20,
-        lineGap: 18,
-        fontWeight: 600,
+        fontSize: 28,
+        lineGap: 16,
       },
       h3: {
-        capHeight: 16,
-        lineGap: 16,
-        fontWeight: 600,
+        fontSize: 20,
+        lineGap: 14,
         letterSpacing: 0,
       },
       h4: {
-        capHeight: 14,
+        fontSize: 16,
         lineGap: 14,
-        fontWeight: 600,
         letterSpacing: 0,
       },
     },
@@ -102,72 +99,66 @@ export const defaultTypography: DefaultTypographyV2 = {
       h2: {
         capHeight: 20,
         lineGap: 18,
-        fontWeight: 600,
       },
       h3: {
         capHeight: 16,
         lineGap: 16,
-        fontWeight: 600,
         letterSpacing: 0,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 600,
         letterSpacing: 0,
       },
     },
-    desktop: {
+    mobile: {
       h1: {
-        fontSize: 36,
-        lineGap: 18,
+        capHeight: 26,
+        lineGap: 20,
         letterSpacing: -3,
       },
       h2: {
-        fontSize: 28,
-        lineGap: 16,
-        fontWeight: 600,
+        capHeight: 20,
+        lineGap: 18,
       },
       h3: {
-        fontSize: 20,
-        lineGap: 14,
-        fontWeight: 600,
+        capHeight: 16,
+        lineGap: 16,
         letterSpacing: 0,
       },
       h4: {
-        fontSize: 16,
+        capHeight: 14,
         lineGap: 14,
-        fontWeight: 600,
         letterSpacing: 0,
       },
     },
   },
   paragraphs: {
-    font: [...fonts.defaultFallbackSansFonts],
+    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       normal: {
         fontWeight: 400,
       },
       bold: {
-        fontWeight: 600,
+        fontWeight: 500,
       },
       italic: {
         fontWeight: 400,
         fontStyle: 'italic',
       },
       boldUppercase: {
-        fontWeight: 600,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 3,
+        letterSpacing: 5,
       },
       uppercase: {
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 3,
+        letterSpacing: 5,
       },
       italicBold: {
         fontStyle: 'italic',
-        fontWeight: 600,
+        fontWeight: 500,
       },
     },
     mobile: {
@@ -226,37 +217,37 @@ export const defaultTypography: DefaultTypographyV2 = {
     },
   },
   labels: {
-    font: [...fonts.defaultFallbackSansFonts],
-    fontWeight: 600,
+    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    fontWeight: 500,
     styles: {
       normal: {
-        fontWeight: 600,
+        fontWeight: 500,
       },
       italic: { fontStyle: 'italic' },
       bold: {
-        fontWeight: 600,
+        fontWeight: 500,
       },
       italicBold: {
         fontStyle: 'italic',
       },
       boldUppercase: {
-        fontWeight: 600,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 6,
+        letterSpacing: 5,
       },
       uppercase: {
         fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 6,
+        letterSpacing: 5,
       },
     },
-    mobile: {
+    desktop: {
       medium: {
-        fontSize: 18,
+        fontSize: 15,
         lineGap: 12,
       },
       small: {
-        fontSize: 16,
+        fontSize: 13,
         lineGap: 12,
       },
       xSmall: {
@@ -266,30 +257,30 @@ export const defaultTypography: DefaultTypographyV2 = {
     },
     tablet: {
       medium: {
-        fontSize: 17,
-        lineGap: 12,
+        fontSize: 15,
+        lineGap: 15,
       },
       small: {
-        fontSize: 15,
-        lineGap: 12,
-      },
-      xSmall: {
-        fontSize: 11,
-        lineGap: 12,
-      },
-    },
-    desktop: {
-      medium: {
-        fontSize: 15,
-        lineGap: 12,
-      },
-      small: {
-        fontSize: 14,
-        lineGap: 12,
+        fontSize: 13,
+        lineGap: 13,
       },
       xSmall: {
         fontSize: 12,
         lineGap: 12,
+      },
+    },
+    mobile: {
+      medium: {
+        fontSize: 16,
+        lineGap: 16,
+      },
+      small: {
+        fontSize: 14,
+        lineGap: 14,
+      },
+      xSmall: {
+        fontSize: 13,
+        lineGap: 13,
       },
     },
   },

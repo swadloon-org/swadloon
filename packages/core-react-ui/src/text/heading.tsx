@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import { pascal } from 'case';
 
-import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
+import { HEADING, TITLE, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
 
 import { Primitive } from '../primitive/primitive';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -16,7 +16,7 @@ type Tags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 
 type Props = PrimitiveProps<Tags> &
   TextCommonProps & {
-    variant?: HEADING;
+    variant?: HEADING | TITLE;
     textStyle?: TYPOGRAPHIC_STYLE;
     variantLevel?: Variant;
     /**
@@ -30,6 +30,7 @@ const defaultProps: Props = {
   variant: HEADING.h1,
   variantLevel: Variant.primary,
   children: 'Heading',
+  readableWidth: true,
 };
 
 export const Heading = React.memo(
@@ -60,7 +61,15 @@ export const Heading = React.memo(
     const localRef = useRef<HTMLHeadingElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLHeadingElement>) : localRef;
 
-    const type: Tags = as ? as : variant || 'h1';
+    const type: Tags = as
+      ? as
+      : variant
+      ? variant === 't1'
+        ? 'h1'
+        : variant === 't2'
+        ? 'h2'
+        : variant
+      : 'h1' || 'h1';
 
     /**
      *

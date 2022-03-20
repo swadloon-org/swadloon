@@ -1,6 +1,5 @@
+import { COLOR_SCHEME } from '@newrade/core-design-system';
 import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '@newrade/core-react-ui';
-
-import { darkCssTheme, lightCssTheme } from '../design-system/theme';
 
 /**
  *
@@ -9,8 +8,9 @@ import { darkCssTheme, lightCssTheme } from '../design-system/theme';
  */
 
 export const lightThemeConfig: CSSRuntimeThemeConfig = {
-  name: lightCssTheme.name,
-  colorScheme: lightCssTheme.colorScheme,
+  name: 'ze-light',
+  colorScheme: COLOR_SCHEME.LIGHT,
+
   default: true,
   className: 'global-css-theme-ze-light',
 };
@@ -22,8 +22,8 @@ export const lightThemeConfig: CSSRuntimeThemeConfig = {
  */
 
 export const darkThemeConfig: CSSRuntimeThemeConfig = {
-  name: darkCssTheme.name,
-  colorScheme: darkCssTheme.colorScheme,
+  name: 'ze-dark',
+  colorScheme: COLOR_SCHEME.DARK,
   default: false,
   className: 'global-css-theme-ze-dark',
 };

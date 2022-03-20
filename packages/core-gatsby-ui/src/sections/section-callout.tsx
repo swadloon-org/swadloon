@@ -29,6 +29,8 @@ export const SectionCallout = React.forwardRef<HTMLElement, Props>(
         variant = Variant.primary,
         baseLayout = SectionBaseLayout.fullWidth,
         padding = SectionPadding.none,
+        colorMode,
+        colorScheme,
         blocks,
       } = {
         variant: Variant.primary,
@@ -68,6 +70,8 @@ export const SectionCallout = React.forwardRef<HTMLElement, Props>(
           variant,
           baseLayout,
           padding,
+          colorMode,
+          colorScheme,
         }}
         {...commonProps}
       >

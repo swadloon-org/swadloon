@@ -6,7 +6,7 @@ export const devServerConfig = {
   historyApiFallback: true,
   watchContentBase: false,
   watchOptions: {
-    aggregateTimeout: 5,
+    aggregateTimeout: 400,
     ignored: [
       '**/.git/**',
       '**/node_modules/**',

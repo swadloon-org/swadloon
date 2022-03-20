@@ -2,16 +2,16 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
 import { Variant } from '@newrade/core-design-system';
-import { ContentType, FooterLayout } from '@newrade/core-website-api';
+import { CONTENT_TYPE, FooterLayout } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
+import { keys, values } from '../utilities';
 
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createFooter(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.FOOTER, {
-    name: ContentType.FOOTER,
+  const content = migration.createContentType(CONTENT_TYPE.FOOTER, {
+    name: CONTENT_TYPE.FOOTER,
     description: 'Configuration for the footer.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -51,7 +51,7 @@ export function createFooter(migration: Migration.default) {
     type: 'Symbol',
     validations: [
       {
-        in: keys(Variant),
+        in: values(Variant),
       },
     ],
   });
@@ -66,7 +66,7 @@ export function createFooter(migration: Migration.default) {
     name: pascal(COMMON_FIELD.NAVIGATION),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.NAVIGATION] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.NAVIGATION] }],
   });
   content.changeFieldControl(
     COMMON_FIELD.NAVIGATION,
@@ -84,7 +84,7 @@ export function createFooter(migration: Migration.default) {
     name: pascal(COMMON_FIELD.COMPANY_INFO),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.COMPANY_INFO] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.COMPANY_INFO] }],
   });
   content.changeFieldControl(
     COMMON_FIELD.COMPANY_INFO,
@@ -104,7 +104,7 @@ export function createFooter(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [ContentType.BLOCK] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.BLOCK] }],
     },
   });
 
@@ -115,7 +115,7 @@ export function createFooter(migration: Migration.default) {
     name: pascal('privacyNoticeLinks'),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.LINK] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl('privacyNoticeLinks', 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Select links to privacy notice pages',
@@ -128,7 +128,7 @@ export function createFooter(migration: Migration.default) {
     name: pascal('termsOfServicesLink'),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.LINK] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl(
     'termsOfServicesLink',

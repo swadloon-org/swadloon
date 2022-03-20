@@ -1,7 +1,7 @@
 /**
  * All content type enum value show be PascalCased
  */
-export enum ContentType {
+export enum CONTENT_TYPE {
   /**
    * Navigation related types
    */

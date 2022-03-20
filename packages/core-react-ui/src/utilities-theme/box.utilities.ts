@@ -72,11 +72,36 @@ export function getCSSBoxMargin(padding?: DeepPartial<Margin>): Margin<string> {
 export function getCSSBorderStyles(borders?: DeepPartial<BorderStyles>): BorderStyles<string> {
   if (!borders) {
     return {
-      default: {},
-      top: {},
-      right: {},
-      bottom: {},
-      left: {},
+      default: {
+        color: '',
+        width: '',
+        radius: '',
+        style: '',
+      },
+      top: {
+        color: '',
+        width: '',
+        radius: '',
+        style: '',
+      },
+      right: {
+        color: '',
+        width: '',
+        radius: '',
+        style: '',
+      },
+      bottom: {
+        color: '',
+        width: '',
+        radius: '',
+        style: '',
+      },
+      left: {
+        color: '',
+        width: '',
+        radius: '',
+        style: '',
+      },
     };
   }
 
@@ -87,16 +112,26 @@ export function getCSSBorderStyles(borders?: DeepPartial<BorderStyles>): BorderS
 
 export function getCSSBoxBorder(border?: DeepPartial<Border>): Border<string> {
   if (!border) {
-    return {};
+    return {
+      color: '',
+      width: '',
+      radius: '',
+      style: '',
+    };
   }
 
   if (!(border.width || border.color || border.radius || border.style)) {
-    return {};
+    return {
+      color: '',
+      width: '',
+      radius: '',
+      style: '',
+    };
   }
 
   return {
-    color: border.color ? getCSSColor(border.color) : undefined,
-    width: border.width ? px({ value: border.width }) : undefined,
+    color: border.color ? getCSSColor(border.color) : '',
+    width: border.width ? px({ value: border.width }) : '',
     style: border.style || 'solid',
     radius: getCSSBoxRadius(border.radius),
   };
@@ -110,16 +145,26 @@ export function getCSSBoxBorder(border?: DeepPartial<Border>): Border<string> {
 
 export function getCSSOutlineStyles(outline?: OutlineStyles): OutlineStyles<string> {
   if (!outline) {
-    return {};
+    return {
+      color: '',
+      width: '',
+      radius: '',
+      style: '',
+    };
   }
 
   if (!(outline.width || outline.color || outline.radius || outline.style)) {
-    return {};
+    return {
+      color: '',
+      width: '',
+      radius: '',
+      style: '',
+    };
   }
 
   return {
-    color: outline.color ? getCSSColor(outline.color) : undefined,
-    width: outline.width ? px({ value: outline.width }) : undefined,
+    color: outline.color ? getCSSColor(outline.color) : '',
+    width: outline.width ? px({ value: outline.width }) : '',
     style: outline.style || 'solid',
     radius: getCSSBoxRadius(outline.radius),
   };

@@ -3,7 +3,7 @@ import React from 'react';
 import { ICON } from '../foundations/iconography';
 import { ColorType, DeepPartial, SizeType } from '../types';
 
-import { BoxStyle, Margin } from './box';
+import { BorderStyles, BoxStyle, Margin, OutlineStyles, Padding } from './box';
 import { Variant } from './components';
 
 /**
@@ -13,7 +13,7 @@ export type ButtonIconStyle<Override extends undefined | string = undefined> = {
   /**
    * The icon height and width
    */
-  iconSize?: SizeType<Override>;
+  iconSize: SizeType<Override>;
   /**
    * Used to control specific spacing around icons in button
    * (will be ignored in Button rendering only the icon )
@@ -29,8 +29,13 @@ export type ButtonIconStyle<Override extends undefined | string = undefined> = {
   iconOnlyPadding: SizeType<Override>;
 };
 
-export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> &
-  ButtonIconStyle<Override>;
+export type ButtonBoxStyle<Override extends undefined | string = undefined> = {
+  width: SizeType<Override>;
+  height: SizeType<Override>;
+  padding: Padding<Override>;
+  border: BorderStyles<Override>;
+  outline: OutlineStyles<Override>;
+} & ButtonIconStyle<Override>;
 
 /**
  * Possible sizes for buttons
@@ -105,11 +110,21 @@ export type ButtonProps = Partial<{
  * Properties for each color type in a button
  */
 export type ButtonColors<Override extends undefined | string = undefined> = {
-  textColor?: ColorType<Override>;
-  iconColor?: ColorType<Override>;
-  backgroundColor?: ColorType<Override>;
-  borderColor?: ColorType<Override>;
-  outlineColor?: ColorType<Override>;
+  textColor: ColorType<Override>;
+  textColorActive: ColorType<Override>;
+  textColorDisabled: ColorType<Override>;
+  iconColor: ColorType<Override>;
+  iconColorActive: ColorType<Override>;
+  iconColorDisabled: ColorType<Override>;
+  backgroundColor: ColorType<Override>;
+  backgroundColorActive: ColorType<Override>;
+  backgroundColorDisabled: ColorType<Override>;
+  borderColor: ColorType<Override>;
+  borderColorActive: ColorType<Override>;
+  borderColorDisabled: ColorType<Override>;
+  outlineColor: ColorType<Override>;
+  outlineColorActive: ColorType<Override>;
+  outlineColorDisabled: ColorType<Override>;
 };
 
 /**

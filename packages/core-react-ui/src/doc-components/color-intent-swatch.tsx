@@ -7,7 +7,7 @@ import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-sys
 import { Stack } from '../layout/stack';
 import { Label } from '../text/label';
 import { sizeVars } from '../theme';
-import { getCSSColor } from '../utilities-theme/colors.utilities';
+import { getCSSColorVar } from '../utilities-iso';
 
 import * as styles from './color-swatch.css';
 
@@ -19,7 +19,7 @@ type OwnProps = HTMLAttributes<any> & {
 
 export const ColorIntentSwatch: React.FC<OwnProps> = ({ id, style, className, ...props }) => {
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
-  const cssColorString = colorObject ? getCSSColor(colorObject) : '';
+  const cssColorString = colorObject ? getCSSColorVar(colorObject) : '';
 
   return (
     <Stack id={id} style={style} className={styles.wrapper} gap={[sizeVars.x2]}>
@@ -38,7 +38,7 @@ export const ColorIntentSwatch: React.FC<OwnProps> = ({ id, style, className, ..
             variantLevel={Variant.primary}
             textStyle={TEXT_STYLE.normal}
           >
-            <code>{`${getCSSColor(props.color as Color)}`}</code>
+            <code>{`${getCSSColorVar(props.color as Color)}`}</code>
           </Label>
         </Stack>
       </div>

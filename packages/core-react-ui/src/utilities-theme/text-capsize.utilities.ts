@@ -1,4 +1,5 @@
 import { createStyleObject, FontMetrics, getCapHeight, precomputeValues } from '@capsizecss/core';
+import { CapsizeOptions, ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
 
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
@@ -34,7 +35,7 @@ export function getCapsizeStyles({
   lineGap?: number;
   fontMetrics: FontMetrics;
 }) {
-  return createStyleObject(
+  const capsizeStyles = createStyleObject(
     //
     // if font size is provided use it to compute capsize values
     //
@@ -42,6 +43,39 @@ export function getCapsizeStyles({
       ? ({ fontSize: fontSize, lineGap, fontMetrics } as any)
       : { capHeight, lineGap, fontMetrics }
   );
+
+  console.log(fontSize);
+
+  if (fontSize === undefined) {
+    return capsizeStyles;
+  }
+
+  const roundedFontNumber = fontSize;
+  const roundedFontSize = Math.round(100 * roundedFontNumber) / 100;
+
+  return { ...capsizeStyles, fontSize: `${roundedFontSize}px` };
+}
+
+/**
+ * Create a capsize style object (with `fontSize` set or only `capHeight`)
+ *
+ * @see https://github.com/seek-oss/capsize#createstyleobject
+ */
+export function getPrecomputedCapsizeValues(options: CapsizeOptions): ComputedValues {
+  const capsizePrecomputedValues = precomputeValues(options);
+
+  if (capsizePrecomputedValues.fontSize === undefined) {
+    return capsizePrecomputedValues;
+  }
+
+  const roundedFontNumber = pxStringToNumber({ value: capsizePrecomputedValues.fontSize });
+
+  if (roundedFontNumber == undefined) {
+    return capsizePrecomputedValues;
+  }
+
+  const roundedFontSize = Math.round(100 * roundedFontNumber) / 100;
+  return { ...capsizePrecomputedValues, fontSize: `${roundedFontSize}px` };
 }
 
 /**
@@ -168,7 +202,7 @@ export function createCSSCapsizeTextStyleV2({
       textDecoration,
     }),
 
-    capsize: precomputeValues({ capHeight: capHeightNumber, lineGap, fontMetrics }),
+    capsize: getPrecomputedCapsizeValues({ capHeight: capHeightNumber, lineGap, fontMetrics }),
   };
 }
 

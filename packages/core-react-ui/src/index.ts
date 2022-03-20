@@ -120,4 +120,3 @@ export * from './text/label';
 export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
-export * from './text/title';

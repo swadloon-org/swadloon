@@ -1,11 +1,11 @@
 export enum COLOR_SCHEME {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK',
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 export enum COLOR_MODE {
-  NORMAL = 'NORMAL',
-  REVERSED = 'REVERSED',
+  NORMAL = 'normal',
+  REVERSED = 'reversed',
 }
 
 export enum COLOR_BG_STYLE {

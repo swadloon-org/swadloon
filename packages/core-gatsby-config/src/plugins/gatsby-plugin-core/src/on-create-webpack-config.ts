@@ -72,14 +72,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   reporter.info(`[${pluginOptions.pluginName}] NODE_ENV: ${env.NODE_ENV}`);
 
   /**
-   * Replace the devtool option
-   *
-   * @see https://webpack.js.org/configuration/devtool/#devtool
-   */
-  // config.devtool = isProduction ? 'eval-cheap-module-source-map' : 'eval-cheap-module-source-map';
-  // config.devtool = 'eval-cheap-module-source-map';
-
-  /**
    * Remove es5 target
    */
   config.target = ['web'];
@@ -187,20 +179,16 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Add webpack stats plugin in production
    */
-  if (isBuildJavaScriptStage) {
-    if (isProduction) {
-      config.plugins?.push(getWebpackStatsPlugin());
-    }
+  if (isProduction && isBuildJavaScriptStage) {
+    config.plugins?.push(getWebpackStatsPlugin());
   }
 
   /**
-   * Add SizePlugin
+   * Add SizePlugin, only for production
    */
-  if (isBuildJavaScriptStage) {
-    if (isProduction) {
-      reporter.info(`[${pluginOptions.pluginName}] adding size-plugin plugin`);
-      config.plugins = [...(config.plugins || []), getSizePlugin()];
-    }
+  if (isProduction && isBuildJavaScriptStage) {
+    reporter.info(`[${pluginOptions.pluginName}] adding size-plugin plugin`);
+    config.plugins = [...(config.plugins || []), getSizePlugin()];
   }
 
   /**
@@ -219,14 +207,15 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
-   * Add webpack-bundle-analyzer only for development
+   * Add webpack-bundle-analyzer only for local production build
    */
-  if ((isBuildJavaScriptStage || isDevelopStage) && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  if (isProduction && isBuildJavaScriptStage && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     reporter.info(`[${pluginOptions.pluginName}] adding webpack-bundle-analyzer plugin`);
     config.plugins = [
       ...(config.plugins || []),
       getBundleVisualizerPlugin({
-        analyzerMode: isProduction ? 'static' : 'server',
+        // analyzerMode: isProduction ? 'static' : 'server',
+        analyzerMode: 'static',
       }),
     ];
   }

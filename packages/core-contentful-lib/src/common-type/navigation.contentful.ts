@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { ContentType, NavComponent } from '@newrade/core-website-api';
+import { CONTENT_TYPE, NavComponent } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
@@ -9,8 +9,8 @@ import { keys } from '../utilities';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createNavigation(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.NAVIGATION, {
-    name: ContentType.NAVIGATION,
+  const content = migration.createContentType(CONTENT_TYPE.NAVIGATION, {
+    name: CONTENT_TYPE.NAVIGATION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -59,7 +59,7 @@ export function createNavigation(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [ContentType.LINK] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
     },
   });
   content.changeFieldControl(COMMON_FIELD.LINKS, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINKS_EDITOR, {
@@ -75,7 +75,7 @@ export function createNavigation(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [ContentType.NAVIGATION] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.NAVIGATION] }],
     },
   });
   content.changeFieldControl(

@@ -1,4 +1,3 @@
-// import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 

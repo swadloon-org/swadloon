@@ -1,17 +1,18 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { Variant } from '@newrade/core-design-system';
-import { ContentType, NavbarLayout } from '@newrade/core-website-api';
+import { CONTENT_TYPE, NavbarLayout } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
 
+import { createColorProps } from './color-props.contentful';
 import { COMMON_FIELD } from './common-fields.contentful';
+import { createVariantField } from './variant.contentful';
 
 export function createNavbar(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.NAVBAR, {
-    name: ContentType.NAVBAR,
+  const content = migration.createContentType(CONTENT_TYPE.NAVBAR, {
+    name: CONTENT_TYPE.NAVBAR,
     description: 'Configuration for the navbar.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -43,21 +44,9 @@ export function createNavbar(migration: Migration.default) {
     helpText: 'Select navbar layout',
   });
 
-  /**
-   * Variant of the section
-   */
-  content.createField(COMMON_FIELD.VARIANT, {
-    name: pascal(COMMON_FIELD.VARIANT),
-    type: 'Symbol',
-    validations: [
-      {
-        in: keys(Variant),
-      },
-    ],
-  });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
-    helpText: 'Select section variant',
-  });
+  createVariantField(content);
+
+  createColorProps(content);
 
   /**
    * Navigation config object
@@ -66,7 +55,7 @@ export function createNavbar(migration: Migration.default) {
     name: pascal(COMMON_FIELD.NAVIGATION),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.NAVIGATION] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.NAVIGATION] }],
   });
   content.changeFieldControl(
     COMMON_FIELD.NAVIGATION,

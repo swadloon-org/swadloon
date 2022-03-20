@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Outlet, Route, Routes } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+
+import { title } from 'case';
 
 import {
   Center,
   Cluster,
   InputLabel,
   InputWrapper,
+  Link,
   Main,
   MainWrapper,
   NavbarModular,
@@ -16,7 +19,10 @@ import {
 } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { Component, lazyComponentImports } from './component';
+import { LazyComponentLoader } from './component';
+import { lazyComponentImports } from './context-require';
+
+import * as styles from './layout.css';
 
 type Props = {};
 
@@ -65,26 +71,20 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
              */}
             <InputWrapper>
               <Stack gap={[sizeVars.x3]}>
-                <InputLabel htmlFor={'select-components-code'}>Select Component Code</InputLabel>
-                {/* <InputSelect
-                id={'select-components-code'}
-                value={selectedModuleId}
-                onChange={handleOnChangeModuleId}
-              >
-                {lazyComponentImports.map(({ moduleId }) => {
-                  return (
-                    <option key={moduleId} value={moduleId}>
-                      {moduleId}
-                    </option>
-                  );
-                })}
-              </InputSelect> */}
-
+                <InputLabel htmlFor={'select-components-code'}>Select Component</InputLabel>
                 <Cluster gap={[sizeVars.x1]} wrap={true}>
                   {lazyComponentImports.map((lazyImport, lazyImportIndex) => {
                     return (
-                      <Link key={lazyImport.slug} to={`components/${lazyImport.slug}`}>
-                        /{lazyImport.slug}
+                      <Link
+                        key={lazyImportIndex}
+                        AsElement={
+                          <RouterLink
+                            key={lazyImport.slug}
+                            to={`components/${lazyImport.slug}`}
+                          ></RouterLink>
+                        }
+                      >
+                        {title(lazyImport.slug)}
                       </Link>
                     );
                   })}
@@ -92,6 +92,9 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
               </Stack>
             </InputWrapper>
 
+            {/*
+             * Load lazy loaded components
+             */}
             <Routes>
               <Route path={'components'}>
                 {lazyComponentImports.map((lazyImport, lazyImportIndex) => {
@@ -99,7 +102,7 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
                     <Route
                       key={lazyImport.moduleId}
                       path={`:componentSlug`}
-                      element={<Component />}
+                      element={<LazyComponentLoader lazyComponentImports={lazyComponentImports} />}
                     ></Route>
                   );
                 })}
@@ -112,4 +115,4 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
       </Main>
     </MainWrapper>
   );
-};
+});

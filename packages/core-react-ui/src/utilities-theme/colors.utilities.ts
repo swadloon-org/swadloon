@@ -387,8 +387,8 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     transparent: colors.transparent,
 
     primary: colors.primary['500'],
-
     secondary: colors.accent1['500'],
+    disabled: colors.grey['100'],
 
     primaryText: colors.grey['1000'],
     secondaryText: colors.grey['700'],
@@ -399,7 +399,7 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     infoAction: colors.utilityNeutral['500'],
     infoBackground: colors.utilityNeutral['100'],
 
-    successText: colors.utilityGreen['900'],
+    successText: colors.utilityGreen['500'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
 
@@ -407,7 +407,7 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     warningAction: colors.utilityYellow['500'],
     warningBackground: colors.utilityYellow['100'],
 
-    dangerText: colors.utilityRed['900'],
+    dangerText: colors.utilityRed['500'],
     dangerAction: colors.utilityRed['500'],
     dangerBackground: colors.utilityRed['100'],
 
@@ -441,7 +441,7 @@ export function getDefaultCSSVarColorIntents({
     transparent: colors.transparent,
 
     primary: colors.primary['500'],
-
+    disabled: colors.grey['500'],
     secondary: colors.accent1['500'],
 
     primaryText: colors.grey['1000'],

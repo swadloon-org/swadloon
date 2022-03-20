@@ -1,0 +1,28 @@
+diff --git a/node_modules/@vanilla-extract/webpack-plugin/loader/.DS_Store b/node_modules/@vanilla-extract/webpack-plugin/loader/.DS_Store
+new file mode 100644
+index 0000000..c88a062
+Binary files /dev/null and b/node_modules/@vanilla-extract/webpack-plugin/loader/.DS_Store differ
+diff --git a/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.dev.js b/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.dev.js
+index 5767a96..53781e9 100644
+--- a/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.dev.js
++++ b/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.dev.js
+@@ -68,6 +68,7 @@ function pitch() {
+       }) => {
+         const serializedCss = await integration.serializeCss(source);
+         const virtualResourceLoader = `${virtualLoader}?${JSON.stringify({
++          fileName: fileName,
+           source: serializedCss
+         })}`;
+         const request = loaderUtils__default["default"].stringifyRequest(this, `${fileName}!=!${virtualResourceLoader}!${emptyCssExtractionFile}`);
+diff --git a/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.prod.js b/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.prod.js
+index 5767a96..53781e9 100644
+--- a/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.prod.js
++++ b/node_modules/@vanilla-extract/webpack-plugin/loader/dist/vanilla-extract-webpack-plugin-loader.cjs.prod.js
+@@ -68,6 +68,7 @@ function pitch() {
+       }) => {
+         const serializedCss = await integration.serializeCss(source);
+         const virtualResourceLoader = `${virtualLoader}?${JSON.stringify({
++          fileName: fileName,
+           source: serializedCss
+         })}`;
+         const request = loaderUtils__default["default"].stringifyRequest(this, `${fileName}!=!${virtualResourceLoader}!${emptyCssExtractionFile}`);

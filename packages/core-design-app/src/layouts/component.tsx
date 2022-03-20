@@ -3,72 +3,14 @@ import { useParams } from 'react-router';
 
 import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
-import { getFormattedAnchorId } from '@newrade/core-react-ui/utilities-iso';
 
-/**
- * @see https://webpack.js.org/guides/dependency-management/#require-context
- */
-interface NodeRequire extends NodeJS.Require {
-  /**
-   * A context module exports a (require) function that takes one argument: the request.
-   */
-  context: (
-    directory: string,
-    useSubdirectories: boolean,
-    regExp: RegExp,
-    mode: 'sync' | 'lazy'
-  ) => RequireFunction;
-}
+import type { lazyComponentImports } from './context-require';
 
-type RequireMode = 'sync' | 'lazy';
+type Props = {
+  lazyComponentImports: typeof lazyComponentImports;
+};
 
-interface RequireFunction<TMode extends RequireMode = 'sync'> extends Function {
-  (id: string): TMode extends 'lazy' ? Promise<object> : any;
-  /**
-   * resolve is a function and returns the module id of the parsed request.
-   */
-  resolve: () => string;
-  /**
-   * keys is a function that returns an array of all possible requests that the context module can handle.
-   */
-  keys: () => string[];
-  /**
-   * id is the module id of the context module. This may be useful for module.hot.accept
-   */
-  id: string;
-}
-
-declare var require: NodeRequire;
-
-function importComponentsLazy(
-  requireFn: RequireFunction
-): { moduleId: string; requireFn: RequireFunction<'lazy'>; slug: string }[] {
-  return requireFn.keys().map((moduleId) => {
-    return {
-      moduleId,
-      requireFn,
-      slug: getFormattedAnchorId(
-        moduleId
-          .replaceAll(/^\./g, '')
-          .replaceAll(/\.tsx$/g, '')
-          .replaceAll(/\./g, '-')
-      ),
-    };
-  });
-}
-
-export const lazyComponentImports = importComponentsLazy(
-  require.context(
-    '@newrade/core-design-system-docs/src/code/',
-    true,
-    /(titles|headings|labels|paragraphs-?|links|buttons|icon-sizes)(.*)\.code\.tsx$/i,
-    'lazy'
-  )
-);
-
-type Props = {};
-
-export const Component: React.FC<Props> = function Layout(props) {
+export const LazyComponentLoader: React.FC<Props> = function Layout({ lazyComponentImports }) {
   const params = useParams<'componentSlug'>();
 
   const LazyRenderedComponent = React.lazy(() => {
@@ -98,8 +40,9 @@ export const Component: React.FC<Props> = function Layout(props) {
         throw new Error('');
       })
       .catch((error) => {
+        console.error(error);
         return Promise.resolve({
-          default: () => <div>Could not load component ({selectedModule})</div>,
+          default: () => <div>Could not load component ({selectedModule.moduleId})</div>,
         });
       });
 

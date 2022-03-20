@@ -5,7 +5,7 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
-  fontFamily: typographyVars.titles.font,
+  fontFamily: typographyVars.headings.font,
   wordBreak: 'normal',
   userSelect: 'text',
   // position: 'relative', // 'relative' breaks useScrollSpy()
@@ -15,6 +15,7 @@ export const variants = recipe({
   variants: {
     size: {
       h1: {
+        fontWeight: typographyVars.headings.mobile.h1.fontWeight,
         ...createStyleObject(typographyVars.headings.mobile.h1.capsize),
         '@media': {
           [layoutCSS.media.tablet]: createStyleObject(typographyVars.headings.tablet.h1.capsize),
@@ -24,6 +25,7 @@ export const variants = recipe({
         },
       },
       h2: {
+        fontWeight: typographyVars.headings.mobile.h2.fontWeight,
         ...createStyleObject(typographyVars.headings.mobile.h2.capsize),
         '@media': {
           [layoutCSS.media.tablet]: createStyleObject(typographyVars.headings.tablet.h2.capsize),
@@ -33,6 +35,7 @@ export const variants = recipe({
         },
       },
       h3: {
+        fontWeight: typographyVars.headings.mobile.h3.fontWeight,
         ...createStyleObject(typographyVars.headings.mobile.h3.capsize),
         '@media': {
           [layoutCSS.media.tablet]: createStyleObject(typographyVars.headings.tablet.h3.capsize),
@@ -42,6 +45,7 @@ export const variants = recipe({
         },
       },
       h4: {
+        fontWeight: typographyVars.headings.mobile.h4.fontWeight,
         ...createStyleObject(typographyVars.headings.mobile.h4.capsize),
         '@media': {
           [layoutCSS.media.tablet]: createStyleObject(typographyVars.headings.tablet.h4.capsize),

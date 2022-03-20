@@ -1,8 +1,8 @@
-import { createStyleObject } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { layoutCSS, typographyVars } from '../theme';
+import { getCapsizeTextStyles } from '../utilities-vanilla-extract';
 
 export const base = style({
   fontFamily: typographyVars.labels.font,
@@ -18,30 +18,36 @@ export const inline = style({
 export const variants = recipe({
   variants: {
     size: {
-      xSmall: {
-        ...createStyleObject(typographyVars.labels.mobile.xSmall.capsize),
+      medium: {
+        ...getCapsizeTextStyles(typographyVars.labels.mobile.medium.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(typographyVars.labels.tablet.xSmall.capsize),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
-            typographyVars.labels.desktop.xSmall.capsize
+          [layoutCSS.media.tablet]: getCapsizeTextStyles(
+            typographyVars.labels.tablet.medium.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getCapsizeTextStyles(
+            typographyVars.labels.desktop.medium.capsize
           ),
         },
       },
       small: {
-        ...createStyleObject(typographyVars.labels.mobile.small.capsize),
+        ...getCapsizeTextStyles(typographyVars.labels.mobile.small.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(typographyVars.labels.tablet.small.capsize),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
+          [layoutCSS.media.tablet]: getCapsizeTextStyles(
+            typographyVars.labels.tablet.small.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getCapsizeTextStyles(
             typographyVars.labels.desktop.small.capsize
           ),
         },
       },
-      medium: {
-        ...createStyleObject(typographyVars.labels.mobile.medium.capsize),
+      xSmall: {
+        ...getCapsizeTextStyles(typographyVars.labels.mobile.xSmall.capsize),
         '@media': {
-          [layoutCSS.media.tablet]: createStyleObject(typographyVars.labels.tablet.medium.capsize),
-          [layoutCSS.media.desktopSmall]: createStyleObject(
-            typographyVars.labels.desktop.medium.capsize
+          [layoutCSS.media.tablet]: getCapsizeTextStyles(
+            typographyVars.labels.tablet.xSmall.capsize
+          ),
+          [layoutCSS.media.desktopSmall]: getCapsizeTextStyles(
+            typographyVars.labels.desktop.xSmall.capsize
           ),
         },
       },

@@ -1,13 +1,13 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { COMMON_FIELD, emailField, urlField } from './common-fields.contentful';
 
 export const createCompanyAddress: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(ContentType.COMPANY_ADDRESS, {
-    name: pascal(ContentType.COMPANY_ADDRESS),
+  const content = migration.createContentType(CONTENT_TYPE.COMPANY_ADDRESS, {
+    name: pascal(CONTENT_TYPE.COMPANY_ADDRESS),
     displayField: COMMON_FIELD.NAME,
   });
   content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });

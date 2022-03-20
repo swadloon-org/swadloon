@@ -6,7 +6,9 @@ import { useIsSSR } from './use-is-ssr';
 
 export function usePreferColorScheme() {
   const isSSR = useIsSSR();
-  const [colorScheme, setColorScheme] = React.useState<COLOR_SCHEME | undefined>(undefined);
+  const [colorScheme, setColorScheme] = React.useState<COLOR_SCHEME | undefined>(
+    isSSR ? undefined : getUserDeviceColorSchemeSync()
+  );
 
   useEffect(() => {
     if (isSSR) {
@@ -40,12 +42,16 @@ export function usePreferColorScheme() {
   return {
     colorScheme,
   };
+}
 
-  function query() {
-    return window.matchMedia(`(prefers-color-scheme: dark)`);
-  }
+function query() {
+  return window.matchMedia(`(prefers-color-scheme: dark)`);
+}
 
-  function getThemeForActiveScheme(matches: boolean): COLOR_SCHEME {
-    return matches ? COLOR_SCHEME.DARK : COLOR_SCHEME.LIGHT;
-  }
+function getThemeForActiveScheme(matches: boolean): COLOR_SCHEME {
+  return matches ? COLOR_SCHEME.DARK : COLOR_SCHEME.LIGHT;
+}
+
+export function getUserDeviceColorSchemeSync() {
+  return getThemeForActiveScheme(query().matches);
 }

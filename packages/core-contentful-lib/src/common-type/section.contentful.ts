@@ -2,17 +2,19 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
 import { Variant } from '@newrade/core-design-system';
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 import { SectionLayout } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
+import { values } from '..';
 
+import { createColorProps } from './color-props.contentful';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createSection(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.SECTION, {
-    name: ContentType.SECTION,
+  const content = migration.createContentType(CONTENT_TYPE.SECTION, {
+    name: CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -34,13 +36,15 @@ export function createSection(migration: Migration.default) {
     type: 'Symbol',
     validations: [
       {
-        in: keys(Variant),
+        in: values(Variant),
       },
     ],
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select section variant',
   });
+
+  createColorProps(content);
 
   /**
    *  Layout
@@ -70,9 +74,9 @@ export function createSection(migration: Migration.default) {
       validations: [
         {
           linkContentType: [
-            ContentType.BLOCK,
-            ContentType.BLOCK_IMAGE,
-            ContentType.BLOCK_IMAGE_CAROUSEL,
+            CONTENT_TYPE.BLOCK,
+            CONTENT_TYPE.BLOCK_IMAGE,
+            CONTENT_TYPE.BLOCK_IMAGE_CAROUSEL,
           ],
         },
       ],

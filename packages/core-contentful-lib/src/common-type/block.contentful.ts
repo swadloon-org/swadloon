@@ -2,22 +2,23 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
 import { Variant } from '@newrade/core-design-system';
-import { BlockAlignment, BlockType, ContentType } from '@newrade/core-website-api';
+import { BlockAlignment, BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
+import { keys, values } from '../utilities';
 
+import { createColorProps } from './color-props.contentful';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 const baseBlockOptions: Migration.IContentTypeOptions = {
-  name: ContentType.BLOCK,
+  name: CONTENT_TYPE.BLOCK,
   description: 'Configurable object for blocks in a section.',
   displayField: COMMON_FIELD.NAME,
 };
 
 export function createBlock(
   migration: Migration.default,
-  contentTypeId: string = ContentType.BLOCK,
+  contentTypeId: string = CONTENT_TYPE.BLOCK,
   contentTypeOptions: Migration.IContentTypeOptions = baseBlockOptions
 ) {
   const content = migration.createContentType(contentTypeId, contentTypeOptions);
@@ -40,13 +41,15 @@ export function createBlock(
     type: 'Symbol',
     validations: [
       {
-        in: keys(Variant),
+        in: values(Variant),
       },
     ],
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select block variant',
   });
+
+  createColorProps(content);
 
   /**
    * Type of the Block
@@ -97,7 +100,7 @@ export function createBlock(
     name: pascal(COMMON_FIELD.LINK),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.LINK] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Select link for the the block.',

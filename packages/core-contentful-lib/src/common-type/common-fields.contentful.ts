@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import { IFieldOptions } from 'contentful-migration';
 
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 
 export enum COMMON_FIELD {
   /**
@@ -23,6 +23,11 @@ export enum COMMON_FIELD {
   STYLE_VARIANT = 'styleVariant',
   SIZE = 'size',
   TAGS = 'tags',
+  /**
+   * Theming props
+   */
+  COLOR_SCHEME = 'colorScheme',
+  COLOR_MODE = 'colorMode',
   /**
    * Section / Layout related fields
    */
@@ -167,7 +172,7 @@ export const mediaCollectionField: IFieldOptions = {
   name: pascal(COMMON_FIELD.MEDIAS),
   type: 'Link',
   linkType: 'Entry',
-  validations: [{ linkContentType: [ContentType.MEDIA_COLLECTION] }],
+  validations: [{ linkContentType: [CONTENT_TYPE.MEDIA_COLLECTION] }],
 };
 
 /**
@@ -178,7 +183,7 @@ export const mediaField: IFieldOptions = {
   name: pascal(COMMON_FIELD.MEDIA),
   type: 'Link',
   linkType: 'Entry',
-  validations: [{ linkContentType: [ContentType.MEDIA] }],
+  validations: [{ linkContentType: [CONTENT_TYPE.MEDIA] }],
 };
 
 /**

@@ -34,6 +34,8 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
         variant = Variant.primary,
         baseLayout = SectionBaseLayout.fullWidth,
         padding = SectionPadding.none,
+        colorMode,
+        colorScheme,
       } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.fullWidth,
@@ -58,6 +60,8 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
           variant,
           baseLayout,
           padding,
+          colorMode,
+          colorScheme,
         }}
         {...commonProps}
       >

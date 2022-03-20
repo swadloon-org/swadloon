@@ -2,16 +2,16 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
 import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
-import { ContentType, LinkComponent, LinkType } from '@newrade/core-website-api';
+import { CONTENT_TYPE, LinkComponent, LinkType } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
+import { keys, values } from '../utilities';
 
 import { COMMON_FIELD, urlField } from './common-fields.contentful';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(ContentType.LINK, {
-    name: pascal(ContentType.LINK),
+  const content = migration.createContentType(CONTENT_TYPE.LINK, {
+    name: pascal(CONTENT_TYPE.LINK),
     displayField: COMMON_FIELD.NAME,
   });
 
@@ -50,7 +50,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     type: 'Symbol',
     validations: [
       {
-        in: keys(Variant),
+        in: values(Variant),
       },
     ],
   });
@@ -128,7 +128,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.PAGE),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.PAGE] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.PAGE] }],
   });
   content.changeFieldControl(COMMON_FIELD.PAGE, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Creates a link to an internal page.',
@@ -138,7 +138,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.SECTION),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [ContentType.SECTION] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.SECTION] }],
   });
   content.changeFieldControl(COMMON_FIELD.SECTION, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText:

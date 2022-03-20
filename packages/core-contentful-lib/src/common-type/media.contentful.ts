@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 
@@ -12,8 +12,8 @@ import { COMMON_FIELD } from './common-fields.contentful';
  * or other models
  */
 export const createMedia: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(ContentType.MEDIA, {
-    name: pascal(ContentType.MEDIA),
+  const content = migration.createContentType(CONTENT_TYPE.MEDIA, {
+    name: pascal(CONTENT_TYPE.MEDIA),
     displayField: COMMON_FIELD.NAME,
   });
 

@@ -1,8 +1,8 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 
+import { defaultEffects } from '@newrade/core-react-ui/default-theme';
 import { effectsVars } from '@newrade/core-react-ui/theme';
-
-import { lightCssTheme } from '../design-system/theme';
+import { getCSSEffects } from '@newrade/core-react-ui/utilities-theme';
 
 /**
  *
@@ -10,4 +10,6 @@ import { lightCssTheme } from '../design-system/theme';
  *
  */
 
-createGlobalTheme(':root', effectsVars, lightCssTheme.effects);
+const cssEffects = getCSSEffects(defaultEffects);
+
+createGlobalTheme(':root', effectsVars, cssEffects);

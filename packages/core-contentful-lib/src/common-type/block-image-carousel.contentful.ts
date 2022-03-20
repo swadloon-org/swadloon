@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
 import { CarouselDirection } from '@newrade/core-design-system';
-import { BlockType, ContentType } from '@newrade/core-website-api';
+import { BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { keys } from '../utilities';
@@ -11,8 +11,8 @@ import { createBlock } from './block.contentful';
 import { COMMON_FIELD, mediaCollectionField } from './common-fields.contentful';
 
 export function createImageCarouselBlock(migration: Migration.default) {
-  const content = createBlock(migration, ContentType.BLOCK_IMAGE_CAROUSEL, {
-    name: ContentType.BLOCK_IMAGE_CAROUSEL,
+  const content = createBlock(migration, CONTENT_TYPE.BLOCK_IMAGE_CAROUSEL, {
+    name: CONTENT_TYPE.BLOCK_IMAGE_CAROUSEL,
     description: 'Configurable object for an image carousel.',
     displayField: COMMON_FIELD.NAME,
   });

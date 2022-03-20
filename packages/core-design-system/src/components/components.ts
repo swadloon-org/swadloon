@@ -12,7 +12,7 @@ export enum Variant {
 }
 
 /**
- * Certain components (mainly layout component) have the ability to change the theme it applied to itself and to its children
+ * Certain components (mainly layout and block components) have the ability to change the theme it applied to itself and to its children
  */
 export type ColorModeProps = {
   /**

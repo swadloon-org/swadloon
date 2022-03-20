@@ -6,11 +6,12 @@ export const wrapper = style({
   width: '100%',
   maxWidth: '100%',
   // prevent markdown content from breaking the layout
-  overflow: 'hidden',
+  // overflow: 'hidden',
+  // TODO ?
   // add a small padding on top and bottom to prevent text
   // clipping (due to capzise precide text measurements)
-  paddingTop: '7px',
-  paddingBottom: '7px',
+  // paddingTop: '7px',
+  // paddingBottom: '7px',
 });
 
 /**
@@ -145,7 +146,7 @@ globalStyle(`.footnotes *`, {
  */
 
 globalStyle(`${wrapper} details + details`, {
-  marginTop: 0,
+  marginTop: `0 !important`,
 });
 
 globalStyle(`${wrapper} details + p`, {

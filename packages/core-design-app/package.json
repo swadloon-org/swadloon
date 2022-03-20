@@ -13,7 +13,6 @@
     "webpack:dev": "nr webpack serve --config webpack.dev.config.ts",
     "webpack:prod": "nr webpack --config webpack.prod.config.ts"
   },
-  "type": "module",
   "dependencies": {
     "@newrade/core-common": "*",
     "@newrade/core-design-system": "*",

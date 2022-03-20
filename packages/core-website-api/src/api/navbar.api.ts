@@ -35,7 +35,7 @@ export type NavbarAPI = ColorModeAPI &
      */
     navigation: NavigationAPI;
     /**
-     * Blocks of content (e.g. text) inside a
+     * Blocks of content (e.g. text) inside a navbar
      */
     blocks: BlockAPI[];
   }>;

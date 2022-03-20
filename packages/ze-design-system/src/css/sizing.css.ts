@@ -1,10 +1,12 @@
 import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 
+import { defaultSizing } from '@newrade/core-react-ui/default-theme';
 import { layoutCSS, ratioVarNames, sizeVarNames, sizingVars } from '@newrade/core-react-ui/theme';
+import { getCSSSizingV2 } from '@newrade/core-react-ui/utilities-theme';
 
-import { lightCssTheme } from '../design-system/theme';
+const cssSizing = getCSSSizingV2(defaultSizing);
 
-createGlobalTheme(':root', sizingVars, lightCssTheme.sizing);
+createGlobalTheme(':root', sizingVars, cssSizing);
 
 globalStyle(`:root`, {
   vars: {

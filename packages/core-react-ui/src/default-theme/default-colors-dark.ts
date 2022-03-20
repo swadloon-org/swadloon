@@ -24,7 +24,7 @@ export const defaultColorsColorsDark: ColorsColors = {
     a: 0,
   },
   primary: generateColorPalette5({
-    color: { h: 222, s: 60, l: 70 },
+    color: { h: 222, s: 50, l: 50 },
     light: 90,
     dark: 20,
   }),

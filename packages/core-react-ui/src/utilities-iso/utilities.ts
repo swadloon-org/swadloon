@@ -19,7 +19,13 @@ export function keys<T extends object | undefined>(object: T) {
  * @param px value in pixel
  */
 export function px({ value }: { value?: number }): string {
-  return value ? `${value}px` : `0px`;
+  if (!value) {
+    return '';
+  }
+  if (isNaN(value as number)) {
+    return '';
+  }
+  return `${value}px`;
 }
 
 /**

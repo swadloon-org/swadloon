@@ -31,7 +31,7 @@ export const Button = React.forwardRef<any, Props>(function Button(
     children,
     as = defaultProps.as,
     AsElement,
-    variant,
+    variant = defaultProps.variant,
     collapsePadding,
     size = defaultProps.size,
     disabled,
@@ -138,6 +138,9 @@ export const Button = React.forwardRef<any, Props>(function Button(
           variantDisplay={'inline'}
           textStyle={TEXT_STYLE.bold}
           variant={getLabelSizeForButtonSize(size)}
+          className={styles.labelVariants({
+            alignment: 'center',
+          })}
         >
           {renderedChildren}
         </Label>
@@ -146,13 +149,25 @@ export const Button = React.forwardRef<any, Props>(function Button(
     </>
   );
 
+  /**
+   * Custom Element rendering
+   */
+
   const CustomElement = AsElement
-    ? React.cloneElement(AsElement as React.ReactElement, commonProps, <>{ButtonContent}</>)
+    ? React.cloneElement(
+        AsElement as React.ReactElement,
+        { ...commonProps, ref },
+        <>{ButtonContent}</>
+      )
     : null;
 
   if (CustomElement) {
     return CustomElement;
   }
+
+  /**
+   * Normal element rendering
+   */
 
   return (
     <Primitive<ButtonAsType> as={type} ref={ref} {...commonProps}>

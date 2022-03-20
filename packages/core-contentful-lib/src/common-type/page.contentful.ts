@@ -1,15 +1,15 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createPage(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.PAGE, {
-    name: ContentType.PAGE,
+  const content = migration.createContentType(CONTENT_TYPE.PAGE, {
+    name: CONTENT_TYPE.PAGE,
     description: 'Model to hold informations for pages',
     displayField: COMMON_FIELD.NAME,
   });
@@ -81,7 +81,7 @@ export function createPage(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [ContentType.SECTION] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.SECTION] }],
     },
   });
 }

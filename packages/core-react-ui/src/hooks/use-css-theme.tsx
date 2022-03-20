@@ -2,7 +2,6 @@ import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from '
 
 import { COLOR_MODE, COLOR_SCHEME, ColorModeProps, Variant } from '@newrade/core-design-system';
 
-import { defaultTheme } from '../default-theme';
 import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '../design-system/css-theme-config';
 import {
   GLOBAL_CSS_THEME_SCHEME,
@@ -38,6 +37,19 @@ type CSSThemeContextType = {
 
 type CSSThemeContextOptions = {
   /**
+   * Option to forces the scheme to a defined value, will override `preferredThemeScheme`, user's device preference
+   * or any previously set value in localstorage
+   * @default undefined
+   */
+  forcedThemeScheme?: COLOR_SCHEME;
+
+  /**
+   * Option to choose the default color scheme when it has not been set before by the user, this will disregard
+   * the user's device setting
+   * @default undefined
+   */
+  preferredThemeScheme?: COLOR_SCHEME;
+  /**
    * Option to apply the selected theme's classnames to the :root element (html)
    * @default false
    */
@@ -55,19 +67,14 @@ type CSSThemeContextOptions = {
 };
 
 export const defaultOptions: CSSThemeContextOptions = {
+  forcedThemeScheme: undefined,
+  preferredThemeScheme: undefined,
   applyThemeToRootElement: false,
   syncToLocalStorage: false,
 };
 
 export const defaultCSSThemeConfig: CSSThemeProviderConfig = {
-  themes: [
-    {
-      name: defaultTheme.name,
-      colorScheme: defaultTheme.colorScheme,
-      className: 'global-css-theme-ze',
-      default: true,
-    },
-  ],
+  themes: [],
 };
 
 /**
@@ -89,7 +96,13 @@ export const CSSThemeProvider = function CSSThemeProvider({
   options?: CSSThemeContextOptions;
   children: ReactNode;
 }) {
-  const { applyThemeToRootElement, syncToLocalStorage, rootElement } = {
+  const {
+    forcedThemeScheme,
+    preferredThemeScheme,
+    applyThemeToRootElement,
+    syncToLocalStorage,
+    rootElement,
+  } = {
     ...defaultOptions,
     ...options,
   };
@@ -127,6 +140,9 @@ export const CSSThemeProvider = function CSSThemeProvider({
   const handleChangeThemeName = useCallback(
     function handleChangeThemeName(themeName: string) {
       log(`changing theme to: ${themeName}`);
+      //
+      // find the passed theme, save it to local storage and update the internal value
+      //
       const foundTheme = themes?.find((theme) => theme.name === themeName);
       const foundThemeSchemeClassName =
         foundTheme && foundTheme.colorScheme === COLOR_SCHEME.DARK
@@ -205,11 +221,35 @@ export const CSSThemeProvider = function CSSThemeProvider({
   }, [value, handleChangeThemeName]);
 
   /**
-   * Sync the current value from localstorage
+   * Init values and sync the current value from localstorage
    */
   useEffect(() => {
     if (isSSR) {
       return;
+    }
+
+    const lightTheme = themes?.find((theme) => {
+      return theme.colorScheme === COLOR_SCHEME.LIGHT;
+    });
+    const darkTheme = themes?.find((theme) => {
+      return theme.colorScheme === COLOR_SCHEME.DARK;
+    });
+
+    //
+    // when forced is set, we simply find a theme config for the forced theme scheme
+    //
+    if (forcedThemeScheme) {
+      if (forcedThemeScheme === COLOR_SCHEME.LIGHT && lightTheme) {
+        log(`forcing theme to: ${lightTheme.name}`);
+        handleChangeThemeName(lightTheme.name);
+        return;
+      }
+
+      if (forcedThemeScheme === COLOR_SCHEME.LIGHT && darkTheme) {
+        log(`forcing theme to: ${darkTheme.name}`);
+        handleChangeThemeName(darkTheme.name);
+        return;
+      }
     }
 
     const foundThemeByName = themes?.find(
@@ -223,6 +263,9 @@ export const CSSThemeProvider = function CSSThemeProvider({
         return theme.colorScheme === COLOR_SCHEME.DARK;
       }
     });
+    const foundThemeByUserDeviceSetting = themes?.find((theme) => {
+      return colorScheme === theme.colorScheme;
+    });
 
     log(`loaded theme name from localstorage got: ${foundThemeByName?.name}`);
     log(`loaded theme scheme from localstorage got: ${foundThemeByScheme?.name}`);
@@ -233,7 +276,7 @@ export const CSSThemeProvider = function CSSThemeProvider({
     ) {
       if (foundThemeByScheme) {
         log(`setting selected theme to: ${foundThemeByScheme.name}`);
-        setInternalValue({ ...internalValue, selected: foundThemeByScheme });
+        handleChangeThemeName(foundThemeByScheme.name);
       }
       return;
     }
@@ -244,16 +287,19 @@ export const CSSThemeProvider = function CSSThemeProvider({
       //
       if (foundThemeByName) {
         log(`setting theme to: ${foundThemeByName.name}`);
-        setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundThemeByName });
+        handleChangeThemeName(foundThemeByName.name);
         return;
       }
 
-      //
-      // if we don't have a previous theme set in local storage, we take the first theme that matches the user's color scheme
-      //
+      if (foundThemeByUserDeviceSetting) {
+        //
+        // if we don't have a previous theme set in local storage, we take the first theme that matches the user's color scheme
+        //
+        log(`no previous theme selected, defaulting to: ${foundThemeByUserDeviceSetting.name}`);
+        handleChangeThemeName(foundThemeByUserDeviceSetting.name);
+      }
 
-      log(`no previous theme selected, defaulting to : ${foundThemeByScheme?.name}`);
-      setInternalValue({ ...(internalValue as CSSThemeContextType), selected: foundThemeByScheme });
+      log(`no valid theme found`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSSR, localStorageThemeName.current, localStorageThemeScheme.current]);

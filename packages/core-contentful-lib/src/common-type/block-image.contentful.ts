@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { BlockType, ContentType } from '@newrade/core-website-api';
+import { BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 
@@ -9,8 +9,8 @@ import { createBlock } from './block.contentful';
 import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export function createImageBlock(migration: Migration.default) {
-  const content = createBlock(migration, ContentType.BLOCK_IMAGE, {
-    name: ContentType.BLOCK_IMAGE,
+  const content = createBlock(migration, CONTENT_TYPE.BLOCK_IMAGE, {
+    name: CONTENT_TYPE.BLOCK_IMAGE,
     description: 'Configurable object for an image block.',
     displayField: COMMON_FIELD.NAME,
   });

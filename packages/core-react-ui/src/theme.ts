@@ -1,10 +1,7 @@
 /**
  *
- * Export the default theme CSS version (variables and default theme values)
+ * Export the default theme vars (for Vanilla-extract styling files)
  *
  */
 
-export * from './default-theme/default-buttons-css';
-export * from './default-theme/default-colors-css';
-export * from './default-theme/default-sizing-css';
 export * from './default-theme/default-theme.css';

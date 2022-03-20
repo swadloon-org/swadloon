@@ -4,7 +4,6 @@ import { kebab, pascal } from 'case';
 
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Primitive } from '..';
 
@@ -44,14 +43,13 @@ export const Label: React.FC<Props> = React.memo(
     const htmlForIsSet = !!htmlFor;
     const type = htmlForIsSet ? 'label' : 'div';
 
+    //
+    // set default child
+    //
     const defaultChildrenString = `${children as string} ${pascal(variant || '')} ${pascal(
       textStyle || ''
     )}`;
     const child = children ? children : defaultChildrenString;
-
-    const textColorClassname = textStyles.textVariants({
-      variant: variantLevel,
-    });
 
     return (
       <Primitive
@@ -60,18 +58,14 @@ export const Label: React.FC<Props> = React.memo(
         htmlFor={htmlFor}
         classNames={[
           styles.base,
-          textColorClassname,
+          textStyles.textVariants({
+            // if inline mode don't apply colors
+            variant: variantDisplay === 'inline' ? undefined : variantLevel,
+          }),
           styles.variants({
             size: variant as LABEL_SIZE,
             style: textStyle,
           }),
-          // textStyle ? styles[textStyle] : styles[TEXT_STYLE.bold],
-          // if inline mode don't apply colors
-          // variantDisplay
-          //   ? styles[variantDisplay]
-          //   : variantLevel
-          //   ? styles[variantLevel]
-          //   : styles[Variant.primary],
         ]}
         {...props}
       >

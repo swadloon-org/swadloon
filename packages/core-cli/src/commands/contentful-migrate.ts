@@ -7,7 +7,7 @@ import * as t from 'io-ts';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities';
+import { enableDebug, NS } from '../utilities/log.utilities';
 
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 
@@ -32,12 +32,12 @@ export const Env = t.intersection([
 
 export type ENV = t.TypeOf<typeof Env>;
 
-export default class FigmaSync extends Command {
-  log = debug(`${NS}:figma-sync`);
-  logWarn = debug(`${NS}:figma-sync:warn`);
-  logError = debug(`${NS}:figma-sync:error`);
+export default class ContentfulMigrate extends Command {
+  log = debug(`${NS}:contentful`);
+  logWarn = debug(`${NS}:contentful:warn`);
+  logError = debug(`${NS}:contentful:error`);
 
-  static description = 'sync design tokens from figma file';
+  static description = 'execute migration with the contentful CLI ';
 
   static examples = [`$ nr figma-sync`];
 
@@ -47,11 +47,9 @@ export default class FigmaSync extends Command {
 
   static args = [{ name: 'file', description: 'figma file id' }];
 
-  async init() {
-    debug.enable('nr:core-cli:*');
-  }
-
   async run() {
+    enableDebug();
+
     const env = loadDotEnv<ENV>({
       schema: Env,
       dotEnvPath: '.env',

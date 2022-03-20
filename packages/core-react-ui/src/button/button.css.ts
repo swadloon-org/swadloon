@@ -26,25 +26,23 @@ const textColorDisabled = createVar();
 const iconSize = createVar();
 const iconMargin = createVar();
 const iconColor = createVar();
+const iconColorActive = createVar();
 const iconColorDisabled = createVar();
 
-const paddingX = createVar();
-const paddingY = createVar();
-const height = createVar();
-
 const borderWidth = createVar();
+const borderStyle = createVar();
 const borderColor = createVar();
 const borderColorActive = createVar();
 const borderColorDisabled = createVar();
 const borderRadius = createVar();
 
+const outlineColor = createVar();
+const outlineColorActive = createVar();
+const outlineColorDisabled = createVar();
+
 const backgroundColor = createVar();
 const backgroundColorActive = createVar();
 const backgroundColorDisabled = createVar();
-
-const textColor = createVar();
-const textColorActive = createVar();
-const textColorDisabled = createVar();
 
 /**
  *
@@ -64,12 +62,8 @@ export const variants = recipe({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    outline: 'none',
     lineHeight: 0,
-    cursor: 'pointer',
     appearance: 'none',
-    userSelect: 'none',
-    touchAction: 'none',
     WebkitAppearance: 'none',
     textDecoration: 'none',
     textShadow: 'none',
@@ -191,20 +185,118 @@ export const variants = recipe({
     variant: {
       primary: {
         vars: {
-          [iconColor]: colorVars.colors.grey[700],
-          [iconColorDisabled]: colorVars.colorIntents.disabledText,
-          [textColor]: colorVars.colorIntents.primaryText,
-          [textColorActive]: colorVars.colorIntents.primary,
-          [textColorDisabled]: colorVars.colors.grey[600],
-          [borderColor]: colorVars.colorIntents.primary,
-          [borderColorDisabled]: `transparent`,
-          [backgroundColor]: colorVars.colors.grey[0],
-          [backgroundColorActive]: colorVars.colors.primary[100],
-          [backgroundColorDisabled]: colorVars.colors.grey[25],
+          [textColor]: buttonsVars.variants.primary.textColor,
+          [textColorActive]: buttonsVars.variants.primary.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.primary.textColorDisabled,
+          [iconColor]: buttonsVars.variants.primary.iconColor,
+          [iconColorActive]: buttonsVars.variants.primary.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.primary.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.primary.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.primary.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.primary.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.primary.borderColor,
+          [borderColorActive]: buttonsVars.variants.primary.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.primary.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.primary.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.primary.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.primary.outlineColorDisabled,
         },
       },
-      secondary: {},
-      tertiary: {},
+      secondary: {
+        vars: {
+          [textColor]: buttonsVars.variants.secondary.textColor,
+          [textColorActive]: buttonsVars.variants.secondary.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.secondary.textColorDisabled,
+          [iconColor]: buttonsVars.variants.secondary.iconColor,
+          [iconColorActive]: buttonsVars.variants.secondary.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.secondary.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.secondary.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.secondary.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.secondary.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.secondary.borderColor,
+          [borderColorActive]: buttonsVars.variants.secondary.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.secondary.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.secondary.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.secondary.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.secondary.outlineColorDisabled,
+        },
+      },
+      tertiary: {
+        vars: {
+          [textColor]: buttonsVars.variants.tertiary.textColor,
+          [textColorActive]: buttonsVars.variants.tertiary.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.tertiary.textColorDisabled,
+          [iconColor]: buttonsVars.variants.tertiary.iconColor,
+          [iconColorActive]: buttonsVars.variants.tertiary.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.tertiary.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.tertiary.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.tertiary.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.tertiary.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.tertiary.borderColor,
+          [borderColorActive]: buttonsVars.variants.tertiary.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.tertiary.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.tertiary.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.tertiary.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.tertiary.outlineColorDisabled,
+        },
+      },
+      positive: {
+        vars: {
+          [textColor]: buttonsVars.variants.positive.textColor,
+          [textColorActive]: buttonsVars.variants.positive.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.positive.textColorDisabled,
+          [iconColor]: buttonsVars.variants.positive.iconColor,
+          [iconColorActive]: buttonsVars.variants.positive.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.positive.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.positive.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.positive.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.positive.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.positive.borderColor,
+          [borderColorActive]: buttonsVars.variants.positive.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.positive.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.positive.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.positive.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.positive.outlineColorDisabled,
+        },
+      },
+      warning: {
+        vars: {
+          [textColor]: buttonsVars.variants.warning.textColor,
+          [textColorActive]: buttonsVars.variants.warning.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.warning.textColorDisabled,
+          [iconColor]: buttonsVars.variants.warning.iconColor,
+          [iconColorActive]: buttonsVars.variants.warning.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.warning.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.warning.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.warning.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.warning.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.warning.borderColor,
+          [borderColorActive]: buttonsVars.variants.warning.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.warning.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.warning.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.warning.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.warning.outlineColorDisabled,
+        },
+      },
+      danger: {
+        vars: {
+          [textColor]: buttonsVars.variants.danger.textColor,
+          [textColorActive]: buttonsVars.variants.danger.textColorActive,
+          [textColorDisabled]: buttonsVars.variants.danger.textColorDisabled,
+          [iconColor]: buttonsVars.variants.danger.iconColor,
+          [iconColorActive]: buttonsVars.variants.danger.iconColorActive,
+          [iconColorDisabled]: buttonsVars.variants.danger.iconColorDisabled,
+          [backgroundColor]: buttonsVars.variants.danger.backgroundColor,
+          [backgroundColorActive]: buttonsVars.variants.danger.backgroundColorActive,
+          [backgroundColorDisabled]: buttonsVars.variants.danger.backgroundColorDisabled,
+          [borderColor]: buttonsVars.variants.danger.borderColor,
+          [borderColorActive]: buttonsVars.variants.danger.borderColorActive,
+          [borderColorDisabled]: buttonsVars.variants.danger.borderColorDisabled,
+          [outlineColor]: buttonsVars.variants.danger.outlineColor,
+          [outlineColorActive]: buttonsVars.variants.danger.outlineColorActive,
+          [outlineColorDisabled]: buttonsVars.variants.danger.outlineColorDisabled,
+        },
+      },
     },
     /**
      *
@@ -213,7 +305,7 @@ export const variants = recipe({
      */
 
     size: {
-      small: {
+      large: {
         vars: {
           [paddingX]: buttonsVars.sizes.large.padding.left,
           [paddingIcon]: buttonsVars.sizes.large.iconPadding,
@@ -311,131 +403,24 @@ export const variants = recipe({
  *
  */
 
-export const text = style({
-  fontFamily: typographyVars.labels.font,
-  userSelect: 'none',
-});
-
-/**
- *
- * Base
- *
- */
-
-export const styleVariants = recipe({
+export const labelVariants = recipe({
   base: {
-    position: 'relative',
-    padding: `0 calc(${iconSize} + 2 * ${iconOffset}) 0 ${paddingX}`,
-    height: height,
-    lineHeight: `calc(${height} - 2 * ${borderWidth})`,
-    minWidth: `100%`,
-    width: 'fit-content',
-    verticalAlign: 'middle',
-    ':focus': {
-      boxShadow: `0 0 1px 1px ${colorVars.colors.primary[300]}`,
-    },
-    '::-webkit-input-placeholder': {
-      color: colorVars.colors.grey[200],
-      verticalAlign: 'middle',
-      lineHeight: height,
-    },
-
-    borderStyle: 'solid',
-    borderWidth: borderWidth,
-    borderRadius: borderRadius,
-
-    color: textColor,
-    backgroundColor: backgroundColor,
-
-    outline: 'none',
-    whiteSpace: 'nowrap',
-
-    cursor: 'auto',
-    appearance: 'none',
-
-    userSelect: 'auto',
-    touchAction: 'none',
-    WebkitAppearance: 'none',
-
-    transition: `box-shadow 0.3s ease-out`,
+    fontFamily: typographyVars.labels.font,
+    userSelect: 'none',
+    pointerEvents: 'none',
+    width: `100%`,
   },
   variants: {
     /**
-     * Variants
+     * Text alignment
      */
-    variant: {
-      primary: {},
-      secondary: {},
-      tertiary: {},
-    },
-    /**
-     * Sizes
-     */
-    size: {
-      small: {},
-      medium: {},
-      large: {},
-    },
-    /**
-     * Icons
-     */
-    icon: {
-      left: { paddingLeft: `calc(2 * ${paddingX} + ${iconSize})` },
-      right: { paddingRight: `calc(2 * ${paddingX} + ${iconSize})` },
-    },
-    /**
-     * States (internal)
-     */
-    state: {
-      rest: {},
-      focused: {
-        color: textColorActive,
-        borderColor: borderColorActive,
-        backgroundColor: backgroundColorActive,
-      },
-    },
-    /**
-     * Validity states
-     */
-    validity: {
-      neutral: {},
-      valid: {
-        boxShadow: `0 0 0 1px ${colorVars.colorIntents.successAction}`,
-      },
-      warning: {
-        boxShadow: `0 0 0 1px ${colorVars.colorIntents.warningAction}`,
-      },
-      error: {
-        boxShadow: `0 0 0 1px ${colorVars.colorIntents.dangerAction}`,
-      },
-    },
-    /**
-     * Loading states
-     */
-    loading: {
-      true: {},
-      false: {},
-    },
-    /**
-     * Disabled states
-     */
-    disabled: {
-      true: {
-        cursor: 'not-allowed',
-        color: textColorDisabled,
-        borderColor: borderColorDisabled,
-        backgroundColor: backgroundColorDisabled,
-        ':focus': {
-          outline: 'none',
-          boxShadow: 'none',
-        },
-      },
-      false: {},
+    alignment: {
+      center: { textAlign: 'center' },
+      left: { textAlign: 'left' },
+      right: { textAlign: 'right' },
     },
   },
 });
-
-export type InputVariants = RecipeVariants<typeof styleVariants>;
 
 /**
  *

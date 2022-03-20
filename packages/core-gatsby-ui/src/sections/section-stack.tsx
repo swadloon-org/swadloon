@@ -25,6 +25,8 @@ export const SectionStack = React.forwardRef<HTMLElement, Props>(
         variant = Variant.primary,
         baseLayout = SectionBaseLayout.center,
         padding = SectionPadding.large,
+        colorMode,
+        colorScheme,
       } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
@@ -43,6 +45,8 @@ export const SectionStack = React.forwardRef<HTMLElement, Props>(
           variant,
           baseLayout,
           padding,
+          colorMode,
+          colorScheme,
         }}
         {...commonProps}
       >

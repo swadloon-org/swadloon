@@ -1,13 +1,13 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 
-import { ContentType } from '@newrade/core-website-api';
+import { CONTENT_TYPE } from '@newrade/core-website-api';
 
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createBlogAuthor: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(ContentType.BLOG_AUTHOR, {
-    name: pascal(ContentType.BLOG_AUTHOR),
+  const content = migration.createContentType(CONTENT_TYPE.BLOG_AUTHOR, {
+    name: pascal(CONTENT_TYPE.BLOG_AUTHOR),
     displayField: COMMON_FIELD.FIRST_NAME,
   });
 

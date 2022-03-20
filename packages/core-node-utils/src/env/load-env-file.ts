@@ -60,6 +60,7 @@ export function loadDotEnv<ENV = CommonEnvType>({
   /**
    * Enable default logging
    */
+  console.log(process.env.DEBUG);
   if (process.env.DEBUG) {
     debug.enable(process.env.DEBUG);
   }
@@ -86,6 +87,8 @@ export function loadDotEnv<ENV = CommonEnvType>({
         logEnvError(`${reason}`);
       });
     }
+
+    console.warn('check for required entries in environment variables (e.g. .env file)');
 
     throw new AppError({
       name: ERROR_TYPE.APP_ERROR,

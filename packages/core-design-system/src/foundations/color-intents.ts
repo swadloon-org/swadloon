@@ -18,7 +18,7 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
 
   /**
    *
-   * Other useful colors
+   * Other useful utility colors
    *
    */
 
@@ -33,6 +33,8 @@ export type ColorIntents<Override extends undefined | string = undefined> = {
 
   primary: ColorType<Override>;
   secondary: ColorType<Override>;
+  /** Color for disabled component */
+  disabled: ColorType<Override>;
 
   /**
    *

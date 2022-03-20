@@ -59,3 +59,31 @@ export function getBabelReactLoader(options: Options = defaultOptions): RuleSetR
     exclude: /node_modules|\.svg\.tsx$/, // see `svgr-macro.loader.ts`
   };
 }
+
+/**
+ * for babel-loader see https://webpack.js.org/loaders/babel-loader/
+ * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
+ */
+export function getBabelTypescriptReactLoader(options: Options = defaultOptions): RuleSetRule {
+  return {
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          cacheCompression: false,
+          plugins: options.hmr
+            ? [
+                ['react-refresh/babel', { skipEnvCheck: true }],
+                ...babelPluginBrowserConf,
+                ...(options.plugins || []),
+              ]
+            : [...babelPluginBrowserConf, ...(options.plugins || [])],
+          presets: [...babelTypeScriptPresetBrowserConf, ...babelPresetBrowserConf],
+        },
+      },
+    ],
+    exclude: /node_modules|\.svg\.tsx$/, // see `svgr-macro.loader.ts`
+  };
+}

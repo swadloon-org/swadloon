@@ -57,9 +57,9 @@
     ]
   },
   "sideEffects": [
-    "*.css",
-    "*.css.ts",
-    "*.css.js"
+    "global-*.css",
+    "global-*.css.ts",
+    "global-*.css.js"
   ],
   "dependencies": {
     "@capsizecss/core": "^3.0.0",

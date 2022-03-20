@@ -9,7 +9,12 @@ import {
 import { CSSButtons } from '../design-system';
 import { keys, px } from '../utilities-iso/utilities';
 
-import { getCSSBoxMargin, getCSSBoxStyle } from './box.utilities';
+import {
+  getCSSBorderStyles,
+  getCSSBoxMargin,
+  getCSSBoxPadding,
+  getCSSOutlineStyles,
+} from './box.utilities';
 import { getCSSColor } from './colors.utilities';
 import { setVarsValuesToStyleObject } from './component.utilities';
 
@@ -36,10 +41,20 @@ function getCSSButtonVariants(buttons: ButtonVariants): ButtonVariants<string> {
   return keys(buttons).reduce((previous, current) => {
     const variantColorStyles: ButtonColors<string> = {
       textColor: getCSSColor(buttons[current].textColor),
+      textColorActive: getCSSColor(buttons[current].textColorActive),
+      textColorDisabled: getCSSColor(buttons[current].textColorDisabled),
       iconColor: getCSSColor(buttons[current].iconColor),
+      iconColorActive: getCSSColor(buttons[current].iconColorActive),
+      iconColorDisabled: getCSSColor(buttons[current].iconColorDisabled),
       backgroundColor: getCSSColor(buttons[current].backgroundColor),
+      backgroundColorActive: getCSSColor(buttons[current].backgroundColorActive),
+      backgroundColorDisabled: getCSSColor(buttons[current].backgroundColorDisabled),
       borderColor: getCSSColor(buttons[current].borderColor),
+      borderColorActive: getCSSColor(buttons[current].borderColorActive),
+      borderColorDisabled: getCSSColor(buttons[current].borderColorDisabled),
       outlineColor: getCSSColor(buttons[current].outlineColor),
+      outlineColorActive: getCSSColor(buttons[current].outlineColorActive),
+      outlineColorDisabled: getCSSColor(buttons[current].outlineColorDisabled),
     };
     previous[current] = variantColorStyles;
     return previous;
@@ -48,8 +63,13 @@ function getCSSButtonVariants(buttons: ButtonVariants): ButtonVariants<string> {
 
 function getCSSButtonSizes(buttons: ButtonSizes): ButtonSizes<string> {
   return keys(buttons).reduce((previous, current) => {
+    const button = buttons[current];
     previous[current] = {
-      ...getCSSBoxStyle(buttons[current]),
+      width: px({ value: button.width }),
+      height: px({ value: button.height }),
+      padding: getCSSBoxPadding(button.padding),
+      border: getCSSBorderStyles(button.border),
+      outline: getCSSOutlineStyles(button.outline),
       ...getCSSButtonIconStyle(buttons[current]),
     };
     return previous;
