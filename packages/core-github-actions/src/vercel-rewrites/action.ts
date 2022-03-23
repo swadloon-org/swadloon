@@ -34,6 +34,11 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
 
   const APP_BRANCH_SUBDOMAIN = env.APP_BRANCH_SUBDOMAIN;
 
+  if (APP_BRANCH_SUBDOMAIN === '') {
+    core.info(`APP_BRANCH_SUBDOMAIN is empty (''), no rewrite changes needed`);
+    return;
+  }
+
   try {
     core.info(`action : ${githubContext.action}`);
     core.info(`ref : ${githubContext.ref}`);
