@@ -26,7 +26,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
     throw Error(`[set-app-env] depends on [rlespinasse/github-slug-action]`);
   }
 
-  if (!env.APP_BRANCH_SUBDOMAIN) {
+  if (env.APP_BRANCH_SUBDOMAIN === undefined) {
     throw Error(
       `APP_BRANCH_SUBDOMAIN must be set to update the vercel.json file, did you run [set-app-env]?`
     );

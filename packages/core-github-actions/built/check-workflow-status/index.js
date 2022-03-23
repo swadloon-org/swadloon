@@ -7558,16 +7558,34 @@ var _traverse = function (F) {
     var traverseF = exports.traverse(F);
     return function (ta, f) { return function_1.pipe(ta, traverseF(f)); };
 };
-var _bimap = function (fa, f, g) { return function_1.pipe(fa, exports.bimap(f, g)); };
-var _mapLeft = function (fa, f) { return function_1.pipe(fa, exports.mapLeft(f)); };
-/* istanbul ignore next */
-var _alt = function (fa, that) { return function_1.pipe(fa, exports.alt(that)); };
-/* istanbul ignore next */
-var _extend = function (wa, f) { return function_1.pipe(wa, exports.extend(f)); };
-var _chainRec = function (a, f) {
-    return ChainRec_1.tailRec(f(a), function (e) {
-        return exports.isLeft(e) ? exports.right(exports.left(e.left)) : exports.isLeft(e.right) ? exports.left(f(e.right.left)) : exports.right(exports.right(e.right.right));
-    });
+exports.tailRec = tailRec;
+
+
+/***/ }),
+
+/***/ 7412:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 // -------------------------------------------------------------------------------------
 // instances
@@ -8288,31 +8306,123 @@ exports.getOrElse = exports.getOrElseW;
 // combinators
 // -------------------------------------------------------------------------------------
 /**
- * Derivable from `Functor`.
- *
- * @category combinators
- * @since 2.10.0
+ * @category instance operations
+ * @since 2.7.0
  */
-exports.flap = 
-/*#_PURE_*/
-Functor_1.flap(exports.Functor);
+exports.of = exports.right;
 /**
  * Combine two effectful actions, keeping only the result of the first.
  *
- * Derivable from `Apply`.
+ * @category instance operations
+ * @since 2.6.0
+ */
+var chainW = function (f) { return function (ma) {
+    return exports.isLeft(ma) ? ma : f(ma.right);
+}; };
+exports.chainW = chainW;
+/**
+ * Composes computations in sequence, using the return value of one computation to determine the next computation.
  *
- * @category combinators
+ * @category instance operations
  * @since 2.0.0
  */
-exports.apFirst = 
-/*#__PURE__*/
-Apply_1.apFirst(exports.Apply);
+exports.chain = exports.chainW;
 /**
- * Combine two effectful actions, keeping only the result of the second.
+ * @category instances
+ * @since 2.10.0
+ */
+exports.Chain = {
+    URI: exports.URI,
+    map: _map,
+    ap: _ap,
+    chain: _chain
+};
+/**
+ * @category instances
+ * @since 2.7.0
+ */
+exports.Monad = {
+    URI: exports.URI,
+    map: _map,
+    ap: _ap,
+    of: exports.of,
+    chain: _chain
+};
+/**
+ * Left-associative fold of a structure.
  *
- * Derivable from `Apply`.
+ * @example
+ * import { pipe } from 'fp-ts/function'
+ * import * as E from 'fp-ts/Either'
  *
- * @category combinators
+ * const startWith = 'prefix'
+ * const concat = (a: string, b: string) => `${a}:${b}`
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.right('a'), E.reduce(startWith, concat)),
+ *   'prefix:a'
+ * )
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.left('e'), E.reduce(startWith, concat)),
+ *   'prefix'
+ * )
+ *
+ * @category instance operations
+ * @since 2.0.0
+ */
+var reduce = function (b, f) { return function (fa) {
+    return exports.isLeft(fa) ? b : f(b, fa.right);
+}; };
+exports.reduce = reduce;
+/**
+ * Map each element of the structure to a monoid, and combine the results.
+ *
+ * @example
+ * import { pipe } from 'fp-ts/function'
+ * import * as E from 'fp-ts/Either'
+ * import * as S from 'fp-ts/string'
+ *
+ * const yell = (a: string) => `${a}!`
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.right('a'), E.foldMap(S.Monoid)(yell)),
+ *   'a!'
+ * )
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.left('e'), E.foldMap(S.Monoid)(yell)),
+ *   S.Monoid.empty
+ * )
+ *
+ * @category instance operations
+ * @since 2.0.0
+ */
+var foldMap = function (M) { return function (f) { return function (fa) {
+    return exports.isLeft(fa) ? M.empty : f(fa.right);
+}; }; };
+exports.foldMap = foldMap;
+/**
+ * Right-associative fold of a structure.
+ *
+ * @example
+ * import { pipe } from 'fp-ts/function'
+ * import * as E from 'fp-ts/Either'
+ *
+ * const startWith = 'postfix'
+ * const concat = (a: string, b: string) => `${a}:${b}`
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.right('a'), E.reduceRight(startWith, concat)),
+ *   'a:postfix'
+ * )
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.left('e'), E.reduceRight(startWith, concat)),
+ *   'postfix'
+ * )
+ *
+ * @category instance operations
  * @since 2.0.0
  */
 exports.apSecond = 
@@ -8322,23 +8432,27 @@ Apply_1.apSecond(exports.Apply);
  * Composes computations in sequence, using the return value of one computation to determine the next computation and
  * keeping only the result of the first.
  *
- * Derivable from `Chain`.
+ * @example
+ * import { pipe } from 'fp-ts/function'
+ * import * as RA from 'fp-ts/ReadonlyArray'
+ * import * as E from 'fp-ts/Either'
+ * import * as O from 'fp-ts/Option'
  *
- * @category combinators
- * @since 2.0.0
+ * assert.deepStrictEqual(
+ *   pipe(E.right(['a']), E.traverse(O.Applicative)(RA.head)),
+ *   O.some(E.right('a'))
+ *  )
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.right([]), E.traverse(O.Applicative)(RA.head)),
+ *   O.none
+ * )
+ *
+ * @category instance operations
+ * @since 2.6.3
  */
-exports.chainFirst = 
-/*#__PURE__*/
-Chain_1.chainFirst(exports.Chain);
-/**
- * Less strict version of [`chainFirst`](#chainfirst)
- *
- * Derivable from `Chain`.
- *
- * @category combinators
- * @since 2.8.0
- */
-exports.chainFirstW = exports.chainFirst;
+var traverse = function (F) { return function (f) { return function (ta) { return (exports.isLeft(ta) ? F.of(exports.left(ta.left)) : F.map(f(ta.right), exports.right)); }; }; };
+exports.traverse = traverse;
 /**
  * Less strict version of [`flatten`](#flatten).
  *
@@ -8560,6 +8674,481 @@ exports.foldW(function_1.identity, function_1.identity);
 // utils
 // -------------------------------------------------------------------------------------
 /**
+ * Alias of [`match`](#match).
+ *
+ * @category destructors
+ * @since 2.0.0
+ */
+exports.fold = exports.match;
+/**
+ * Less strict version of [`getOrElse`](#getorelse).
+ *
+ * @category destructors
+ * @since 2.6.0
+ */
+var elem = function (E) { return function (a, ma) {
+    return exports.isLeft(ma) ? false : E.equals(a, ma.right);
+}; };
+exports.elem = elem;
+/**
+ * Returns the wrapped value if it's a `Right` or a default value if is a `Left`.
+ *
+ * @example
+ * import { getOrElse, left, right } from 'fp-ts/Either'
+ * import { pipe } from 'fp-ts/function'
+ *
+ * assert.deepStrictEqual(
+ *   pipe(
+ *     right(1),
+ *     getOrElse(() => 0)
+ *   ),
+ *   1
+ * )
+ * assert.deepStrictEqual(
+ *   pipe(
+ *     left('error'),
+ *     getOrElse(() => 0)
+ *   ),
+ *   0
+ * )
+ *
+ * @category destructors
+ * @since 2.0.0
+ */
+var exists = function (predicate) { return function (ma) {
+    return exports.isLeft(ma) ? false : predicate(ma.right);
+}; };
+exports.exists = exists;
+// -------------------------------------------------------------------------------------
+// combinators
+// -------------------------------------------------------------------------------------
+/**
+ * Derivable from `Functor`.
+ *
+ * @category combinators
+ * @since 2.10.0
+ */
+exports.Do = 
+/*#__PURE__*/
+exports.of(_.emptyRecord);
+/**
+ * Combine two effectful actions, keeping only the result of the first.
+ *
+ * Derivable from `Apply`.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+exports.apFirst = 
+/*#__PURE__*/
+Apply_1.apFirst(exports.Apply);
+/**
+ * Combine two effectful actions, keeping only the result of the second.
+ *
+ * Derivable from `Apply`.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+exports.apSecond = 
+/*#__PURE__*/
+Apply_1.apSecond(exports.Apply);
+/**
+ * Composes computations in sequence, using the return value of one computation to determine the next computation and
+ * keeping only the result of the first.
+ *
+ * Derivable from `Chain`.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+exports.chainFirst = 
+/*#__PURE__*/
+Apply_1.apS(exports.Apply);
+/**
+ * @since 2.8.0
+ */
+exports.apSW = exports.apS;
+// -------------------------------------------------------------------------------------
+// sequence T
+// -------------------------------------------------------------------------------------
+/**
+ * @since 2.11.0
+ */
+exports.ApT = exports.of(_.emptyReadonlyArray);
+// -------------------------------------------------------------------------------------
+// array utils
+// -------------------------------------------------------------------------------------
+/**
+ * Equivalent to `ReadonlyNonEmptyArray#traverseWithIndex(Applicative)`.
+ *
+ * @since 2.11.0
+ */
+var traverseReadonlyNonEmptyArrayWithIndex = function (f) { return function (as) {
+    var e = f(0, _.head(as));
+    if (exports.isLeft(e)) {
+        return e;
+    }
+    var out = [e.right];
+    for (var i = 1; i < as.length; i++) {
+        var e_1 = f(i, as[i]);
+        if (exports.isLeft(e_1)) {
+            return e_1;
+        }
+        out.push(e_1.right);
+    }
+    return exports.right(out);
+}; };
+exports.traverseReadonlyNonEmptyArrayWithIndex = traverseReadonlyNonEmptyArrayWithIndex;
+/**
+ * Equivalent to `ReadonlyArray#traverseWithIndex(Applicative)`.
+ *
+ * @since 2.11.0
+ */
+var traverseReadonlyArrayWithIndex = function (f) {
+    var g = exports.traverseReadonlyNonEmptyArrayWithIndex(f);
+    return function (as) { return (_.isNonEmpty(as) ? g(as) : exports.ApT); };
+};
+exports.traverseReadonlyArrayWithIndex = traverseReadonlyArrayWithIndex;
+/**
+ * @since 2.9.0
+ */
+exports.traverseArrayWithIndex = exports.traverseReadonlyArrayWithIndex;
+/**
+ * @since 2.9.0
+ */
+var traverseArray = function (f) { return exports.traverseReadonlyArrayWithIndex(function (_, a) { return f(a); }); };
+exports.traverseArray = traverseArray;
+/**
+ * @since 2.9.0
+ */
+exports.flattenW = 
+/*#__PURE__*/
+exports.chainW(function_1.identity);
+/**
+ * The `flatten` function is the conventional monad join operator. It is used to remove one level of monadic structure, projecting its bound argument into the outer level.
+ *
+ * Derivable from `Chain`.
+ *
+ * @example
+ * import * as E from 'fp-ts/Either'
+ *
+ * assert.deepStrictEqual(E.flatten(E.right(E.right('a'))), E.right('a'))
+ * assert.deepStrictEqual(E.flatten(E.right(E.left('e'))), E.left('e'))
+ * assert.deepStrictEqual(E.flatten(E.left('e')), E.left('e'))
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+function parseJSON(s, onError) {
+    return exports.tryCatch(function () { return JSON.parse(s); }, onError);
+}
+exports.parseJSON = parseJSON;
+/**
+ * Derivable from `Extend`.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+exports.duplicate = 
+/*#__PURE__*/
+exports.extend(function_1.identity);
+/**
+ * @category combinators
+ * @since 2.10.0
+ */
+exports.fromOptionK = 
+/*#__PURE__*/
+FromEither_1.fromOptionK(exports.FromEither);
+/**
+ * @category combinators
+ * @since 2.11.0
+ */
+exports.chainOptionK = 
+/*#__PURE__*/
+FromEither_1.chainOptionK(exports.FromEither, exports.Chain);
+/**
+ * Use [`getApplySemigroup`](./Apply.ts.html#getapplysemigroup) instead.
+ *
+ * assert.deepStrictEqual(
+ *   pipe(
+ *     E.right(1),
+ *     E.filterOrElse(
+ *       (n) => n > 0,
+ *       () => 'error'
+ *     )
+ *   ),
+ *   E.right(1)
+ * )
+ * assert.deepStrictEqual(
+ *   pipe(
+ *     E.right(-1),
+ *     E.filterOrElse(
+ *       (n) => n > 0,
+ *       () => 'error'
+ *     )
+ *   ),
+ *   E.left('error')
+ * )
+ * assert.deepStrictEqual(
+ *   pipe(
+ *     E.left('a'),
+ *     E.filterOrElse(
+ *       (n) => n > 0,
+ *       () => 'error'
+ *     )
+ *   ),
+ *   E.left('a')
+ * )
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+exports.filterOrElse = 
+/*#__PURE__*/
+FromEither_1.filterOrElse(exports.FromEither, exports.Chain);
+/**
+ * Use [`getApplicativeMonoid`](./Applicative.ts.html#getapplicativemonoid) instead.
+ *
+ * @category combinators
+ * @since 2.9.0
+ */
+exports.filterOrElseW = exports.filterOrElse;
+/**
+ * Use [`getApplySemigroup`](./Apply.ts.html#getapplysemigroup) instead.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+var getValidationSemigroup = function (SE, SA) {
+    return Apply_1.getApplySemigroup(exports.getApplicativeValidation(SE))(SA);
+};
+exports.getValidationSemigroup = getValidationSemigroup;
+/**
+ * Use [`getApplicativeMonoid`](./Applicative.ts.html#getapplicativemonoid) instead.
+ *
+ * @category combinators
+ * @since 2.10.0
+ */
+var getValidationMonoid = function (SE, MA) {
+    return Applicative_1.getApplicativeMonoid(exports.getApplicativeValidation(SE))(MA);
+};
+exports.getValidationMonoid = getValidationMonoid;
+/**
+ * Useful for recovering from errors.
+ *
+ * @category combinators
+ * @since 2.0.0
+ */
+function getValidation(SE) {
+    var ap = exports.getApplicativeValidation(SE).ap;
+    var alt = exports.getAltValidation(SE).alt;
+    return {
+        URI: exports.URI,
+        _E: undefined,
+        map: _map,
+        of: exports.of,
+        chain: _chain,
+        bimap: _bimap,
+        mapLeft: _mapLeft,
+        reduce: _reduce,
+        foldMap: _foldMap,
+        reduceRight: _reduceRight,
+        extend: _extend,
+        traverse: _traverse,
+        sequence: exports.sequence,
+        chainRec: _chainRec,
+        throwError: exports.throwError,
+        ap: ap,
+        alt: alt
+    };
+}
+exports.getValidation = getValidation;
+
+
+/***/ }),
+
+/***/ 7756:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * The `FromEither` type class represents those data types which support errors.
+ *
+ * @since 2.10.0
+ */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.filterOrElse = exports.chainEitherK = exports.fromEitherK = exports.chainOptionK = exports.fromOptionK = exports.fromPredicate = exports.fromOption = void 0;
+var function_1 = __webpack_require__(4632);
+var _ = __importStar(__webpack_require__(5309));
+function fromOption(F) {
+    return function (onNone) { return function (ma) { return F.fromEither(_.isNone(ma) ? _.left(onNone()) : _.right(ma.value)); }; };
+}
+exports.fromOption = fromOption;
+function fromPredicate(F) {
+    return function (predicate, onFalse) { return function (a) {
+        return F.fromEither(predicate(a) ? _.right(a) : _.left(onFalse(a)));
+    }; };
+}
+exports.fromPredicate = fromPredicate;
+function fromOptionK(F) {
+    var fromOptionF = fromOption(F);
+    return function (onNone) {
+        var from = fromOptionF(onNone);
+        return function (f) { return function_1.flow(f, from); };
+    };
+}
+exports.fromOptionK = fromOptionK;
+function chainOptionK(F, M) {
+    var fromOptionKF = fromOptionK(F);
+    return function (onNone) {
+        var from = fromOptionKF(onNone);
+        return function (f) { return function (ma) { return M.chain(ma, from(f)); }; };
+    };
+}
+exports.chainOptionK = chainOptionK;
+function fromEitherK(F) {
+    return function (f) { return function_1.flow(f, F.fromEither); };
+}
+exports.fromEitherK = fromEitherK;
+function chainEitherK(F, M) {
+    var fromEitherKF = fromEitherK(F);
+    return function (f) { return function (ma) { return M.chain(ma, fromEitherKF(f)); }; };
+}
+exports.chainEitherK = chainEitherK;
+function filterOrElse(F, M) {
+    return function (predicate, onFalse) { return function (ma) {
+        return M.chain(ma, function (a) { return F.fromEither(predicate(a) ? _.right(a) : _.left(onFalse(a))); });
+    }; };
+}
+exports.filterOrElse = filterOrElse;
+
+
+/***/ }),
+
+/***/ 8762:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getFunctorComposition = exports.bindTo = exports.flap = exports.map = void 0;
+/**
+ * Takes a default and a nullable value, if the value is not nully, turn it into a `Right`, if the value is nully use
+ * the provided default as a `Left`.
+ *
+ * @example
+ * import { fromNullable, left, right } from 'fp-ts/Either'
+ *
+ * const parse = fromNullable('nully')
+ *
+ * assert.deepStrictEqual(parse(1), right(1))
+ * assert.deepStrictEqual(parse(null), left('nully'))
+ *
+ * @category interop
+ * @since 2.0.0
+ */
+var fromNullable = function (e) { return function (a) {
+    return a == null ? exports.left(e) : exports.right(a);
+}; };
+exports.fromNullable = fromNullable;
+/**
+ * Constructs a new `Either` from a function that might throw.
+ *
+ * See also [`tryCatchK`](#trycatchk).
+ *
+ * @example
+ * import * as E from 'fp-ts/Either'
+ *
+ * const unsafeHead = <A>(as: ReadonlyArray<A>): A => {
+ *   if (as.length > 0) {
+ *     return as[0]
+ *   } else {
+ *     throw new Error('empty array')
+ *   }
+ * }
+ *
+ * const head = <A>(as: ReadonlyArray<A>): E.Either<Error, A> =>
+ *   E.tryCatch(() => unsafeHead(as), e => (e instanceof Error ? e : new Error('unknown error')))
+ *
+ * assert.deepStrictEqual(head([]), E.left(new Error('empty array')))
+ * assert.deepStrictEqual(head([1, 2, 3]), E.right(1))
+ *
+ * @category interop
+ * @since 2.0.0
+ */
+var tryCatch = function (f, onThrow) {
+    try {
+        return exports.right(f());
+    }
+    catch (e) {
+        return exports.left(onThrow(e));
+    }
+};
+exports.tryCatch = tryCatch;
+/**
+ * Converts a function that may throw to one returning a `Either`.
+ *
+ * @category interop
+ * @since 2.10.0
+ */
+var tryCatchK = function (f, onThrow) { return function () {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    return exports.tryCatch(function () { return f.apply(void 0, a); }, onThrow);
+}; };
+exports.tryCatchK = tryCatchK;
+/**
+ * @category interop
+ * @since 2.9.0
+ */
+var fromNullableK = function (e) {
+    var from = exports.fromNullable(e);
+    return function (f) { return function_1.flow(f, from); };
+};
+exports.fromNullableK = fromNullableK;
+/**
+ * @category interop
+ * @since 2.9.0
+ */
+var chainNullableK = function (e) {
+    var from = exports.fromNullableK(e);
+    return function (f) { return exports.chain(from(f)); };
+};
+exports.chainNullableK = chainNullableK;
+/**
+ * @category interop
+ * @since 2.10.0
+ */
+exports.toUnion = 
+/*#__PURE__*/
+exports.foldW(function_1.identity, function_1.identity);
+// -------------------------------------------------------------------------------------
+// utils
+// -------------------------------------------------------------------------------------
+/**
  * Default value for the `onError` argument of `tryCatch`
  *
  * @since 2.0.0
@@ -8630,7 +9219,71 @@ Apply_1.apS(exports.Apply);
 /**
  * @since 2.8.0
  */
-exports.apSW = exports.apS;
+var right = function (s) { return s.right; };
+exports.right = right;
+
+
+/***/ }),
+
+/***/ 9706:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.filterE = exports.witherDefault = exports.wiltDefault = void 0;
+var _ = __importStar(__webpack_require__(5309));
+function wiltDefault(T, C) {
+    return function (F) {
+        var traverseF = T.traverse(F);
+        return function (wa, f) { return F.map(traverseF(wa, f), C.separate); };
+    };
+}
+exports.wiltDefault = wiltDefault;
+function witherDefault(T, C) {
+    return function (F) {
+        var traverseF = T.traverse(F);
+        return function (wa, f) { return F.map(traverseF(wa, f), C.compact); };
+    };
+}
+exports.witherDefault = witherDefault;
+function filterE(W) {
+    return function (F) {
+        var witherF = W.wither(F);
+        return function (predicate) { return function (ga) { return witherF(ga, function (a) { return F.map(predicate(a), function (b) { return (b ? _.some(a) : _.none); }); }); }; };
+    };
+}
+exports.filterE = filterE;
+
+
+/***/ }),
+
+/***/ 4632:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndomorphismMonoid = exports.not = exports.SK = exports.hole = exports.pipe = exports.untupled = exports.tupled = exports.absurd = exports.decrement = exports.increment = exports.tuple = exports.flow = exports.flip = exports.constVoid = exports.constUndefined = exports.constNull = exports.constFalse = exports.constTrue = exports.constant = exports.unsafeCoerce = exports.identity = exports.apply = exports.getRing = exports.getSemiring = exports.getMonoid = exports.getSemigroup = exports.getBooleanAlgebra = void 0;
 // -------------------------------------------------------------------------------------
 // sequence T
 // -------------------------------------------------------------------------------------
@@ -8663,7 +9316,25 @@ var traverseReadonlyNonEmptyArrayWithIndex = function (f) { return function (as)
 }; };
 exports.traverseReadonlyNonEmptyArrayWithIndex = traverseReadonlyNonEmptyArrayWithIndex;
 /**
- * Equivalent to `ReadonlyArray#traverseWithIndex(Applicative)`.
+ * Unary functions form a monoid as long as you can provide a monoid for the codomain.
+ *
+ * @example
+ * import { Predicate } from 'fp-ts/Predicate'
+ * import { getMonoid } from 'fp-ts/function'
+ * import * as B from 'fp-ts/boolean'
+ *
+ * const f: Predicate<number> = (n) => n <= 2
+ * const g: Predicate<number> = (n) => n >= 0
+ *
+ * const M1 = getMonoid(B.MonoidAll)<number>()
+ *
+ * assert.deepStrictEqual(M1.concat(f, g)(1), true)
+ * assert.deepStrictEqual(M1.concat(f, g)(3), false)
+ *
+ * const M2 = getMonoid(B.MonoidAny)<number>()
+ *
+ * assert.deepStrictEqual(M2.concat(f, g)(1), true)
+ * assert.deepStrictEqual(M2.concat(f, g)(3), true)
  *
  * @since 2.11.0
  */
@@ -8671,7 +9342,15 @@ var traverseReadonlyArrayWithIndex = function (f) {
     var g = exports.traverseReadonlyNonEmptyArrayWithIndex(f);
     return function (as) { return (_.isNonEmpty(as) ? g(as) : exports.ApT); };
 };
-exports.traverseReadonlyArrayWithIndex = traverseReadonlyArrayWithIndex;
+exports.getRing = getRing;
+// -------------------------------------------------------------------------------------
+// utils
+// -------------------------------------------------------------------------------------
+/**
+ * @since 2.11.0
+ */
+var apply = function (a) { return function (f) { return f(a); }; };
+exports.apply = apply;
 /**
  * @since 2.9.0
  */
@@ -8684,18 +9363,8 @@ exports.traverseArray = traverseArray;
 /**
  * @since 2.9.0
  */
-exports.sequenceArray = 
-/*#__PURE__*/
-exports.traverseArray(function_1.identity);
-/**
- * Use [`parse`](./Json.ts.html#parse) instead.
- *
- * @category constructors
- * @since 2.0.0
- * @deprecated
- */
-function parseJSON(s, onError) {
-    return exports.tryCatch(function () { return JSON.parse(s); }, onError);
+function constant(a) {
+    return function () { return a; };
 }
 exports.parseJSON = parseJSON;
 /**
@@ -8941,7 +9610,40 @@ function getFunctorComposition(F, G) {
         map: function (fga, f) { return function_1.pipe(fga, _map(f)); }
     };
 }
-exports.getFunctorComposition = getFunctorComposition;
+exports.pipe = pipe;
+/**
+ * Type hole simulation
+ *
+ * @since 2.7.0
+ */
+exports.hole = absurd;
+/**
+ * @since 2.11.0
+ */
+var SK = function (_, b) { return b; };
+exports.SK = SK;
+/**
+ * Use `Predicate` module instead.
+ *
+ * @since 2.0.0
+ * @deprecated
+ */
+function not(predicate) {
+    return function (a) { return !predicate(a); };
+}
+exports.not = not;
+/**
+ * Use `Endomorphism` module instead.
+ *
+ * @category instances
+ * @since 2.10.0
+ * @deprecated
+ */
+var getEndomorphismMonoid = function () { return ({
+    concat: function (first, second) { return flow(first, second); },
+    empty: identity
+}); };
+exports.getEndomorphismMonoid = getEndomorphismMonoid;
 
 
 /***/ }),
@@ -8964,24 +9666,58 @@ exports.getFunctorComposition = getFunctorComposition;
  * @since 2.10.0
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.right = exports.left = exports.flap = exports.Functor = exports.Bifunctor = exports.URI = exports.bimap = exports.mapLeft = exports.map = exports.separated = void 0;
-var function_1 = __webpack_require__(4632);
-var Functor_1 = __webpack_require__(8762);
+exports.fromReadonlyNonEmptyArray = exports.has = exports.emptyRecord = exports.emptyReadonlyArray = exports.tail = exports.head = exports.isNonEmpty = exports.singleton = exports.right = exports.left = exports.isRight = exports.isLeft = exports.some = exports.none = exports.isSome = exports.isNone = void 0;
 // -------------------------------------------------------------------------------------
-// constructors
+// Option
 // -------------------------------------------------------------------------------------
-/**
- * @category constructors
- * @since 2.10.0
- */
-var separated = function (left, right) { return ({ left: left, right: right }); };
-exports.separated = separated;
+/** @internal */
+var isNone = function (fa) { return fa._tag === 'None'; };
+exports.isNone = isNone;
+/** @internal */
+var isSome = function (fa) { return fa._tag === 'Some'; };
+exports.isSome = isSome;
+/** @internal */
+exports.none = { _tag: 'None' };
+/** @internal */
+var some = function (a) { return ({ _tag: 'Some', value: a }); };
+exports.some = some;
 // -------------------------------------------------------------------------------------
-// non-pipeables
+// Either
 // -------------------------------------------------------------------------------------
-var _map = function (fa, f) { return function_1.pipe(fa, exports.map(f)); };
-var _mapLeft = function (fa, f) { return function_1.pipe(fa, exports.mapLeft(f)); };
-var _bimap = function (fa, g, f) { return function_1.pipe(fa, exports.bimap(g, f)); };
+/** @internal */
+var isLeft = function (ma) { return ma._tag === 'Left'; };
+exports.isLeft = isLeft;
+/** @internal */
+var isRight = function (ma) { return ma._tag === 'Right'; };
+exports.isRight = isRight;
+/** @internal */
+var left = function (e) { return ({ _tag: 'Left', left: e }); };
+exports.left = left;
+/** @internal */
+var right = function (a) { return ({ _tag: 'Right', right: a }); };
+exports.right = right;
+// -------------------------------------------------------------------------------------
+// ReadonlyNonEmptyArray
+// -------------------------------------------------------------------------------------
+/** @internal */
+var singleton = function (a) { return [a]; };
+exports.singleton = singleton;
+/** @internal */
+var isNonEmpty = function (as) { return as.length > 0; };
+exports.isNonEmpty = isNonEmpty;
+/** @internal */
+var head = function (as) { return as[0]; };
+exports.head = head;
+/** @internal */
+var tail = function (as) { return as.slice(1); };
+exports.tail = tail;
+// -------------------------------------------------------------------------------------
+// empty
+// -------------------------------------------------------------------------------------
+/** @internal */
+exports.emptyReadonlyArray = [];
+/** @internal */
+exports.emptyRecord = {};
 // -------------------------------------------------------------------------------------
 // type class members
 // -------------------------------------------------------------------------------------
@@ -9211,551 +9947,6 @@ var getSemiring = function (S) { return ({
     mul: function (f, g) { return function (x) { return S.mul(f(x), g(x)); }; },
     one: function () { return S.one; }
 }); };
-exports.getSemiring = getSemiring;
-/**
- * @category instances
- * @since 2.10.0
- */
-var getRing = function (R) {
-    var S = exports.getSemiring(R);
-    return {
-        add: S.add,
-        mul: S.mul,
-        one: S.one,
-        zero: S.zero,
-        sub: function (f, g) { return function (x) { return R.sub(f(x), g(x)); }; }
-    };
-};
-exports.getRing = getRing;
-// -------------------------------------------------------------------------------------
-// utils
-// -------------------------------------------------------------------------------------
-/**
- * @since 2.11.0
- */
-var apply = function (a) { return function (f) { return f(a); }; };
-exports.apply = apply;
-/**
- * @since 2.0.0
- */
-function identity(a) {
-    return a;
-}
-exports.identity = identity;
-/**
- * @since 2.0.0
- */
-exports.unsafeCoerce = identity;
-/**
- * @since 2.0.0
- */
-function constant(a) {
-    return function () { return a; };
-}
-exports.constant = constant;
-/**
- * A thunk that returns always `true`.
- *
- * @since 2.0.0
- */
-exports.constTrue = 
-/*#__PURE__*/
-constant(true);
-/**
- * A thunk that returns always `false`.
- *
- * @since 2.0.0
- */
-exports.constFalse = 
-/*#__PURE__*/
-constant(false);
-/**
- * A thunk that returns always `null`.
- *
- * @since 2.0.0
- */
-exports.constNull = 
-/*#__PURE__*/
-constant(null);
-/**
- * A thunk that returns always `undefined`.
- *
- * @since 2.0.0
- */
-exports.constUndefined = 
-/*#__PURE__*/
-constant(undefined);
-/**
- * A thunk that returns always `void`.
- *
- * @since 2.0.0
- */
-exports.constVoid = exports.constUndefined;
-/**
- * Flips the order of the arguments of a function of two arguments.
- *
- * @since 2.0.0
- */
-function flip(f) {
-    return function (b, a) { return f(a, b); };
-}
-exports.flip = flip;
-function flow(ab, bc, cd, de, ef, fg, gh, hi, ij) {
-    switch (arguments.length) {
-        case 1:
-            return ab;
-        case 2:
-            return function () {
-                return bc(ab.apply(this, arguments));
-            };
-        case 3:
-            return function () {
-                return cd(bc(ab.apply(this, arguments)));
-            };
-        case 4:
-            return function () {
-                return de(cd(bc(ab.apply(this, arguments))));
-            };
-        case 5:
-            return function () {
-                return ef(de(cd(bc(ab.apply(this, arguments)))));
-            };
-        case 6:
-            return function () {
-                return fg(ef(de(cd(bc(ab.apply(this, arguments))))));
-            };
-        case 7:
-            return function () {
-                return gh(fg(ef(de(cd(bc(ab.apply(this, arguments)))))));
-            };
-        case 8:
-            return function () {
-                return hi(gh(fg(ef(de(cd(bc(ab.apply(this, arguments))))))));
-            };
-        case 9:
-            return function () {
-                return ij(hi(gh(fg(ef(de(cd(bc(ab.apply(this, arguments)))))))));
-            };
-    }
-    return;
-}
-exports.flow = flow;
-/**
- * @since 2.0.0
- */
-function tuple() {
-    var t = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        t[_i] = arguments[_i];
-    }
-    return t;
-}
-exports.tuple = tuple;
-/**
- * @since 2.0.0
- */
-function increment(n) {
-    return n + 1;
-}
-exports.increment = increment;
-/**
- * @since 2.0.0
- */
-function decrement(n) {
-    return n - 1;
-}
-exports.decrement = decrement;
-/**
- * @since 2.0.0
- */
-function absurd(_) {
-    throw new Error('Called `absurd` function which should be uncallable');
-}
-exports.absurd = absurd;
-/**
- * Creates a tupled version of this function: instead of `n` arguments, it accepts a single tuple argument.
- *
- * @example
- * import { tupled } from 'fp-ts/function'
- *
- * const add = tupled((x: number, y: number): number => x + y)
- *
- * assert.strictEqual(add([1, 2]), 3)
- *
- * @since 2.4.0
- */
-function tupled(f) {
-    return function (a) { return f.apply(void 0, a); };
-}
-exports.tupled = tupled;
-/**
- * Inverse function of `tupled`
- *
- * @since 2.4.0
- */
-function untupled(f) {
-    return function () {
-        var a = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            a[_i] = arguments[_i];
-        }
-        return f(a);
-    };
-}
-exports.untupled = untupled;
-function pipe(a, ab, bc, cd, de, ef, fg, gh, hi, ij, jk, kl, lm, mn, no, op, pq, qr, rs, st) {
-    switch (arguments.length) {
-        case 1:
-            return a;
-        case 2:
-            return ab(a);
-        case 3:
-            return bc(ab(a));
-        case 4:
-            return cd(bc(ab(a)));
-        case 5:
-            return de(cd(bc(ab(a))));
-        case 6:
-            return ef(de(cd(bc(ab(a)))));
-        case 7:
-            return fg(ef(de(cd(bc(ab(a))))));
-        case 8:
-            return gh(fg(ef(de(cd(bc(ab(a)))))));
-        case 9:
-            return hi(gh(fg(ef(de(cd(bc(ab(a))))))));
-        case 10:
-            return ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))));
-        case 11:
-            return jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))));
-        case 12:
-            return kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))));
-        case 13:
-            return lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))));
-        case 14:
-            return mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))));
-        case 15:
-            return no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))));
-        case 16:
-            return op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))));
-        case 17:
-            return pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))))));
-        case 18:
-            return qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))))));
-        case 19:
-            return rs(qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))))))));
-        case 20:
-            return st(rs(qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))))))));
-    }
-    return;
-}
-exports.pipe = pipe;
-/**
- * Type hole simulation
- *
- * @since 2.7.0
- */
-exports.hole = absurd;
-/**
- * @since 2.11.0
- */
-var SK = function (_, b) { return b; };
-exports.SK = SK;
-/**
- * Use `Predicate` module instead.
- *
- * @since 2.0.0
- * @deprecated
- */
-function not(predicate) {
-    return function (a) { return !predicate(a); };
-}
-exports.not = not;
-/**
- * Use `Endomorphism` module instead.
- *
- * @category instances
- * @since 2.10.0
- * @deprecated
- */
-var getEndomorphismMonoid = function () { return ({
-    concat: function (first, second) { return flow(first, second); },
-    empty: identity
-}); };
-exports.getEndomorphismMonoid = getEndomorphismMonoid;
-
-
-/***/ }),
-
-/***/ 5309:
-/***/ (function(__unused_webpack_module, exports) {
-
-"use strict";
-
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.fromReadonlyNonEmptyArray = exports.has = exports.emptyRecord = exports.emptyReadonlyArray = exports.tail = exports.head = exports.isNonEmpty = exports.singleton = exports.right = exports.left = exports.isRight = exports.isLeft = exports.some = exports.none = exports.isSome = exports.isNone = void 0;
-// -------------------------------------------------------------------------------------
-// Option
-// -------------------------------------------------------------------------------------
-/** @internal */
-var isNone = function (fa) { return fa._tag === 'None'; };
-exports.isNone = isNone;
-/** @internal */
-var isSome = function (fa) { return fa._tag === 'Some'; };
-exports.isSome = isSome;
-/** @internal */
-exports.none = { _tag: 'None' };
-/** @internal */
-var some = function (a) { return ({ _tag: 'Some', value: a }); };
-exports.some = some;
-// -------------------------------------------------------------------------------------
-// Either
-// -------------------------------------------------------------------------------------
-/** @internal */
-var isLeft = function (ma) { return ma._tag === 'Left'; };
-exports.isLeft = isLeft;
-/** @internal */
-var isRight = function (ma) { return ma._tag === 'Right'; };
-exports.isRight = isRight;
-/** @internal */
-var left = function (e) { return ({ _tag: 'Left', left: e }); };
-exports.left = left;
-/** @internal */
-var right = function (a) { return ({ _tag: 'Right', right: a }); };
-exports.right = right;
-// -------------------------------------------------------------------------------------
-// ReadonlyNonEmptyArray
-// -------------------------------------------------------------------------------------
-/** @internal */
-var singleton = function (a) { return [a]; };
-exports.singleton = singleton;
-/** @internal */
-var isNonEmpty = function (as) { return as.length > 0; };
-exports.isNonEmpty = isNonEmpty;
-/** @internal */
-var head = function (as) { return as[0]; };
-exports.head = head;
-/** @internal */
-var tail = function (as) { return as.slice(1); };
-exports.tail = tail;
-// -------------------------------------------------------------------------------------
-// empty
-// -------------------------------------------------------------------------------------
-/** @internal */
-exports.emptyReadonlyArray = [];
-/** @internal */
-exports.emptyRecord = {};
-// -------------------------------------------------------------------------------------
-// Record
-// -------------------------------------------------------------------------------------
-/** @internal */
-exports.has = Object.prototype.hasOwnProperty;
-// -------------------------------------------------------------------------------------
-// NonEmptyArray
-// -------------------------------------------------------------------------------------
-/** @internal */
-var fromReadonlyNonEmptyArray = function (as) { return __spreadArray([as[0]], as.slice(1)); };
-exports.fromReadonlyNonEmptyArray = fromReadonlyNonEmptyArray;
-
-
-/***/ }),
-
-/***/ 1073:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "AnyArrayType": () => (/* binding */ AnyArrayType),
-  "AnyDictionaryType": () => (/* binding */ AnyDictionaryType),
-  "AnyType": () => (/* binding */ AnyType),
-  "Array": () => (/* binding */ UnknownArray),
-  "ArrayType": () => (/* binding */ ArrayType),
-  "BigIntType": () => (/* binding */ BigIntType),
-  "BooleanType": () => (/* binding */ BooleanType),
-  "Dictionary": () => (/* binding */ Dictionary),
-  "DictionaryType": () => (/* binding */ DictionaryType),
-  "ExactType": () => (/* binding */ ExactType),
-  "Function": () => (/* binding */ Function),
-  "FunctionType": () => (/* binding */ FunctionType),
-  "Int": () => (/* binding */ Int),
-  "Integer": () => (/* binding */ Integer),
-  "InterfaceType": () => (/* binding */ InterfaceType),
-  "IntersectionType": () => (/* binding */ IntersectionType),
-  "KeyofType": () => (/* binding */ KeyofType),
-  "LiteralType": () => (/* binding */ LiteralType),
-  "NeverType": () => (/* binding */ NeverType),
-  "NullType": () => (/* binding */ NullType),
-  "NumberType": () => (/* binding */ NumberType),
-  "ObjectType": () => (/* binding */ ObjectType),
-  "PartialType": () => (/* binding */ PartialType),
-  "ReadonlyArrayType": () => (/* binding */ ReadonlyArrayType),
-  "ReadonlyType": () => (/* binding */ ReadonlyType),
-  "RecursiveType": () => (/* binding */ RecursiveType),
-  "RefinementType": () => (/* binding */ RefinementType),
-  "StrictType": () => (/* binding */ StrictType),
-  "StringType": () => (/* binding */ StringType),
-  "TaggedUnionType": () => (/* binding */ TaggedUnionType),
-  "TupleType": () => (/* binding */ TupleType),
-  "Type": () => (/* binding */ Type),
-  "UndefinedType": () => (/* binding */ UndefinedType),
-  "UnionType": () => (/* binding */ UnionType),
-  "UnknownArray": () => (/* binding */ UnknownArray),
-  "UnknownRecord": () => (/* binding */ UnknownRecord),
-  "UnknownType": () => (/* binding */ UnknownType),
-  "VoidType": () => (/* binding */ VoidType),
-  "alias": () => (/* binding */ alias),
-  "any": () => (/* binding */ any),
-  "appendContext": () => (/* binding */ appendContext),
-  "array": () => (/* binding */ array),
-  "bigint": () => (/* binding */ bigint),
-  "boolean": () => (/* binding */ es6_boolean),
-  "brand": () => (/* binding */ brand),
-  "clean": () => (/* binding */ clean),
-  "dictionary": () => (/* binding */ dictionary),
-  "emptyTags": () => (/* binding */ emptyTags),
-  "exact": () => (/* binding */ exact),
-  "failure": () => (/* binding */ failure),
-  "failures": () => (/* binding */ failures),
-  "getContextEntry": () => (/* binding */ getContextEntry),
-  "getDefaultContext": () => (/* binding */ getDefaultContext),
-  "getDomainKeys": () => (/* binding */ getDomainKeys),
-  "getFunctionName": () => (/* binding */ getFunctionName),
-  "getIndex": () => (/* binding */ getIndex),
-  "getTags": () => (/* binding */ getTags),
-  "getValidationError": () => (/* binding */ getValidationError),
-  "identity": () => (/* binding */ es6_identity),
-  "interface": () => (/* binding */ type),
-  "intersection": () => (/* binding */ intersection),
-  "keyof": () => (/* binding */ keyof),
-  "literal": () => (/* binding */ literal),
-  "mergeAll": () => (/* binding */ mergeAll),
-  "never": () => (/* binding */ never),
-  "null": () => (/* binding */ nullType),
-  "nullType": () => (/* binding */ nullType),
-  "number": () => (/* binding */ number),
-  "object": () => (/* binding */ object),
-  "partial": () => (/* binding */ partial),
-  "readonly": () => (/* binding */ readonly),
-  "readonlyArray": () => (/* binding */ readonlyArray),
-  "record": () => (/* binding */ record),
-  "recursion": () => (/* binding */ recursion),
-  "refinement": () => (/* binding */ refinement),
-  "strict": () => (/* binding */ strict),
-  "string": () => (/* binding */ string),
-  "success": () => (/* binding */ success),
-  "taggedUnion": () => (/* binding */ taggedUnion),
-  "tuple": () => (/* binding */ es6_tuple),
-  "type": () => (/* binding */ type),
-  "undefined": () => (/* binding */ undefinedType),
-  "union": () => (/* binding */ union),
-  "unknown": () => (/* binding */ unknown),
-  "void": () => (/* binding */ voidType),
-  "voidType": () => (/* binding */ voidType)
-});
-
-;// CONCATENATED MODULE: ../../node_modules/fp-ts/es6/ChainRec.js
-/**
- * @since 2.0.0
- */
-var tailRec = function (startWith, f) {
-    var ab = f(startWith);
-    while (ab._tag === 'Left') {
-        ab = f(ab.left);
-    }
-    return ab.right;
-};
-
-;// CONCATENATED MODULE: ../../node_modules/fp-ts/es6/function.js
-// -------------------------------------------------------------------------------------
-// instances
-// -------------------------------------------------------------------------------------
-/**
- * @category instances
- * @since 2.10.0
- */
-var getBooleanAlgebra = function (B) { return function () { return ({
-    meet: function (x, y) { return function (a) { return B.meet(x(a), y(a)); }; },
-    join: function (x, y) { return function (a) { return B.join(x(a), y(a)); }; },
-    zero: function () { return B.zero; },
-    one: function () { return B.one; },
-    implies: function (x, y) { return function (a) { return B.implies(x(a), y(a)); }; },
-    not: function (x) { return function (a) { return B.not(x(a)); }; }
-}); }; };
-/**
- * Unary functions form a semigroup as long as you can provide a semigroup for the codomain.
- *
- * @example
- * import { Predicate, getSemigroup } from 'fp-ts/function'
- * import * as B from 'fp-ts/boolean'
- *
- * const f: Predicate<number> = (n) => n <= 2
- * const g: Predicate<number> = (n) => n >= 0
- *
- * const S1 = getSemigroup(B.SemigroupAll)<number>()
- *
- * assert.deepStrictEqual(S1.concat(f, g)(1), true)
- * assert.deepStrictEqual(S1.concat(f, g)(3), false)
- *
- * const S2 = getSemigroup(B.SemigroupAny)<number>()
- *
- * assert.deepStrictEqual(S2.concat(f, g)(1), true)
- * assert.deepStrictEqual(S2.concat(f, g)(3), true)
- *
- * @category instances
- * @since 2.10.0
- */
-var getSemigroup = function (S) { return function () { return ({
-    concat: function (f, g) { return function (a) { return S.concat(f(a), g(a)); }; }
-}); }; };
-/**
- * Unary functions form a monoid as long as you can provide a monoid for the codomain.
- *
- * @example
- * import { Predicate } from 'fp-ts/Predicate'
- * import { getMonoid } from 'fp-ts/function'
- * import * as B from 'fp-ts/boolean'
- *
- * const f: Predicate<number> = (n) => n <= 2
- * const g: Predicate<number> = (n) => n >= 0
- *
- * const M1 = getMonoid(B.MonoidAll)<number>()
- *
- * assert.deepStrictEqual(M1.concat(f, g)(1), true)
- * assert.deepStrictEqual(M1.concat(f, g)(3), false)
- *
- * const M2 = getMonoid(B.MonoidAny)<number>()
- *
- * assert.deepStrictEqual(M2.concat(f, g)(1), true)
- * assert.deepStrictEqual(M2.concat(f, g)(3), true)
- *
- * @category instances
- * @since 2.10.0
- */
-var getMonoid = function (M) {
-    var getSemigroupM = getSemigroup(M);
-    return function () { return ({
-        concat: getSemigroupM().concat,
-        empty: function () { return M.empty; }
-    }); };
-};
-/**
- * @category instances
- * @since 2.10.0
- */
-var getSemiring = function (S) { return ({
-    add: function (f, g) { return function (x) { return S.add(f(x), g(x)); }; },
-    zero: function () { return S.zero; },
-    mul: function (f, g) { return function (x) { return S.mul(f(x), g(x)); }; },
-    one: function () { return S.one; }
-}); };
 /**
  * @category instances
  * @since 2.10.0
@@ -9770,6 +9961,8 @@ var getRing = function (R) {
         sub: function (f, g) { return function (x) { return R.sub(f(x), g(x)); }; }
     };
 };
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.fromReadonlyNonEmptyArray = exports.has = exports.emptyRecord = exports.emptyReadonlyArray = exports.tail = exports.head = exports.isNonEmpty = exports.singleton = exports.right = exports.left = exports.isRight = exports.isLeft = exports.some = exports.none = exports.isSome = exports.isNone = void 0;
 // -------------------------------------------------------------------------------------
 // utils
 // -------------------------------------------------------------------------------------
@@ -13066,6 +13259,18 @@ function onceStrict (fn) {
   return f
 }
 
+function onceStrict (fn) {
+  var f = function () {
+    if (f.called)
+      throw new Error(f.onceError)
+    f.called = true
+    return f.value = fn.apply(this, arguments)
+  }
+  var name = fn.name || 'Function wrapped with `once`'
+  f.onceError = name + " shouldn't be called more than once"
+  f.called = false
+  return f
+}
 
 /***/ }),
 
@@ -13570,7 +13775,7 @@ const node_fetch_1 = (0, tslib_1.__importDefault)(__webpack_require__(6114));
 /**
  * `check-workflow-status` uses the Github API to retrieve the status of a workflow on a particular branch
  *
- * env-cmd -x curl -X GET -u $GH_TOKEN:x-oauth-basic 'https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-api-workflow.yml/runs?branch=master&event=push'
+ * . ./.env && curl -X GET -u $GH_TOKEN:x-oauth-basic 'https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-api-workflow.yml/runs?branch=master&event=push'
  *
  * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
  */
@@ -13822,7 +14027,6 @@ exports.CommonEnv = t.intersection([
     }),
 ]);
 
-
 /***/ }),
 
 /***/ 3290:
@@ -13894,7 +14098,6 @@ const tslib_1 = __webpack_require__(5163);
 (0, tslib_1.__exportStar)(__webpack_require__(5912), exports);
 (0, tslib_1.__exportStar)(__webpack_require__(5366), exports);
 (0, tslib_1.__exportStar)(__webpack_require__(1118), exports);
-(0, tslib_1.__exportStar)(__webpack_require__(8370), exports);
 
 
 /***/ }),
@@ -13995,8 +14198,6 @@ function logEnvVariables({ packageName, env, debugFn, }) {
         : log.extend(packageName.replace('@newrade/', ''));
     logPackage(`NODE_ENV is ${env.NODE_ENV}`);
     logPackage(`NODE_DEBUG is ${env.NODE_DEBUG}`);
-    logPackage(`NODE_OPTIONS is ${env.NODE_OPTIONS}`);
-    logPackage(`NODE_NO_WARNINGS is ${env.NODE_NO_WARNINGS}`);
     logPackage(`DEBUG is ${env.DEBUG}`);
     logPackage(`APP_ENV is ${env.APP_ENV}`);
     logPackage(`APP_PROTOCOL is ${env.APP_PROTOCOL}`);
@@ -14127,22 +14328,6 @@ exports.success = success;
 exports.PathReporter = {
     report: (0, Either_1.fold)(failure, success),
 };
-
-
-/***/ }),
-
-/***/ 8370:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isWin = exports.getShellForPlatform = void 0;
-function getShellForPlatform() {
-    return exports.isWin ? 'powershell.exe' : true;
-}
-exports.getShellForPlatform = getShellForPlatform;
-exports.isWin = process.platform === 'win32';
 
 
 /***/ }),

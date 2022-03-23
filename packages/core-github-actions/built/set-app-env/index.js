@@ -13660,8 +13660,7 @@ function runAction(env, githubContext) {
                 }
             }
         }
-        if (githubContext.eventName === 'pull_request' ||
-            githubContext.eventName === 'pull_request_target') {
+        if (githubContext.eventName === 'pull_request') {
             core.debug(`Current branch ref: ${env.GITHUB_HEAD_REF_SLUG}`);
             core.debug(`Target branch: ${env.GITHUB_BASE_REF_SLUG}`);
             core.info(`Assigning PR branch sub domain`);
@@ -14026,7 +14025,6 @@ const tslib_1 = __webpack_require__(5163);
 (0, tslib_1.__exportStar)(__webpack_require__(5912), exports);
 (0, tslib_1.__exportStar)(__webpack_require__(5366), exports);
 (0, tslib_1.__exportStar)(__webpack_require__(1118), exports);
-(0, tslib_1.__exportStar)(__webpack_require__(8370), exports);
 
 
 /***/ }),
@@ -14127,8 +14125,6 @@ function logEnvVariables({ packageName, env, debugFn, }) {
         : log.extend(packageName.replace('@newrade/', ''));
     logPackage(`NODE_ENV is ${env.NODE_ENV}`);
     logPackage(`NODE_DEBUG is ${env.NODE_DEBUG}`);
-    logPackage(`NODE_OPTIONS is ${env.NODE_OPTIONS}`);
-    logPackage(`NODE_NO_WARNINGS is ${env.NODE_NO_WARNINGS}`);
     logPackage(`DEBUG is ${env.DEBUG}`);
     logPackage(`APP_ENV is ${env.APP_ENV}`);
     logPackage(`APP_PROTOCOL is ${env.APP_PROTOCOL}`);
@@ -14217,6 +14213,14 @@ exports.Protocol = t.keyof({
 
 "use strict";
 
+
+/***/ }),
+
+/***/ 9593:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
 /**
  * Custom io-ts Reporter
  *
@@ -14259,22 +14263,6 @@ exports.success = success;
 exports.PathReporter = {
     report: (0, Either_1.fold)(failure, success),
 };
-
-
-/***/ }),
-
-/***/ 8370:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isWin = exports.getShellForPlatform = void 0;
-function getShellForPlatform() {
-    return exports.isWin ? 'powershell.exe' : true;
-}
-exports.getShellForPlatform = getShellForPlatform;
-exports.isWin = process.platform === 'win32';
 
 
 /***/ }),
