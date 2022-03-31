@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Cluster, useCommonProps } from '@newrade/core-react-ui';
-import { NavbarBase } from '@newrade/core-react-ui';
+import { useCommonProps } from '../hooks/use-common-props.hook';
+import { Cluster } from '../layout/cluster';
 
 import { NavbarProps } from './navbar.props';
+import { NavbarBase } from './navbar-base';
 
 import * as styles from './navbar-modular.css';
 

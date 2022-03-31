@@ -1,8 +1,11 @@
 import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
-import { Center, Primitive, useCSSTheme } from '@newrade/core-react-ui';
-import { layoutVars } from '@newrade/core-react-ui/theme';
+
+import { useCSSTheme } from '../hooks/use-css-theme';
+import { Center } from '../layout/center';
+import { Primitive } from '../primitive/primitive';
+import { layoutVars } from '../theme';
 
 import { NavbarProps } from './navbar.props';
 

@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
 
 import { NavbarItemSize } from '@newrade/core-design-system';
-import {
-  InputSelect,
-  InputSelectProps,
-  Primitive,
-  usePreventPinchZoom,
-} from '@newrade/core-react-ui';
+
+import { InputSelectProps } from '../form/input.props';
+import { InputSelect } from '../form/input-select';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
+import { Primitive } from '../primitive/primitive';
 
 import { NavbarLinkProps } from './navbar-item.props';
 

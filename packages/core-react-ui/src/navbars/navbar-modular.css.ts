@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { layoutCSS } from '@newrade/core-react-ui/theme';
+import { layoutCSS } from '../theme';
 
 export const mobile = style({
   display: 'grid',

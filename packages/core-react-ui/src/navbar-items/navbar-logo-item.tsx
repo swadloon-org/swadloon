@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { LOGO } from '@newrade/core-design-system';
-import { Logo } from '@newrade/core-react-ui';
+
+import { Logo } from '../logos/logo';
 
 import { NavbarLinkProps } from './navbar-item.props';
 import { NavbarLinkItem } from './navbar-link-item';

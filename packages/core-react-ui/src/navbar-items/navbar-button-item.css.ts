@@ -1,8 +1,9 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { resetButtonStyle } from '@newrade/core-react-ui';
-import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
+import { colorVars, layoutVars, sizeVars } from '../theme';
+
+import { resetButtonStyle } from '../css/reset-button.css';
 
 /**
  *
