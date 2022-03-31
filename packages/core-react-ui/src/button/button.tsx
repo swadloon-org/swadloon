@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { ButtonIcon, ButtonSize, TEXT_STYLE } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
@@ -16,6 +16,8 @@ import * as styles from './button.css';
 type Props = ButtonCompProps;
 
 const defaultProps: Props = {
+  as: 'button',
+  variant: Variant.primary,
   size: ButtonSize.medium,
   role: 'button',
 };
@@ -27,7 +29,7 @@ export const Button = React.forwardRef<any, Props>(function Button(
   {
     role = defaultProps.role,
     children,
-    as,
+    as = defaultProps.as,
     AsElement,
     variant,
     collapsePadding,
@@ -100,8 +102,14 @@ export const Button = React.forwardRef<any, Props>(function Button(
     dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
 
   const commonProps = useCommonProps<'button'>({
-    role: as === 'button' ? '' : role,
-    classNames: [styles.variants({})],
+    role: as === 'button' ? undefined : role,
+    classNames: [
+      styles.variants({
+        variant: variant,
+        size: size,
+      }),
+    ],
+    disabled: disabled ? true : false,
     // @ts-ignore
     dataicon: dataicon,
     datapaddingcollapse: collapsePaddingProp,
