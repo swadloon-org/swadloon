@@ -34,6 +34,7 @@
     "@types/cssnano": "^5",
     "@vanilla-extract/webpack-plugin": "^2.1.0",
     "autoprefixer": "^10.4.0",
+    "case": "^1",
     "clean-webpack-plugin": "^4.0.0",
     "compression-webpack-plugin": "^6.1.1",
     "copy-webpack-plugin": "^6.4.1",
