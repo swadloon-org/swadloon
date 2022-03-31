@@ -8,6 +8,7 @@ import { getCSSColorVar } from '../utilities-iso';
  */
 export const wrapper = style({
   position: 'fixed',
+
   left: 0,
   bottom: `-1px`, // fixes 1px line visible on ios
   width: `85vw`,

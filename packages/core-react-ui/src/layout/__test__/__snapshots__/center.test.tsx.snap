@@ -7,7 +7,7 @@ exports[`props should render correctly 1`] = `
 >
   <div />
   <div
-    class="center__iky36j1 center-div"
+    class="center__iky36j2 center-div"
     style="--max-content-width: 800px;"
   >
     Hello world

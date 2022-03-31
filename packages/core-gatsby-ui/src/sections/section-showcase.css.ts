@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { layoutCSS } from '@newrade/core-react-ui/theme';
+import { layoutCSS, layoutVars } from '@newrade/core-react-ui/theme';
 
 export const wrapper = style({
   width: `100%`,
@@ -26,7 +26,7 @@ export const leftBlock = style({
 });
 
 export const leftInnerBlock = style({
-  maxWidth: `calc(${layoutCSS.contentWidth.desktopMaxWidth} / 2)`,
+  maxWidth: `calc(${layoutVars.contentWidth.desktopMaxWidth} / 2)`,
   marginLeft: 'auto',
 });
 
@@ -35,5 +35,5 @@ export const rightBlock = style({
 });
 
 export const rightInnerBlock = style({
-  maxWidth: `calc(${layoutCSS.contentWidth.desktopMaxWidth} / 2)`,
+  maxWidth: `calc(${layoutVars.contentWidth.desktopMaxWidth} / 2)`,
 });

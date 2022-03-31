@@ -2,7 +2,13 @@ import React, { PropsWithChildren, Suspense } from 'react';
 
 import debug from 'debug';
 
-import { ErrorBoundary, Stack, useCommonProps, useIsSSR } from '@newrade/core-react-ui';
+import {
+  ErrorBoundary,
+  Stack,
+  useCommonProps,
+  useCSSTheme,
+  useIsSSR,
+} from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import {
   BlockAlignment,
@@ -42,11 +48,16 @@ export function BlockRenderer<CustomBlockVariants extends string>({
 }: PropsWithChildren<BlockRendererProps<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
 
+  const { getCSSColorModeClassnames } = useCSSTheme();
+
   const commonProps = useCommonProps({
     id,
     style,
     className,
-    classNames: [block?.alignment ? styles[block.alignment as BlockAlignment] : ''],
+    classNames: [
+      block?.alignment ? styles[block.alignment as BlockAlignment] : '',
+      getCSSColorModeClassnames({ colorMode: block?.colorMode, colorScheme: block?.colorScheme }),
+    ],
     ...props,
   });
 

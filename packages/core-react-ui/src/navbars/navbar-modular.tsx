@@ -1,11 +1,29 @@
 import React from 'react';
 
 import { Cluster, useCommonProps } from '@newrade/core-react-ui';
+import { NavbarBase } from '@newrade/core-react-ui';
 
-import { NavbarModularProps } from './navbar.props';
-import { NavbarBase } from './navbar-base';
+import { NavbarProps } from './navbar.props';
 
 import * as styles from './navbar-modular.css';
+
+export type NavbarModularProps = Omit<
+  NavbarProps,
+  | 'menuOpened'
+  | 'HomeLink'
+  | 'tagText'
+  | 'onClickMenuButton'
+  | 'currentLanguage'
+  | 'languages'
+  | 'onChangeLang'
+> & {
+  left?: React.ReactNode;
+  center?: React.ReactNode;
+  right?: React.ReactNode;
+  leftDesktop?: React.ReactNode;
+  centerDesktop?: React.ReactNode;
+  rightDesktop?: React.ReactNode;
+};
 
 type Props = NavbarModularProps;
 

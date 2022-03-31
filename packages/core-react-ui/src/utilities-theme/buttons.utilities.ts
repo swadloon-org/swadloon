@@ -11,12 +11,25 @@ import { keys, px } from '../utilities-iso/utilities';
 
 import { getCSSBoxMargin, getCSSBoxStyle } from './box.utilities';
 import { getCSSColor } from './colors.utilities';
+import { setVarsValuesToStyleObject } from './component.utilities';
 
 export function getCSSButtons(buttons: Buttons): CSSButtons {
-  return {
+  //
+  // first, create CSSButtons from raw styles
+  //
+  const cssButtons: CSSButtons = {
     variants: getCSSButtonVariants(buttons.variants),
     sizes: getCSSButtonSizes(buttons.sizes),
   };
+
+  if (!buttons.vars) {
+    return cssButtons;
+  }
+
+  //
+  // if vars is passed, traverse the CSSButtons object and replace the defined values
+  //
+  return setVarsValuesToStyleObject<CSSButtons>(cssButtons, buttons.vars);
 }
 
 function getCSSButtonVariants(buttons: ButtonVariants): ButtonVariants<string> {

@@ -4,15 +4,15 @@ import { ButtonProps } from '@newrade/core-design-system';
 
 import { PrimitiveProps } from '../primitive/primitive.props';
 
-export type ButtonAsType = 'button' | 'a';
+export type ButtonAsType = 'button' | 'a' | 'div';
 
 export type ButtonCompProps = PrimitiveProps<ButtonAsType> &
-  Pick<AnchorHTMLAttributes<any>, 'href' | 'target'> &
+  Pick<AnchorHTMLAttributes<any>, 'href' | 'target' | 'type'> &
   ButtonProps & {
     /**
      * Rendering element types
      */
-    as?: 'button' | 'a' | 'div';
+    as?: ButtonAsType;
     /**
      * Pass custom svg icon
      */

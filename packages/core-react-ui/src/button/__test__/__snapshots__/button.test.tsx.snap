@@ -3,11 +3,11 @@
 exports[`the button component should render correctly 1`] = `
 <div>
   <button
-    class="button__x17q3ri"
+    class="button__x17q3rm button_variant_primary__x17q3rn button_size_medium__x17q3ru"
     dataicon="none"
   >
     <div
-      class="label__1i57ob90  text-color_variant_primary__11gow270  label_size_small__1i57ob93 label_style_bold__1i57ob96"
+      class="button__x17q3rx button_alignment_center__x17q3ry label__1i57ob90  label_size_small__1i57ob93 label_style_bold__1i57ob96"
     >
       Hello world
     </div>

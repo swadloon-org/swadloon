@@ -2,6 +2,7 @@ import { Variant } from '@newrade/core-design-system';
 
 import { PartialOrNull } from '../utilities';
 
+import { ColorModeAPI } from './color-mode.api';
 import { LinkAPI } from './link.api';
 
 export enum BlockType {
@@ -46,17 +47,19 @@ export enum BlockAlignment {
   right = 'right',
 }
 
-export type BlockAPI = PartialOrNull<{
-  id: string;
-  name: string;
-  variant: Variant | string;
-  type: BlockType | string;
-  alignment: BlockAlignment | string;
-  text: {
-    text: string;
-    childMdx: {
-      body: string;
+export type BlockAPI = PartialOrNull<
+  ColorModeAPI & {
+    id: string;
+    name: string;
+    variant: Variant | string;
+    type: BlockType | string;
+    alignment: BlockAlignment | string;
+    text: {
+      text: string;
+      childMdx: {
+        body: string;
+      };
     };
-  };
-  link: LinkAPI;
-}>;
+    link: LinkAPI;
+  }
+>;

@@ -7,6 +7,10 @@ import { TextBoolean } from '../env/boolean-env';
  */
 export const CommonEnvGatsby = t.partial({
   /**
+   * Override the cache setting (see core-gastby-plugin-ts-cache plugin)
+   */
+  GATSBY_ENABLE_CACHE: TextBoolean,
+  /**
    * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/flags.ts
    */
   GATSBY_EXPERIMENTAL_FAST_DEV: TextBoolean,

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { NavbarLinkItem, NavbarModular, NavbarStandard } from '@newrade/core-gatsby-ui/src';
+import { NavbarLinkItem, NavbarStandard } from '@newrade/core-gatsby-ui/src';
+import { NavbarModular } from '@newrade/core-react-ui';
 import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 

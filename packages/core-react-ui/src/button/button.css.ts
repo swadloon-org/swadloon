@@ -10,7 +10,7 @@ import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-t
  */
 
 const iconSize = createVar();
-const iconOffset = createVar();
+const iconMargin = createVar();
 const iconColor = createVar();
 const iconColorDisabled = createVar();
 
@@ -40,25 +40,15 @@ const textColorDisabled = createVar();
 
 export const variants = recipe({
   base: {
-    vars: {
-      [iconSize]: `clamp(16px, 1em, 28px)`,
-      [iconOffset]: `0.6em`,
-      [iconColor]: colorVars.colors.grey[700],
-      [iconColorDisabled]: colorVars.colorIntents.disabledText,
-      [paddingX]: `0.5em`,
-      [paddingY]: `0px`,
-      [borderWidth]: `1px`,
-      [borderRadius]: `4px`,
-      [textColor]: colorVars.colorIntents.primaryText,
-      [textColorActive]: colorVars.colorIntents.primary,
-      [textColorDisabled]: colorVars.colors.grey[600],
-      [borderColor]: colorVars.colorIntents.primary,
-      [borderColorDisabled]: `transparent`,
-      [backgroundColor]: colorVars.colors.grey[0],
-      [backgroundColorActive]: colorVars.colors.primary[100],
-      [backgroundColorDisabled]: colorVars.colors.grey[25],
-    },
-    display: 'block',
+    /**
+     *
+     * Reset and base CSS
+     *
+     */
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     position: 'relative',
     outline: 'none',
     lineHeight: 0,
@@ -67,14 +57,86 @@ export const variants = recipe({
     userSelect: 'none',
     touchAction: 'none',
     WebkitAppearance: 'none',
-    whiteSpace: 'nowrap', // don't allow wrapping
-    borderRadius: 4,
+    textDecoration: 'none',
+
+    /**
+     *
+     * Box model
+     *
+     */
+
     width: 'fit-content',
+    minWidth: height,
+    height: height,
+    paddingLeft: paddingX,
+    paddingRight: paddingX,
+    margin: 0,
+    borderStyle: borderStyle,
+    borderWidth: borderWidth,
+    borderRadius: borderRadius,
+    outline: 'none',
+
+    /**
+     *
+     * Content
+     *
+     */
+
+    // don't text or content to wrap
+    whiteSpace: 'nowrap',
+
+    /**
+     *
+     * Colors
+     *
+     */
+
+    color: textColor,
+    backgroundColor: backgroundColor,
+    borderColor: borderColor,
+
+    /**
+     *
+     * Effects
+     *
+     */
+
+    /**
+     *
+     * Interaction & states
+     *
+     */
+
+    cursor: 'pointer',
+    transition: `transform 0.1s ease-in`,
+    userSelect: 'none',
+    touchAction: `pan-y pan-x`,
+
+    selectors: {
+      '&:active': {
+        color: textColorActive,
+        backgroundColor: backgroundColorActive,
+        borderColor: borderColorActive,
+
+        transform: `translateY(1px)`,
+      },
+
+      '&[disabled]': {
+        color: textColorDisabled,
+        backgroundColor: backgroundColorDisabled,
+        borderColor: borderColorDisabled,
+
+        cursor: 'not-allowed',
+      },
+    },
   },
   variants: {
     /**
+     *
      * Variants
+     *
      */
+
     variant: {
       primary: {
         vars: {
@@ -94,14 +156,21 @@ export const variants = recipe({
       tertiary: {},
     },
     /**
+     *
      * Sizes
+     *
      */
+
     size: {
       small: {
         vars: {
-          [height]: `2.2em`,
-          [iconOffset]: `0.6em`,
-          [paddingX]: `0.6em`,
+          [paddingX]: buttonsVars.sizes.large.padding.left,
+          [height]: buttonsVars.sizes.large.height,
+          [iconSize]: buttonsVars.sizes.large.iconSize,
+          [iconMargin]: buttonsVars.sizes.large.iconMargin.right,
+          [borderWidth]: buttonsVars.sizes.large.border.default.width,
+          [borderStyle]: buttonsVars.sizes.large.border.default.style,
+          [borderRadius]: buttonsVars.sizes.large.border.default.radius,
         },
         fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
         '@media': {
@@ -115,9 +184,13 @@ export const variants = recipe({
       },
       medium: {
         vars: {
-          [height]: `2.6em`,
-          [iconOffset]: `0.7em`,
-          [paddingX]: `0.7em`,
+          [paddingX]: buttonsVars.sizes.medium.padding.left,
+          [height]: buttonsVars.sizes.medium.height,
+          [iconSize]: buttonsVars.sizes.medium.iconSize,
+          [iconMargin]: buttonsVars.sizes.medium.iconMargin.right,
+          [borderWidth]: buttonsVars.sizes.medium.border.default.width,
+          [borderStyle]: buttonsVars.sizes.medium.border.default.style,
+          [borderRadius]: buttonsVars.sizes.medium.border.default.radius,
         },
         fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
         '@media': {
@@ -129,11 +202,35 @@ export const variants = recipe({
           },
         },
       },
-      large: {
+      small: {
         vars: {
-          [height]: `4em`,
-          [iconOffset]: `0.9em`,
-          [paddingX]: `0.9em`,
+          [paddingX]: buttonsVars.sizes.small.padding.left,
+          [height]: buttonsVars.sizes.small.height,
+          [iconSize]: buttonsVars.sizes.small.iconSize,
+          [iconMargin]: buttonsVars.sizes.small.iconMargin.right,
+          [borderWidth]: buttonsVars.sizes.small.border.default.width,
+          [borderStyle]: buttonsVars.sizes.small.border.default.style,
+          [borderRadius]: buttonsVars.sizes.small.border.default.radius,
+        },
+        fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
+        '@media': {
+          [layoutCSS.media.tablet]: {
+            fontSize: typographyVars.labels.tablet.small.capsize.fontSize,
+          },
+          [layoutCSS.media.desktopSmall]: {
+            fontSize: typographyVars.labels.desktop.small.capsize.fontSize,
+          },
+        },
+      },
+      xSmall: {
+        vars: {
+          [paddingX]: buttonsVars.sizes.xSmall.padding.left,
+          [height]: buttonsVars.sizes.xSmall.height,
+          [iconSize]: buttonsVars.sizes.xSmall.iconSize,
+          [iconMargin]: buttonsVars.sizes.xSmall.iconMargin.right,
+          [borderWidth]: buttonsVars.sizes.xSmall.border.default.width,
+          [borderStyle]: buttonsVars.sizes.xSmall.border.default.style,
+          [borderRadius]: buttonsVars.sizes.xSmall.border.default.radius,
         },
         fontSize: typographyVars.labels.mobile.small.capsize.fontSize,
         '@media': {
@@ -287,26 +384,21 @@ export type InputVariants = RecipeVariants<typeof styleVariants>;
  *
  */
 
-export const icon = style({
-  position: 'absolute',
-  height: iconSize,
-  width: iconSize,
-  top: `calc(50% - ${iconSize} / 2)`,
-  zIndex: 1,
-  pointerEvents: 'none', // let events go through
-});
-
 export const iconVariants = recipe({
   base: {
     color: iconColor,
+    position: 'relative',
+    height: iconSize,
+    width: iconSize,
+    pointerEvents: 'none', // let events go through
   },
   variants: {
     /**
      * Icon position
      */
     position: {
-      left: { left: paddingX },
-      right: { right: iconOffset },
+      left: { marginRight: iconMargin },
+      right: { marginLeft: iconMargin },
     },
     /**
      * Disabled states

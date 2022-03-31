@@ -124,5 +124,7 @@ export type Buttons<Override extends undefined | string = undefined> = {
    * Reference to variables (string) to be used in place of defined values when a theme is created.
    * This should not be used for default themes since they are used to generate the base contracts.
    */
-  vars?: Omit<DeepPartial<Buttons<string>>, 'vars'>;
+  vars?: Omit<ButtonsVars, 'vars'>;
 };
+
+export type ButtonsVars = DeepPartial<Buttons<string>>;

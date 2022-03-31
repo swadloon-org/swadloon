@@ -10,12 +10,16 @@ import {
   Cluster,
   MainDocs,
   MainDocsWrapper,
+  NavbarLinkItem,
+  NavbarLogoLinkItem,
+  NavbarLogoTagItem,
+  NavbarModular,
+  NavbarSelectItem,
   NavbarSeparatorItem,
   useCSSTheme,
   useIsSSR,
 } from '@newrade/core-react-ui';
 import { CSSThemeProviderConfig } from '@newrade/core-react-ui/src/design-system/css-theme-config';
-import { GLOBAL_CSS_THEME_SCHEME_REVERSED } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { useFirstRender } from '@newrade/core-react-ui/src/hooks/use-first-render.hook';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
@@ -35,11 +39,6 @@ import { FooterDocs } from '../footers/footer-docs';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useI18next } from '../i18next/use-i18next.hook';
 import { GatsbyLink } from '../links/gatsby-link';
-import { NavbarModular } from '../navbar/navbar-modular';
-import { NavbarLinkItem } from '../navbar-items/navbar-link-item';
-import { NavbarLogoLinkItem } from '../navbar-items/navbar-logo-item';
-import { NavbarLogoTagItem } from '../navbar-items/navbar-logo-tag-item';
-import { NavbarSelectItem } from '../navbar-items/navbar-select-item';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
 import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
 import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';

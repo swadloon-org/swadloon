@@ -5,7 +5,7 @@ import { sizeVars } from '../theme';
 import { easingPower4 } from './css-easings';
 
 export const wrapper = style({
-  position: 'relative',
+  // position: 'relative',
 });
 
 export const controlsWrapper = style({

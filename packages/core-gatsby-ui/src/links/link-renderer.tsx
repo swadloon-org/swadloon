@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import debug from 'debug';
 
 import {
+  ButtonIcon,
   ButtonSize,
   ComponentSize,
   ICON,
@@ -140,6 +141,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
         <Button
           size={buttonSizes[linkSizeButton]}
           variant={(linkData.variant as Variant) || Variant.secondary}
+          icon={ButtonIcon.right}
           Icon={linkIcon ? linkIcon : undefined}
           AsElement={<GatsbyLink to={linkData.page?.slug} />}
         >

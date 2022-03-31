@@ -105,7 +105,12 @@ describe('box utilities', () => {
           },
         })
       ).toEqual({
-        default: {},
+        default: {
+          color: '',
+          radius: '',
+          style: '',
+          width: '',
+        },
         bottom: {
           color: 'hsl(222, 50%, 50%, 1)',
           radius: '3px',

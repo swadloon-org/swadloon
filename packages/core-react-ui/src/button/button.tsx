@@ -6,7 +6,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities-iso';
-import { Primitive } from '..';
+import { IconComp, Primitive } from '..';
 
 import { ButtonAsType, ButtonCompProps } from './button.props';
 import { getLabelSizeForButtonSize } from './button.utilities';
@@ -17,6 +17,7 @@ type Props = ButtonCompProps;
 
 const defaultProps: Props = {
   size: ButtonSize.medium,
+  role: 'button',
 };
 
 /**
@@ -24,7 +25,7 @@ const defaultProps: Props = {
  */
 export const Button = React.forwardRef<any, Props>(function Button(
   {
-    role,
+    role = defaultProps.role,
     children,
     as,
     AsElement,
@@ -65,20 +66,26 @@ export const Button = React.forwardRef<any, Props>(function Button(
    */
 
   const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
+  const iconClassNames = dataicon
+    ? getMergedClassname([
+        styles.iconVariants({
+          position: dataicon as 'left',
+          disabled: disabled,
+        }),
+      ])
+    : '';
 
-  const iconClassNames = getMergedClassname([
-    // dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
-    // dataicon === ButtonIcon.icon ? styles.icon : '',
-    // dataicon === ButtonIcon.right ? styles.right : '',
-    // dataicon === ButtonIcon.left ? styles.left : '',
-  ]);
-
-  const IconSvg = IconSVG
-    ? React.cloneElement(IconSVG as React.ReactElement, {
-        className: iconClassNames,
-        preserveAspectRatio: `xMinYMin meet`,
-      })
-    : null;
+  //
+  // If an SVG is passed, we use that, otherwise use the normal icon component
+  //
+  const IconSvg = IconSVG ? (
+    React.cloneElement(IconSVG as React.ReactElement, {
+      className: iconClassNames,
+      preserveAspectRatio: `xMinYMin meet`,
+    })
+  ) : icon && Icon ? (
+    <IconComp name={Icon} className={iconClassNames}></IconComp>
+  ) : null;
 
   /**
    *
@@ -88,9 +95,6 @@ export const Button = React.forwardRef<any, Props>(function Button(
 
   const type = as ? as : 'button';
 
-  // const variantStateClassName = `${styles.base}`;
-  // const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
-  // const variantSizeClassName = styles[size ? size : ButtonSize.medium];
   const collapsePaddingProp =
     dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
 
@@ -114,8 +118,12 @@ export const Button = React.forwardRef<any, Props>(function Button(
         disabled,
       });
 
+  //
+  // Render the label and icon
+  //
   const ButtonContent = (
     <>
+      {icon === ButtonIcon.left ? IconSvg : null}
       {icon === ButtonIcon.icon ? null : (
         <Label
           variantDisplay={'inline'}
@@ -125,7 +133,7 @@ export const Button = React.forwardRef<any, Props>(function Button(
           {renderedChildren}
         </Label>
       )}
-      {IconSvg}
+      {icon === ButtonIcon.right || icon === ButtonIcon.icon ? IconSvg : null}
     </>
   );
 

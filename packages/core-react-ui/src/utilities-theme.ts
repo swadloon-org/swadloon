@@ -5,6 +5,7 @@
  */
 
 export * from './utilities-theme/colors.utilities';
+export * from './utilities-theme/component.utilities';
 export * from './utilities-theme/effects.utilities';
 export * from './utilities-theme/filter-color.utility';
 export * from './utilities-theme/text.utilities';

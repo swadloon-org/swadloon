@@ -2,6 +2,7 @@ import {
   Border,
   BorderStyles,
   BoxStyle,
+  DeepPartial,
   Margin,
   OutlineStyles,
   Padding,
@@ -29,7 +30,7 @@ export function getCSSBoxStyle(box: BoxStyle): BoxStyle<string> {
  *
  */
 
-export function getCSSBoxPadding(padding?: Padding): Padding<string> {
+export function getCSSBoxPadding(padding?: DeepPartial<Padding>): Padding<string> {
   if (!padding) {
     return {
       default: '',
@@ -46,7 +47,7 @@ export function getCSSBoxPadding(padding?: Padding): Padding<string> {
   }, {} as Padding<string>);
 }
 
-export function getCSSBoxMargin(padding?: Margin): Margin<string> {
+export function getCSSBoxMargin(padding?: DeepPartial<Margin>): Margin<string> {
   if (!padding) {
     return {
       top: '',
@@ -68,7 +69,7 @@ export function getCSSBoxMargin(padding?: Margin): Margin<string> {
  *
  */
 
-export function getCSSBorderStyles(borders?: BorderStyles): BorderStyles<string> {
+export function getCSSBorderStyles(borders?: DeepPartial<BorderStyles>): BorderStyles<string> {
   if (!borders) {
     return {
       default: {},
@@ -84,7 +85,7 @@ export function getCSSBorderStyles(borders?: BorderStyles): BorderStyles<string>
   }, {} as BorderStyles<string>);
 }
 
-export function getCSSBoxBorder(border?: Border): Border<string> {
+export function getCSSBoxBorder(border?: DeepPartial<Border>): Border<string> {
   if (!border) {
     return {};
   }

@@ -12,6 +12,7 @@ Object {
     "dangerAction": "hsl(360, 84%, 48%, 1)",
     "dangerBackground": "hsl(360, 84%, 90%, 1)",
     "dangerText": "hsl(360, 84%, 6%, 1)",
+    "disabled": "hsl(222, 6%, 66%, 1)",
     "disabledText": "hsl(222, 6%, 73%, 1)",
     "elevation0": "hsl(222, 6%, 100%, 1)",
     "elevation0Grey": "hsl(222, 6%, 100%, 1)",
@@ -40,7 +41,7 @@ Object {
     "warningBackground": "hsl(47, 90%, 96%, 1)",
     "warningText": "hsl(47, 90%, 12%, 1)",
   },
-  "colorScheme": "LIGHT",
+  "colorScheme": "light",
   "colors": Object {
     "accent1": Object {
       "100": "hsl(323, 80%, 90%, 1)",

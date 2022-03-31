@@ -13,9 +13,10 @@ import {
   BoxV2,
   Button,
   Cluster,
-  IconComp,
   Link,
   Logo,
+  NavbarBase,
+  NavbarProps,
   NavbarSeparatorItem,
   Tag,
   useCommonProps,
@@ -25,9 +26,6 @@ import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 
 import { useI18next } from '../i18next/use-i18next.hook';
 import { LinkRenderer } from '../links/link-renderer';
-
-import { NavbarProps } from './navbar.props';
-import { NavbarBase } from './navbar-base';
 
 import * as styles from './navbar-standard.css';
 
