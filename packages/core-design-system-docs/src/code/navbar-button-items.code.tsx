@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { NavbarLinkItem } from '@newrade/core-gatsby-ui/src';
-import { Cluster, Stack, useIsSSR } from '@newrade/core-react-ui';
+import { Cluster, NavbarLinkItem, Stack, useIsSSR } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 type Props = {};

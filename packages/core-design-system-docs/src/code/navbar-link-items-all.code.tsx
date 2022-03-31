@@ -1,11 +1,7 @@
 import React from 'react';
 
 import { LOGO } from '@newrade/core-design-system';
-import {
-  NavbarExternalLinkItem,
-  NavbarLinkItem,
-  NavbarLogoLinkItem,
-} from '@newrade/core-gatsby-ui/src';
+import { NavbarExternalLinkItem, NavbarLinkItem, NavbarLogoLinkItem } from '@newrade/core-react-ui';
 import { Cluster, NavbarSeparatorItem, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 

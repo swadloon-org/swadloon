@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { NavbarMenuLinkItem } from '@newrade/core-gatsby-ui/src';
+import { NavbarMenuLinkItem } from '@newrade/core-react-ui';
 import { Cluster, Stack, useIsSSR } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 

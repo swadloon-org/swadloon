@@ -79,6 +79,7 @@ export * from './navbar-items/navbar-logo-item';
 export * from './navbar-items/navbar-logo-tag-item';
 export * from './navbar-items/navbar-logo-text-item';
 export * from './navbar-items/navbar-select-item';
+export * from './navbar-menus/navbar-menu-link-item';
 export * from './navbars/navbar.props';
 export * from './navbars/navbar-app';
 export * from './navbars/navbar-base';

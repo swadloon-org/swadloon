@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavbarItemSize } from '@newrade/core-design-system';
-import { NavbarExternalLinkItem } from '@newrade/core-gatsby-ui/src';
+import { NavbarExternalLinkItem } from '@newrade/core-react-ui';
 import { Cluster, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 

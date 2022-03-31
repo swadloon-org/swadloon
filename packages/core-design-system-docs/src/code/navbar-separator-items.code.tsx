@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NavbarLinkItem } from '@newrade/core-gatsby-ui/src';
+import { NavbarLinkItem } from '@newrade/core-react-ui';
 import { Cluster, NavbarSeparatorItem, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
