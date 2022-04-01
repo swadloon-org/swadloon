@@ -1,13 +1,27 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css';
+import {
+  buttonsVars,
+  layoutCSS,
+  sizeVars,
+  typographyVars,
+} from '../default-theme/default-theme.css';
 
 /**
  *
  * Vars
  *
  */
+
+const paddingX = createVar();
+const paddingIcon = createVar();
+const paddingOnlyIcon = createVar();
+const height = createVar();
+
+const textColor = createVar();
+const textColorActive = createVar();
+const textColorDisabled = createVar();
 
 const iconSize = createVar();
 const iconMargin = createVar();
@@ -128,6 +142,42 @@ export const variants = recipe({
 
         cursor: 'not-allowed',
       },
+
+      /**
+       *
+       * Collapse paddings
+       *
+       */
+
+      '&[datapaddingcollapse="left"]': {
+        marginLeft: `calc(-1 * ${paddingX})`,
+      },
+      '&[datapaddingcollapse="right"]': {
+        marginRight: `calc(-1 * ${paddingX})`,
+      },
+      '&[datapaddingcollapse="left-icon"]': {
+        marginLeft: `calc(-1 * ${paddingIcon})`,
+      },
+      '&[datapaddingcollapse="right-icon"]': {
+        marginRight: `calc(-1 * ${paddingIcon})`,
+      },
+
+      /**
+       *
+       * Specific padding for icon buttons
+       *
+       */
+
+      '&[dataicon="icon"]': {
+        paddingLeft: paddingOnlyIcon,
+        paddingRight: paddingOnlyIcon,
+      },
+      '&[dataicon="right"]': {
+        paddingRight: paddingIcon,
+      },
+      '&[dataicon="left"]': {
+        paddingLeft: paddingIcon,
+      },
     },
   },
   variants: {
@@ -165,6 +215,8 @@ export const variants = recipe({
       small: {
         vars: {
           [paddingX]: buttonsVars.sizes.large.padding.left,
+          [paddingIcon]: buttonsVars.sizes.large.iconPadding,
+          [paddingOnlyIcon]: buttonsVars.sizes.large.iconOnlyPadding,
           [height]: buttonsVars.sizes.large.height,
           [iconSize]: buttonsVars.sizes.large.iconSize,
           [iconMargin]: buttonsVars.sizes.large.iconMargin.right,
@@ -185,6 +237,8 @@ export const variants = recipe({
       medium: {
         vars: {
           [paddingX]: buttonsVars.sizes.medium.padding.left,
+          [paddingIcon]: buttonsVars.sizes.medium.iconPadding,
+          [paddingOnlyIcon]: buttonsVars.sizes.medium.iconOnlyPadding,
           [height]: buttonsVars.sizes.medium.height,
           [iconSize]: buttonsVars.sizes.medium.iconSize,
           [iconMargin]: buttonsVars.sizes.medium.iconMargin.right,
@@ -205,6 +259,8 @@ export const variants = recipe({
       small: {
         vars: {
           [paddingX]: buttonsVars.sizes.small.padding.left,
+          [paddingIcon]: buttonsVars.sizes.small.iconPadding,
+          [paddingOnlyIcon]: buttonsVars.sizes.small.iconOnlyPadding,
           [height]: buttonsVars.sizes.small.height,
           [iconSize]: buttonsVars.sizes.small.iconSize,
           [iconMargin]: buttonsVars.sizes.small.iconMargin.right,
@@ -225,6 +281,8 @@ export const variants = recipe({
       xSmall: {
         vars: {
           [paddingX]: buttonsVars.sizes.xSmall.padding.left,
+          [paddingIcon]: buttonsVars.sizes.xSmall.iconPadding,
+          [paddingOnlyIcon]: buttonsVars.sizes.xSmall.iconOnlyPadding,
           [height]: buttonsVars.sizes.xSmall.height,
           [iconSize]: buttonsVars.sizes.xSmall.iconSize,
           [iconMargin]: buttonsVars.sizes.xSmall.iconMargin.right,

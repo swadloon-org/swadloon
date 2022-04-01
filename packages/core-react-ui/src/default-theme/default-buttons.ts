@@ -21,7 +21,35 @@ export const defaultButtons: Buttons = {
   sizes: {
     large: {
       padding: {
-        default: 2,
+        default: NaN,
+        left: 16,
+        right: 16,
+        top: NaN,
+        bottom: NaN,
+      },
+      iconPadding: 12,
+      iconOnlyPadding: 6,
+      border: {
+        ...defaultButtonBorder,
+        default: {
+          ...defaultButtonBorder.default,
+          radius: {
+            all: 4,
+          },
+        },
+      },
+      outline: {
+        color: defaultColorIntents.primary,
+        width: defaultButtonBorderStyle.width,
+        radius: defaultButtonBorderStyle.radius,
+        style: defaultButtonBorderStyle.style,
+      },
+      iconSize: 24,
+      iconMargin: {
+        left: 10,
+        right: 10,
+        top: NaN,
+        bottom: NaN,
       },
       border: defaultButtonBorder,
       outline: {},
@@ -30,7 +58,28 @@ export const defaultButtons: Buttons = {
     },
     medium: {
       padding: {
-        default: 2,
+        default: NaN,
+        left: 10,
+        right: 10,
+        top: NaN,
+        bottom: NaN,
+      },
+      iconPadding: 10,
+      iconOnlyPadding: 6,
+      border: {
+        ...defaultButtonBorder,
+        default: {
+          ...defaultButtonBorder.default,
+          radius: {
+            all: 4,
+          },
+        },
+      },
+      outline: {
+        color: defaultColorIntents.primary,
+        width: defaultButtonBorderStyle.width,
+        radius: defaultButtonBorderStyle.radius,
+        style: defaultButtonBorderStyle.style,
       },
       border: defaultButtonBorder,
       outline: {},
@@ -39,7 +88,28 @@ export const defaultButtons: Buttons = {
     },
     small: {
       padding: {
-        default: 2,
+        default: NaN,
+        left: 8,
+        right: 8,
+        top: NaN,
+        bottom: NaN,
+      },
+      iconPadding: 8,
+      iconOnlyPadding: 6,
+      border: {
+        ...defaultButtonBorder,
+        default: {
+          ...defaultButtonBorder.default,
+          radius: {
+            all: 3,
+          },
+        },
+      },
+      outline: {
+        color: defaultColorIntents.primary,
+        width: defaultButtonBorderStyle.width,
+        radius: defaultButtonBorderStyle.radius,
+        style: defaultButtonBorderStyle.style,
       },
       border: defaultButtonBorder,
       outline: {},
@@ -48,7 +118,28 @@ export const defaultButtons: Buttons = {
     },
     xSmall: {
       padding: {
-        default: 2,
+        default: NaN,
+        left: 6,
+        right: 6,
+        top: NaN,
+        bottom: NaN,
+      },
+      iconPadding: 6,
+      iconOnlyPadding: 6,
+      border: {
+        ...defaultButtonBorder,
+        default: {
+          ...defaultButtonBorder.default,
+          radius: {
+            all: 3,
+          },
+        },
+      },
+      outline: {
+        color: defaultColorIntents.primary,
+        width: defaultButtonBorderStyle.width,
+        radius: defaultButtonBorderStyle.radius,
+        style: defaultButtonBorderStyle.style,
       },
       border: defaultButtonBorder,
       outline: {},

@@ -36,6 +36,7 @@ export const Button = React.forwardRef<any, Props>(function Button(
     loading,
     icon,
     Icon,
+    iconStyle,
     IconSVG,
     ...props
   },
@@ -84,7 +85,7 @@ export const Button = React.forwardRef<any, Props>(function Button(
       preserveAspectRatio: `xMinYMin meet`,
     })
   ) : icon && Icon ? (
-    <IconComp name={Icon} className={iconClassNames}></IconComp>
+    <IconComp name={Icon} className={iconClassNames} style={iconStyle}></IconComp>
   ) : null;
 
   /**

@@ -38,6 +38,7 @@ export const Heading = React.memo(
       variant = defaultProps.variant,
       textStyle = defaultProps.textStyle,
       variantLevel = defaultProps.variantLevel,
+      readableWidth = defaultProps.readableWidth,
       disableCapsize,
       enableAnchorSign,
       display,
@@ -67,9 +68,17 @@ export const Heading = React.memo(
      *
      */
 
-    const variantClassname = styles.variants({
-      size: variant,
-    });
+    const variantClassname = variant
+      ? /t(1|2)/.test(variant)
+        ? styles.variantsTitle({
+            size: variant as TITLE,
+            readableWidth: readableWidth,
+          })
+        : styles.variants({
+            size: variant as HEADING,
+            readableWidth: readableWidth,
+          })
+      : '';
     const textColorClassname = textStyles.textVariants({
       variant: variantLevel,
       disableCapsize: disableCapsize,

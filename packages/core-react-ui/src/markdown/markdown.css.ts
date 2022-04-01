@@ -153,7 +153,11 @@ globalStyle(`${wrapper} details + p`, {
 });
 
 globalStyle(`${wrapper} details p + p`, {
-  marginTop: '1.5em',
+  marginTop: '2em',
+});
+
+globalStyle(`${wrapper} details p + img`, {
+  marginTop: '2em',
 });
 
 /** Icons */

@@ -3,7 +3,8 @@ import { createStyleObject, FontMetrics, getCapHeight, precomputeValues } from '
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
 
-import { pxStringToRem } from '../utilities-iso/utilities';
+import { round } from '../utilities-iso';
+import { pxStringToNumber, pxStringToRem } from '../utilities-iso/utilities';
 
 import { getCSSFonts } from './font.utilities';
 import { createCSSTextStyle } from './text.utilities';
@@ -185,5 +186,36 @@ export function convertCapsizeValuesToRem({
     ...capsizePx,
     fontSize: pxStringToRem({ value: capsizePx.fontSize, baseFontSize }),
     lineHeight: pxStringToRem({ value: capsizePx.lineHeight, baseFontSize }),
+  };
+}
+
+/**
+ * Given a fontSize or capHeight, returns a default size for lineGap
+ */
+export function getCapsizeTextForRatio(
+  options: Partial<CapsizeTextStyle>,
+  { lineGapRatio }: { lineGapRatio: number } = { lineGapRatio: 0.5 }
+): CapsizeTextStyle {
+  if (options.fontSize !== undefined) {
+    return {
+      fontSize: options.fontSize,
+      lineGap: round({
+        value: options.fontSize * lineGapRatio,
+        precision: 0,
+      }),
+    };
+  }
+  if (options.capHeight !== undefined) {
+    return {
+      capHeight: options.capHeight,
+      lineGap: round({
+        value: options.capHeight / 2,
+        precision: 0,
+      }),
+    };
+  }
+  return {
+    fontSize: 16,
+    lineGap: 16,
   };
 }

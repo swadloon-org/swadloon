@@ -19,6 +19,14 @@ export type ButtonIconStyle<Override extends undefined | string = undefined> = {
    * (will be ignored in Button rendering only the icon )
    */
   iconMargin: Margin<Override>;
+  /**
+   * Padding specific for icon buttons
+   */
+  iconPadding: SizeType<Override>;
+  /**
+   * Padding specific for icon only button
+   */
+  iconOnlyPadding: SizeType<Override>;
 };
 
 export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> &

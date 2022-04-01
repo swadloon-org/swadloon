@@ -60,5 +60,7 @@ function getCSSButtonIconStyle(buttonStyle: ButtonIconStyle): ButtonIconStyle<st
   return {
     iconSize: buttonStyle.iconSize ? px({ value: buttonStyle.iconSize }) : '',
     iconMargin: getCSSBoxMargin(buttonStyle.iconMargin),
+    iconPadding: getCSSBoxPadding({ default: buttonStyle.iconPadding }).default,
+    iconOnlyPadding: getCSSBoxPadding({ default: buttonStyle.iconOnlyPadding }).default,
   };
 }

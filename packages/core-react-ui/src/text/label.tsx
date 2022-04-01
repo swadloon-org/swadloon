@@ -22,6 +22,7 @@ type Props = PrimitiveProps &
 
 const defaultProps: Props = {
   variantLevel: Variant.primary,
+  textStyle: TEXT_STYLE.bold,
   variant: LABEL_SIZE.small,
   children: 'Label',
 };

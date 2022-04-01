@@ -51,10 +51,57 @@ export const variants = recipe({
         },
       },
     },
+    readableWidth: {
+      true: {
+        maxWidth: '25ch',
+      },
+    },
   },
 });
 
 export type HeadingVariants = RecipeVariants<typeof variants>;
+
+export const variantsTitle = recipe({
+  base: [
+    {
+      fontFamily: typographyVars.titles.font,
+      position: 'relative',
+      wordBreak: 'normal',
+      userSelect: 'none',
+    },
+  ],
+  variants: {
+    size: {
+      t1: {
+        fontWeight: typographyVars.titles.mobile.t1.fontWeight,
+        ...createStyleObject(typographyVars.titles.mobile.t1.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(typographyVars.titles.tablet.t1.capsize),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.titles.desktop.t1.capsize
+          ),
+        },
+      },
+      t2: {
+        fontWeight: typographyVars.titles.mobile.t2.fontWeight,
+        ...createStyleObject(typographyVars.titles.mobile.t2.capsize),
+        '@media': {
+          [layoutCSS.media.tablet]: createStyleObject(typographyVars.titles.tablet.t2.capsize),
+          [layoutCSS.media.desktopSmall]: createStyleObject(
+            typographyVars.titles.desktop.t2.capsize
+          ),
+        },
+      },
+    },
+    readableWidth: {
+      true: {
+        maxWidth: '25ch',
+      },
+    },
+  },
+});
+
+export type TitleVariants = RecipeVariants<typeof variantsTitle>;
 
 export const enableAnchor = style({
   userSelect: 'text',

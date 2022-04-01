@@ -7,7 +7,7 @@ export const wrapper = style({
   height: `max(80vh, 500px)`,
   width: `100%`,
   color: colorVars.colorIntents.primary,
-  textShadow: effectsVars.textShadows.light,
+  textShadow: effectsVars.textShadows.medium,
 });
 
 export const callout = style({

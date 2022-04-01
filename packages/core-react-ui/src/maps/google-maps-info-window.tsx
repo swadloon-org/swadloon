@@ -52,18 +52,12 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({
   const RatingStars = place.rating
     ? Array(Math.floor(place.rating))
         .fill(0)
-        .map((i, index) => (
-          <IconComp
-            key={index}
-            name={ICON.STAR}
-            style={{ verticalAlign: '-1px', fill: '#fbbc04' }}
-          />
-        ))
+        .map((i, index) => <IconComp key={index} name={ICON.STAR} className={styles.star} />)
     : null;
 
   const RatingHalfStars = place.rating ? (
     place.rating - Math.floor(place.rating) > 0 ? (
-      <IconComp name={ICON.HALF_STAR} style={{ verticalAlign: '-2px', fill: '#fbbc04' }} />
+      <IconComp name={ICON.HALF_STAR} className={styles.halfStar} />
     ) : null
   ) : null;
 

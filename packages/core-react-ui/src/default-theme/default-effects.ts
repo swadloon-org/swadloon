@@ -28,8 +28,8 @@ export const defaultBoxShadows: BoxShadows = {
 
 export const defaultTextShadows: TextShadows = {
   light: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 4 } },
-  medium: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 4 } }, // TODO set default
-  heavy: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 4 } }, // TODO set default
+  medium: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 40 } },
+  heavy: { offsetX: 0, offsetY: 2, blur: 17, color: { h: 0, s: 0, l: 0, a: 60 } },
 };
 
 export const defaultOutlineShadows: OutlineShadows = {

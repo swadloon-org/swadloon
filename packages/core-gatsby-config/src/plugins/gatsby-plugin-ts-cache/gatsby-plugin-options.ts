@@ -9,4 +9,9 @@ export type GatsbyPluginTsCacheOptions = {
    * @example gatsby-plugin-core
    */
   pluginName?: string;
+  /**
+   * Activate or desactivate custom webpack cache for Gatsby
+   * @default true
+   */
+  cache?: boolean;
 };

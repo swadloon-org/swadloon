@@ -95,6 +95,7 @@ export const Link: React.FC<Props> = React.memo(
           variant: kind,
           size: size,
           style: linkStyle,
+          textStyle: textStyle,
         }),
       ],
       target: target ? target : linkIsExternal ? '_blank' : undefined,

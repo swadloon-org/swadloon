@@ -33,12 +33,18 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Replace the default caching strategy
    */
 
-  // reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache`);
-  // config.cache = false; // disabling all cache during development
+  if (pluginOptions.cache === false) {
+    reporter.info(`[${pluginOptions.pluginName}]: disabling cache (cache: false)`);
+    config.cache = false;
+    actions.replaceWebpackConfig(config);
+    return;
+  }
 
   // if (!isProduction) {
-  //   reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
-  //   config.cache = undefined; // disabling all cache during development
+  //   reporter.info(`[${pluginOptions.pluginName}]: enabling memory webpack cache in development`);
+  //   config.cache = {
+  //     type: 'memory',
+  //   };
   //   actions.replaceWebpackConfig(config);
   //   return;
   // }

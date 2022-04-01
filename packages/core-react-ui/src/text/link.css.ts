@@ -97,6 +97,44 @@ export const variants = recipe({
         },
       },
     },
+    textStyle: {
+      normal: {
+        fontWeight: typographyVars.paragraphs.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.normal.textTransform,
+        letterSpacing: typographyVars.paragraphs.letterSpacing,
+      },
+      bold: {
+        fontWeight: typographyVars.paragraphs.styles.bold.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.bold.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.bold.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.bold.letterSpacing,
+      },
+      italic: {
+        fontWeight: typographyVars.paragraphs.styles.italic.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.italic.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.italic.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.italic.letterSpacing,
+      },
+      uppercase: {
+        fontWeight: typographyVars.paragraphs.styles.uppercase.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.uppercase.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.uppercase.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.uppercase.letterSpacing,
+      },
+      boldUppercase: {
+        fontWeight: typographyVars.paragraphs.styles.boldUppercase.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.boldUppercase.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.boldUppercase.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.boldUppercase.letterSpacing,
+      },
+      italicBold: {
+        fontWeight: typographyVars.paragraphs.styles.italicBold.fontWeight as any,
+        fontStyle: typographyVars.paragraphs.styles.italicBold.fontStyle,
+        textTransform: typographyVars.paragraphs.styles.italicBold.textTransform,
+        letterSpacing: typographyVars.paragraphs.styles.italicBold.letterSpacing,
+      },
+    },
   },
 });
 

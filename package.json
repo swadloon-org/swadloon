@@ -86,9 +86,9 @@
     "puppeteer": "^9",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "sharp": "^0.28.3",
-    "typescript": "4.5.5",
-    "webpack": "5.69.0"
+    "sharp": "0.28.3",
+    "typescript": "4.6.2",
+    "webpack": "5.71.0"
   },
   "dependencies": {
     "@babel/cli": "^7.12.8",
@@ -266,12 +266,14 @@
     "ts-node": "^9.1.1",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
     "type-fest": "^1.1.0",
-    "typescript": "4.5.5",
+    "typescript": "4.6.2",
     "vercel": "^21.3.3",
     "web-animations-js": "^2.3.2",
-    "webpack": "5.69.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11",
+    "webpack": "5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4",
+    "webpack-hot-middleware": "^2",
+    "webpack-plugin-serve": "^1",
     "webpack-watched-glob-entries-plugin": "^2.2.2",
     "yo": "^3.1.1"
   }
