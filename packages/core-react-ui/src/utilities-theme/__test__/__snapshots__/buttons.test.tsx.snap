@@ -43,6 +43,8 @@ Object {
         "right": "10px",
         "top": "",
       },
+      "iconOnlyPadding": "6px",
+      "iconPadding": "12px",
       "iconSize": "24px",
       "outline": Object {
         "color": "hsl(222, 50%, 50%, 1)",
@@ -99,6 +101,8 @@ Object {
         "right": "10px",
         "top": "",
       },
+      "iconOnlyPadding": "6px",
+      "iconPadding": "10px",
       "iconSize": "16px",
       "outline": Object {
         "color": "hsl(222, 50%, 50%, 1)",
@@ -155,6 +159,8 @@ Object {
         "right": "10px",
         "top": "",
       },
+      "iconOnlyPadding": "6px",
+      "iconPadding": "8px",
       "iconSize": "16px",
       "outline": Object {
         "color": "hsl(222, 50%, 50%, 1)",
@@ -211,6 +217,8 @@ Object {
         "right": "10px",
         "top": "",
       },
+      "iconOnlyPadding": "6px",
+      "iconPadding": "6px",
       "iconSize": "16px",
       "outline": Object {
         "color": "hsl(222, 50%, 50%, 1)",

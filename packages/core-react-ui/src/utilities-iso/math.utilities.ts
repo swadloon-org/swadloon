@@ -15,7 +15,7 @@ export function round(
     throw Error('NaN error');
   }
 
-  const roundTo = 10 ^ precision;
+  const roundTo = Math.pow(10, precision);
 
   return Math.round(roundTo * value) / roundTo;
 }
