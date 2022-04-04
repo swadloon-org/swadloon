@@ -28,9 +28,11 @@ export type MediaAPI = PartialOrNull<{
    */
   mediaMobile: MediaImage;
   backgroundPositionMobileY?: string;
+  maxWidthMobile: number;
   /**
    * Media for desktop if mediaMobile is set
    */
   media: MediaImage;
   backgroundPositionY?: string;
+  maxWidth: number;
 }>;

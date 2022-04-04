@@ -72,6 +72,7 @@ export const variants = recipe({
     touchAction: 'none',
     WebkitAppearance: 'none',
     textDecoration: 'none',
+    textShadow: 'none',
 
     /**
      *

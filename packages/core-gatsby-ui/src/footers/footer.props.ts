@@ -1,4 +1,3 @@
-import { ColorModeProps } from '@newrade/core-design-system';
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { FooterAPI, FooterLayout } from '@newrade/core-website-api';
 
@@ -8,7 +7,9 @@ import { CustomBlockVariantComponents } from '../blocks/block.props';
  * Minimal props for a Footer component
  */
 export type FooterProps = PrimitiveProps<'footer'> & {
-  /** footer data */
+  /**
+   * Footer data
+   */
   footer?: FooterAPI;
   /**
    * Pass className that will be applied to the content element

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { ICON, ListItemProps } from '@newrade/core-design-system';
 
@@ -22,6 +22,10 @@ export type ListItemCompProps = PrimitiveProps<'li'> &
      * Render an icon as the bullet marker
      */
     Icon?: ICON;
+    /**
+     * Styles passed to the icon
+     */
+    IconStyle?: CSSProperties;
     /**
      * Render an svg react node as bullet marker
      */

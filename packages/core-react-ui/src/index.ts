@@ -94,6 +94,7 @@ export * from './props/background.props';
 export * from './props/padding.props';
 export * from './props/text-common.props';
 export * from './refs/refs.utilities';
+export * from './seo/meta.utilities';
 export * from './seo/meta-basic';
 export * from './seo/metadata-twitter';
 export * from './seo/metadata-website';

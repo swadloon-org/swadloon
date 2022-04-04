@@ -1,6 +1,7 @@
 import { LocaleKeys } from './locales';
 
 export const frTranslation: { [key in LocaleKeys]: string } = {
+  contactUs: 'Nous joindre',
   home: 'Accueil',
   Overview: 'Aperçu',
   overview: 'Aperçu',

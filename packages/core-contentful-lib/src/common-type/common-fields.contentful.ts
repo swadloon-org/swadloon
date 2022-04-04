@@ -121,6 +121,8 @@ export enum COMMON_FIELD {
    */
   BACKGROUND_POSITION_Y = 'backgroundPositionY',
   BACKGROUND_POSITION_MOBILE_Y = 'backgroundPositionMobileY',
+  MAX_WIDTH_MOBILE = 'maxWidthMobile',
+  MAX_WIDTH = 'maxWidth',
 }
 
 /**

@@ -4,6 +4,7 @@ import { PartialOrNull } from '../utilities';
 
 import { BlockAPI } from './block.api';
 import { ColorModeAPI } from './color-mode.api';
+import { CompanyAddressAPI } from './company-address.api';
 import { CompanyInfoAPI } from './company-info.api';
 import { LinkAPI } from './link.api';
 import { NavigationAPI } from './navigation.api';
@@ -41,6 +42,10 @@ export type FooterAPI = ColorModeAPI &
      * Company info config object for the footer
      */
     companyInfo: CompanyInfoAPI;
+    /**
+     * Company info config object for the footer
+     */
+    companyAddresses: CompanyAddressAPI[];
     /**
      * Blocks of content (e.g. text) inside a Footer
      */

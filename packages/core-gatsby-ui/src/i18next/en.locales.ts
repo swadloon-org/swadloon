@@ -1,4 +1,5 @@
 export const enTranslation = {
+  contactUs: 'Contact Us',
   home: 'Home',
   Overview: 'Overview',
   overview: 'Overview',

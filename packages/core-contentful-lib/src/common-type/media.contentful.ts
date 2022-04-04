@@ -9,6 +9,7 @@ import { COMMON_FIELD } from './common-fields.contentful';
 
 /**
  * A Media hold one media (image, video) to be used in MediaCollections
+ * or other models
  */
 export const createMedia: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(ContentType.MEDIA, {
@@ -67,6 +68,17 @@ export const createMedia: Migration.MigrationFunction = function (migration) {
   );
 
   /**
+   * Max width of the image on mobile
+   */
+  content.createField(COMMON_FIELD.MAX_WIDTH_MOBILE, {
+    name: pascal(COMMON_FIELD.MAX_WIDTH_MOBILE),
+    type: 'Symbol',
+  });
+  content.changeFieldControl(COMMON_FIELD.MAX_WIDTH_MOBILE, 'builtin', CONTENTFUL_WIDGET.NUMBER, {
+    helpText: 'Maximum width of the image on mobile',
+  });
+
+  /**
    * Linked media
    */
   content.createField(COMMON_FIELD.MEDIA, {
@@ -90,4 +102,15 @@ export const createMedia: Migration.MigrationFunction = function (migration) {
       helpText: 'Value of background position base on the Y axis"',
     }
   );
+
+  /**
+   * Max width of the image on mobile
+   */
+  content.createField(COMMON_FIELD.MAX_WIDTH, {
+    name: pascal(COMMON_FIELD.MAX_WIDTH),
+    type: 'Symbol',
+  });
+  content.changeFieldControl(COMMON_FIELD.MAX_WIDTH, 'builtin', CONTENTFUL_WIDGET.NUMBER, {
+    helpText: 'Maximum width of the image on desktop',
+  });
 };

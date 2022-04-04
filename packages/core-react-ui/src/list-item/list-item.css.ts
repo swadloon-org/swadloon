@@ -1,4 +1,3 @@
-import { createStyleObject } from '@capsizecss/core';
 import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
@@ -9,9 +8,6 @@ import { getNormalTextStyles } from '../utilities-vanilla-extract';
  * @see https://web.dev/css-marker-pseudo-element/
  */
 
-/**
- * States
- */
 export const base = style({
   position: 'relative',
 
@@ -146,19 +142,13 @@ globalStyle(`${base} p`, {
 });
 
 //
-// make sure that enclosed elements wrap correctly
-//
-globalStyle(`${text} *:is(em,p,strong)`, {
-  whiteSpace: 'normal',
-  display: 'inline !important',
-});
-
-//
 // disable capsize
 //
+
 globalStyle(`${text} *::before`, {
   display: 'none !important',
 });
+
 globalStyle(`${text} *::after`, {
   display: 'none !important',
 });
@@ -169,4 +159,24 @@ globalStyle(`${base} p::after`, {
 
 globalStyle(`${base} p::before`, {
   content: 'none',
+});
+
+//
+// make sure that enclosed elements wrap correctly
+//
+globalStyle(`${text} *:is(em,p,strong)`, {
+  whiteSpace: 'normal',
+  display: 'inline !important',
+});
+
+/**
+ *
+ * Custom icon/node
+ *
+ */
+
+export const icon = style({
+  display: 'inline-block',
+  marginRight: '1em',
+  verticalAlign: 'middle',
 });

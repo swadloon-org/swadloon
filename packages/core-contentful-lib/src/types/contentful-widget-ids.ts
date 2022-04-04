@@ -13,6 +13,7 @@ export enum CONTENTFUL_WIDGET {
   ENTRY_LINKS_EDITOR = 'entryLinksEditor',
   MULTI_LINE = 'multipleLine',
   SINGLE_LINE = 'singleLine',
+  NUMBER = 'numberEditor',
   DROPDOWN = 'dropdown',
   MARKDOWN = 'markdown',
   DATE_PICKER = 'datePicker',

@@ -1,5 +1,5 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { BoxV2, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
@@ -25,7 +25,9 @@ export const BlockImage: React.FC<Props> = ({ id, style, className, inView, bloc
   const imageBlock = block as BlockImageAPIV2 | BlockImageAPIV1;
 
   let imageData;
+  let imageStyles: CSSProperties = {};
 
+  const mediaInBlockV1 = (imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0];
   const imageDataInBlockV1 = (imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0]?.media;
 
   // for v1 of the BlockImageAPI
@@ -36,8 +38,13 @@ export const BlockImage: React.FC<Props> = ({ id, style, className, inView, bloc
     if (imageDataInBlockV1.constrained) {
       imageData = imageDataInBlockV1.constrained;
     }
+
+    imageStyles = {
+      maxWidth: mediaInBlockV1?.maxWidth || '',
+    };
   }
 
+  const mediaInBlockV2 = (imageBlock as BlockImageAPIV2).media;
   const imageDataInBlockV2 = (imageBlock as BlockImageAPIV2).media?.media;
 
   // for v2 of the BlockImageAPI
@@ -48,10 +55,16 @@ export const BlockImage: React.FC<Props> = ({ id, style, className, inView, bloc
     if (imageDataInBlockV2.constrained) {
       imageData = imageDataInBlockV2.constrained;
     }
+
+    imageStyles = {
+      maxWidth: mediaInBlockV2?.maxWidth || '',
+    };
   }
 
+  const mergedProps = { ...commonProps, style: { ...commonProps.style, ...imageStyles } };
+
   return (
-    <BoxV2 justifySelf={['inherit', 'inherit', 'inherit']} {...commonProps}>
+    <BoxV2 justifySelf={['inherit', 'inherit', 'inherit']} {...mergedProps}>
       <GatsbyImage image={imageData as IGatsbyImageData} alt={''}></GatsbyImage>
     </BoxV2>
   );

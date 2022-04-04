@@ -106,7 +106,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     }
 
     /**
-     * Image background
+     * Image Background Block
      */
     case BlockType.imageBackground: {
       const blockImage = block as BlockAPI;
