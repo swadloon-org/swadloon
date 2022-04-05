@@ -19,58 +19,64 @@ type WrapElementWithI18NProps = Pick<WrapPageElementBrowserArgs, 'props'> & {
   children: React.ReactNode;
 };
 
-export const WrapElementWithi18N: React.FC<WrapElementWithI18NProps> = ({
-  props,
-  i18nOptions,
-  children,
-}) => {
-  const pageProps = props as Props;
+/**
+ * Higher order component to manage the i18n configuration for Gatsby site.
+ */
+export const WrapElementWithi18N: React.FC<WrapElementWithI18NProps> =
+  function WrapElementWithi18N({ props, i18nOptions, children }) {
+    const pageProps = props as Props;
 
-  const pageLang = pageProps.pageContext.locale || SITE_LANGUAGES.EN;
-  const pageLangs = pageProps.pageContext.siteMetadata?.languages?.langs || [SITE_LANGUAGES.EN];
-  const defaultLang =
-    pageProps.pageContext.siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN;
+    const pageLang = pageProps.pageContext.locale || SITE_LANGUAGES.EN;
+    const pageLangs = pageProps.pageContext.siteMetadata?.languages?.langs || [SITE_LANGUAGES.EN];
+    const defaultLang =
+      pageProps.pageContext.siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN;
 
-  const i18nDefaultOptions: InitOptions = {
-    load: 'all',
-    fallbackLng: 'en',
-    keySeparator: false, // for key like: login.signIn
-    interpolation: {
-      escapeValue: false, // not needed for react
-    },
-    initImmediate: true,
-    react: {
-      bindI18n: 'languageChanged',
-      transEmptyNodeValue: '',
-      useSuspense: false,
-    },
-    ns: 'translation',
+    const i18nDefaultOptions: InitOptions = {
+      load: 'all',
+      fallbackLng: 'en',
+      keySeparator: false, // for key like: login.signIn
+      interpolation: {
+        escapeValue: false, // not needed for react
+      },
+      initImmediate: true,
+      react: {
+        bindI18n: 'languageChanged',
+        transEmptyNodeValue: '',
+        useSuspense: false,
+      },
+      ns: 'translation',
+    };
+
+    if (i18n.isInitialized) {
+      if (i18n.language !== pageLang) {
+        i18n.changeLanguage(pageLang);
+      }
+    }
+
+    const i18nInstance = initi18nInstance({
+      ...i18nDefaultOptions,
+      ...i18nOptions,
+      lng: pageLang,
+      fallbackLng: defaultLang,
+    });
+
+    return (
+      <I18nextProvider i18n={i18nInstance}>
+        <I18nextContext.Provider
+          value={{
+            language: pageLang,
+            routed: defaultLang !== pageLang,
+            languages: pageLangs,
+            defaultLanguage: defaultLang,
+            originalPath: pageProps.location.pathname,
+            path: pageProps.location.pathname,
+          }}
+        >
+          {children}
+        </I18nextContext.Provider>
+      </I18nextProvider>
+    );
   };
-
-  const i18n = initi18nInstance({
-    ...i18nDefaultOptions,
-    ...i18nOptions,
-    lng: pageLang,
-    fallbackLng: defaultLang,
-  });
-
-  return (
-    <I18nextProvider i18n={i18n}>
-      <I18nextContext.Provider
-        value={{
-          language: pageLang,
-          routed: defaultLang !== pageLang,
-          languages: pageLangs,
-          defaultLanguage: defaultLang,
-          originalPath: pageProps.location.pathname,
-          path: pageProps.location.pathname,
-        }}
-      >
-        {children}
-      </I18nextContext.Provider>
-    </I18nextProvider>
-  );
-};
 
 const i18n = i18next.createInstance();
 

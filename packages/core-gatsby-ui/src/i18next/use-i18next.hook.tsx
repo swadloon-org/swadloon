@@ -77,7 +77,6 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
     fallbackToHomePage?: boolean;
   }) => {
     const alternatePageForLocale = getAlternativePageForLocale(language, alternateLocales);
-
     const alternatePageForLocaleFound = alternatePageForLocale && alternatePageForLocale.path;
 
     if (!alternatePageForLocaleFound && !fallbackToHomePage) {
@@ -94,13 +93,9 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
 
     //
     // Ask Gatsby to navigate
+    // Note: i18n.changeLanguage(language) is called in wrap-element-18n.tsx (when page changes)
     //
     gatsbyNavigate(path, options);
-
-    //
-    // Update the i18n Context
-    //
-    i18n.changeLanguage(language);
   };
 
   /**

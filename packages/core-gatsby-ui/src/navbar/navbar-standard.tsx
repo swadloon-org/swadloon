@@ -29,7 +29,7 @@ import { LinkRenderer } from '../links/link-renderer';
 
 import * as styles from './navbar-standard.css';
 
-type Props = NavbarProps & {};
+type Props = NavbarProps;
 
 /**
  * Preconfigured navbar with the essentials.

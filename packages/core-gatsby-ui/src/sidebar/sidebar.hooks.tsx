@@ -34,7 +34,9 @@ export function useSidebarState({
   let timeout = useRef<number | null>(null);
   let timeoutSetSidebarFn = useRef<number | null>(null);
 
-  // automatically close the sidebar if the viewport is desktop
+  //
+  // automatically close the sidebar if the viewport changes to desktop
+  //
   useEffect(() => {
     if (!autoCloseOnDesktop) {
       return;
@@ -43,39 +45,44 @@ export function useSidebarState({
     if (viewport === VIEWPORT.desktop && sidebarOpened) {
       timeout.current = window.setTimeout(() => {
         setSidebarOpened(false);
-      }, delayClose);
+      }, 0);
     }
 
     return () => {
-      if (timeout !== undefined && typeof timeout === 'number') {
-        window.clearTimeout(timeout);
+      if (timeout.current !== undefined && typeof timeout.current === 'number') {
+        window.clearTimeout(timeout.current);
       }
 
-      if (timeoutSetSidebarFn !== undefined && typeof timeoutSetSidebarFn === 'number') {
-        window.clearTimeout(timeoutSetSidebarFn);
+      if (
+        timeoutSetSidebarFn.current !== undefined &&
+        typeof timeoutSetSidebarFn.current === 'number'
+      ) {
+        window.clearTimeout(timeoutSetSidebarFn.current);
       }
     };
   }, [viewport, sidebarOpened, delayOpen, delayClose, autoCloseOnDesktop]);
 
   const setSidebarOpenedDelayedFn: (value: React.SetStateAction<boolean>, delay?: number) => void =
-    useCallback(
-      (value, delay) => {
-        timeoutSetSidebarFn.current = window.setTimeout(
-          () => {
-            setSidebarOpened(value);
-          },
-          delay ? delay : value ? delayOpen : delayClose
-        );
-        return value;
-      },
-      [delayClose, delayOpen]
-    );
+    (value, delay) => {
+      timeoutSetSidebarFn.current = window.setTimeout(
+        () => {
+          setSidebarOpened(value);
+        },
+        delay !== undefined ? delay : value ? delayOpen : delayClose
+      );
+      return value;
+    };
 
+  //
+  // close sidebar upon navigation
+  //
   useEffect(() => {
     return globalHistory.listen((params) => {
-      setSidebarOpenedDelayedFn(false, 600); // close sidebar upon navigation
+      if (sidebarOpened) {
+        setSidebarOpenedDelayedFn(false, delayClose);
+      }
     });
-  }, [setSidebarOpenedDelayedFn]);
+  }, [delayClose]);
 
   return [sidebarOpened, setSidebarOpenedDelayedFn];
 }
