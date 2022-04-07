@@ -8,9 +8,9 @@ export const layout: Layout = {
     desktopMaxWidth: 1600,
   },
   contentMargins: {
-    ...defaultLayout.contentMargins,
+    mobile: 20,
     tablet: 32,
-    desktop: 48,
+    desktop: 32,
   },
   sidebarWidth: {
     [VIEWPORT.desktop]: 300,
@@ -18,8 +18,8 @@ export const layout: Layout = {
     [VIEWPORT.mobile]: 375,
   },
   navbarHeight: {
-    [VIEWPORT.desktop]: 64,
-    [VIEWPORT.tablet]: 60,
-    [VIEWPORT.mobile]: 60,
+    [VIEWPORT.desktop]: 48,
+    [VIEWPORT.tablet]: 56,
+    [VIEWPORT.mobile]: 64,
   },
 };

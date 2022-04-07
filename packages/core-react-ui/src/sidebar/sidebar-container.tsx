@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
 
 import { VIEWPORT } from '@newrade/core-design-system';
@@ -41,8 +41,11 @@ export const SidebarContainer = React.memo(
       const classNames = getMergedClassname([className, styles.wrapper]);
 
       /**
+       *
        * Animation
+       *
        */
+
       const sideBarRef = useRef<CSSAnimationHandle>(null);
       const mergedRef = ref;
       // todo merge refs and pass to css animation component
@@ -56,8 +59,11 @@ export const SidebarContainer = React.memo(
       });
 
       /**
+       *
        * Gestures
+       *
        */
+
       const bindDragGesture = useDrag(
         (state) => {
           const [swipeX] = state.swipe;
@@ -78,6 +84,22 @@ export const SidebarContainer = React.memo(
         }
       );
 
+      /**
+       *
+       * Render
+       *
+       */
+
+      const [previousSidebarOpened, setPreviousSidebarOpened] = useState<boolean>(false);
+
+      useEffect(() => {
+        if (previousSidebarOpened !== sidebarOpened) {
+          setPreviousSidebarOpened(!!sidebarOpened);
+        }
+      }, [sidebarOpened]);
+
+      const shouldAnimate = !isFirstRender && previousSidebarOpened !== sidebarOpened;
+
       return (
         <>
           {/* Sidebar and content */}
@@ -87,8 +109,8 @@ export const SidebarContainer = React.memo(
             style={style}
             className={classNames}
             animation={{
-              delay: isFirstRender ? 0 : 100,
-              duration: isFirstRender ? 0 : 260,
+              delay: shouldAnimate ? 100 : 0,
+              duration: shouldAnimate ? 260 : 0,
               name: sidebarOpened ? 'slideInLeftSidebar' : 'slideOutLeftSidebar',
               playState: 'running',
             }}
@@ -101,11 +123,11 @@ export const SidebarContainer = React.memo(
           <CSSAnimation
             classNames={[
               styles.backdrop,
-              isFirstRender ? '' : sidebarOpened ? styles.backdropActive : '',
+              shouldAnimate ? (sidebarOpened ? styles.backdropActive : '') : '',
             ]}
             animation={{
-              delay: isFirstRender ? 0 : 100,
-              duration: isFirstRender ? 0 : 350,
+              delay: shouldAnimate ? 100 : 0,
+              duration: shouldAnimate ? 350 : 0,
               name: sidebarOpened ? 'fadeIn' : 'fadeOut',
               playState: 'running',
             }}

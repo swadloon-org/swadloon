@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet, Route, Routes } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import {
   Link,
   Main,
   MainWrapper,
+  NavbarLogoLinkItem,
   NavbarModular,
   NavbarSelectItem,
   Stack,
@@ -41,6 +42,8 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
     }
   }
 
+  const NavbarLeftItems = <NavbarLogoLinkItem />;
+
   const NavbarRightItems = (
     <NavbarSelectItem
       select={{
@@ -61,7 +64,12 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
 
   return (
     <MainWrapper className={styles.layout}>
-      <NavbarModular rightDesktop={NavbarRightItems} right={NavbarRightItems}></NavbarModular>
+      <NavbarModular
+        leftDesktop={NavbarLeftItems}
+        left={NavbarLeftItems}
+        rightDesktop={NavbarRightItems}
+        right={NavbarRightItems}
+      ></NavbarModular>
 
       <Main minHeight={true} navbarPadding={true}>
         <Center>

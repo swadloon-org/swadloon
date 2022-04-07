@@ -11,7 +11,7 @@ const defaultOptions: GatsbyPluginCSSThemeOptions = {
 /**
  * Get a preconfigured config object for gatsby-plugin-css-theme
  */
-export function getGastbyPluginCssThemeConfig(options: GatsbyPluginCSSThemeOptions): PluginRef {
+export function getGastbyPluginCssThemeConfig(options?: GatsbyPluginCSSThemeOptions): PluginRef {
   const pluginOptions = { ...defaultOptions, ...options };
   return {
     resolve: require.resolve(`../plugins/gatsby-plugin-css-theme`),

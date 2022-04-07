@@ -199,12 +199,14 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = ({ themeConfig, ...props })
 
   const contentWidth = [
     layoutVars.var.sidebarWidth,
+    sizeVars.x5,
     layoutVars.var.contentWidth.desktopDocsMaxWidth,
+    sizeVars.x5,
     layoutVars.var.asideWidth,
     layoutVars.var.contentMargins,
     layoutVars.var.contentMargins,
   ];
-  const contentMaxWidth = `calc(${contentWidth.join(' + ')})`;
+  const contentMaxWidth = `calc(100vw - ${contentWidth.join(' + ')})`;
 
   const mainStyle: React.CSSProperties =
     layoutMode === 'centered'

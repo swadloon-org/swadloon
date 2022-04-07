@@ -1,4 +1,4 @@
-import { COLOR_MODE, COLOR_SCHEME, ColorModeProps, Variant } from '@newrade/core-design-system';
+import { COLOR_SCHEME } from '@newrade/core-design-system';
 
 export type GatsbyPluginCSSThemeOptions = {
   /**

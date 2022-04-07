@@ -3,6 +3,7 @@
 	ck = checkout
 	a = add --all
 	pu = pull --all
+	pick = cherry-pick
 	p = push
 	po = push --set-upstream origin
 	lazy = push --no-verify

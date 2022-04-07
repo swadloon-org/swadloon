@@ -8,13 +8,13 @@ export const wrapper = style({
   width: '100%',
   marginLeft: 'auto',
   marginRight: 'auto',
-  gridTemplateColumns: `${layoutVars.contentMargins.mobile}px 1fr ${layoutVars.contentMargins.mobile}px`,
+  gridTemplateColumns: `${layoutVars.contentMargins.mobile} 1fr ${layoutVars.contentMargins.mobile}`,
   '@media': {
     [layoutCSS.media.tablet]: {
-      gridTemplateColumns: `${layoutVars.contentMargins.tablet}px 1fr ${layoutVars.contentMargins.tablet}px`,
+      gridTemplateColumns: `${layoutVars.contentMargins.tablet} 1fr ${layoutVars.contentMargins.tablet}`,
     },
     [layoutCSS.media.desktopSmall]: {
-      gridTemplateColumns: `${layoutVars.contentMargins.desktop}px 1fr ${layoutVars.contentMargins.desktop}px`,
+      gridTemplateColumns: `${layoutVars.contentMargins.desktop} 1fr ${layoutVars.contentMargins.desktop}`,
     },
   },
 });
