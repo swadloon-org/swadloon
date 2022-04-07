@@ -30,13 +30,11 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'nr:*'
+  DEBUG: 'nr*'
   #
   # Node
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
-
-
 
 jobs:
   build-test:
@@ -62,7 +60,7 @@ jobs:
       - name: Update diagram
         uses: githubocto/repo-visualizer@main
         with:
-          commit_message: "chore(core): update diagram"
-          output_file: "docs/assets/images/core-repo-diagram.svg"
-          excluded_globs: "(./)?**/node_modules/**/*;(./)?**/dist/**/*;(./)?**/lib/**/*;(./)?**/built/**/*;(./)?**/public/**/*;(./)?**/.cache/**/*"
-          excluded_paths: "node_modules,dist,lib,built,.cache,public,out,build,.yarn,.vscode,package-lock.json,yarn.lock"
+          commit_message: 'chore(core): update diagram'
+          output_file: 'docs/assets/images/core-repo-diagram.svg'
+          excluded_globs: '(./)?**/node_modules/**/*;(./)?**/dist/**/*;(./)?**/lib/**/*;(./)?**/built/**/*;(./)?**/public/**/*;(./)?**/.cache/**/*'
+          excluded_paths: 'node_modules,dist,lib,built,.cache,public,out,build,.yarn,.vscode,package-lock.json,yarn.lock'

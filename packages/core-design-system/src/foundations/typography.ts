@@ -1,4 +1,5 @@
 import { DeepPartial } from '../types';
+import { NumberType } from '..';
 
 import { Font } from './font';
 import { VIEWPORT } from './layout';
@@ -30,6 +31,11 @@ export enum HEADING {
   h2 = 'h2',
   h3 = 'h3',
   h4 = 'h4',
+}
+
+export enum TEXT_SPACING {
+  before = 'before',
+  after = 'after',
 }
 
 /**
@@ -206,6 +212,28 @@ export type TextVariantStyles<Override extends undefined | string> = {
 };
 
 /**
+ * Text spacing object
+ */
+export type TextSpacing<Override extends undefined | string = undefined> = {
+  /** spacing before and after a text style, relative to font size */
+  [key in TEXT_SPACING]: NumberType<Override>;
+};
+
+/**
+ * Config for spacing around headings
+ */
+export type HeadingSpaces<Override extends undefined | string = undefined> = {
+  [key in HEADING]: TextSpacing<Override>;
+};
+
+/**
+ * Config for all text related spacing
+ */
+export type TextSpaces<Override extends undefined | string = undefined> = {
+  headings: HeadingSpaces<Override>;
+};
+
+/**
  * @version
  *  - v2: uses version 2 of Fonts, Titles, Headings, Paragraphs, Labels
  */
@@ -246,6 +274,11 @@ export type TypographyV2<Override extends undefined | string = undefined> = {
     [key in VIEWPORT]: LabelsV2<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
+
+  /**
+   * Variables to hold relative spacing for each text style
+   */
+  // spaces: TextSpaces<Override>;
 
   /**
    * Reference to variables (string) to be used in place of defined values when a theme is created.

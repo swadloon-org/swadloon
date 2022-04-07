@@ -374,6 +374,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
           sourceInstance,
           template,
           frontmatter: node.childMdx?.frontmatter,
+          excerpt: node.childMdx?.excerpt,
+          timeToRead: node.childMdx?.timeToRead,
+          tableOfContents: node.childMdx?.tableOfContents,
+          body: node.childMdx?.body,
         },
         component,
       } as Page<GatsbyMarkdownFilePageContext>;
@@ -571,6 +575,15 @@ export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>
           alternateLocales: pagesInOtherLocales,
           layout: 'default',
           template: 'default',
+
+          //
+          // TODO can we have
+          //
+
+          // excerpt: node.childMdx?.excerpt,
+          // timeToRead: node.childMdx?.timeToRead,
+          // tableOfContents: node.childMdx?.tableOfContents,
+          // body: node.childMdx?.body,
         },
       });
       return;

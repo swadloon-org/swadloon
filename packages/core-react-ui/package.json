@@ -65,7 +65,6 @@
     "@capsizecss/core": "^3.0.0",
     "@capsizecss/metrics": "^0.1.0",
     "@capsizecss/vanilla-extract": "^1",
-    "@loadable/component": "^5.14.1",
     "@newrade/core-common": "*",
     "@newrade/core-design-system": "*",
     "@newrade/core-jest-config": "*",

@@ -5,6 +5,8 @@ description:
   interfaces.
 tags:
   - overview
+pagePreviews:
+  - '/design-system/components/'
 ---
 
 <DocHeader props={props}/>
@@ -130,6 +132,8 @@ where smaller components (atoms) compose slightly larger ones (molecules) which
 go into even larger and more complete components (organisms).
 
 Get started by exploring available components.
+
+<!-- <DocPagePreview props={props} pageSlug={'/design-system/components/'}/> -->
 
 ---
 

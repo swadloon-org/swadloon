@@ -9,10 +9,10 @@ name: github-codeql
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ master ]
+    branches: [master]
   schedule:
     #        ┌───────────── minute (0 - 59)
     #        │  ┌───────────── hour (0 - 23)
@@ -30,7 +30,7 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'nr:*'
+  DEBUG: 'nr*'
   ACTIONS_STEP_DEBUG: true
   #
   # Node
@@ -44,7 +44,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: ['javascript']
         # Learn more:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 

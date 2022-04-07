@@ -2,7 +2,7 @@ import { SITE_LANGUAGES } from '@newrade/core-common';
 
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
-import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
+import { GatsbyNodeSiteMetadataFragment, MarkdownChildMdx, Mdx } from './site-graphql-types';
 import { MdxFrontmatter } from './site-mdx-frontmatter';
 
 /**
@@ -128,9 +128,25 @@ export type GatsbyMarkdownFilePageContext = GatsbyCommonPageContext & {
    */
   sourceInstance?: SOURCE_INSTANCE_NAME;
   /**
-   * Injected frontmatter
+   * Injected frontmatter (from childMdx.frontmatter)
    */
   frontmatter?: MdxFrontmatter | null;
+  /**
+   * from childMdx.excerpt)
+   */
+  excerpt?: Mdx['excerpt'];
+  /**
+   * from childMdx.timeToRead)
+   */
+  timeToRead?: Mdx['timeToRead'];
+  /**
+   * from childMdx.tableOfContents)
+   */
+  tableOfContents?: Mdx['tableOfContents'];
+  /**
+   * from childMdx.body)
+   */
+  body?: Mdx['body'];
 };
 
 /**

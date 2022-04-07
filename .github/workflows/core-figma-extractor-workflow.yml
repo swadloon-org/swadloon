@@ -34,7 +34,7 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'nr:*'
+  DEBUG: 'nr*'
   #
   # Node
   #

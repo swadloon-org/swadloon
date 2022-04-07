@@ -142,6 +142,19 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       test: /\.tsx?$/,
       use: jsLoader,
     });
+
+    //
+    // TODO test for next release
+    //
+
+    // config.module.rules.push({
+    //   test: /\.tsx?$/,
+    //   loader: 'esbuild-loader',
+    //   options: {
+    //     loader: 'tsx', // Or 'ts' if you don't need tsx
+    //     target: 'es2015',
+    //   },
+    // });
   }
 
   if (config.module?.rules) {

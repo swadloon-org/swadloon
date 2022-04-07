@@ -7,9 +7,13 @@
   "compilerOptions": {
     "declaration": true,
     "incremental": true,
-    "target": "es2018",
+    "target": "es2020",
     "module": "commonjs",
-    "lib": ["es2020"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
+    //
+    // should be set according to choosen NodeJS version and
+    // its support of recent features https://node.green/
+    //
+    "lib": ["es2020"],
     "types": ["node", "jest"]
   }
 }

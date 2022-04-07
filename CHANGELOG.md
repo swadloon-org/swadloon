@@ -4,6 +4,23 @@ All general changes to the repo or main dependencies will be documented in this 
 
 Please note that this file is written **manually** where as other changelogs in `/packages/` are automated.
 
+# 2022 March Update - #1 - (2022-03)
+
+## Features
+
+- update to contentful models
+
+## Fixes
+
+- fixes for new Button.tsx
+- added variables in theme for Buttons
+
+## Refactoring
+
+- move `NavbarModular` to `core-react-ui` package
+
+--
+
 # 2022 Jan Update - #1 - (2022-01)
 
 ## Breaking changes

@@ -25,6 +25,8 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
 
 /**
  * Query to retrieve all markdown content for the markdown file
+ *
+ * Note: arguments order is not relevant in GraphQL (http://spec.graphql.org/draft/#sec-Language.Arguments)
  */
 export const markdownTemplateQuery = graphql`
   query MarkdownDocsTemplate($fileId: String!, $locale: String!, $jsdocImports: [String]!) {
@@ -64,8 +66,9 @@ export const markdownTemplateQuery = graphql`
         body
       }
     }
+    # pagePreviews
     #
-    # if provided, retrieve for extracted JSDoc nodes with passed names
+    # if provided, retrieve JSDoc nodes with passed names
     #
     jsdoc: allDocumentationJs(filter: { name: { in: $jsdocImports } }) {
       nodes {

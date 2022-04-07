@@ -4,8 +4,8 @@
  * @clearTimeout
  */
 
-declare function setTimeout(handler: TimerHandler, timeout?: number, ...arguments: any[]): number;
-declare function clearTimeout(handle?: number): void;
+// declare function setTimeout(handler: TimerHandler, timeout?: number, ...arguments: any[]): number;
+// declare function clearTimeout(handle?: number): void;
 
 export function throttle<T extends (...args: any[]) => void>(
   func: T,

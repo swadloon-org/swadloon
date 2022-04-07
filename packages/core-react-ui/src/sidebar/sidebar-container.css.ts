@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { colorVars, layoutCSS } from '../theme';
-import { getCSSColor } from '../utilities-theme/colors.utilities';
+import { getCSSColorVar } from '../utilities-iso';
 
 /**
  * Sidebar
@@ -25,7 +25,7 @@ export const wrapper = style({
   overflowX: 'hidden',
 
   color: colorVars.colorIntents.primaryText,
-  backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
+  backgroundColor: getCSSColorVar({ h: 0, s: 0, l: 100, a: 100 }),
 
   WebkitOverflowScrolling: `touch`,
 

@@ -93,6 +93,11 @@ export type GatsbyNodeSrcPageFilesQuery = {
   };
 };
 
+export type MarkdownChildMdx = Pick<
+  Mdx,
+  'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'
+>;
+
 export type GatsbyNodeMarkdownFilesQuery = {
   allFile: {
     nodes: Array<
@@ -110,34 +115,32 @@ export type GatsbyNodeMarkdownFilesQuery = {
         | 'sourceInstanceName'
         | 'changeTime'
       > & {
-        childMdx: Maybe<
-          Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-            frontmatter: Maybe<
-              Pick<
-                MdxFrontmatter,
-                | 'title'
-                | 'subject'
-                | 'tags'
-                | 'description'
-                | 'version'
-                | 'published'
-                | 'status'
-                | 'slug'
-                | 'layout'
-                | 'template'
-                | 'deprecated'
-                | 'editPageUrl'
-                | 'nextPageLabel'
-                | 'nextPageUrl'
-                | 'componentStatus'
-                | 'componentVersion'
-                | 'componentTests'
-                | 'jsdocImports'
-              >
-            >;
-            headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-          }
-        >;
+        childMdx: MarkdownChildMdx & {
+          frontmatter: Maybe<
+            Pick<
+              MdxFrontmatter,
+              | 'title'
+              | 'subject'
+              | 'tags'
+              | 'description'
+              | 'version'
+              | 'published'
+              | 'status'
+              | 'slug'
+              | 'layout'
+              | 'template'
+              | 'deprecated'
+              | 'editPageUrl'
+              | 'nextPageLabel'
+              | 'nextPageUrl'
+              | 'componentStatus'
+              | 'componentVersion'
+              | 'componentTests'
+              | 'jsdocImports'
+            >
+          >;
+          headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+        };
       }
     >;
   };
