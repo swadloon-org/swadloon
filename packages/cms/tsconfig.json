@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.node-commonjs.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["es2020", "dom"],
+    "noEmit": true
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"]
+}

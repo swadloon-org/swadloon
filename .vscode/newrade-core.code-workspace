@@ -183,6 +183,10 @@
       "path": "../docs"
     },
     {
+      "name": "cms",
+      "path": "../packages/cms"
+    },
+    {
       "name": "core-cli",
       "path": "../packages/core-cli"
     },

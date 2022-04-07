@@ -1,0 +1,32 @@
+diff --git a/node_modules/@keystone-6/core/.DS_Store b/node_modules/@keystone-6/core/.DS_Store
+new file mode 100644
+index 0000000..66544f0
+Binary files /dev/null and b/node_modules/@keystone-6/core/.DS_Store differ
+diff --git a/node_modules/@keystone-6/core/static/next.config.js b/node_modules/@keystone-6/core/static/next.config.js
+index 98e0648..152a853 100644
+--- a/node_modules/@keystone-6/core/static/next.config.js
++++ b/node_modules/@keystone-6/core/static/next.config.js
+@@ -1,4 +1,22 @@
++// @ts-check
++const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
++
+ // this file is copied somewhere else so this lint rule is incorrect
+-module.exports =
++const defaultConfig =
+   // eslint-disable-next-line import/no-extraneous-dependencies
+   require('@keystone-6/core/___internal-do-not-use-will-break-in-patch/admin-ui/next-config').config;
++
++const withVanillaExtract = createVanillaExtractPlugin();
++
++/** @type {import('next').NextConfig} */
++const nextConfig = {
++  ...defaultConfig,
++  swcMinify: true,
++  // /** @param {import('webpack').Configuration} config */
++  // webpack(config) {
++  //   // ...
++  //   return config;
++  // },
++};
++
++module.exports = withVanillaExtract(nextConfig);

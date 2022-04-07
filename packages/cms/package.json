@@ -1,0 +1,29 @@
+{
+  "name": "swadloon-cms",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^16.13"
+  },
+  "scripts": {
+    "build": "keystone build",
+    "postinstall": "keystone postinstall",
+    "serve": "keystone start",
+    "start": "env-cmd -x keystone dev"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.css.ts",
+    "*.css.js"
+  ],
+  "dependencies": {
+    "@keystone-6/auth": "2.0.0",
+    "@keystone-6/cloudinary": "2.0.0",
+    "@keystone-6/core": "1.1.0",
+    "@keystone-6/fields-document": "2.0.0",
+    "@keystone-6/session-store-redis": "2.0.0",
+    "@newrade/core-react-ui": "*",
+    "@newrade/ze-design-system": "^1.8.0",
+    "@vanilla-extract/css": "^1.6.8"
+  }
+}

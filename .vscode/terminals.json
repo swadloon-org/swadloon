@@ -19,6 +19,14 @@
       "execute": false
     },
     {
+      "name": "cms",
+      "cwd": "./packages/cms",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-cli",
       "cwd": "./packages/core-cli",
       "open": true,
