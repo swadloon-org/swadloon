@@ -5,7 +5,7 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
-  fontFamily: typographyVars.headings.font,
+  fontFamily: typographyVars.headings.fontFamily,
   wordBreak: 'normal',
   userSelect: 'text',
   // position: 'relative', // 'relative' breaks useScrollSpy()
@@ -68,7 +68,7 @@ export type HeadingVariants = RecipeVariants<typeof variants>;
 export const variantsTitle = recipe({
   base: [
     {
-      fontFamily: typographyVars.titles.font,
+      fontFamily: typographyVars.titles.fontFamily,
       position: 'relative',
       wordBreak: 'normal',
       userSelect: 'none',

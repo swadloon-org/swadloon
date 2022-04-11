@@ -405,7 +405,7 @@ export const variants = recipe({
 
 export const labelVariants = recipe({
   base: {
-    fontFamily: typographyVars.labels.font,
+    fontFamily: typographyVars.labels.fontFamily,
     userSelect: 'none',
     pointerEvents: 'none',
     width: `100%`,

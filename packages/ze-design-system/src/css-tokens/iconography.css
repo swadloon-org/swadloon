@@ -1,0 +1,11 @@
+:root{
+  --icons-sizes-desktop-small:20px;
+  --icons-sizes-desktop-medium:24px;
+  --icons-sizes-desktop-large:32px;
+  --icons-sizes-tablet-small:20px;
+  --icons-sizes-tablet-medium:24px;
+  --icons-sizes-tablet-large:32px;
+  --icons-sizes-mobile-small:20px;
+  --icons-sizes-mobile-medium:24px;
+  --icons-sizes-mobile-large:32px;
+}

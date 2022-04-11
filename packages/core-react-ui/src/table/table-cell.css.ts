@@ -39,7 +39,7 @@ export const variants = recipe({
     borderColor: borderColor,
 
     color: textColor,
-    fontFamily: typographyVars.paragraphs.font,
+    fontFamily: typographyVars.paragraphs.fontFamily,
 
     wordBreak: 'normal',
     verticalAlign: 'middle',

@@ -30,6 +30,7 @@ export * from './plugins/html.plugin.conf';
 export * from './plugins/lodash-plugin';
 export * from './plugins/manifest-json-html.plugin.conf';
 export * from './plugins/mini-css-extract-cleanup.conf';
+export * from './plugins/mini-css-extract-plugin.conf';
 export * from './plugins/size.plugin.conf';
 export * from './plugins/stats-plugin';
 export * from './plugins/terser.plugin.conf';

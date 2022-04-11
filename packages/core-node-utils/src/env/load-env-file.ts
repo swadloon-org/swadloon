@@ -84,7 +84,7 @@ export function loadDotEnv<ENV = CommonEnvType>({
   if (report && report.length && !report[0].includes('No errors')) {
     if (logging) {
       report.map((reason) => {
-        logEnvError(`${reason}`);
+        console.error(`${reason}`);
       });
     }
 

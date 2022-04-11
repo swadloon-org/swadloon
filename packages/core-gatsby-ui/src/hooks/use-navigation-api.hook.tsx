@@ -67,7 +67,8 @@ const query = graphql`
 /**
  * Returns a NavigationAPI object based on current Gatsby SitePages
  *
- * This hooks has support for i18n translation and localization and must be used within a I18nextContext Context
+ * This hooks has support for i18n translation and localization
+ * and must be used within a I18nextContext Context
  */
 export function useNavigationAPI(options: GetNavigationAPIOptions): NavigationAPI {
   const data = useStaticQuery<NavigationQuery>(query);

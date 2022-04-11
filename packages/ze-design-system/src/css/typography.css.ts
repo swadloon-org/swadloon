@@ -5,7 +5,7 @@ import { getCSSTypographyV2 } from '@newrade/core-react-ui/utilities-theme';
 
 import { typography } from '../design-system/typography';
 
-const cssTypography = getCSSTypographyV2({
+export const cssTypography = getCSSTypographyV2({
   ...typography,
   baseFontSize: 16,
 });

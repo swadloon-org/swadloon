@@ -5,7 +5,7 @@ import { layoutCSS, typographyVars } from '../theme';
 import { getCapsizeTextStyles } from '../utilities-vanilla-extract';
 
 export const base = style({
-  fontFamily: typographyVars.labels.font,
+  fontFamily: typographyVars.labels.fontFamily,
   width: 'fit-content',
 });
 

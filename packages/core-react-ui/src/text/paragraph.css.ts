@@ -3,10 +3,10 @@ import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
 import { layoutCSS, typographyVars } from '../theme';
-import { getCapsizeTextStyles, getNormalTextStyles } from '../utilities-vanilla-extract';
+import { getNormalTextStyles } from '../utilities-vanilla-extract';
 
 export const base = style({
-  fontFamily: typographyVars.paragraphs.font,
+  fontFamily: typographyVars.paragraphs.fontFamily,
   position: 'relative',
   wordBreak: 'normal',
   userSelect: 'text',

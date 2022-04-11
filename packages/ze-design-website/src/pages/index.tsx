@@ -1,8 +1,15 @@
 import React from 'react';
 
-import { COLOR_MODE, HEADING, TITLE, Variant } from '@newrade/core-design-system';
+import {
+  COLOR_MODE,
+  COLOR_SCHEME,
+  HEADING,
+  LOGO,
+  TITLE,
+  Variant,
+} from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
-import { Heading, Paragraph, Stack } from '@newrade/core-react-ui';
+import { Heading, Logo, Paragraph, Stack } from '@newrade/core-react-ui';
 import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 import SectionOpenSource from '../sections/section-open-source.md';
@@ -12,10 +19,11 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (
     <>
       <SectionBanner
-        section={{ variant: Variant.primary, colorMode: COLOR_MODE.REVERSED }}
+        section={{ variant: Variant.primary, colorScheme: COLOR_SCHEME.DARK }}
         ContentBlock={
           <Stack gap={[sizeVars.x4]} style={{ justifyItems: 'center', textAlign: 'center' }}>
-            <Heading variant={TITLE.t1}>Ze Design System</Heading>
+            <Logo name={LOGO.STANDARD} />
+            <Heading variant={TITLE.t1}>Open source design system and UI library</Heading>
             <Paragraph>Simple design system and components for ambitious projects.</Paragraph>
           </Stack>
         }

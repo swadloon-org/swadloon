@@ -67,6 +67,14 @@
       "execute": false
     },
     {
+      "name": "core-figma-design-plugin",
+      "cwd": "./packages/core-figma-design-plugin",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-figma-plugins",
       "cwd": "./packages/core-figma-plugins",
       "open": true,
@@ -157,6 +165,14 @@
     {
       "name": "core-website-api",
       "cwd": "./packages/core-website-api",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-website-platform",
+      "cwd": "./packages/core-website-platform",
       "open": true,
       "focus": false,
       "command": "yarn start",

@@ -32,7 +32,7 @@ export const defaultTypography: DefaultTypographyV2 = {
     monospace: [...fonts.defaultFallbackMonospaceFonts],
   },
   titles: {
-    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
+    fontFamily: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     fontWeight: 700,
     desktop: {
       t1: {
@@ -66,8 +66,8 @@ export const defaultTypography: DefaultTypographyV2 = {
     },
   },
   headings: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 500,
+    fontFamily: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    fontWeight: 700,
     letterSpacing: -2,
     desktop: {
       h1: {
@@ -134,7 +134,7 @@ export const defaultTypography: DefaultTypographyV2 = {
     },
   },
   paragraphs: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    fontFamily: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       normal: {
@@ -217,7 +217,7 @@ export const defaultTypography: DefaultTypographyV2 = {
     },
   },
   labels: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    fontFamily: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 500,
     styles: {
       normal: {

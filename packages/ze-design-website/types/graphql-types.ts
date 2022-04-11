@@ -66489,8 +66489,36 @@ type DocumentationJsFragmentFragment = (
     & DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
     & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
+    & DocumentationJSComponentDescriptionFragmentFragment
   )>, readonly type: Maybe<(
     DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
+    & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment
     & DoctrineTypeFragmentFragment

@@ -1,4 +1,5 @@
 import { FontMetrics } from '@capsizecss/core';
+import { MapLeafNodes } from '@vanilla-extract/private';
 
 import {
   CapsizeTextStyle,
@@ -13,6 +14,7 @@ import { defaultSansFont, defaultSerifFont } from '../default-theme';
 import { CSSTypographyV2 } from '../design-system';
 import { keys } from '../utilities-iso/utilities';
 
+import { setVarsValuesToStyleObject } from './component.utilities';
 import { getCSSFontsObject } from './font.utilities';
 import { createCSSTextStyle } from './text.utilities';
 import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
@@ -32,8 +34,8 @@ export function getCSSTypographyV2({
   baseFontSize,
   vars,
 }: TypographyV2 & { baseFontSize: number }): CSSTypographyV2 {
-  const titlesFontMetrics = titles.font?.[0].fontMetrics
-    ? titles.font[0].fontMetrics
+  const titlesFontMetrics = titles.fontFamily?.[0].fontMetrics
+    ? titles.fontFamily[0].fontMetrics
     : defaultSerifFont.fontMetrics;
   const titlesStyles = createCSSVariantTextStylesV2({
     variant: titles,
@@ -41,8 +43,8 @@ export function getCSSTypographyV2({
     fontMetrics: titlesFontMetrics,
   });
 
-  const headingsFontMetrics = headings.font?.[0].fontMetrics
-    ? headings.font[0].fontMetrics
+  const headingsFontMetrics = headings.fontFamily?.[0].fontMetrics
+    ? headings.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const headingsStyles = createCSSVariantTextStylesV2({
     variant: headings,
@@ -50,8 +52,8 @@ export function getCSSTypographyV2({
     fontMetrics: headingsFontMetrics,
   });
 
-  const paragraphsFontMetrics = paragraphs.font?.[0].fontMetrics
-    ? paragraphs.font[0].fontMetrics
+  const paragraphsFontMetrics = paragraphs.fontFamily?.[0].fontMetrics
+    ? paragraphs.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const paragraphsStyles = createCSSVariantTextStylesV2({
     variant: paragraphs,
@@ -59,8 +61,8 @@ export function getCSSTypographyV2({
     fontMetrics: paragraphsFontMetrics,
   });
 
-  const labelsFontMetrics = labels.font?.[0].fontMetrics
-    ? labels.font[0].fontMetrics
+  const labelsFontMetrics = labels.fontFamily?.[0].fontMetrics
+    ? labels.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const labelsStyles = createCSSVariantTextStylesV2({
     variant: labels,
@@ -68,7 +70,7 @@ export function getCSSTypographyV2({
     fontMetrics: labelsFontMetrics,
   });
 
-  return {
+  const cssTypography = {
     fonts: {
       ...getCSSFontsObject(fonts),
     },
@@ -77,6 +79,18 @@ export function getCSSTypographyV2({
     paragraphs: paragraphsStyles as TypographyV2<string>['paragraphs'],
     labels: labelsStyles as TypographyV2<string>['labels'],
   };
+
+  if (!vars) {
+    return cssTypography;
+  }
+
+  //
+  // if vars is passed, traverse the CSSTypography object and replace the defined values
+  //
+  return setVarsValuesToStyleObject<CSSTypographyV2>(
+    cssTypography as MapLeafNodes<CSSTypographyV2, string>,
+    vars
+  ) as CSSTypographyV2;
 }
 
 function createCSSVariantTextStylesV2({

@@ -1,0 +1,18 @@
+{
+  "name": "@newrade/core-figma-design-plugin",
+  "version": "1.0.0",
+  "description": "Plugin to automate tasks in Figma",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn webpack:prod",
+    "clean": "rm -rf public/** ./node_modules/.cache && rm -f *.tsbuildinfo",
+    "start": "yarn webpack:dev",
+    "test-disabled": "echo ok",
+    "typecheck": "tsc --noEmit --composite false --incremental false",
+    "webpack:dev": "nr webpack --config webpack.prod.config.ts --watch",
+    "webpack:prod": "nr webpack --config webpack.prod.config.ts"
+  },
+  "dependencies": {
+    "@figma/plugin-typings": "^1"
+  }
+}

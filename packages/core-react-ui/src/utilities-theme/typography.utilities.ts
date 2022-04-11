@@ -1,3 +1,5 @@
+import { MapLeafNodes } from '@vanilla-extract/private';
+
 import {
   CapsizeTextStyle,
   TextStyle,
@@ -11,6 +13,7 @@ import { defaultFontVarNames, defaultFontVars } from '../default-theme/default-t
 import { CSSTypography } from '../design-system';
 import { keys } from '../utilities-iso/utilities';
 
+import { setVarsValuesToStyleObject } from './component.utilities';
 import { getCSSFonts, getCSSFontsObject } from './font.utilities';
 import { createCSSTextStyle } from './text.utilities';
 import { createCSSCapsizeTextStyle } from './text-capsize.utilities';
@@ -26,35 +29,48 @@ export function getCSSTypography({
   headings,
   paragraphs,
   labels,
+  vars,
 }: Typography & { baseFontSize: number }): CSSTypography {
   const titlesStyles = createCSSVariantTextStyles({ variant: titles, baseFontSize });
   const headingsStyles = createCSSVariantTextStyles({ variant: headings, baseFontSize });
   const paragraphsStyles = createCSSVariantTextStyles({ variant: paragraphs, baseFontSize });
   const labelsStyles = createCSSVariantTextStyles({ variant: labels, baseFontSize });
 
-  return {
+  const cssTypography: CSSTypography = {
     fonts: {
       ...getCSSFontsObject(fonts),
       var: defaultFontVars,
       varNames: defaultFontVarNames,
     },
     titles: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      fontFamily: getCSSFonts(titles.fontFamily ? titles.fontFamily : fonts.sans), // fallback to sans font
       ...(titlesStyles as Typography<string>['titles']),
     },
     headings: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      fontFamily: getCSSFonts(titles.fontFamily ? titles.fontFamily : fonts.sans), // fallback to sans font
       ...(headingsStyles as Typography<string>['headings']),
     },
     paragraphs: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      fontFamily: getCSSFonts(titles.fontFamily ? titles.fontFamily : fonts.sans), // fallback to sans font
       ...(paragraphsStyles as Typography<string>['paragraphs']),
     },
     labels: {
-      font: getCSSFonts(titles.font ? titles.font : fonts.sans), // fallback to sans font
+      fontFamily: getCSSFonts(titles.fontFamily ? titles.fontFamily : fonts.sans), // fallback to sans font
       ...(labelsStyles as Typography<string>['labels']),
     },
   };
+
+  if (!vars) {
+    return cssTypography;
+  }
+
+  //
+  // if vars is passed, traverse the CSSTypography object and replace the defined values
+  //
+  return setVarsValuesToStyleObject<CSSTypography>(
+    cssTypography as MapLeafNodes<CSSTypography, string>,
+    vars
+  ) as CSSTypography;
 }
 
 function createCSSVariantTextStyles({

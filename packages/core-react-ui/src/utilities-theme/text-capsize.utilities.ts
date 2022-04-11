@@ -103,7 +103,6 @@ type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTex
 
 export function createCSSCapsizeTextStyle({
   baseFontSize,
-  font,
   fontFamily,
   fontWeight,
   fontStyle,
@@ -115,7 +114,7 @@ export function createCSSCapsizeTextStyle({
   lineGap,
 }: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
   const compatibleCapHeight: number | undefined = capHeight;
-  if (!font) {
+  if (!fontFamily) {
     throw new AppError({
       name: ERROR_TYPE.LIB_ERROR,
       message: 'a text style requires a font to be set',
@@ -124,7 +123,7 @@ export function createCSSCapsizeTextStyle({
   //
   // we take the first font in the list
   //
-  const { fontMetrics } = font[0];
+  const { fontMetrics } = fontFamily[0];
   //
   // when fontSize is used instead of capHeight, we get
   // the cap height based on the font size and metrics
@@ -138,7 +137,6 @@ export function createCSSCapsizeTextStyle({
   return {
     ...createCSSTextStyle({
       baseFontSize,
-      font,
       fontFamily,
       fontWeight,
       fontStyle,
@@ -146,8 +144,7 @@ export function createCSSCapsizeTextStyle({
       textTransform,
       textDecoration,
     }),
-    font: getCSSFonts(font),
-    fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
+    fontFamily: getCSSFonts(fontFamily),
     fontSize: fontSize?.toString() || '',
     capHeight: capHeightNumber?.toString() || '',
     lineGap: lineGap?.toString() || '',
@@ -161,7 +158,6 @@ export function createCSSCapsizeTextStyle({
  */
 export function createCSSCapsizeTextStyleV2({
   baseFontSize,
-  font,
   fontFamily,
   fontWeight,
   fontStyle,
@@ -173,13 +169,13 @@ export function createCSSCapsizeTextStyleV2({
   lineGap,
 }: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyleV2<string> {
   const compatibleCapHeight: number | undefined = capHeight;
-  if (!font) {
+  if (!fontFamily) {
     throw new AppError({
       name: ERROR_TYPE.LIB_ERROR,
       message: 'a text style requires a font to be set',
     });
   }
-  const { fontMetrics } = font[0];
+  const { fontMetrics } = fontFamily[0];
   //
   // when fontSize is used instead of capHeight, we get
   // the capHeight based on the font size and metrics and assign it
@@ -193,7 +189,6 @@ export function createCSSCapsizeTextStyleV2({
   return {
     ...createCSSTextStyle({
       baseFontSize,
-      font,
       fontFamily,
       fontWeight,
       fontStyle,

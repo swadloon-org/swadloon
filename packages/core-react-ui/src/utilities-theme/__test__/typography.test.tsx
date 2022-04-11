@@ -10,7 +10,7 @@ describe('typography utilities', () => {
   describe(`${createCSSCapsizeTextStyle.name}`, () => {
     it('should create a valid CSS typography object', () => {
       const textStyle: TextStyle & CapsizeTextStyle = {
-        font: [defaultSansFont, ...defaultFallbackSansFonts],
+        fontFamily: [defaultSansFont, ...defaultFallbackSansFonts],
         capHeight: 55,
         lineGap: 19,
       };
@@ -23,7 +23,7 @@ describe('typography utilities', () => {
   describe(`${createCSSCapsizeTextStyle.name}`, () => {
     it('should respect the passed fontSize', () => {
       const textStyle: TextStyle & CapsizeTextStyle = {
-        font: [defaultSansFont, ...defaultFallbackSansFonts],
+        fontFamily: [defaultSansFont, ...defaultFallbackSansFonts],
         fontSize: 16,
         lineGap: 12,
       };

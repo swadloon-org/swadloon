@@ -147,7 +147,7 @@ export const variants = recipe({
  */
 
 export const text = style({
-  fontFamily: typographyVars.labels.font,
+  fontFamily: typographyVars.labels.fontFamily,
   userSelect: 'none',
 });
 

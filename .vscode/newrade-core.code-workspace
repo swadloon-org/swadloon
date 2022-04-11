@@ -215,6 +215,10 @@
       "path": "../packages/core-figma-extractor"
     },
     {
+      "name": "core-figma-design-plugin",
+      "path": "../packages/core-figma-design-plugin"
+    },
+    {
       "name": "core-figma-plugins",
       "path": "../packages/core-figma-plugins"
     },
@@ -265,6 +269,10 @@
     {
       "name": "core-website-api",
       "path": "../packages/core-website-api"
+    },
+    {
+      "name": "core-website-platform",
+      "path": "../packages/core-website-platform"
     },
     {
       "name": "core-yo-generator",

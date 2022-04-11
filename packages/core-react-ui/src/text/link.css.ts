@@ -5,7 +5,7 @@ import { recipe } from '@vanilla-extract/recipes';
 import { colorVars, layoutCSS, typographyVars } from '../theme';
 
 export const base = style({
-  fontFamily: typographyVars.paragraphs.font,
+  fontFamily: typographyVars.paragraphs.fontFamily,
   wordBreak: 'normal',
   outline: 'none',
   cursor: 'pointer',

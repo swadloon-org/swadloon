@@ -1,5 +1,5 @@
 .global-css-theme-scheme-light, .global-css-theme-scheme-dark .global-css-theme-scheme-reversed, .global-css-theme-ze-light{
-  --color-scheme:LIGHT;
+  --color-scheme:light;
   --colors-current:currentColor;
   --colors-transparent:hsl(0, 0%, 0%, 0);
   --colors-primary-100:hsl(222, 50%, 86%, 1);
@@ -174,6 +174,7 @@
   --color-intents-current:currentColor;
   --color-intents-transparent:hsl(0, 0%, 0%, 0);
   --color-intents-primary:hsl(222, 50%, 50%, 1);
+  --color-intents-disabled:hsl(222, 6%, 66%, 1);
   --color-intents-secondary:hsl(323, 80%, 50%, 1);
   --color-intents-primary-text:hsl(222, 6%, 7%, 1);
   --color-intents-secondary-text:hsl(222, 6%, 46%, 1);
@@ -211,16 +212,16 @@
   --gradients-gradient3:linear-gradient(45deg, hsl(0, 0%, 86%, 1) 0%,hsl(0, 0%, 50%, 1) 100%);
 }
 .global-css-theme-scheme-dark, .global-css-theme-scheme-light .global-css-theme-scheme-reversed, .global-css-theme-ze-dark{
-  --color-scheme:DARK;
+  --color-scheme:dark;
   --colors-current:currentColor;
   --colors-transparent:hsl(0, 0%, 0%, 0);
-  --colors-primary-100:hsl(222, 60%, 100%, 1);
-  --colors-primary-300:hsl(222, 60%, 88%, 1);
-  --colors-primary-500:hsl(222, 60%, 70%, 1);
-  --colors-primary-700:hsl(222, 60%, 52%, 1);
-  --colors-primary-900:hsl(222, 60%, 34%, 1);
+  --colors-primary-100:hsl(222, 50%, 86%, 1);
+  --colors-primary-300:hsl(222, 50%, 68%, 1);
+  --colors-primary-500:hsl(222, 50%, 50%, 1);
+  --colors-primary-700:hsl(222, 50%, 32%, 1);
+  --colors-primary-900:hsl(222, 50%, 14%, 1);
   --colors-primary-base-hue:222;
-  --colors-primary-base-sat:60%;
+  --colors-primary-base-sat:50%;
   --colors-accent1-100:hsl(323, 60%, 90%, 1);
   --colors-accent1-300:hsl(323, 60%, 70%, 1);
   --colors-accent1-500:hsl(323, 60%, 50%, 1);
@@ -382,10 +383,11 @@
   --colors-code-code-interpolation:hsl(208, 19%, 85%, 1);
   --colors-code-code-literal-property:hsl(208, 19%, 85%, 1);
   --colors-code-code-parameter:hsl(210, 19%, 73%, 1);
-  --color-intents-accessibility-color:hsl(222, 60%, 52%, 1);
+  --color-intents-accessibility-color:hsl(222, 50%, 32%, 1);
   --color-intents-current:currentColor;
   --color-intents-transparent:hsl(0, 0%, 0%, 0);
-  --color-intents-primary:hsl(222, 60%, 70%, 1);
+  --color-intents-primary:hsl(222, 50%, 50%, 1);
+  --color-intents-disabled:hsl(222, 6%, 55%, 1);
   --color-intents-secondary:hsl(323, 60%, 50%, 1);
   --color-intents-primary-text:hsl(222, 6%, 100%, 1);
   --color-intents-secondary-text:hsl(222, 6%, 78%, 1);

@@ -8,7 +8,7 @@ export const base = style({
   captionSide: 'bottom',
 
   color: colorVars.colorIntents.primaryText,
-  fontFamily: typographyVars.paragraphs.font,
+  fontFamily: typographyVars.paragraphs.fontFamily,
   fontSize: typographyVars.paragraphs.mobile.small.capsize.fontSize,
   '@media': {
     [layoutCSS.media.tablet]: {
