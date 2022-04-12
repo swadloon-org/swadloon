@@ -8,76 +8,159 @@ import {
   TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
-import { BoxV2, Button, Cluster, Label, Stack } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  Button,
+  Cluster,
+  Label,
+  Stack,
+  Tab,
+  TabContent,
+  TabList,
+  Tabs,
+} from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { Footer } from './layout/footer';
 import { Providers } from './providers/providers';
-import { PLUGIN_MESSAGE_TYPE, PluginMessage } from './messages';
+import { PLUGIN_EVENT_TYPE, PluginEvent } from './messages';
 
 declare function require(path: string): any;
 
 import * as styles from './ui.css';
 
 const App: React.FC = function App() {
+  /**
+   *
+   * States
+   *
+   */
+
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [activeTabId, setActiveTabId] = React.useState<string>('tab-1');
+
+  /**
+   *
+   * Code => UI messages
+   *
+   */
+
+  React.useEffect(() => {
+    // @ts-ignore
+    window.onmessage = (event: MessageEvent<{ pluginMessage?: PluginEvent }>) => {
+      const pluginMessage = event.data.pluginMessage;
+
+      switch (pluginMessage?.type) {
+        case PLUGIN_EVENT_TYPE.LOADING: {
+          setIsLoading(true);
+          return;
+        }
+        case PLUGIN_EVENT_TYPE.NOT_LOADING: {
+          setIsLoading(false);
+          return;
+        }
+        default: {
+          return;
+        }
+      }
+    };
+  }, []);
+
+  /**
+   *
+   * Event handlers
+   *
+   */
+
+  function handleSelectTab(event: React.MouseEvent<HTMLDivElement>) {
+    const value = event.currentTarget.id;
+    setActiveTabId(value);
+  }
+
   function handleValidateFonts(event: React.MouseEvent<HTMLButtonElement>) {
-    const message: PluginMessage = {
-      type: PLUGIN_MESSAGE_TYPE.VALIDATE_USED_FONTS,
+    const message: PluginEvent = {
+      type: PLUGIN_EVENT_TYPE.VALIDATE_USED_FONTS,
     };
     parent.postMessage({ pluginMessage: message }, '*');
+    setIsLoading(true);
   }
 
   function handleCreateTextStyles(event: React.MouseEvent<HTMLButtonElement>) {
-    const message: PluginMessage = {
-      type: PLUGIN_MESSAGE_TYPE.UPDATE_TEXT_STYLES,
+    const message: PluginEvent = {
+      type: PLUGIN_EVENT_TYPE.UPDATE_TEXT_STYLES,
     };
     parent.postMessage({ pluginMessage: message }, '*');
+    setIsLoading(true);
   }
 
   function handleRemoveTextStyles(event: React.MouseEvent<HTMLButtonElement>) {
-    const message: PluginMessage = {
-      type: PLUGIN_MESSAGE_TYPE.DELETE_TEXT_STYLES,
+    const message: PluginEvent = {
+      type: PLUGIN_EVENT_TYPE.DELETE_TEXT_STYLES,
     };
     parent.postMessage({ pluginMessage: message }, '*');
+    setIsLoading(true);
   }
 
   return (
     <Providers>
       <div className={styles.wrapper}>
-        <BoxV2 padding={[sizeVars.x2]}>
-          <Stack gap={[sizeVars.x2]}>
-            <Label
-              textStyle={TEXT_STYLE.boldUppercase}
-              variantLevel={Variant.secondary}
-              variant={LABEL_SIZE.xSmall}
-            >
+        <Tabs className={styles.tabs}>
+          <TabList>
+            <Tab id={'tab-1'} selected={activeTabId === 'tab-1'} onClick={handleSelectTab}>
               Fonts
-            </Label>
-            <Button size={ButtonSize.small} onClick={handleValidateFonts}>
-              Validate Fonts
-            </Button>
+            </Tab>
 
-            <Label
-              textStyle={TEXT_STYLE.boldUppercase}
-              variantLevel={Variant.secondary}
-              variant={LABEL_SIZE.xSmall}
-            >
+            <Tab id={'tab-2'} selected={activeTabId === 'tab-2'} onClick={handleSelectTab}>
               Text
-            </Label>
-            <Cluster gap={[sizeVars.x1]} justifyContent={['flex-start']}>
-              <Button size={ButtonSize.small} onClick={handleCreateTextStyles}>
-                Create Text Styles
+            </Tab>
+
+            <Tab id={'tab-3'} selected={activeTabId === 'tab-3'} onClick={handleSelectTab}>
+              Colors
+            </Tab>
+          </TabList>
+
+          <TabContent aria-labelledby={'tab-1'} hidden={activeTabId !== 'tab-1'}>
+            <Stack gap={[sizeVars.x2]} style={{ padding: 16 }}>
+              <Button
+                size={ButtonSize.small}
+                onClick={handleValidateFonts}
+                disabled={isLoading}
+                style={{ width: `100%` }}
+              >
+                Test All Fonts
               </Button>
+            </Stack>
+          </TabContent>
+
+          <TabContent aria-labelledby={'tab-2'} hidden={activeTabId !== 'tab-2'}>
+            <Stack gap={[sizeVars.x2]} style={{ padding: 16 }}>
+              <Button
+                size={ButtonSize.small}
+                onClick={handleCreateTextStyles}
+                disabled={isLoading}
+                style={{ width: `100%` }}
+              >
+                Sync
+              </Button>
+
               <Button
                 size={ButtonSize.small}
                 onClick={handleRemoveTextStyles}
                 variant={ButtonIntention.danger}
+                disabled={isLoading}
+                style={{ width: `100%` }}
               >
-                Remove Text Styles
+                Remove All
               </Button>
-            </Cluster>
-          </Stack>
-        </BoxV2>
+            </Stack>
+          </TabContent>
+
+          <TabContent aria-labelledby={'tab-3'} hidden={activeTabId !== 'tab-3'}>
+            <Stack gap={[sizeVars.x2]} style={{ padding: 16 }}>
+              Content of tab 3
+            </Stack>
+          </TabContent>
+        </Tabs>
 
         <Footer></Footer>
       </div>

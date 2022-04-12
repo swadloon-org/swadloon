@@ -9,7 +9,7 @@ export function formatNameFigma(value?: string | (string | undefined)[]): string
   }
 
   if (Array.isArray(value)) {
-    return value.map((str) => formatNameFigma(str)).join('/');
+    return value.map((str) => (str ? pascal(str) : '')).join('/');
   }
 
   return pascal(value);

@@ -148,7 +148,13 @@ function createCSSVariantTextStylesV2({
     ...createCSSTextStyle({ ...parentTextStyles, baseFontSize }),
     ...variantStyles,
     styles: keys(variantStylesStyles).reduce((previous, current) => {
-      previous[current] = createCSSTextStyle({ ...variantStylesStyles[current], baseFontSize });
+      previous[current] = createCSSTextStyle({
+        fontStyle: parentTextStyles.fontStyle, // merge the parent fontStyle
+        fontWeight: parentTextStyles.fontWeight, // merge the parent fontWeight
+        letterSpacing: parentTextStyles.letterSpacing, // merge the parent letterSpacing
+        ...variantStylesStyles[current],
+        baseFontSize,
+      });
       return previous;
     }, {} as TextVariantStyles<string>),
   };

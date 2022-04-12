@@ -40,12 +40,14 @@ export const tabContent = style({
 export const tabList = style({
   display: 'grid',
   gridAutoFlow: 'column',
+  height: 'fit-content',
   justifyContent: 'flex-start',
   borderBottom: `1px solid ${colorVars.colors.grey[200]}`,
 });
 
 export const tabs = style({
   display: 'grid',
+  gridTemplateRows: `min-content 1fr`,
 });
 
 /**

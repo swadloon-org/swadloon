@@ -161,22 +161,22 @@ export const defaultTypography: DefaultTypographyV2 = {
         fontWeight: 500,
       },
     },
-    mobile: {
+    desktop: {
       large: {
         fontSize: 18,
-        lineGap: 16,
+        lineGap: 18,
       },
       medium: {
         fontSize: 16,
-        lineGap: 14,
+        lineGap: 16,
       },
       small: {
         fontSize: 14,
-        lineGap: 12,
+        lineGap: 14,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 10,
+        lineGap: 12,
       },
     },
     tablet: {
@@ -197,22 +197,22 @@ export const defaultTypography: DefaultTypographyV2 = {
         lineGap: 10,
       },
     },
-    desktop: {
+    mobile: {
       large: {
         fontSize: 18,
-        lineGap: 18,
+        lineGap: 16,
       },
       medium: {
         fontSize: 16,
-        lineGap: 16,
+        lineGap: 14,
       },
       small: {
         fontSize: 14,
-        lineGap: 14,
+        lineGap: 12,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 12,
+        lineGap: 10,
       },
     },
   },

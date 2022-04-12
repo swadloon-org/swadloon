@@ -2,7 +2,12 @@ import { globalStyle, style } from '@vanilla-extract/css';
 
 export const wrapper = style({
   display: 'grid',
-  gridTemplateRows: '1fr  min-content',
+  gridTemplateRows: '1fr min-content',
+  height: '100%',
+});
+
+export const tabs = style({
+  flex: `1 1 100%`,
 });
 
 /**

@@ -67,9 +67,27 @@ function findAllFontInTypography(typography: TypographyV2<string>): FontName[] {
   const figmaFontNameToLoad: FontName[] = [];
 
   keys(typography.titles).forEach((prop) => findFontInTextVariant(typography.titles[prop]));
+
   keys(typography.headings).forEach((prop) => findFontInTextVariant(typography.headings[prop]));
-  keys(typography.labels).forEach((prop) => findFontInTextVariant(typography.labels[prop]));
+
+  keys(typography.labels).forEach((prop) =>
+    findFontInTextVariant(typography.labels[prop], typography.labels)
+  );
+  keys(typography.labels.styles).forEach((prop) =>
+    findFontInTextVariant(
+      typography.labels.styles[prop] as DS.TextVariantStyles<string>,
+      typography.labels
+    )
+  );
+
   keys(typography.paragraphs).forEach((prop) => findFontInTextVariant(typography.paragraphs[prop]));
+
+  keys(typography.paragraphs.styles).forEach((prop) =>
+    findFontInTextVariant(
+      typography.paragraphs.styles[prop] as DS.TextVariantStyles<string>,
+      typography.paragraphs
+    )
+  );
 
   function findFontInTextVariant(
     value:
@@ -79,14 +97,20 @@ function findAllFontInTypography(typography: TypographyV2<string>): FontName[] {
       | DS.LabelsV2<string>
       | DS.ParagraphsV2<string>
       | DS.TextVariantStyles<string>
-      | undefined
+      | undefined,
+    parent?: DS.TextStyle<string>
   ) {
     if (!value) {
       return;
     }
 
-    const valueAsTextStyle = value as DS.TextStyle<string>;
-    const valueAsVariants = value as DS.TitlesV2<string>;
+    const styleValue = (value as DS.TextStyle<string>).fontFamily
+      ? value
+      : { ...parent, ...(value as DS.TextStyle<string>) };
+
+    const valueAsTextStyle = styleValue as DS.TextStyle<string>;
+    const valueAsVariants = styleValue as DS.TextStyle<string>;
+    const valueAsTextStyleVariants = styleValue as DS.TextStyle<string>;
 
     const figmaFontName = getFigmaFontFromTextStyle(valueAsTextStyle);
 
@@ -96,7 +120,15 @@ function findAllFontInTypography(typography: TypographyV2<string>): FontName[] {
 
     keys(valueAsVariants).forEach((variant) => {
       const variantStyle = valueAsVariants[variant];
-      const figmaFontName = getFigmaFontFromTextStyle(variantStyle);
+      const figmaFontName = getFigmaFontFromTextStyle(variantStyle as DS.TextStyle<string>);
+      if (figmaFontName) {
+        addFigmaFontToList(figmaFontName, figmaFontNameToLoad);
+      }
+    });
+
+    keys(valueAsTextStyleVariants).forEach((style) => {
+      const textStyle = valueAsTextStyleVariants[style];
+      const figmaFontName = getFigmaFontFromTextStyle(textStyle as DS.TextStyle<string>);
       if (figmaFontName) {
         addFigmaFontToList(figmaFontName, figmaFontNameToLoad);
       }
@@ -108,7 +140,7 @@ function findAllFontInTypography(typography: TypographyV2<string>): FontName[] {
 
 function addFigmaFontToList(fontNameToAdd: FontName, fontNameList: FontName[]) {
   const alreadyAdded = !!fontNameList.find(
-    (font) => font.family + '/' + font.style === fontNameToAdd.family + '/' + fontNameToAdd.style
+    (font) => getFigmaFontNameUniqueId(font) === getFigmaFontNameUniqueId(fontNameToAdd)
   );
 
   if (alreadyAdded) {
@@ -118,11 +150,15 @@ function addFigmaFontToList(fontNameToAdd: FontName, fontNameList: FontName[]) {
   fontNameList.push(fontNameToAdd);
 }
 
+export function getFigmaFontNameUniqueId(font: FontName) {
+  return font.family + '/' + font.style;
+}
+
 /**
  * Give a TextStyle<string>, return a Figma FontName object
  */
-export function getFigmaFontFromTextStyle(textStyles: DS.TextStyle<string>): FontName | undefined {
-  if (!textStyles.fontFamily) {
+export function getFigmaFontFromTextStyle(textStyles?: DS.TextStyle<string>): FontName | undefined {
+  if (!textStyles?.fontFamily) {
     return undefined;
   }
 
@@ -130,6 +166,13 @@ export function getFigmaFontFromTextStyle(textStyles: DS.TextStyle<string>): Fon
 
   if (!firstFontFamily) {
     return undefined;
+  }
+
+  if (textStyles.fontStyle === 'italic') {
+    return {
+      family: firstFontFamily,
+      style: getFontWeightItalicStringForNumber(textStyles.fontWeight),
+    };
   }
 
   return {
@@ -141,7 +184,7 @@ export function getFigmaFontFromTextStyle(textStyles: DS.TextStyle<string>): Fon
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
  */
-function getFontWeightStringForNumber(fontWeight?: string) {
+export function getFontWeightStringForNumber(fontWeight?: string) {
   switch (fontWeight) {
     case '100': {
       return 'Thin';
@@ -173,6 +216,45 @@ function getFontWeightStringForNumber(fontWeight?: string) {
     default:
     case '400': {
       return 'Regular';
+    }
+  }
+}
+
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
+ */
+export function getFontWeightItalicStringForNumber(fontWeight?: string) {
+  switch (fontWeight) {
+    case '100': {
+      return 'Thin Italic';
+    }
+    case '200': {
+      return 'Extra Light Italic';
+    }
+    case '300': {
+      return 'Light Italic';
+    }
+    case '500': {
+      return 'Medium Italic';
+    }
+    case '600': {
+      return 'Semi Bold Italic';
+    }
+    case '700': {
+      return 'Bold Italic';
+    }
+    case '800': {
+      return 'Extra Bold Italic';
+    }
+    case '900': {
+      return 'Black Italic';
+    }
+    case '950': {
+      return 'Extra Black Italic';
+    }
+    default:
+    case '400': {
+      return 'Italic';
     }
   }
 }
