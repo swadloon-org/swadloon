@@ -28,7 +28,9 @@ export const getFigmaPluginConfig: (options: { isDevelopment: boolean }) => Conf
       ? {
           type: 'memory',
         }
-      : false,
+      : {
+          type: 'filesystem',
+        },
     devtool: 'inline-source-map',
     optimization: {
       minimize: false,
@@ -55,7 +57,7 @@ export const getFigmaPluginConfig: (options: { isDevelopment: boolean }) => Conf
        * CSS
        */
       getVanillaExtractPlugin(),
-      getMiniCSSExtractPlugin({ filename: '[name].[contenthash:8].css' }),
+      getMiniCSSExtractPlugin({ filename: '[name].css' }),
       /**
        * Others
        */

@@ -5,7 +5,14 @@ import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { log, logWarn } from './utilities';
 
 /**
- * Load fonts asynchronously in Figma
+ *
+ * Fonts related utilities
+ *
+ */
+
+/**
+ * Find fonts in the Typography configuration and load then asynchronously in Figma
+ * to verify that they are found and valid
  */
 export async function loadUsedFontsInTypography(typography: TypographyV2<string>): Promise<{
   errors: string[];

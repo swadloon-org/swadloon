@@ -5,12 +5,15 @@ import { VIEWPORT } from '@newrade/core-design-system';
 import { keys, pxStringToNumber } from '@newrade/core-react-ui/utilities-iso';
 import { cssTypography } from '@newrade/ze-design-system/css';
 
+import { getFigmaFontFromTextStyle, loadUsedFontsInTypography } from './utilities/fonts.utilities';
 import { lorenipsumMedium } from './utilities/loren-ipsum';
-import { getFigmaFontFromTextStyle, loadUsedFontsInTypography } from './figma.utilities';
+import { formatNameFigma, isViewportProp, log } from './utilities/utilities';
 import { PLUGIN_MESSAGE_TYPE, PluginMessage } from './messages';
-import { formatNameFigma, isViewportProp, log } from './utilities';
 
-figma.showUI(__html__);
+figma.showUI(__html__, {
+  width: 360,
+  height: 400,
+});
 
 figma.ui.onmessage = async (message: PluginMessage) => {
   if (message.type === PLUGIN_MESSAGE_TYPE.VALIDATE_USED_FONTS) {
@@ -89,17 +92,20 @@ figma.ui.onmessage = async (message: PluginMessage) => {
           const newFigmaText = figma.createText();
           containerFrame.appendChild(newFigmaText);
           newFigmaText.name = newFigmaTextStyle.name;
-          newFigmaText.layoutAlign = 'STRETCH';
           newFigmaText.characters = newFigmaTextStyle.name;
           newFigmaText.textStyleId = newFigmaTextStyle.id;
+          newFigmaText.resize(400, 200);
+          newFigmaText.layoutAlign = 'STRETCH';
+          newFigmaText.textAutoResize = 'HEIGHT';
 
           const newFigmaTextLorenIpsum = figma.createText();
           containerFrame.appendChild(newFigmaTextLorenIpsum);
           newFigmaTextLorenIpsum.name = newFigmaTextStyle.name;
+          newFigmaTextLorenIpsum.textStyleId = newFigmaTextStyle.id;
+          newFigmaTextLorenIpsum.characters = lorenipsumMedium;
           newFigmaTextLorenIpsum.resize(400, 200);
           newFigmaTextLorenIpsum.layoutAlign = 'STRETCH';
-          newFigmaTextLorenIpsum.characters = lorenipsumMedium;
-          newFigmaTextLorenIpsum.textStyleId = newFigmaTextStyle.id;
+          newFigmaTextLorenIpsum.textAutoResize = 'HEIGHT';
 
           log(`created style: ${heading}`);
         });

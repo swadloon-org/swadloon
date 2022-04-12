@@ -1,11 +1,23 @@
 import * as React from 'react'; // don't change * import (needed for Figma plugin)
 import * as ReactDOM from 'react-dom'; // don't change * import (needed for Figma plugin)
 
+import {
+  ButtonIntention,
+  ButtonSize,
+  LABEL_SIZE,
+  TEXT_STYLE,
+  Variant,
+} from '@newrade/core-design-system';
+import { BoxV2, Button, Cluster, Label, Stack } from '@newrade/core-react-ui';
+import { sizeVars } from '@newrade/core-react-ui/theme';
+
+import { Footer } from './layout/footer';
+import { Providers } from './providers/providers';
 import { PLUGIN_MESSAGE_TYPE, PluginMessage } from './messages';
 
-import './ui.css';
-
 declare function require(path: string): any;
+
+import * as styles from './ui.css';
 
 const App: React.FC = function App() {
   function handleValidateFonts(event: React.MouseEvent<HTMLButtonElement>) {
@@ -30,12 +42,46 @@ const App: React.FC = function App() {
   }
 
   return (
-    <div>
-      <button onClick={handleValidateFonts}>Validate Fonts</button>
-      <button onClick={handleCreateTextStyles}>Create Text Styles</button>
-      <button onClick={handleCreateTextStyles}>Create Text Styles</button>
-      <button onClick={handleRemoveTextStyles}>Remove Text Styles</button>
-    </div>
+    <Providers>
+      <div className={styles.wrapper}>
+        <BoxV2 padding={[sizeVars.x2]}>
+          <Stack gap={[sizeVars.x2]}>
+            <Label
+              textStyle={TEXT_STYLE.boldUppercase}
+              variantLevel={Variant.secondary}
+              variant={LABEL_SIZE.xSmall}
+            >
+              Fonts
+            </Label>
+            <Button size={ButtonSize.small} onClick={handleValidateFonts}>
+              Validate Fonts
+            </Button>
+
+            <Label
+              textStyle={TEXT_STYLE.boldUppercase}
+              variantLevel={Variant.secondary}
+              variant={LABEL_SIZE.xSmall}
+            >
+              Text
+            </Label>
+            <Cluster gap={[sizeVars.x1]} justifyContent={['flex-start']}>
+              <Button size={ButtonSize.small} onClick={handleCreateTextStyles}>
+                Create Text Styles
+              </Button>
+              <Button
+                size={ButtonSize.small}
+                onClick={handleRemoveTextStyles}
+                variant={ButtonIntention.danger}
+              >
+                Remove Text Styles
+              </Button>
+            </Cluster>
+          </Stack>
+        </BoxV2>
+
+        <Footer></Footer>
+      </div>
+    </Providers>
   );
 };
 

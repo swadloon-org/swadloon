@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
+  <head>
     <!-- INLINE STYLES -->
     <%= htmlWebpackPlugin.files.css
-     .map(css => `<style>${compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source()}</style>`).join('')
-     %>
-
+    .map(css => `<style>${compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source()}</style>`).join('')
+    %>
+  </head>
+  <body>
     <div id="figma-plugin"></div>
 
     <!-- INLINE SCRIPT -->

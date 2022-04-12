@@ -115,13 +115,17 @@ export const CSSThemeProvider = function CSSThemeProvider({
    * Check if theme preference is already set in local storage
    */
   const localStorageThemeScheme = useRef<GLOBAL_CSS_THEME_SCHEME | null>(null);
-  localStorageThemeScheme.current = isSSR
-    ? null
-    : (window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_SCHEME_PROP) as GLOBAL_CSS_THEME_SCHEME);
+  localStorageThemeScheme.current =
+    isSSR || !syncToLocalStorage
+      ? null
+      : (window.localStorage.getItem(
+          LOCAL_STORAGE_CSS_THEME_SCHEME_PROP
+        ) as GLOBAL_CSS_THEME_SCHEME);
   const localStorageThemeName = useRef<string | null>(null);
-  localStorageThemeName.current = isSSR
-    ? null
-    : window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_NAME_PROP);
+  localStorageThemeName.current =
+    isSSR || !syncToLocalStorage
+      ? null
+      : window.localStorage.getItem(LOCAL_STORAGE_CSS_THEME_NAME_PROP);
 
   /**
    * Init internal context value
@@ -256,6 +260,9 @@ export const CSSThemeProvider = function CSSThemeProvider({
       (theme) => theme.className === localStorageThemeName.current
     );
     const foundThemeByScheme = themes?.find((theme) => {
+      if (!localStorageThemeScheme.current) {
+        return theme.colorScheme === COLOR_SCHEME.LIGHT;
+      }
       if (localStorageThemeScheme.current === GLOBAL_CSS_THEME_SCHEME.LIGHT) {
         return theme.colorScheme === COLOR_SCHEME.LIGHT;
       }
@@ -291,10 +298,16 @@ export const CSSThemeProvider = function CSSThemeProvider({
         return;
       }
 
+      if (foundThemeByScheme) {
+        log(`setting theme to: ${foundThemeByScheme.name}`);
+        handleChangeThemeName(foundThemeByScheme.name);
+        return;
+      }
+
+      //
+      // if we don't have a previous theme set in local storage, we take the first theme that matches the user's color scheme
+      //
       if (foundThemeByUserDeviceSetting) {
-        //
-        // if we don't have a previous theme set in local storage, we take the first theme that matches the user's color scheme
-        //
         log(`no previous theme selected, defaulting to: ${foundThemeByUserDeviceSetting.name}`);
         handleChangeThemeName(foundThemeByUserDeviceSetting.name);
       }

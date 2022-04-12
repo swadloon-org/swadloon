@@ -218,25 +218,25 @@ export const defaultTypography: DefaultTypographyV2 = {
   },
   labels: {
     fontFamily: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 500,
+    fontWeight: 600,
     styles: {
       normal: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       italic: { fontStyle: 'italic' },
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       italicBold: {
         fontStyle: 'italic',
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 5,
       },
       uppercase: {
-        fontWeight: 400,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 5,
       },

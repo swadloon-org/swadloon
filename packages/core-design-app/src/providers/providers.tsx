@@ -28,7 +28,7 @@ export const Providers: React.FC = (props) => {
         value={{
           config: cssThemeConfig,
         }}
-        options={{ applyThemeToRootElement: true, syncToLocalStorage: true }}
+        options={{ applyThemeToRootElement: true, syncToLocalStorage: false }}
       >
         {/* <MDXProvider components={mdxComponents}> */}
         <GlobalCSSVariables>

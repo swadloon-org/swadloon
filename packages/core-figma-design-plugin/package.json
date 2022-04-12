@@ -12,6 +12,11 @@
     "webpack:dev": "nr webpack --config webpack.prod.config.ts --watch",
     "webpack:prod": "nr webpack --config webpack.prod.config.ts"
   },
+  "sideEffects": [
+    "*.css",
+    "*.css.ts",
+    "*.css.js"
+  ],
   "dependencies": {
     "@figma/plugin-typings": "^1"
   }
