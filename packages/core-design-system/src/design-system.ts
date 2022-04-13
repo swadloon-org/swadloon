@@ -40,6 +40,10 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    */
   // illustrations: any;
   /**
+   * TODO
+   */
+  // photography: any;
+  /**
    * Shadows, elevation, blurs and other visual effects.
    */
   effects: Effects<Override>;

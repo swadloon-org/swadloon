@@ -13,7 +13,7 @@ import { lightThemeConfig } from '@newrade/ze-design-system/css';
 /**
  * Provide global CSS, Icons and Logos
  */
-export const Providers: React.FC = (props) => {
+export const Providers: React.FC<React.PropsWithChildren<{}>> = (props) => {
   return (
     <CSSThemeProvider
       value={{

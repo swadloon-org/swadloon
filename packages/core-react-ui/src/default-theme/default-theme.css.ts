@@ -92,6 +92,7 @@ export const fontsVars: MapLeafNodes<CSSFontsV2, CSSVarFunction> =
 export const typographyVars: MapLeafNodes<CSSTypographyV2, CSSVarFunction> =
   createGlobalThemeContract<CSSTypographyV2>(defaultCSSTypography, propertyFormatFn());
 export const typographyCSS = defaultCSSTypography;
+export const typoSpaceVars = typographyVars.spaces;
 
 /**
  * Layout

@@ -3,8 +3,13 @@ import { MapLeafNodes } from '@vanilla-extract/private';
 
 import {
   CapsizeTextStyle,
+  HeadingSpaces,
+  ParagraphSpaces,
+  TEXT_SPACING,
+  TextSpaces,
   TextStyle,
   TextVariantStyles,
+  TitlesSpaces,
   TitlesV2,
   TypographyV2,
   VIEWPORT,
@@ -12,7 +17,7 @@ import {
 
 import { defaultSansFont, defaultSerifFont } from '../default-theme';
 import { CSSTypographyV2 } from '../design-system';
-import { keys } from '../utilities-iso/utilities';
+import { em, keys, pxToEm } from '../utilities-iso/utilities';
 
 import { setVarsValuesToStyleObject } from './component.utilities';
 import { getCSSFontsObject } from './font.utilities';
@@ -32,6 +37,7 @@ export function getCSSTypographyV2({
   paragraphs,
   labels,
   baseFontSize,
+  spaces,
   vars,
 }: TypographyV2 & { baseFontSize: number }): CSSTypographyV2 {
   const titlesFontMetrics = titles.fontFamily?.[0].fontMetrics
@@ -70,6 +76,8 @@ export function getCSSTypographyV2({
     fontMetrics: labelsFontMetrics,
   });
 
+  const cssSpaces = getCSSTypographicSpaces(spaces);
+
   const cssTypography = {
     fonts: {
       ...getCSSFontsObject(fonts),
@@ -78,6 +86,7 @@ export function getCSSTypographyV2({
     headings: headingsStyles as TypographyV2<string>['headings'],
     paragraphs: paragraphsStyles as TypographyV2<string>['paragraphs'],
     labels: labelsStyles as TypographyV2<string>['labels'],
+    spaces: cssSpaces as TypographyV2<string>['spaces'],
   };
 
   if (!vars) {
@@ -158,4 +167,42 @@ function createCSSVariantTextStylesV2({
       return previous;
     }, {} as TextVariantStyles<string>),
   };
+}
+
+function getCSSTypographicSpaces(spaces: TextSpaces): TextSpaces<string> {
+  return keys(spaces).reduce(
+    (previous, current) => {
+      const textSpacings = spaces[current];
+      if (!textSpacings) {
+        return previous;
+      }
+
+      keys(textSpacings).forEach(
+        (
+          textSpaceName:
+            | keyof TitlesSpaces<undefined>
+            | keyof HeadingSpaces<undefined>
+            | keyof ParagraphSpaces<undefined>
+        ) => {
+          // @ts-ignore
+          if (!previous[current][textSpaceName]) {
+            // @ts-ignore
+            previous[current][textSpaceName] = {};
+          }
+          const textSpaces = (textSpacings as TitlesSpaces<undefined>)[
+            textSpaceName as keyof TitlesSpaces<undefined>
+          ];
+
+          // @ts-ignore
+          previous[current][textSpaceName] = {
+            [TEXT_SPACING.after]: em({ value: textSpaces.before }),
+            [TEXT_SPACING.before]: em({ value: textSpaces.after }),
+          };
+        }
+      );
+
+      return previous;
+    },
+    { titles: {}, headings: {}, paragraphs: {} } as TextSpaces<string>
+  );
 }

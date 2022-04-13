@@ -87,6 +87,7 @@ export const GoogleMaps: React.FC<Props> = React.memo(
      */
 
     return (
+      // @ts-ignore TODO: needs React.PropsWithChildren<P> with @types/react v18
       <LoadScript
         id={id}
         libraries={libraries}

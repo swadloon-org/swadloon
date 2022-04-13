@@ -18,7 +18,11 @@ export const LazyComponentLoader: React.FC<Props> = function Layout({ lazyCompon
 
     if (!selectedModule?.requireFn) {
       return Promise.resolve({
-        default: () => <div>Could not load component ({selectedModule})</div>,
+        default: () => (
+          <div>
+            <>Could not load component ({selectedModule})</>
+          </div>
+        ),
       });
     }
 

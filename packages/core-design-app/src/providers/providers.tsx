@@ -21,7 +21,7 @@ import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css
 /**
  * Provide context over /docs/ and /design-system/ pages
  */
-export const Providers: React.FC = (props) => {
+export const Providers: React.FC<React.PropsWithChildren<{}>> = (props) => {
   return (
     <ViewportProvider context={viewportContext}>
       <CSSThemeProvider

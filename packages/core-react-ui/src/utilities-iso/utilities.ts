@@ -36,6 +36,20 @@ export function px({ value }: { value?: number }): string {
 }
 
 /**
+ * Convert a number into a em string.
+ * @param em value in pixel
+ */
+export function em({ value }: { value?: number }): string {
+  if (!value) {
+    return '';
+  }
+  if (isNaN(value as number)) {
+    return '';
+  }
+  return `${value}em`;
+}
+
+/**
  * Convert a number (in px) into a rem value.
  * @param px value in pixel
  * @param baseUnitPx font-size set on the <html/> element

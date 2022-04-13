@@ -1,35 +1,19 @@
 import * as React from 'react'; // don't change * import (needed for Figma plugin)
 import * as ReactDOM from 'react-dom'; // don't change * import (needed for Figma plugin)
 
-import {
-  ButtonIntention,
-  ButtonSize,
-  LABEL_SIZE,
-  TEXT_STYLE,
-  Variant,
-} from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Button,
-  Cluster,
-  Label,
-  Stack,
-  Tab,
-  TabContent,
-  TabList,
-  Tabs,
-} from '@newrade/core-react-ui';
+import { ButtonIntention, ButtonSize } from '@newrade/core-design-system';
+import { Button, Stack, Tab, TabContent, TabList, Tabs } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
 import { Footer } from './layout/footer';
 import { Providers } from './providers/providers';
 import { PLUGIN_EVENT_TYPE, PluginEvent } from './messages';
 
-declare function require(path: string): any;
-
 import * as styles from './ui.css';
 
-const App: React.FC = function App() {
+declare function require(path: string): any;
+
+const App: React.FC<React.PropsWithChildren<{}>> = function App() {
   /**
    *
    * States

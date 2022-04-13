@@ -4,7 +4,7 @@ import { CapsizeOptions, ComputedValues } from '@capsizecss/core/dist/declaratio
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
 
-import { round } from '../utilities-iso';
+import { getScaledValue, ModularScaleOptions, round } from '../utilities-iso';
 import { pxStringToNumber, pxStringToRem } from '../utilities-iso/utilities';
 
 import { getCSSFonts } from './font.utilities';
@@ -101,6 +101,9 @@ export type CapsizeStyles = {
 
 type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTextStyle;
 
+/**
+ * Convert TextStyle into a CSS compatible Capsize object
+ */
 export function createCSSCapsizeTextStyle({
   baseFontSize,
   fontFamily,
@@ -153,6 +156,9 @@ export function createCSSCapsizeTextStyle({
 }
 
 /**
+ *
+ * Convert TextStyle into a CSS compatible Capsize object
+ *
  * @version
  *  - v2: uses css vars instead of raw value
  */
@@ -222,27 +228,103 @@ export function convertCapsizeValuesToRem({
  * Given a fontSize or capHeight, returns a default size for lineGap
  */
 export function getCapsizeTextForRatio(
-  options: Partial<CapsizeTextStyle>,
+  textStyles: Partial<CapsizeTextStyle>,
   { lineGapRatio }: { lineGapRatio: number } = { lineGapRatio: 0.5 }
 ): CapsizeTextStyle {
-  if (options.fontSize !== undefined) {
+  if (textStyles.fontSize !== undefined) {
     return {
-      fontSize: options.fontSize,
+      fontSize: textStyles.fontSize,
       lineGap: round({
-        value: options.fontSize * lineGapRatio,
+        value: textStyles.fontSize * lineGapRatio,
         precision: 0,
       }),
     };
   }
-  if (options.capHeight !== undefined) {
+  if (textStyles.capHeight !== undefined) {
     return {
-      capHeight: options.capHeight,
+      capHeight: textStyles.capHeight,
       lineGap: round({
-        value: options.capHeight / 2,
+        value: textStyles.capHeight / 2,
         precision: 0,
       }),
     };
   }
+  return {
+    fontSize: 16,
+    lineGap: 16,
+  };
+}
+
+const defaultCapsizeScaleOptions: CapsizeScaleOptions = {
+  lineGapRatio: 0.5,
+};
+
+type CapsizeScaleOptions = {
+  /**
+   * Ratio to fontsize to set the line gap
+   * @example 0.5 with a fontsize of 16 would mean a linegap of 8
+   */
+  lineGapRatio: number;
+};
+
+const defaultModularScaleOptions: Required<
+  Pick<ModularScaleOptions, 'step' | 'ratio' | 'precision'>
+> = {
+  step: 0,
+  ratio: 'goldenSection',
+  precision: 0,
+};
+
+type TypographicScaledTextOptions = Partial<CapsizeTextStyle> &
+  CapsizeScaleOptions &
+  Pick<ModularScaleOptions, 'step' | 'ratio' | 'precision'>;
+
+/**
+ * Given a starting fontsize (or capsize) and a power ratio, returns scaled
+ * values the choosen base, power and step
+ */
+export function getTypographicScaledText(options: TypographicScaledTextOptions): CapsizeTextStyle {
+  const { fontSize, capHeight, lineGapRatio, ratio, step, precision } = {
+    ...defaultModularScaleOptions,
+    ...defaultCapsizeScaleOptions,
+    ...options,
+  };
+
+  if (fontSize !== undefined) {
+    const scaledFontSize = getScaledValue({
+      base: fontSize,
+      ratio,
+      step,
+      precision,
+    });
+    return {
+      ...options,
+      fontSize: scaledFontSize,
+      lineGap: round({
+        value: scaledFontSize * lineGapRatio,
+        precision,
+      }),
+    };
+  }
+
+  if (capHeight !== undefined) {
+    const scaledCapheight = getScaledValue({
+      base: capHeight,
+      ratio,
+      step,
+      precision,
+    });
+
+    return {
+      ...options,
+      capHeight: scaledCapheight,
+      lineGap: round({
+        value: scaledCapheight / 2,
+        precision: 0,
+      }),
+    };
+  }
+
   return {
     fontSize: 16,
     lineGap: 16,

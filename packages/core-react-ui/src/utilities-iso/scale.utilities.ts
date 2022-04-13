@@ -1,3 +1,5 @@
+import { round } from './math.utilities';
+
 export type ModularScaleRatio =
   | number
   | 'minorSecond'
@@ -38,21 +40,25 @@ export const ratioNames: { [key in ModularScaleRatio]: number } = {
   doubleOctave: 4,
 };
 
+export type ModularScaleOptions = {
+  step: number;
+  base: number;
+  ratio: ModularScaleRatio;
+  precision?: number;
+};
+
 /**
  * Return values of a modular scale
  * @example
- *  modularScale(0, 12, 'goldenSection') => 12
- *  modularScale(1, 12, 'goldenSection') => 19.41...
- *  modularScale(2, 12, 'goldenSection') => 31.41...
- *  modularScale(4, 12, 'goldenSection') => 50.82...
- *  modularScale(3, 12, 'goldenSection') => 82.24...
+ *  getScaledValue(0, 12, 'goldenSection') => 12
+ *  getScaledValue(1, 12, 'goldenSection') => 19.41...
+ *  getScaledValue(2, 12, 'goldenSection') => 31.41...
+ *  getScaledValue(4, 12, 'goldenSection') => 50.82...
+ *  getScaledValue(4, 12, 'goldenSection', true) => 51...
+ *  getScaledValue(3, 12, 'goldenSection') => 82.24...
  */
-export function modularScale(
-  steps: number,
-  base: number,
-  ratio: ModularScaleRatio = 1.333
-): number {
-  if (typeof steps !== 'number') {
+export function getScaledValue({ step, base, ratio, precision }: ModularScaleOptions): number {
+  if (typeof step !== 'number') {
     throw new Error('Steps must be a number');
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
@@ -60,5 +66,11 @@ export function modularScale(
   }
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio;
 
-  return base * realRatio ** steps;
+  const value = base * realRatio ** step;
+
+  if (precision !== undefined) {
+    return round({ value, precision });
+  }
+
+  return round({ value, precision: 4 });
 }

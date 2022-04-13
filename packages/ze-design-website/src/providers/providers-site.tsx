@@ -22,7 +22,7 @@ import * as CssTheme from '@newrade/ze-design-system/css';
 /**
  * Provide context on the website site pages (other than /docs/ and /design-system/)
  */
-export const ProvidersSite: React.FC = (props) => {
+export const ProvidersSite: React.FC<React.PropsWithChildren<{}>> = (props) => {
   return (
     <ViewportProvider context={viewportContext}>
       <CSSThemeProvider

@@ -13,7 +13,10 @@ type ViewportProviderProps = {
   context: React.Context<ViewportContext>;
 };
 
-export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, context }) => {
+export const ViewportProvider: React.FC<React.PropsWithChildren<ViewportProviderProps>> = ({
+  children,
+  context,
+}) => {
   const windowGlobal = typeof window !== 'undefined' && window;
 
   const [width, setWidth] = React.useState<ViewportContext['width']>(

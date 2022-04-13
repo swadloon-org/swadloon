@@ -11,7 +11,7 @@ type State = {
 /**
  * @see https://reactjs.org/docs/react-component.html#componentdidcatch
  */
-export class ErrorBoundary extends React.Component<Props, State> {
+export class ErrorBoundary extends React.Component<React.PropsWithChildren<Props>, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false };

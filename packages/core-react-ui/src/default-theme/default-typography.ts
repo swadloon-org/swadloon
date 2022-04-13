@@ -1,6 +1,7 @@
 import { DefaultTypographyV2, Fonts, TEXT_TRANSFORM } from '@newrade/core-design-system';
 
 import { cssVar } from '../utilities-iso/css-variables.utilities';
+import { getTypographicScaledText } from '../utilities-theme';
 
 import * as fonts from './default-fonts';
 
@@ -35,34 +36,46 @@ export const defaultTypography: DefaultTypographyV2 = {
     fontFamily: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     fontWeight: 700,
     desktop: {
-      t1: {
-        capHeight: 42,
-        lineGap: 45,
-      },
-      t2: {
-        capHeight: 36,
-        lineGap: 32,
-      },
+      t1: getTypographicScaledText({
+        fontSize: 40,
+        lineGapRatio: 0.5,
+        step: 1,
+        ratio: 'goldenSection',
+      }),
+      t2: getTypographicScaledText({
+        fontSize: 40,
+        lineGapRatio: 0.5,
+        step: 0,
+        ratio: 'goldenSection',
+      }),
     },
     tablet: {
-      t1: {
-        capHeight: 38,
-        lineGap: 28,
-      },
-      t2: {
-        capHeight: 32,
-        lineGap: 26,
-      },
+      t1: getTypographicScaledText({
+        fontSize: 36,
+        lineGapRatio: 0.5,
+        step: 1,
+        ratio: 'perfectFourth',
+      }),
+      t2: getTypographicScaledText({
+        fontSize: 36,
+        lineGapRatio: 0.5,
+        step: 0,
+        ratio: 'perfectFourth',
+      }),
     },
     mobile: {
-      t1: {
-        capHeight: 34,
-        lineGap: 24,
-      },
-      t2: {
-        capHeight: 28,
-        lineGap: 22,
-      },
+      t1: getTypographicScaledText({
+        fontSize: 34,
+        lineGapRatio: 0.5,
+        step: 1,
+        ratio: 'minorThird',
+      }),
+      t2: getTypographicScaledText({
+        fontSize: 34,
+        lineGapRatio: 0.5,
+        step: 0,
+        ratio: 'minorThird',
+      }),
     },
   },
   headings: {
@@ -281,6 +294,54 @@ export const defaultTypography: DefaultTypographyV2 = {
       xSmall: {
         fontSize: 13,
         lineGap: 13,
+      },
+    },
+  },
+  spaces: {
+    titles: {
+      t1: {
+        before: 2,
+        after: 1,
+      },
+      t2: {
+        before: 2,
+        after: 1,
+      },
+    },
+    headings: {
+      h1: {
+        before: 2,
+        after: 1,
+      },
+      h2: {
+        before: 2,
+        after: 1,
+      },
+      h3: {
+        before: 2,
+        after: 1,
+      },
+      h4: {
+        before: 2,
+        after: 1,
+      },
+    },
+    paragraphs: {
+      large: {
+        before: 1,
+        after: 1,
+      },
+      medium: {
+        before: 1,
+        after: 1,
+      },
+      small: {
+        before: 1,
+        after: 1,
+      },
+      xSmall: {
+        before: 1,
+        after: 1,
       },
     },
   },

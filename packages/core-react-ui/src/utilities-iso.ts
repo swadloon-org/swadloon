@@ -10,4 +10,5 @@ export * from './utilities-iso/components.utilities';
 export * from './utilities-iso/css-variables.utilities';
 export * from './utilities-iso/log.utilities';
 export * from './utilities-iso/math.utilities';
+export * from './utilities-iso/scale.utilities';
 export * from './utilities-iso/utilities';
