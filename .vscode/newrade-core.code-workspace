@@ -138,7 +138,10 @@
       "titleBar.inactiveBackground": "#63fd6799",
       "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#63fd67"
+    "peacock.color": "#63fd67",
+    "[prisma]": {
+      "editor.defaultFormatter": "Prisma.prisma"
+    }
   },
   "extensions": {
     "recommendations": [

@@ -72,7 +72,7 @@ export function convertLetterSpacingToPercent({
 /**
  * Convert px letter spacing value to em units
  */
-export function convertLetterSpacingToEM({
+export function convertPxLetterSpacingToEm({
   value,
   fontSize,
 }: {
@@ -103,7 +103,7 @@ export function convertLetterSpacingToEM({
     return undefined;
   }
 
-  return `${convertedValue / 100}em`;
+  return `${convertedValue / numericFontSize}em`;
 }
 
 export function getCSSFontTextStyles(

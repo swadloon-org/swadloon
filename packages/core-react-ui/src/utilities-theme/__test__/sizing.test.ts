@@ -1,13 +1,185 @@
 import { Sizing } from '@newrade/core-design-system';
 
 import { defaultSizing } from '../../default-theme/default-sizing';
-import { getCSSSizingV2 } from '../sizing.utilities';
+import { getCSSSizingStepV2, getCSSSizingV2 } from '../sizing.utilities';
 
-describe('shadows utilities', () => {
+describe('sizing utilities', () => {
   describe(`${getCSSSizingV2.name}`, () => {
-    it('should create a valid CSS box-shadow property', () => {
+    it('should create matching CSS Sizing object', () => {
       const sizing = getCSSSizingV2(defaultSizing) as Sizing<string>;
       expect(sizing).toMatchSnapshot();
+    });
+  });
+
+  describe(`${getCSSSizingStepV2.name}`, () => {
+    it('should create valid CSS sizing steps, given predefined one precise number for each', () => {
+      const steps = getCSSSizingStepV2({
+        desktop: {
+          x0: 4,
+          x1: 9,
+          x10: 606,
+          x2: 13,
+          x3: 21,
+          x4: 34,
+          x5: 55,
+          x6: 89,
+          x7: 144,
+          x8: 232,
+          x9: 375,
+        },
+        mobile: {
+          x0: 6,
+          x1: 9,
+          x10: 468,
+          x2: 14,
+          x3: 20,
+          x4: 30,
+          x5: 45,
+          x6: 68,
+          x7: 110,
+          x8: 179,
+          x9: 289,
+        },
+        tablet: {
+          x0: 4,
+          x1: 9,
+          x10: 606,
+          x2: 13,
+          x3: 21,
+          x4: 34,
+          x5: 55,
+          x6: 89,
+          x7: 144,
+          x8: 232,
+          x9: 375,
+        },
+      });
+      expect(steps).toEqual({
+        desktop: {
+          x0: '4px',
+          x1: '9px',
+          x10: '606px',
+          x2: '13px',
+          x3: '21px',
+          x4: '34px',
+          x5: '55px',
+          x6: '89px',
+          x7: '144px',
+          x8: '232px',
+          x9: '375px',
+        },
+        mobile: {
+          x0: '6px',
+          x1: '9px',
+          x10: '468px',
+          x2: '14px',
+          x3: '20px',
+          x4: '30px',
+          x5: '45px',
+          x6: '68px',
+          x7: '110px',
+          x8: '179px',
+          x9: '289px',
+        },
+        tablet: {
+          x0: '4px',
+          x1: '9px',
+          x10: '606px',
+          x2: '13px',
+          x3: '21px',
+          x4: '34px',
+          x5: '55px',
+          x6: '89px',
+          x7: '144px',
+          x8: '232px',
+          x9: '375px',
+        },
+      });
+    });
+
+    it('should create valid CSS sizing steps, given predefined one precise number for each', () => {
+      const steps = getCSSSizingStepV2({
+        desktop: {
+          x0: 4,
+          x1: 9,
+          x10: 606,
+          x2: 13,
+          x3: 21,
+          x4: 34,
+          x5: 55,
+          x6: 89,
+          x7: 144,
+          x8: 232,
+          x9: 375,
+        },
+        mobile: {
+          x0: 6,
+          x1: 9,
+          x10: 468,
+          x2: 14,
+          x3: 20,
+          x4: 30,
+          x5: 45,
+          x6: 68,
+          x7: 110,
+          x8: 179,
+          x9: 289,
+        },
+        tablet: {
+          x0: 4,
+          x1: 9,
+          x10: 606,
+          x2: 13,
+          x3: 21,
+          x4: 34,
+          x5: 55,
+          x6: 89,
+          x7: 144,
+          x8: 232,
+          x9: 375,
+        },
+      });
+      expect(steps).toEqual({
+        desktop: {
+          x0: '4px',
+          x1: '9px',
+          x10: '606px',
+          x2: '13px',
+          x3: '21px',
+          x4: '34px',
+          x5: '55px',
+          x6: '89px',
+          x7: '144px',
+          x8: '232px',
+          x9: '375px',
+        },
+        mobile: {
+          x0: '6px',
+          x1: '9px',
+          x10: '468px',
+          x2: '14px',
+          x3: '20px',
+          x4: '30px',
+          x5: '45px',
+          x6: '68px',
+          x7: '110px',
+          x8: '179px',
+          x9: '289px',
+        },
+        tablet: {
+          x0: '4px',
+          x1: '9px',
+          x10: '606px',
+          x2: '13px',
+          x3: '21px',
+          x4: '34px',
+          x5: '55px',
+          x6: '89px',
+          x7: '144px',
+          x8: '232px',
+          x9: '375px',
+        },
+      });
     });
   });
 });

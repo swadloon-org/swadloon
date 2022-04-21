@@ -3,13 +3,22 @@ import { globalStyle } from '@vanilla-extract/css';
 import { layoutCSS, ratioVarNames, sizeVarNames, sizingVars } from '../theme';
 
 globalStyle(`:root`, {
+  /**
+   * Set the basefont size (1rem)
+   */
+  fontSize: sizingVars.baseFontSize,
+  /**
+   *
+   * Sizing vars
+   *
+   */
   vars: {
     /**
      * Ratios
      */
-    [ratioVarNames.mobile]: sizingVars.ratio.mobile,
-    [ratioVarNames.tablet]: sizingVars.ratio.tablet,
-    [ratioVarNames.desktop]: sizingVars.ratio.desktop,
+    [ratioVarNames.mobile]: sizingVars.ratios.mobile,
+    [ratioVarNames.tablet]: sizingVars.ratios.tablet,
+    [ratioVarNames.desktop]: sizingVars.ratios.desktop,
 
     /**
      * Mobile sizes

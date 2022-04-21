@@ -28,6 +28,7 @@ export * from './foundations/iconography';
 export * from './foundations/layout';
 export * from './foundations/media-queries';
 export * from './foundations/sizing';
+export * from './foundations/sizing-modular-scale';
 export * from './foundations/text';
 export * from './foundations/typography';
 export * from './primitives/angle';

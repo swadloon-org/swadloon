@@ -5,6 +5,12 @@ import { Radius } from './primitives/radius';
 
 /**
  *
+ * Utility types for the Design System
+ *
+ */
+
+/**
+ *
  * General types
  *
  */
@@ -16,6 +22,10 @@ export type NumberType<Override extends undefined | string> = Override extends s
 export type PercentType<Override extends undefined | string> = Override extends string
   ? string
   : number;
+
+export type BooleanType<Override extends undefined | string> = Override extends string
+  ? string
+  : boolean;
 
 /**
  *

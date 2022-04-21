@@ -16,7 +16,7 @@ type Props = {
   injectPreElement?: boolean;
 };
 
-export const CodeHighlight: React.FC<Props> = ({
+export const CodeHighlight: React.FC<React.PropsWithChildren<Props>> = ({
   code,
   children = '',
   className,

@@ -33,7 +33,7 @@ export const defaultTypography: DefaultTypographyV2 = {
     monospace: [...fonts.defaultFallbackMonospaceFonts],
   },
   titles: {
-    fontFamily: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
+    fontFamily: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 700,
     desktop: {
       t1: getTypographicScaledText({
@@ -83,25 +83,34 @@ export const defaultTypography: DefaultTypographyV2 = {
     fontWeight: 700,
     letterSpacing: -2,
     desktop: {
-      h1: {
-        fontSize: 36,
-        lineGap: 18,
-        letterSpacing: -3,
-      },
-      h2: {
-        fontSize: 28,
-        lineGap: 16,
-      },
-      h3: {
-        fontSize: 20,
-        lineGap: 14,
-        letterSpacing: 0,
-      },
-      h4: {
+      h1: getTypographicScaledText({
         fontSize: 16,
-        lineGap: 14,
+        letterSpacing: -3,
+        lineGapRatio: 0.5,
+        step: 3,
+        ratio: 'perfectFourth',
+      }),
+      h2: getTypographicScaledText({
+        fontSize: 16,
+        letterSpacing: -2,
+        lineGapRatio: 0.5,
+        step: 2,
+        ratio: 'perfectFourth',
+      }),
+      h3: getTypographicScaledText({
+        fontSize: 16,
+        letterSpacing: -1,
+        lineGapRatio: 0.5,
+        step: 1,
+        ratio: 'perfectFourth',
+      }),
+      h4: getTypographicScaledText({
+        fontSize: 16,
         letterSpacing: 0,
-      },
+        lineGapRatio: 0.5,
+        step: 0,
+        ratio: 'perfectFourth',
+      }),
     },
     tablet: {
       h1: {

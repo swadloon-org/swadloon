@@ -2,6 +2,7 @@ import * as core from '@newrade/core-design-system';
 import { SIZE, VIEWPORT } from '@newrade/core-design-system';
 
 import { CSSSizing, CSSSizingV2, SizingRatioVarNames, SizingVarNames } from '../design-system';
+import { ModularScaleOptions } from '../utilities-iso';
 import { cssVar } from '../utilities-iso/css-variables.utilities';
 import { keys, px } from '../utilities-iso/utilities';
 
@@ -82,7 +83,8 @@ export function getCSSSizing(options: core.Sizing): CSSSizing {
     baseFontSize: px({ value: options.baseFontSize }),
     var: defaultSizesCSSVar,
     varNames: defaultSizesCSSVarNames,
-    ratio: getCSSSizingRatios(options.ratio),
+    useRatiosForSizes: options.useRatiosForSizes.toString(),
+    ratios: getCSSSizingRatios(options.ratios),
     sizes: getCSSSizingStep(options.sizes),
   };
 }
@@ -93,7 +95,8 @@ export function getCSSSizing(options: core.Sizing): CSSSizing {
 export function getCSSSizingV2(options: core.Sizing): CSSSizingV2 {
   return {
     baseFontSize: px({ value: options.baseFontSize }),
-    ratio: getCSSSizingRatios(options.ratio),
+    useRatiosForSizes: options.useRatiosForSizes.toString(),
+    ratios: getCSSSizingRatios(options.ratios),
     sizes: getCSSSizingStepV2(options.sizes),
   };
 }
@@ -140,7 +143,7 @@ export function getCSSSizingStep(options: core.SizingSteps): core.SizingSteps<st
  */
 export function getCSSSizingStepV2(
   steps: core.SizingSteps,
-  options?: { power?: boolean }
+  options?: ModularScaleOptions
 ): core.SizingSteps<string> {
   const viewports = keys(steps);
   return viewports.reduce((previous, current) => {
@@ -150,6 +153,48 @@ export function getCSSSizingStepV2(
     }
     const sizingSteps = steps[current];
 
+    /**
+     * If power
+     */
+    if (options?.power) {
+      keys(sizingSteps).forEach((size, index) => {
+        if (size === SIZE.x0) {
+          previous[viewport][size] = `${sizingSteps.x0}px`;
+          return;
+        }
+        const initial = defaultSizesCSSVarV2.x0;
+        const powerValue = index + 1;
+        const ratio = defaultRatiosCSSVar[current];
+        const ratioStr = `* ${ratio}`.repeat(powerValue);
+        const power = `calc(${initial} ${ratioStr})`;
+        previous[viewport][size] = `${power}`;
+      });
+    }
+
+    keys(sizingSteps).forEach((size, index) => {
+      previous[viewport][size] = `${sizingSteps[size]}px`;
+    });
+    return previous;
+  }, {} as core.SizingSteps<string>);
+}
+
+/**
+ * Create CSS sizing steps
+ *
+ * starting by an initial value and the power mathematical operator
+ */
+export function getCSSModularSizingStep(options: ModularScaleOptions): core.SizingStep<string> {
+  const viewports = keys(steps);
+  return viewports.reduce((previous, current) => {
+    const viewport = current as core.VIEWPORT;
+    if (!previous[viewport]) {
+      previous = { ...previous, [viewport]: {} };
+    }
+    const sizingSteps = steps[current];
+
+    /**
+     * If power
+     */
     if (options?.power) {
       keys(sizingSteps).forEach((size, index) => {
         if (size === SIZE.x0) {

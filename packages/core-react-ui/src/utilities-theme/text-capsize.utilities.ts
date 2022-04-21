@@ -275,7 +275,8 @@ const defaultModularScaleOptions: Required<
   precision: 0,
 };
 
-type TypographicScaledTextOptions = Partial<CapsizeTextStyle> &
+type TypographicScaledTextOptions = Partial<TextStyle> &
+  Partial<CapsizeTextStyle> &
   CapsizeScaleOptions &
   Pick<ModularScaleOptions, 'step' | 'ratio' | 'precision'>;
 
@@ -284,7 +285,7 @@ type TypographicScaledTextOptions = Partial<CapsizeTextStyle> &
  * values the choosen base, power and step
  */
 export function getTypographicScaledText(options: TypographicScaledTextOptions): CapsizeTextStyle {
-  const { fontSize, capHeight, lineGapRatio, ratio, step, precision } = {
+  const { fontSize, capHeight, lineGapRatio, ratio, step, precision, ...validatedOptions } = {
     ...defaultModularScaleOptions,
     ...defaultCapsizeScaleOptions,
     ...options,
@@ -298,7 +299,7 @@ export function getTypographicScaledText(options: TypographicScaledTextOptions):
       precision,
     });
     return {
-      ...options,
+      ...validatedOptions,
       fontSize: scaledFontSize,
       lineGap: round({
         value: scaledFontSize * lineGapRatio,
@@ -316,11 +317,11 @@ export function getTypographicScaledText(options: TypographicScaledTextOptions):
     });
 
     return {
-      ...options,
+      ...validatedOptions,
       capHeight: scaledCapheight,
       lineGap: round({
-        value: scaledCapheight / 2,
-        precision: 0,
+        value: scaledCapheight * lineGapRatio,
+        precision,
       }),
     };
   }

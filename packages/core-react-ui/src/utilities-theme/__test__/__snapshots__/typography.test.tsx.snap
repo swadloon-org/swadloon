@@ -42,8 +42,8 @@ Object {
         "capsize": Object {
           "baselineTrim": "-0.25em",
           "capHeightTrim": "-0.25em",
-          "fontSize": "36px",
-          "lineHeight": "44.1818px",
+          "fontSize": "54px",
+          "lineHeight": "66.2727px",
         },
         "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
@@ -54,10 +54,10 @@ Object {
       },
       "h2": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2857em",
-          "capHeightTrim": "-0.2857em",
-          "fontSize": "28px",
-          "lineHeight": "36.3636px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "36px",
+          "lineHeight": "44.1818px",
         },
         "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
@@ -68,24 +68,24 @@ Object {
       },
       "h3": Object {
         "capsize": Object {
-          "baselineTrim": "-0.35em",
-          "capHeightTrim": "-0.35em",
-          "fontSize": "20px",
-          "lineHeight": "28.5455px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "24px",
+          "lineHeight": "29.4545px",
         },
         "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
-        "letterSpacing": "0px",
+        "letterSpacing": "-0.01em",
         "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h4": Object {
         "capsize": Object {
-          "baselineTrim": "-0.4375em",
-          "capHeightTrim": "-0.4375em",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
           "fontSize": "16px",
-          "lineHeight": "25.6364px",
+          "lineHeight": "19.6364px",
         },
         "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
@@ -629,16 +629,64 @@ Object {
     "textDecoration": undefined,
     "textTransform": undefined,
   },
+  "spaces": Object {
+    "headings": Object {
+      "h1": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+      "h2": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+      "h3": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+      "h4": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+    },
+    "paragraphs": Object {
+      "large": Object {
+        "after": "1em",
+        "before": "1em",
+      },
+      "medium": Object {
+        "after": "1em",
+        "before": "1em",
+      },
+      "small": Object {
+        "after": "1em",
+        "before": "1em",
+      },
+      "xSmall": Object {
+        "after": "1em",
+        "before": "1em",
+      },
+    },
+    "titles": Object {
+      "t1": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+      "t2": Object {
+        "after": "2em",
+        "before": "1em",
+      },
+    },
+  },
   "titles": Object {
     "desktop": Object {
       "t1": Object {
         "capsize": Object {
-          "baselineTrim": "-0.3485em",
-          "capHeightTrim": "-0.4015em",
-          "fontSize": "60px",
-          "lineHeight": "87px",
+          "baselineTrim": "-0.2538em",
+          "capHeightTrim": "-0.2538em",
+          "fontSize": "65px",
+          "lineHeight": "80.2727px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",
@@ -647,12 +695,12 @@ Object {
       },
       "t2": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2846em",
-          "capHeightTrim": "-0.3376em",
-          "fontSize": "51.43px",
-          "lineHeight": "68px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "40px",
+          "lineHeight": "49.0909px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",
@@ -660,19 +708,19 @@ Object {
         "textTransform": undefined,
       },
     },
-    "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+    "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
     "fontStyle": undefined,
     "fontWeight": "700",
     "letterSpacing": "0px",
     "mobile": Object {
       "t1": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2206em",
-          "capHeightTrim": "-0.2736em",
-          "fontSize": "48.57px",
-          "lineHeight": "58px",
+          "baselineTrim": "-0.2561em",
+          "capHeightTrim": "-0.2561em",
+          "fontSize": "41px",
+          "lineHeight": "50.8182px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",
@@ -681,12 +729,12 @@ Object {
       },
       "t2": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2485em",
-          "capHeightTrim": "-0.3015em",
-          "fontSize": "40px",
-          "lineHeight": "50px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "34px",
+          "lineHeight": "41.7273px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",
@@ -698,12 +746,12 @@ Object {
     "tablet": Object {
       "t1": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2314em",
-          "capHeightTrim": "-0.2844em",
-          "fontSize": "54.29px",
-          "lineHeight": "66px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "48px",
+          "lineHeight": "58.9091px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",
@@ -712,12 +760,12 @@ Object {
       },
       "t2": Object {
         "capsize": Object {
-          "baselineTrim": "-0.2579em",
-          "capHeightTrim": "-0.3109em",
-          "fontSize": "45.71px",
-          "lineHeight": "58px",
+          "baselineTrim": "-0.25em",
+          "capHeightTrim": "-0.25em",
+          "fontSize": "36px",
+          "lineHeight": "44.1818px",
         },
-        "fontFamily": "PT Serif,ui-serif,Georgia,Cambria,\\"Times New Roman\\",Times,serif",
+        "fontFamily": "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
         "fontStyle": undefined,
         "fontWeight": "700",
         "letterSpacing": "0px",

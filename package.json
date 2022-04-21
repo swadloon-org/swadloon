@@ -5,6 +5,14 @@
     "node": "^16.13"
   },
   "workspaces": {
+    "nohoist": [
+      "**/.prisma/**",
+      "**/.prisma",
+      "**/@prisma/**",
+      "**/@prisma",
+      "**/prisma/**",
+      "**/prisma"
+    ],
     "packages": [
       "packages/*"
     ]

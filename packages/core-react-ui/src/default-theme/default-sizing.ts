@@ -58,6 +58,6 @@ export const defaultSizingSteps: SizingSteps = {
 
 export const defaultSizing: Sizing = {
   baseFontSize: defaultBaseFontSize,
-  ratio: defaultScalingRatio,
+  ratios: defaultScalingRatio,
   sizes: defaultSizingSteps,
 };
