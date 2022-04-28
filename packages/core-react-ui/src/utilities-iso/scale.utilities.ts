@@ -1,4 +1,4 @@
-import { ModularScaleRatio, ratioNames } from '@newrade/core-design-system';
+import { ModularScaleRatio, modularScaleRatioValues } from '@newrade/core-design-system';
 
 import { round } from './math.utilities';
 
@@ -16,10 +16,10 @@ export function getScaledValue({ step, base, ratio, precision }: ModularScaleOpt
   if (typeof step !== 'number') {
     throw new Error('Steps must be a number');
   }
-  if (typeof ratio === 'string' && !ratioNames[ratio]) {
+  if (typeof ratio === 'string' && !modularScaleRatioValues[ratio]) {
     throw new Error('This ratio is not supported');
   }
-  const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio;
+  const realRatio = typeof ratio === 'string' ? modularScaleRatioValues[ratio] : ratio;
 
   const value = base * realRatio ** step;
 

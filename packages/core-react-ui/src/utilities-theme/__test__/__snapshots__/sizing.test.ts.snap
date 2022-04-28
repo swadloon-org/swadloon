@@ -3,7 +3,7 @@
 exports[`sizing utilities getCSSSizingV2 should create matching CSS Sizing object 1`] = `
 Object {
   "baseFontSize": "9px",
-  "ratio": Object {
+  "ratios": Object {
     "desktop": "1.618",
     "mobile": "1.44",
     "tablet": "1.44",
@@ -49,5 +49,6 @@ Object {
       "x9": "375px",
     },
   },
+  "useRatiosForSizes": "false",
 }
 `;

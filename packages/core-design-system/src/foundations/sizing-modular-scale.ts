@@ -24,7 +24,7 @@ export type ModularScaleRatio =
 /**
  * Predefined values for certain scaling ratio
  */
-export const ratioNames: { [key in ModularScaleRatio]: number } = {
+export const modularScaleRatioValues: { [key in ModularScaleRatio]: number } = {
   minorSecond: 1.067,
   majorSecond: 1.125,
   minorThird: 1.2,
