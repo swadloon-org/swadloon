@@ -241,7 +241,7 @@ export default function SiteSettings() {
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
-                  await handleCustomDomain(e.currentTarget.customDomain.value);
+                  await handleCustomDomain(e);
                 }}
                 className="flex justify-start items-center space-x-3 max-w-lg"
               >

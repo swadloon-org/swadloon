@@ -1,4 +1,10 @@
-import { log } from './utilities';
+import { log } from './log.code.utilities';
+
+/**
+ *
+ * Utility functions to manipulate styles with the Figma Plugin API
+ *
+ */
 
 export function createOrUpdateFigmaTextStyle(name: string): TextStyle {
   const found = figma.getLocalTextStyles().find((style) => style.name === name);

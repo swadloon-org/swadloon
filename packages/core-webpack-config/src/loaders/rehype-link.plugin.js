@@ -1,4 +1,4 @@
-const visit = require('unist-util-visit');
+const { visit } = require('unist-util-visit');
 
 module.exports = (options) => {
   options = options || {};

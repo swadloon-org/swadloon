@@ -2,10 +2,11 @@
   "name": "newrade",
   "private": true,
   "engines": {
-    "node": "^16.13"
+    "node": "^14.19 || ^16.13"
   },
   "workspaces": {
     "nohoist": [
+      "next",
       "**/.prisma/**",
       "**/.prisma",
       "**/@prisma/**",
@@ -45,7 +46,7 @@
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "ls-lint": "ls-lint",
-    "postinstall": "patch-package && yarn preconstruct:dev && yarn build:postinstall && yarn link:core-cli",
+    "postinstall": "patch-package && yarn preconstruct:dev && yarn build:postinstall",
     "preconstruct:dev": "preconstruct dev",
     "push": "git push --follow-tags",
     "release": "env-cmd -x nr lerna-version '--conventional-commits --create-release github'",

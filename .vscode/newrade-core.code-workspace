@@ -61,7 +61,7 @@
     // typescript
     //
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "newrade-core/node_modules/typescript/lib",
     "[typescript]": {
       "editor.formatOnSave": false,
       "editor.defaultFormatter": "esbenp.prettier-vscode",

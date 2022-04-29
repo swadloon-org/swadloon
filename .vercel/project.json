@@ -1,0 +1,14 @@
+{
+  "projectId": "prj_kJb8x4J1R6W4hf7RxKDNCODop5br",
+  "orgId": "team_5s2MmnCtnp2UCgFUPtm68dZB",
+  "settings": {
+    "framework": "nextjs",
+    "devCommand": null,
+    "installCommand": "yarn",
+    "buildCommand": "cd packages/core-website-platform && yarn build",
+    "outputDirectory": "packages/core-website-platform/.next",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "14.x"
+  }
+}

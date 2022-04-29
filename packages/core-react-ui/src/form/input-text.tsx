@@ -75,6 +75,9 @@ export const InputText = React.memo(
             // @ts-ignore
             htmlRef={(htmlRef) => (ref = htmlRef)}
             cleaveProps={cleaveProps}
+            disabled={disabled}
+            value={value}
+            onChange={onChange}
             {...props}
           ></InputTextCleaveLazy>
         </div>
@@ -91,6 +94,9 @@ export const InputText = React.memo(
           style={style}
           className={classNames}
           type={type}
+          disabled={disabled}
+          value={value}
+          onChange={onChange}
           {...props}
         />
       </div>

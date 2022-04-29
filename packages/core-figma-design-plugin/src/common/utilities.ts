@@ -24,15 +24,3 @@ export function isViewportProp(value?: VIEWPORT | string): boolean {
 
   return !!found;
 }
-
-export function log(message?: string) {
-  console.log(`core-figma-design-plugin: ${message}`);
-}
-
-export function logWarn(message?: string) {
-  console.warn(`core-figma-design-plugin:warning: ${message}`);
-}
-
-export function logError(message?: string) {
-  console.error(`core-figma-design-plugin:error: ${message}`);
-}

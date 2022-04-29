@@ -4,7 +4,7 @@ import { LABEL_SIZE, Variant } from '@newrade/core-design-system';
 import { BoxV2, Label } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { clientEnv } from '../../types/dot-env-client';
+import { clientEnv } from '../../../types/dot-env-client';
 
 import * as styles from './footer.css';
 

@@ -5,22 +5,42 @@ import { CapsizeTextStyleV2, TEXT_TRANSFORM, VIEWPORT } from '@newrade/core-desi
 import { keys, pxStringToNumber } from '@newrade/core-react-ui/utilities-iso';
 import { cssLayout, cssTypography } from '@newrade/ze-design-system/css';
 
-import { getFigmaFontFromTextStyle, loadUsedFontsInTypography } from './utilities/fonts.utilities';
-import { lorenipsumMedium } from './utilities/loren-ipsum';
-import { createOrUpdateFigmaFrame, createOrUpdateFigmaTextNode } from './utilities/node.utilities';
-import { createOrUpdateFigmaTextStyle } from './utilities/styles.utilities';
-import { getFigmaTextCase } from './utilities/text.utilities';
-import { formatNameFigma, log, logError } from './utilities/utilities';
-import { PLUGIN_EVENT_TYPE, PluginEvent } from './messages';
+import { postMessageToUI } from './code/code.utilities';
+import { loadFigmaFonts } from './code/figma-fonts.code.utilities';
+import {
+  createOrUpdateFigmaFrame,
+  createOrUpdateFigmaTextNode,
+} from './code/figma-nodes.code.utilities';
+import { createOrUpdateFigmaPages } from './code/figma-pages.code.utilities';
+import { createOrUpdateFigmaTextStyle } from './code/figma-styles.code.utilities';
+import { createFigmaTextStyle, getFigmaTextStyleList } from './code/figma-text.code.utilities';
+import { getFigmaFontFromTextStyle, loadUsedFontsInTypography } from './code/fonts.code.utilities';
+import { log, logError } from './code/log.code.utilities';
+import { lorenipsumMedium } from './common/loren-ipsum';
+import { PLUGIN_EVENT_TYPE, PluginEvent } from './common/messages';
+import { getFigmaTextCase } from './common/text.utilities';
+import { formatNameFigma } from './common/utilities';
 
 figma.showUI(__html__, {
   width: 360,
   height: 400,
 });
 
-figma.ui.onmessage = async (message: PluginEvent) => {
+figma.ui.onmessage = async (rawEvent: PluginEvent<any>) => {
+  const pluginMessage: PluginEvent<typeof rawEvent.type> = rawEvent;
+
+  log(`receiving message of type: ${pluginMessage.type}`);
+
   try {
-    if (message.type === PLUGIN_EVENT_TYPE.VALIDATE_USED_FONTS) {
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.SYNC_PAGES) {
+      const { updated, created, all } = createOrUpdateFigmaPages();
+
+      figma.notify(
+        `Pages are up to date ✅ (${updated.length} updated, ${created.length} created, ${all.length} total)`
+      );
+    }
+
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.VALIDATE_USED_FONTS) {
       //
       // Loading fonts
       //
@@ -37,7 +57,99 @@ figma.ui.onmessage = async (message: PluginEvent) => {
       });
     }
 
-    if (message.type === PLUGIN_EVENT_TYPE.UPDATE_TEXT_STYLES) {
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.GET_TEXT_STYLE_FAMILY_LIST) {
+      const textStyles = getFigmaTextStyleList();
+
+      const { errors } = await loadFigmaFonts(
+        keys(textStyles).reduce((previous, current) => {
+          textStyles[current].forEach((textStyle) => {
+            previous.push(textStyle.fontName);
+          });
+          return previous;
+        }, [] as FontName[])
+      );
+
+      if (errors.length) {
+        figma.notify(`Some fonts were not loaded successfully 🚫 (${errors.join('\n')})`, {
+          error: true,
+        });
+      }
+
+      figma.notify('All fonts were loaded successfully ✅');
+
+      postMessageToUI({
+        type: PLUGIN_EVENT_TYPE.GET_TEXT_STYLE_FAMILY_LIST_RETURN,
+        payload: {
+          textStyleFamilyList: textStyles,
+        },
+      });
+
+      postMessageToUI({
+        type: PLUGIN_EVENT_TYPE.SUCCESS,
+        payload: {
+          message: 'Successfully retrieved text styles ✅',
+        },
+      });
+    }
+
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.DUPLICATE_TEXT_STYLE_FAMILY) {
+      const { payload } =
+        pluginMessage as PluginEvent<PLUGIN_EVENT_TYPE.DUPLICATE_TEXT_STYLE_FAMILY>;
+      if (!payload) {
+        logError(`payload is undefined`);
+        return;
+      }
+      const { textStyleFamilyToDuplicate, newTextStyleFamilyName } = payload;
+      if (!(textStyleFamilyToDuplicate && newTextStyleFamilyName)) {
+        logError(`textStyleFamilyToDuplicate and newTextStyleFamilyName must be specified`);
+        return;
+      }
+      const textStyles = getFigmaTextStyleList();
+
+      log(`creating duplicate of ${textStyleFamilyToDuplicate} as ${newTextStyleFamilyName}`);
+
+      keys(textStyles).forEach((textStyleFamily) => {
+        if (textStyleFamily === textStyleFamilyToDuplicate) {
+          textStyles[textStyleFamily].forEach((textStyleToDuplicate) => {
+            const currentName = textStyleToDuplicate.name;
+            const updatedName = currentName
+              .split('/')
+              .map((part, partIndex) => {
+                if (partIndex === 0) {
+                  return newTextStyleFamilyName;
+                }
+                return part;
+              })
+              .join('/');
+            //
+            // not sure why, but just create a new style with {...textStyleToDuplicate} does not work on nested properties
+            //
+            const newTextStyle = createFigmaTextStyle({
+              ...textStyleToDuplicate,
+              fontName: {
+                ...textStyleToDuplicate.fontName,
+              },
+              fontSize: textStyleToDuplicate.fontSize,
+              paragraphSpacing: textStyleToDuplicate.paragraphSpacing,
+              lineHeight: textStyleToDuplicate.lineHeight,
+              letterSpacing: textStyleToDuplicate.letterSpacing,
+              textCase: textStyleToDuplicate.textCase,
+              name: updatedName,
+            });
+            log(`created text: ${newTextStyle.name} based on ${textStyleToDuplicate.name}`);
+          });
+        }
+      });
+
+      postMessageToUI({
+        type: PLUGIN_EVENT_TYPE.SUCCESS,
+        payload: {
+          message: 'Successfully created new text styles ✅',
+        },
+      });
+    }
+
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.UPDATE_TEXT_STYLES) {
       //
       // Load and validate all found fonts
       //
@@ -141,7 +253,7 @@ figma.ui.onmessage = async (message: PluginEvent) => {
       figma.notify('Text styles created successfully ✅');
     }
 
-    if (message.type === PLUGIN_EVENT_TYPE.DELETE_TEXT_STYLES) {
+    if (pluginMessage.type === PLUGIN_EVENT_TYPE.DELETE_TEXT_STYLES) {
       const existingStyles = figma.getLocalTextStyles();
 
       existingStyles.forEach((existingTextStyle) => {
@@ -150,11 +262,27 @@ figma.ui.onmessage = async (message: PluginEvent) => {
 
       figma.notify('Text styles removed ✅');
     }
-  } catch (error) {
-    figma.ui.postMessage({ type: PLUGIN_EVENT_TYPE.NOT_LOADING } as PluginEvent);
+  } catch (error: any) {
+    postMessageToUI({
+      type: PLUGIN_EVENT_TYPE.ERROR,
+      payload: {
+        message: 'Something went wrong',
+        errors: [error],
+      },
+    });
+    postMessageToUI({
+      type: PLUGIN_EVENT_TYPE.NOT_LOADING,
+    });
     logError((error as Error).message);
+    figma.notify((error as Error).message, {
+      error: true,
+    });
   } finally {
-    figma.ui.postMessage({ type: PLUGIN_EVENT_TYPE.NOT_LOADING } as PluginEvent);
+    setTimeout(() => {
+      postMessageToUI({
+        type: PLUGIN_EVENT_TYPE.NOT_LOADING,
+      });
+    }, 1000);
   }
 };
 
@@ -198,7 +326,7 @@ function createTextNodeForStyle({
 }) {
   /**
    *
-   * Create or udpate the text style
+   * Create or update the text style
    *
    */
 
