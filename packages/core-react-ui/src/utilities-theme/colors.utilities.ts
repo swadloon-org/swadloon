@@ -2,90 +2,149 @@ import { Property } from 'csstype';
 import parseToHsl from 'polished/lib/color/parseToHsl';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import toColorString from 'polished/lib/color/toColorString';
-import { HslaColor } from 'polished/lib/types/color';
+import { HslaColor, RgbaColor } from 'polished/lib/types/color';
 
 import * as DS from '@newrade/core-design-system';
-import { CodeColors, Color, COLOR_SCHEME, ColorPalette } from '@newrade/core-design-system';
+import {
+  CodeColors,
+  Color,
+  COLOR_FORMAT,
+  COLOR_SCHEME,
+  ColorPalette,
+  ColorType,
+} from '@newrade/core-design-system';
 
-import { getCSSColorVar } from '../utilities-iso';
-import { keys } from '../utilities-iso/utilities';
+import { CSSColor, CSSColors } from '../design-system';
+import { keys } from '../utilities-iso';
+
+type CSSColorsOptions = {
+  format: COLOR_FORMAT;
+};
+
+const defaultCSSColorsOptions: CSSColorsOptions = {
+  format: COLOR_FORMAT.HSL,
+};
 
 /**
  * for vanilla css
  */
-export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
+export function getCSSColorsV2(
+  colors: DS.Colors,
+  options?: Partial<CSSColorsOptions>
+): DS.Colors<string> {
+  const validatedOptions = { ...defaultCSSColorsOptions, ...options };
+
   const cssColors = {
     current: 'currentColor',
-    transparent: getCSSColor(colors.colors.transparent),
-    primary: getCSSColorPalette({
-      palette: colors.colors.primary,
-      baseHue: colors.colors.primary.baseHue,
-      baseSat: colors.colors.primary.baseSat,
-    }),
-    accent1: getCSSColorPalette({
-      palette: colors.colors.accent1,
-      baseHue: colors.colors.accent1.baseHue,
-      baseSat: colors.colors.accent1.baseSat,
-    }),
-    accent2: getCSSColorPalette({
-      palette: colors.colors.accent2,
-      baseHue: colors.colors.accent2.baseHue,
-      baseSat: colors.colors.accent2.baseSat,
-    }),
-    accent3: getCSSColorPalette({
-      palette: colors.colors.accent3,
-      baseHue: colors.colors.accent3.baseHue,
-      baseSat: colors.colors.accent3.baseSat,
-    }),
-    accent4: getCSSColorPalette({
-      palette: colors.colors.accent4,
-      baseHue: colors.colors.accent4.baseHue,
-      baseSat: colors.colors.accent4.baseSat,
-    }),
-    accent5: getCSSColorPalette({
-      palette: colors.colors.accent5,
-      baseHue: colors.colors.accent5.baseHue,
-      baseSat: colors.colors.accent5.baseSat,
-    }),
-    accent6: getCSSColorPalette({
-      palette: colors.colors.accent6,
-      baseHue: colors.colors.accent6.baseHue,
-      baseSat: colors.colors.accent6.baseSat,
-    }),
-    accent7: getCSSColorPalette({
-      palette: colors.colors.accent7,
-      baseHue: colors.colors.accent7.baseHue,
-      baseSat: colors.colors.accent7.baseSat,
-    }),
-    grey: getCSSColorPalette({
-      palette: colors.colors.grey,
-      baseHue: colors.colors.grey.baseHue,
-      baseSat: colors.colors.grey.baseSat,
-    }),
-    effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight),
-    effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium),
-    effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy),
-    utilityNeutral: getCSSColorPalette({
-      palette: colors.colors.utilityNeutral,
-      baseHue: colors.colors.utilityNeutral.baseHue,
-      baseSat: colors.colors.utilityNeutral.baseSat,
-    }),
-    utilityGreen: getCSSColorPalette({
-      palette: colors.colors.utilityGreen,
-      baseHue: colors.colors.utilityGreen.baseHue,
-      baseSat: colors.colors.utilityGreen.baseSat,
-    }),
-    utilityYellow: getCSSColorPalette({
-      palette: colors.colors.utilityYellow,
-      baseHue: colors.colors.utilityYellow.baseHue,
-      baseSat: colors.colors.utilityYellow.baseSat,
-    }),
-    utilityRed: getCSSColorPalette({
-      palette: colors.colors.utilityRed,
-      baseHue: colors.colors.utilityRed.baseHue,
-      baseSat: colors.colors.utilityRed.baseSat,
-    }),
-    code: getCodeColors(colors.colors.code),
+    transparent: getCSSColor(colors.colors.transparent, validatedOptions),
+    primary: getCSSColorPalette(
+      {
+        palette: colors.colors.primary,
+        baseHue: colors.colors.primary.baseHue,
+        baseSat: colors.colors.primary.baseSat,
+      },
+      validatedOptions
+    ),
+    accent1: getCSSColorPalette(
+      {
+        palette: colors.colors.accent1,
+        baseHue: colors.colors.accent1.baseHue,
+        baseSat: colors.colors.accent1.baseSat,
+      },
+      validatedOptions
+    ),
+    accent2: getCSSColorPalette(
+      {
+        palette: colors.colors.accent2,
+        baseHue: colors.colors.accent2.baseHue,
+        baseSat: colors.colors.accent2.baseSat,
+      },
+      validatedOptions
+    ),
+    accent3: getCSSColorPalette(
+      {
+        palette: colors.colors.accent3,
+        baseHue: colors.colors.accent3.baseHue,
+        baseSat: colors.colors.accent3.baseSat,
+      },
+      validatedOptions
+    ),
+    accent4: getCSSColorPalette(
+      {
+        palette: colors.colors.accent4,
+        baseHue: colors.colors.accent4.baseHue,
+        baseSat: colors.colors.accent4.baseSat,
+      },
+      validatedOptions
+    ),
+    accent5: getCSSColorPalette(
+      {
+        palette: colors.colors.accent5,
+        baseHue: colors.colors.accent5.baseHue,
+        baseSat: colors.colors.accent5.baseSat,
+      },
+      validatedOptions
+    ),
+    accent6: getCSSColorPalette(
+      {
+        palette: colors.colors.accent6,
+        baseHue: colors.colors.accent6.baseHue,
+        baseSat: colors.colors.accent6.baseSat,
+      },
+      validatedOptions
+    ),
+    accent7: getCSSColorPalette(
+      {
+        palette: colors.colors.accent7,
+        baseHue: colors.colors.accent7.baseHue,
+        baseSat: colors.colors.accent7.baseSat,
+      },
+      validatedOptions
+    ),
+    grey: getCSSColorPalette(
+      {
+        palette: colors.colors.grey,
+        baseHue: colors.colors.grey.baseHue,
+        baseSat: colors.colors.grey.baseSat,
+      },
+      validatedOptions
+    ),
+    effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight, validatedOptions),
+    effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium, validatedOptions),
+    effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy, validatedOptions),
+    utilityNeutral: getCSSColorPalette(
+      {
+        palette: colors.colors.utilityNeutral,
+        baseHue: colors.colors.utilityNeutral.baseHue,
+        baseSat: colors.colors.utilityNeutral.baseSat,
+      },
+      validatedOptions
+    ),
+    utilityGreen: getCSSColorPalette(
+      {
+        palette: colors.colors.utilityGreen,
+        baseHue: colors.colors.utilityGreen.baseHue,
+        baseSat: colors.colors.utilityGreen.baseSat,
+      },
+      validatedOptions
+    ),
+    utilityYellow: getCSSColorPalette(
+      {
+        palette: colors.colors.utilityYellow,
+        baseHue: colors.colors.utilityYellow.baseHue,
+        baseSat: colors.colors.utilityYellow.baseSat,
+      },
+      validatedOptions
+    ),
+    utilityRed: getCSSColorPalette(
+      {
+        palette: colors.colors.utilityRed,
+        baseHue: colors.colors.utilityRed.baseHue,
+        baseSat: colors.colors.utilityRed.baseSat,
+      },
+      validatedOptions
+    ),
+    code: getCodeColors(colors.colors.code, validatedOptions),
   };
 
   return {
@@ -203,15 +262,18 @@ export function generateColorGreyPaletteDark({
   };
 }
 
-export function getCSSColorPalette<ColorShades extends string>({
-  palette,
-  baseHue,
-  baseSat,
-}: {
-  palette: DS.ColorPalette<undefined, ColorShades>;
-  baseHue?: string | number;
-  baseSat?: string | number;
-}) {
+export function getCSSColorPalette<ColorShades extends string>(
+  {
+    palette,
+    baseHue,
+    baseSat,
+  }: {
+    palette: DS.ColorPalette<undefined, ColorShades>;
+    baseHue?: string | number;
+    baseSat?: string | number;
+  },
+  options?: CSSColorsOptions
+) {
   const shades = keys(palette);
   return shades.reduce((previous, current) => {
     if (current === 'baseHue') {
@@ -225,17 +287,20 @@ export function getCSSColorPalette<ColorShades extends string>({
       return previous;
     }
     if (baseHue !== undefined && baseSat !== undefined) {
-      const cssColor = getCSSColorVar({
-        ...palette[current],
-        h: baseHue,
-        s: baseSat,
-      });
+      const cssColor = getCSSColor(
+        {
+          ...palette[current],
+          h: baseHue,
+          s: baseSat,
+        },
+        options
+      );
       // @ts-ignore
       previous[current] = cssColor;
       return previous;
     }
 
-    const cssColor = getCSSColor(palette[current]);
+    const cssColor = getCSSColor(palette[current], options);
     // @ts-ignore
     previous[current] = cssColor;
     return previous;
@@ -272,11 +337,11 @@ export function getCSSColorGradients(intents: DS.ColorGradients) {
   }, {} as DS.ColorGradients<string>);
 }
 
-export function getCodeColors(colors: CodeColors) {
+export function getCodeColors(colors: CodeColors, options?: CSSColorsOptions) {
   const codeColorNames = keys(colors);
   return codeColorNames.reduce((previous, current) => {
     const color = colors[current];
-    previous[current] = getCSSColor(color);
+    previous[current] = getCSSColor(color, options);
     return previous;
   }, {} as CodeColors<string>);
 }
@@ -292,27 +357,72 @@ export function getCSSColor(
         l?: number | string;
         a?: number | string;
       }
-    | undefined
-): Property.Color {
+    | undefined,
+  options?: CSSColorsOptions
+): ColorType<string> {
   if (!color) {
     return '';
   }
-  const { h, s, l, a } = color;
-  const transparency = Number(a);
-  const parsedTransparency = isNaN(transparency) ? 1 : transparency;
-  return `hsl(${h}, ${s}%, ${l}%, ${a === undefined ? 1 : parsedTransparency / 100})`;
+
+  if (!options) {
+    return getCSSHSLColor(color);
+  }
+
+  switch (options.format) {
+    case COLOR_FORMAT.RGBA: {
+      return getCSSRGBColor(color);
+    }
+    case COLOR_FORMAT.HEX: {
+      return getCSSHexColor(color);
+    }
+    default:
+    case COLOR_FORMAT.HSL: {
+      return getCSSHSLColor(color);
+    }
+  }
+}
+
+/**
+ * Create a CSS color string from a Color object
+ *
+ * Supports string (css variables) for
+ */
+export function getCSSHSLColor(color?: CSSColor): ColorType<string> {
+  if (!color) {
+    return '';
+  }
+  const { hueStr, hueNumber, satStr, satNumber, lightStr, lightNumber, transStr, transNumber } =
+    getParsedColor(color);
+
+  const hsla = [
+    `${hueStr ? hueStr : hueNumber}`,
+    `${satStr ? satStr : satNumber + '%'}`,
+    `${lightStr ? lightStr : lightNumber + '%'}`,
+    `${transStr ? transStr : transNumber !== undefined ? transNumber / 100 : 1}`,
+  ];
+
+  return `hsl(${hsla.join(', ')})`;
 }
 
 /**
  * Create a hex CSS color string from a Color object
  */
-export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): Property.Color {
-  return toColorString({
-    hue: h,
-    saturation: s !== undefined ? s / 100 : 1,
-    lightness: l !== undefined ? l / 100 : 1,
-    alpha: a !== undefined ? a / 100 : 1,
+export function getCSSHexColor(color: CSSColor): ColorType<string> {
+  const { hueNumber, satNumber, lightNumber, transNumber } = getParsedColor(color);
+
+  const hex = toColorString({
+    hue: hueNumber !== undefined ? hueNumber : 0,
+    saturation: satNumber !== undefined ? satNumber / 100 : 1,
+    lightness: lightNumber !== undefined ? lightNumber / 100 : 1,
+    alpha: transNumber !== undefined ? transNumber / 100 : 1,
   });
+
+  // some program have trouble with short HEX code for colors...
+  if (/#FFF/i.test(hex)) {
+    return '#FFFFFF';
+  }
+
+  return hex;
 }
 
 /**
@@ -346,6 +456,62 @@ export function getRGBColor(color: Partial<DS.Color>): DS.ColorRGB {
     g: rgb.green,
     b: rgb.blue,
   };
+}
+
+/**
+ * Create a rgb color from a Color object
+ */
+export function getCSSRGBColor(color: CSSColor): DS.ColorType<string> {
+  const rgb = parseToRgb(getCSSHexColor(color)) as RgbaColor;
+
+  // background: toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 }),
+  return toColorString({
+    red: rgb.red,
+    green: rgb.green,
+    blue: rgb.blue,
+    alpha: rgb.alpha !== undefined ? rgb.alpha : 1,
+  });
+}
+
+/**
+ * Intelligently parse raw colors and handle scenario where CSS variables are used
+ */
+function getParsedColor(color: CSSColor) {
+  const { h, s, l, a } = color;
+
+  const hueStr = typeof h === 'string' ? h : undefined;
+  const hueNumberOrNaN = typeof h === 'number' ? Number(h) : undefined;
+  const hueNumber = hueStr
+    ? undefined
+    : hueNumberOrNaN !== undefined && !isNaN(hueNumberOrNaN)
+    ? hueNumberOrNaN
+    : 0;
+
+  const satStr = typeof s === 'string' ? s : undefined;
+  const satNumberOrNaN = typeof s === 'number' ? Number(s) : undefined;
+  const satNumber = satStr
+    ? undefined
+    : satNumberOrNaN !== undefined && !isNaN(satNumberOrNaN)
+    ? satNumberOrNaN
+    : 0;
+
+  const lightStr = typeof l === 'string' ? l : undefined;
+  const lightNumberOrNaN = typeof l === 'number' ? Number(l) : undefined;
+  const lightNumber = lightStr
+    ? undefined
+    : lightNumberOrNaN !== undefined && !isNaN(lightNumberOrNaN)
+    ? lightNumberOrNaN
+    : 0;
+
+  const transStr = typeof a === 'string' ? a : undefined;
+  const transNumberOrNaN = typeof a === 'number' ? Number(a) : undefined;
+  const transNumber = transStr
+    ? undefined
+    : transNumberOrNaN !== undefined && !isNaN(transNumberOrNaN)
+    ? transNumberOrNaN
+    : 100;
+
+  return { hueStr, hueNumber, satStr, satNumber, lightStr, lightNumber, transStr, transNumber };
 }
 
 /**

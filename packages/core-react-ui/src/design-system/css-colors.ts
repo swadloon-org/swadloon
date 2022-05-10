@@ -22,3 +22,19 @@ export type CSSColorsV2 = Pick<Colors<string>, 'colorScheme'> & {
    */
   gradients: Omit<ColorGradients<string>, 'vars'>;
 };
+
+/**
+ * Representation of a CSS color in HSL (cylindrical-coordinates)
+ *
+ * @see {Color} in the design system
+ */
+export type CSSColor = {
+  h?: number | string;
+  s?: number | string;
+  l?: number | string;
+  /**
+   * Alpha-channel transparency value between 0 and 100
+   * @example e.g. a value of 50 means 50% or 0.5 in CSS
+   */
+  a?: number | string;
+};

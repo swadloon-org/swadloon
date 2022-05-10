@@ -2,15 +2,16 @@ import React from 'react';
 
 import { cleanup, render } from '@testing-library/react';
 
-import { Color } from '@newrade/core-design-system';
+import { Color, COLOR_FORMAT } from '@newrade/core-design-system';
 
 import { defaultColors } from '../../default-theme/default-colors';
+import { CSSColor } from '../../design-system';
 import { getColorFromHex, getCSSColor, getCSSColorsV2, getCSSHexColor } from '../colors.utilities';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {
-    it('should create a valid CSS color from a Color object', () => {
-      const color: Color = {
+    it('should create a valid HSL CSS color from a Color object', () => {
+      const color: CSSColor = {
         h: 222,
         s: 40,
         l: 50,
@@ -20,8 +21,30 @@ describe('colors utilities', () => {
       expect(cssColor).toBe('hsl(222, 40%, 50%, 0.8)');
     });
 
+    it('should create a valid RGBA CSS color from a Color object', () => {
+      const color: CSSColor = {
+        h: 222,
+        s: 40,
+        l: 50,
+        a: 80,
+      };
+      const cssColor = getCSSColor(color, { format: COLOR_FORMAT.RGBA });
+      expect(cssColor).toBe('rgba(77,107,179,0.8)');
+    });
+
+    it('should create a valid HEX CSS color from a Color object', () => {
+      const color: CSSColor = {
+        h: 222,
+        s: 40,
+        l: 50,
+        a: 100,
+      };
+      const cssColor = getCSSColor(color, { format: COLOR_FORMAT.HEX });
+      expect(cssColor).toBe('#4d6bb3');
+    });
+
     it('should create a valid CSS color from a Color object with no transparency', () => {
-      const color: Color = {
+      const color: CSSColor = {
         h: 222,
         s: 40,
         l: 50,
@@ -29,6 +52,19 @@ describe('colors utilities', () => {
       };
       const cssColor = getCSSColor(color);
       expect(cssColor).toBe('hsl(222, 40%, 50%, 1)');
+    });
+
+    it('should create a valid CSS color from a Color object with CSS variables', () => {
+      const color: CSSColor = {
+        h: 'var(--hue)',
+        s: 'var(--saturation)',
+        l: 'var(--light)',
+        a: 'var(--transparency)',
+      };
+      const cssColor = getCSSColor(color);
+      expect(cssColor).toBe(
+        'hsl(var(--hue), var(--saturation), var(--light), var(--transparency))'
+      );
     });
 
     it(`should create a valid CSS color from a Color object the param 'a' not set`, () => {
@@ -56,7 +92,6 @@ describe('colors utilities', () => {
         if (!element) {
           fail('element div not found');
         }
-        // @ts-ignore
         expect(element[0]).toHaveStyle(`backgroundColor: hsl(222 40%, 50%, 1)`);
       }
       cleanup();
