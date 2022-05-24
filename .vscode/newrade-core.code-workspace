@@ -274,8 +274,8 @@
       "path": "../packages/core-website-api"
     },
     {
-      "name": "core-website-platform",
-      "path": "../packages/core-website-platform"
+      "name": "core-platform",
+      "path": "../packages/core-platform"
     },
     {
       "name": "core-yo-generator",

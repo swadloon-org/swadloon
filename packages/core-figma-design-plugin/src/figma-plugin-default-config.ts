@@ -1,4 +1,4 @@
-import { FigmaPluginConfig } from './figma-plugin-config';
+import { FigmaPluginConfig } from '../types/figma-plugin-config';
 
 const predefinedUXPageNames = [
   '✍️  UX / Whiteboard',
@@ -95,6 +95,6 @@ const predefinedArchivePageNames = ['💾  Archive'];
 export const defaultFigmaPluginConfig: FigmaPluginConfig = {
   pages: {
     separator: '---',
-    reorderAutomatically: true,
+    reOrderAutomatically: true,
   },
 };

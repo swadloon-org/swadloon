@@ -5,7 +5,7 @@ import { includedLibToCompile } from './included-libs';
 export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
   // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
   preset: 'ts-jest',
-  modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules'],
+  modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules', '<rootDir>'],
   rootDir: '.',
   testEnvironment: 'jsdom',
   transform: {

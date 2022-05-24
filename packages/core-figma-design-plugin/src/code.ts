@@ -26,6 +26,45 @@ figma.showUI(__html__, {
   height: 400,
 });
 
+/**
+ *
+ * Init plugin and auth verification
+ *
+ */
+
+(async () => {
+  try {
+    log(`initializing plugin`);
+    // apiURL = await figma.clientStorage.getAsync('apiURL');
+    // apiSecret = await figma.clientStorage.getAsync('apiSecret');
+
+    // if (apiURL && apiSecret) {
+    //   //send a message to the UI with the credentials storred in the client
+    //   figma.ui.postMessage({
+    //     type: 'apiCredentials',
+    //     status: true,
+    //     url: apiURL,
+    //     secret: apiSecret,
+    //   });
+    // } else {
+    //   //send a message to the UI that says there are no credentials storred in the client
+    //   figma.ui.postMessage({
+    //     type: 'apiCredentials',
+    //     status: false,
+    //   });
+    // }
+  } catch (err) {
+    figma.closePlugin('There was an error.');
+    return;
+  }
+})();
+
+/**
+ *
+ * Event handling from and to the UI
+ *
+ */
+
 figma.ui.onmessage = async (rawEvent: PluginEvent<any>) => {
   const pluginMessage: PluginEvent<typeof rawEvent.type> = rawEvent;
 

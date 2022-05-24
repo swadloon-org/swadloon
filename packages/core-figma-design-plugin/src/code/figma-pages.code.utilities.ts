@@ -37,7 +37,7 @@ export function createOrUpdateFigmaPages(): UpdateFigmaPageResults {
   }
 
   //
-  // remove separators
+  // remove separator pages
   //
   figma.root.children.forEach((page) => {
     if (page.name === '---') {

@@ -171,8 +171,8 @@
       "execute": false
     },
     {
-      "name": "core-website-platform",
-      "cwd": "./packages/core-website-platform",
+      "name": "core-platform",
+      "cwd": "./packages/core-platform",
       "open": true,
       "focus": false,
       "command": "yarn start",

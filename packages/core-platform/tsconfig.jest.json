@@ -1,0 +1,17 @@
+{
+  "extends": "../core-jest-config/tsconfig.base.jest.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["src/components/*"],
+      "@/models/*": ["src/models/*"],
+      "@/middlewares/*": ["src/middlewares/*"],
+      "@/utilities/*": ["src/utilities/*"],
+      "@/types": ["types/index"],
+      "@/types/*": ["types/*"],
+      "@/prisma/*": ["src/prisma/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-types",
   "version": "2.1.0",
-  "description": "Shared .d.ts files for untyped packages",
+  "description": "Utilty types for untyped packages and reuse",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
@@ -13,7 +13,17 @@
     "url": "https://github.com/newrade/newrade-core.git"
   },
   "license": "MIT",
+  "main": "dist/newrade-core-types.cjs.js",
+  "module": "dist/newrade-core-types.esm.js",
   "files": [
-    "src"
-  ]
+    "/dist"
+  ],
+  "scripts": {
+    "dev": "yarn preconstruct dev"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  }
 }
