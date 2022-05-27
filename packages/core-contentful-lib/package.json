@@ -19,7 +19,7 @@
     "/dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist",
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",

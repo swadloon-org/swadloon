@@ -131,14 +131,6 @@
       "execute": false
     },
     {
-      "name": "core-graphql-ui",
-      "cwd": "./packages/core-graphql-ui",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
       "name": "core-types",
       "cwd": "./packages/core-types",
       "open": true,

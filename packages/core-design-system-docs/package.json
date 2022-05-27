@@ -25,7 +25,6 @@
     "@newrade/core-gatsby-ui": "*",
     "@newrade/core-node-utils": "*",
     "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@newrade/core-webpack-config": "*",
     "@newrade/core-website-api": "*",
     "@vanilla-extract/css": "^1.6.8",

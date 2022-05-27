@@ -10,18 +10,12 @@
     "/utilities"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist",
     "build:dist": "tsc --build tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "utilities.ts"
-    ]
   },
   "sideEffects": false,
   "dependencies": {

@@ -1,8 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 
 import { ButtonSize, Variant } from '@newrade/core-design-system';
+import { Button } from '@newrade/core-react-ui-button';
 
-import { Button } from '../button/button';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';

@@ -11,9 +11,9 @@ import {
 } from '@newrade/core-design-system';
 
 import { useCommonProps } from '../hooks/use-common-props.hook';
+import { IconComp } from '../icons/icon';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getDefaultTextFromProps } from '../utilities-iso';
-import { IconComp } from '..';
 
 import * as styles from './link.css';
 

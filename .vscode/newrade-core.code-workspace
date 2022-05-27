@@ -254,8 +254,8 @@
       "path": "../packages/core-react-ui"
     },
     {
-      "name": "core-graphql-ui",
-      "path": "../packages/core-graphql-ui"
+      "name": "core-react-ui-components",
+      "path": "../packages/core-react-ui/src"
     },
     {
       "name": "core-types",

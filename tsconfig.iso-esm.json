@@ -5,8 +5,8 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
-    "incremental": true,
-    "composite": true,
+    "incremental": false,
+    "composite": false,
     "lib": ["esnext"]
   }
 }

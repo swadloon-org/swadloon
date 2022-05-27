@@ -13,17 +13,10 @@
     "url": "https://github.com/newrade/newrade-core.git"
   },
   "license": "MIT",
-  "main": "dist/newrade-core-types.cjs.js",
-  "module": "dist/newrade-core-types.esm.js",
   "files": [
-    "/dist"
+    "src"
   ],
   "scripts": {
     "dev": "yarn preconstruct dev"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
   }
 }

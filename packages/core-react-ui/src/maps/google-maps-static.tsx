@@ -87,6 +87,7 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
      */
 
     return (
+      // @ts-ignore
       <LoadScript
         id={id}
         libraries={libraries}

@@ -1,14 +1,11 @@
 import prisma from '@/prisma/prisma';
-import { HttpMethod } from "@/types";
+import { HttpMethod } from '@/types';
 
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse, PageConfig } from 'next';
 
-export default async function SaveSiteSettings(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function SaveSiteSettings(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== HttpMethod.POST) {
-    res.setHeader("Allow", [HttpMethod.POST]);
+    res.setHeader('Allow', [HttpMethod.POST]);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
@@ -20,9 +17,7 @@ export default async function SaveSiteSettings(
         id: data.id,
       },
       data: {
-        name: data.name,
         email: data.email,
-        image: data.image,
       },
     });
 
@@ -33,10 +28,4 @@ export default async function SaveSiteSettings(
   }
 }
 
-export const config: PageConfig = {
-  api: {
-    bodyParser: {
-      sizeLimit: '1mb',
-    },
-  },
-};
+export const config: PageConfig = {};

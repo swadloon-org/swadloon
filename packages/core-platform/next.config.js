@@ -1,7 +1,26 @@
+// @ts-check
+
+const v8 = require('v8');
+const webpack = require('webpack');
+const withTranspileModulesFn = require('next-transpile-modules');
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const nodeExternals = require('webpack-node-externals');
+
+const withVanillaExtract = createVanillaExtractPlugin();
+
+console.log(v8.getHeapStatistics()?.heap_size_limit);
+
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = {
+const nextConfig = {
+  compiler: {
+    styledComponents: false, // not in use
+  },
+  experimental: {
+    emotion: false, // not in use
+    externalDir: false, // does not work properly
+  },
   images: {
     domains: [
       'res.cloudinary.com',
@@ -19,6 +38,26 @@ module.exports = {
    * @returns {import('webpack').Configuration}
    */
   webpack: (config, context) => {
+    config.node = {
+      ...config.node,
+      __dirname: true,
+    };
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+      })
+    );
     return config;
   },
 };
+
+/**
+ * Modules set for transpilation (outside of root)
+ */
+// const withTranspileModules = withTranspileModulesFn([
+//   // '@newrade/core-react-ui',
+//   '@newrade/core-common',
+//   '@newrade/core-design-system',
+// ]);
+
+module.exports = withVanillaExtract(nextConfig);

@@ -8,7 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "checkJs": false,
-    "isolatedModules": false,
+    "isolatedModules": true,
+    "incremental": false,
     "composite": false,
     "declaration": false,
     "diagnostics": false,
@@ -16,15 +17,14 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": false,
     "jsx": "react",
     "module": "esnext",
+    "target": "esnext",
     "moduleResolution": "node",
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
     "skipLibCheck": true
   }
 }

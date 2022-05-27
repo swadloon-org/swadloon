@@ -11,7 +11,7 @@
     "/ejs-loader"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist && yarn build:config",
     "build:config": "tsc --project tsconfig.config.json",
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist && yarn clean:config",
@@ -19,13 +19,6 @@
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "config/index.ts",
-      "ejs-loader/index.ts"
-    ]
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",

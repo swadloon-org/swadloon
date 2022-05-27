@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Stack } from '../layout/stack';
+import { Label } from '../text/label';
 import { sizeVars } from '../theme';
-import { Label } from '..';
 
 import * as styles from './text-color-intents-showcase.css';
 

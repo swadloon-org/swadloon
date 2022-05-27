@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
     "declaration": false,
-    "esModuleInterop": true, // oclif does not use extends
     "baseUrl": ".",
     "outDir": "lib",
     "rootDir": "src"

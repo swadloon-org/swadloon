@@ -47,7 +47,7 @@ export default function middleware(req: NextRequest, event: NextFetchEvent) {
       return NextResponse.rewrite(url);
     }
 
-    if (hostname === 'localhost:3000' || hostname === 'newrade.vercel.app') {
+    if (hostname === 'localhost:9003' || hostname === 'newrade.vercel.app') {
       url.pathname = `/home`;
       return NextResponse.rewrite(url);
     }

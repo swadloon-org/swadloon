@@ -6,8 +6,7 @@ import { CONTENT_TYPE } from '@newrade/core-website-api';
 import { SectionLayout } from '@newrade/core-website-api';
 
 import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
-import { values } from '..';
+import { keys, values } from '../utilities';
 
 import { createColorProps } from './color-props.contentful';
 import { COMMON_FIELD } from './common-fields.contentful';

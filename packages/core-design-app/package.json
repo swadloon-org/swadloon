@@ -19,7 +19,6 @@
     "@newrade/core-jest-config": "*",
     "@newrade/core-node-utils": "*",
     "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@newrade/core-webpack-config": "*",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "fp-ts": "^2",

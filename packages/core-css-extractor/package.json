@@ -25,7 +25,6 @@
     "@newrade/core-jest-config": "*",
     "@newrade/core-node-utils": "*",
     "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@newrade/core-webpack-config": "*",
     "@newrade/ze-design-system": "*",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",

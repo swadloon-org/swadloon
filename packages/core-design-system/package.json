@@ -13,19 +13,20 @@
     "url": "https://github.com/newrade/newrade-core.git"
   },
   "license": "MIT",
-  "main": "dist/newrade-core-design-system.cjs.js",
-  "module": "dist/newrade-core-design-system.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist",
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
   },
+  "types": "dist/index.cjs.d.ts",
   "dependencies": {
     "@capsizecss/core": "^3.0.0",
     "framer-motion": "^4"

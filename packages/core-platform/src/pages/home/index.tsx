@@ -1,5 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
+import { PageConfig } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -10,13 +11,10 @@ export default function Home() {
       </Head>
 
       <div className="m-auto w-48">
-        <Image
-          width={512}
-          height={512}
-          src="/logo.png"
-          alt="Platforms on Vercel"
-        />
+        <Image width={40} height={40} src="/logo.png" alt="Platforms on Vercel" />
       </div>
     </div>
   );
 }
+
+export const config: PageConfig = {};

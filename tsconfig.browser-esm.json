@@ -7,9 +7,6 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "declaration": true,
-    "incremental": true,
-    "composite": true,
     "lib": ["dom", "ESNext"]
   }
 }

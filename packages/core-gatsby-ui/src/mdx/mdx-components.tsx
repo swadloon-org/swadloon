@@ -53,11 +53,11 @@ import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 
 export type MDXComponents = Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & {
-    pragmaFrag: React.ReactNode;
-    inlineCode: React.ReactNode;
+  Record<keyof React.ReactHTML, any> & {
+    pragmaFrag: any;
+    inlineCode: any;
   } & {
-    [key: string]: React.ReactNode;
+    [key: string]: any; // React.ReactNode
   }
 >;
 

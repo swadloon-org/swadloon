@@ -1,5 +1,4 @@
-import { DeepPartial } from '../types';
-import { NumberType } from '..';
+import { DeepPartial, NumberType } from '../types';
 
 import { Font } from './font';
 import { VIEWPORT } from './layout';

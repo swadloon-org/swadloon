@@ -9,6 +9,7 @@ import { getBabelReactLoader } from '../loaders/babel-react.loader';
 import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
+import { mdxLoader } from '../loaders/mdx.loader';
 import { svgLoader } from '../loaders/svg.loader';
 import { txtLoader } from '../loaders/txt.loader';
 import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader';
@@ -16,7 +17,6 @@ import { urlLoader } from '../loaders/url.loader';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
 import { compressionPlugin } from '../plugins/compression.plugin.conf';
 import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
-import { mdxLoader } from '..';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps

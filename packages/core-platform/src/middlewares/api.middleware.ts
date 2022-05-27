@@ -3,7 +3,7 @@ import { errorMiddleware } from './error.middleware';
 import { loggerMiddleware } from './logging.middleware';
 
 /**
- * Middleware for API controllers that applies global middleware, execute controller's method and handle _unhandled_ errors
+ * Global middleware for API controllers that applies middlewares, execute controller's handlers and handle _unhandled_ errors
  *
  * @see https://github.com/vercel/next.js/discussions/17832
  * @see https://nextjs.org/docs/api-routes/api-middlewares
@@ -35,6 +35,10 @@ export function apiMiddleware<ReqPayload, ResPayload>(controller: APIController)
 
       await handler(req, res);
     } catch (error: any) {
+
+      // TODO, handle prisma vs API error?
+      // result instanceof Error
+
       /**
        * Error handling
        */

@@ -11,6 +11,7 @@ import {
   PARAGRAPH_SIZE,
 } from '@newrade/core-design-system';
 
+import { IconComp } from '../icons/icon';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
@@ -18,7 +19,6 @@ import { Link } from '../text/link';
 import { Paragraph } from '../text/paragraph';
 import { sizeVars } from '../theme';
 import { getMergedClassname } from '../utilities-iso';
-import { IconComp } from '..';
 
 import * as styles from './google-maps-info-window.css';
 
