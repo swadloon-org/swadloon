@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 
 import { ButtonIcon, ButtonSize, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { IconComp } from '../icons/icon';
 import { Primitive } from '../primitive/primitive';

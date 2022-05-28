@@ -6,7 +6,7 @@ import {
   ButtonVariants,
 } from '@newrade/core-design-system';
 
-import { CSSButtons } from '../design-system';
+import { CSSButtons } from '../design-system/design-system';
 import { keys, px } from '../utilities-iso/utilities';
 
 import {

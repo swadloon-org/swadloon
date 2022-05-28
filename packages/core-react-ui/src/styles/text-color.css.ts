@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 
-import { colorVars } from '../theme';
+import { colorVars } from '../default-theme/src/theme';
 
 /**
  * Reusable classes to set text colors, also support reversed color mode

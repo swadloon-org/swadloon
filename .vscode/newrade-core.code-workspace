@@ -120,25 +120,25 @@
       "typescriptreact"
     ],
     "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#95fe98",
-      "activityBar.activeBorder": "#8481fe",
-      "activityBar.background": "#95fe98",
-      "activityBar.foreground": "#15202b",
-      "activityBar.inactiveForeground": "#15202b99",
-      "activityBarBadge.background": "#8481fe",
-      "activityBarBadge.foreground": "#15202b",
-      "sash.hoverBorder": "#95fe98",
-      "statusBar.background": "#63fd67",
-      "statusBar.foreground": "#15202b",
-      "statusBarItem.hoverBackground": "#31fc36",
-      "statusBarItem.remoteBackground": "#63fd67",
-      "statusBarItem.remoteForeground": "#15202b",
-      "titleBar.activeBackground": "#63fd67",
-      "titleBar.activeForeground": "#15202b",
-      "titleBar.inactiveBackground": "#63fd6799",
-      "titleBar.inactiveForeground": "#15202b99"
+      "activityBar.activeBackground": "#023e73",
+      "activityBar.activeBorder": "#db0476",
+      "activityBar.background": "#023e73",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#db0476",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#023e73",
+      "statusBar.background": "#012341",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#023e73",
+      "statusBarItem.remoteBackground": "#012341",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#012341",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#01234199",
+      "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#63fd67",
+    "peacock.color": "#012341",
     "[prisma]": {
       "editor.defaultFormatter": "Prisma.prisma"
     }

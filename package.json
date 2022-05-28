@@ -36,6 +36,7 @@
       "packages/core-yo-generator",
       "packages/ze-design-system",
       "packages/ze-design-website",
+      "packages/core-react-ui/src/animation",
       "packages/core-react-ui/src/button",
       "packages/core-react-ui/src/hooks",
       "packages/core-react-ui/src/utilities-browser",

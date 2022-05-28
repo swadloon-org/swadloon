@@ -1,4 +1,4 @@
-import { defaultButtons } from '../../default-theme';
+import { defaultButtons } from '../../default-theme/src';
 import { getCSSButtons } from '../buttons.utilities';
 
 describe('buttons utilities', () => {

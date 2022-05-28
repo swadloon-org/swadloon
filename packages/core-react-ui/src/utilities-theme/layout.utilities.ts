@@ -14,7 +14,7 @@ import {
 } from '@newrade/core-design-system';
 
 import { defaultPartialLayout } from '../default-theme/default-layout';
-import { CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system';
+import { CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system/design-system';
 import { cssVar } from '../utilities-iso/css-variables.utilities';
 import { keys, px } from '../utilities-iso/utilities';
 

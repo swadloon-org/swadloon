@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 
-import { keys } from '../utilities-iso';
+import { keys } from './utilities-iso';
 
 /**
  * `<Link />` => "Link Medium Underline"

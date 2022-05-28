@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutCSS, sizeVars } from '../theme';
+import { colorVars, layoutCSS, sizeVars } from '../default-theme/src/theme';
 
 /**
  * Sidebar

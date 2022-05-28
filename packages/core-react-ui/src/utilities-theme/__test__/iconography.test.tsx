@@ -1,4 +1,4 @@
-import { defaultIconography } from '../../default-theme';
+import { defaultIconography } from '../../default-theme/src';
 import { getCSSIconography } from '../iconography.utilities';
 
 describe('iconography utilities', () => {

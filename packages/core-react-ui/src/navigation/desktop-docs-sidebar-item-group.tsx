@@ -1,14 +1,14 @@
 import React, { AnchorHTMLAttributes, useState } from 'react';
 
 import { ICON, LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
 import { IconComp } from '../icons/icon';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities-iso';
+import { getMergedClassname } from '../utilities-iso/utilities-iso';
 
 import * as styles from './desktop-docs-sidebar-item-group.css';
 

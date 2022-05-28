@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-iso';
+import { getMergedClassname } from '../utilities-iso/utilities-iso';
 
 import * as styles from './desktop-docs-sidebar.css';
 

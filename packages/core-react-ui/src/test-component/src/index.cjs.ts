@@ -1,4 +1,4 @@
 /**
- * Reexport stub for VSCode
+ * Re-export default
  */
 export * from '../src/index';

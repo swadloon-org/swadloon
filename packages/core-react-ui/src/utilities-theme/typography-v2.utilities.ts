@@ -15,8 +15,8 @@ import {
   VIEWPORT,
 } from '@newrade/core-design-system';
 
-import { defaultSansFont, defaultSerifFont } from '../default-theme';
-import { CSSTypographyV2 } from '../design-system';
+import { defaultSansFont, defaultSerifFont } from '../default-theme/src';
+import { CSSTypographyV2 } from '../design-system/design-system';
 import { em, keys, pxToEm } from '../utilities-iso/utilities';
 
 import { setVarsValuesToStyleObject } from './component.utilities';

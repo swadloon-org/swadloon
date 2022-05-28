@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-react-ui-primitive",
   "version": "1.0.0",
-  "description": "Base component along wiht utilities to build other React components",
+  "description": "Reusable component used for most other higher level components. ",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
@@ -48,6 +48,7 @@
   "types": "dist/index.cjs.d.ts",
   "dependencies": {
     "@newrade/core-design-system": "*",
+    "@newrade/core-react-ui-hooks": "*",
     "@vanilla-extract/css": "^1.6.8",
     "react": "18.0.0",
     "react-dom": "18.0.0"

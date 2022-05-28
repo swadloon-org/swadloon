@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { useCommonProps } from '../hooks/use-common-props.hook';
+import { useCommonProps } from '@newrade/core-react-ui-hooks';
+
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { sizeVars } from '../theme';

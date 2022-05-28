@@ -10,7 +10,7 @@ import {
 } from '@newrade/core-design-system';
 
 import { defaultFontVarNames, defaultFontVars } from '../default-theme/default-typography';
-import { CSSTypography } from '../design-system';
+import { CSSTypography } from '../design-system/design-system';
 import { keys } from '../utilities-iso/utilities';
 
 import { setVarsValuesToStyleObject } from './component.utilities';

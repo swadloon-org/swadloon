@@ -1,6 +1,6 @@
 import { createVar, globalStyle } from '@vanilla-extract/css';
 
-import { colorVars } from '../theme';
+import { colorVars } from '../default-theme/src/theme';
 
 /**
  * Scrollbars

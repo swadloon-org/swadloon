@@ -4,8 +4,8 @@ import { CapsizeOptions, ComputedValues } from '@capsizecss/core/dist/declaratio
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
 
-import { getScaledValue, ModularScaleOptions, round } from '../utilities-iso';
 import { pxStringToNumber, pxStringToRem } from '../utilities-iso/utilities';
+import { getScaledValue, ModularScaleOptions, round } from '../utilities-iso/utilities-iso';
 
 import { getCSSFonts } from './font.utilities';
 import { createCSSTextStyle } from './text.utilities';

@@ -7,7 +7,7 @@ import {
   TextShadows,
 } from '@newrade/core-design-system';
 
-import { CSSEffects } from '../design-system';
+import { CSSEffects } from '../design-system/design-system';
 import { keys } from '../utilities-iso/utilities';
 
 import { getCSSColor } from './colors.utilities';

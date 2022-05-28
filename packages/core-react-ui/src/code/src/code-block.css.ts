@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutCSS, layoutVars, typographyVars } from '../../theme';
+import { colorVars, layoutCSS, layoutVars, typographyVars } from '../../default-theme/src/theme';
 
 export const wrapper = style({
   position: 'relative',

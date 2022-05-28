@@ -1,6 +1,6 @@
 import { DesignSystemV2 } from '@newrade/core-design-system';
 
-import { CSSDesignSystemV2 } from '../design-system';
+import { CSSDesignSystemV2 } from '../design-system/design-system';
 
 import { getCSSButtons } from './buttons.utilities';
 import { getCSSColorsV2 } from './colors.utilities';
