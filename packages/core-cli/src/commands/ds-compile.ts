@@ -33,7 +33,7 @@ export default class CssExtract extends Command {
 
     const { args, flags } = this.parse(CssExtract);
 
-    const command = `TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config ../core-css-extractor/webpack.prod.config.ts`;
+    const command = `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config ../core-css-extractor/webpack.prod.config.ts`;
 
     this.log(`running: ${command}`);
 

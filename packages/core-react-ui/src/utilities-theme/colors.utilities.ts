@@ -368,6 +368,10 @@ export function getCSSColor(
     return getCSSHSLColor(color);
   }
 
+  if (!options.format) {
+    return getCSSHSLColor(color);
+  }
+
   switch (options.format) {
     case COLOR_FORMAT.RGBA: {
       return getCSSRGBColor(color);
