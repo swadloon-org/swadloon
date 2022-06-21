@@ -1,5 +1,5 @@
-import { Color } from '../primitives/color';
-import { ColorType, DeepPartial, NumberType } from '../types';
+import { Color } from '../primitives/color.js';
+import { ColorType, DeepPartial, NumberType } from '../types.js';
 
 /**
  * Representation of a box shadow.

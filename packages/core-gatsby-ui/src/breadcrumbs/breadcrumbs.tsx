@@ -3,11 +3,10 @@ import React from 'react';
 import { LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { Link, Paragraph, useCommonProps } from '@newrade/core-react-ui';
 
-import { GatsbyLink } from '../links/gatsby-link';
+import { GatsbyLink } from '../links/gatsby-link.js';
 
-import { BreadcrumbsProps } from './breadcrumbs.props';
-
-import * as styles from './breadcrumbs.css';
+import * as styles from './breadcrumbs.css.js';
+import { BreadcrumbsProps } from './breadcrumbs.props.js';
 
 type Props = BreadcrumbsProps;
 

@@ -1,0 +1,66 @@
+{
+  "name": "@newrade/core-react-ui-icon-kit-ionicons",
+  "version": "1.0.0",
+  "description": "Preconfigured package to use the Ionicons icon set.",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "homepage": "https://github.com/newrade/newrade-core",
+  "repository": {
+    "directory": "packages/core-react-ui/src/icon-kit-ionicons",
+    "type": "git",
+    "url": "git+https://github.com/newrade/newrade-core.git"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "ionicons",
+    "swadloon-ui"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newrade/newrade-core/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn tsc:build && yarn swc:build",
+    "clean": "yarn clean:dist && yarn clean:tsc",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "prestart": "yarn clean",
+    "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\"",
+    "swc:build": "yarn swc ./src --config-file ../../../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:watch": "yarn swc:build --watch",
+    "tsc:build": "tsc --emitDeclarationOnly",
+    "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
+    "tsc:typecheck": "tsc --noEmit",
+    "typecheck": "yarn tsc:typecheck"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.css.ts",
+    "*.css.js"
+  ],
+  "types": "dist/index.cjs.d.ts",
+  "dependencies": {
+    "@newrade/core-design-system": "*",
+    "@vanilla-extract/css": "^1.6.8",
+    "case": "^1",
+    "prettier": "^2",
+    "prism-react-renderer": "^1.2.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "peerDependencies": {
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 import { APIController, ApiHandler, ApiRequest, ApiResponse, API_HTTP_METHOD } from '@/types/api';
-import { errorMiddleware } from './error.middleware';
-import { loggerMiddleware } from './logging.middleware';
+import { errorMiddleware } from './error.middleware.js';
+import { loggerMiddleware } from './logging.middleware.js';
 
 /**
  * Global middleware for API controllers that applies middlewares, execute controller's handlers and handle _unhandled_ errors

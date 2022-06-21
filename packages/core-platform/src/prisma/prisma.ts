@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { prismaLoggingMiddleware } from './logging.prisma-middleware';
+import { prismaLoggingMiddleware } from './logging.prisma-middleware.js';
 
 declare global {
   var prisma: PrismaClient | undefined;

@@ -1,4 +1,4 @@
-# core-jest-config
+# Jest Config
 
 ## Quickstart
 

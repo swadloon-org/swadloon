@@ -1,6 +1,6 @@
 import { BoxShadows, Effects, OutlineShadows, TextShadows } from '@newrade/core-design-system';
 
-import { defaultColorIntents, defaultColorsColors } from './default-colors';
+import { defaultColorIntents, defaultColorsColors } from './default-colors.js';
 
 export const defaultBoxShadows: BoxShadows = {
   light: {

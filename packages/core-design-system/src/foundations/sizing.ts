@@ -1,7 +1,7 @@
-import { BooleanType, NumberType } from '../types';
+import { BooleanType, NumberType } from '../types.js';
 
-import { VIEWPORT } from './layout';
-import { ModularScaleRatio } from './sizing-modular-scale';
+import { VIEWPORT } from './layout.js';
+import { ModularScaleRatio } from './sizing-modular-scale.js';
 
 /**
  * Unique names for each sizing step.

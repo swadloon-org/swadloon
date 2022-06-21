@@ -4,15 +4,15 @@
  *
  */
 
-export * from '../default-buttons';
-export * from '../default-code-colors';
-export * from '../default-code-colors-dark';
-export * from '../default-colors';
-export * from '../default-colors-dark';
-export * from '../default-effects';
-export * from '../default-fonts';
-export * from '../default-iconography';
-export * from '../default-layout';
-export * from '../default-sizing';
-export * from '../default-typography';
-export * from './default-animations';
+export * from '../default-buttons.js';
+export * from '../default-code-colors.js';
+export * from '../default-code-colors-dark.js';
+export * from '../default-colors.js';
+export * from '../default-colors-dark.js';
+export * from '../default-effects.js';
+export * from '../default-fonts.js';
+export * from '../default-iconography.js';
+export * from '../default-layout.js';
+export * from '../default-sizing.js';
+export * from '../default-typography.js';
+export * from './default-animations.js';

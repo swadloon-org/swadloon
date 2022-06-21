@@ -1,10 +1,10 @@
 import { COLOR_MODE, COLOR_SCHEME, Variant } from '@newrade/core-design-system';
 
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlockAPI } from './block.api';
-import { ColorModeAPI } from './color-mode.api';
-import { NavigationAPI } from './navigation.api';
+import { BlockAPI } from './block.api.js';
+import { ColorModeAPI } from './color-mode.api.js';
+import { NavigationAPI } from './navigation.api.js';
 
 /**
  * Predefined navbar layouts

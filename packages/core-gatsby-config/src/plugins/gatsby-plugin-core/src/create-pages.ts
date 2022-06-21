@@ -7,15 +7,18 @@ import chalk from 'chalk';
 
 import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 
-import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
-import { PAGE_TEMPLATE, PageTemplate } from '../../../config/page.props';
-import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-context';
+import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances.js';
+import { PAGE_TEMPLATE, PageTemplate } from '../../../config/page.props.js';
+import {
+  GatsbyMarkdownFilePageContext,
+  GatsbySrcPageContext,
+} from '../../../config/page-context.js';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,
   GatsbyNodeSiteMetadataFragment,
   GatsbyNodeSrcPagesFilesQuery,
-} from '../../../config/site-graphql-types';
+} from '../../../config/site-graphql-types.js';
 import {
   getFullPageNodePath,
   getLangSimpleCode,
@@ -31,8 +34,8 @@ import {
   MatchingPageOutput,
   remoteExtension,
   removeLocalePrefix,
-} from '../../../utils/pages.utilities';
-import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+} from '../../../utils/pages.utilities.js';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options.js';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment | undefined;
 let matchingTsxPageDirNames: MatchingPageOutput;

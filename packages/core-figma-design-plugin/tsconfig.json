@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "public",
     "baseUrl": ".",
-    "target": "es6",
+    "target": "es2021",
     "noEmit": true, // Emit handled by webpack.
     "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
   },

@@ -2,9 +2,9 @@ import React from 'react';
 
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 
-import { getMergedClassname } from '../utilities-iso';
+import { getMergedClassname } from '../utilities-iso.js';
 
-import * as styles from './code-highlight.css';
+import * as styles from './code-highlight.css.js';
 
 type Props = {
   code?: string;

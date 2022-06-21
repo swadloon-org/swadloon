@@ -1,15 +1,15 @@
 import { ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
 
-import { Color } from '../primitives/color';
+import { Color } from '../primitives/color.js';
 import {
   FontVariantNumericType,
   FontWeightType,
   LetterSpacingType,
   TextDecorationType,
   TextTransformType,
-} from '../types';
+} from '../types.js';
 
-import { Font } from './font';
+import { Font } from './font.js';
 
 export enum TEXT_TRANSFORM {
   capitalize = 'capitalize',

@@ -6,9 +6,8 @@ import { sizeVars } from '@newrade/core-react-ui/theme';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
-import { SectionProps } from './section.props';
-
-import * as styles from './section-base.css';
+import { SectionProps } from './section.props.js';
+import * as styles from './section-base.css.js';
 
 type Props = SectionProps;
 

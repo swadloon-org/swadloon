@@ -1,4 +1,4 @@
-import { round } from '../utilities-iso';
+import { round } from '../utilities-iso.js';
 
 describe('math utilities', () => {
   describe(`${round.name}`, () => {

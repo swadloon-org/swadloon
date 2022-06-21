@@ -7,14 +7,14 @@ import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
 import * as prettier from 'prettier';
 
-import { FILES_TYPE_TEXT, regexName } from '../constants/figma-texts.constants';
+import { FILES_TYPE_TEXT, regexName } from '../constants/figma-texts.constants.js';
 import {
   FigmaTextHeading,
   FigmaTextLabel,
   FigmaTextParagraphe,
   TextTokens,
-} from '../models/figma-texts.model';
-import { fetchObjectById } from '../service/figma-api.service';
+} from '../models/figma-texts.model.js';
+import { fetchObjectById } from '../service/figma-api.service.js';
 
 const log = debug('nr:core-cli');
 

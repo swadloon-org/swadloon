@@ -1,4 +1,4 @@
 /**
  * Re-export default
  */
-export * from '../src/index';
+export * from '../src/index.js';

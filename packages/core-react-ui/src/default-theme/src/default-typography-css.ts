@@ -1,6 +1,6 @@
-import { getCSSTypographyV2 } from '../utilities-theme/typography-v2.utilities';
+import { getCSSTypographyV2 } from '../utilities-theme/typography-v2.utilities.js';
 
-import { defaultTypography } from './src';
+import { defaultTypography } from './src.js';
 
 export const defaultCSSTypography = getCSSTypographyV2({
   ...defaultTypography,

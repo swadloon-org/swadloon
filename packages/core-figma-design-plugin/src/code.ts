@@ -5,21 +5,24 @@ import { CapsizeTextStyleV2, TEXT_TRANSFORM, VIEWPORT } from '@newrade/core-desi
 import { keys, pxStringToNumber } from '@newrade/core-react-ui/utilities-iso';
 import { cssLayout, cssTypography } from '@newrade/ze-design-system/css';
 
-import { postMessageToUI } from './code/code.utilities';
-import { loadFigmaFonts } from './code/figma-fonts.code.utilities';
+import { postMessageToUI } from './code/code.utilities.js';
+import { loadFigmaFonts } from './code/figma-fonts.code.utilities.js';
 import {
   createOrUpdateFigmaFrame,
   createOrUpdateFigmaTextNode,
-} from './code/figma-nodes.code.utilities';
-import { createOrUpdateFigmaPages } from './code/figma-pages.code.utilities';
-import { createOrUpdateFigmaTextStyle } from './code/figma-styles.code.utilities';
-import { createFigmaTextStyle, getFigmaTextStyleList } from './code/figma-text.code.utilities';
-import { getFigmaFontFromTextStyle, loadUsedFontsInTypography } from './code/fonts.code.utilities';
-import { log, logError } from './code/log.code.utilities';
-import { lorenipsumMedium } from './common/loren-ipsum';
-import { PLUGIN_EVENT_TYPE, PluginEvent } from './common/messages';
-import { getFigmaTextCase } from './common/text.utilities';
-import { formatNameFigma } from './common/utilities';
+} from './code/figma-nodes.code.utilities.js';
+import { createOrUpdateFigmaPages } from './code/figma-pages.code.utilities.js';
+import { createOrUpdateFigmaTextStyle } from './code/figma-styles.code.utilities.js';
+import { createFigmaTextStyle, getFigmaTextStyleList } from './code/figma-text.code.utilities.js';
+import {
+  getFigmaFontFromTextStyle,
+  loadUsedFontsInTypography,
+} from './code/fonts.code.utilities.js';
+import { log, logError } from './code/log.code.utilities.js';
+import { lorenipsumMedium } from './common/loren-ipsum.js';
+import { PLUGIN_EVENT_TYPE, PluginEvent } from './common/messages.js';
+import { getFigmaTextCase } from './common/text.utilities.js';
+import { formatNameFigma } from './common/utilities.js';
 
 figma.showUI(__html__, {
   width: 360,

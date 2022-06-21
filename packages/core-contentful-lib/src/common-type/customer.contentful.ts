@@ -3,7 +3,7 @@ import * as Migration from 'contentful-migration';
 
 import { CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { COMMON_FIELD, emailField, urlField } from './common-fields.contentful';
+import { COMMON_FIELD, emailField, urlField } from './common-fields.contentful.js';
 
 export const createCustomer: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(CONTENT_TYPE.CUSTOMER, {

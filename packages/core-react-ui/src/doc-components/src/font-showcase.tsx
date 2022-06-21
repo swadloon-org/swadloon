@@ -4,15 +4,14 @@ import { title } from 'case';
 
 import { HEADING } from '@newrade/core-design-system';
 
-import { Cluster } from '../layout/cluster';
-import { Stack } from '../layout/stack';
-import { Heading } from '../text/heading';
-import { sizeVars, typographyVars } from '../theme';
-import { getCSSVarValue } from '../utilities-browser/css-variables.utilities';
+import { Cluster } from '../layout/cluster.js';
+import { Stack } from '../layout/stack.js';
+import { Heading } from '../text/heading.js';
+import { sizeVars, typographyVars } from '../theme.js';
+import { getCSSVarValue } from '../utilities-browser/css-variables.utilities.js';
 
-import { sampleText } from './unicode-text';
-
-import * as styles from './font-showcase.css';
+import * as styles from './font-showcase.css.js';
+import { sampleText } from './unicode-text.js';
 
 type Props = {};
 

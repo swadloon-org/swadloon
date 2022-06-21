@@ -1,6 +1,6 @@
-import { ColorType, PercentType } from '../types';
+import { ColorType, PercentType } from '../types.js';
 
-import { Angle } from './angle';
+import { Angle } from './angle.js';
 
 export type ColorGradient<Override extends undefined | string = undefined> = {
   /**

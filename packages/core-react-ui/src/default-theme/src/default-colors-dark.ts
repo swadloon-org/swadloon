@@ -11,9 +11,9 @@ import {
   generateColorGreyPaletteDark,
   generateColorPalette5,
   getDefaultColorIntents,
-} from '../utilities-theme/colors.utilities';
+} from '../utilities-theme/colors.utilities.js';
 
-import { defaultCodeColorsDark } from './default-code-colors-dark';
+import { defaultCodeColorsDark } from './default-code-colors-dark.js';
 
 export const defaultColorsColorsDark: ColorsColors = {
   current: 'currentColor',

@@ -1,4 +1,4 @@
-import { getScaledValue } from '../scale.utilities';
+import { getScaledValue } from '../scale.utilities.js';
 
 describe('scale utilities', () => {
   describe(`${getScaledValue.name}`, () => {

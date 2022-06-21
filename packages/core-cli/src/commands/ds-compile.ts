@@ -2,7 +2,7 @@ import { Env, ENV } from '@newrade/core-css-extractor';
 import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
 import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
 export default class CssExtract extends Command {
   log = debugInstance(`${NS}:css-extract`);

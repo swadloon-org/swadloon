@@ -14,7 +14,6 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
     "extract": "env-cmd -x cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register bin/run.ts",
     "test": "nr jest",
     "test:watch": "nr jestwatch"

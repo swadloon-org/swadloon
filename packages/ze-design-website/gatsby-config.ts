@@ -6,7 +6,7 @@ import * as core from '@newrade/core-gatsb-config';
 import * as conf from '@newrade/core-gatsb-config/config';
 import { getAppUrl, loadDotEnv } from '@newrade/core-node-utils';
 
-import { ENV, Env } from './types/dot-env';
+import { ENV, Env } from './types/dot-env.js';
 import packageJson from './package.json';
 
 delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools

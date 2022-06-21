@@ -1,8 +1,8 @@
 import { AriaRole } from 'react';
 
-import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography';
+import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography.js';
 
-import { Variant } from './components';
+import { Variant } from './components.js';
 
 export enum ListItemAs {
   li = 'li',

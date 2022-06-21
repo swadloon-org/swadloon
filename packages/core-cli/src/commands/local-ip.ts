@@ -2,7 +2,7 @@ import os from 'os';
 
 import { Command } from '@oclif/command';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
 /**
  * Get local IPv4 addresses

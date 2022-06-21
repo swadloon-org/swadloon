@@ -1,4 +1,4 @@
-import { ColorType } from '../types';
+import { ColorType } from '../types.js';
 
 /**
  * All types of code markup. Taken from PrismJS.

@@ -1,15 +1,15 @@
 import { Configuration } from 'webpack';
 
-import { getBabelTypescriptReactLoader } from '../loaders/babel-react.loader';
-import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader';
-import { htmlLoader } from '../loaders/html.loader';
-import { inlineCssLoader, inlineVanillaCssLibLoader } from '../loaders/inline-css.loader';
-import { svgLoader } from '../loaders/svg.loader';
-import { stats } from '../other/stats.conf';
-import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
-import { getMiniCssCleanupPlugin } from '../plugins/mini-css-extract-cleanup.conf';
-import { getMiniCSSExtractPlugin } from '../plugins/mini-css-extract-plugin.conf';
-import { getVanillaExtractPlugin } from '../plugins/vanilla-extract-plugin.conf';
+import { getBabelTypescriptReactLoader } from '../loaders/babel-react.loader.js';
+import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader.js';
+import { htmlLoader } from '../loaders/html.loader.js';
+import { inlineCssLoader, inlineVanillaCssLibLoader } from '../loaders/inline-css.loader.js';
+import { svgLoader } from '../loaders/svg.loader.js';
+import { stats } from '../other/stats.conf.js';
+import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin.js';
+import { getMiniCssCleanupPlugin } from '../plugins/mini-css-extract-cleanup.conf.js';
+import { getMiniCSSExtractPlugin } from '../plugins/mini-css-extract-plugin.conf.js';
+import { getVanillaExtractPlugin } from '../plugins/vanilla-extract-plugin.conf.js';
 
 /**
  * Config to build a Figma plugin

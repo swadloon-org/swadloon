@@ -1,4 +1,4 @@
-import { MODEL_NAMES, Rule, RULE_ACCESS, RULE_CATEGORY } from '../models/rule.model';
+import { MODEL_NAMES, Rule, RULE_ACCESS, RULE_CATEGORY } from '../models/rule.model.js';
 
 export const defaultRules: Rule[] = [
   {

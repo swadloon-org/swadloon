@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { getMergedClassname } from '../../utilities-iso/utilities-iso';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { getMergedClassname } from '../../utilities-iso/utilities-iso.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './markdown.css';
+import * as styles from './markdown.css.js';
 
 type Props = PrimitiveProps;
 

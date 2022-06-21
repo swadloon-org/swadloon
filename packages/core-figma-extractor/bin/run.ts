@@ -1,6 +1,6 @@
-import { extract } from '../src/extract';
+import { extract } from '../src/extract.js';
 import { loadDotEnv } from '@newrade/core-node-utils';
-import { Env, ENV } from '../types/dot-env';
+import { Env, ENV } from '../types/dot-env.js';
 import path from 'path';
 import packageJson from '../package.json';
 

@@ -3,10 +3,10 @@ import * as Migration from 'contentful-migration';
 
 import { CONTENT_TYPE, NavComponent } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
+import { keys } from '../utilities.js';
 
-import { COMMON_FIELD } from './common-fields.contentful';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 export function createNavigation(migration: Migration.default) {
   const content = migration.createContentType(CONTENT_TYPE.NAVIGATION, {

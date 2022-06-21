@@ -6,13 +6,13 @@ import postcssMediaVariables from 'postcss-media-variables';
 import postcssPresetEnv from 'postcss-preset-env';
 import { RuleSetUseItem } from 'webpack';
 
-import { BROWSERLIST_MODERN } from '../other/browserlist-modern';
+import { BROWSERLIST_MODERN } from '../other/browserlist-modern.js';
 
 //
 // cssnano should not be used inside postcss loader see https://github.com/cssnano/cssnano/issues/659
 //
 // import cssnano from 'cssnano';
-// import { cssNanoConfig } from './css-nano.config';
+// import { cssNanoConfig } from './css-nano.config.js';
 
 export const postCssLoaderOptions = {
   sourceMap: true,

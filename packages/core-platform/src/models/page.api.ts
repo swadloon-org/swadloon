@@ -1,4 +1,4 @@
-import { SectionAPI } from './section.api';
+import { SectionAPI } from './section.api.js';
 
 export type PageAPI = {
   name?: string;

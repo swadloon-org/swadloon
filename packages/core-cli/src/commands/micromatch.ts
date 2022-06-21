@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import debug from 'debug';
 import micromatch from 'micromatch';
 
-import { NS } from '../utilities/log.utilities';
+import { NS } from '../utilities/log.utilities.js';
 
 export default class Micromatch extends Command {
   log = debug(`${NS}:micromatch`);

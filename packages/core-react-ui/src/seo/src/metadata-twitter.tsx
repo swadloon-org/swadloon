@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TwitterMetadata } from '../models/twitter-metadata.model';
+import { TwitterMetadata } from '../models/twitter-metadata.model.js';
 
 type Props = TwitterMetadata;
 

@@ -3,7 +3,7 @@ import * as github from '@actions/github';
 import { Context } from '@actions/github/lib/context';
 import fetch from 'node-fetch';
 
-import { ENV } from '../../../types/dot-env';
+import { ENV } from '../../../types/dot-env.js';
 
 type ActionEnv = Partial<ENV>;
 type ActionInput = 'workflow';

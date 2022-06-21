@@ -4,17 +4,17 @@
  *
  */
 
-export * from './utilities-theme/buttons.utilities';
-export * from './utilities-theme/colors.utilities';
-export * from './utilities-theme/component.utilities';
-export * from './utilities-theme/effects.utilities';
-export * from './utilities-theme/filter-color.utility';
-export * from './utilities-theme/font.utilities';
-export * from './utilities-theme/iconography.utilities';
-export * from './utilities-theme/layout.utilities';
-export * from './utilities-theme/sizing.utilities';
-export * from './utilities-theme/text.utilities';
-export * from './utilities-theme/text-capsize.utilities';
-export * from './utilities-theme/theme.utilities';
-export * from './utilities-theme/typography.utilities';
-export * from './utilities-theme/typography-v2.utilities';
+export * from './utilities-theme/buttons.utilities.js';
+export * from './utilities-theme/colors.utilities.js';
+export * from './utilities-theme/component.utilities.js';
+export * from './utilities-theme/effects.utilities.js';
+export * from './utilities-theme/filter-color.utility.js';
+export * from './utilities-theme/font.utilities.js';
+export * from './utilities-theme/iconography.utilities.js';
+export * from './utilities-theme/layout.utilities.js';
+export * from './utilities-theme/sizing.utilities.js';
+export * from './utilities-theme/text.utilities.js';
+export * from './utilities-theme/text-capsize.utilities.js';
+export * from './utilities-theme/theme.utilities.js';
+export * from './utilities-theme/typography.utilities.js';
+export * from './utilities-theme/typography-v2.utilities.js';

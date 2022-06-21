@@ -2,8 +2,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Providers } from './providers/providers';
-import { App } from './app';
+import { Providers } from './providers/providers.js';
+import { App } from './app.js';
 
 export function RootComponent() {
   return (

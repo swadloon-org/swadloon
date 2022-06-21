@@ -5,7 +5,7 @@ import { GatsbyNode } from 'gatsby';
 
 import { CommonEnvType } from '@newrade/core-node-utils';
 
-import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options.js';
 
 export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (
   { actions, reporter },

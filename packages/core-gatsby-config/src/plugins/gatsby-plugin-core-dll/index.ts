@@ -1,1 +1,1 @@
-export * from './gatsby-plugin-options';
+export * from './gatsby-plugin-options.js';

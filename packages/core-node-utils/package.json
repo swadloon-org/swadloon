@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-node-utils",
   "version": "2.4.1",
-  "description": "@newrade/core utilities shared across packages.",
+  "description": "Local NodeJS utilities.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
@@ -17,26 +17,50 @@
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"
   },
-  "main": "dist/newrade-core-node-utils.cjs.js",
-  "module": "dist/newrade-core-node-utils.esm.js",
   "files": [
+    "/src",
     "/dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist",
-    "build:dist": "tsc --project tsconfig.json",
-    "clean": "yarn clean:tsc && yarn clean:dist",
-    "clean:dist": "rimraf -rf dist/** lib/**",
+    "build": "yarn tsc:types && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
+    "clean": "yarn clean:dist && yarn clean:tsc",
+    "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
-    "typecheck": "tsc --noEmit --composite false --incremental false"
+    "rename:commonjs": "renamer --chain ../core-node-utils/src/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
+    "rename:watch": "nodemon --delay 1000 --watch dist/cjs --ext js --exec \"yarn rename:commonjs\"",
+    "prestart": "yarn build",
+    "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
+    "swc:build": "swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build -- --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs -- --watch",
+    "swc:build:watch": "yarn swc:build --watch",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "jest --watch",
+    "tsc:typecheck": "tsc --noEmit",
+    "tsc:types": "npm exec tsc -b",
+    "tsc:types:watch": "yarn tsc:types -- --watch --preserveWatchOutput"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
+  "type": "module",
+  "types": "dist/index.types.d.ts",
   "dependencies": {
     "@newrade/core-common": "*",
     "@newrade/core-jest-config": "*",
     "chalk": "^4",
-    "dotenv": "^10",
+    "dotenv": "^16",
     "fp-ts": "^2.11.1",
     "io-ts": "^2",
     "prettier": "^2"

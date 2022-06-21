@@ -1,8 +1,8 @@
-import { DeepPartial, NumberType } from '../types';
+import { DeepPartial, NumberType } from '../types.js';
 
-import { Font } from './font';
-import { VIEWPORT } from './layout';
-import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from './text';
+import { Font } from './font.js';
+import { VIEWPORT } from './layout.js';
+import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from './text.js';
 
 /**
  * The main typographic styles.

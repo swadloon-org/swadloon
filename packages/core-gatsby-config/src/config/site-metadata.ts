@@ -1,6 +1,6 @@
 import { DeployEnvType } from '@newrade/core-node-utils';
 
-import { GatsbySiteLanguages } from './site-languages';
+import { GatsbySiteLanguages } from './site-languages.js';
 
 export type GatsbySiteMetadata = {
   title: string;

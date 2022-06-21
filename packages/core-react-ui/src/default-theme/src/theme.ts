@@ -4,4 +4,4 @@
  *
  */
 
-export * from './default-theme/default-theme.css';
+export * from './default-theme/default-theme.css.js';

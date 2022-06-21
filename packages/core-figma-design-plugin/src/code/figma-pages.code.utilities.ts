@@ -1,8 +1,8 @@
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 
-import { FigmaPage } from '../common/figma-page.model';
+import { FigmaPage } from '../common/figma-page.model.js';
 
-import { log, logError } from './log.code.utilities';
+import { log, logError } from './log.code.utilities.js';
 
 type UpdateFigmaPageResults = {
   all: FigmaPage[];

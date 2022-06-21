@@ -2,7 +2,7 @@
 import 'react-i18next';
 
 // import all namespaces (for the default language, only)
-import { locales } from './locales';
+import { locales } from './locales.js';
 
 // react-i18next versions higher than 11.11.0
 declare module 'react-i18next' {

@@ -4,13 +4,12 @@ import React, { HTMLAttributes } from 'react';
 
 import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 
-import { IconComp } from '../icons/icon';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-iso/utilities-iso';
+import { IconComp } from '../icons/icon.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { getMergedClassname } from '../utilities-iso/utilities-iso.js';
 
-import { Label } from './label';
-
-import * as styles from './summary.css';
+import { Label } from './label.js';
+import * as styles from './summary.css.js';
 
 type Props = PrimitiveProps<'summary'> & {
   mode?: 'swap' | 'animate';

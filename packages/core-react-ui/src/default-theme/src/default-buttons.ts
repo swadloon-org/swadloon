@@ -1,6 +1,6 @@
 import { Border, BorderStyles, Buttons, Padding } from '@newrade/core-design-system';
 
-import { defaultColorIntents, defaultColors, defaultColorsColors } from './default-colors';
+import { defaultColorIntents, defaultColors, defaultColorsColors } from './default-colors.js';
 
 const defaultButtonBorderStyle: Border = {
   width: 1,

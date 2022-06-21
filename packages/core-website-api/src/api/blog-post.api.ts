@@ -1,8 +1,8 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlogAuthorAPI } from './blog-author.api';
-import { MediaCollectionAPI } from './media-collection.api';
-import { TagAPI } from './tag.api';
+import { BlogAuthorAPI } from './blog-author.api.js';
+import { MediaCollectionAPI } from './media-collection.api.js';
+import { TagAPI } from './tag.api.js';
 
 export type BlogPostAPI = PartialOrNull<{
   title: string;

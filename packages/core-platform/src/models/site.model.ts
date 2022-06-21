@@ -1,8 +1,8 @@
-import { CompanyAddressAPI } from './company-address.api';
-import { CompanyInfoAPI } from './company-info.api';
-import { NavigationAPI } from './navigation.api';
-import { PageAPI } from './page.api';
-import { TranslationAPI } from './translation.api';
+import { CompanyAddressAPI } from './company-address.api.js';
+import { CompanyInfoAPI } from './company-info.api.js';
+import { NavigationAPI } from './navigation.api.js';
+import { PageAPI } from './page.api.js';
+import { TranslationAPI } from './translation.api.js';
 
 export type Site = {
   name: string;

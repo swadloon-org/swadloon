@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 
-import { Label } from '../text/label';
+import { Label } from '../text/label.js';
 
 type Props = HTMLAttributes<any>;
 

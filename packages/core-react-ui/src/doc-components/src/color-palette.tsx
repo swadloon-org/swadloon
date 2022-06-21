@@ -7,12 +7,11 @@ import {
   ColorShadesGrey,
 } from '@newrade/core-design-system';
 
-import { Stack } from '../layout/stack';
-import { keys } from '../utilities-iso/utilities';
+import { Stack } from '../layout/stack.js';
+import { keys } from '../utilities-iso/utilities.js';
 
-import { ColorSwatch } from './color-swatch';
-
-import * as styles from './color-palette.css';
+import * as styles from './color-palette.css.js';
+import { ColorSwatch } from './color-swatch.js';
 
 type Props = {
   colorName: string;

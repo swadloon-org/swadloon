@@ -2,13 +2,12 @@ import React from 'react';
 
 import { Language } from 'prism-react-renderer';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import { CodeHighlight } from './code-highlight';
-import { prismTheme } from './code-theme';
-
-import * as styles from './code-block.css';
+import * as styles from './code-block.css.js';
+import { CodeHighlight } from './code-highlight.js';
+import { prismTheme } from './code-theme.js';
 
 /**
  * @name CodeBlockProps

@@ -23,8 +23,7 @@
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
-    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev"
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo"
   },
   "types": "dist/index.cjs.d.ts",
   "dependencies": {

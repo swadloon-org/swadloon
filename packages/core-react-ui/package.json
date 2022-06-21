@@ -29,7 +29,6 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
     "start": "yarn clean && yarn swc:lib:watch",
     "swc:lib": "yarn swc ./src --config-file .swcrc --source-maps --ignore **/__test__/**/* --out-dir lib ",
     "swc:lib:watch": "yarn swc:lib --watch",

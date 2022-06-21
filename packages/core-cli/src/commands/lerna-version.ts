@@ -8,7 +8,7 @@ import prettier from 'prettier';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
 type PackageJsonWorkspaces =
   | {

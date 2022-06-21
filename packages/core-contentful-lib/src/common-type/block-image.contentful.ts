@@ -3,10 +3,10 @@ import * as Migration from 'contentful-migration';
 
 import { BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
 
-import { createBlock } from './block.contentful';
-import { COMMON_FIELD, mediaField } from './common-fields.contentful';
+import { createBlock } from './block.contentful.js';
+import { COMMON_FIELD, mediaField } from './common-fields.contentful.js';
 
 export function createImageBlock(migration: Migration.default) {
   const content = createBlock(migration, CONTENT_TYPE.BLOCK_IMAGE, {

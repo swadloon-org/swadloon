@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './navbar-separator-item.css';
+import * as styles from './navbar-separator-item.css.js';
 
 type Props = PrimitiveProps<'div'> & {
   kind?: 'bar' | 'empty';

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { OpenGraphMetadataBasic } from '../models/open-graph-metadata.model';
+import { OpenGraphMetadataBasic } from '../models/open-graph-metadata.model.js';
 
-import { getLangCodeUnderscore } from './meta.utilities';
+import { getLangCodeUnderscore } from './meta.utilities.js';
 
 type Props = OpenGraphMetadataBasic;
 

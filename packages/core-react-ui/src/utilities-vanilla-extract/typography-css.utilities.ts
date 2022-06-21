@@ -1,7 +1,7 @@
 import { createStyleObject } from '@capsizecss/core';
 import { CapsizeOptions, ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
 
-import { pxStringToNumber } from '../utilities-iso/utilities-iso';
+import { pxStringToNumber } from '../utilities-iso/utilities-iso.js';
 
 export function getNormalTextStyles(args: CapsizeOptions | ComputedValues) {
   return getCapsizeTextStyles(args, true);

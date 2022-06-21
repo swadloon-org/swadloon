@@ -1,2 +1,2 @@
-export * from './logo';
-export * from './logos-provider';
+export * from './logo.js';
+export * from './logos-provider.js';

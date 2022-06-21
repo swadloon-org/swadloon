@@ -1,7 +1,7 @@
 /// <reference types="@newrade/core-types/src/github-slugger" />
 
-import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';
-import { getFormattedAnchorId, getMergedClassname } from '../utilities-iso';
+import { AsTypes, PrimitiveProps } from '../primitive/primitive.props.js';
+import { getFormattedAnchorId, getMergedClassname } from '../utilities-iso.js';
 
 /**
  * Hook to reduce component boilerplate. Takes care of normalizing id, classNames and styles.

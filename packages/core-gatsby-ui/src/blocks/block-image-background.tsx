@@ -5,10 +5,10 @@ import React from 'react';
 import { PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 
-import { BackgroundImage } from '../image/background-image';
-import { BackgroundImageV2 } from '../image/background-image-v2';
+import { BackgroundImage } from '../image/background-image.js';
+import { BackgroundImageV2 } from '../image/background-image-v2.js';
 
-import { BlockProps } from './block.props';
+import { BlockProps } from './block.props.js';
 
 type Props = PrimitiveProps<'div'> &
   BlockProps & {

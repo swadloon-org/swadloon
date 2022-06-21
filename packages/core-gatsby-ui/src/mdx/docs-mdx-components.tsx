@@ -5,7 +5,7 @@ import { Heading } from '@newrade/core-react-ui';
 import { CodeBlockLazy, CodeHighlightLazy } from '@newrade/core-react-ui/code';
 import { IconsLazy } from '@newrade/core-react-ui/doc-components';
 
-import { mdxComponents, MDXProps } from './mdx-components';
+import { mdxComponents, MDXProps } from './mdx-components.js';
 
 /**
  * Additional components used to render md docs and design-system documentation

@@ -1,10 +1,10 @@
 import { Variant } from '@newrade/core-design-system';
 
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlockAPI } from './block.api';
-import { CompanyInfoAPI } from './company-info.api';
-import { NavigationAPI } from './navigation.api';
+import { BlockAPI } from './block.api.js';
+import { CompanyInfoAPI } from './company-info.api.js';
+import { NavigationAPI } from './navigation.api.js';
 
 /**
  * Predefined sidebar layouts

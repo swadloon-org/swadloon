@@ -6,7 +6,7 @@ import {
 } from 'css-minimizer-webpack-plugin/types/index';
 import { WebpackPluginInstance } from 'webpack';
 
-import { cssNanoConfig } from '../loaders/css-nano.config';
+import { cssNanoConfig } from '../loaders/css-nano.config.js';
 
 type CssMinimizerPluginOptions =
   | (BasePluginOptions & DefinedDefaultMinimizerAndOptions<CssNanoOptionsExtended>)

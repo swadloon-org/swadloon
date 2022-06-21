@@ -3,8 +3,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
 
-import { cssLoader } from './css-loader';
-import { postCssLoader } from './post-css.loader';
+import { cssLoader } from './css-loader.js';
+import { postCssLoader } from './post-css.loader.js';
 
 export const extractCssLoader: RuleSetRule = {
   test: /\.(css)$/,

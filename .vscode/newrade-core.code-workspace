@@ -146,7 +146,6 @@
   "extensions": {
     "recommendations": [
       "bierner.markdown-yaml-preamble",
-      "cschleiden.vscode-github-actions",
       "cssho.vscode-svgviewer",
       "dbaeumer.vscode-eslint",
       "deepscan.vscode-deepscan",
@@ -163,7 +162,6 @@
       "jock.svg",
       "mikestead.dotenv",
       "ms-vscode-remote.vscode-remote-extensionpack",
-      "msjsdiag.debugger-for-chrome",
       "paulmolluzzo.convert-css-in-js",
       "silvenon.mdx",
       "svsool.markdown-memo",
@@ -184,6 +182,22 @@
     {
       "name": "docs",
       "path": "../docs"
+    },
+    {
+      "name": "core-types",
+      "path": "../packages/core-types"
+    },
+    {
+      "name": "core-common",
+      "path": "../packages/core-common"
+    },
+    {
+      "name": "core-jest-config",
+      "path": "../packages/core-jest-config"
+    },
+    {
+      "name": "core-node-utils",
+      "path": "../packages/core-node-utils"
     },
     {
       "name": "core-cli",
@@ -208,10 +222,6 @@
     {
       "name": "core-dev-config",
       "path": "../packages/core-dev-config"
-    },
-    {
-      "name": "core-common",
-      "path": "../packages/core-common"
     },
     {
       "name": "core-figma-extractor",
@@ -242,10 +252,6 @@
       "path": "../packages/core-github-bot"
     },
     {
-      "name": "core-jest-config",
-      "path": "../packages/core-jest-config"
-    },
-    {
       "name": "core-css-extractor",
       "path": "../packages/core-css-extractor"
     },
@@ -256,14 +262,6 @@
     {
       "name": "core-react-ui-components",
       "path": "../packages/core-react-ui/src"
-    },
-    {
-      "name": "core-types",
-      "path": "../packages/core-types"
-    },
-    {
-      "name": "core-node-utils",
-      "path": "../packages/core-node-utils"
     },
     {
       "name": "core-webpack-config",

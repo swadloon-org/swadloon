@@ -1,3 +1,3 @@
-export * from './gesture-drag-example';
-export * from './gesture-scroll-example';
-export * from './gesture-scroll-wheel-example';
+export * from './gesture-drag-example.js';
+export * from './gesture-scroll-example.js';
+export * from './gesture-scroll-wheel-example.js';

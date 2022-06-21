@@ -1,4 +1,4 @@
-import { LocaleKeys } from './locales';
+import { LocaleKeys } from './locales.js';
 
 export const frTranslation: { [key in LocaleKeys]: string } = {
   contactUs: 'Nous joindre',

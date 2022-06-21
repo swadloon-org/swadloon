@@ -1,4 +1,4 @@
-import { MediaQueryType } from '../types';
+import { MediaQueryType } from '../types.js';
 
 export enum MEDIA_TYPE {
   all = 'all',

@@ -5,8 +5,8 @@ import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gats
 import { Heading, Paragraph, Stack } from '@newrade/core-react-ui';
 import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
-import SectionOpenSource from '../sections/section-open-source.md';
-import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
+import SectionOpenSource from '../sections/section-open-source.md.js';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template.js';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (

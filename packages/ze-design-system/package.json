@@ -18,7 +18,6 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
     "typecheck": "tsc --noEmit --composite false --incremental false"
   },
   "sideEffects": [

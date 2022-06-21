@@ -1,6 +1,6 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { ChildMDXAPI } from './child-mdx.api';
+import { ChildMDXAPI } from './child-mdx.api.js';
 
 export type TagTypeAPI = PartialOrNull<{
   /**

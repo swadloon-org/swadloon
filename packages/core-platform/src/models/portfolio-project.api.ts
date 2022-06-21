@@ -1,6 +1,6 @@
-import { MediaCollectionAPI } from './media-collection.api';
-import { PortfolioClientAPI } from './portfolio-client.api';
-import { TagAPI } from './tag.api';
+import { MediaCollectionAPI } from './media-collection.api.js';
+import { PortfolioClientAPI } from './portfolio-client.api.js';
+import { TagAPI } from './tag.api.js';
 
 export type PortfolioProjectAPI = {
   title: string;

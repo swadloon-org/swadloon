@@ -7,7 +7,7 @@ import { Configuration, DllReferencePlugin } from 'webpack';
 
 import { CommonEnvType } from '@newrade/core-node-utils';
 
-import { GatsbyPluginCoreDllOptions } from '../gatsby-plugin-options';
+import { GatsbyPluginCoreDllOptions } from '../gatsby-plugin-options.js';
 
 /**
  *

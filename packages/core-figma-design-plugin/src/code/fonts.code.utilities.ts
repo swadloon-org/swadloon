@@ -6,8 +6,8 @@ import {
   getFontWeightItalicStringForNumber,
   getFontWeightStringForNumber,
   loadFigmaFonts,
-} from './figma-fonts.code.utilities';
-import { log } from './log.code.utilities';
+} from './figma-fonts.code.utilities.js';
+import { log } from './log.code.utilities.js';
 
 /**
  *

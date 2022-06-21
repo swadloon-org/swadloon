@@ -9,12 +9,11 @@
   },
   "homepage": "https://github.com/newrade/newrade-core",
   "repository": {
-    "directory": "packages/core-react-ui/src/hooks",
+    "directory": "packages/core-react-ui/src/code",
     "type": "git",
     "url": "git+https://github.com/newrade/newrade-core.git"
   },
   "keywords": [
-    "utilities",
     "react",
     "code",
     "prismjs",

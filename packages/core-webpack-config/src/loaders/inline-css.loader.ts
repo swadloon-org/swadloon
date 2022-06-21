@@ -1,7 +1,7 @@
 import { RuleSetRule } from 'webpack';
 
-import { cssLoader } from './css-loader';
-import { postCssLoader } from './post-css.loader';
+import { cssLoader } from './css-loader.js';
+import { postCssLoader } from './post-css.loader.js';
 
 export const inlineCssLoader: RuleSetRule = {
   test: /\.(css)$/,

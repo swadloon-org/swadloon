@@ -11,9 +11,9 @@ import {
   remarkWikiLinkPlugin,
 } from '@newrade/core-webpack-config';
 
-import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
+import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core.js';
 
-import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
+import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances.js';
 
 const ignoredPatterns = [
   `**/*.css.ts`,

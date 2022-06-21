@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import { ICON, InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 
-import { IconComp } from '../icons/icon';
-import { getMergedClassname } from '../utilities-iso/utilities-iso';
+import { IconComp } from '../icons/icon.js';
+import { getMergedClassname } from '../utilities-iso/utilities-iso.js';
 
-import { InputSelectProps } from './input.props';
-
-import * as styles from './input.css';
+import * as styles from './input.css.js';
+import { InputSelectProps } from './input.props.js';
 
 type Props = InputSelectProps;
 

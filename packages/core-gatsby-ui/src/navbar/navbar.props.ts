@@ -1,7 +1,7 @@
 import { NavbarProps } from '@newrade/core-react-ui';
 import { NavbarLayout } from '@newrade/core-website-api';
 
-import { CustomBlockVariantComponents } from '../blocks/block.props';
+import { CustomBlockVariantComponents } from '../blocks/block.props.js';
 
 /**
  * Defines a component for each custom layout

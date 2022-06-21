@@ -43,8 +43,8 @@
 This repository contains several packages to build design systems, documentation
 sites, websites and web apps.
 
-The packages are all written in TypeScript and the repo works with lerna, yarn
-and preconstruct.
+The packages are all written in TypeScript and the repo works with lerna and
+yarn.
 
 This readme contains the essential instructions to get started; for the full
 documentation, see the [core-docs](https://zedesignsystem.com/core-docs/)
@@ -173,21 +173,21 @@ yarn
 After dependencies are installed, each package will be set up so you can develop
 locally.
 
-Each package dependency is resolved by lerna and preconstruct and symlinks are
-created, there is need to build packages manually while developping.
+Each package dependency is resolved by lerna and symlinks are created, there is
+need to build packages manually while developping.
 
 To start developing a package, use the `yarn dev` or `yarn start` command.
 
 ## Commands and Scripts Available
 
-| Command         | Description                                                                                                                                                                   | Docs                                        |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `yarn`          | Execute `patch-package`,`preconstruct dev` in all core packages and then execute `yarn build:postinstall` for the packages that needs to do something after the core packages | [docs](https://classic.yarnpkg.com/en/docs) |
-| `yarn clean`    | Execute `yarn clean` in all packages                                                                                                                                          |                                             |
-| `yarn build`    | Build all `core-*` packages                                                                                                                                                   |                                             |
-| `yarn test`     | Run test in all `core-*` packages                                                                                                                                             |                                             |
-| `patch-package` | Execute `patch-package` on patches (see `./patches`)                                                                                                                          |                                             |
-| `yarn release`  | Execute `lerna version`                                                                                                                                                       |                                             |
+| Command         | Description                                          | Docs                                        |
+| --------------- | ---------------------------------------------------- | ------------------------------------------- |
+| `yarn`          | Execute `patch-package` then build libs `yarn build` | [docs](https://classic.yarnpkg.com/en/docs) |
+| `yarn clean`    | Execute `yarn clean` in all packages                 |                                             |
+| `yarn build`    | Build all `core-*` packages                          |                                             |
+| `yarn test`     | Run test in all `core-*` packages                    |                                             |
+| `patch-package` | Execute `patch-package` on patches (see `./patches`) |                                             |
+| `yarn release`  | Execute `lerna version`                              |                                             |
 
 ## Troubleshooting
 

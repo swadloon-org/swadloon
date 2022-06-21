@@ -1,5 +1,5 @@
-import { ColorPalette, ColorShades7 } from '../primitives/color-palette';
-import { ColorType } from '../types';
+import { ColorPalette, ColorShades7 } from '../primitives/color-palette.js';
+import { ColorType } from '../types.js';
 
 export type DataVizColors<Override extends undefined | string = undefined> = {
   1: ColorPalette<Override, ColorShades7, ColorType<Override>>;

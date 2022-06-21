@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { layoutCSS } from '../theme';
+import { layoutCSS } from '../theme.js';
 
 export const wrapper = style({
   width: `100%`,

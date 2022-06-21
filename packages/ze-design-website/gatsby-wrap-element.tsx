@@ -22,11 +22,11 @@ import {
 } from '@newrade/core-website-api';
 import { cssThemeConfig } from '@newrade/ze-design-system/css';
 
-import { companyInfo } from './src/data/company-info';
-import { locales } from './src/i18n/locales';
-import { Layout } from './src/layout/layout';
-import { ProvidersDocs } from './src/providers/providers-docs';
-import { ProvidersSite } from './src/providers/providers-site';
+import { companyInfo } from './src/data/company-info.js';
+import { locales } from './src/i18n/locales.js';
+import { Layout } from './src/layout/layout.js';
+import { ProvidersDocs } from './src/providers/providers-docs.js';
+import { ProvidersSite } from './src/providers/providers-site.js';
 
 import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 

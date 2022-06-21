@@ -2,8 +2,8 @@ import React from 'react';
 
 import { VIEWPORT } from '@newrade/core-design-system';
 
-import { ViewportContext } from '../context/viewport.provider';
-import { defaultLayout } from '../default-theme/default-layout';
+import { ViewportContext } from '../context/viewport.provider.js';
+import { defaultLayout } from '../default-theme/default-layout.js';
 
 // singleton
 export const viewportContext = React.createContext<ViewportContext>({});

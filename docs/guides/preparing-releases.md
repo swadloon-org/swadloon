@@ -19,11 +19,11 @@ Currently each package has its own version.
 To generate the changelogs and tags for each package run:
 
 ```bash
-npm run changelog
+yarn changelog
 ```
 
 after reviewing the changes, you may push the tags and release commit with:
 
 ```bash
-npm run release
+yarn release
 ```

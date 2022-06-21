@@ -1,5 +1,5 @@
-import { LinkAPI } from './link.api';
-import { MediaCollectionAPI } from './media-collection.api';
+import { LinkAPI } from './link.api.js';
+import { MediaCollectionAPI } from './media-collection.api.js';
 
 export type PortfolioClientAPI = {
   name: string;

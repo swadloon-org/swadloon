@@ -1,7 +1,7 @@
-import { Navigation } from '../../navigation/navigation.model';
-import { getNavigationFromPageNodes, getPageDirFromPath } from '../navigation.utilities';
+import { Navigation } from '../../navigation/navigation.model.js';
+import { getNavigationFromPageNodes, getPageDirFromPath } from '../navigation.utilities.js';
 
-import { navigationMock } from './navigation.mock';
+import { navigationMock } from './navigation.mock.js';
 
 describe(`navigation utilities`, () => {
   describe(`${getPageDirFromPath.name}`, () => {

@@ -1,9 +1,9 @@
 import React, { BlockquoteHTMLAttributes } from 'react';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './blockquote.css';
+import * as styles from './blockquote.css.js';
 
 type Props = PrimitiveProps<'blockquote'> & BlockquoteHTMLAttributes<any> & {};
 

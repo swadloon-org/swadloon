@@ -6,11 +6,10 @@ import debug from 'debug';
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import { useIconContext } from './icons-provider';
-
-import * as styles from './icon.css';
+import * as styles from './icon.css.js';
+import { useIconContext } from './icons-provider.js';
 
 const log = debug('nr:core-react-ui:icon');
 const logWarn = log.extend('warn');

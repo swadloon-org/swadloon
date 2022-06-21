@@ -4,4 +4,4 @@
  *
  */
 
-export * from './markdown-css';
+export * from './markdown-css.js';

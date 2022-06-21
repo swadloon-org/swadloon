@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { sizeVars } from '../theme';
+import { sizeVars } from '../theme.js';
 
 export const wrapper = style({
   display: 'flex',

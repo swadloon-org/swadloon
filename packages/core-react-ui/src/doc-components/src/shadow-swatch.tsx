@@ -4,11 +4,11 @@ import { kebab } from 'case';
 
 import { Variant } from '@newrade/core-design-system';
 
-import { Stack } from '../layout/stack';
-import { Label } from '../text/label';
-import { sizeVars } from '../theme';
+import { Stack } from '../layout/stack.js';
+import { Label } from '../text/label.js';
+import { sizeVars } from '../theme.js';
 
-import * as styles from './shadow-swatch.css';
+import * as styles from './shadow-swatch.css.js';
 
 type OwnProps = HTMLAttributes<any> & {
   shadow?: string | string[];

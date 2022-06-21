@@ -2,12 +2,11 @@ import React from 'react';
 
 import { LOGO } from '@newrade/core-design-system';
 
-import { Logo } from '../logos/logo';
+import { Logo } from '../logos/logo.js';
 
-import { NavbarLinkProps } from './navbar-item.props';
-import { NavbarLinkItem } from './navbar-link-item';
-
-import * as styles from './navbar-link-item.css';
+import { NavbarLinkProps } from './navbar-item.props.js';
+import * as styles from './navbar-link-item.css.js';
+import { NavbarLinkItem } from './navbar-link-item.js';
 
 type Props = NavbarLinkProps & {
   kind?: LOGO;

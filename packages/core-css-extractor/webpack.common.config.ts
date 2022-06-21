@@ -10,7 +10,7 @@ import WebpackWatchedGlobEntries from 'webpack-watched-glob-entries-plugin';
 import { loadDotEnv } from '@newrade/core-node-utils';
 import * as core from '@newrade/core-webpack-config';
 
-import { ENV, Env } from './types/dot-env';
+import { ENV, Env } from './types/dot-env.js';
 import packageJson from './package.json';
 
 const isDevelopment = core.isDevelopment();

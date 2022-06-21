@@ -4,8 +4,8 @@ import { GatsbyNode } from 'gatsby';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { ENV, Env } from './types/dot-env';
-import { CLIENT_ENV } from './types/dot-env-client';
+import { ENV, Env } from './types/dot-env.js';
+import { CLIENT_ENV } from './types/dot-env-client.js';
 import packageJson from './package.json';
 
 const env = loadDotEnv<ENV>({

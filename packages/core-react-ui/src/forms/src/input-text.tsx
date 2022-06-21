@@ -2,12 +2,11 @@ import React, { Suspense } from 'react';
 
 import { InputSize, InputValidityState, Variant } from '@newrade/core-design-system';
 
-import { getMergedClassname } from '../utilities-iso/utilities-iso';
+import { getMergedClassname } from '../utilities-iso/utilities-iso.js';
 
-import { InputTextProps } from './input.props';
-import { InputTextCleaveLazy } from './input-text-cleave.lazy';
-
-import * as styles from './input.css';
+import * as styles from './input.css.js';
+import { InputTextProps } from './input.props.js';
+import { InputTextCleaveLazy } from './input-text-cleave.lazy.js';
 
 type Props = InputTextProps;
 

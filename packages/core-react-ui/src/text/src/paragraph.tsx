@@ -2,12 +2,12 @@ import React from 'react';
 
 import { PARAGRAPH_SIZE, ParagraphProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { TextCommonProps } from '../props/text-common.props';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { TextCommonProps } from '../props/text-common.props.js';
+import * as textStyles from '../styles/text-color.css.js';
 
-import * as textStyles from '../styles/text-color.css';
-import * as styles from './paragraph.css';
+import * as styles from './paragraph.css.js';
 
 type Tag = 'p' | 'b' | 'div' | 'small' | 'strong' | 'em' | 'del' | 'ins';
 

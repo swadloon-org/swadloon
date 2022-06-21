@@ -5,8 +5,8 @@ import rimraf from 'rimraf';
 import assert from 'yeoman-assert';
 import helpers from 'yeoman-test';
 
-import { CHOICES } from '../src/generator-choices';
-import { NEW_PACKAGE_TEMPLATE_PROPS } from '../src/new-package-generator/new-package.config';
+import { CHOICES } from '../src/generator-choices.js';
+import { NEW_PACKAGE_TEMPLATE_PROPS } from '../src/new-package-generator/new-package.config.js';
 
 describe('The new-package-generator', () => {
   const testPackageScope = '@test-scope';

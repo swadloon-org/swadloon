@@ -1,6 +1,6 @@
-import { Organization } from './organization.model';
+import { Organization } from './organization.model.js';
 import prisma from '@/prisma/prisma';
-import { handlePrismaErrors } from '../prisma/prisma-errors.utilities';
+import { handlePrismaErrors } from '../prisma/prisma-errors.utilities.js';
 
 export async function createOrganization(data: Organization) {
   try {

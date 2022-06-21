@@ -15,13 +15,15 @@ https://oclif.io/docs/releasing
 ## Content
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @newrade/core-cli
 $ nr COMMAND
@@ -33,35 +35,35 @@ USAGE
   $ nr COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`nr commit`](#nr-commit)
-* [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
-* [`nr css-extract`](#nr-css-extract)
-* [`nr depcheck [ARGS]`](#nr-depcheck-args)
-<<<<<<< HEAD
-=======
-* [`nr ds-compile`](#nr-ds-compile)
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
-* [`nr figma-sync [PATH]`](#nr-figma-sync-path)
-* [`nr gatsby [COMMAND]`](#nr-gatsby-command)
-* [`nr git-clean-branches`](#nr-git-clean-branches)
-* [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
-* [`nr globby [ARGS]`](#nr-globby-args)
-* [`nr hello [FILE]`](#nr-hello-file)
-* [`nr help [COMMAND]`](#nr-help-command)
-* [`nr jest [ARGS]`](#nr-jest-args)
-* [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
-* [`nr lerna-version [ARGS]`](#nr-lerna-version-args)
-* [`nr local-ip [ARGS]`](#nr-local-ip-args)
-* [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
-* [`nr prepare-dev`](#nr-prepare-dev)
-* [`nr prepare-exports`](#nr-prepare-exports)
-* [`nr vercel-deploy`](#nr-vercel-deploy)
-* [`nr webpack [COMMAND]`](#nr-webpack-command)
+
+- [`nr commit`](#nr-commit)
+- [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
+- [`nr css-extract`](#nr-css-extract)
+- [`nr depcheck [ARGS]`](#nr-depcheck-args) <<<<<<< HEAD =======
+- [`nr ds-compile`](#nr-ds-compile)
+  > > > > > > > e04cffc6 (fix(core): update lmdb dependency and fix imports)
+- [`nr figma-sync [PATH]`](#nr-figma-sync-path)
+- [`nr gatsby [COMMAND]`](#nr-gatsby-command)
+- [`nr git-clean-branches`](#nr-git-clean-branches)
+- [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
+- [`nr globby [ARGS]`](#nr-globby-args)
+- [`nr hello [FILE]`](#nr-hello-file)
+- [`nr help [COMMAND]`](#nr-help-command)
+- [`nr jest [ARGS]`](#nr-jest-args)
+- [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
+- [`nr lerna-version [ARGS]`](#nr-lerna-version-args)
+- [`nr local-ip [ARGS]`](#nr-local-ip-args)
+- [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
+- [`nr prepare-dev`](#nr-prepare-dev)
+- [`nr prepare-exports`](#nr-prepare-exports)
+- [`nr vercel-deploy`](#nr-vercel-deploy)
+- [`nr webpack [COMMAND]`](#nr-webpack-command)
 
 ## `nr commit`
 
@@ -75,7 +77,8 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [lib/commands/commit.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/commit.js)_
+_See code:
+[lib/commands/commit.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/commit.js)_
 
 ## `nr contentful-migrate [FILE]`
 
@@ -95,15 +98,16 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [lib/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/contentful-migrate.js)_
+_See code:
+[lib/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/contentful-migrate.js)_
 
 ## `nr css-extract`
 
-<<<<<<< HEAD
-Create CSS tokens from Vanilla-extract styles definition files (*.css.ts)
-=======
-Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
+<<<<<<< HEAD Create CSS tokens from Vanilla-extract styles definition files
+(_.css.ts) ======= Create CSS tokens (plain .css files) from Vanilla-extract
+styles definition files (_.css.ts)
+
+> > > > > > > e04cffc6 (fix(core): update lmdb dependency and fix imports)
 
 ```
 USAGE
@@ -113,7 +117,8 @@ EXAMPLE
   $ nr css-extract
 ```
 
-_See code: [lib/commands/css-extract.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/css-extract.js)_
+_See code:
+[lib/commands/css-extract.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/css-extract.js)_
 
 ## `nr depcheck [ARGS]`
 
@@ -127,11 +132,13 @@ EXAMPLE
   $ nr depcheck
 ```
 
-_See code: [lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/depcheck.js)_
+_See code:
+[lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/depcheck.js)_
 
 ## `nr ds-compile`
 
-Compile figma tokens (from figma-sync) into {Color} objects compatible with core-design-system
+Compile figma tokens (from figma-sync) into {Color} objects compatible with
+core-design-system
 
 ```
 USAGE
@@ -141,7 +148,8 @@ EXAMPLE
   $ nr ds-compile
 ```
 
-_See code: [lib/commands/ds-compile.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/ds-compile.js)_
+_See code:
+[lib/commands/ds-compile.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/ds-compile.js)_
 
 ## `nr figma-sync [PATH]`
 
@@ -162,7 +170,8 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [lib/commands/figma-sync.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/figma-sync.js)_
+_See code:
+[lib/commands/figma-sync.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/figma-sync.js)_
 
 ## `nr gatsby [COMMAND]`
 
@@ -183,7 +192,8 @@ EXAMPLE
   $ nr gatsby build
 ```
 
-_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/gatsby.js)_
+_See code:
+[lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/gatsby.js)_
 
 ## `nr git-clean-branches`
 
@@ -200,7 +210,8 @@ EXAMPLE
   $ nr git-clean-branches
 ```
 
-_See code: [lib/commands/git-clean-branches.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-clean-branches.js)_
+_See code:
+[lib/commands/git-clean-branches.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-clean-branches.js)_
 
 ## `nr git-copy-labels SOURCE DESTINATION`
 
@@ -221,7 +232,8 @@ EXAMPLE
   $ nr git-copy-labels
 ```
 
-_See code: [lib/commands/git-copy-labels.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-copy-labels.js)_
+_See code:
+[lib/commands/git-copy-labels.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-copy-labels.js)_
 
 ## `nr globby [ARGS]`
 
@@ -235,7 +247,8 @@ EXAMPLE
   $ nr globby
 ```
 
-_See code: [lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/globby.js)_
+_See code:
+[lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/globby.js)_
 
 ## `nr hello [FILE]`
 
@@ -255,7 +268,8 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [lib/commands/hello.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/hello.js)_
+_See code:
+[lib/commands/hello.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/hello.js)_
 
 ## `nr help [COMMAND]`
 
@@ -272,7 +286,8 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+_See code:
+[@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
 ## `nr jest [ARGS]`
 
@@ -289,7 +304,8 @@ EXAMPLE
   $ nr jest
 ```
 
-_See code: [lib/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest.js)_
+_See code:
+[lib/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest.js)_
 
 ## `nr jest-watch [ARGS]`
 
@@ -306,7 +322,8 @@ EXAMPLE
   $ nr jest
 ```
 
-_See code: [lib/commands/jest-watch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest-watch.js)_
+_See code:
+[lib/commands/jest-watch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest-watch.js)_
 
 ## `nr lerna-version [ARGS]`
 
@@ -323,7 +340,8 @@ EXAMPLE
   $ nr lerna-version
 ```
 
-_See code: [lib/commands/lerna-version.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/lerna-version.js)_
+_See code:
+[lib/commands/lerna-version.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/lerna-version.js)_
 
 ## `nr local-ip [ARGS]`
 
@@ -337,7 +355,8 @@ EXAMPLE
   $ nr local-ip
 ```
 
-_See code: [lib/commands/local-ip.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/local-ip.js)_
+_See code:
+[lib/commands/local-ip.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/local-ip.js)_
 
 ## `nr micromatch [PATH] [PATTERN]`
 
@@ -351,35 +370,8 @@ EXAMPLE
   $ nr micromatch
 ```
 
-_See code: [lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/micromatch.js)_
-
-## `nr prepare-dev`
-
-execute preconstruct dev
-
-```
-USAGE
-  $ nr prepare-dev
-
-EXAMPLE
-  $ nr prepare-dev
-```
-
-_See code: [lib/commands/prepare-dev.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/prepare-dev.js)_
-
-## `nr prepare-exports`
-
-create export stubs for published packages
-
-```
-USAGE
-  $ nr prepare-exports
-
-EXAMPLE
-  $ nr prepare-exports
-```
-
-_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/prepare-exports.js)_
+_See code:
+[lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/micromatch.js)_
 
 ## `nr vercel-deploy`
 
@@ -396,7 +388,8 @@ EXAMPLE
   $ nr vercel-deploy
 ```
 
-_See code: [lib/commands/vercel-deploy.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/vercel-deploy.js)_
+_See code:
+[lib/commands/vercel-deploy.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/vercel-deploy.js)_
 
 ## `nr webpack [COMMAND]`
 
@@ -414,9 +407,12 @@ OPTIONS
 EXAMPLE
   $ nr webpack serve --config webpack.dev.config.ts
 ```
-<<<<<<< HEAD
-=======
 
-_See code: [lib/commands/webpack.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/webpack.js)_
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
+# <<<<<<< HEAD
+
+_See code:
+[lib/commands/webpack.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/webpack.js)_
+
+> > > > > > > e04cffc6 (fix(core): update lmdb dependency and fix imports)
+
 <!-- commandsstop -->

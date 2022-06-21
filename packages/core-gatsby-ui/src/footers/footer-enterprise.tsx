@@ -4,9 +4,8 @@ import { ButtonIcon, ICON, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-
 import { Button, Cluster, Link, Paragraph, Stack, useCommonProps } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { FooterProps } from './footer.props';
-
-import * as styles from './footer-enterprise.css';
+import { FooterProps } from './footer.props.js';
+import * as styles from './footer-enterprise.css.js';
 
 type Props = FooterProps & {
   MenuLinks?: React.ReactNode;

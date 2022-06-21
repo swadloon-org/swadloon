@@ -4,7 +4,7 @@ import path from 'path';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { extract } from '../src/extract';
+import { extract } from '../src/extract.js';
 
 describe(`${extract} command`, () => {
   it('should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341)', () => {

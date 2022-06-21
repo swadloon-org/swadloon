@@ -1,9 +1,7 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutVars, sizeVars } from '../../default-theme/src/theme';
-
-import { resetButtonStyle } from '../../css/reset-button.css';
+import { colorVars, layoutVars, sizeVars } from '../../default-theme/src/theme.js';
 
 /**
  *
@@ -27,7 +25,6 @@ const backgroundColorDisabled = createVar();
  */
 
 export const base = style([
-  resetButtonStyle,
   {
     vars: {
       [textColor]: colorVars.colorIntents.primaryText,
@@ -44,6 +41,11 @@ export const base = style([
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+
+    cursor: 'pointer',
+    appearance: 'none',
+    userSelect: 'none',
+    WebkitAppearance: 'none',
 
     touchAction: 'none',
     whiteSpace: 'nowrap', // don't allow wrapping

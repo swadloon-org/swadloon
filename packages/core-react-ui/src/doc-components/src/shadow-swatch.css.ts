@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars } from '../theme';
+import { colorVars } from '../theme.js';
 
 export const shadow = style({
   width: `100%`,

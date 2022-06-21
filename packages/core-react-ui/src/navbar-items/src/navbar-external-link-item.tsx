@@ -2,8 +2,8 @@ import React from 'react';
 
 import { NavbarItemIcon } from '@newrade/core-design-system';
 
-import { NavbarLinkProps } from './navbar-item.props';
-import { NavbarLinkItem } from './navbar-link-item';
+import { NavbarLinkProps } from './navbar-item.props.js';
+import { NavbarLinkItem } from './navbar-link-item.js';
 
 type Props = NavbarLinkProps;
 

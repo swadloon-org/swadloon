@@ -1,4 +1,4 @@
-import { BROWSERLIST_MODERN } from '../other/browserlist-modern';
+import { BROWSERLIST_MODERN } from '../other/browserlist-modern.js';
 
 export const babelTypeScriptPresetBrowserConf: ([string, object] | [string])[] = [
   /**

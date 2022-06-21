@@ -2,12 +2,11 @@ import React from 'react';
 
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { Cluster } from '../layout/cluster';
+import { Cluster } from '../layout/cluster.js';
 
-import { NavbarProps } from './navbar.props';
-import { NavbarBase } from './navbar-base';
-
-import * as styles from './navbar-modular.css';
+import { NavbarProps } from './navbar.props.js';
+import { NavbarBase } from './navbar-base.js';
+import * as styles from './navbar-modular.css.js';
 
 export type NavbarModularProps = Omit<
   NavbarProps,

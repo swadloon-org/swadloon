@@ -1,5 +1,5 @@
-import { ColorGradient } from '../primitives/color-gradient';
-import { DeepPartial } from '../types';
+import { ColorGradient } from '../primitives/color-gradient.js';
+import { DeepPartial } from '../types.js';
 
 /**
  * Predefined gradients

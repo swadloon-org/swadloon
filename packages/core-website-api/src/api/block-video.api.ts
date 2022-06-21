@@ -1,7 +1,7 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlockAPI, BlockType } from './block.api';
-import { MediaAPI } from './media.api';
+import { BlockAPI, BlockType } from './block.api.js';
+import { MediaAPI } from './media.api.js';
 
 export type BlockVideoAPI = BlockAPI &
   PartialOrNull<{

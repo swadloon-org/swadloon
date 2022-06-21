@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "checkJs": false,
-    "isolatedModules": true,
+    "isolatedModules": true, // important for babel, swc or other tsc alternatives
     "incremental": false,
     "composite": false,
     "declaration": false,
@@ -20,7 +20,7 @@
     "jsx": "react",
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "node16", // important for "module": "true" and resolution of .js imports in .ts files
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,

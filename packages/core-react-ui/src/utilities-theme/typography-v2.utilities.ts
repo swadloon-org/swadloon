@@ -15,14 +15,14 @@ import {
   VIEWPORT,
 } from '@newrade/core-design-system';
 
-import { defaultSansFont, defaultSerifFont } from '../default-theme/src';
-import { CSSTypographyV2 } from '../design-system/design-system';
-import { em, keys, pxToEm } from '../utilities-iso/utilities';
+import { CSSTypographyV2 } from '../css-design-system/design-system.js';
+import { defaultSansFont, defaultSerifFont } from '../default-theme/src.js';
+import { em, keys, pxToEm } from '../utilities-iso/utilities.js';
 
-import { setVarsValuesToStyleObject } from './component.utilities';
-import { getCSSFontsObject } from './font.utilities';
-import { createCSSTextStyle } from './text.utilities';
-import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
+import { setVarsValuesToStyleObject } from './component.utilities.js';
+import { getCSSFontsObject } from './font.utilities.js';
+import { createCSSTextStyle } from './text.utilities.js';
+import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities.js';
 
 /**
  * Create a typography object which properties that are compatible with CSS

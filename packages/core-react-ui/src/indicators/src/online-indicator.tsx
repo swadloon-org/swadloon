@@ -2,12 +2,12 @@ import React from 'react';
 
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { sizeVars } from '../default-theme/src/theme';
-import { Cluster } from '../layout/cluster';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { Label } from '../text/label';
+import { sizeVars } from '../default-theme/src/theme.js';
+import { Cluster } from '../layout/cluster.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { Label } from '../text/label.js';
 
-import * as styles from './online-indicator.css';
+import * as styles from './online-indicator.css.js';
 
 type Props = PrimitiveProps & {
   status?: 'online' | 'offline' | 'loading';

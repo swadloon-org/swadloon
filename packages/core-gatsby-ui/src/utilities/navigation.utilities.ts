@@ -4,10 +4,10 @@ import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 
-import { NavItem } from '../navigation/nav-item.model';
-import { Navigation } from '../navigation/navigation.model';
+import { NavItem } from '../navigation/nav-item.model.js';
+import { Navigation } from '../navigation/navigation.model.js';
 
-import { GatsbyPageNode } from './gatsby-page-node';
+import { GatsbyPageNode } from './gatsby-page-node.js';
 
 /**
  * Returns a Navigation object from page nodes.

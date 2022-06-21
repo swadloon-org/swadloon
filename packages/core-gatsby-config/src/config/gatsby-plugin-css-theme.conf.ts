@@ -1,6 +1,6 @@
 import { PluginRef } from 'gatsby';
 
-import { GatsbyPluginCSSThemeOptions } from '../plugins/gatsby-plugin-css-theme';
+import { GatsbyPluginCSSThemeOptions } from '../plugins/gatsby-plugin-css-theme.js';
 
 const defaultOptions: GatsbyPluginCSSThemeOptions = {
   packageName: 'package',

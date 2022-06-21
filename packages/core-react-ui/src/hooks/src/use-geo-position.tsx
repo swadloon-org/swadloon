@@ -1,5 +1,5 @@
 // import React from 'react';
-// import { createResource } from './create-resource';
+// import { createResource } from './create-resource.js';
 
 // // const PositionResource = createResource(load, (positionOptions: PositionOptions) => 'geoposition');
 

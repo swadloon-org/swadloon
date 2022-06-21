@@ -11,11 +11,11 @@ import {
 } from '@newrade/core-design-system';
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { IconComp } from '../icons/icon';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { getDefaultTextFromProps } from '../utilities-iso/utilities-iso';
+import { IconComp } from '../icons/icon.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { getDefaultTextFromProps } from '../utilities-iso/utilities-iso.js';
 
-import * as styles from './link.css';
+import * as styles from './link.css.js';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &

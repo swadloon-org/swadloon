@@ -1,4 +1,4 @@
-import { getFormattedCSSVar, getFormattedCSSVarName } from '../props.utilities';
+import { getFormattedCSSVar, getFormattedCSSVarName } from '../props.utilities.js';
 
 describe('props utilities', () => {
   describe(`${getFormattedCSSVar.name}`, () => {

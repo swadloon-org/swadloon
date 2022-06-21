@@ -6,7 +6,7 @@ import {
   getLocalePath,
   getPageFormattedName,
   remoteExtension,
-} from '../pages.utilities';
+} from '../pages.utilities.js';
 
 describe('dir name utilities', () => {
   describe(`${getPageFormattedName.name}`, () => {

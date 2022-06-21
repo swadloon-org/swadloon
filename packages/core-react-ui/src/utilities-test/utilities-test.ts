@@ -4,4 +4,4 @@
  *
  */
 
-export * from './test-render.utilities';
+export * from './test-render.utilities.js';

@@ -3,7 +3,7 @@ import { createGlobalTheme } from '@vanilla-extract/css';
 import { layoutVars } from '@newrade/core-react-ui/theme';
 import { getCSSLayoutV2 } from '@newrade/core-react-ui/utilities-theme';
 
-import { layout } from '../design-system/layout';
+import { layout } from '../design-system/layout.js';
 
 export const cssLayout = getCSSLayoutV2(layout);
 

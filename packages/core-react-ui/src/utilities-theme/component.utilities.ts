@@ -2,7 +2,7 @@ import { MapLeafNodes } from '@vanilla-extract/private';
 
 import { DeepPartial } from '@newrade/core-design-system';
 
-import { keys } from '../utilities-iso/utilities-iso';
+import { keys } from '../utilities-iso/utilities-iso.js';
 
 export function setVarsValuesToStyleObject<Styles extends object>(
   obj: MapLeafNodes<Styles, string>,

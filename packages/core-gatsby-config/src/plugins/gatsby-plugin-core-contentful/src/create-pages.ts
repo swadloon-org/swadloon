@@ -8,13 +8,13 @@ import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import {
   GatsbyContentfulPageContext,
   GatsbyPageAlternateLocale,
-} from '../../../config/page-context';
+} from '../../../config/page-context.js';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeSiteMetadataFragment,
-} from '../../../config/site-graphql-types';
-import { getLangSimpleCode } from '../../../utils/pages.utilities';
-import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
+} from '../../../config/site-graphql-types.js';
+import { getLangSimpleCode } from '../../../utils/pages.utilities.js';
+import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options.js';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 

@@ -1,8 +1,8 @@
-import { TEXT_STYLE } from '../foundations/typography';
-import { ColorType, NumberType } from '../types';
+import { TEXT_STYLE } from '../foundations/typography.js';
+import { ColorType, NumberType } from '../types.js';
 
-import { CellStyle } from './box';
-import { Variant } from './components';
+import { CellStyle } from './box.js';
+import { Variant } from './components.js';
 
 export enum TableCellAs {
   td = 'td',

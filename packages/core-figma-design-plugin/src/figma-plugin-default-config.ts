@@ -1,4 +1,4 @@
-import { FigmaPluginConfig } from '../types/figma-plugin-config';
+import { FigmaPluginConfig } from '../types/figma-plugin-config.js';
 
 const predefinedUXPageNames = [
   '✍️  UX / Whiteboard',

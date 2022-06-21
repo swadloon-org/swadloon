@@ -1,10 +1,9 @@
 {
-  "extends": "../../tsconfig.node-commonjs.json",
+  "extends": "../../tsconfig.node-cli.json",
   "compilerOptions": {
     "declaration": false,
-    "baseUrl": ".",
-    "outDir": "lib",
-    "rootDir": "src"
+    "rootDir": "src",
+    "outDir": "./dist"
   },
   "include": ["src", "../../package.json"]
 }

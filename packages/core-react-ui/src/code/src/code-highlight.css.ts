@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { typographyVars } from '../default-theme/default-theme.css';
+import { typographyVars } from '../default-theme/default-theme.css.js';
 
 export const pre = style({
   fontSize: `14px !important`,

@@ -10,7 +10,6 @@
     "prebuild": "prisma generate",
     "build": "next build",
     "clean": "rimraf -rf ./node_modules/.cache ./.next",
-    "dev": "yarn preconstruct dev",
     "export": "next build && next export",
     "format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\"",
     "format:write": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",

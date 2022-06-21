@@ -1,5 +1,5 @@
-import { enTranslation } from './en.locales';
-import { frTranslation } from './fr.locales';
+import { enTranslation } from './en.locales.js';
+import { frTranslation } from './fr.locales.js';
 
 export type Locales = 'en' | 'fr';
 

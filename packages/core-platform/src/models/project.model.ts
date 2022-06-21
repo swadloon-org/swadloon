@@ -1,5 +1,5 @@
-import { FigmaPluginConfig } from './figma-plugin-config.model';
-import { User } from './user.model';
+import { FigmaPluginConfig } from './figma-plugin-config.model.js';
+import { User } from './user.model.js';
 
 /**
  * Project contains a design system, a site and users

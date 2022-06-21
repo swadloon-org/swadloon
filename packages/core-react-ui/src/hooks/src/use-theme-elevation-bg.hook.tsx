@@ -1,8 +1,8 @@
 import { COLOR_SCHEME } from '@newrade/core-design-system';
 
-import { useCSSTheme } from './use-css-theme';
+import { colorVars } from '../default-theme/default-theme.css.js';
 
-import { colorVars } from '../default-theme/default-theme.css';
+import { useCSSTheme } from './use-css-theme.js';
 
 export function useThemeElevationBG(options: {
   level: 0 | 1 | 2 | 3 | 4;

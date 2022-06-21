@@ -3,11 +3,11 @@ import React from 'react';
 import { ICON } from '@newrade/core-design-system';
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { IconComp } from '../icons/icon';
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { IconComp } from '../icons/icon.js';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './callout.css';
+import * as styles from './callout.css.js';
 
 type Props = PrimitiveProps<'div'> & {
   kind: 'positive' | 'warn' | 'negative';

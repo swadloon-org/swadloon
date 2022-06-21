@@ -1,11 +1,11 @@
 import { RuleSetRule, RuleSetUseItem } from 'webpack';
 
-import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
+import { babelPluginBrowserConf } from '../babel/babel-plugins.conf.js';
 import {
   babelPresetBrowserConf,
   babelTypeScriptPresetBrowserConf,
-} from '../babel/babel-preset.conf';
-import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
+} from '../babel/babel-preset.conf.js';
+import { isDevelopment } from '../utilities/webpack-dev-server.utilities.js';
 
 export const babelReactRule: RuleSetUseItem = {
   loader: 'babel-loader',

@@ -1,3 +1,3 @@
-export * from './common-type';
-export * from './types/contentful-widget-ids';
-export * from './utilities';
+export * from './common-type.js';
+export * from './types/contentful-widget-ids.js';
+export * from './utilities.js';

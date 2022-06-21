@@ -1,25 +1,57 @@
-/// <reference types="@newrade/core-types/src/jest-options" />
+import { fileURLToPath } from 'url';
 
-import { includedLibToCompile } from './included-libs';
+import type { Config } from '@jest/types';
+import fs from 'node:fs';
+import path from 'node:path';
 
-export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
-  // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
-  preset: 'ts-jest',
+import { includedLibToCompile } from './included-libs.js';
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+
+const swcConfig = JSON.parse(fs.readFileSync(`${dirname}/../../../.swcrc`, 'utf-8'));
+
+/**
+ *
+ * Base Jest configuration
+ *
+ */
+export const baseJestConfig: Config.InitialOptions = {
+  preset: 'ts-jest/presets/js-with-ts',
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules', '<rootDir>'],
   rootDir: '.',
   testEnvironment: 'jsdom',
+  /**
+   * @see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
+   */
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   transform: {
-    // not needed anymore
-    '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/no-transform.js',
+    /**
+     * TS/JS files processed by SWC
+     */
+    '^.+\\.(t|j)sx?$': ['@swc/jest', { ...swcConfig }],
+    /**
+     * Icons and fonts
+     */
     '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
-      '../core-jest-config/transforms/file-transform.js',
-    '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
+      '@newrade/core-jest-config/dist/transforms/file-transform.js',
+    /**
+     * MDX
+     */
+    '\\.(mdx?)$': '@newrade/core-jest-config/dist/transforms/mdx-transform.js',
+    /**
+     * GraphQL
+     */
     '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
   transformIgnorePatterns: [`node_modules/(?!(${includedLibToCompile.join('|')})/)`],
   moduleNameMapper: {
-    // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    /**
+     * ESM (node16 import support)
+     */
+    '^(\\.{1,2}/.*)\\.js$': '$1',
     '\\.(less|sass|scss)$': 'identity-obj-proxy',
+    // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
   testRegex: '.+\\.test\\.tsx?',
   testPathIgnorePatterns: [
@@ -44,9 +76,10 @@ export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: st
   roots: ['<rootDir>/src', '<rootDir>/test'],
   globals: {
     'ts-jest': {
+      useESM: true,
       tsconfig: '<rootDir>/tsconfig.jest.json',
       // see https://huafu.github.io/ts-jest/user/config/babelConfig
-      babelConfig: '../core-jest-config/transforms/babel-test.config.js',
+      babelConfig: './transforms/babel-test.config.js',
       // see https://huafu.github.io/ts-jest/user/config/diagnostics
       diagnostics: {
         ignoreCodes: [2322],

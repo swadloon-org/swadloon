@@ -4,13 +4,13 @@ import { pascal } from 'case';
 
 import { HEADING, TITLE, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { TextCommonProps } from '../props/text-common.props';
-import { getFormattedAnchorId } from '../utilities-iso/utilities-iso';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { TextCommonProps } from '../props/text-common.props.js';
+import * as textStyles from '../styles/text-color.css.js';
+import { getFormattedAnchorId } from '../utilities-iso/utilities-iso.js';
 
-import * as textStyles from '../styles/text-color.css';
-import * as styles from './heading.css';
+import * as styles from './heading.css.js';
 
 type Tags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 

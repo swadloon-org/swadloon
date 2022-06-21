@@ -2,10 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "allowJs": true,
-    "resolveJsonModule": true,
     "outDir": "dist",
-    "target": "es6",
-    "module": "commonjs",
+    "module": "node16",
+    "target": "es2021",
     "lib": ["es6", "dom", "es2017", "ES2020"],
     "types": [
       "node",

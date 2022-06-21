@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, layoutCSS } from '../../default-theme/src/theme';
-import { getCSSColorVar } from '../../utilities-iso/utilities-iso';
+import { colorVars, layoutCSS } from '../../default-theme/src/theme.js';
+import { getCSSColorVar } from '../../utilities-iso/utilities-iso.js';
 
 export const wrapper = style({
   position: 'fixed',

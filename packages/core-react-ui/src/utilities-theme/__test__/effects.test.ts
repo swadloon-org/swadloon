@@ -1,4 +1,4 @@
-import { getCSSBoxShadow, getCSSTextShadow } from '../effects.utilities';
+import { getCSSBoxShadow, getCSSTextShadow } from '../effects.utilities.js';
 
 describe('shadows utilities', () => {
   describe(`${getCSSBoxShadow.name}`, () => {

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { effectsVars, sizeVars } from '../theme';
+import { effectsVars, sizeVars } from '../theme.js';
 
 export const wrapper = style({
   width: `100%`,

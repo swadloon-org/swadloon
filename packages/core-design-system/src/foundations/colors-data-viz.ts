@@ -1,5 +1,5 @@
-import { ColorPalette, ColorShades5, ColorShades10 } from '../primitives/color-palette';
-import { ColorType, DeepPartial } from '../types';
+import { ColorPalette, ColorShades5, ColorShades10 } from '../primitives/color-palette.js';
+import { ColorType, DeepPartial } from '../types.js';
 
 export interface ColorsDataViz<Override extends undefined | string = undefined> {
   combo1: ColorPalette<Override, ColorShades5, ColorType<Override>>;

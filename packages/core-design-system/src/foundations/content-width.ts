@@ -1,6 +1,6 @@
-import { SizeType } from '../types';
+import { SizeType } from '../types.js';
 
-import { VIEWPORT } from './layout';
+import { VIEWPORT } from './layout.js';
 
 /**
  * Content margins for each viewport formats.

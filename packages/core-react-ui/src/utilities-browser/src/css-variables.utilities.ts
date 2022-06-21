@@ -1,4 +1,4 @@
-import { getCSSVar } from '../../utilities-iso/css-variables.utilities';
+import { getCSSVar } from '../../utilities-iso/css-variables.utilities.js';
 
 export function getCSSVarValue(name?: string) {
   if (getIsSSR()) {

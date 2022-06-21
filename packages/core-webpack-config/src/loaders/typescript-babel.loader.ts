@@ -3,9 +3,9 @@ import ReactRefreshTypeScript from 'react-refresh-typescript';
 import * as tsloader from 'ts-loader';
 import { RuleSetRule } from 'webpack';
 
-import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
-import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
-import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
+import { babelPluginBrowserConf } from '../babel/babel-plugins.conf.js';
+import { babelPresetBrowserConf } from '../babel/babel-preset.conf.js';
+import { isDevelopment } from '../utilities/webpack-dev-server.utilities.js';
 
 type Options = {
   isDevelopment?: boolean;

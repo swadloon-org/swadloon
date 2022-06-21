@@ -4,7 +4,7 @@ import { Context } from '@actions/github/lib/context';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
 
-import { ENV } from '../../types/dot-env';
+import { ENV } from '../../types/dot-env.js';
 
 type ActionEnv = Partial<ENV>;
 

@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-react-ui-hooks",
   "version": "1.0.0",
-  "description": "Collection of React hooks used for components",
+  "description": "Collection of reusable React hooks.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",

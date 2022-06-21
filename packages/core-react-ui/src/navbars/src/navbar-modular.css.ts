@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { layoutCSS } from '../default-theme/src/theme';
+import { layoutCSS } from '../default-theme/src/theme.js';
 
 export const mobile = style({
   display: 'grid',

@@ -6,10 +6,10 @@ import {
   CSSSizingV2,
   SizingRatioVarNames,
   SizingVarNames,
-} from '../design-system/design-system';
-import { cssVar } from '../utilities-iso/css-variables.utilities';
-import { keys, px } from '../utilities-iso/utilities';
-import { ModularScaleOptions } from '../utilities-iso/utilities-iso';
+} from '../css-design-system/design-system.js';
+import { cssVar } from '../utilities-iso/css-variables.utilities.js';
+import { keys, px } from '../utilities-iso/utilities.js';
+import { ModularScaleOptions } from '../utilities-iso/utilities-iso.js';
 
 export const defaultSizesCSSVarNames: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',

@@ -4,9 +4,8 @@ import React from 'react';
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
-import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
-
-import * as styles from './background-image-v2.css';
+import { BackgroundEffect, BackgroundEffectConfig } from './background-effect.js';
+import * as styles from './background-image-v2.css.js';
 
 type Props = Omit<PrimitiveProps, 'as'> & {
   effects?: BackgroundEffectConfig[];

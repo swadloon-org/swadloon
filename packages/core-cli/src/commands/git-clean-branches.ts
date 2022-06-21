@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
 
-import { NS } from '../utilities/log.utilities';
+import { NS } from '../utilities/log.utilities.js';
 
 export default class GitCleanBranches extends Command {
   log = debug(`${NS}:git-clean-branches`);

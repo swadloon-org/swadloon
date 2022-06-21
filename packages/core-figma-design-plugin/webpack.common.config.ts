@@ -9,8 +9,8 @@ import * as core from '@newrade/core-webpack-config';
 import { isDevelopment } from '@newrade/core-webpack-config';
 import { getFigmaPluginConfig } from '@newrade/core-webpack-config/config';
 
-import { ENV, Env } from './types/dot-env';
-import { CLIENT_ENV } from './types/dot-env-client';
+import { ENV, Env } from './types/dot-env.js';
+import { CLIENT_ENV } from './types/dot-env-client.js';
 import packageJson from './package.json';
 
 export const env = loadDotEnv<ENV>({

@@ -14,8 +14,8 @@ import {
   ColorType,
 } from '@newrade/core-design-system';
 
-import { CSSColor, CSSColors } from '../design-system/design-system';
-import { keys } from '../utilities-iso/utilities-iso';
+import { CSSColor, CSSColors } from '../css-design-system/design-system.js';
+import { keys } from '../utilities-iso/utilities-iso.js';
 
 type CSSColorsOptions = {
   format: COLOR_FORMAT;

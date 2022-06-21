@@ -1,2 +1,2 @@
-import generator from './generator';
+import generator from './generator.js';
 export default generator;

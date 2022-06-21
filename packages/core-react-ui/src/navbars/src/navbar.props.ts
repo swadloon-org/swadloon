@@ -1,7 +1,7 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { NavbarAPI } from '@newrade/core-website-api';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
 /**
  * Minimal props for a Navbar component

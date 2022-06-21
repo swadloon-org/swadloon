@@ -17,13 +17,12 @@ import {
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 
-import { PLUGIN_EVENT_TYPE, PluginEvent } from './common/messages';
-import { Footer } from './ui/components/footer';
-import { logErrorUI, logUI } from './ui/log.ui.utilities';
-import { Providers } from './ui/ui.providers';
-import { postMessageToCode } from './ui/ui.utilities';
-
-import * as styles from './ui.css';
+import { PLUGIN_EVENT_TYPE, PluginEvent } from './common/messages.js';
+import { Footer } from './ui/components/footer.js';
+import { logErrorUI, logUI } from './ui/log.ui.utilities.js';
+import { Providers } from './ui/ui.providers.js';
+import { postMessageToCode } from './ui/ui.utilities.js';
+import * as styles from './ui.css.js';
 
 declare function require(path: string): any;
 

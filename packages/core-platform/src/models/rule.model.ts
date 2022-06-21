@@ -1,5 +1,5 @@
-import { Organization } from './organization.model';
-import { User } from './user.model';
+import { Organization } from './organization.model.js';
+import { User } from './user.model.js';
 
 export enum RULE_CATEGORY {
   ORGANIZATION,

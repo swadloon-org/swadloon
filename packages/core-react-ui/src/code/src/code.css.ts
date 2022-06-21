@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, typographyVars } from '../theme';
+import { colorVars, typographyVars } from '../theme.js';
 
 export const wrapper = style({
   display: 'inline-block',

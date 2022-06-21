@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useIsSSR } from './use-is-ssr';
+import { useIsSSR } from './use-is-ssr.js';
 
 export const useNetworkStatus = () => {
   const isSSR = useIsSSR();

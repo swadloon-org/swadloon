@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { useFirstRender } from './use-first-render.hook';
-import { useIsSSR } from './use-is-ssr';
+import { useFirstRender } from './use-first-render.hook.js';
+import { useIsSSR } from './use-is-ssr.js';
 
 type Options = {
   colorTop: string;

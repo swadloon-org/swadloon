@@ -1,6 +1,6 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlockAPI, BlockType } from './block.api';
+import { BlockAPI, BlockType } from './block.api.js';
 
 export type BlockGoogleMapAPI = BlockAPI &
   PartialOrNull<{

@@ -14,29 +14,28 @@ import {
 } from '@newrade/core-design-system';
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { Button } from '../button/button';
-import { InputLabel } from '../form/input-label';
-import { InputSelect } from '../form/input-select';
-import { InputText } from '../form/input-text';
-import { InputWrapper } from '../form/input-wrapper';
-import { IconComp } from '../icons/icon';
-import { iconMetadatas } from '../icons/icon-metadatas';
-import { useIconContext } from '../icons/icons-provider';
-import { SvgDownloader } from '../img/img-downloader';
-import { Cluster } from '../layout/cluster';
-import { Stack } from '../layout/stack';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { Tag } from '../tag/tag';
-import { Label } from '../text/label';
-import { Link } from '../text/link';
-import { Paragraph } from '../text/paragraph';
-import { colorVars, sizeVars } from '../theme';
-import { keys } from '../utilities-iso/utilities';
+import { Button } from '../button/button.js';
+import { InputLabel } from '../form/input-label.js';
+import { InputSelect } from '../form/input-select.js';
+import { InputText } from '../form/input-text.js';
+import { InputWrapper } from '../form/input-wrapper.js';
+import { IconComp } from '../icons/icon.js';
+import { iconMetadatas } from '../icons/icon-metadatas.js';
+import { useIconContext } from '../icons/icons-provider.js';
+import { SvgDownloader } from '../img/img-downloader.js';
+import { Cluster } from '../layout/cluster.js';
+import { Stack } from '../layout/stack.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { Tag } from '../tag/tag.js';
+import { Label } from '../text/label.js';
+import { Link } from '../text/link.js';
+import { Paragraph } from '../text/paragraph.js';
+import { colorVars, sizeVars } from '../theme.js';
+import { keys } from '../utilities-iso/utilities.js';
 
-import { lorenipsumShort } from './src/doc-components';
-import { IconBox } from './icon-box';
-
-import * as styles from './icons.css';
+import { lorenipsumShort } from './src/doc-components.js';
+import { IconBox } from './icon-box.js';
+import * as styles from './icons.css.js';
 
 type Props = PrimitiveProps;
 

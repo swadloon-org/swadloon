@@ -4,12 +4,12 @@ import { kebab } from 'case';
 
 import { Color, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { Stack } from '../layout/stack';
-import { Label } from '../text/label';
-import { sizeVars } from '../theme';
-import { getCSSColorVar } from '../utilities-iso/utilities-iso';
+import { Stack } from '../layout/stack.js';
+import { Label } from '../text/label.js';
+import { sizeVars } from '../theme.js';
+import { getCSSColorVar } from '../utilities-iso/utilities-iso.js';
 
-import * as styles from './color-swatch.css';
+import * as styles from './color-swatch.css.js';
 
 type OwnProps = HTMLAttributes<any> & {
   color: Color | string;

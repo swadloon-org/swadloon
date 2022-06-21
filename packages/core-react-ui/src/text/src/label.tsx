@@ -4,11 +4,11 @@ import { pascal } from 'case';
 
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import * as textStyles from '../styles/text-color.css.js';
 
-import * as textStyles from '../styles/text-color.css';
-import * as styles from './label.css';
+import * as styles from './label.css.js';
 
 type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {

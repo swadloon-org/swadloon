@@ -1,4 +1,4 @@
-import { FigmaTextStyleList } from './figma-text.model';
+import { FigmaTextStyleList } from './figma-text.model.js';
 
 export enum PLUGIN_EVENT_TYPE {
   /**

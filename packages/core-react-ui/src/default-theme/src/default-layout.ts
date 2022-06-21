@@ -9,7 +9,7 @@ import {
   VIEWPORT,
 } from '@newrade/core-design-system';
 
-import { defautlLayoutZIndexes } from './default-layout-z-indexes';
+import { defautlLayoutZIndexes } from './default-layout-z-indexes.js';
 
 const defaultBreakpoints: Breakpoints = {
   [BREAKPOINT.mobileXSmall]: 320,

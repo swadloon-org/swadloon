@@ -1,14 +1,14 @@
 import { DesignSystemV2 } from '@newrade/core-design-system';
 
-import { CSSDesignSystemV2 } from '../design-system/design-system';
+import { CSSDesignSystemV2 } from '../css-design-system/design-system.js';
 
-import { getCSSButtons } from './buttons.utilities';
-import { getCSSColorsV2 } from './colors.utilities';
-import { getCSSEffects } from './effects.utilities';
-import { getCSSIconography } from './iconography.utilities';
-import { getCSSLayoutV2 } from './layout.utilities';
-import { getCSSSizingV2 } from './sizing.utilities';
-import { getCSSTypographyV2 } from './typography-v2.utilities';
+import { getCSSButtons } from './buttons.utilities.js';
+import { getCSSColorsV2 } from './colors.utilities.js';
+import { getCSSEffects } from './effects.utilities.js';
+import { getCSSIconography } from './iconography.utilities.js';
+import { getCSSLayoutV2 } from './layout.utilities.js';
+import { getCSSSizingV2 } from './sizing.utilities.js';
+import { getCSSTypographyV2 } from './typography-v2.utilities.js';
 
 /**
  * Create a CSS compatible theme object from raw styles

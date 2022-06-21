@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { layoutCSS, typographyVars } from '../default-theme/src/theme';
-import { getCapsizeTextStyles } from '../utilities-vanilla-extract/utilities-vanilla-extract';
+import { layoutCSS, typographyVars } from '../default-theme/src/theme.js';
+import { getCapsizeTextStyles } from '../utilities-vanilla-extract/utilities-vanilla-extract.js';
 
 export const base = style({
   fontFamily: typographyVars.labels.fontFamily,

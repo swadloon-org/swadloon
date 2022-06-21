@@ -1,9 +1,9 @@
 import { CarouselDirection } from '@newrade/core-design-system';
 
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { BlockType } from './block.api';
-import { MediaCollectionV2API } from './media-collection-v2.api';
+import { BlockType } from './block.api.js';
+import { MediaCollectionV2API } from './media-collection-v2.api.js';
 
 export type BlockImageCarouselAPI = PartialOrNull<{
   type: BlockType.carousel | string;

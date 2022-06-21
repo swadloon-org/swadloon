@@ -1,8 +1,8 @@
 import { prismaMock } from '@/prisma/prisma-mock';
 import { PrismaTypes } from '@/prisma/prisma-types';
 
-import { defaultOrganization } from './organization.data';
-import { createOrganization } from './organization.utilities';
+import { defaultOrganization } from './organization.data.js';
+import { createOrganization } from './organization.utilities.js';
 
 describe('for the Organization model', () => {
   describe('the Prisma types', () => {

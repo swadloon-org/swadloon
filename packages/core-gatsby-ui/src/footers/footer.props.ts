@@ -1,7 +1,7 @@
 import { PrimitiveProps } from '@newrade/core-react-ui';
 import { FooterAPI, FooterLayout } from '@newrade/core-website-api';
 
-import { CustomBlockVariantComponents } from '../blocks/block.props';
+import { CustomBlockVariantComponents } from '../blocks/block.props.js';
 
 /**
  * Minimal props for a Footer component

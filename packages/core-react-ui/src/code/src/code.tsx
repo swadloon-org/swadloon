@@ -4,11 +4,11 @@ import { pascal } from 'case';
 
 import { CodeMarkupType, ColorsColors } from '@newrade/core-design-system';
 
-import { Primitive } from '../primitive/primitive';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { colorVars } from '../theme';
+import { Primitive } from '../primitive/primitive.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { colorVars } from '../theme.js';
 
-import * as styles from './code.css';
+import * as styles from './code.css.js';
 
 /**
  * @typedef {Object} CodeProps

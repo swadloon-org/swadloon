@@ -2,7 +2,7 @@ import type { Props as CleaveProps } from 'cleave.js/react/props';
 
 import { InputProps } from '@newrade/core-design-system';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
 /**
  * Additional component-only state

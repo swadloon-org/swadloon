@@ -269,26 +269,6 @@
       "flags": {},
       "args": [{ "name": "path" }, { "name": "pattern" }]
     },
-    "prepare-dev": {
-      "id": "prepare-dev",
-      "description": "execute preconstruct dev",
-      "pluginName": "@newrade/core-cli",
-      "pluginType": "core",
-      "aliases": [],
-      "examples": ["$ nr prepare-dev"],
-      "flags": {},
-      "args": []
-    },
-    "prepare-exports": {
-      "id": "prepare-exports",
-      "description": "create export stubs for published packages",
-      "pluginName": "@newrade/core-cli",
-      "pluginType": "core",
-      "aliases": [],
-      "examples": ["$ nr prepare-exports"],
-      "flags": {},
-      "args": []
-    },
     "vercel-deploy": {
       "id": "vercel-deploy",
       "description": "deploy site with vercel using env variables",

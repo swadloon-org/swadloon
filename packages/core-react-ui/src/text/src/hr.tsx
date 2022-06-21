@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './hr.css';
+import * as styles from './hr.css.js';
 
 type Props = PrimitiveProps<'hr'>;
 

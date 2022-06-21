@@ -2,11 +2,11 @@ import React from 'react';
 
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { sizeVars } from '../default-theme/src/theme';
-import { Stack } from '../layout/stack';
-import { PrimitiveProps } from '../primitive/primitive.props';
+import { sizeVars } from '../default-theme/src/theme.js';
+import { Stack } from '../layout/stack.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
 
-import * as styles from './input-wrapper.css';
+import * as styles from './input-wrapper.css.js';
 
 type Props = PrimitiveProps;
 

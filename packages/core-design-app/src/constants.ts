@@ -1,4 +1,4 @@
-// import { ENV } from '../types/dot-env';
+// import { ENV } from '../types/dot-env.js';
 
 // declare var GRAPH_CMS_AUTH_TOKEN_MIR: ENV['GRAPH_CMS_AUTH_TOKEN_MIR'];
 // declare var GRAPH_CMS_API_URL_MIR: ENV['GRAPH_CMS_API_URL_MIR'];

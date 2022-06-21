@@ -1,4 +1,4 @@
-import { NavItem } from './nav-item.model';
+import { NavItem } from './nav-item.model.js';
 
 export type Navigation = {
   /**

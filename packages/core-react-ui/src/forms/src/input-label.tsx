@@ -1,7 +1,7 @@
 import React, { LabelHTMLAttributes } from 'react';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { Label } from '../text/label';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { Label } from '../text/label.js';
 
 type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {

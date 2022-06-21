@@ -4,4 +4,4 @@
  *
  */
 
-export * from './typography-css.utilities';
+export * from './typography-css.utilities.js';

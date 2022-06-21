@@ -3,7 +3,7 @@ import * as Migration from 'contentful-migration';
 
 import { CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { COMMON_FIELD } from './common-fields.contentful';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 export const createTranslation: Migration.MigrationFunction = function (migration, context) {
   const content = migration.createContentType(CONTENT_TYPE.TRANSLATION, {

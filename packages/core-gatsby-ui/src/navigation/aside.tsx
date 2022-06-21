@@ -8,9 +8,9 @@ import { sizeVars } from '@newrade/core-react-ui/theme';
 import { scrollIntoView } from '@newrade/core-react-ui/utilities-browser';
 import { getFormattedAnchorId, getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
-import { useI18next } from '../i18next/use-i18next.hook';
+import { useI18next } from '../i18next/use-i18next.hook.js';
 
-import * as styles from './aside.css';
+import * as styles from './aside.css.js';
 
 type AsideItem = {
   value?: string | null;

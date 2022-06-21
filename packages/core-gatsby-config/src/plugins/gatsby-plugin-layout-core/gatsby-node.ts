@@ -4,7 +4,7 @@ import { GatsbyNode } from 'gatsby';
 
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 
-import { GatsbyPluginLayoutCoreOptions } from './gatsby-plugin-options';
+import { GatsbyPluginLayoutCoreOptions } from './gatsby-plugin-options.js';
 
 let didRunAlready = false;
 let absoluteLayoutComponentPath: string | undefined;

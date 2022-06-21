@@ -2,7 +2,7 @@ import { Command } from '@oclif/command';
 import debug from 'debug';
 import glob from 'glob';
 
-import { NS } from '../utilities/log.utilities';
+import { NS } from '../utilities/log.utilities.js';
 
 export default class Globby extends Command {
   log = debug(`${NS}:globby`);

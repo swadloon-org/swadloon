@@ -3,7 +3,7 @@ import { mockDeep, mockReset, DeepMockProxy } from 'jest-mock-extended';
 
 const mockDeepFn = mockDeep; // set the import to a const that starts with 'mock' for Jest
 
-import prisma from './prisma';
+import prisma from './prisma.js';
 
 //
 // Prisma setup for unit testing with Jest

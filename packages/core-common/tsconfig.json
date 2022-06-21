@@ -1,9 +1,11 @@
 {
-  "extends": "../../tsconfig.node-esm.json",
+  "extends": "../../tsconfig.iso-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "rootDir": "src"
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
+    "types": []
   },
-  "include": ["src"]
+  "include": ["src", "types"]
 }

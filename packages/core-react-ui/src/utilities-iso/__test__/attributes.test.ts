@@ -1,4 +1,4 @@
-import { getFormattedAnchorId } from '../attributes.utilities';
+import { getFormattedAnchorId } from '../attributes.utilities.js';
 
 describe('attributes utilities', () => {
   describe(`${getFormattedAnchorId.name}`, () => {

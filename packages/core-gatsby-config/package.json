@@ -17,7 +17,6 @@
     "clean:config": "rimraf -rf config/dist/**",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
     "start": "yarn clean && concurrently \"yarn build:dist -w\" \"yarn build:config -w\"",
     "start:tsc": "yarn build:dist -w && yarn build:config -w"
   },

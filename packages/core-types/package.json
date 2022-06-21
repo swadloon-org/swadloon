@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-types",
   "version": "2.1.0",
-  "description": "Utilty types for untyped packages and reuse",
+  "description": "Collection of utility types and additional types for plain JS packages.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
@@ -16,7 +16,5 @@
   "files": [
     "src"
   ],
-  "scripts": {
-    "dev": "yarn preconstruct dev"
-  }
+  "scripts": {}
 }

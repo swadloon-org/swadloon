@@ -1,1 +1,1 @@
-export * from './online-indicator';
+export * from './online-indicator.js';

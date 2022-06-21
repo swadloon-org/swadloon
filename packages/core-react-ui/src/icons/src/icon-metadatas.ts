@@ -1,6 +1,6 @@
 import { ICON } from '@newrade/core-design-system';
 
-import { IconMetadata } from './icons-provider';
+import { IconMetadata } from './icons-provider.js';
 
 enum ICON_CATEGORY {
   ARROWS = 'ARROWS',

@@ -3,9 +3,9 @@
 // import { ICON, LABEL_SIZE, NavbarItemSize } from '@newrade/core-design-system';
 // import { IconComp, Primitive, usePreventPinchZoom } from '@newrade/core-react-ui';
 
-// import { NavbarButtonProps } from './navbar-item.props';
+// import { NavbarButtonProps } from './navbar-item.props.js';
 
-// import * as styles from './navbar-button-item.css';
+// import * as styles from './navbar-button-item.css.js';
 
 // type Props = NavbarButtonProps & {
 //   /**

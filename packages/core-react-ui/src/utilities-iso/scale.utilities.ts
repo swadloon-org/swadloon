@@ -1,6 +1,6 @@
 import { ModularScaleRatio, modularScaleRatioValues } from '@newrade/core-design-system';
 
-import { round } from './math.utilities';
+import { round } from './math.utilities.js';
 
 export type ModularScaleOptions = {
   step: number;

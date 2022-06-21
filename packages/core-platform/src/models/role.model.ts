@@ -1,4 +1,4 @@
-import { Rule } from './rule.model';
+import { Rule } from './rule.model.js';
 
 export type Role = {
   name: string;

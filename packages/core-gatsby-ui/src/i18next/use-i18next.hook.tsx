@@ -10,7 +10,7 @@ import { GatsbyPageAlternateLocale } from '@newrade/core-gatsb-config/config';
 import { getLangSimpleCode } from '@newrade/core-react-ui/src/seo/meta.utilities';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 
-import { I18nextContext, LANGUAGE_KEY } from './i18next-context';
+import { I18nextContext, LANGUAGE_KEY } from './i18next-context.js';
 
 type AlternatePageLocale = GatsbyPageAlternateLocale;
 

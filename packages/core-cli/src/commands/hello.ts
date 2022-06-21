@@ -2,7 +2,7 @@ import { Command, flags } from '@oclif/command';
 import { IConfig } from '@oclif/config';
 import debug from 'debug';
 
-import { NS } from '../utilities/log.utilities';
+import { NS } from '../utilities/log.utilities.js';
 
 export default class Hello extends Command {
   log = debug(`${NS}:hello`);

@@ -1,6 +1,6 @@
 import { RuleSetRule } from 'webpack';
 
-import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
+import { isDevelopment } from '../utilities/webpack-dev-server.utilities.js';
 
 type Options = { hmr?: boolean };
 

@@ -2,19 +2,22 @@ import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from '
 
 import { COLOR_MODE, COLOR_SCHEME, ColorModeProps, Variant } from '@newrade/core-design-system';
 
-import { CSSRuntimeThemeConfig, CSSThemeProviderConfig } from '../design-system/css-theme-config';
+import {
+  CSSRuntimeThemeConfig,
+  CSSThemeProviderConfig,
+} from '../design-system/css-theme-config.js';
 import {
   GLOBAL_CSS_THEME_SCHEME,
   GLOBAL_CSS_THEME_SCHEME_REVERSED,
   LOCAL_STORAGE_CSS_THEME_NAME_PROP,
   LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
-} from '../global/global-theme-classnames';
-import { useIsSSR } from '../hooks/use-is-ssr';
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-iso';
-import { debugInstance, NS } from '../utilities-iso/log.utilities';
+} from '../global/global-theme-classnames.js';
+import { useIsSSR } from '../hooks/use-is-ssr.js';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { getMergedClassname } from '../utilities-iso.js';
+import { debugInstance, NS } from '../utilities-iso/log.utilities.js';
 
-import { usePreferColorScheme } from './use-prefer-color-scheme';
+import { usePreferColorScheme } from './use-prefer-color-scheme.js';
 
 const log = debugInstance(`${NS}:css-theme`);
 const logWarn = debugInstance(`${NS}:css-theme:warn`);

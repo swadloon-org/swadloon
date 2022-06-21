@@ -7,16 +7,16 @@ import { useCommonProps } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
 
-import { BlockRenderer } from '../blocks/block-renderer';
+import { BlockRenderer } from '../blocks/block-renderer.js';
 
-import { SectionProps, SectionRendererProps } from './section.props';
-import { SectionBanner } from './section-banner';
-import { SectionDivider } from './section-divider';
-import { SectionMessenger } from './section-messenger';
-import { SectionShowcase } from './section-showcase';
-import { SectionStack } from './section-stack';
-import { SectionStatement } from './section-statement';
-import { SectionSwitcher } from './section-switcher';
+import { SectionProps, SectionRendererProps } from './section.props.js';
+import { SectionBanner } from './section-banner.js';
+import { SectionDivider } from './section-divider.js';
+import { SectionMessenger } from './section-messenger.js';
+import { SectionShowcase } from './section-showcase.js';
+import { SectionStack } from './section-stack.js';
+import { SectionStatement } from './section-statement.js';
+import { SectionSwitcher } from './section-switcher.js';
 
 const log = debug('nr:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');

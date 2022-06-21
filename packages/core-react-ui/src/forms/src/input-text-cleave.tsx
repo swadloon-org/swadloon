@@ -5,7 +5,7 @@ import type { Props as CleaveProps } from 'cleave.js/react/props';
 
 import 'cleave.js/dist/addons/cleave-phone.ca';
 
-import { InputTextProps } from './input.props';
+import { InputTextProps } from './input.props.js';
 
 type Props = InputTextProps;
 

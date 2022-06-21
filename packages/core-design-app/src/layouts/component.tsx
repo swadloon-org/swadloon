@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import type { lazyComponentImports } from './context-require';
+import type { lazyComponentImports } from './context-require.js';
 
 type Props = {
   lazyComponentImports: typeof lazyComponentImports;

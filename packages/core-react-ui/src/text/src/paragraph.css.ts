@@ -2,8 +2,8 @@ import { createStyleObject } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { layoutCSS, typographyVars } from '../default-theme/src/theme';
-import { getNormalTextStyles } from '../utilities-vanilla-extract/utilities-vanilla-extract';
+import { layoutCSS, typographyVars } from '../default-theme/src/theme.js';
+import { getNormalTextStyles } from '../utilities-vanilla-extract/utilities-vanilla-extract.js';
 
 export const base = style({
   fontFamily: typographyVars.paragraphs.fontFamily,

@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
-import { colorVars, sizeVars } from '../default-theme/src/theme';
+import { colorVars, sizeVars } from '../default-theme/src/theme.js';
 
 const iconSize = `32px`;
 

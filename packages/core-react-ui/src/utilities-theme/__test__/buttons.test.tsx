@@ -1,5 +1,5 @@
-import { defaultButtons } from '../../default-theme/src';
-import { getCSSButtons } from '../buttons.utilities';
+import { defaultButtons } from '../../default-theme/src.js';
+import { getCSSButtons } from '../buttons.utilities.js';
 
 describe('buttons utilities', () => {
   describe(`${getCSSButtons.name}`, () => {

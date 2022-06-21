@@ -2,9 +2,9 @@ import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration } from 'webpack';
 
-import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
-import { htmlLoader } from '../loaders/html.loader';
-import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
+import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader.js';
+import { htmlLoader } from '../loaders/html.loader.js';
+import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin.js';
 
 /**
  * Preconfigured base config for compiling NodeJS apps

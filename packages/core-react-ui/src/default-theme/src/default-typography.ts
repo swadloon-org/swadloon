@@ -1,9 +1,9 @@
 import { DefaultTypographyV2, Fonts, TEXT_TRANSFORM } from '@newrade/core-design-system';
 
-import { cssVar } from '../utilities-iso/css-variables.utilities';
-import { getTypographicScaledText } from '../utilities-theme';
+import { cssVar } from '../utilities-iso/css-variables.utilities.js';
+import { getTypographicScaledText } from '../utilities-theme.js';
 
-import * as fonts from './default-fonts';
+import * as fonts from './default-fonts.js';
 
 /**
  * @deprecated (will be removed once getCSSTypography is replaced with getCSSTypographyV2)

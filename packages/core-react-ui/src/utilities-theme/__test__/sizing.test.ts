@@ -1,7 +1,7 @@
 import { Sizing, VIEWPORT } from '@newrade/core-design-system';
 
-import { defaultSizing } from '../../default-theme/default-sizing';
-import { getCSSSizingStepV2, getCSSSizingV2 } from '../sizing.utilities';
+import { defaultSizing } from '../../default-theme/default-sizing.js';
+import { getCSSSizingStepV2, getCSSSizingV2 } from '../sizing.utilities.js';
 
 describe('sizing utilities', () => {
   describe(`${getCSSSizingV2.name}`, () => {

@@ -12,7 +12,7 @@ import {
 import { LayoutDocsProps } from '@newrade/core-gatsby-ui/src/layout/docs.layout';
 import { Main, MainWrapper, useCommonProps, useViewportBreakpoint } from '@newrade/core-react-ui';
 
-import * as styles from './layout.css';
+import * as styles from './layout.css.js';
 
 type LayoutProps = LayoutDocsProps;
 

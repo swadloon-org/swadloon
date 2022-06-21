@@ -3,9 +3,9 @@ import * as github from '@actions/github';
 
 import { DEPLOY_ENV } from '@newrade/core-common';
 
-import { ENV, env as processEnv } from '../../../types/dot-env';
-import { runAction } from '../action';
-import { exportVariable } from '../utilities';
+import { ENV, env as processEnv } from '../../../types/dot-env.js';
+import { runAction } from '../action.js';
+import { exportVariable } from '../utilities.js';
 
 function getEnv() {
   return { ...processEnv } as ENV;

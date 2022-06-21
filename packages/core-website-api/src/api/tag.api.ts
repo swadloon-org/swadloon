@@ -1,6 +1,6 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
-import { TagTypeAPI } from './tag-type.api';
+import { TagTypeAPI } from './tag-type.api.js';
 
 export type TagAPI = PartialOrNull<{
   /**

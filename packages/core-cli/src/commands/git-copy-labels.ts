@@ -6,7 +6,7 @@ import { Octokit } from 'octokit';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities';
+import { NS } from '../utilities/log.utilities.js';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { throttle } from './utils';
+import { throttle } from './utils.js';
 
 export const useWindowScrollPosition = ({ throttleMs = 100 }: { throttleMs?: number } = {}) => {
   const [scroll, setScroll] = React.useState({

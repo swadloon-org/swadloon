@@ -7,7 +7,7 @@ import * as t from 'io-ts';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { enableDebug, NS } from '../utilities/log.utilities';
+import { enableDebug, NS } from '../utilities/log.utilities.js';
 
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 

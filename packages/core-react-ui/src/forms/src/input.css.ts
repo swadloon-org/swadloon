@@ -1,7 +1,7 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css';
+import { colorVars, layoutCSS, typographyVars } from '../default-theme/default-theme.css.js';
 
 /**
  *

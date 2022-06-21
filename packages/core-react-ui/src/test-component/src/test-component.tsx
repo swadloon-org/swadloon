@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { base } from './test-component.css';
+import { base } from './test-component.css.js';
 
 type Props = {
   name: string;

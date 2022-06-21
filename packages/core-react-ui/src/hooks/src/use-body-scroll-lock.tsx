@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-import { isIOS } from '../utilities-browser/useragent.utilities';
-import { debugInstance, NS } from '../utilities-iso/log.utilities';
+import { isIOS } from '../utilities-browser/useragent.utilities.js';
+import { debugInstance, NS } from '../utilities-iso/log.utilities.js';
 
-import { useIsSSR } from './use-is-ssr';
+import { useIsSSR } from './use-is-ssr.js';
 
 const log = debugInstance(`${NS}:body-scroll-lock`);
 const logWarn = debugInstance(`${NS}:body-scroll-lock:warn`);

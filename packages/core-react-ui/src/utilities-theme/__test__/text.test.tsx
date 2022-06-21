@@ -1,4 +1,4 @@
-import { convertPxLetterSpacingToEm } from '../text.utilities';
+import { convertPxLetterSpacingToEm } from '../text.utilities.js';
 
 describe('text utilities', () => {
   describe(`${convertPxLetterSpacingToEm.name}`, () => {

@@ -4,11 +4,11 @@
  *
  */
 
-export * from './attributes.utilities';
-export * from './colors.utilities';
-export * from './components.utilities';
-export * from './css-variables.utilities';
-export * from './log.utilities';
-export * from './math.utilities';
-export * from './scale.utilities';
-export * from './utilities';
+export * from './attributes.utilities.js';
+export * from './colors.utilities.js';
+export * from './components.utilities.js';
+export * from './css-variables.utilities.js';
+export * from './log.utilities.js';
+export * from './math.utilities.js';
+export * from './scale.utilities.js';
+export * from './utilities.js';

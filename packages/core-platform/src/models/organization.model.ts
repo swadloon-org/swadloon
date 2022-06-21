@@ -1,9 +1,9 @@
 import { DesignSystemV2 } from '@newrade/core-design-system';
-import { TimeStamps } from './common-props.model';
-import { Project } from './project.model';
-import { Role } from './role.model';
-import { Site } from './site.model';
-import { User } from './user.model';
+import { TimeStamps } from './common-props.model.js';
+import { Project } from './project.model.js';
+import { Role } from './role.model.js';
+import { Site } from './site.model.js';
+import { User } from './user.model.js';
 
 /**
  * Top level configuration object to hold all information of an organization.

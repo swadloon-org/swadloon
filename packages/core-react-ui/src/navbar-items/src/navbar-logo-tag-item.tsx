@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 
-import { Tag } from '../tag/tag';
-import { TagCompProps } from '../tag/tag.props';
+import { Tag } from '../tag/tag.js';
+import { TagCompProps } from '../tag/tag.props.js';
 
 type Props = {
   tagText?: string;

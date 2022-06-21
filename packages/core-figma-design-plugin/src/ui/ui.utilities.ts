@@ -1,8 +1,8 @@
 /// <reference types="@figma/plugin-typings" />
 
-import { PLUGIN_EVENT_TYPE, PluginEvent } from '../common/messages';
+import { PLUGIN_EVENT_TYPE, PluginEvent } from '../common/messages.js';
 
-import { logUI } from './log.ui.utilities';
+import { logUI } from './log.ui.utilities.js';
 
 /**
  *

@@ -3,9 +3,9 @@ import { Property } from 'csstype';
 
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 
-import { pxStringToNumber } from '../utilities-iso/utilities';
+import { pxStringToNumber } from '../utilities-iso/utilities.js';
 
-import { getCSSFonts } from './font.utilities';
+import { getCSSFonts } from './font.utilities.js';
 
 /**
  *

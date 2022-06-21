@@ -4,9 +4,14 @@ import { cleanup, render } from '@testing-library/react';
 
 import { Color, COLOR_FORMAT } from '@newrade/core-design-system';
 
-import { defaultColors } from '../../default-theme/default-colors';
-import { CSSColor } from '../../design-system/design-system';
-import { getColorFromHex, getCSSColor, getCSSColorsV2, getCSSHexColor } from '../colors.utilities';
+import { CSSColor } from '../../css-design-system/design-system.js';
+import { defaultColors } from '../../default-theme/default-colors.js';
+import {
+  getColorFromHex,
+  getCSSColor,
+  getCSSColorsV2,
+  getCSSHexColor,
+} from '../colors.utilities.js';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {

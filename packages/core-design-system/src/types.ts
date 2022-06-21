@@ -1,7 +1,7 @@
-import { MediaQueryGroup } from './foundations/media-queries';
-import { FONT_VARIANT_NUMERIC, TEXT_TRANSFORM, TextDecoration } from './foundations/text';
-import { Color } from './primitives/color';
-import { Radius } from './primitives/radius';
+import { MediaQueryGroup } from './foundations/media-queries.js';
+import { FONT_VARIANT_NUMERIC, TEXT_TRANSFORM, TextDecoration } from './foundations/text.js';
+import { Color } from './primitives/color.js';
+import { Radius } from './primitives/radius.js';
 
 /**
  *

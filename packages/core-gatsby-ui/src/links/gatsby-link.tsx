@@ -3,7 +3,7 @@ import React from 'react';
 
 import { useCommonProps } from '@newrade/core-react-ui';
 
-import * as styles from './gatsby-link.css';
+import * as styles from './gatsby-link.css.js';
 
 type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
   noStyles?: boolean;

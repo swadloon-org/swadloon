@@ -1,6 +1,6 @@
 /// <reference types="@figma/plugin-typings" />
 
-import { FigmaTextStyleList } from '../common/figma-text.model';
+import { FigmaTextStyleList } from '../common/figma-text.model.js';
 
 /**
  *

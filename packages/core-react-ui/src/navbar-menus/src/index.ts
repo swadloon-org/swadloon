@@ -1,1 +1,1 @@
-export * from './navbar-menu-link-item';
+export * from './navbar-menu-link-item.js';

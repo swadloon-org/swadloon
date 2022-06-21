@@ -2,7 +2,7 @@ import { Property } from 'csstype';
 
 import { Color } from '@newrade/core-design-system';
 
-import { getRGBColor } from './colors.utilities';
+import { getRGBColor } from './colors.utilities.js';
 
 type Matrix = [number, number, number, number, number, number, number, number, number];
 

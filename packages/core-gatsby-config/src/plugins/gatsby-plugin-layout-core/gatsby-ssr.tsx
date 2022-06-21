@@ -1,4 +1,4 @@
-// import { wrapPageElementSSRFunction, wrapRootElementSSRFunction } from './src/wrap-page';
+// import { wrapPageElementSSRFunction, wrapRootElementSSRFunction } from './src/wrap-page.js';
 
 // /**
 //  * Gatsby Browser APIs

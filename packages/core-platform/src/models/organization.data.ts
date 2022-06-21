@@ -1,4 +1,4 @@
-import { Organization } from './organization.model';
+import { Organization } from './organization.model.js';
 
 export const defaultOrganization: Organization = {
   id: '1234',

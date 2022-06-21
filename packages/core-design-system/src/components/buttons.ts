@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ICON } from '../foundations/iconography';
-import { ColorType, DeepPartial, SizeType } from '../types';
+import { ICON } from '../foundations/iconography.js';
+import { ColorType, DeepPartial, SizeType } from '../types.js';
 
-import { BorderStyles, BoxStyle, Margin, OutlineStyles, Padding } from './box';
-import { Variant } from './components';
+import { BorderStyles, BoxStyle, Margin, OutlineStyles, Padding } from './box.js';
+import { Variant } from './components.js';
 
 /**
  * Props for icons in buttons

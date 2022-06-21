@@ -2,14 +2,13 @@ import React from 'react';
 
 import { Variant } from '@newrade/core-design-system';
 
-import { layoutVars } from '../default-theme/src/theme';
-import { useCSSTheme } from '../hooks/use-css-theme';
-import { Center } from '../layout/center';
-import { Primitive } from '../primitive/primitive';
+import { layoutVars } from '../default-theme/src/theme.js';
+import { useCSSTheme } from '../hooks/use-css-theme.js';
+import { Center } from '../layout/center.js';
+import { Primitive } from '../primitive/primitive.js';
 
-import { NavbarProps } from './navbar.props';
-
-import * as styles from './navbar-base.css';
+import { NavbarProps } from './navbar.props.js';
+import * as styles from './navbar-base.css.js';
 
 type Props = NavbarProps & {
   contentClassName?: string;

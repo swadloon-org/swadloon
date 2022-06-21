@@ -4,7 +4,7 @@ import React, { CSSProperties } from 'react';
 import { BoxV2, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 
-import { BlockProps } from './block.props';
+import { BlockProps } from './block.props.js';
 
 type Props = PrimitiveProps & BlockProps;
 

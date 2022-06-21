@@ -21,10 +21,10 @@ import {
 } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { LazyComponentLoader } from './component';
-import { lazyComponentImports } from './context-require';
+import { LazyComponentLoader } from './component.js';
+import { lazyComponentImports } from './context-require.js';
 
-import * as styles from './layout.css';
+import * as styles from './layout.css.js';
 
 type Props = {};
 

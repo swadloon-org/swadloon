@@ -4,9 +4,9 @@ import Generator, { Question, Questions } from 'yeoman-generator';
 import {
   NEW_PACKAGE_GENERATOR,
   NEW_PACKAGE_TEMPLATE_PROPS,
-} from './new-package-generator/new-package.config';
-import { GeneratorModule } from './generator.types';
-import { CHOICES } from './generator-choices';
+} from './new-package-generator/new-package.config.js';
+import { GeneratorModule } from './generator.types.js';
+import { CHOICES } from './generator-choices.js';
 
 /**
  * @description Yeoman Generator

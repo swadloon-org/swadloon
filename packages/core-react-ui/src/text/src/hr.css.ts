@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars } from '../default-theme/src/theme';
+import { colorVars } from '../default-theme/src/theme.js';
 
 export const wrapper = style({
   border: 'none',

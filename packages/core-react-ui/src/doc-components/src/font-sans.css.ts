@@ -1,7 +1,7 @@
 import { createStyleObject } from '@capsizecss/core';
 import { style } from '@vanilla-extract/css';
 
-import { typographyVars } from '../theme';
+import { typographyVars } from '../theme.js';
 
 export const wrapper = style({});
 

@@ -1,1 +1,1 @@
-export * from './ejs-loader/index';
+export * from './ejs-loader/index.js';

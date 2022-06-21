@@ -2,25 +2,30 @@ import { createGlobalThemeContract } from '@vanilla-extract/css';
 import { CSSVarFunction, MapLeafNodes } from '@vanilla-extract/private';
 import { kebab } from 'case';
 
-import { CSSLayoutV2 } from '../design-system/css-layout';
-import { CSSSizingV2 } from '../design-system/css-sizing';
-import { CSSTypographyV2 } from '../design-system/css-typography';
-import { CSSButtons, CSSEffects, CSSFontsV2, CSSIconography } from '../design-system/design-system';
+import { CSSColorsV2 } from '...js';
+import { CSSLayoutV2 } from '../design-system/css-layout.js';
+import { CSSSizingV2 } from '../design-system/css-sizing.js';
+import { CSSTypographyV2 } from '../design-system/css-typography.js';
+import {
+  CSSButtons,
+  CSSEffects,
+  CSSFontsV2,
+  CSSIconography,
+} from '../design-system/design-system.js';
 import {
   defaultRatiosCSSVar,
   defaultRatiosCSSVarNamesV2,
   defaultSizesCSSVarNamesV2,
   defaultSizesCSSVarV2,
-} from '../utilities-theme/sizing.utilities';
-import { CSSColorsV2 } from '..';
+} from '../utilities-theme/sizing.utilities.js';
 
-import { defaultCSSButtons } from './default-buttons-css';
-import { defaultCSSColors } from './default-colors-css';
-import { defaultCSSEffects } from './default-effects-css';
-import { defaultCSSIconography } from './default-iconography-css';
-import { defaultCSSLayoutV2 } from './default-layout-v2-css';
-import { defaultCSSSizing } from './default-sizing-css';
-import { defaultCSSTypography } from './default-typography-css';
+import { defaultCSSButtons } from './default-buttons-css.js';
+import { defaultCSSColors } from './default-colors-css.js';
+import { defaultCSSEffects } from './default-effects-css.js';
+import { defaultCSSIconography } from './default-iconography-css.js';
+import { defaultCSSLayoutV2 } from './default-layout-v2-css.js';
+import { defaultCSSSizing } from './default-sizing-css.js';
+import { defaultCSSTypography } from './default-typography-css.js';
 
 /**
  *

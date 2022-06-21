@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { colorVars, effectsVars, sizeVars } from '../theme';
+import { colorVars, effectsVars, sizeVars } from '../theme.js';
 
 export const wrapper = style({
   alignItems: 'flex-start',

@@ -5,14 +5,18 @@ import chalk from 'chalk';
 import debug from 'debug';
 import * as Figma from 'figma-js'; // DON'T import Figma from 'figma-js'
 
-import { defaultOutputColorFiles, FileType, PathExport } from './constants/figma-colors.constants';
-import { exportCssColorTokens } from './exporters/colors-css-exporter';
-import { exportJSONColorTokens } from './exporters/colors-json-exporter';
-import { exportScssColorTokens } from './exporters/colors-scss-exporter';
-import { exportTSColorTokens } from './exporters/colors-ts-exporter';
-import { extractColorsFromFigmaStyles } from './extractors/colors-extractor';
-import { appendFile, createExportFile, createExportJSONFile } from './service/file.service';
-import { log, logConfig, logError, logErrorConfig, logWarn } from './service/logging.service';
+import {
+  defaultOutputColorFiles,
+  FileType,
+  PathExport,
+} from './constants/figma-colors.constants.js';
+import { exportCssColorTokens } from './exporters/colors-css-exporter.js';
+import { exportJSONColorTokens } from './exporters/colors-json-exporter.js';
+import { exportScssColorTokens } from './exporters/colors-scss-exporter.js';
+import { exportTSColorTokens } from './exporters/colors-ts-exporter.js';
+import { extractColorsFromFigmaStyles } from './extractors/colors-extractor.js';
+import { appendFile, createExportFile, createExportJSONFile } from './service/file.service.js';
+import { log, logConfig, logError, logErrorConfig, logWarn } from './service/logging.service.js';
 
 /**
  * Options for the extract function

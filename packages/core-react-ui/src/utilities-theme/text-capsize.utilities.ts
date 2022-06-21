@@ -4,11 +4,11 @@ import { CapsizeOptions, ComputedValues } from '@capsizecss/core/dist/declaratio
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, CapsizeTextStyleV2, TextStyle } from '@newrade/core-design-system';
 
-import { pxStringToNumber, pxStringToRem } from '../utilities-iso/utilities';
-import { getScaledValue, ModularScaleOptions, round } from '../utilities-iso/utilities-iso';
+import { pxStringToNumber, pxStringToRem } from '../utilities-iso/utilities.js';
+import { getScaledValue, ModularScaleOptions, round } from '../utilities-iso/utilities-iso.js';
 
-import { getCSSFonts } from './font.utilities';
-import { createCSSTextStyle } from './text.utilities';
+import { getCSSFonts } from './font.utilities.js';
+import { createCSSTextStyle } from './text.utilities.js';
 
 /**
  *

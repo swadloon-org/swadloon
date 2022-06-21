@@ -6,7 +6,7 @@ import merge from 'webpack-merge';
 
 import * as core from '@newrade/core-webpack-config';
 
-import { commonConfig } from './webpack.common.config';
+import { commonConfig } from './webpack.common.config.js';
 
 const prodConfig: Configuration.Configuration = {
   mode: 'production',

@@ -1,7 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { WebpackPluginInstance } from 'webpack';
 
-import { isWebpackDevServer } from '../utilities/webpack-dev-server.utilities';
+import { isWebpackDevServer } from '../utilities/webpack-dev-server.utilities.js';
 
 const minifyHtmlOptions = {
   prod: {

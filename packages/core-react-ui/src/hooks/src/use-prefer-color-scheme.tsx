@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { COLOR_SCHEME } from '@newrade/core-design-system';
 
-import { useIsSSR } from './use-is-ssr';
+import { useIsSSR } from './use-is-ssr.js';
 
 export function usePreferColorScheme() {
   const isSSR = useIsSSR();

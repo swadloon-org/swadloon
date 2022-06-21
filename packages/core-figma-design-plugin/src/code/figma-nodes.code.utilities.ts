@@ -1,4 +1,4 @@
-import { log } from './log.code.utilities';
+import { log } from './log.code.utilities.js';
 
 export function createOrUpdateFigmaFrame(name: string): FrameNode {
   const found = figma.currentPage.findOne((node) => node.name === name);

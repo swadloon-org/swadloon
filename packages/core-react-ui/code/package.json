@@ -1,9 +1,0 @@
-{
-  "main": "dist/newrade-core-react-ui-code.cjs.js",
-  "module": "dist/newrade-core-react-ui-code.esm.js",
-  "sideEffects": [
-    "*.css",
-    "*.css.ts",
-    "*.css.js"
-  ]
-}

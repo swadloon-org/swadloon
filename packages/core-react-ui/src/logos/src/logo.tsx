@@ -3,12 +3,11 @@ import React, { ErrorInfo } from 'react';
 import { LOGO } from '@newrade/core-design-system';
 import { useCommonProps } from '@newrade/core-react-ui-hooks';
 
-import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities-iso/utilities-iso';
+import { PrimitiveProps } from '../primitive/primitive.props.js';
+import { getMergedClassname } from '../utilities-iso/utilities-iso.js';
 
-import { useLogosContext } from './logos-provider';
-
-import * as styles from './logo.css';
+import * as styles from './logo.css.js';
+import { useLogosContext } from './logos-provider.js';
 
 type Props = PrimitiveProps<'svg'> & {
   name: LOGO;

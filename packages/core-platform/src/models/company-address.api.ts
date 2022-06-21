@@ -1,4 +1,4 @@
-import { PartialOrNull } from '../utilities';
+import { PartialOrNull } from '../utilities.js';
 
 export type CompanyAddressAPI = PartialOrNull<{
   /**

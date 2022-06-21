@@ -2,7 +2,7 @@ import { createStyleObject } from '@capsizecss/core';
 import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { layoutCSS, typographyVars } from '../default-theme/src/theme';
+import { layoutCSS, typographyVars } from '../default-theme/src/theme.js';
 
 export const base = style({
   fontFamily: typographyVars.headings.fontFamily,

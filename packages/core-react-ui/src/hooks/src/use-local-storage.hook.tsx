@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
 
-import { useEventListener } from './use-event-listener';
+import { useEventListener } from './use-event-listener.js';
 
 type StorageAPI<State> = {
   get: (key: string, defaultValue?: State) => State;

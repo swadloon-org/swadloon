@@ -2,8 +2,8 @@
 // // also remove from eslintignore when fixed
 // /* eslint-disable */
 
-// import { VIEWPORT } from '../foundations/layout';
-// import { ButtonSizes, ButtonState, ButtonVariants } from './../components/molecules/buttons';
+// import { VIEWPORT } from '../foundations/layout.js';
+// import { ButtonSizes, ButtonState, ButtonVariants } from './../components/molecules/buttons.js';
 
 // type ViewportLabel = keyof typeof VIEWPORT;
 // type ButtonSizesLabel = keyof ButtonSizes;
