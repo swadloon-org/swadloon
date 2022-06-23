@@ -1,6 +1,6 @@
 import { spawn, spawnSync } from 'child_process';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
@@ -18,19 +18,19 @@ export default class Webpack extends Command {
   static args = [{ name: 'command' }];
 
   static flags = {
-    config: flags.string({ char: 'c', description: 'path to config file (.ts)' }),
+    config: Flags.string({ char: 'c', description: 'path to config file (.ts)' }),
     /**
      * @since webpack-dev-server@v4
      * @see https://webpack.js.org/configuration/dev-server/#overlay
      */
-    ['no-client-overlay']: flags.boolean({
+    ['no-client-overlay']: Flags.boolean({
       description:
         'disable the full-screen overlay in the browser when there are compiler errors or warnings',
     }),
     /**
      * debugging
      */
-    ['inspect-brk']: flags.boolean({
+    ['inspect-brk']: Flags.boolean({
       description: 'enable node --inspect-brk flag',
     }),
   };
@@ -38,7 +38,7 @@ export default class Webpack extends Command {
   async run() {
     enableDebug();
 
-    const { args, flags } = this.parse(Webpack);
+    const { args, flags } = await this.parse(Webpack);
 
     const command = [
       `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node ${

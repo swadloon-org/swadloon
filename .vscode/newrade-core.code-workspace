@@ -183,29 +183,23 @@
       "name": "docs",
       "path": "../docs"
     },
+    // cli
     {
-      "name": "core-types",
-      "path": "../packages/core-types"
+      "name": "core-cli",
+      "path": "../packages/core-cli"
     },
+    // core libs
     {
       "name": "core-common",
       "path": "../packages/core-common"
     },
     {
-      "name": "core-jest-config",
-      "path": "../packages/core-jest-config"
-    },
-    {
-      "name": "core-node-utils",
-      "path": "../packages/core-node-utils"
-    },
-    {
-      "name": "core-cli",
-      "path": "../packages/core-cli"
-    },
-    {
       "name": "core-contentful-lib",
       "path": "../packages/core-contentful-lib"
+    },
+    {
+      "name": "core-css-extractor",
+      "path": "../packages/core-css-extractor"
     },
     {
       "name": "core-design-system",
@@ -224,12 +218,12 @@
       "path": "../packages/core-dev-config"
     },
     {
-      "name": "core-figma-extractor",
-      "path": "../packages/core-figma-extractor"
-    },
-    {
       "name": "core-figma-design-plugin",
       "path": "../packages/core-figma-design-plugin"
+    },
+    {
+      "name": "core-figma-extractor",
+      "path": "../packages/core-figma-extractor"
     },
     {
       "name": "core-figma-plugins",
@@ -252,8 +246,16 @@
       "path": "../packages/core-github-bot"
     },
     {
-      "name": "core-css-extractor",
-      "path": "../packages/core-css-extractor"
+      "name": "core-jest-config",
+      "path": "../packages/core-jest-config"
+    },
+    {
+      "name": "core-node-utils",
+      "path": "../packages/core-node-utils"
+    },
+    {
+      "name": "core-platform",
+      "path": "../packages/core-platform"
     },
     {
       "name": "core-react-ui",
@@ -264,16 +266,16 @@
       "path": "../packages/core-react-ui/src"
     },
     {
+      "name": "core-types",
+      "path": "../packages/core-types"
+    },
+    {
       "name": "core-webpack-config",
       "path": "../packages/core-webpack-config"
     },
     {
       "name": "core-website-api",
       "path": "../packages/core-website-api"
-    },
-    {
-      "name": "core-platform",
-      "path": "../packages/core-platform"
     },
     {
       "name": "core-yo-generator",
@@ -283,6 +285,7 @@
       "name": "core-design-app",
       "path": "../packages/core-design-app"
     },
+    // apps
     {
       "name": "ze-design-system",
       "path": "../packages/ze-design-system"

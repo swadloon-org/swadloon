@@ -1,1 +1,1 @@
-export const includedLibToCompile: string[] = ['idlize', 'lodash-es'];
+export const includedLibToCompile: string[] = ['idlize', 'lodash-es', 'node-fetch'];

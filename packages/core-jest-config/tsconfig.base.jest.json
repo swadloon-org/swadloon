@@ -3,9 +3,8 @@
   "compilerOptions": {
     "allowJs": true,
     "outDir": "dist",
-    "module": "node16",
     "target": "es2021",
-    "lib": ["es6", "dom", "es2017", "ES2020"],
+    "lib": ["dom", "es2017", "ES2020", "es2021"],
     "types": [
       "node",
       "jest",

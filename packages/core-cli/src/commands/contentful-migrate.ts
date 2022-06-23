@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import { runMigration } from 'contentful-migration';
 import debug from 'debug';
 import * as t from 'io-ts';
@@ -42,7 +42,7 @@ export default class ContentfulMigrate extends Command {
   static examples = [`$ nr figma-sync`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [{ name: 'file', description: 'figma file id' }];

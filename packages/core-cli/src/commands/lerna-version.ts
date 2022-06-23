@@ -2,7 +2,7 @@ import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import chalk from 'chalk';
 import prettier from 'prettier';
 
@@ -51,7 +51,7 @@ export default class LernaVersion extends Command {
   static args = [{ name: 'args' }];
 
   static flags = {
-    packages: flags.string({
+    packages: Flags.string({
       description: 'packages glob to be included in lerna version bump, e.g. --packages=packages/*',
       required: true,
     }),
@@ -59,7 +59,7 @@ export default class LernaVersion extends Command {
 
   async run() {
     enableDebug();
-    const { args, flags } = this.parse(LernaVersion);
+    const { args, flags } = await this.parse(LernaVersion);
 
     this.log(`running in ${process.cwd()}`);
 

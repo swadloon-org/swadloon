@@ -1,6 +1,6 @@
 import { spawnSync } from 'child_process';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import debug from 'debug';
 import * as t from 'io-ts';
 
@@ -30,7 +30,7 @@ export default class VercelDeploy extends Command {
   static examples = [`$ nr vercel-deploy`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [];

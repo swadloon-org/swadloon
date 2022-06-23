@@ -5,6 +5,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
+    "emitDeclarationOnly": true,
     "module": "node16",
     //
     // should be set according to choosen NodeJS version and

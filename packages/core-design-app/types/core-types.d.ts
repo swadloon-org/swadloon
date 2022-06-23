@@ -9,5 +9,5 @@
 
 /// <reference types="@newrade/core-types/src/webpack-copy-plugin" />
 /// <reference types="@newrade/core-types/src/webpack-merge" />
-/// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />
+
 /// <reference types="@newrade/core-types/src/svgr-macro" />

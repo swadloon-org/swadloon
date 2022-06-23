@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "outDir": "public",
+    "outDir": "dist",
+    "rootDir": "src",
     "baseUrl": ".",
     "types": ["react", "react-dom"]
   },
-  "include": ["src", "types"]
+  "include": ["src"]
 }

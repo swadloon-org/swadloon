@@ -7,4 +7,4 @@
 /// <reference types="@newrade/core-types/src/regex-escape" />
 /// <reference types="@newrade/core-types/src/svg" />
 /// <reference types="@newrade/core-types/src/react-lazyload" />
-/// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />
+

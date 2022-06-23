@@ -4,4 +4,4 @@
 /// <reference types="@newrade/core-types/src/morgan" />
 
 /// <reference types="@newrade/core-types/src/webpack-copy-plugin" />
-/// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />
+

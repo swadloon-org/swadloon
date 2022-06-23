@@ -1,8 +1,14 @@
 import path from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-import { defaultOutputColorFiles, ExtractOptions } from '../...js';
+import { defaultOutputColorFiles } from '../../constants/figma-colors.constants.js';
+import { defaultExtractOptions, ExtractOptions } from '../../extract.js';
 import { FigmaColor } from '../../models/figma-colors.model.js';
 import { getFigmaColor, getFormattedColorNode } from '../colors-extractor.js';
+
+const ___filename = fileURLToPath(import.meta.url);
+const ___dirname = dirname(___filename);
 
 describe('colors utilities', () => {
   const rawStyle = {
@@ -46,10 +52,11 @@ describe('colors utilities', () => {
   };
 
   const options: Required<ExtractOptions> = {
+    ...defaultExtractOptions,
     figmaFile: '',
     figmaToken: '',
     inputColorThemeNamespace: true,
-    outputDir: path.join(__dirname, '..', 'figma-export'),
+    outputDir: path.join(___dirname, '..', 'figma-export'),
     outputColorNamespace: '',
     outputColorFiles: defaultOutputColorFiles,
     outputCSSColorFormat: 'rgba',

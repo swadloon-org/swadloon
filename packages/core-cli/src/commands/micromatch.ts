@@ -1,4 +1,4 @@
-import { Command } from '@oclif/command';
+import { Command } from '@oclif/core';
 import chalk from 'chalk';
 import debug from 'debug';
 import micromatch from 'micromatch';
@@ -19,7 +19,7 @@ export default class Micromatch extends Command {
   static flags = {};
 
   async run() {
-    const { args, flags } = this.parse(Micromatch);
+    const { args, flags } = await this.parse(Micromatch);
 
     this.log(`path: ${chalk.blueBright(args.path)}, pattern: ${chalk.bgBlue(args.pattern)}`);
 

@@ -1,11 +1,11 @@
 import { spawnSync } from 'child_process';
 import * as path from 'path';
 
-import { Command } from '@oclif/command';
-
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-export default class Commit extends Command {
+import BaseCommand from '../base-command';
+
+export default class Commit extends BaseCommand {
   static description = 'call the commit script in the repo root';
 
   static examples = [`$ nr commit`];

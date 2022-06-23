@@ -1,6 +1,6 @@
 import os from 'os';
 
-import { Command } from '@oclif/command';
+import { Command } from '@oclif/core';
 
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
@@ -19,13 +19,13 @@ export default class LocalIp extends Command {
   static args = [{ name: 'args' }];
 
   static flags = {
-    // config: flags.string({ description: '', default: '' }),
+    // config: Flags.string({ description: '', default: '' }),
   };
 
   async run() {
     enableDebug();
 
-    const { args, flags } = this.parse(LocalIp);
+    const { args, flags } = await this.parse(LocalIp);
 
     let localIp;
     const ifaces = os.networkInterfaces();

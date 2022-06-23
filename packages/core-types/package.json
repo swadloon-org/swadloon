@@ -16,5 +16,21 @@
   "files": [
     "src"
   ],
-  "scripts": {}
+  "scripts": {
+    "build": "yarn build:lib",
+    "build:lib": "yarn tsc:types",
+    "clean": "yarn clean:lib",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:lib": "yarn clean:dist && yarn clean:tsc",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "prestart": "yarn build",
+    "start": "yarn start:lib",
+    "start:lib": "concurrently \"yarn tsc:types:watch\"",
+    "test": "yarn test:lib",
+    "test:lib": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
+    "tsc:typecheck": "tsc --noEmit",
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+  }
 }

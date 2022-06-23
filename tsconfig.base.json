@@ -5,7 +5,6 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "checkJs": false,
     "isolatedModules": true, // important for babel, swc or other tsc alternatives
@@ -13,6 +12,7 @@
     "composite": false,
     "declaration": false,
     "diagnostics": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "importHelpers": true,
     "experimentalDecorators": true,

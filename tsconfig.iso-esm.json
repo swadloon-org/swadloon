@@ -5,6 +5,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
+    "emitDeclarationOnly": true,
     "lib": ["esnext"]
   }
 }

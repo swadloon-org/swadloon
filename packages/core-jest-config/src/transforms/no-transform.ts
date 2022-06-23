@@ -5,7 +5,7 @@ import { SyncTransformer } from '@jest/transform';
  */
 const transformer: SyncTransformer = {
   process(src, filename) {
-    return src;
+    return { code: src };
   },
 };
 

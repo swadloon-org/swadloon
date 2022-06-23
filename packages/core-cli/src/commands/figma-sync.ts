@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import debug from 'debug';
 import * as t from 'io-ts';
 
@@ -28,12 +28,12 @@ export default class FigmaSync extends Command {
   static examples = [`$ nr figma-sync`];
 
   static flags = {
-    test: flags.boolean({
+    test: Flags.boolean({
       char: 't',
       description:
         'the test flag is used in integration tests, it will not output versions or dates',
     }),
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [{ name: 'path', description: 'relative output path' }];
@@ -47,7 +47,7 @@ export default class FigmaSync extends Command {
       packageName: 'core-cli',
     });
 
-    const { args, flags } = this.parse(FigmaSync);
+    const { args, flags } = await this.parse(FigmaSync);
 
     this.log(`running: extract command`);
 

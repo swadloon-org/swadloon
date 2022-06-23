@@ -33,12 +33,12 @@ export const baseJestConfig: Config.InitialOptions = {
     /**
      * Icons and fonts
      */
-    '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
-      '@newrade/core-jest-config/dist/transforms/file-transform.js',
+    // '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
+    //   '@newrade/core-jest-config/dist/transforms/file-transform.js',
     /**
      * MDX
      */
-    '\\.(mdx?)$': '@newrade/core-jest-config/dist/transforms/mdx-transform.js',
+    // '\\.(mdx?)$': '@newrade/core-jest-config/dist/transforms/mdx-transform.js',
     /**
      * GraphQL
      */
@@ -50,6 +50,9 @@ export const baseJestConfig: Config.InitialOptions = {
      * ESM (node16 import support)
      */
     '^(\\.{1,2}/.*)\\.js$': '$1',
+    /**
+     * CSS files
+     */
     '\\.(less|sass|scss)$': 'identity-obj-proxy',
     // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },

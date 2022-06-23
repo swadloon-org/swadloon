@@ -1,4 +1,4 @@
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
@@ -15,7 +15,7 @@ export default class GitCleanBranches extends Command {
   static examples = [`$ nr git-clean-branches`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [];

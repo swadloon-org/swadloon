@@ -1,4 +1,4 @@
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 import chalk from 'chalk';
 import debug from 'debug';
 import * as t from 'io-ts';
@@ -26,7 +26,7 @@ export default class GitCopyLabels extends Command {
   static examples = [`$ nr git-copy-labels`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [
@@ -39,7 +39,7 @@ export default class GitCopyLabels extends Command {
   }
 
   async run() {
-    const { args, flags } = this.parse(GitCopyLabels);
+    const { args, flags } = await this.parse(GitCopyLabels);
 
     this.log('validating inputs');
 

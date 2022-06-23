@@ -1,4 +1,4 @@
-import { Command } from '@oclif/command';
+import { Command } from '@oclif/core';
 import debug from 'debug';
 import glob from 'glob';
 
@@ -18,7 +18,7 @@ export default class Globby extends Command {
   static flags = {};
 
   async run() {
-    const { args, flags } = this.parse(Globby);
+    const { args, flags } = await this.parse(Globby);
 
     this.log(`globbing: ${args.args}`);
 

@@ -41,6 +41,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         options: {
           configFile: 'tsconfig.json',
           getCustomTransformers: () => ({
+            // @ts-ignore
             before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
           }),
           experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching

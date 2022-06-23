@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 import chalk from 'chalk';
 import debug from 'debug';
@@ -18,10 +20,15 @@ import { extractColorsFromFigmaStyles } from './extractors/colors-extractor.js';
 import { appendFile, createExportFile, createExportJSONFile } from './service/file.service.js';
 import { log, logConfig, logError, logErrorConfig, logWarn } from './service/logging.service.js';
 
+const ___filename = fileURLToPath(import.meta.url);
+const ___dirname = dirname(___filename);
+
 /**
  * Options for the extract function
  */
 export type ExtractOptions = {
+  extractorName: string;
+  version: string;
   /**
    * API Token to connect to the Figma API
    */
@@ -67,8 +74,10 @@ export type ExtractOptions = {
 };
 
 export const defaultExtractOptions: ExtractOptions = {
+  extractorName: 'core-figma-extractor',
+  version: '1',
   inputColorThemeNamespace: true,
-  outputDir: path.join(__dirname, '..', 'figma-export'),
+  outputDir: path.join(___dirname, '..', 'figma-export'),
   outputColorFiles: defaultOutputColorFiles,
   outputColorNamespace: '',
   outputCSSColorFormat: 'hsla',

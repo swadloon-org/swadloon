@@ -1,7 +1,10 @@
-import { Env, ENV } from '@newrade/core-css-extractor';
-import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
-import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
+
+import { Command } from '@oclif/core';
+
+import { ENV, Env } from '@newrade/core-css-extractor';
+import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
+
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
 export default class CssExtract extends Command {
@@ -31,7 +34,7 @@ export default class CssExtract extends Command {
     this.log(`CSS_COMPILE_ENTRIES_GLOB: ${env.CSS_EXTRACTOR_ENTRIES_GLOB}`);
     this.log(`CSS_COMPILE_OUTPUT_PATH: ${env.CSS_EXTRACTOR_OUTPUT_PATH}`);
 
-    const { args, flags } = this.parse(CssExtract);
+    const { args, flags } = await this.parse(CssExtract);
 
     const command = `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config ../core-css-extractor/webpack.prod.config.ts`;
 

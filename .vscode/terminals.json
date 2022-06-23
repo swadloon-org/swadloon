@@ -27,8 +27,32 @@
       "execute": false
     },
     {
+      "name": "core-common",
+      "cwd": "./packages/core-common",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-contentful-lib",
       "cwd": "./packages/core-contentful-lib",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-css-extractor",
+      "cwd": "./packages/core-css-extractor",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-design-app",
+      "cwd": "./packages/core-design-app",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -51,8 +75,8 @@
       "execute": false
     },
     {
-      "name": "core-common",
-      "cwd": "./packages/core-common",
+      "name": "core-figma-design-plugin",
+      "cwd": "./packages/core-figma-design-plugin",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -61,14 +85,6 @@
     {
       "name": "core-figma-extractor",
       "cwd": "./packages/core-figma-extractor",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
-      "name": "core-figma-design-plugin",
-      "cwd": "./packages/core-figma-design-plugin",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -115,6 +131,22 @@
       "execute": false
     },
     {
+      "name": "core-node-utils",
+      "cwd": "./packages/core-node-utils",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-platform",
+      "cwd": "./packages/core-platform",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-jest-config",
       "cwd": "./packages/core-jest-config",
       "open": true,
@@ -139,14 +171,6 @@
       "execute": false
     },
     {
-      "name": "core-node-utils",
-      "cwd": "./packages/core-node-utils",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
       "name": "core-webpack-config",
       "cwd": "./packages/core-webpack-config",
       "open": true,
@@ -163,14 +187,6 @@
       "execute": false
     },
     {
-      "name": "core-platform",
-      "cwd": "./packages/core-platform",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
       "name": "core-yo-generator",
       "cwd": "./packages/core-yo-generator",
       "open": true,
@@ -178,14 +194,7 @@
       "command": "yarn start",
       "execute": false
     },
-    {
-      "name": "core-design-app",
-      "cwd": "./packages/core-design-app",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
+
     {
       "name": "ze-design-system",
       "cwd": "./packages/ze-design-system",

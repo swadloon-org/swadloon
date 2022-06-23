@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
@@ -18,17 +18,17 @@ export default class Gatsby extends Command {
   static args = [{ name: 'command' }];
 
   static flags = {
-    'no-uglify': flags.boolean({ description: 'gatsby --no-uglify flag' }),
-    verbose: flags.boolean({ description: 'gatsby verbose command' }),
-    inspect: flags.boolean({ description: 'gatsby inspect command' }),
-    port: flags.string({ char: 'p', description: 'gatsby port option' }),
-    host: flags.string({ char: 'H', description: 'gatsby host option' }),
+    'no-uglify': Flags.boolean({ description: 'gatsby --no-uglify flag' }),
+    verbose: Flags.boolean({ description: 'gatsby verbose command' }),
+    inspect: Flags.boolean({ description: 'gatsby inspect command' }),
+    port: Flags.string({ char: 'p', description: 'gatsby port option' }),
+    host: Flags.string({ char: 'H', description: 'gatsby host option' }),
   };
 
   async run() {
     enableDebug();
 
-    const { args, flags } = this.parse(Gatsby);
+    const { args, flags } = await this.parse(Gatsby);
 
     const command = [
       `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/gatsby/dist/bin/gatsby.js`,

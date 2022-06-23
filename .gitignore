@@ -49,6 +49,9 @@ credentials
 lib-cov
 /tsd_typings/
 
+# turborepo
+.turbo
+
 # typescript
 *.tsbuildinfo
 
@@ -69,3 +72,4 @@ public/
 
 # graphql
 graphql.config.js
+

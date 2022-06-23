@@ -1,4 +1,11 @@
-import fetch from 'node-fetch';
+import type { RequestInfo, RequestInit } from 'node-fetch';
+
+const _importDynamic = new Function('modulePath', 'return import(modulePath)');
+
+async function fetch(url: RequestInfo, init?: RequestInit | undefined) {
+  const { default: fetch } = await _importDynamic('node-fetch');
+  return fetch(url, init);
+}
 
 /**
  * Retrieve nodes object from the API

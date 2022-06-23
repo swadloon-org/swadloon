@@ -22,7 +22,7 @@
     "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "mocha lib/test/generator.test.js",
     "typecheck": "tsc --noEmit --composite false --incremental false",
-    "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"
+    "yo": "yo ./lib/src/ --no-insight --no-update-notifier"
   },
   "dependencies": {
     "case": "^1.6.2",

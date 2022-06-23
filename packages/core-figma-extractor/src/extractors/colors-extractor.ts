@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { camel } from 'case';
+import Case from 'case';
 import chalk from 'chalk';
 import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
@@ -49,7 +49,7 @@ export async function extractColorsFromFigmaStyles(
 
   const styleNodesReponses = await fetchObjectById(styleNodeIds);
 
-  const styleObjects: FileNodesResponse = await styleNodesReponses.json();
+  const styleObjects: FileNodesResponse = (await styleNodesReponses.json()) as FileNodesResponse;
 
   const figmaStyleObjectsFilePath = path.join(options.outputDir, 'figma-color-objects.json');
   log(`creating file: ${chalk.blueBright(figmaStyleObjectsFilePath)}`);
@@ -78,7 +78,7 @@ export async function extractColorsFromFigmaStyles(
 }
 
 export function getFormattedColorTokenName(color: FigmaColor): string {
-  return camel(
+  return Case.camel(
     [color.colorNamespace, color.colorTheme, color.colorType, color.colorLevel].join(' ')
   );
 }
@@ -127,9 +127,9 @@ export function getFormattedColorNode(
       | undefined
     )[];
 
-    const colorTheme = camel(rawColorTheme ? rawColorTheme.trim() : '');
-    const colorType = camel(rawColorType ? rawColorType.trim() : '');
-    const colorLevel = camel(rawColorLevel.join('').trim());
+    const colorTheme = Case.camel(rawColorTheme ? rawColorTheme.trim() : '');
+    const colorType = Case.camel(rawColorType ? rawColorType.trim() : '');
+    const colorLevel = Case.camel(rawColorLevel.join('').trim());
 
     return {
       colorNamespace: options.outputColorNamespace,
@@ -141,8 +141,8 @@ export function getFormattedColorNode(
 
   const [rawColorType, ...rawColorLevel] = name.split(/\//) as (string | undefined)[];
 
-  const colorType = camel(rawColorType ? rawColorType.trim() : '');
-  const colorLevel = camel(rawColorLevel.join('').trim());
+  const colorType = Case.camel(rawColorType ? rawColorType.trim() : '');
+  const colorLevel = Case.camel(rawColorLevel.join('').trim());
 
   return {
     colorNamespace: options.outputColorNamespace,
