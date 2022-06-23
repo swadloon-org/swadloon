@@ -4,16 +4,17 @@
   "description": "",
   "author": "",
   "license": "MIT",
-  "main": "./lib/index.js",
   "files": [
-    "./lib/**/*"
+    "src"
   ],
   "scripts": {
-    "build": "yarn clean && yarn typecheck",
-    "clean": "yarn clean:tsc && yarn clean:dist",
+    "build": "yarn build:lib",
+    "build:lib": "yarn tsc:typecheck",
+    "clean": "yarn clean:lib",
     "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:lib": "yarn clean:tsc && yarn clean:dist",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "typecheck": "tsc --noEmit --composite false --incremental false"
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@figma/plugin-typings": "^1"

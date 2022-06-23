@@ -21,6 +21,7 @@
       "packages/core-node-utils",
       "packages/core-webpack-config",
       "packages/core-figma-extractor",
+      "packages/core-figma-plugins",
       "packages/core-css-extractor",
       "packages/core-cli"
     ]
@@ -54,8 +55,8 @@
     "lerna:start:cli": "lerna run start:cli",
     "lerna:start:lib": "lerna run --parallel start:lib",
     "lerna:test": "lerna run test",
-    "lerna:test:e2e": "lerna exec --concurrency=1 yarn test:e2e",
-    "lerna:typecheck": "lerna exec --concurrency=1 --loglevel info yarn tsc:typecheck",
+    "lerna:test:e2e": "lerna exec --concurrency=1 -- yarn test:e2e",
+    "lerna:typecheck": "lerna exec --concurrency=2 --loglevel info -- yarn tsc:typecheck",
     "link:cli": "npm --prefix packages/core-cli link",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",

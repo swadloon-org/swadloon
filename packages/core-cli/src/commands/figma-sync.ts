@@ -52,6 +52,8 @@ export default class FigmaSync extends Command {
     this.log(`running: extract command`);
 
     await extract({
+      extractorName: '',
+      version: '',
       figmaFile: env.FIGMA_FILE,
       figmaToken: env.FIGMA_TOKEN,
       outputDir: path.resolve(process.cwd(), args && args.path ? args.path : 'figma-export'),

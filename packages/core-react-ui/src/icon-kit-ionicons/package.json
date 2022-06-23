@@ -41,7 +41,7 @@
     "swc:build:watch": "yarn swc:build --watch",
     "tsc:build": "tsc --emitDeclarationOnly",
     "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
-    "tsc:typecheck": "tsc --noEmit",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "typecheck": "yarn tsc:typecheck"
   },
   "sideEffects": [

@@ -33,7 +33,7 @@
     "swc:build:watch": "yarn swc:build --watch",
     "test": "jest --passWithNoTests",
     "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
-    "tsc:typecheck": "tsc --noEmit",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "tsc:types": "yarn tsc -b",
     "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
   },
