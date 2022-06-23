@@ -1,4 +1,4 @@
-/// <reference types="@newrade/core-types/src/github-slugger" />
+/// <reference path="../../core-types/src/github-slugger.d.ts" />
 
 import { AsTypes, PrimitiveProps } from '../primitive/primitive.props.js';
 import { getFormattedAnchorId, getMergedClassname } from '../utilities-iso.js';

@@ -1,4 +1,4 @@
-/// <reference types="@newrade/core-types/src/mdx" />
+/// <reference path="../../core-types/src/mdx.d.ts" />
 
 import { spawnSync } from 'child_process';
 

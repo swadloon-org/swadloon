@@ -1,4 +1,4 @@
-/// <reference types="@newrade/core-types/src/svg" />
+/// <reference path="../../core-types/src/svg.d.ts" />
 
 import React, { HTMLAttributes } from 'react';
 

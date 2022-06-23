@@ -1,4 +1,4 @@
 /**
  * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-
  */
-/// <reference types="@newrade/core-types/src/mdx" />
+/// <reference path="../../core-types/src/mdx.d.ts" />

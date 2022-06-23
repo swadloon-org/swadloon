@@ -1,12 +1,12 @@
 /**
  * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-
  */
-/// <reference types="@newrade/core-types/src/mdx" />
-/// <reference types="@newrade/core-types/src/react-capcha" />
-/// <reference types="@newrade/core-types/src/react-helmet" />
-/// <reference types="@newrade/core-types/src/svg" />
-/// <reference types="@newrade/core-types/src/react-lazyload" />
-/// <reference types="@newrade/core-types/src/svgr-macro" />
+/// <reference path="../../core-types/src/mdx.d.ts" />
+/// <reference path="../../core-types/src/react-capcha.d.ts" />
+/// <reference path="../../core-types/src/react-helmet.d.ts" />
+/// <reference path="../../core-types/src/svg.d.ts" />
+/// <reference path="../../core-types/src/react-lazyload.d.ts" />
+/// <reference path="../../core-types/src/svgr-macro.d.ts" />
 
-/// <reference types="@newrade/core-types/src/github-slugger" />
+/// <reference path="../../core-types/src/github-slugger.d.ts" />
 /// <reference types="testing-library__jest-dom" />
