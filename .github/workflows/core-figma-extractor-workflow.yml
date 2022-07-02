@@ -90,6 +90,7 @@ jobs:
 
       - name: Run extract command
         run: yarn nr figma-sync --test
+        working-directory: packages/core-figma-extractor
 
       - name: Run unit tests
         run: yarn lerna:test --scope @newrade/core-figma-extractor
