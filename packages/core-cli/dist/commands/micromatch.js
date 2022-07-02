@@ -3,15 +3,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = void 0;
-var _core = require("@oclif/core");
 var _chalk = _interopRequireDefault(require("chalk"));
-var _debug = _interopRequireDefault(require("debug"));
 var _micromatch = _interopRequireDefault(require("micromatch"));
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class Micromatch extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:micromatch`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:micromatch:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:micromatch:error`);
+var _baseCommandJs = require("../base-command.js");
+class Micromatch extends _baseCommandJs.BaseCommand {
     static description = "Execute micromatch as CLI";
     static examples = [
         `$ nr micromatch`
@@ -25,6 +20,11 @@ class Micromatch extends _core.Command {
         }
     ];
     static flags = {};
+    constructor(argv, config){
+        super(argv, config, {
+            name: "micromatch"
+        });
+    }
     async run() {
         const { args , flags  } = await this.parse(Micromatch);
         this.log(`path: ${_chalk.default.blueBright(args.path)}, pattern: ${_chalk.default.bgBlue(args.pattern)}`);

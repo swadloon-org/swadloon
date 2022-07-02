@@ -3,11 +3,10 @@
  *
  * @see adapted from https://github.com/gcanti/io-ts/blob/e9a608ee54485a8d6a44e49f22e682eb1fbea6eb/src/PathReporter.ts
  */
-// @ts-ignore
-import { fold } from 'fp-ts/lib/Either';
+import { fold } from 'fp-ts/Either';
 import * as t from 'io-ts';
 // @ts-ignore
-import type { Reporter } from 'io-ts/lib/Reporter';
+import type { Reporter } from 'io-ts/Reporter/package';
 
 function stringify(v: any): string {
   if (typeof v === 'function') {

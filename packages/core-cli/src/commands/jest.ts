@@ -1,16 +1,13 @@
 import { spawnSync } from 'child_process';
 
-import { Command, Flags } from '@oclif/core';
+import { Command, Config, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
+import { BaseCommand } from '../base-command.js';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
-export default class Jest extends Command {
-  log = debugInstance(`${NS}:jest`);
-  logWarn = debugInstance(`${NS}:jest:warn`);
-  logError = debugInstance(`${NS}:jest:error`);
-
+export default class Jest extends BaseCommand {
   static description = 'Shortcut to run jest with typescript (ts-node)';
 
   static examples = [`$ nr jest`];
@@ -21,9 +18,11 @@ export default class Jest extends Command {
     config: Flags.string({ description: 'path to jest config file', default: 'jest.config.ts' }),
   };
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'jest' });
+  }
 
+  async run() {
     const { args, flags } = await this.parse(Jest);
 
     const command = [

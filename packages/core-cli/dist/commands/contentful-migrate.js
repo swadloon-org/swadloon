@@ -6,17 +6,13 @@ exports.Env = exports.default = void 0;
 var _path = _interopRequireDefault(require("path"));
 var _core = require("@oclif/core");
 var _contentfulMigration = require("contentful-migration");
-var _debug = _interopRequireDefault(require("debug"));
 var t = _interopRequireWildcard(require("io-ts"));
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class ContentfulMigrate extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:contentful`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:contentful:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:contentful:error`);
+var _baseCommandJs = require("../base-command.js");
+class ContentfulMigrate extends _baseCommandJs.BaseCommand {
     static description = "execute migration with the contentful CLI ";
     static examples = [
-        `$ nr figma-sync`
+        `$ nr contentful-migrate`
     ];
     static flags = {
         help: _core.Flags.help({
@@ -29,8 +25,12 @@ class ContentfulMigrate extends _core.Command {
             description: "figma file id"
         }
     ];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "contentful-migrate"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const env = (0, _coreNodeUtils).loadDotEnv({
             schema: Env,
             dotEnvPath: ".env",

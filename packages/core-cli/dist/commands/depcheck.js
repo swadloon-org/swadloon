@@ -4,13 +4,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _childProcess = require("child_process");
-var _core = require("@oclif/core");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class Depcheck extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:depcheck`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:depcheck:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:depcheck:error`);
+var _baseCommandJs = require("../base-command.js");
+class Depcheck extends _baseCommandJs.BaseCommand {
     static description = "Shortcut to run depcheck";
     static examples = [
         `$ nr depcheck`
@@ -20,8 +16,12 @@ class Depcheck extends _core.Command {
             name: "args"
         }
     ];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "depcheck"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const { args  } = await this.parse(Depcheck);
         this.log(`running in ${process.cwd()}`);
         const command = (0, _childProcess).spawnSync(`yarn depcheck ${args.args || ""}`, {

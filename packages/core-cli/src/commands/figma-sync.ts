@@ -1,13 +1,12 @@
 import path from 'path';
 
-import { Command, Flags } from '@oclif/core';
-import debug from 'debug';
+import { Config, Flags } from '@oclif/core';
 import * as t from 'io-ts';
 
 import { extract } from '@newrade/core-figma-extractor';
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -18,11 +17,7 @@ export const Env = t.intersection([
   }),
 ]);
 
-export default class FigmaSync extends Command {
-  log = debug(`${NS}:figma-sync`);
-  logWarn = debug(`${NS}:figma-sync:warn`);
-  logError = debug(`${NS}:figma-sync:error`);
-
+export default class FigmaSync extends BaseCommand {
   static description = 'sync design tokens from figma file';
 
   static examples = [`$ nr figma-sync`];
@@ -37,6 +32,10 @@ export default class FigmaSync extends Command {
   };
 
   static args = [{ name: 'path', description: 'relative output path' }];
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'figma-sync' });
+  }
 
   async init() {}
 

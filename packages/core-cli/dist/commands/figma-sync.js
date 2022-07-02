@@ -5,15 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.Env = exports.default = void 0;
 var _path = _interopRequireDefault(require("path"));
 var _core = require("@oclif/core");
-var _debug = _interopRequireDefault(require("debug"));
 var t = _interopRequireWildcard(require("io-ts"));
 var _coreFigmaExtractor = require("@newrade/core-figma-extractor");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class FigmaSync extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:figma-sync`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:figma-sync:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:figma-sync:error`);
+var _baseCommandJs = require("../base-command.js");
+class FigmaSync extends _baseCommandJs.BaseCommand {
     static description = "sync design tokens from figma file";
     static examples = [
         `$ nr figma-sync`
@@ -33,6 +29,11 @@ class FigmaSync extends _core.Command {
             description: "relative output path"
         }
     ];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "figma-sync"
+        });
+    }
     async init() {}
     async run() {
         const env = (0, _coreNodeUtils).loadDotEnv({

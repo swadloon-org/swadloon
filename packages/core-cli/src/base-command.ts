@@ -1,12 +1,15 @@
 import { Command, Config } from '@oclif/core';
+import chalk from 'chalk';
 import debug from 'debug';
 
-import { debugInstance, log, logCommand, NS, warn } from './utilities/log.utilities';
+import { debugInstance, log, logCommand, logWarn, NS } from './utilities/log.utilities';
 
-export default class BaseCommand extends Command {
+export class BaseCommand extends Command {
+  chalk = chalk;
   log = log;
+  logWarn = logWarn;
+  logError = log;
   logCommand = logCommand;
-  warn = warn;
 
   logDebug: debug.Debugger = debugInstance(`${NS}`);
   logWarnDebug: debug.Debugger = debugInstance(`${NS}:warn`);
@@ -19,8 +22,6 @@ export default class BaseCommand extends Command {
       this.logWarnDebug = debugInstance(`${NS}:${commandConfig.name}:warn`);
       this.logErrorDebug = debugInstance(`${NS}:${commandConfig.name}:error`);
     }
-
-    this.logDebug('command called');
   }
 
   async run() {}

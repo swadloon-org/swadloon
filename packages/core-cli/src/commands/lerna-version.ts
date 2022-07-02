@@ -2,13 +2,12 @@ import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-import { Command, Flags } from '@oclif/core';
-import chalk from 'chalk';
+import { Config, Flags } from '@oclif/core';
 import prettier from 'prettier';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
 type PackageJsonWorkspaces =
   | {
@@ -38,11 +37,7 @@ type PackageJsonWorkspaces =
  *
  * Once the command is finished or cancelled the `workspaces.packages` prop will be set back to its original value
  */
-export default class LernaVersion extends Command {
-  log = debugInstance(`${NS}:lerna`);
-  logWarn = debugInstance(`${NS}:lerna:warn`);
-  logError = debugInstance(`${NS}:lerna:error`);
-
+export default class LernaVersion extends BaseCommand {
   static description =
     'Wrapper for lerna version command, allowing to run version on specific packages';
 
@@ -57,8 +52,11 @@ export default class LernaVersion extends Command {
     }),
   };
 
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'lerna' });
+  }
+
   async run() {
-    enableDebug();
     const { args, flags } = await this.parse(LernaVersion);
 
     this.log(`running in ${process.cwd()}`);
@@ -99,7 +97,9 @@ export default class LernaVersion extends Command {
         this.logWarn(`missing packages in package.workspaces, aborting command`);
         return;
       }
-      this.log(`replacing workspace.packages value with: ${chalk.greenBright(flags.packages)}`);
+      this.log(
+        `replacing workspace.packages value with: ${this.chalk.greenBright(flags.packages)}`
+      );
 
       const temporaryPackageJson = JSON.stringify(
         {

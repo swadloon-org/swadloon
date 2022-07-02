@@ -278,10 +278,6 @@
       "path": "../packages/core-website-api"
     },
     {
-      "name": "core-yo-generator",
-      "path": "../packages/core-yo-generator"
-    },
-    {
       "name": "core-design-app",
       "path": "../packages/core-design-app"
     },

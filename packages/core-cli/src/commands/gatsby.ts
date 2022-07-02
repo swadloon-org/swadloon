@@ -1,16 +1,12 @@
 import { spawn } from 'child_process';
 
-import { Command, Flags } from '@oclif/core';
+import { Config, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
-export default class Gatsby extends Command {
-  log = debugInstance(`${NS}:gatsby`);
-  logWarn = debugInstance(`${NS}:gatsby:warn`);
-  logError = debugInstance(`${NS}:gatsby:error`);
-
+export default class Gatsby extends BaseCommand {
   static description = 'Shortcut to run Gatsby with typescript (ts-node)';
 
   static examples = [`$ nr gatsby build`];
@@ -25,9 +21,11 @@ export default class Gatsby extends Command {
     host: Flags.string({ char: 'H', description: 'gatsby host option' }),
   };
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'gatsby' });
+  }
 
+  async run() {
     const { args, flags } = await this.parse(Gatsby);
 
     const command = [

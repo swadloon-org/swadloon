@@ -42,7 +42,7 @@ export function log(message?: string, ...args: any[]) {
   process.stdout.write(`👾  ${message}\n`);
 }
 
-export function warn(input: string | Error): string | Error {
+export function logWarn(input: string | Error): string | Error {
   if (input instanceof Error) {
     process.stdout.write(`👾  ${input}\n`);
     return input;

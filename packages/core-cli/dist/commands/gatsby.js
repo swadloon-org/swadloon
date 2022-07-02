@@ -6,11 +6,8 @@ exports.default = void 0;
 var _childProcess = require("child_process");
 var _core = require("@oclif/core");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class Gatsby extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:gatsby`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:gatsby:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:gatsby:error`);
+var _baseCommandJs = require("../base-command.js");
+class Gatsby extends _baseCommandJs.BaseCommand {
     static description = "Shortcut to run Gatsby with typescript (ts-node)";
     static examples = [
         `$ nr gatsby build`
@@ -39,8 +36,12 @@ class Gatsby extends _core.Command {
             description: "gatsby host option"
         })
     };
+    constructor(argv, config){
+        super(argv, config, {
+            name: "gatsby"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const { args , flags  } = await this.parse(Gatsby);
         const command = [
             `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/gatsby/dist/bin/gatsby.js`,

@@ -1,13 +1,12 @@
 import path from 'path';
 
-import { Command, Flags } from '@oclif/core';
+import { Config, Flags } from '@oclif/core';
 import { runMigration } from 'contentful-migration';
-import debug from 'debug';
 import * as t from 'io-ts';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 
@@ -32,14 +31,10 @@ export const Env = t.intersection([
 
 export type ENV = t.TypeOf<typeof Env>;
 
-export default class ContentfulMigrate extends Command {
-  log = debug(`${NS}:contentful`);
-  logWarn = debug(`${NS}:contentful:warn`);
-  logError = debug(`${NS}:contentful:error`);
-
+export default class ContentfulMigrate extends BaseCommand {
   static description = 'execute migration with the contentful CLI ';
 
-  static examples = [`$ nr figma-sync`];
+  static examples = [`$ nr contentful-migrate`];
 
   static flags = {
     help: Flags.help({ char: 'h' }),
@@ -47,9 +42,11 @@ export default class ContentfulMigrate extends Command {
 
   static args = [{ name: 'file', description: 'figma file id' }];
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'contentful-migrate' });
+  }
 
+  async run() {
     const env = loadDotEnv<ENV>({
       schema: Env,
       dotEnvPath: '.env',

@@ -4,12 +4,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _os = _interopRequireDefault(require("os"));
-var _core = require("@oclif/core");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class LocalIp extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:local-ip`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:local-ip:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:local-ip:error`);
+var _baseCommandJs = require("../base-command.js");
+class LocalIp extends _baseCommandJs.BaseCommand {
     static description = "Print out local machine ip on the connected network";
     static examples = [
         `$ nr local-ip`
@@ -21,8 +17,12 @@ class LocalIp extends _core.Command {
     ];
     static flags = {
     };
+    constructor(argv, config){
+        super(argv, config, {
+            name: "local-ip"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const { args , flags  } = await this.parse(LocalIp);
         let localIp;
         const ifaces = _os.default.networkInterfaces();

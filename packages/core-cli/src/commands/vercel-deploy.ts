@@ -1,13 +1,11 @@
 import { spawnSync } from 'child_process';
 
-import { Command, Flags } from '@oclif/core';
-import debug from 'debug';
+import { Command, Config, Flags } from '@oclif/core';
 import * as t from 'io-ts';
 
-import { loadDotEnv } from '@newrade/core-node-utils';
-import { getShellForPlatform } from '@newrade/core-node-utils';
+import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -20,11 +18,7 @@ export const Env = t.intersection([
   }),
 ]);
 
-export default class VercelDeploy extends Command {
-  log = debug(`${NS}:vercel-deploy`);
-  logWarn = debug(`${NS}:vercel-deploy:warn`);
-  logError = debug(`${NS}:vercel-deploy:error`);
-
+export default class VercelDeploy extends BaseCommand {
   static description = 'deploy site with vercel using env variables';
 
   static examples = [`$ nr vercel-deploy`];
@@ -34,6 +28,10 @@ export default class VercelDeploy extends Command {
   };
 
   static args = [];
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'vercel-deploy' });
+  }
 
   async init() {}
 

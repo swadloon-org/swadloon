@@ -6,8 +6,8 @@ exports.default = void 0;
 var _childProcess = require("child_process");
 var path = _interopRequireWildcard(require("path"));
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _baseCommand = _interopRequireDefault(require("../base-command"));
-class Commit extends _baseCommand.default {
+var _baseCommandJs = require("../base-command.js");
+class Commit extends _baseCommandJs.BaseCommand {
     static description = "call the commit script in the repo root";
     static examples = [
         `$ nr commit`
@@ -22,11 +22,6 @@ class Commit extends _baseCommand.default {
     }
 }
 exports.default = Commit;
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
 function _getRequireWildcardCache() {
     if (typeof WeakMap !== "function") return null;
     var cache = new WeakMap();

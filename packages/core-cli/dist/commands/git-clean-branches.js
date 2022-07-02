@@ -4,14 +4,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _core = require("@oclif/core");
-var _chalk = _interopRequireDefault(require("chalk"));
-var _debug = _interopRequireDefault(require("debug"));
 var _simpleGit = _interopRequireDefault(require("simple-git"));
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class GitCleanBranches extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:git-clean-branches`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:git-clean-branches:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:git-clean-branches:error`);
+var _baseCommandJs = require("../base-command.js");
+class GitCleanBranches extends _baseCommandJs.BaseCommand {
     static description = "delete local branches that are already merged on origin";
     static examples = [
         `$ nr git-clean-branches`
@@ -22,25 +17,30 @@ class GitCleanBranches extends _core.Command {
         })
     };
     static args = [];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "git-clean-branches"
+        });
+    }
     async init() {}
     async run() {
         const git = (0, _simpleGit).default();
         this.log("looking for local branches to remove");
         const localBranches = await git.branchLocal();
-        this.log(`local branches: ${localBranches.all.map((branch)=>_chalk.default.blueBright(branch))}`);
+        this.log(`local branches: ${localBranches.all.map((branch)=>this.chalk.blueBright(branch))}`);
         const ignoredBranches = [
             "dev",
             "master",
             "release"
         ];
-        this.log(`ignored: ${ignoredBranches.map((branch)=>_chalk.default.blueBright(branch))}`);
+        this.log(`ignored: ${ignoredBranches.map((branch)=>this.chalk.blueBright(branch))}`);
         const mergedToMasterBranches = await git.branch([
             "--merged",
             "master"
         ]);
         this.log(`branches merged on master: ${mergedToMasterBranches.all}`);
         const localBranchesToBeDeleted = localBranches.all.filter((localBranch)=>mergedToMasterBranches.all.includes(localBranch)).filter((branch)=>!ignoredBranches.includes(branch));
-        this.log(`to remove: ${localBranchesToBeDeleted.length ? localBranchesToBeDeleted.map((branch)=>_chalk.default.red(branch)) : "[]"}`);
+        this.log(`to remove: ${localBranchesToBeDeleted.length ? localBranchesToBeDeleted.map((branch)=>this.chalk.red(branch)) : "[]"}`);
         if (!localBranchesToBeDeleted.length) {
             this.log(`no branches to remove ✅`);
             return;

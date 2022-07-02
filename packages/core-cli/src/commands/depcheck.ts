@@ -1,25 +1,23 @@
 import { spawnSync } from 'child_process';
 
-import { Command } from '@oclif/core';
+import { Config } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
-export default class Depcheck extends Command {
-  log = debugInstance(`${NS}:depcheck`);
-  logWarn = debugInstance(`${NS}:depcheck:warn`);
-  logError = debugInstance(`${NS}:depcheck:error`);
-
+export default class Depcheck extends BaseCommand {
   static description = 'Shortcut to run depcheck';
 
   static examples = [`$ nr depcheck`];
 
   static args = [{ name: 'args' }];
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'depcheck' });
+  }
 
+  async run() {
     const { args } = await this.parse(Depcheck);
 
     this.log(`running in ${process.cwd()}`);

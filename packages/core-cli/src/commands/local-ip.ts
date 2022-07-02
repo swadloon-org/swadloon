@@ -1,17 +1,13 @@
 import os from 'os';
 
-import { Command } from '@oclif/core';
+import { Config } from '@oclif/core';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
 /**
  * Get local IPv4 addresses
  */
-export default class LocalIp extends Command {
-  log = debugInstance(`${NS}:local-ip`);
-  logWarn = debugInstance(`${NS}:local-ip:warn`);
-  logError = debugInstance(`${NS}:local-ip:error`);
-
+export default class LocalIp extends BaseCommand {
   static description = 'Print out local machine ip on the connected network';
 
   static examples = [`$ nr local-ip`];
@@ -22,9 +18,11 @@ export default class LocalIp extends Command {
     // config: Flags.string({ description: '', default: '' }),
   };
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'local-ip' });
+  }
 
+  async run() {
     const { args, flags } = await this.parse(LocalIp);
 
     let localIp;

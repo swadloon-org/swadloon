@@ -7,10 +7,8 @@ var _core = require("@oclif/core");
 var _debug = _interopRequireDefault(require("debug"));
 var _nodeChildProcess = require("node:child_process");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-class CleanNodeModules extends _core.Command {
-    ddebug = (0, _debug).default("nr:core-cli:clean-node-modules");
-    ddebugWarn = (0, _debug).default("nr:core-cli:clean-node-modules:warn");
-    ddebugError = (0, _debug).default("nr:core-cli:clean-node-modules:error");
+var _baseCommandJs = require("../base-command.js");
+class CleanNodeModules extends _baseCommandJs.BaseCommand {
     static description = `find . -name 'node_modules' -type d -prune -print -exec rimraf -rf '{}' \;`;
     // nvm cache clear
     // yarn cache clear

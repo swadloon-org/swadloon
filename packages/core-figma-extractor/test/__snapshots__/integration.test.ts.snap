@@ -1,0 +1,3290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`figma-sync command should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341) 1`] = `
+"{
+  \\"lightGreyTransparent\\": {
+    \\"id\\": \\"50:3\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"greyTransparent\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0
+  },
+  \\"lightAccent1900\\": {
+    \\"id\\": \\"3410:25761\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent1900\\",
+    \\"r\\": 87,
+    \\"g\\": 18,
+    \\"b\\": 47,
+    \\"a\\": 1
+  },
+  \\"darkAccent4900\\": {
+    \\"id\\": \\"3423:24118\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent4900\\",
+    \\"r\\": 224,
+    \\"g\\": 225,
+    \\"b\\": 245,
+    \\"a\\": 1
+  },
+  \\"darkGreyTransparent001\\": {
+    \\"id\\": \\"115:504\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"greyTransparent001\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0
+  },
+  \\"darkGrey1000\\": {
+    \\"id\\": \\"1263:22622\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey1000\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0.99
+  },
+  \\"lightGrey300\\": {
+    \\"id\\": \\"1844:1\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey300\\",
+    \\"r\\": 184,
+    \\"g\\": 184,
+    \\"b\\": 184,
+    \\"a\\": 1
+  },
+  \\"lightGreyTransparent001\\": {
+    \\"id\\": \\"35:1841\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"greyTransparent001\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0
+  },
+  \\"darkAccent4500\\": {
+    \\"id\\": \\"3423:24121\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent4500\\",
+    \\"r\\": 82,
+    \\"g\\": 88,
+    \\"b\\": 199,
+    \\"a\\": 1
+  },
+  \\"darkGrey0White\\": {
+    \\"id\\": \\"3423:24136\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey0White\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"darkAccent4300\\": {
+    \\"id\\": \\"3423:24122\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent4300\\",
+    \\"r\\": 57,
+    \\"g\\": 63,
+    \\"b\\": 177,
+    \\"a\\": 1
+  },
+  \\"lightPrimary300\\": {
+    \\"id\\": \\"3410:25759\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"primary300\\",
+    \\"r\\": 215,
+    \\"g\\": 216,
+    \\"b\\": 250,
+    \\"a\\": 1
+  },
+  \\"darkAccent5100\\": {
+    \\"id\\": \\"3423:24128\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent5100\\",
+    \\"r\\": 81,
+    \\"g\\": 84,
+    \\"b\\": 12,
+    \\"a\\": 1
+  },
+  \\"lightPrimary100\\": {
+    \\"id\\": \\"3410:25760\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"primary100\\",
+    \\"r\\": 235,
+    \\"g\\": 235,
+    \\"b\\": 253,
+    \\"a\\": 1
+  },
+  \\"darkAccent5300\\": {
+    \\"id\\": \\"3423:24127\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent5300\\",
+    \\"r\\": 161,
+    \\"g\\": 167,
+    \\"b\\": 24,
+    \\"a\\": 1
+  },
+  \\"darkAccent5500\\": {
+    \\"id\\": \\"3423:24126\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent5500\\",
+    \\"r\\": 220,
+    \\"g\\": 227,
+    \\"b\\": 60,
+    \\"a\\": 1
+  },
+  \\"darkAccent5700\\": {
+    \\"id\\": \\"3423:24125\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent5700\\",
+    \\"r\\": 235,
+    \\"g\\": 239,
+    \\"b\\": 143,
+    \\"a\\": 1
+  },
+  \\"darkAccent5900\\": {
+    \\"id\\": \\"3423:24124\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent5900\\",
+    \\"r\\": 250,
+    \\"g\\": 251,
+    \\"b\\": 227,
+    \\"a\\": 1
+  },
+  \\"darkAccent4700\\": {
+    \\"id\\": \\"3423:24120\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent4700\\",
+    \\"r\\": 153,
+    \\"g\\": 156,
+    \\"b\\": 222,
+    \\"a\\": 1
+  },
+  \\"lightAccent1700\\": {
+    \\"id\\": \\"3410:25762\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent1700\\",
+    \\"r\\": 145,
+    \\"g\\": 30,
+    \\"b\\": 79,
+    \\"a\\": 1
+  },
+  \\"darkAccent3100\\": {
+    \\"id\\": \\"3423:24117\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent3100\\",
+    \\"r\\": 27,
+    \\"g\\": 65,
+    \\"b\\": 39,
+    \\"a\\": 1
+  },
+  \\"lightAccent1300\\": {
+    \\"id\\": \\"3410:25764\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent1300\\",
+    \\"r\\": 235,
+    \\"g\\": 160,
+    \\"b\\": 192,
+    \\"a\\": 1
+  },
+  \\"darkAccent3500\\": {
+    \\"id\\": \\"3423:24115\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent3500\\",
+    \\"r\\": 90,
+    \\"g\\": 187,
+    \\"b\\": 119,
+    \\"a\\": 1
+  },
+  \\"lightPrimary700\\": {
+    \\"id\\": \\"3410:25757\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"primary700\\",
+    \\"r\\": 59,
+    \\"g\\": 60,
+    \\"b\\": 232,
+    \\"a\\": 1
+  },
+  \\"darkAccent3700\\": {
+    \\"id\\": \\"3423:24114\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent3700\\",
+    \\"r\\": 156,
+    \\"g\\": 214,
+    \\"b\\": 173,
+    \\"a\\": 1
+  },
+  \\"lightAccent3100\\": {
+    \\"id\\": \\"3410:25775\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent3100\\",
+    \\"r\\": 221,
+    \\"g\\": 241,
+    \\"b\\": 227,
+    \\"a\\": 1
+  },
+  \\"darkAccent3900\\": {
+    \\"id\\": \\"3423:24112\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent3900\\",
+    \\"r\\": 221,
+    \\"g\\": 241,
+    \\"b\\": 227,
+    \\"a\\": 1
+  },
+  \\"lightAccent4900\\": {
+    \\"id\\": \\"3410:25776\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent4900\\",
+    \\"r\\": 17,
+    \\"g\\": 18,
+    \\"b\\": 53,
+    \\"a\\": 1
+  },
+  \\"darkAccent2100\\": {
+    \\"id\\": \\"3423:24111\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent2100\\",
+    \\"r\\": 89,
+    \\"g\\": 47,
+    \\"b\\": 8,
+    \\"a\\": 1
+  },
+  \\"darkAccent2300\\": {
+    \\"id\\": \\"3423:24110\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent2300\\",
+    \\"r\\": 178,
+    \\"g\\": 93,
+    \\"b\\": 17,
+    \\"a\\": 1
+  },
+  \\"darkAccent2700\\": {
+    \\"id\\": \\"3423:24108\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent2700\\",
+    \\"r\\": 245,
+    \\"g\\": 192,
+    \\"b\\": 145,
+    \\"a\\": 1
+  },
+  \\"lightPrimary900\\": {
+    \\"id\\": \\"3410:25756\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"primary900\\",
+    \\"r\\": 22,
+    \\"g\\": 23,
+    \\"b\\": 185,
+    \\"a\\": 1
+  },
+  \\"darkAccent2900\\": {
+    \\"id\\": \\"3423:24107\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent2900\\",
+    \\"r\\": 253,
+    \\"g\\": 243,
+    \\"b\\": 234,
+    \\"a\\": 1
+  },
+  \\"darkAccent1300\\": {
+    \\"id\\": \\"3423:24105\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent1300\\",
+    \\"r\\": 159,
+    \\"g\\": 10,
+    \\"b\\": 86,
+    \\"a\\": 1
+  },
+  \\"lightAccent4700\\": {
+    \\"id\\": \\"3410:25777\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent4700\\",
+    \\"r\\": 33,
+    \\"g\\": 36,
+    \\"b\\": 105,
+    \\"a\\": 1
+  },
+  \\"darkAccent1900\\": {
+    \\"id\\": \\"3423:24102\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent1900\\",
+    \\"r\\": 250,
+    \\"g\\": 231,
+    \\"b\\": 239,
+    \\"a\\": 1
+  },
+  \\"lightAccent4300\\": {
+    \\"id\\": \\"3410:25779\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent4300\\",
+    \\"r\\": 193,
+    \\"g\\": 195,
+    \\"b\\": 236,
+    \\"a\\": 1
+  },
+  \\"darkPrimary300\\": {
+    \\"id\\": \\"3423:24100\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"primary300\\",
+    \\"r\\": 59,
+    \\"g\\": 60,
+    \\"b\\": 232,
+    \\"a\\": 1
+  },
+  \\"lightAccent4100\\": {
+    \\"id\\": \\"3410:25780\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent4100\\",
+    \\"r\\": 224,
+    \\"g\\": 225,
+    \\"b\\": 245,
+    \\"a\\": 1
+  },
+  \\"darkPrimary500\\": {
+    \\"id\\": \\"3423:24099\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"primary500\\",
+    \\"r\\": 96,
+    \\"g\\": 97,
+    \\"b\\": 236,
+    \\"a\\": 1
+  },
+  \\"lightAccent3300\\": {
+    \\"id\\": \\"3410:25774\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent3300\\",
+    \\"r\\": 154,
+    \\"g\\": 212,
+    \\"b\\": 171,
+    \\"a\\": 1
+  },
+  \\"darkPrimary900\\": {
+    \\"id\\": \\"3423:24097\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"primary900\\",
+    \\"r\\": 235,
+    \\"g\\": 235,
+    \\"b\\": 253,
+    \\"a\\": 1
+  },
+  \\"darkGreen100\\": {
+    \\"id\\": \\"3423:24142\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"green100\\",
+    \\"r\\": 16,
+    \\"g\\": 38,
+    \\"b\\": 13,
+    \\"a\\": 1
+  },
+  \\"lightGrey800\\": {
+    \\"id\\": \\"2050:42871\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey800\\",
+    \\"r\\": 69,
+    \\"g\\": 69,
+    \\"b\\": 69,
+    \\"a\\": 1
+  },
+  \\"lightAccent5100\\": {
+    \\"id\\": \\"3410:25785\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent5100\\",
+    \\"r\\": 250,
+    \\"g\\": 251,
+    \\"b\\": 227,
+    \\"a\\": 1
+  },
+  \\"darkRed100\\": {
+    \\"id\\": \\"3423:24152\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"red100\\",
+    \\"r\\": 45,
+    \\"g\\": 6,
+    \\"b\\": 6,
+    \\"a\\": 1
+  },
+  \\"lightAccent5500\\": {
+    \\"id\\": \\"3410:25783\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent5500\\",
+    \\"r\\": 217,
+    \\"g\\": 224,
+    \\"b\\": 33,
+    \\"a\\": 1
+  },
+  \\"darkGrey0Reversed\\": {
+    \\"id\\": \\"2185:0\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey0Reversed\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightAccent5700\\": {
+    \\"id\\": \\"3410:25782\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent5700\\",
+    \\"r\\": 164,
+    \\"g\\": 169,
+    \\"b\\": 24,
+    \\"a\\": 1
+  },
+  \\"lightAccent3700\\": {
+    \\"id\\": \\"3410:25772\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent3700\\",
+    \\"r\\": 24,
+    \\"g\\": 56,
+    \\"b\\": 33,
+    \\"a\\": 1
+  },
+  \\"lightAccent3900\\": {
+    \\"id\\": \\"3410:25771\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent3900\\",
+    \\"r\\": 10,
+    \\"g\\": 22,
+    \\"b\\": 13,
+    \\"a\\": 1
+  },
+  \\"lightAccent2100\\": {
+    \\"id\\": \\"3410:25770\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent2100\\",
+    \\"r\\": 253,
+    \\"g\\": 243,
+    \\"b\\": 234,
+    \\"a\\": 1
+  },
+  \\"lightAccent2300\\": {
+    \\"id\\": \\"3410:25769\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent2300\\",
+    \\"r\\": 246,
+    \\"g\\": 207,
+    \\"b\\": 169,
+    \\"a\\": 1
+  },
+  \\"darkAccent1700\\": {
+    \\"id\\": \\"3423:24103\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent1700\\",
+    \\"r\\": 233,
+    \\"g\\": 151,
+    \\"b\\": 186,
+    \\"a\\": 1
+  },
+  \\"lightAccent2500\\": {
+    \\"id\\": \\"3410:25768\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent2500\\",
+    \\"r\\": 238,
+    \\"g\\": 160,
+    \\"b\\": 88,
+    \\"a\\": 1
+  },
+  \\"darkAccent1500\\": {
+    \\"id\\": \\"3423:24104\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent1500\\",
+    \\"r\\": 217,
+    \\"g\\": 72,
+    \\"b\\": 133,
+    \\"a\\": 1
+  },
+  \\"lightAccent2700\\": {
+    \\"id\\": \\"3410:25767\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent2700\\",
+    \\"r\\": 222,
+    \\"g\\": 118,
+    \\"b\\": 23,
+    \\"a\\": 1
+  },
+  \\"lightAccent2900\\": {
+    \\"id\\": \\"3410:25766\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent2900\\",
+    \\"r\\": 148,
+    \\"g\\": 79,
+    \\"b\\": 15,
+    \\"a\\": 1
+  },
+  \\"lightAccent1100\\": {
+    \\"id\\": \\"3410:25765\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent1100\\",
+    \\"r\\": 250,
+    \\"g\\": 231,
+    \\"b\\": 239,
+    \\"a\\": 1
+  },
+  \\"darkAccent3300\\": {
+    \\"id\\": \\"3423:24116\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent3300\\",
+    \\"r\\": 54,
+    \\"g\\": 131,
+    \\"b\\": 77,
+    \\"a\\": 1
+  },
+  \\"lightAccent1500\\": {
+    \\"id\\": \\"3410:25763\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent1500\\",
+    \\"r\\": 215,
+    \\"g\\": 65,
+    \\"b\\": 129,
+    \\"a\\": 1
+  },
+  \\"lightPrimary500\\": {
+    \\"id\\": \\"3410:25758\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"primary500\\",
+    \\"r\\": 96,
+    \\"g\\": 97,
+    \\"b\\": 236,
+    \\"a\\": 1
+  },
+  \\"darkAccent2500\\": {
+    \\"id\\": \\"3423:24109\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent2500\\",
+    \\"r\\": 236,
+    \\"g\\": 141,
+    \\"b\\": 56,
+    \\"a\\": 1
+  },
+  \\"lightGrey15\\": {
+    \\"id\\": \\"2756:59256\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey15\\",
+    \\"r\\": 247,
+    \\"g\\": 247,
+    \\"b\\": 247,
+    \\"a\\": 1
+  },
+  \\"lightRed100\\": {
+    \\"id\\": \\"3219:24696\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"red100\\",
+    \\"r\\": 251,
+    \\"g\\": 226,
+    \\"b\\": 226,
+    \\"a\\": 1
+  },
+  \\"lightYellow100\\": {
+    \\"id\\": \\"3219:24691\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"yellow100\\",
+    \\"r\\": 254,
+    \\"g\\": 248,
+    \\"b\\": 227,
+    \\"a\\": 1
+  },
+  \\"lightYellow500\\": {
+    \\"id\\": \\"3219:24689\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"yellow500\\",
+    \\"r\\": 243,
+    \\"g\\": 197,
+    \\"b\\": 32,
+    \\"a\\": 1
+  },
+  \\"lightGreen100\\": {
+    \\"id\\": \\"3219:24686\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"green100\\",
+    \\"r\\": 235,
+    \\"g\\": 247,
+    \\"b\\": 232,
+    \\"a\\": 1
+  },
+  \\"lightGreen300\\": {
+    \\"id\\": \\"3219:24685\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"green300\\",
+    \\"r\\": 173,
+    \\"g\\": 225,
+    \\"b\\": 165,
+    \\"a\\": 1
+  },
+  \\"lightGreen700\\": {
+    \\"id\\": \\"3219:24683\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"green700\\",
+    \\"r\\": 54,
+    \\"g\\": 126,
+    \\"b\\": 42,
+    \\"a\\": 1
+  },
+  \\"lightGreen900\\": {
+    \\"id\\": \\"3219:24682\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"green900\\",
+    \\"r\\": 11,
+    \\"g\\": 25,
+    \\"b\\": 8,
+    \\"a\\": 1
+  },
+  \\"darkGrey15BG1\\": {
+    \\"id\\": \\"3423:24132\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey15BG1\\",
+    \\"r\\": 39,
+    \\"g\\": 39,
+    \\"b\\": 39,
+    \\"a\\": 1
+  },
+  \\"lightAccent5300\\": {
+    \\"id\\": \\"3410:25784\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent5300\\",
+    \\"r\\": 231,
+    \\"g\\": 236,
+    \\"b\\": 116,
+    \\"a\\": 1
+  },
+  \\"darkRed300\\": {
+    \\"id\\": \\"3423:24151\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"red300\\",
+    \\"r\\": 89,
+    \\"g\\": 13,
+    \\"b\\": 13,
+    \\"a\\": 1
+  },
+  \\"lightGreen500\\": {
+    \\"id\\": \\"3219:24684\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"green500\\",
+    \\"r\\": 91,
+    \\"g\\": 195,
+    \\"b\\": 75,
+    \\"a\\": 1
+  },
+  \\"lightGrey400\\": {
+    \\"id\\": \\"16:14\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey400\\",
+    \\"r\\": 162,
+    \\"g\\": 162,
+    \\"b\\": 162,
+    \\"a\\": 1
+  },
+  \\"lightGrey0BG\\": {
+    \\"id\\": \\"2756:59053\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey0BG\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightGrey15BG1White\\": {
+    \\"id\\": \\"2756:59615\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey15BG1White\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightAccent3500\\": {
+    \\"id\\": \\"3410:25773\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent3500\\",
+    \\"r\\": 38,
+    \\"g\\": 89,
+    \\"b\\": 53,
+    \\"a\\": 1
+  },
+  \\"darkPrimary700\\": {
+    \\"id\\": \\"3423:24098\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"primary700\\",
+    \\"r\\": 146,
+    \\"g\\": 146,
+    \\"b\\": 244,
+    \\"a\\": 1
+  },
+  \\"darkRed900\\": {
+    \\"id\\": \\"3423:24148\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"red900\\",
+    \\"r\\": 245,
+    \\"g\\": 188,
+    \\"b\\": 188,
+    \\"a\\": 1
+  },
+  \\"lightGrey600\\": {
+    \\"id\\": \\"2050:42873\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey600\\",
+    \\"r\\": 115,
+    \\"g\\": 115,
+    \\"b\\": 115,
+    \\"a\\": 1
+  },
+  \\"lightGrey15BG1\\": {
+    \\"id\\": \\"2756:59464\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey15BG1\\",
+    \\"r\\": 247,
+    \\"g\\": 247,
+    \\"b\\": 247,
+    \\"a\\": 1
+  },
+  \\"darkGreen900\\": {
+    \\"id\\": \\"3423:24138\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"green900\\",
+    \\"r\\": 203,
+    \\"g\\": 236,
+    \\"b\\": 198,
+    \\"a\\": 1
+  },
+  \\"lightAccent5900\\": {
+    \\"id\\": \\"3410:25781\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent5900\\",
+    \\"r\\": 109,
+    \\"g\\": 113,
+    \\"b\\": 16,
+    \\"a\\": 1
+  },
+  \\"lightGrey20BG2\\": {
+    \\"id\\": \\"2756:59462\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey20BG2\\",
+    \\"r\\": 240,
+    \\"g\\": 240,
+    \\"b\\": 240,
+    \\"a\\": 1
+  },
+  \\"lightGrey0BG0\\": {
+    \\"id\\": \\"2756:59616\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey0BG0\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightGrey100\\": {
+    \\"id\\": \\"35:8564\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey100\\",
+    \\"r\\": 217,
+    \\"g\\": 217,
+    \\"b\\": 217,
+    \\"a\\": 1
+  },
+  \\"lightGrey200\\": {
+    \\"id\\": \\"16:16\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey200\\",
+    \\"r\\": 207,
+    \\"g\\": 207,
+    \\"b\\": 207,
+    \\"a\\": 1
+  },
+  \\"darkGrey15BG1White\\": {
+    \\"id\\": \\"3423:24133\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey15BG1White\\",
+    \\"r\\": 35,
+    \\"g\\": 35,
+    \\"b\\": 35,
+    \\"a\\": 1
+  },
+  \\"darkAccent1100\\": {
+    \\"id\\": \\"3423:24106\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent1100\\",
+    \\"r\\": 80,
+    \\"g\\": 17,
+    \\"b\\": 43,
+    \\"a\\": 1
+  },
+  \\"lightYellow300\\": {
+    \\"id\\": \\"3219:24690\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"yellow300\\",
+    \\"r\\": 248,
+    \\"g\\": 219,
+    \\"b\\": 116,
+    \\"a\\": 1
+  },
+  \\"lightGrey25\\": {
+    \\"id\\": \\"2050:43350\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey25\\",
+    \\"r\\": 242,
+    \\"g\\": 242,
+    \\"b\\": 242,
+    \\"a\\": 1
+  },
+  \\"lightGrey50\\": {
+    \\"id\\": \\"2050:43260\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey50\\",
+    \\"r\\": 230,
+    \\"g\\": 230,
+    \\"b\\": 230,
+    \\"a\\": 1
+  },
+  \\"darkGrey800\\": {
+    \\"id\\": \\"1844:11790\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey800\\",
+    \\"r\\": 224,
+    \\"g\\": 224,
+    \\"b\\": 224,
+    \\"a\\": 1
+  },
+  \\"lightGrey0\\": {
+    \\"id\\": \\"115:3\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey0\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"darkGrey200\\": {
+    \\"id\\": \\"115:535\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey200\\",
+    \\"r\\": 87,
+    \\"g\\": 87,
+    \\"b\\": 87,
+    \\"a\\": 1
+  },
+  \\"lightYellow900\\": {
+    \\"id\\": \\"3219:24687\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"yellow900\\",
+    \\"r\\": 33,
+    \\"g\\": 26,
+    \\"b\\": 2,
+    \\"a\\": 1
+  },
+  \\"lightGrey900\\": {
+    \\"id\\": \\"123:169\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey900\\",
+    \\"r\\": 43,
+    \\"g\\": 43,
+    \\"b\\": 43,
+    \\"a\\": 1
+  },
+  \\"lightAccent4500\\": {
+    \\"id\\": \\"3410:25778\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"accent4500\\",
+    \\"r\\": 44,
+    \\"g\\": 48,
+    \\"b\\": 140,
+    \\"a\\": 1
+  },
+  \\"darkPrimary100\\": {
+    \\"id\\": \\"3423:24101\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"primary100\\",
+    \\"r\\": 22,
+    \\"g\\": 23,
+    \\"b\\": 185,
+    \\"a\\": 1
+  },
+  \\"darkGreyGreyTransparent\\": {
+    \\"id\\": \\"1263:22897\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"greyGreyTransparent\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0.06
+  },
+  \\"darkYellow100\\": {
+    \\"id\\": \\"3423:24147\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"yellow100\\",
+    \\"r\\": 58,
+    \\"g\\": 46,
+    \\"b\\": 3,
+    \\"a\\": 1
+  },
+  \\"lightGrey500\\": {
+    \\"id\\": \\"2050:42874\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey500\\",
+    \\"r\\": 139,
+    \\"g\\": 139,
+    \\"b\\": 139,
+    \\"a\\": 1
+  },
+  \\"darkGrey0BG0\\": {
+    \\"id\\": \\"3423:24134\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey0BG0\\",
+    \\"r\\": 26,
+    \\"g\\": 26,
+    \\"b\\": 27,
+    \\"a\\": 1
+  },
+  \\"darkGrey25BG2\\": {
+    \\"id\\": \\"3423:24130\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey25BG2\\",
+    \\"r\\": 43,
+    \\"g\\": 43,
+    \\"b\\": 43,
+    \\"a\\": 1
+  },
+  \\"darkGrey20BG2\\": {
+    \\"id\\": \\"3423:24131\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey20BG2\\",
+    \\"r\\": 43,
+    \\"g\\": 43,
+    \\"b\\": 43,
+    \\"a\\": 1
+  },
+  \\"darkYellow700\\": {
+    \\"id\\": \\"3423:24144\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"yellow700\\",
+    \\"r\\": 248,
+    \\"g\\": 222,
+    \\"b\\": 129,
+    \\"a\\": 1
+  },
+  \\"darkYellow900\\": {
+    \\"id\\": \\"3423:24143\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"yellow900\\",
+    \\"r\\": 252,
+    \\"g\\": 239,
+    \\"b\\": 192,
+    \\"a\\": 1
+  },
+  \\"lightGrey700\\": {
+    \\"id\\": \\"2050:42872\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey700\\",
+    \\"r\\": 92,
+    \\"g\\": 92,
+    \\"b\\": 92,
+    \\"a\\": 1
+  },
+  \\"darkGreen300\\": {
+    \\"id\\": \\"3423:24141\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"green300\\",
+    \\"r\\": 41,
+    \\"g\\": 96,
+    \\"b\\": 32,
+    \\"a\\": 1
+  },
+  \\"darkGreen500\\": {
+    \\"id\\": \\"3423:24140\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"green500\\",
+    \\"r\\": 65,
+    \\"g\\": 153,
+    \\"b\\": 51,
+    \\"a\\": 1
+  },
+  \\"darkGrey0\\": {
+    \\"id\\": \\"3423:24135\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey0\\",
+    \\"r\\": 18,
+    \\"g\\": 18,
+    \\"b\\": 18,
+    \\"a\\": 1
+  },
+  \\"darkGreen700\\": {
+    \\"id\\": \\"3423:24139\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"green700\\",
+    \\"r\\": 151,
+    \\"g\\": 217,
+    \\"b\\": 140,
+    \\"a\\": 1
+  },
+  \\"lightYellow700\\": {
+    \\"id\\": \\"3219:24688\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"yellow700\\",
+    \\"r\\": 163,
+    \\"g\\": 129,
+    \\"b\\": 9,
+    \\"a\\": 1
+  },
+  \\"darkGrey500\\": {
+    \\"id\\": \\"2174:22866\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey500\\",
+    \\"r\\": 143,
+    \\"g\\": 143,
+    \\"b\\": 143,
+    \\"a\\": 1
+  },
+  \\"darkGrey400\\": {
+    \\"id\\": \\"2174:22867\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey400\\",
+    \\"r\\": 121,
+    \\"g\\": 121,
+    \\"b\\": 121,
+    \\"a\\": 1
+  },
+  \\"darkAccent4100\\": {
+    \\"id\\": \\"3423:24123\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"accent4100\\",
+    \\"r\\": 23,
+    \\"g\\": 25,
+    \\"b\\": 71,
+    \\"a\\": 1
+  },
+  \\"lightRed300\\": {
+    \\"id\\": \\"3219:24695\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"red300\\",
+    \\"r\\": 234,
+    \\"g\\": 111,
+    \\"b\\": 111,
+    \\"a\\": 1
+  },
+  \\"darkGrey300\\": {
+    \\"id\\": \\"2174:22868\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey300\\",
+    \\"r\\": 99,
+    \\"g\\": 99,
+    \\"b\\": 99,
+    \\"a\\": 1
+  },
+  \\"lightRed700\\": {
+    \\"id\\": \\"3219:24693\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"red700\\",
+    \\"r\\": 135,
+    \\"g\\": 19,
+    \\"b\\": 19,
+    \\"a\\": 1
+  },
+  \\"darkGrey50\\": {
+    \\"id\\": \\"2174:22870\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey50\\",
+    \\"r\\": 64,
+    \\"g\\": 64,
+    \\"b\\": 64,
+    \\"a\\": 1
+  },
+  \\"lightGrey0Reversed\\": {
+    \\"id\\": \\"2050:43383\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey0Reversed\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightRed900\\": {
+    \\"id\\": \\"3219:24692\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"red900\\",
+    \\"r\\": 27,
+    \\"g\\": 4,
+    \\"b\\": 4,
+    \\"a\\": 1
+  },
+  \\"darkGrey25\\": {
+    \\"id\\": \\"2174:22871\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey25\\",
+    \\"r\\": 46,
+    \\"g\\": 46,
+    \\"b\\": 46,
+    \\"a\\": 1
+  },
+  \\"darkGrey600\\": {
+    \\"id\\": \\"2174:22865\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey600\\",
+    \\"r\\": 166,
+    \\"g\\": 166,
+    \\"b\\": 166,
+    \\"a\\": 1
+  },
+  \\"darkYellow500\\": {
+    \\"id\\": \\"3423:24145\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"yellow500\\",
+    \\"r\\": 232,
+    \\"g\\": 184,
+    \\"b\\": 13,
+    \\"a\\": 1
+  },
+  \\"lightGrey0White\\": {
+    \\"id\\": \\"2756:59728\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey0White\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 1
+  },
+  \\"lightGrey1000\\": {
+    \\"id\\": \\"1263:22619\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"grey1000\\",
+    \\"r\\": 23,
+    \\"g\\": 23,
+    \\"b\\": 23,
+    \\"a\\": 1
+  },
+  \\"darkGrey100\\": {
+    \\"id\\": \\"2174:22869\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey100\\",
+    \\"r\\": 77,
+    \\"g\\": 77,
+    \\"b\\": 77,
+    \\"a\\": 1
+  },
+  \\"lightRed500\\": {
+    \\"id\\": \\"3219:24694\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"light\\",
+    \\"colorLevel\\": \\"red500\\",
+    \\"r\\": 215,
+    \\"g\\": 31,
+    \\"b\\": 31,
+    \\"a\\": 1
+  },
+  \\"darkGrey900\\": {
+    \\"id\\": \\"123:173\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey900\\",
+    \\"r\\": 245,
+    \\"g\\": 245,
+    \\"b\\": 245,
+    \\"a\\": 1
+  },
+  \\"darkRed700\\": {
+    \\"id\\": \\"3423:24149\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"red700\\",
+    \\"r\\": 236,
+    \\"g\\": 121,
+    \\"b\\": 121,
+    \\"a\\": 1
+  },
+  \\"darkRed500\\": {
+    \\"id\\": \\"3423:24150\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"red500\\",
+    \\"r\\": 178,
+    \\"g\\": 26,
+    \\"b\\": 26,
+    \\"a\\": 1
+  },
+  \\"darkGreyTransparent\\": {
+    \\"id\\": \\"115:506\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"greyTransparent\\",
+    \\"r\\": 255,
+    \\"g\\": 255,
+    \\"b\\": 255,
+    \\"a\\": 0
+  },
+  \\"darkYellow300\\": {
+    \\"id\\": \\"3423:24146\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"yellow300\\",
+    \\"r\\": 116,
+    \\"g\\": 92,
+    \\"b\\": 6,
+    \\"a\\": 1
+  },
+  \\"darkGrey700\\": {
+    \\"id\\": \\"115:507\\",
+    \\"colorNamespace\\": \\"\\",
+    \\"colorTheme\\": \\"\\",
+    \\"colorType\\": \\"dark\\",
+    \\"colorLevel\\": \\"grey700\\",
+    \\"r\\": 205,
+    \\"g\\": 205,
+    \\"b\\": 205,
+    \\"a\\": 1
+  }
+}"
+`;
+
+exports[`figma-sync command should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341) 2`] = `
+"/** auto-generated by  v - 07-02-2022 */
+:root {
+  --color-light-primary-900: rgba(22, 23, 185, 1);
+  --color-light-primary-700: rgba(59, 60, 232, 1);
+  --color-light-primary-500: rgba(96, 97, 236, 1);
+  --color-light-primary-300: rgba(215, 216, 250, 1);
+  --color-light-primary-100: rgba(235, 235, 253, 1);
+  --color-light-accent-1900: rgba(87, 18, 47, 1);
+  --color-light-accent-1700: rgba(145, 30, 79, 1);
+  --color-light-accent-1300: rgba(235, 160, 192, 1);
+  --color-light-accent-3100: rgba(221, 241, 227, 1);
+  --color-light-accent-4900: rgba(17, 18, 53, 1);
+  --color-light-accent-4700: rgba(33, 36, 105, 1);
+  --color-light-accent-4300: rgba(193, 195, 236, 1);
+  --color-light-accent-4100: rgba(224, 225, 245, 1);
+  --color-light-accent-3300: rgba(154, 212, 171, 1);
+  --color-light-accent-5100: rgba(250, 251, 227, 1);
+  --color-light-accent-5500: rgba(217, 224, 33, 1);
+  --color-light-accent-5700: rgba(164, 169, 24, 1);
+  --color-light-accent-3700: rgba(24, 56, 33, 1);
+  --color-light-accent-3900: rgba(10, 22, 13, 1);
+  --color-light-accent-2100: rgba(253, 243, 234, 1);
+  --color-light-accent-2300: rgba(246, 207, 169, 1);
+  --color-light-accent-2500: rgba(238, 160, 88, 1);
+  --color-light-accent-2700: rgba(222, 118, 23, 1);
+  --color-light-accent-2900: rgba(148, 79, 15, 1);
+  --color-light-accent-1100: rgba(250, 231, 239, 1);
+  --color-light-accent-1500: rgba(215, 65, 129, 1);
+  --color-light-accent-5300: rgba(231, 236, 116, 1);
+  --color-light-accent-3500: rgba(38, 89, 53, 1);
+  --color-light-accent-5900: rgba(109, 113, 16, 1);
+  --color-light-accent-4500: rgba(44, 48, 140, 1);
+  --color-light-grey-transparent: rgba(255, 255, 255, 0);
+  --color-light-grey-800: rgba(69, 69, 69, 1);
+  --color-light-grey-300: rgba(184, 184, 184, 1);
+  --color-light-grey-transparent-001: rgba(255, 255, 255, 0);
+  --color-light-grey-1000: rgba(23, 23, 23, 1);
+  --color-light-grey-900: rgba(43, 43, 43, 1);
+  --color-light-grey-700: rgba(92, 92, 92, 1);
+  --color-light-grey-600: rgba(115, 115, 115, 1);
+  --color-light-grey-500: rgba(139, 139, 139, 1);
+  --color-light-grey-400: rgba(162, 162, 162, 1);
+  --color-light-grey-200: rgba(207, 207, 207, 1);
+  --color-light-grey-100: rgba(217, 217, 217, 1);
+  --color-light-grey-50: rgba(230, 230, 230, 1);
+  --color-light-grey-25: rgba(242, 242, 242, 1);
+  --color-light-grey-0: rgba(255, 255, 255, 1);
+  --color-light-grey-0-white: rgba(255, 255, 255, 1);
+  --color-light-grey-15: rgba(247, 247, 247, 1);
+  --color-light-grey-0-b-g: rgba(255, 255, 255, 1);
+  --color-light-grey-15-b-g1-white: rgba(255, 255, 255, 1);
+  --color-light-grey-15-b-g1: rgba(247, 247, 247, 1);
+  --color-light-grey-20-b-g2: rgba(240, 240, 240, 1);
+  --color-light-grey-0-b-g0: rgba(255, 255, 255, 1);
+  --color-light-grey-0-reversed: rgba(255, 255, 255, 1);
+  --color-light-red-100: rgba(251, 226, 226, 1);
+  --color-light-yellow-900: rgba(33, 26, 2, 1);
+  --color-light-yellow-700: rgba(163, 129, 9, 1);
+  --color-light-yellow-500: rgba(243, 197, 32, 1);
+  --color-light-yellow-100: rgba(254, 248, 227, 1);
+  --color-light-green-900: rgba(11, 25, 8, 1);
+  --color-light-green-700: rgba(54, 126, 42, 1);
+  --color-light-green-500: rgba(91, 195, 75, 1);
+  --color-light-green-300: rgba(173, 225, 165, 1);
+  --color-light-green-100: rgba(235, 247, 232, 1);
+  --color-light-yellow-300: rgba(248, 219, 116, 1);
+  --color-light-red-900: rgba(27, 4, 4, 1);
+  --color-light-red-700: rgba(135, 19, 19, 1);
+  --color-light-red-500: rgba(215, 31, 31, 1);
+  --color-light-red-300: rgba(234, 111, 111, 1);
+  --color-dark-primary-900: rgba(235, 235, 253, 1);
+  --color-dark-primary-700: rgba(146, 146, 244, 1);
+  --color-dark-primary-500: rgba(96, 97, 236, 1);
+  --color-dark-primary-300: rgba(59, 60, 232, 1);
+  --color-dark-primary-100: rgba(22, 23, 185, 1);
+  --color-dark-accent-4900: rgba(224, 225, 245, 1);
+  --color-dark-accent-4500: rgba(82, 88, 199, 1);
+  --color-dark-accent-4300: rgba(57, 63, 177, 1);
+  --color-dark-accent-5100: rgba(81, 84, 12, 1);
+  --color-dark-accent-5300: rgba(161, 167, 24, 1);
+  --color-dark-accent-5500: rgba(220, 227, 60, 1);
+  --color-dark-accent-5700: rgba(235, 239, 143, 1);
+  --color-dark-accent-5900: rgba(250, 251, 227, 1);
+  --color-dark-accent-4700: rgba(153, 156, 222, 1);
+  --color-dark-accent-3100: rgba(27, 65, 39, 1);
+  --color-dark-accent-3500: rgba(90, 187, 119, 1);
+  --color-dark-accent-3700: rgba(156, 214, 173, 1);
+  --color-dark-accent-3900: rgba(221, 241, 227, 1);
+  --color-dark-accent-2100: rgba(89, 47, 8, 1);
+  --color-dark-accent-2300: rgba(178, 93, 17, 1);
+  --color-dark-accent-2700: rgba(245, 192, 145, 1);
+  --color-dark-accent-2900: rgba(253, 243, 234, 1);
+  --color-dark-accent-1300: rgba(159, 10, 86, 1);
+  --color-dark-accent-1900: rgba(250, 231, 239, 1);
+  --color-dark-accent-1700: rgba(233, 151, 186, 1);
+  --color-dark-accent-1500: rgba(217, 72, 133, 1);
+  --color-dark-accent-3300: rgba(54, 131, 77, 1);
+  --color-dark-accent-2500: rgba(236, 141, 56, 1);
+  --color-dark-accent-1100: rgba(80, 17, 43, 1);
+  --color-dark-accent-4100: rgba(23, 25, 71, 1);
+  --color-dark-grey-transparent-001: rgba(255, 255, 255, 0);
+  --color-dark-grey-1000: rgba(255, 255, 255, 0.99);
+  --color-dark-grey-900: rgba(245, 245, 245, 1);
+  --color-dark-grey-800: rgba(224, 224, 224, 1);
+  --color-dark-grey-700: rgba(205, 205, 205, 1);
+  --color-dark-grey-600: rgba(166, 166, 166, 1);
+  --color-dark-grey-200: rgba(87, 87, 87, 1);
+  --color-dark-grey-0-white: rgba(255, 255, 255, 1);
+  --color-dark-grey-15-b-g1: rgba(39, 39, 39, 1);
+  --color-dark-grey-15-b-g1-white: rgba(35, 35, 35, 1);
+  --color-dark-grey-grey-transparent: rgba(255, 255, 255, 0.06);
+  --color-dark-grey-500: rgba(143, 143, 143, 1);
+  --color-dark-grey-400: rgba(121, 121, 121, 1);
+  --color-dark-grey-300: rgba(99, 99, 99, 1);
+  --color-dark-grey-100: rgba(77, 77, 77, 1);
+  --color-dark-grey-50: rgba(64, 64, 64, 1);
+  --color-dark-grey-25: rgba(46, 46, 46, 1);
+  --color-dark-grey-0: rgba(18, 18, 18, 1);
+  --color-dark-grey-0-reversed: rgba(255, 255, 255, 1);
+  --color-dark-grey-0-b-g0: rgba(26, 26, 27, 1);
+  --color-dark-grey-25-b-g2: rgba(43, 43, 43, 1);
+  --color-dark-grey-20-b-g2: rgba(43, 43, 43, 1);
+  --color-dark-grey-transparent: rgba(255, 255, 255, 0);
+  --color-dark-green-100: rgba(16, 38, 13, 1);
+  --color-dark-red-900: rgba(245, 188, 188, 1);
+  --color-dark-red-300: rgba(89, 13, 13, 1);
+  --color-dark-red-100: rgba(45, 6, 6, 1);
+  --color-dark-green-900: rgba(203, 236, 198, 1);
+  --color-dark-yellow-900: rgba(252, 239, 192, 1);
+  --color-dark-yellow-700: rgba(248, 222, 129, 1);
+  --color-dark-yellow-100: rgba(58, 46, 3, 1);
+  --color-dark-green-700: rgba(151, 217, 140, 1);
+  --color-dark-green-500: rgba(65, 153, 51, 1);
+  --color-dark-green-300: rgba(41, 96, 32, 1);
+  --color-dark-yellow-500: rgba(232, 184, 13, 1);
+  --color-dark-red-700: rgba(236, 121, 121, 1);
+  --color-dark-red-500: rgba(178, 26, 26, 1);
+  --color-dark-yellow-300: rgba(116, 92, 6, 1);
+}
+"
+`;
+
+exports[`figma-sync command should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341) 3`] = `
+"/** auto-generated by  v - 07-02-2022 */
+$color-light-primary-900: rgba(22, 23, 185, 1);
+$color-light-primary-700: rgba(59, 60, 232, 1);
+$color-light-primary-500: rgba(96, 97, 236, 1);
+$color-light-primary-300: rgba(215, 216, 250, 1);
+$color-light-primary-100: rgba(235, 235, 253, 1);
+$color-light-accent-1900: rgba(87, 18, 47, 1);
+$color-light-accent-1700: rgba(145, 30, 79, 1);
+$color-light-accent-1300: rgba(235, 160, 192, 1);
+$color-light-accent-3100: rgba(221, 241, 227, 1);
+$color-light-accent-4900: rgba(17, 18, 53, 1);
+$color-light-accent-4700: rgba(33, 36, 105, 1);
+$color-light-accent-4300: rgba(193, 195, 236, 1);
+$color-light-accent-4100: rgba(224, 225, 245, 1);
+$color-light-accent-3300: rgba(154, 212, 171, 1);
+$color-light-accent-5100: rgba(250, 251, 227, 1);
+$color-light-accent-5500: rgba(217, 224, 33, 1);
+$color-light-accent-5700: rgba(164, 169, 24, 1);
+$color-light-accent-3700: rgba(24, 56, 33, 1);
+$color-light-accent-3900: rgba(10, 22, 13, 1);
+$color-light-accent-2100: rgba(253, 243, 234, 1);
+$color-light-accent-2300: rgba(246, 207, 169, 1);
+$color-light-accent-2500: rgba(238, 160, 88, 1);
+$color-light-accent-2700: rgba(222, 118, 23, 1);
+$color-light-accent-2900: rgba(148, 79, 15, 1);
+$color-light-accent-1100: rgba(250, 231, 239, 1);
+$color-light-accent-1500: rgba(215, 65, 129, 1);
+$color-light-accent-5300: rgba(231, 236, 116, 1);
+$color-light-accent-3500: rgba(38, 89, 53, 1);
+$color-light-accent-5900: rgba(109, 113, 16, 1);
+$color-light-accent-4500: rgba(44, 48, 140, 1);
+$color-light-grey-transparent: rgba(255, 255, 255, 0);
+$color-light-grey-800: rgba(69, 69, 69, 1);
+$color-light-grey-300: rgba(184, 184, 184, 1);
+$color-light-grey-transparent-001: rgba(255, 255, 255, 0);
+$color-light-grey-1000: rgba(23, 23, 23, 1);
+$color-light-grey-900: rgba(43, 43, 43, 1);
+$color-light-grey-700: rgba(92, 92, 92, 1);
+$color-light-grey-600: rgba(115, 115, 115, 1);
+$color-light-grey-500: rgba(139, 139, 139, 1);
+$color-light-grey-400: rgba(162, 162, 162, 1);
+$color-light-grey-200: rgba(207, 207, 207, 1);
+$color-light-grey-100: rgba(217, 217, 217, 1);
+$color-light-grey-50: rgba(230, 230, 230, 1);
+$color-light-grey-25: rgba(242, 242, 242, 1);
+$color-light-grey-0: rgba(255, 255, 255, 1);
+$color-light-grey-0-white: rgba(255, 255, 255, 1);
+$color-light-grey-15: rgba(247, 247, 247, 1);
+$color-light-grey-0-b-g: rgba(255, 255, 255, 1);
+$color-light-grey-15-b-g1-white: rgba(255, 255, 255, 1);
+$color-light-grey-15-b-g1: rgba(247, 247, 247, 1);
+$color-light-grey-20-b-g2: rgba(240, 240, 240, 1);
+$color-light-grey-0-b-g0: rgba(255, 255, 255, 1);
+$color-light-grey-0-reversed: rgba(255, 255, 255, 1);
+$color-light-red-100: rgba(251, 226, 226, 1);
+$color-light-yellow-900: rgba(33, 26, 2, 1);
+$color-light-yellow-700: rgba(163, 129, 9, 1);
+$color-light-yellow-500: rgba(243, 197, 32, 1);
+$color-light-yellow-100: rgba(254, 248, 227, 1);
+$color-light-green-900: rgba(11, 25, 8, 1);
+$color-light-green-700: rgba(54, 126, 42, 1);
+$color-light-green-500: rgba(91, 195, 75, 1);
+$color-light-green-300: rgba(173, 225, 165, 1);
+$color-light-green-100: rgba(235, 247, 232, 1);
+$color-light-yellow-300: rgba(248, 219, 116, 1);
+$color-light-red-900: rgba(27, 4, 4, 1);
+$color-light-red-700: rgba(135, 19, 19, 1);
+$color-light-red-500: rgba(215, 31, 31, 1);
+$color-light-red-300: rgba(234, 111, 111, 1);
+$color-dark-primary-900: rgba(235, 235, 253, 1);
+$color-dark-primary-700: rgba(146, 146, 244, 1);
+$color-dark-primary-500: rgba(96, 97, 236, 1);
+$color-dark-primary-300: rgba(59, 60, 232, 1);
+$color-dark-primary-100: rgba(22, 23, 185, 1);
+$color-dark-accent-4900: rgba(224, 225, 245, 1);
+$color-dark-accent-4500: rgba(82, 88, 199, 1);
+$color-dark-accent-4300: rgba(57, 63, 177, 1);
+$color-dark-accent-5100: rgba(81, 84, 12, 1);
+$color-dark-accent-5300: rgba(161, 167, 24, 1);
+$color-dark-accent-5500: rgba(220, 227, 60, 1);
+$color-dark-accent-5700: rgba(235, 239, 143, 1);
+$color-dark-accent-5900: rgba(250, 251, 227, 1);
+$color-dark-accent-4700: rgba(153, 156, 222, 1);
+$color-dark-accent-3100: rgba(27, 65, 39, 1);
+$color-dark-accent-3500: rgba(90, 187, 119, 1);
+$color-dark-accent-3700: rgba(156, 214, 173, 1);
+$color-dark-accent-3900: rgba(221, 241, 227, 1);
+$color-dark-accent-2100: rgba(89, 47, 8, 1);
+$color-dark-accent-2300: rgba(178, 93, 17, 1);
+$color-dark-accent-2700: rgba(245, 192, 145, 1);
+$color-dark-accent-2900: rgba(253, 243, 234, 1);
+$color-dark-accent-1300: rgba(159, 10, 86, 1);
+$color-dark-accent-1900: rgba(250, 231, 239, 1);
+$color-dark-accent-1700: rgba(233, 151, 186, 1);
+$color-dark-accent-1500: rgba(217, 72, 133, 1);
+$color-dark-accent-3300: rgba(54, 131, 77, 1);
+$color-dark-accent-2500: rgba(236, 141, 56, 1);
+$color-dark-accent-1100: rgba(80, 17, 43, 1);
+$color-dark-accent-4100: rgba(23, 25, 71, 1);
+$color-dark-grey-transparent-001: rgba(255, 255, 255, 0);
+$color-dark-grey-1000: rgba(255, 255, 255, 0.99);
+$color-dark-grey-900: rgba(245, 245, 245, 1);
+$color-dark-grey-800: rgba(224, 224, 224, 1);
+$color-dark-grey-700: rgba(205, 205, 205, 1);
+$color-dark-grey-600: rgba(166, 166, 166, 1);
+$color-dark-grey-200: rgba(87, 87, 87, 1);
+$color-dark-grey-0-white: rgba(255, 255, 255, 1);
+$color-dark-grey-15-b-g1: rgba(39, 39, 39, 1);
+$color-dark-grey-15-b-g1-white: rgba(35, 35, 35, 1);
+$color-dark-grey-grey-transparent: rgba(255, 255, 255, 0.06);
+$color-dark-grey-500: rgba(143, 143, 143, 1);
+$color-dark-grey-400: rgba(121, 121, 121, 1);
+$color-dark-grey-300: rgba(99, 99, 99, 1);
+$color-dark-grey-100: rgba(77, 77, 77, 1);
+$color-dark-grey-50: rgba(64, 64, 64, 1);
+$color-dark-grey-25: rgba(46, 46, 46, 1);
+$color-dark-grey-0: rgba(18, 18, 18, 1);
+$color-dark-grey-0-reversed: rgba(255, 255, 255, 1);
+$color-dark-grey-0-b-g0: rgba(26, 26, 27, 1);
+$color-dark-grey-25-b-g2: rgba(43, 43, 43, 1);
+$color-dark-grey-20-b-g2: rgba(43, 43, 43, 1);
+$color-dark-grey-transparent: rgba(255, 255, 255, 0);
+$color-dark-green-100: rgba(16, 38, 13, 1);
+$color-dark-red-900: rgba(245, 188, 188, 1);
+$color-dark-red-300: rgba(89, 13, 13, 1);
+$color-dark-red-100: rgba(45, 6, 6, 1);
+$color-dark-green-900: rgba(203, 236, 198, 1);
+$color-dark-yellow-900: rgba(252, 239, 192, 1);
+$color-dark-yellow-700: rgba(248, 222, 129, 1);
+$color-dark-yellow-100: rgba(58, 46, 3, 1);
+$color-dark-green-700: rgba(151, 217, 140, 1);
+$color-dark-green-500: rgba(65, 153, 51, 1);
+$color-dark-green-300: rgba(41, 96, 32, 1);
+$color-dark-yellow-500: rgba(232, 184, 13, 1);
+$color-dark-red-700: rgba(236, 121, 121, 1);
+$color-dark-red-500: rgba(178, 26, 26, 1);
+$color-dark-yellow-300: rgba(116, 92, 6, 1);
+"
+`;
+
+exports[`figma-sync command should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341) 4`] = `
+"/** auto-generated by  v - 07-02-2022 */
+import { ColorTokens } from '@newrade/core-figma-extractor';
+export const colors: ColorTokens = {
+  lightPrimary900: {
+    id: '3410:25756',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'primary900',
+    r: 22,
+    g: 23,
+    b: 185,
+    a: 1,
+  },
+  lightPrimary700: {
+    id: '3410:25757',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'primary700',
+    r: 59,
+    g: 60,
+    b: 232,
+    a: 1,
+  },
+  lightPrimary500: {
+    id: '3410:25758',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'primary500',
+    r: 96,
+    g: 97,
+    b: 236,
+    a: 1,
+  },
+  lightPrimary300: {
+    id: '3410:25759',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'primary300',
+    r: 215,
+    g: 216,
+    b: 250,
+    a: 1,
+  },
+  lightPrimary100: {
+    id: '3410:25760',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'primary100',
+    r: 235,
+    g: 235,
+    b: 253,
+    a: 1,
+  },
+  lightAccent1900: {
+    id: '3410:25761',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent1900',
+    r: 87,
+    g: 18,
+    b: 47,
+    a: 1,
+  },
+  lightAccent1700: {
+    id: '3410:25762',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent1700',
+    r: 145,
+    g: 30,
+    b: 79,
+    a: 1,
+  },
+  lightAccent1300: {
+    id: '3410:25764',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent1300',
+    r: 235,
+    g: 160,
+    b: 192,
+    a: 1,
+  },
+  lightAccent3100: {
+    id: '3410:25775',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent3100',
+    r: 221,
+    g: 241,
+    b: 227,
+    a: 1,
+  },
+  lightAccent4900: {
+    id: '3410:25776',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent4900',
+    r: 17,
+    g: 18,
+    b: 53,
+    a: 1,
+  },
+  lightAccent4700: {
+    id: '3410:25777',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent4700',
+    r: 33,
+    g: 36,
+    b: 105,
+    a: 1,
+  },
+  lightAccent4300: {
+    id: '3410:25779',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent4300',
+    r: 193,
+    g: 195,
+    b: 236,
+    a: 1,
+  },
+  lightAccent4100: {
+    id: '3410:25780',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent4100',
+    r: 224,
+    g: 225,
+    b: 245,
+    a: 1,
+  },
+  lightAccent3300: {
+    id: '3410:25774',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent3300',
+    r: 154,
+    g: 212,
+    b: 171,
+    a: 1,
+  },
+  lightAccent5100: {
+    id: '3410:25785',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent5100',
+    r: 250,
+    g: 251,
+    b: 227,
+    a: 1,
+  },
+  lightAccent5500: {
+    id: '3410:25783',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent5500',
+    r: 217,
+    g: 224,
+    b: 33,
+    a: 1,
+  },
+  lightAccent5700: {
+    id: '3410:25782',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent5700',
+    r: 164,
+    g: 169,
+    b: 24,
+    a: 1,
+  },
+  lightAccent3700: {
+    id: '3410:25772',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent3700',
+    r: 24,
+    g: 56,
+    b: 33,
+    a: 1,
+  },
+  lightAccent3900: {
+    id: '3410:25771',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent3900',
+    r: 10,
+    g: 22,
+    b: 13,
+    a: 1,
+  },
+  lightAccent2100: {
+    id: '3410:25770',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent2100',
+    r: 253,
+    g: 243,
+    b: 234,
+    a: 1,
+  },
+  lightAccent2300: {
+    id: '3410:25769',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent2300',
+    r: 246,
+    g: 207,
+    b: 169,
+    a: 1,
+  },
+  lightAccent2500: {
+    id: '3410:25768',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent2500',
+    r: 238,
+    g: 160,
+    b: 88,
+    a: 1,
+  },
+  lightAccent2700: {
+    id: '3410:25767',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent2700',
+    r: 222,
+    g: 118,
+    b: 23,
+    a: 1,
+  },
+  lightAccent2900: {
+    id: '3410:25766',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent2900',
+    r: 148,
+    g: 79,
+    b: 15,
+    a: 1,
+  },
+  lightAccent1100: {
+    id: '3410:25765',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent1100',
+    r: 250,
+    g: 231,
+    b: 239,
+    a: 1,
+  },
+  lightAccent1500: {
+    id: '3410:25763',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent1500',
+    r: 215,
+    g: 65,
+    b: 129,
+    a: 1,
+  },
+  lightAccent5300: {
+    id: '3410:25784',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent5300',
+    r: 231,
+    g: 236,
+    b: 116,
+    a: 1,
+  },
+  lightAccent3500: {
+    id: '3410:25773',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent3500',
+    r: 38,
+    g: 89,
+    b: 53,
+    a: 1,
+  },
+  lightAccent5900: {
+    id: '3410:25781',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent5900',
+    r: 109,
+    g: 113,
+    b: 16,
+    a: 1,
+  },
+  lightAccent4500: {
+    id: '3410:25778',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'accent4500',
+    r: 44,
+    g: 48,
+    b: 140,
+    a: 1,
+  },
+  lightGreyTransparent: {
+    id: '50:3',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'greyTransparent',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0,
+  },
+  lightGrey800: {
+    id: '2050:42871',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey800',
+    r: 69,
+    g: 69,
+    b: 69,
+    a: 1,
+  },
+  lightGrey300: {
+    id: '1844:1',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey300',
+    r: 184,
+    g: 184,
+    b: 184,
+    a: 1,
+  },
+  lightGreyTransparent001: {
+    id: '35:1841',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'greyTransparent001',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0,
+  },
+  lightGrey1000: {
+    id: '1263:22619',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey1000',
+    r: 23,
+    g: 23,
+    b: 23,
+    a: 1,
+  },
+  lightGrey900: {
+    id: '123:169',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey900',
+    r: 43,
+    g: 43,
+    b: 43,
+    a: 1,
+  },
+  lightGrey700: {
+    id: '2050:42872',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey700',
+    r: 92,
+    g: 92,
+    b: 92,
+    a: 1,
+  },
+  lightGrey600: {
+    id: '2050:42873',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey600',
+    r: 115,
+    g: 115,
+    b: 115,
+    a: 1,
+  },
+  lightGrey500: {
+    id: '2050:42874',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey500',
+    r: 139,
+    g: 139,
+    b: 139,
+    a: 1,
+  },
+  lightGrey400: {
+    id: '16:14',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey400',
+    r: 162,
+    g: 162,
+    b: 162,
+    a: 1,
+  },
+  lightGrey200: {
+    id: '16:16',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey200',
+    r: 207,
+    g: 207,
+    b: 207,
+    a: 1,
+  },
+  lightGrey100: {
+    id: '35:8564',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey100',
+    r: 217,
+    g: 217,
+    b: 217,
+    a: 1,
+  },
+  lightGrey50: {
+    id: '2050:43260',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey50',
+    r: 230,
+    g: 230,
+    b: 230,
+    a: 1,
+  },
+  lightGrey25: {
+    id: '2050:43350',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey25',
+    r: 242,
+    g: 242,
+    b: 242,
+    a: 1,
+  },
+  lightGrey0: {
+    id: '115:3',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey0',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightGrey0White: {
+    id: '2756:59728',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey0White',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightGrey15: {
+    id: '2756:59256',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey15',
+    r: 247,
+    g: 247,
+    b: 247,
+    a: 1,
+  },
+  lightGrey0BG: {
+    id: '2756:59053',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey0BG',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightGrey15BG1White: {
+    id: '2756:59615',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey15BG1White',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightGrey15BG1: {
+    id: '2756:59464',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey15BG1',
+    r: 247,
+    g: 247,
+    b: 247,
+    a: 1,
+  },
+  lightGrey20BG2: {
+    id: '2756:59462',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey20BG2',
+    r: 240,
+    g: 240,
+    b: 240,
+    a: 1,
+  },
+  lightGrey0BG0: {
+    id: '2756:59616',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey0BG0',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightGrey0Reversed: {
+    id: '2050:43383',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'grey0Reversed',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  lightRed100: {
+    id: '3219:24696',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'red100',
+    r: 251,
+    g: 226,
+    b: 226,
+    a: 1,
+  },
+  lightYellow900: {
+    id: '3219:24687',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'yellow900',
+    r: 33,
+    g: 26,
+    b: 2,
+    a: 1,
+  },
+  lightYellow700: {
+    id: '3219:24688',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'yellow700',
+    r: 163,
+    g: 129,
+    b: 9,
+    a: 1,
+  },
+  lightYellow500: {
+    id: '3219:24689',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'yellow500',
+    r: 243,
+    g: 197,
+    b: 32,
+    a: 1,
+  },
+  lightYellow100: {
+    id: '3219:24691',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'yellow100',
+    r: 254,
+    g: 248,
+    b: 227,
+    a: 1,
+  },
+  lightGreen900: {
+    id: '3219:24682',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'green900',
+    r: 11,
+    g: 25,
+    b: 8,
+    a: 1,
+  },
+  lightGreen700: {
+    id: '3219:24683',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'green700',
+    r: 54,
+    g: 126,
+    b: 42,
+    a: 1,
+  },
+  lightGreen500: {
+    id: '3219:24684',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'green500',
+    r: 91,
+    g: 195,
+    b: 75,
+    a: 1,
+  },
+  lightGreen300: {
+    id: '3219:24685',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'green300',
+    r: 173,
+    g: 225,
+    b: 165,
+    a: 1,
+  },
+  lightGreen100: {
+    id: '3219:24686',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'green100',
+    r: 235,
+    g: 247,
+    b: 232,
+    a: 1,
+  },
+  lightYellow300: {
+    id: '3219:24690',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'yellow300',
+    r: 248,
+    g: 219,
+    b: 116,
+    a: 1,
+  },
+  lightRed900: {
+    id: '3219:24692',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'red900',
+    r: 27,
+    g: 4,
+    b: 4,
+    a: 1,
+  },
+  lightRed700: {
+    id: '3219:24693',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'red700',
+    r: 135,
+    g: 19,
+    b: 19,
+    a: 1,
+  },
+  lightRed500: {
+    id: '3219:24694',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'red500',
+    r: 215,
+    g: 31,
+    b: 31,
+    a: 1,
+  },
+  lightRed300: {
+    id: '3219:24695',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'light',
+    colorLevel: 'red300',
+    r: 234,
+    g: 111,
+    b: 111,
+    a: 1,
+  },
+  darkPrimary900: {
+    id: '3423:24097',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'primary900',
+    r: 235,
+    g: 235,
+    b: 253,
+    a: 1,
+  },
+  darkPrimary700: {
+    id: '3423:24098',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'primary700',
+    r: 146,
+    g: 146,
+    b: 244,
+    a: 1,
+  },
+  darkPrimary500: {
+    id: '3423:24099',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'primary500',
+    r: 96,
+    g: 97,
+    b: 236,
+    a: 1,
+  },
+  darkPrimary300: {
+    id: '3423:24100',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'primary300',
+    r: 59,
+    g: 60,
+    b: 232,
+    a: 1,
+  },
+  darkPrimary100: {
+    id: '3423:24101',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'primary100',
+    r: 22,
+    g: 23,
+    b: 185,
+    a: 1,
+  },
+  darkAccent4900: {
+    id: '3423:24118',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent4900',
+    r: 224,
+    g: 225,
+    b: 245,
+    a: 1,
+  },
+  darkAccent4500: {
+    id: '3423:24121',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent4500',
+    r: 82,
+    g: 88,
+    b: 199,
+    a: 1,
+  },
+  darkAccent4300: {
+    id: '3423:24122',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent4300',
+    r: 57,
+    g: 63,
+    b: 177,
+    a: 1,
+  },
+  darkAccent5100: {
+    id: '3423:24128',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent5100',
+    r: 81,
+    g: 84,
+    b: 12,
+    a: 1,
+  },
+  darkAccent5300: {
+    id: '3423:24127',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent5300',
+    r: 161,
+    g: 167,
+    b: 24,
+    a: 1,
+  },
+  darkAccent5500: {
+    id: '3423:24126',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent5500',
+    r: 220,
+    g: 227,
+    b: 60,
+    a: 1,
+  },
+  darkAccent5700: {
+    id: '3423:24125',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent5700',
+    r: 235,
+    g: 239,
+    b: 143,
+    a: 1,
+  },
+  darkAccent5900: {
+    id: '3423:24124',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent5900',
+    r: 250,
+    g: 251,
+    b: 227,
+    a: 1,
+  },
+  darkAccent4700: {
+    id: '3423:24120',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent4700',
+    r: 153,
+    g: 156,
+    b: 222,
+    a: 1,
+  },
+  darkAccent3100: {
+    id: '3423:24117',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent3100',
+    r: 27,
+    g: 65,
+    b: 39,
+    a: 1,
+  },
+  darkAccent3500: {
+    id: '3423:24115',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent3500',
+    r: 90,
+    g: 187,
+    b: 119,
+    a: 1,
+  },
+  darkAccent3700: {
+    id: '3423:24114',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent3700',
+    r: 156,
+    g: 214,
+    b: 173,
+    a: 1,
+  },
+  darkAccent3900: {
+    id: '3423:24112',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent3900',
+    r: 221,
+    g: 241,
+    b: 227,
+    a: 1,
+  },
+  darkAccent2100: {
+    id: '3423:24111',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent2100',
+    r: 89,
+    g: 47,
+    b: 8,
+    a: 1,
+  },
+  darkAccent2300: {
+    id: '3423:24110',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent2300',
+    r: 178,
+    g: 93,
+    b: 17,
+    a: 1,
+  },
+  darkAccent2700: {
+    id: '3423:24108',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent2700',
+    r: 245,
+    g: 192,
+    b: 145,
+    a: 1,
+  },
+  darkAccent2900: {
+    id: '3423:24107',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent2900',
+    r: 253,
+    g: 243,
+    b: 234,
+    a: 1,
+  },
+  darkAccent1300: {
+    id: '3423:24105',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent1300',
+    r: 159,
+    g: 10,
+    b: 86,
+    a: 1,
+  },
+  darkAccent1900: {
+    id: '3423:24102',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent1900',
+    r: 250,
+    g: 231,
+    b: 239,
+    a: 1,
+  },
+  darkAccent1700: {
+    id: '3423:24103',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent1700',
+    r: 233,
+    g: 151,
+    b: 186,
+    a: 1,
+  },
+  darkAccent1500: {
+    id: '3423:24104',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent1500',
+    r: 217,
+    g: 72,
+    b: 133,
+    a: 1,
+  },
+  darkAccent3300: {
+    id: '3423:24116',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent3300',
+    r: 54,
+    g: 131,
+    b: 77,
+    a: 1,
+  },
+  darkAccent2500: {
+    id: '3423:24109',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent2500',
+    r: 236,
+    g: 141,
+    b: 56,
+    a: 1,
+  },
+  darkAccent1100: {
+    id: '3423:24106',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent1100',
+    r: 80,
+    g: 17,
+    b: 43,
+    a: 1,
+  },
+  darkAccent4100: {
+    id: '3423:24123',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'accent4100',
+    r: 23,
+    g: 25,
+    b: 71,
+    a: 1,
+  },
+  darkGreyTransparent001: {
+    id: '115:504',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'greyTransparent001',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0,
+  },
+  darkGrey1000: {
+    id: '1263:22622',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey1000',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0.99,
+  },
+  darkGrey900: {
+    id: '123:173',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey900',
+    r: 245,
+    g: 245,
+    b: 245,
+    a: 1,
+  },
+  darkGrey800: {
+    id: '1844:11790',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey800',
+    r: 224,
+    g: 224,
+    b: 224,
+    a: 1,
+  },
+  darkGrey700: {
+    id: '115:507',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey700',
+    r: 205,
+    g: 205,
+    b: 205,
+    a: 1,
+  },
+  darkGrey600: {
+    id: '2174:22865',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey600',
+    r: 166,
+    g: 166,
+    b: 166,
+    a: 1,
+  },
+  darkGrey200: {
+    id: '115:535',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey200',
+    r: 87,
+    g: 87,
+    b: 87,
+    a: 1,
+  },
+  darkGrey0White: {
+    id: '3423:24136',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey0White',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  darkGrey15BG1: {
+    id: '3423:24132',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey15BG1',
+    r: 39,
+    g: 39,
+    b: 39,
+    a: 1,
+  },
+  darkGrey15BG1White: {
+    id: '3423:24133',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey15BG1White',
+    r: 35,
+    g: 35,
+    b: 35,
+    a: 1,
+  },
+  darkGreyGreyTransparent: {
+    id: '1263:22897',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'greyGreyTransparent',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0.06,
+  },
+  darkGrey500: {
+    id: '2174:22866',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey500',
+    r: 143,
+    g: 143,
+    b: 143,
+    a: 1,
+  },
+  darkGrey400: {
+    id: '2174:22867',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey400',
+    r: 121,
+    g: 121,
+    b: 121,
+    a: 1,
+  },
+  darkGrey300: {
+    id: '2174:22868',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey300',
+    r: 99,
+    g: 99,
+    b: 99,
+    a: 1,
+  },
+  darkGrey100: {
+    id: '2174:22869',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey100',
+    r: 77,
+    g: 77,
+    b: 77,
+    a: 1,
+  },
+  darkGrey50: {
+    id: '2174:22870',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey50',
+    r: 64,
+    g: 64,
+    b: 64,
+    a: 1,
+  },
+  darkGrey25: {
+    id: '2174:22871',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey25',
+    r: 46,
+    g: 46,
+    b: 46,
+    a: 1,
+  },
+  darkGrey0: {
+    id: '3423:24135',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey0',
+    r: 18,
+    g: 18,
+    b: 18,
+    a: 1,
+  },
+  darkGrey0Reversed: {
+    id: '2185:0',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey0Reversed',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  },
+  darkGrey0BG0: {
+    id: '3423:24134',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey0BG0',
+    r: 26,
+    g: 26,
+    b: 27,
+    a: 1,
+  },
+  darkGrey25BG2: {
+    id: '3423:24130',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey25BG2',
+    r: 43,
+    g: 43,
+    b: 43,
+    a: 1,
+  },
+  darkGrey20BG2: {
+    id: '3423:24131',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'grey20BG2',
+    r: 43,
+    g: 43,
+    b: 43,
+    a: 1,
+  },
+  darkGreyTransparent: {
+    id: '115:506',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'greyTransparent',
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 0,
+  },
+  darkGreen100: {
+    id: '3423:24142',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'green100',
+    r: 16,
+    g: 38,
+    b: 13,
+    a: 1,
+  },
+  darkRed900: {
+    id: '3423:24148',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'red900',
+    r: 245,
+    g: 188,
+    b: 188,
+    a: 1,
+  },
+  darkRed300: {
+    id: '3423:24151',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'red300',
+    r: 89,
+    g: 13,
+    b: 13,
+    a: 1,
+  },
+  darkRed100: {
+    id: '3423:24152',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'red100',
+    r: 45,
+    g: 6,
+    b: 6,
+    a: 1,
+  },
+  darkGreen900: {
+    id: '3423:24138',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'green900',
+    r: 203,
+    g: 236,
+    b: 198,
+    a: 1,
+  },
+  darkYellow900: {
+    id: '3423:24143',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'yellow900',
+    r: 252,
+    g: 239,
+    b: 192,
+    a: 1,
+  },
+  darkYellow700: {
+    id: '3423:24144',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'yellow700',
+    r: 248,
+    g: 222,
+    b: 129,
+    a: 1,
+  },
+  darkYellow100: {
+    id: '3423:24147',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'yellow100',
+    r: 58,
+    g: 46,
+    b: 3,
+    a: 1,
+  },
+  darkGreen700: {
+    id: '3423:24139',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'green700',
+    r: 151,
+    g: 217,
+    b: 140,
+    a: 1,
+  },
+  darkGreen500: {
+    id: '3423:24140',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'green500',
+    r: 65,
+    g: 153,
+    b: 51,
+    a: 1,
+  },
+  darkGreen300: {
+    id: '3423:24141',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'green300',
+    r: 41,
+    g: 96,
+    b: 32,
+    a: 1,
+  },
+  darkYellow500: {
+    id: '3423:24145',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'yellow500',
+    r: 232,
+    g: 184,
+    b: 13,
+    a: 1,
+  },
+  darkRed700: {
+    id: '3423:24149',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'red700',
+    r: 236,
+    g: 121,
+    b: 121,
+    a: 1,
+  },
+  darkRed500: {
+    id: '3423:24150',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'red500',
+    r: 178,
+    g: 26,
+    b: 26,
+    a: 1,
+  },
+  darkYellow300: {
+    id: '3423:24146',
+    colorNamespace: '',
+    colorTheme: '',
+    colorType: 'dark',
+    colorLevel: 'yellow300',
+    r: 116,
+    g: 92,
+    b: 6,
+    a: 1,
+  },
+};
+"
+`;

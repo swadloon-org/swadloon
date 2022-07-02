@@ -9,11 +9,8 @@ var _debug = _interopRequireDefault(require("debug"));
 var t = _interopRequireWildcard(require("io-ts"));
 var _octokit = require("octokit");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class GitCopyLabels extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:git-copy-labels`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:git-copy-labels:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:git-copy-labels:error`);
+var _baseCommandJs = require("../base-command.js");
+class GitCopyLabels extends _baseCommandJs.BaseCommand {
     static description = "copy labels from a repo to another";
     static examples = [
         `$ nr git-copy-labels`
@@ -35,6 +32,11 @@ class GitCopyLabels extends _core.Command {
             required: true
         }, 
     ];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "git-copy-labels"
+        });
+    }
     async init() {
         _debug.default.enable("nr:core-cli:*");
     }

@@ -187,15 +187,6 @@
       "execute": false
     },
     {
-      "name": "core-yo-generator",
-      "cwd": "./packages/core-yo-generator",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-
-    {
       "name": "ze-design-system",
       "cwd": "./packages/ze-design-system",
       "open": true,

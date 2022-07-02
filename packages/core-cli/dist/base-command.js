@@ -2,13 +2,20 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = void 0;
 var _core = require("@oclif/core");
+var _chalk = _interopRequireDefault(require("chalk"));
 var _logUtilities = require("./utilities/log.utilities");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 class BaseCommand extends _core.Command {
+    chalk = _chalk.default;
     log = _logUtilities.log;
+    logWarn = _logUtilities.logWarn;
+    logError = _logUtilities.log;
     logCommand = _logUtilities.logCommand;
-    warn = _logUtilities.warn;
     logDebug = (0, _logUtilities).debugInstance(`${_logUtilities.NS}`);
     logWarnDebug = (0, _logUtilities).debugInstance(`${_logUtilities.NS}:warn`);
     logErrorDebug = (0, _logUtilities).debugInstance(`${_logUtilities.NS}:error`);
@@ -19,10 +26,9 @@ class BaseCommand extends _core.Command {
             this.logWarnDebug = (0, _logUtilities).debugInstance(`${_logUtilities.NS}:${commandConfig.name}:warn`);
             this.logErrorDebug = (0, _logUtilities).debugInstance(`${_logUtilities.NS}:${commandConfig.name}:error`);
         }
-        this.logDebug("command called");
     }
     async run() {}
 }
-exports.default = BaseCommand;
+exports.BaseCommand = BaseCommand;
 
 //# sourceMappingURL=base-command.js.map

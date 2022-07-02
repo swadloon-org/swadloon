@@ -1,14 +1,12 @@
-import { Command, Flags } from '@oclif/core';
+import { Flags } from '@oclif/core';
 import debug from 'debug';
 import { spawnSync } from 'node:child_process';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-export default class CleanNodeModules extends Command {
-  ddebug: debug.Debugger = debug('nr:core-cli:clean-node-modules');
-  ddebugWarn: debug.Debugger = debug('nr:core-cli:clean-node-modules:warn');
-  ddebugError: debug.Debugger = debug('nr:core-cli:clean-node-modules:error');
+import { BaseCommand } from '../base-command.js';
 
+export default class CleanNodeModules extends BaseCommand {
   static description = `find . -name 'node_modules' -type d -prune -print -exec rimraf -rf '{}' \;`;
 
   // nvm cache clear

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.enableDebug = enableDebug;
 exports.logCommand = logCommand;
 exports.log = log;
-exports.warn = warn;
+exports.logWarn = logWarn;
 exports.debugInstance = exports.NS = void 0;
 var _debug = _interopRequireDefault(require("debug"));
 function _interopRequireDefault(obj) {
@@ -33,7 +33,7 @@ function logCommand(message, ...args) {
 function log(message, ...args) {
     process.stdout.write(`👾  ${message}\n`);
 }
-function warn(input) {
+function logWarn(input) {
     if (input instanceof Error) {
         process.stdout.write(`👾  ${input}\n`);
         return input;

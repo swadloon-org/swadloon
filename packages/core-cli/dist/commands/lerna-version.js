@@ -7,14 +7,10 @@ var _childProcess = require("child_process");
 var _fs = _interopRequireDefault(require("fs"));
 var _path = _interopRequireDefault(require("path"));
 var _core = require("@oclif/core");
-var _chalk = _interopRequireDefault(require("chalk"));
 var _prettier = _interopRequireDefault(require("prettier"));
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class LernaVersion extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:lerna`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:lerna:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:lerna:error`);
+var _baseCommandJs = require("../base-command.js");
+class LernaVersion extends _baseCommandJs.BaseCommand {
     static description = "Wrapper for lerna version command, allowing to run version on specific packages";
     static examples = [
         `$ nr lerna-version`
@@ -30,8 +26,12 @@ class LernaVersion extends _core.Command {
             required: true
         })
     };
+    constructor(argv, config){
+        super(argv, config, {
+            name: "lerna"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const { args , flags  } = await this.parse(LernaVersion);
         this.log(`running in ${process.cwd()}`);
         try {
@@ -64,7 +64,7 @@ class LernaVersion extends _core.Command {
                 this.logWarn(`missing packages in package.workspaces, aborting command`);
                 return;
             }
-            this.log(`replacing workspace.packages value with: ${_chalk.default.greenBright(flags.packages)}`);
+            this.log(`replacing workspace.packages value with: ${this.chalk.greenBright(flags.packages)}`);
             const temporaryPackageJson = JSON.stringify({
                 ...packageJson,
                 workspaces: {

@@ -1,16 +1,13 @@
-import { spawn, spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 
-import { Command, Flags } from '@oclif/core';
+import { Config, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
+import { enableDebug } from '../utilities/log.utilities.js';
 
-export default class Webpack extends Command {
-  log = debugInstance(`${NS}:webpack`);
-  logWarn = debugInstance(`${NS}:webpack:warn`);
-  logError = debugInstance(`${NS}:webpack:error`);
-
+export default class Webpack extends BaseCommand {
   static description = 'Shortcut to run webpack with typescript (ts-node)';
 
   static examples = [`$ nr webpack serve --config webpack.dev.config.ts`];
@@ -35,9 +32,11 @@ export default class Webpack extends Command {
     }),
   };
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'webpack' });
+  }
 
+  async run() {
     const { args, flags } = await this.parse(Webpack);
 
     const command = [

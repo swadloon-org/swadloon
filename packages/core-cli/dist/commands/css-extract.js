@@ -4,22 +4,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _childProcess = require("child_process");
-var _core = require("@oclif/core");
 var _coreCssExtractor = require("@newrade/core-css-extractor");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class CssExtract extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:css-extract`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:css-extract:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:css-extract:error`);
+var _baseCommandJs = require("../base-command.js");
+class CssExtract extends _baseCommandJs.BaseCommand {
     static description = "Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)";
     static examples = [
         `$ nr css-extract`
     ];
     static args = [];
     static flags = {};
+    constructor(argv, config){
+        super(argv, config, {
+            name: "css-extract"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         this.log(`loading .env in ${process.cwd()}`);
         const env = (0, _coreNodeUtils).loadDotEnv({
             schema: _coreCssExtractor.Env,

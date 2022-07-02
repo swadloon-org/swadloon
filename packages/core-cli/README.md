@@ -42,7 +42,6 @@ USAGE
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr css-extract`](#nr-css-extract)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
-* [`nr ds-compile`](#nr-ds-compile)
 * [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
@@ -93,7 +92,7 @@ DESCRIPTION
   execute migration with the contentful CLI
 
 EXAMPLES
-  $ nr figma-sync
+  $ nr contentful-migrate
 ```
 
 _See code: [dist/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/contentful-migrate.js)_
@@ -131,23 +130,6 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/depcheck.js)_
-
-## `nr ds-compile`
-
-Compile figma tokens (from figma-sync) into {Color} objects compatible with core-design-system
-
-```
-USAGE
-  $ nr ds-compile
-
-DESCRIPTION
-  Compile figma tokens (from figma-sync) into {Color} objects compatible with core-design-system
-
-EXAMPLES
-  $ nr ds-compile
-```
-
-_See code: [dist/commands/ds-compile.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/ds-compile.js)_
 
 ## `nr figma-sync [PATH]`
 

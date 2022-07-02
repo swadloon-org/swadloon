@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = void 0;
-var _baseCommand = _interopRequireDefault(require("../base-command"));
-class Hello extends _baseCommand.default {
+var _baseCommandJs = require("../base-command.js");
+class Hello extends _baseCommandJs.BaseCommand {
     static description = "Test command to verify that the CLI build is valid.";
     static examples = [
         `$ condohub hello world`
@@ -14,7 +14,13 @@ class Hello extends _baseCommand.default {
             name: "word"
         }
     ];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "hello"
+        });
+    }
     async run() {
+        this.logDebug("starting run method");
         const { args  } = await this.parse(Hello);
         if (args.word) {
             this.logCommand(`hello ${args.word}`);
@@ -24,10 +30,5 @@ class Hello extends _baseCommand.default {
     }
 }
 exports.default = Hello;
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
 
 //# sourceMappingURL=hello.js.map

@@ -6,11 +6,8 @@ exports.default = void 0;
 var _childProcess = require("child_process");
 var _core = require("@oclif/core");
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class Webpack extends _core.Command {
-    log = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:webpack`);
-    logWarn = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:webpack:warn`);
-    logError = (0, _logUtilitiesJs).debugInstance(`${_logUtilitiesJs.NS}:webpack:error`);
+var _baseCommandJs = require("../base-command.js");
+class Webpack extends _baseCommandJs.BaseCommand {
     static description = "Shortcut to run webpack with typescript (ts-node)";
     static examples = [
         `$ nr webpack serve --config webpack.dev.config.ts`
@@ -37,8 +34,12 @@ class Webpack extends _core.Command {
             description: "enable node --inspect-brk flag"
         })
     };
+    constructor(argv, config){
+        super(argv, config, {
+            name: "webpack"
+        });
+    }
     async run() {
-        (0, _logUtilitiesJs).enableDebug();
         const { args , flags  } = await this.parse(Webpack);
         const command = [
             `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node ${flags["inspect-brk"] ? `--inspect-brk` : ""} -r ts-node/register ../../node_modules/webpack/bin/webpack`,

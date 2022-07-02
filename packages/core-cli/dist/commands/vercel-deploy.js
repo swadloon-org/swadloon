@@ -5,14 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.Env = exports.default = void 0;
 var _childProcess = require("child_process");
 var _core = require("@oclif/core");
-var _debug = _interopRequireDefault(require("debug"));
 var t = _interopRequireWildcard(require("io-ts"));
 var _coreNodeUtils = require("@newrade/core-node-utils");
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class VercelDeploy extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:vercel-deploy`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:vercel-deploy:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:vercel-deploy:error`);
+var _baseCommandJs = require("../base-command.js");
+class VercelDeploy extends _baseCommandJs.BaseCommand {
     static description = "deploy site with vercel using env variables";
     static examples = [
         `$ nr vercel-deploy`
@@ -23,6 +19,11 @@ class VercelDeploy extends _core.Command {
         })
     };
     static args = [];
+    constructor(argv, config){
+        super(argv, config, {
+            name: "vercel-deploy"
+        });
+    }
     async init() {}
     async run() {
         this.log(`running in ${process.cwd()}`);
@@ -46,11 +47,6 @@ class VercelDeploy extends _core.Command {
     }
 }
 exports.default = VercelDeploy;
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
 function _getRequireWildcardCache() {
     if (typeof WeakMap !== "function") return null;
     var cache = new WeakMap();

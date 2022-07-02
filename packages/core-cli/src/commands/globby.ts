@@ -1,14 +1,9 @@
-import { Command } from '@oclif/core';
-import debug from 'debug';
+import { Config } from '@oclif/core';
 import glob from 'glob';
 
-import { NS } from '../utilities/log.utilities.js';
+import { BaseCommand } from '../base-command.js';
 
-export default class Globby extends Command {
-  log = debug(`${NS}:globby`);
-  logWarn = debug(`${NS}:globby:warn`);
-  logError = debug(`${NS}:globby:error`);
-
+export default class Globby extends BaseCommand {
   static description = 'Execute globby as CLI';
 
   static examples = [`$ nr globby`];
@@ -16,6 +11,10 @@ export default class Globby extends Command {
   static args = [{ name: 'args' }];
 
   static flags = {};
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'globby' });
+  }
 
   async run() {
     const { args, flags } = await this.parse(Globby);

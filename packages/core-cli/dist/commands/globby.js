@@ -3,14 +3,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = void 0;
-var _core = require("@oclif/core");
-var _debug = _interopRequireDefault(require("debug"));
 var _glob = _interopRequireDefault(require("glob"));
-var _logUtilitiesJs = require("../utilities/log.utilities.js");
-class Globby extends _core.Command {
-    log = (0, _debug).default(`${_logUtilitiesJs.NS}:globby`);
-    logWarn = (0, _debug).default(`${_logUtilitiesJs.NS}:globby:warn`);
-    logError = (0, _debug).default(`${_logUtilitiesJs.NS}:globby:error`);
+var _baseCommandJs = require("../base-command.js");
+class Globby extends _baseCommandJs.BaseCommand {
     static description = "Execute globby as CLI";
     static examples = [
         `$ nr globby`
@@ -21,6 +16,11 @@ class Globby extends _core.Command {
         }
     ];
     static flags = {};
+    constructor(argv, config){
+        super(argv, config, {
+            name: "globby"
+        });
+    }
     async run() {
         const { args , flags  } = await this.parse(Globby);
         this.log(`globbing: ${args.args}`);

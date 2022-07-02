@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import BaseCommand from '../base-command';
+import { BaseCommand } from '../base-command.js';
 
 export default class Commit extends BaseCommand {
   static description = 'call the commit script in the repo root';
