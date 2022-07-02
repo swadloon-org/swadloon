@@ -1,4 +1,12 @@
-import { ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
+/**
+ * @taken from @capsizecss/core
+ */
+export declare type ComputedValues = {
+  fontSize: string;
+  lineHeight: string;
+  capHeightTrim: string;
+  baselineTrim: string;
+};
 
 import { Color } from '../primitives/color.js';
 import {

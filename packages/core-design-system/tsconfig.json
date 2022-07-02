@@ -2,8 +2,9 @@
   "extends": "../../tsconfig.iso-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "outDir": "dist",
     "rootDir": "src",
-    "outDir": "dist"
+    "types": []
   },
   "include": ["src"]
 }

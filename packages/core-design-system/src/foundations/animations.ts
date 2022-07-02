@@ -1,4 +1,4 @@
-import { MotionProps, Variant } from 'framer-motion';
+// import type { MotionProps, Variant } from 'framer-motion';
 
 export enum ANIMATION_TYPE {
   /**
@@ -47,12 +47,12 @@ export type Animation = {
    * Framer motion initial prop
    * @example 'hidden'
    */
-  initial: MotionProps['initial'];
+  initial: any; // MotionProps['initial'];
   /**
    * Framer motion exit prop
    * @example 'hidden'
    */
-  exit?: MotionProps['exit'];
+  exit?: any; // MotionProps['exit'];
   /**
    * @example
    *    {
@@ -82,11 +82,11 @@ export type Animation = {
    *      default: { duration: 0.4 },
    *    }
    */
-  transition?: MotionProps['transition'];
+  transition?: any; // MotionProps['transition'];
 };
 
 export type Variants = {
-  [key: string]: Variant;
+  [key: string]: any;
 };
 
 // TODO see if possible to type the Variants

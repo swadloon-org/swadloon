@@ -23,7 +23,8 @@
       "packages/core-figma-extractor",
       "packages/core-figma-scripts",
       "packages/core-css-extractor",
-      "packages/core-cli"
+      "packages/core-cli",
+      "packages/core-design-system"
     ]
   },
   "config": {
