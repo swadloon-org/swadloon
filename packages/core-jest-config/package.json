@@ -24,7 +24,7 @@
     "clean:dist": "rimraf -rf dist/**",
     "clean:lib": "yarn clean:dist && yarn clean:tsc",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "rename:commonjs": "renamer --chain ../core-node-utils/src/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
+    "rename:commonjs": "renamer --chain ../core-node-utils/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
     "rename:watch": "nodemon --delay 1000ms --watch dist/cjs --ext js --exec \"yarn rename:commonjs\"",
     "prestart": "yarn build",
     "start": "yarn start:lib",

@@ -7,5 +7,5 @@
     "rootDir": "src",
     "types": ["node", "jest", "debug"]
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "scripts"]
 }
