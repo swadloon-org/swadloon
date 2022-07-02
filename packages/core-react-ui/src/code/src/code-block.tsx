@@ -68,7 +68,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = function CodeBlock({
   }
 
   const trimmedCode = children ? children.trim() : '';
-  const formattedCode = trimmedCode.replace(/(\r\n|\r)+$/g, ''); // remove extra line inserted by prettier
+  const formattedCode = trimmedCode.replace(/(\r\n|\r){1,2}$/g, ''); // remove extra line inserted by prettier
 
   return (
     <Primitive as={'code'} classNames={[className, styles.wrapper]}>
