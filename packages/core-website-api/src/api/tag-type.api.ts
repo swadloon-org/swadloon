@@ -1,4 +1,4 @@
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { ChildMDXAPI } from './child-mdx.api.js';
 

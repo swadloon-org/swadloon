@@ -1,6 +1,5 @@
 import { COLOR_MODE, COLOR_SCHEME, Variant } from '@newrade/core-design-system';
-
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { BlockAPI } from './block.api.js';
 import { ColorModeAPI } from './color-mode.api.js';

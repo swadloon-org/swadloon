@@ -24,7 +24,9 @@
       "packages/core-figma-scripts",
       "packages/core-css-extractor",
       "packages/core-cli",
-      "packages/core-design-system"
+      "packages/core-design-system",
+      "packages/core-website-api",
+      "packages/core-contentful-lib"
     ]
   },
   "config": {

@@ -1,4 +1,4 @@
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { LinkAPI } from './link.api.js';
 import { TagAPI } from './tag.api.js';

@@ -1,6 +1,5 @@
 import { CarouselDirection } from '@newrade/core-design-system';
-
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { BlockType } from './block.api.js';
 import { MediaCollectionV2API } from './media-collection-v2.api.js';

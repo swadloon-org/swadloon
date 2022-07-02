@@ -33,5 +33,6 @@
     "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "tsc:types": "yarn tsc -b",
     "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
-  }
+  },
+  "types": "./dist/index.d.ts"
 }

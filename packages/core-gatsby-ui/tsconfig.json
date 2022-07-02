@@ -4,7 +4,6 @@
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "dist",
-    "noEmit": true, // this package should be consumed by /src/ for now
     "types": ["gatsby", "node", "jest"]
   },
   "include": ["src", "types"]

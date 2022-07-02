@@ -1,4 +1,0 @@
-{
-  "main": "dist/newrade-core-website-api-utilities.cjs.js",
-  "module": "dist/newrade-core-website-api-utilities.esm.js"
-}

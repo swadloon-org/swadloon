@@ -31,6 +31,7 @@
     "@newrade/core-gatsb-config": "*",
     "@newrade/core-jest-config": "*",
     "@newrade/core-react-ui": "*",
+    "@newrade/core-types": "*",
     "@newrade/core-website-api": "*",
     "@reach/router": "^1",
     "@react-google-maps/api": "^2.1.1",

@@ -18,6 +18,7 @@ export type PartialOrNull<T> = T extends object
 enum Test {
   value = 'value',
 }
+
 type PartialOrNullString = PartialOrNull<'string'>;
 type PartialOrNullNumber = PartialOrNull<'number'>;
 type PartialOrNullObject = PartialOrNull<{ hey: 1 }>;

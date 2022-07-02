@@ -6,17 +6,21 @@
 ---
 
 ![core-build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
-![core-cli](https://github.com/newrade/newrade-core/actions/workflows/core-cli-workflow.yml/badge.svg)
-![core-contentful-lib](https://github.com/newrade/newrade-core/actions/workflows/core-contentful-lib-workflow.yml/badge.svg)
-![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
-![core-design-system](https://github.com/newrade/newrade-core/actions/workflows/core-design-system-workflow.yml/badge.svg)
-![core-gatsby-ui](https://github.com/newrade/newrade-core/actions/workflows/core-gatsby-ui-workflow.yml/badge.svg)
-![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
+![core-types](https://github.com/newrade/newrade-core/actions/workflows/core-types-workflow.yml/badge.svg)
+![core-common](https://github.com/newrade/newrade-core/actions/workflows/core-common-workflow.yml/badge.svg)
 ![core-jest-config](https://github.com/newrade/newrade-core/actions/workflows/core-jest-config-workflow.yml/badge.svg)
+![core-node-utils](https://github.com/newrade/newrade-core/actions/workflows/core-node-utils-workflow.yml/badge.svg)
 ![core-webpack-config](https://github.com/newrade/newrade-core/actions/workflows/core-webpack-config-workflow.yml/badge.svg)
 ![core-figma-extractor](https://github.com/newrade/newrade-core/actions/workflows/core-figma-extractor-workflow.yml/badge.svg)
 ![core-css-extractor](https://github.com/newrade/newrade-core/actions/workflows/core-css-extractor-workflow.yml/badge.svg)
-![core-node-utils](https://github.com/newrade/newrade-core/actions/workflows/core-node-utils-workflow.yml/badge.svg)
+![core-cli](https://github.com/newrade/newrade-core/actions/workflows/core-cli-workflow.yml/badge.svg)
+![core-design-system](https://github.com/newrade/newrade-core/actions/workflows/core-design-system-workflow.yml/badge.svg)
+
+![core-contentful-lib](https://github.com/newrade/newrade-core/actions/workflows/core-contentful-lib-workflow.yml/badge.svg)
+
+![core-gatsby-ui](https://github.com/newrade/newrade-core/actions/workflows/core-gatsby-ui-workflow.yml/badge.svg)
+![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
+
 ![code-ql](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
 
 ---

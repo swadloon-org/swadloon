@@ -1,6 +1,5 @@
 import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
-
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { ColorModeAPI } from './color-mode.api.js';
 import { PageAPI } from './page.api.js';

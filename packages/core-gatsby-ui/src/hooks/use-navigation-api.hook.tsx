@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo } from 'react';
 
+import type { PartialOrNull } from '@newrade/core-types';
 import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
 import { useI18next } from '../i18next/use-i18next.hook.js';
 import { GatsbyPageNode } from '../utilities/gatsby-page-node.js';

@@ -1,4 +1,4 @@
-import { PartialOrNull } from '../utilities.js';
+import type { PartialOrNull } from '@newrade/core-types';
 
 import { BlogAuthorAPI } from './blog-author.api.js';
 import { MediaCollectionAPI } from './media-collection.api.js';
