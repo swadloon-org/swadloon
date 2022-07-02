@@ -1,0 +1,13 @@
+diff --git a/node_modules/io-ts/lib/index.js b/node_modules/io-ts/lib/index.js
+index 22b72ed..4f67a71 100644
+--- a/node_modules/io-ts/lib/index.js
++++ b/node_modules/io-ts/lib/index.js
+@@ -36,7 +36,7 @@ exports.alias = exports.clean = exports.StrictType = exports.dictionary = export
+ /**
+  * @since 1.0.0
+  */
+-var Either_1 = require("fp-ts/lib/Either");
++var Either_1 = require("fp-ts/Either");
+ /**
+  * @category Decode error
+  * @since 1.0.0
