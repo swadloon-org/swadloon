@@ -300,7 +300,6 @@
     "webpack-dev-server": "^4",
     "webpack-hot-middleware": "^2",
     "webpack-plugin-serve": "^1",
-    "webpack-watched-glob-entries-plugin": "^2.2.2",
-    "yo": "^3.1.1"
+    "webpack-watched-glob-entries-plugin": "^2.2.2"
   }
 }

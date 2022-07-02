@@ -31,14 +31,14 @@ function logCommand(message, ...args) {
     process.stdout.write(`－  ${message}\n`);
 }
 function log(message, ...args) {
-    process.stdout.write(`🏠  ${message}\n`);
+    process.stdout.write(`👾  ${message}\n`);
 }
 function warn(input) {
     if (input instanceof Error) {
-        process.stdout.write(`🏠  ${input}\n`);
+        process.stdout.write(`👾  ${input}\n`);
         return input;
     }
-    process.stdout.write(`🏠  ${input}\n`);
+    process.stdout.write(`👾  ${input}\n`);
     return input;
 }
 

@@ -43,6 +43,8 @@ class FigmaSync extends _core.Command {
         const { args , flags  } = await this.parse(FigmaSync);
         this.log(`running: extract command`);
         await (0, _coreFigmaExtractor).extract({
+            extractorName: "",
+            version: "",
             figmaFile: env.FIGMA_FILE,
             figmaToken: env.FIGMA_TOKEN,
             outputDir: _path.default.resolve(process.cwd(), args && args.path ? args.path : "figma-export"),
