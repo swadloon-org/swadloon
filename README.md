@@ -15,6 +15,7 @@
 ![core-css-extractor](https://github.com/newrade/newrade-core/actions/workflows/core-css-extractor-workflow.yml/badge.svg)
 ![core-cli](https://github.com/newrade/newrade-core/actions/workflows/core-cli-workflow.yml/badge.svg)
 ![core-design-system](https://github.com/newrade/newrade-core/actions/workflows/core-design-system-workflow.yml/badge.svg)
+![core-github-actions](https://github.com/newrade/newrade-core/actions/workflows/core-github-actions-workflow.yml/badge.svg)
 
 ![core-contentful-lib](https://github.com/newrade/newrade-core/actions/workflows/core-contentful-lib-workflow.yml/badge.svg)
 

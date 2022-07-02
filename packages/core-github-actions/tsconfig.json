@@ -1,13 +1,12 @@
 {
   "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "rootDir": "../.",
-    "declaration": false,
+    "rootDir": ".",
     "baseUrl": ".",
     "outDir": "lib",
     "target": "es2018", // for github runner (currently v12)
     "lib": ["es2018"], // for github runner (currently v12)
     "types": ["node", "jest", "debug"]
   },
-  "include": ["src", "test", "types", "scripts/**/*"]
+  "include": ["src", "test", "types"]
 }

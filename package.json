@@ -26,7 +26,8 @@
       "packages/core-cli",
       "packages/core-design-system",
       "packages/core-website-api",
-      "packages/core-contentful-lib"
+      "packages/core-contentful-lib",
+      "packages/core-github-actions"
     ]
   },
   "config": {
