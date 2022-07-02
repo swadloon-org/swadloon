@@ -76,7 +76,7 @@ jobs:
         run: yarn lerna:test --scope @newrade/core-react-ui
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-react-ui
+        run: yarn lerna:build:lib --scope @newrade/core-react-ui
 
       # - name: Run package size report
       #   if: ${{ github.event_name == 'pull_request_target' || github.event_name == 'pull_request' }}

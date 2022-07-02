@@ -82,4 +82,4 @@ jobs:
       #   run: yarn lerna:test --scope @newrade/core-contentful-lib
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-contentful-lib
+        run: yarn lerna:build:lib --scope @newrade/core-contentful-lib

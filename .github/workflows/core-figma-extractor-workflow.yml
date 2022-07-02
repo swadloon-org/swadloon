@@ -89,4 +89,4 @@ jobs:
         run: yarn lerna:test --scope @newrade/core-figma-extractor
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-figma-extractor
+        run: yarn lerna:build:lib --scope @newrade/core-figma-extractor

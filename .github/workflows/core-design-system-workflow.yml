@@ -76,4 +76,4 @@ jobs:
       #   run: yarn lerna:test --scope @newrade/core-design-system
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-design-system
+        run: yarn lerna:build:lib --scope @newrade/core-design-system

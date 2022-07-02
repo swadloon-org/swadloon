@@ -81,8 +81,5 @@ jobs:
       - name: Lint source files
         run: yarn eslint ./packages/core-css-extractor/src/ --ext "ts,tsx"
 
-      - name: Run extractor on sample files
-        run: yarn lerna:build --scope @newrade/core-css-extractor
-
-      # - name: Build package
-      #   run: yarn lerna:build --scope @newrade/core-css-extractor
+      - name: Build package
+        run: yarn lerna:build:lib --scope @newrade/core-css-extractor

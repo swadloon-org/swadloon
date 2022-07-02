@@ -79,4 +79,4 @@ jobs:
         run: yarn lerna:test --scope @newrade/core-jest-config
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-jest-config
+        run: yarn lerna:build:lib --scope @newrade/core-jest-config
