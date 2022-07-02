@@ -52,7 +52,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = function CodeBlock({
   filename,
   ...props
 }) {
-  const filenameExtMatch = filename ? /(?<filename>.+)\.(?<ext>.+)/gi.exec(filename) : null;
+  const filenameExtMatch = filename ? /(?<filename>.+)\.(?<ext>.{1,4})$/gi.exec(filename) : null;
   const filenameExt = filenameExtMatch ? filenameExtMatch.groups?.['ext'] : 'tsx';
   const language = className
     ? className.replace(/language-/, '')
