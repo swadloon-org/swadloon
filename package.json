@@ -21,7 +21,7 @@
       "packages/core-node-utils",
       "packages/core-webpack-config",
       "packages/core-figma-extractor",
-      "packages/core-figma-plugins",
+      "packages/core-figma-scripts",
       "packages/core-css-extractor",
       "packages/core-cli"
     ]

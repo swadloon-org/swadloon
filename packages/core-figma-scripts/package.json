@@ -1,8 +1,17 @@
 {
-  "name": "@newrade/core-figma-plugins",
+  "name": "@newrade/core-figma-scripts",
   "version": "1.2.4",
-  "description": "",
-  "author": "",
+  "description": "Useful Figma scripts (Figma Plugin API)",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": {
+    "directory": "packages/core-figma-scripts",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "files": [
     "src"

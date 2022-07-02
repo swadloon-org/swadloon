@@ -7,7 +7,7 @@
     "packages/core-design-system-compiler",
     "packages/core-figma-design-plugin",
     "packages/core-figma-extractor",
-    "packages/core-figma-plugins",
+    "packages/core-figma-scripts",
     "packages/core-gatsby-config",
     "packages/core-gatsby-ui",
     "packages/core-github-actions",

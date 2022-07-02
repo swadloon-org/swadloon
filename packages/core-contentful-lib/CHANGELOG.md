@@ -134,7 +134,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   ([d8ce82b](https://github.com/newrade/newrade-core/commit/d8ce82b6f897f49a8243c02652e878210b96a72d))
 - **core-design-system:** wip
   ([36b5e4c](https://github.com/newrade/newrade-core/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
-- **core-figma-plugins:** fix typing issue
+- **core-figma-scripts:** fix typing issue
   ([6470406](https://github.com/newrade/newrade-core/commit/6470406039821897e86b1edbb7477f80990c5a6f))
 - **core-gatsby-config:** add new plugin to create contentful pages
   ([3af6c82](https://github.com/newrade/newrade-core/commit/3af6c82d6e2a34653c63baeeb0e0fa0e24c701fa))
@@ -497,7 +497,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **core-contentful-lib:** fixes
   ([6f2127f](https://github.com/newrade/newrade/commit/6f2127f214f235b0b98fc7f8cd5ecb55049f4177))
-- **core-figma-plugins:** fix typing issue
+- **core-figma-scripts:** fix typing issue
   ([6470406](https://github.com/newrade/newrade/commit/6470406039821897e86b1edbb7477f80990c5a6f))
 
 ### Features

@@ -104,7 +104,7 @@ async function getExamples(node: any, prisma: PrismaClient) {
 
   const data = new Array<Example | null>();
 
-  for (let i = 0; i < names.length; i++) {
+  for (let i = 0; i < names?.length; i++) {
     const results = await prisma.example.findUnique({
       where: {
         id: parseInt(names[i]),

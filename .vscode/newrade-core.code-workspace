@@ -226,8 +226,8 @@
       "path": "../packages/core-figma-extractor"
     },
     {
-      "name": "core-figma-plugins",
-      "path": "../packages/core-figma-plugins"
+      "name": "core-figma-scripts",
+      "path": "../packages/core-figma-scripts"
     },
     {
       "name": "core-gatsby-config",
