@@ -4,4 +4,6 @@ export const includedLibToCompile: string[] = [
   'node-fetch',
   'io-ts',
   'fp-ts',
+  '@newrade/core-node-utils',
+  '@newrade/core-common',
 ];
