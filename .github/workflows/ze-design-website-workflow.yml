@@ -94,7 +94,7 @@ jobs:
         run: yarn eslint ./packages/ze-design-website/src/ --ext "ts,tsx"
 
       - name: Build ze-design-system
-        run: yarn lerna:build --scope @newrade/ze-design-system
+        run: yarn lerna:build:lib --scope @newrade/ze-design-system
 
       # - name: Run unit tests
       #   run: yarn lerna:test --scope @newrade/ze-*
@@ -103,7 +103,7 @@ jobs:
         run: yarn lerna:clean --scope @newrade/ze-design-website
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/ze-design-website
+        run: yarn lerna:build:app --scope @newrade/ze-design-website
 
       - name: Deploy
         id: deploy

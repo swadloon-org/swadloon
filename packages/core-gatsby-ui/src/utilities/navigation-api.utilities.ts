@@ -13,7 +13,7 @@ import {
 } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
-import { GatsbyPageNode } from './gatsby-page-node';
+import { GatsbyPageNode } from './gatsby-page-node.js';
 
 export const defaultOptions: Required<GetNavigationAPIOptions> = {
   pageNodes: [],

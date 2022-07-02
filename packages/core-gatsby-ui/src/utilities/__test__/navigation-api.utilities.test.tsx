@@ -2,7 +2,7 @@ import { DEPLOY_ENV, SITE_LANGUAGES } from '@newrade/core-common';
 import { LinkAPI, LinkType, NavComponent, NavigationAPI } from '@newrade/core-website-api';
 import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
-import { GatsbyPageNode } from '../gatsby-page-node';
+import { GatsbyPageNode } from '../gatsby-page-node.js';
 import {
   defaultOptions,
   getBreadcrumbsForPath,
@@ -15,7 +15,7 @@ import {
   setNavigationLinkAtPath,
   sortLinkPredicate,
   sortNavigationPredicate,
-} from '../navigation-api.utilities';
+} from '../navigation-api.utilities.js';
 
 const siteMetadata = {
   title: 'Website',

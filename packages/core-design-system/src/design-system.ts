@@ -1,12 +1,12 @@
-import { Buttons } from './components/buttons';
-import { Animations } from './foundations/animations';
-import { COLOR_SCHEME } from './foundations/color-scheme';
-import { Colors } from './foundations/colors';
-import { Effects } from './foundations/effects';
-import { Iconography } from './foundations/iconography';
-import { Layout, LayoutV2 } from './foundations/layout';
-import { Sizing } from './foundations/sizing';
-import { Typography, TypographyV2 } from './foundations/typography';
+import { Buttons } from './components/buttons.js';
+import { Animations } from './foundations/animations.js';
+import { COLOR_SCHEME } from './foundations/color-scheme.js';
+import { Colors } from './foundations/colors.js';
+import { Effects } from './foundations/effects.js';
+import { Iconography } from './foundations/iconography.js';
+import { Layout, LayoutV2 } from './foundations/layout.js';
+import { Sizing } from './foundations/sizing.js';
+import { Typography, TypographyV2 } from './foundations/typography.js';
 
 export interface DesignSystem<Override extends undefined | string = undefined> {
   /**
@@ -39,6 +39,10 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * TODO
    */
   // illustrations: any;
+  /**
+   * TODO
+   */
+  // photography: any;
   /**
    * Shadows, elevation, blurs and other visual effects.
    */

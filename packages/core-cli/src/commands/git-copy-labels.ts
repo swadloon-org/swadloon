@@ -1,4 +1,4 @@
-import { Command, flags } from '@oclif/command';
+import { Config, Flags } from '@oclif/core';
 import chalk from 'chalk';
 import debug from 'debug';
 import * as t from 'io-ts';
@@ -6,7 +6,7 @@ import { Octokit } from 'octokit';
 
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -16,17 +16,13 @@ export const Env = t.intersection([
   }),
 ]);
 
-export default class GitCopyLabels extends Command {
-  log = debug(`${NS}:git-copy-labels`);
-  logWarn = debug(`${NS}:git-copy-labels:warn`);
-  logError = debug(`${NS}:git-copy-labels:error`);
-
+export default class GitCopyLabels extends BaseCommand {
   static description = 'copy labels from a repo to another';
 
   static examples = [`$ nr git-copy-labels`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [
@@ -34,12 +30,16 @@ export default class GitCopyLabels extends Command {
     { name: 'destination', description: 'destination repo <org-name>/<repo-name>', required: true },
   ];
 
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'git-copy-labels' });
+  }
+
   async init() {
     debug.enable('nr:core-cli:*');
   }
 
   async run() {
-    const { args, flags } = this.parse(GitCopyLabels);
+    const { args, flags } = await this.parse(GitCopyLabels);
 
     this.log('validating inputs');
 

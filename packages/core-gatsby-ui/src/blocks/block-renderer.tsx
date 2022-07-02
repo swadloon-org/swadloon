@@ -18,15 +18,14 @@ import {
   LinkAPI,
 } from '@newrade/core-website-api';
 
-import { LinkRenderer } from '../links/link-renderer';
+import { LinkRenderer } from '../links/link-renderer.js';
 
-import { BlockRendererProps } from './block.props';
-import { BlockGoogleMapLazy } from './block-google-map.lazy';
-import { BlockImage } from './block-image';
-import { BlockImageBackground } from './block-image-background';
-import { BlockMarkdown } from './block-markdown';
-
-import * as styles from './block-renderer.css';
+import { BlockRendererProps } from './block.props.js';
+import { BlockGoogleMapLazy } from './block-google-map.lazy.js';
+import { BlockImage } from './block-image.js';
+import { BlockImageBackground } from './block-image-background.js';
+import { BlockMarkdown } from './block-markdown.js';
+import * as styles from './block-renderer.css.js';
 
 const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');

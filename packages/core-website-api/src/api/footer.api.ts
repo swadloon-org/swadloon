@@ -1,13 +1,12 @@
 import { Variant } from '@newrade/core-design-system';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { PartialOrNull } from '../utilities';
-
-import { BlockAPI } from './block.api';
-import { ColorModeAPI } from './color-mode.api';
-import { CompanyAddressAPI } from './company-address.api';
-import { CompanyInfoAPI } from './company-info.api';
-import { LinkAPI } from './link.api';
-import { NavigationAPI } from './navigation.api';
+import { BlockAPI } from './block.api.js';
+import { ColorModeAPI } from './color-mode.api.js';
+import { CompanyAddressAPI } from './company-address.api.js';
+import { CompanyInfoAPI } from './company-info.api.js';
+import { LinkAPI } from './link.api.js';
+import { NavigationAPI } from './navigation.api.js';
 
 /**
  * Predefined footer layouts

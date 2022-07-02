@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/types/core-types.d.ts"],"sourcesContent":["/**\n * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-\n */\n/// <reference path=\"../../core-types/src/morgan.d.ts\" />\n/// <reference path=\"../../core-types/src/copy-webpack-plugin.d.ts\" />\n"],"names":[],"mappings":"AAAA"}

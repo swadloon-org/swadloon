@@ -1,9 +1,8 @@
 import { Variant } from '@newrade/core-design-system';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { PartialOrNull } from '../utilities';
-
-import { ColorModeAPI } from './color-mode.api';
-import { LinkAPI } from './link.api';
+import { ColorModeAPI } from './color-mode.api.js';
+import { LinkAPI } from './link.api.js';
 
 export enum BlockType {
   /**

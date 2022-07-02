@@ -1,24 +1,22 @@
-import { Command, flags } from '@oclif/command';
-import chalk from 'chalk';
-import debug from 'debug';
+import { Config, Flags } from '@oclif/core';
 import simpleGit from 'simple-git';
 
-import { NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
 
-export default class GitCleanBranches extends Command {
-  log = debug(`${NS}:git-clean-branches`);
-  logWarn = debug(`${NS}:git-clean-branches:warn`);
-  logError = debug(`${NS}:git-clean-branches:error`);
-
+export default class GitCleanBranches extends BaseCommand {
   static description = 'delete local branches that are already merged on origin';
 
   static examples = [`$ nr git-clean-branches`];
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [];
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'git-clean-branches' });
+  }
 
   async init() {}
 
@@ -28,10 +26,10 @@ export default class GitCleanBranches extends Command {
     this.log('looking for local branches to remove');
 
     const localBranches = await git.branchLocal();
-    this.log(`local branches: ${localBranches.all.map((branch) => chalk.blueBright(branch))}`);
+    this.log(`local branches: ${localBranches.all.map((branch) => this.chalk.blueBright(branch))}`);
 
     const ignoredBranches = ['dev', 'master', 'release'];
-    this.log(`ignored: ${ignoredBranches.map((branch) => chalk.blueBright(branch))}`);
+    this.log(`ignored: ${ignoredBranches.map((branch) => this.chalk.blueBright(branch))}`);
 
     const mergedToMasterBranches = await git.branch(['--merged', 'master']);
     this.log(`branches merged on master: ${mergedToMasterBranches.all}`);
@@ -42,7 +40,7 @@ export default class GitCleanBranches extends Command {
     this.log(
       `to remove: ${
         localBranchesToBeDeleted.length
-          ? localBranchesToBeDeleted.map((branch) => chalk.red(branch))
+          ? localBranchesToBeDeleted.map((branch) => this.chalk.red(branch))
           : '[]'
       }`
     );

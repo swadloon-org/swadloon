@@ -14,6 +14,7 @@ export enum ERROR_TYPE {
   LIB_ERROR = 'LIB_ERROR',
   WEBPACK_ERROR = 'WEBPACK_ERROR',
   GATSBY_ERROR = 'GATSBY_ERROR',
+  CLI_ERROR = 'CLI_ERROR',
   //
   // client side
   //

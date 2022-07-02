@@ -17,7 +17,7 @@ import { Code } from '@newrade/core-react-ui/code';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { useI18next } from '../i18next/use-i18next.hook';
+import { useI18next } from '../i18next/use-i18next.hook.js';
 
 /**
  * @name DocPropsTableProps

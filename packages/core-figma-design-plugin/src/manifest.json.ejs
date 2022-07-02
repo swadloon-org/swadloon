@@ -1,0 +1,10 @@
+<% // see docs here https://www.figma.com/plugin-docs/manifest/#docsNav %>
+<% const package = require('../../../package.json'); %>
+{
+    "name": "Swadloon 👾",
+    "id": "",
+    "api": "1.0.0",
+    "main": "<%= `public${htmlWebpackPlugin.files.js.map(js => `${js}`).join('')}` %>",
+    "ui": "public/ui.html",
+    "editorType": ["figma"]
+}

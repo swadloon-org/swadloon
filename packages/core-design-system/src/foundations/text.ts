@@ -1,15 +1,23 @@
-import { ComputedValues } from '@capsizecss/core/dist/declarations/src/types';
+/**
+ * @taken from @capsizecss/core
+ */
+export declare type ComputedValues = {
+  fontSize: string;
+  lineHeight: string;
+  capHeightTrim: string;
+  baselineTrim: string;
+};
 
-import { Color } from '../primitives/color';
+import { Color } from '../primitives/color.js';
 import {
   FontVariantNumericType,
   FontWeightType,
   LetterSpacingType,
   TextDecorationType,
   TextTransformType,
-} from '../types';
+} from '../types.js';
 
-import { Font } from './font';
+import { Font } from './font.js';
 
 export enum TEXT_TRANSFORM {
   capitalize = 'capitalize',
@@ -155,16 +163,9 @@ export type CapsizeTextStyleV2<Override extends undefined | string = undefined> 
 
 export type TextStyle<Override extends undefined | string = undefined> = {
   /**
-   * Array of font object that contains information about the typeface.
+   * Array of font objects that contains information about the typeface.
    */
-  font?: Override extends string ? string : Font[];
-  /**
-   * Font family to use, must match the exact name used in the `fontFamily` property
-   *
-   * @example 'Montserrat-Bold'
-   * @default font.name
-   */
-  fontFamily?: string;
+  fontFamily?: Override extends string ? string : Font[];
   /**
    * Specify the font weight in number.
    *

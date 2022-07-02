@@ -9,9 +9,9 @@ import {
   Radius,
 } from '@newrade/core-design-system';
 
-import { keys, px } from '../utilities-iso/utilities';
+import { keys, px } from '../utilities-iso/utilities.js';
 
-import { getCSSColor } from './colors.utilities';
+import { getCSSColor } from './colors.utilities.js';
 
 export function getCSSBoxStyle(box: BoxStyle): BoxStyle<string> {
   return {

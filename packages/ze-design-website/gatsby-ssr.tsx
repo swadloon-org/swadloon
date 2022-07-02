@@ -1,8 +1,8 @@
 import { GatsbySSR } from 'gatsby';
 import React from 'react';
 
-import { Providers } from './src/providers/providers';
-import { WrapElement } from './gatsby-wrap-element';
+import { Providers } from './src/providers/providers.js';
+import { WrapElement } from './gatsby-wrap-element.js';
 
 /**
  * Gatsby Server Rendering APIs

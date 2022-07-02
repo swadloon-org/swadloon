@@ -1,11 +1,11 @@
 import { AriaRole } from 'react';
 
-import { ICON } from '../foundations/iconography';
-import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography';
-import { ColorType } from '../types';
+import { ICON } from '../foundations/iconography.js';
+import { PARAGRAPH_SIZE, TEXT_STYLE } from '../foundations/typography.js';
+import { ColorType } from '../types.js';
 
-import { BoxStyle } from './box';
-import { Variant } from './components';
+import { BoxStyle } from './box.js';
+import { Variant } from './components.js';
 
 export enum LinkAs {
   button = 'button',

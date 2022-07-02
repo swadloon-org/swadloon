@@ -25,13 +25,12 @@ import { lorenipsumMedium, lorenipsumShort } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 
-import { BlockRenderer } from '../blocks/block-renderer';
-import { GatsbyLink } from '../links/gatsby-link';
+import { BlockRenderer } from '../blocks/block-renderer.js';
+import { GatsbyLink } from '../links/gatsby-link.js';
 
-import { FooterProps } from './footer.props';
-import { FooterBase } from './footer-base';
-
-import * as styles from './footer-standard.css';
+import { FooterProps } from './footer.props.js';
+import { FooterBase } from './footer-base.js';
+import * as styles from './footer-standard.css.js';
 
 type Props = FooterProps;
 

@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import type { lazyComponentImports } from './context-require';
+import type { lazyComponentImports } from './context-require.js';
 
 type Props = {
   lazyComponentImports: typeof lazyComponentImports;
@@ -18,7 +18,11 @@ export const LazyComponentLoader: React.FC<Props> = function Layout({ lazyCompon
 
     if (!selectedModule?.requireFn) {
       return Promise.resolve({
-        default: () => <div>Could not load component ({selectedModule})</div>,
+        default: () => (
+          <div>
+            <>Could not load component ({selectedModule})</>
+          </div>
+        ),
       });
     }
 

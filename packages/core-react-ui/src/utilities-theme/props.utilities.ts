@@ -1,6 +1,6 @@
 import { kebab } from 'case';
 
-import { cssVar, cssVarName } from '../utilities-iso/css-variables.utilities';
+import { cssVar, cssVarName } from '../utilities-iso/css-variables.utilities.js';
 
 export function getFormattedCSSVar(options: {
   prefix?: string;

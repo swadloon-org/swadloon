@@ -5,7 +5,7 @@ import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
 import { Badge, Cluster, Heading, Hr, Link, Paragraph, Stack, Tag } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { useI18next } from '../i18next/use-i18next.hook';
+import { useI18next } from '../i18next/use-i18next.hook.js';
 
 type Props = {
   props: {

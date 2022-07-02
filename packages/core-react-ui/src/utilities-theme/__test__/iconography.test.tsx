@@ -1,5 +1,5 @@
-import { defaultIconography } from '../../default-theme';
-import { getCSSIconography } from '../iconography.utilities';
+import { defaultIconography } from '../../default-theme/src.js';
+import { getCSSIconography } from '../iconography.utilities.js';
 
 describe('iconography utilities', () => {
   describe(`${getCSSIconography.name}`, () => {

@@ -1,10 +1,17 @@
 /**
- * For typescript CLI used with NodeJS
+ * For typescript CLI (Oclif) used with NodeJS
  */
 {
-  "extends": "./tsconfig.node-commonjs.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "declaration": false,
-    "incremental": false
+    "noEmit": true,
+    "module": "node16",
+    //
+    // should be set according to choosen NodeJS version and
+    // its support of recent features https://node.green/
+    //
+    "target": "es2021",
+    "lib": ["es2021"],
+    "types": ["node", "jest", "chai"]
   }
 }

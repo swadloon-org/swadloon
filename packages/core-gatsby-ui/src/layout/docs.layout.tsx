@@ -33,22 +33,22 @@ import {
   SidebarAPI,
 } from '@newrade/core-website-api';
 
-import { Breadcrumbs } from '../breadcrumbs/breadcrumbs';
-import { ThemeWrapper } from '../context/theme-wrapper';
-import { FooterDocs } from '../footers/footer-docs';
-import { useLayoutState } from '../hooks/use-design-system-layout.hook';
-import { useI18next } from '../i18next/use-i18next.hook';
-import { GatsbyLink } from '../links/gatsby-link';
-import { useSidebarState } from '../sidebar/sidebar.hooks';
-import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy';
-import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop';
+import { Breadcrumbs } from '../breadcrumbs/breadcrumbs.js';
+import { ThemeWrapper } from '../context/theme-wrapper.js';
+import { FooterDocs } from '../footers/footer-docs.js';
+import { useLayoutState } from '../hooks/use-design-system-layout.hook.js';
+import { useI18next } from '../i18next/use-i18next.hook.js';
+import { GatsbyLink } from '../links/gatsby-link.js';
+import { useSidebarState } from '../sidebar/sidebar.hooks.js';
+import { SidebarStandardLazy } from '../sidebar/sidebar-standard.lazy.js';
+import { SidebarDocsDesktop } from '../sidebar-docs-desktop/sidebar-docs-desktop.js';
 import {
   getBreadcrumbsForPath,
   getPathParts,
   isPathActive,
-} from '../utilities/navigation-api.utilities';
+} from '../utilities/navigation-api.utilities.js';
 
-import * as styles from './docs.layout.css';
+import * as styles from './docs.layout.css.js';
 
 /**
  * Custom props to control the layout

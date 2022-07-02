@@ -4,11 +4,11 @@ import * as Migration from 'contentful-migration';
 import { CarouselDirection } from '@newrade/core-design-system';
 import { BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
+import { keys } from '../utilities.js';
 
-import { createBlock } from './block.contentful';
-import { COMMON_FIELD, mediaCollectionField } from './common-fields.contentful';
+import { createBlock } from './block.contentful.js';
+import { COMMON_FIELD, mediaCollectionField } from './common-fields.contentful.js';
 
 export function createImageCarouselBlock(migration: Migration.default) {
   const content = createBlock(migration, CONTENT_TYPE.BLOCK_IMAGE_CAROUSEL, {

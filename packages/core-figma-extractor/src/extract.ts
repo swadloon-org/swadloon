@@ -1,23 +1,33 @@
 import fs from 'fs';
-import path from 'path';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 import chalk from 'chalk';
 import debug from 'debug';
 import * as Figma from 'figma-js'; // DON'T import Figma from 'figma-js'
 
-import { defaultOutputColorFiles, FileType, PathExport } from './constants/figma-colors.constants';
-import { exportCssColorTokens } from './exporters/colors-css-exporter';
-import { exportJSONColorTokens } from './exporters/colors-json-exporter';
-import { exportScssColorTokens } from './exporters/colors-scss-exporter';
-import { exportTSColorTokens } from './exporters/colors-ts-exporter';
-import { extractColorsFromFigmaStyles } from './extractors/colors-extractor';
-import { appendFile, createExportFile, createExportJSONFile } from './service/file.service';
-import { log, logConfig, logError, logErrorConfig, logWarn } from './service/logging.service';
+import {
+  defaultOutputColorFiles,
+  FileType,
+  PathExport,
+} from './constants/figma-colors.constants.js';
+import { exportCssColorTokens } from './exporters/colors-css-exporter.js';
+import { exportJSONColorTokens } from './exporters/colors-json-exporter.js';
+import { exportScssColorTokens } from './exporters/colors-scss-exporter.js';
+import { exportTSColorTokens } from './exporters/colors-ts-exporter.js';
+import { extractColorsFromFigmaStyles } from './extractors/colors-extractor.js';
+import { appendFile, createExportFile, createExportJSONFile } from './service/file.service.js';
+import { log, logConfig, logError, logErrorConfig, logWarn } from './service/logging.service.js';
+
+const ___filename = fileURLToPath(import.meta.url);
+const ___dirname = dirname(___filename);
 
 /**
  * Options for the extract function
  */
 export type ExtractOptions = {
+  extractorName: string;
+  version: string;
   /**
    * API Token to connect to the Figma API
    */
@@ -63,8 +73,10 @@ export type ExtractOptions = {
 };
 
 export const defaultExtractOptions: ExtractOptions = {
+  extractorName: 'core-figma-extractor',
+  version: '1',
   inputColorThemeNamespace: true,
-  outputDir: path.join(__dirname, '..', 'figma-export'),
+  outputDir: path.join(___dirname, '..', 'figma-export'),
   outputColorFiles: defaultOutputColorFiles,
   outputColorNamespace: '',
   outputCSSColorFormat: 'hsla',

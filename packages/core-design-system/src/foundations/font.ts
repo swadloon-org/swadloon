@@ -1,4 +1,13 @@
-import { FontMetrics } from '@capsizecss/core';
+/**
+ * @see @capsizecss/core
+ */
+export interface FontMetrics {
+  ascent: number;
+  descent: number;
+  lineGap: number;
+  unitsPerEm: number;
+  capHeight: number;
+}
 
 export type Font = {
   /**

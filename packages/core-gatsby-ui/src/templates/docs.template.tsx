@@ -16,10 +16,10 @@ import {
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
-import { DocsPageFooter } from '../layout/docs-footer';
-import { Aside } from '../navigation/aside';
+import { DocsPageFooter } from '../layout/docs-footer.js';
+import { Aside } from '../navigation/aside.js';
 
-import * as styles from './docs.css';
+import * as styles from './docs.css.js';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 

@@ -2,7 +2,7 @@
  * All properties supported in markdown frontmatter
  */
 
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props.js';
 
 export type MdxFrontmatter = {
   /**

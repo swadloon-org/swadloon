@@ -1,6 +1,6 @@
 import Gatsby from 'gatsby';
 
-import { GatsbySiteMetadata } from './site-metadata';
+import { GatsbySiteMetadata } from './site-metadata.js';
 
 /**
  * Extends the default Gatsby Config

@@ -1,7 +1,13 @@
-import { MediaQueryGroup } from './foundations/media-queries';
-import { FONT_VARIANT_NUMERIC, TEXT_TRANSFORM, TextDecoration } from './foundations/text';
-import { Color } from './primitives/color';
-import { Radius } from './primitives/radius';
+import { MediaQueryGroup } from './foundations/media-queries.js';
+import { FONT_VARIANT_NUMERIC, TEXT_TRANSFORM, TextDecoration } from './foundations/text.js';
+import { Color } from './primitives/color.js';
+import { Radius } from './primitives/radius.js';
+
+/**
+ *
+ * Utility types for the Design System
+ *
+ */
 
 /**
  *
@@ -16,6 +22,10 @@ export type NumberType<Override extends undefined | string> = Override extends s
 export type PercentType<Override extends undefined | string> = Override extends string
   ? string
   : number;
+
+export type BooleanType<Override extends undefined | string> = Override extends string
+  ? string
+  : boolean;
 
 /**
  *

@@ -1,4 +1,0 @@
-{
-  "main": "dist/newrade-core-webpack-config-config.cjs.js",
-  "module": "dist/newrade-core-webpack-config-config.esm.js"
-}

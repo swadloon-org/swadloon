@@ -1,4 +1,4 @@
-import { NumberType } from '../types';
+import { NumberType } from '../types.js';
 
 /**
  * Represents an angle value expressed in degrees, gradians, radians, or turns

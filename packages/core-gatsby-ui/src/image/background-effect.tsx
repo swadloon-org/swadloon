@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/utilities-iso';
 
-import * as styles from './background-effect.css';
+import * as styles from './background-effect.css.js';
 
 export type BackgroundEffectConfig = Partial<{
   background: string;
@@ -11,6 +11,10 @@ export type BackgroundEffectConfig = Partial<{
   filter: FilterProps;
   zIndex: number;
 }>;
+
+import { Property } from 'csstype';
+
+export type FilterProps = Property.Filter;
 
 type Props = Omit<PrimitiveProps, 'as'> & {
   effect?: BackgroundEffectConfig;

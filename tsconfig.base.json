@@ -5,26 +5,26 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "checkJs": false,
-    "isolatedModules": false,
+    "isolatedModules": true, // important for babel, swc or other tsc alternatives
+    "incremental": false,
     "composite": false,
     "declaration": false,
     "diagnostics": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "importHelpers": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": false,
     "jsx": "react",
     "module": "esnext",
-    "moduleResolution": "node",
+    "target": "esnext",
+    "moduleResolution": "node16", // important for "module": "true" and resolution of .js imports in .ts files
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
     "skipLibCheck": true
   }
 }

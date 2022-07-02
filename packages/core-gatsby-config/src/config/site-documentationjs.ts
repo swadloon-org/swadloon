@@ -1,4 +1,4 @@
-import { Maybe, Mdx, Scalars } from './site-graphql-types';
+import { Maybe, Mdx, Scalars } from './site-graphql-types.js';
 
 export type DocumentationJs = Node & {
   readonly name: Maybe<Scalars['String']>;

@@ -1,21 +1,28 @@
 import { FontMetrics } from '@capsizecss/core';
+import { MapLeafNodes } from '@vanilla-extract/private';
 
 import {
   CapsizeTextStyle,
+  HeadingSpaces,
+  ParagraphSpaces,
+  TEXT_SPACING,
+  TextSpaces,
   TextStyle,
   TextVariantStyles,
+  TitlesSpaces,
   TitlesV2,
   TypographyV2,
   VIEWPORT,
 } from '@newrade/core-design-system';
 
-import { defaultSansFont, defaultSerifFont } from '../default-theme';
-import { CSSTypographyV2 } from '../design-system';
-import { keys } from '../utilities-iso/utilities';
+import { CSSTypographyV2 } from '../css-design-system/design-system.js';
+import { defaultSansFont, defaultSerifFont } from '../default-theme/src.js';
+import { em, keys, pxToEm } from '../utilities-iso/utilities.js';
 
-import { getCSSFontsObject } from './font.utilities';
-import { createCSSTextStyle } from './text.utilities';
-import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities';
+import { setVarsValuesToStyleObject } from './component.utilities.js';
+import { getCSSFontsObject } from './font.utilities.js';
+import { createCSSTextStyle } from './text.utilities.js';
+import { createCSSCapsizeTextStyleV2 } from './text-capsize.utilities.js';
 
 /**
  * Create a typography object which properties that are compatible with CSS
@@ -30,10 +37,11 @@ export function getCSSTypographyV2({
   paragraphs,
   labels,
   baseFontSize,
+  spaces,
   vars,
 }: TypographyV2 & { baseFontSize: number }): CSSTypographyV2 {
-  const titlesFontMetrics = titles.font?.[0].fontMetrics
-    ? titles.font[0].fontMetrics
+  const titlesFontMetrics = titles.fontFamily?.[0].fontMetrics
+    ? titles.fontFamily[0].fontMetrics
     : defaultSerifFont.fontMetrics;
   const titlesStyles = createCSSVariantTextStylesV2({
     variant: titles,
@@ -41,8 +49,8 @@ export function getCSSTypographyV2({
     fontMetrics: titlesFontMetrics,
   });
 
-  const headingsFontMetrics = headings.font?.[0].fontMetrics
-    ? headings.font[0].fontMetrics
+  const headingsFontMetrics = headings.fontFamily?.[0].fontMetrics
+    ? headings.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const headingsStyles = createCSSVariantTextStylesV2({
     variant: headings,
@@ -50,8 +58,8 @@ export function getCSSTypographyV2({
     fontMetrics: headingsFontMetrics,
   });
 
-  const paragraphsFontMetrics = paragraphs.font?.[0].fontMetrics
-    ? paragraphs.font[0].fontMetrics
+  const paragraphsFontMetrics = paragraphs.fontFamily?.[0].fontMetrics
+    ? paragraphs.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const paragraphsStyles = createCSSVariantTextStylesV2({
     variant: paragraphs,
@@ -59,8 +67,8 @@ export function getCSSTypographyV2({
     fontMetrics: paragraphsFontMetrics,
   });
 
-  const labelsFontMetrics = labels.font?.[0].fontMetrics
-    ? labels.font[0].fontMetrics
+  const labelsFontMetrics = labels.fontFamily?.[0].fontMetrics
+    ? labels.fontFamily[0].fontMetrics
     : defaultSansFont.fontMetrics;
   const labelsStyles = createCSSVariantTextStylesV2({
     variant: labels,
@@ -68,7 +76,9 @@ export function getCSSTypographyV2({
     fontMetrics: labelsFontMetrics,
   });
 
-  return {
+  const cssSpaces = getCSSTypographicSpaces(spaces);
+
+  const cssTypography = {
     fonts: {
       ...getCSSFontsObject(fonts),
     },
@@ -76,7 +86,20 @@ export function getCSSTypographyV2({
     headings: headingsStyles as TypographyV2<string>['headings'],
     paragraphs: paragraphsStyles as TypographyV2<string>['paragraphs'],
     labels: labelsStyles as TypographyV2<string>['labels'],
+    spaces: cssSpaces as TypographyV2<string>['spaces'],
   };
+
+  if (!vars) {
+    return cssTypography;
+  }
+
+  //
+  // if vars is passed, traverse the CSSTypography object and replace the defined values
+  //
+  return setVarsValuesToStyleObject<CSSTypographyV2>(
+    cssTypography as MapLeafNodes<CSSTypographyV2, string>,
+    vars
+  ) as CSSTypographyV2;
 }
 
 function createCSSVariantTextStylesV2({
@@ -134,8 +157,52 @@ function createCSSVariantTextStylesV2({
     ...createCSSTextStyle({ ...parentTextStyles, baseFontSize }),
     ...variantStyles,
     styles: keys(variantStylesStyles).reduce((previous, current) => {
-      previous[current] = createCSSTextStyle({ ...variantStylesStyles[current], baseFontSize });
+      previous[current] = createCSSTextStyle({
+        fontStyle: parentTextStyles.fontStyle, // merge the parent fontStyle
+        fontWeight: parentTextStyles.fontWeight, // merge the parent fontWeight
+        letterSpacing: parentTextStyles.letterSpacing, // merge the parent letterSpacing
+        ...variantStylesStyles[current],
+        baseFontSize,
+      });
       return previous;
     }, {} as TextVariantStyles<string>),
   };
+}
+
+function getCSSTypographicSpaces(spaces: TextSpaces): TextSpaces<string> {
+  return keys(spaces).reduce(
+    (previous, current) => {
+      const textSpacings = spaces[current];
+      if (!textSpacings) {
+        return previous;
+      }
+
+      keys(textSpacings).forEach(
+        (
+          textSpaceName:
+            | keyof TitlesSpaces<undefined>
+            | keyof HeadingSpaces<undefined>
+            | keyof ParagraphSpaces<undefined>
+        ) => {
+          // @ts-ignore
+          if (!previous[current][textSpaceName]) {
+            // @ts-ignore
+            previous[current][textSpaceName] = {};
+          }
+          const textSpaces = (textSpacings as TitlesSpaces<undefined>)[
+            textSpaceName as keyof TitlesSpaces<undefined>
+          ];
+
+          // @ts-ignore
+          previous[current][textSpaceName] = {
+            [TEXT_SPACING.after]: em({ value: textSpaces.before }),
+            [TEXT_SPACING.before]: em({ value: textSpaces.after }),
+          };
+        }
+      );
+
+      return previous;
+    },
+    { titles: {}, headings: {}, paragraphs: {} } as TextSpaces<string>
+  );
 }

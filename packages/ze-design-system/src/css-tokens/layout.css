@@ -1,6 +1,6 @@
 :root{
   --media-mobile:screen and (max-width: 768px);
-  --media-mobile-only:screen and (min-width: 0px) and (max-width: 768px);
+  --media-mobile-only:screen and (min-width: ) and (max-width: 768px);
   --media-tablet:screen and (min-width: 768px);
   --media-tablet-only:screen and (min-width: 768px) and (max-width: 1280px);
   --media-desktop-small:screen and (min-width: 1280px);
@@ -20,18 +20,18 @@
   --breakpoints-desktop-medium:1440px;
   --breakpoints-desktop-large:1600px;
   --breakpoints-desktop-x-large:1920px;
-  --content-margins-mobile:24px;
+  --content-margins-mobile:20px;
   --content-margins-tablet:32px;
-  --content-margins-desktop:48px;
+  --content-margins-desktop:32px;
   --content-width-desktop-blog-max-width:800px;
   --content-width-desktop-max-width:1600px;
   --content-width-desktop-docs-max-width:800px;
   --sidebar-width-desktop:300px;
   --sidebar-width-tablet:300px;
   --sidebar-width-mobile:375px;
-  --navbar-height-desktop:64px;
-  --navbar-height-tablet:60px;
-  --navbar-height-mobile:60px;
+  --navbar-height-desktop:48px;
+  --navbar-height-tablet:56px;
+  --navbar-height-mobile:64px;
   --aside-width:260px;
   --footer-height-desktop:210px;
   --footer-height-tablet:210px;

@@ -1,6 +1,6 @@
-import { defaultBaseFontSize } from '../../default-theme/default-sizing';
-import { defaultTypography } from '../../default-theme/default-typography';
-import { getCSSTypographyV2 } from '../typography-v2.utilities';
+import { defaultBaseFontSize } from '../../default-theme/default-sizing.js';
+import { defaultTypography } from '../../default-theme/default-typography.js';
+import { getCSSTypographyV2 } from '../typography-v2.utilities.js';
 
 describe('typography v2 utilities', () => {
   describe(`${getCSSTypographyV2.name}`, () => {

@@ -3,9 +3,9 @@ import { Property } from 'csstype';
 
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 
-import { pxStringToNumber } from '../utilities-iso/utilities';
+import { pxStringToNumber } from '../utilities-iso/utilities.js';
 
-import { getCSSFonts } from './font.utilities';
+import { getCSSFonts } from './font.utilities.js';
 
 /**
  *
@@ -17,7 +17,6 @@ type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
   baseFontSize,
-  font,
   fontFamily,
   fontWeight,
   fontStyle,
@@ -25,16 +24,11 @@ export function createCSSTextStyle({
   textTransform,
   textDecoration,
 }: TextStyleOptions): TextStyle<string> {
-  if (fontFamily || font?.length) {
-    const cssFontFamily = fontFamily ? fontFamily : font?.length ? getCSSFonts(font) : undefined;
+  if (fontFamily?.length) {
+    const cssFontFamily = getCSSFonts(fontFamily);
 
     return {
-      //
-      // if fontFamily is defined on the text style directly, we take the value
-      // otherwise, we derive the fontFamily from the font config object (Font[])
-      //
       fontFamily: cssFontFamily,
-      font: cssFontFamily,
       fontWeight: fontWeight ? fontWeight.toString() : `400`,
       fontStyle,
       letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
@@ -78,7 +72,7 @@ export function convertLetterSpacingToPercent({
 /**
  * Convert px letter spacing value to em units
  */
-export function convertLetterSpacingToEM({
+export function convertPxLetterSpacingToEm({
   value,
   fontSize,
 }: {
@@ -109,7 +103,7 @@ export function convertLetterSpacingToEM({
     return undefined;
   }
 
-  return `${convertedValue / 100}em`;
+  return `${convertedValue / numericFontSize}em`;
 }
 
 export function getCSSFontTextStyles(

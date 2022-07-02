@@ -1,7 +1,7 @@
-import { formatNameNumberKebabCase, formatOutput } from '../utilities/formatting.utilities';
-import { sortColorNames } from '../utilities/sorting.utilities';
+import { formatNameNumberKebabCase, formatOutput } from '../utilities/formatting.utilities.js';
+import { sortColorNames } from '../utilities/sorting.utilities.js';
 
-import { ColorsExporter } from './colors-exporter.api';
+import { ColorsExporter } from './colors-exporter.api.js';
 
 /**
  * Convert FigmaColor objects into scss variables

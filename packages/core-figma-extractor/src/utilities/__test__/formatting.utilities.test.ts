@@ -1,4 +1,4 @@
-import { formatNameNumberKebabCase } from '../formatting.utilities';
+import { formatNameNumberKebabCase } from '../formatting.utilities.js';
 
 describe('formattting utilities', () => {
   const colorNames = [

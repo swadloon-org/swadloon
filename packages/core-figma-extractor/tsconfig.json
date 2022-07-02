@@ -2,8 +2,9 @@
   "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src",
     "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
     "types": ["jest", "node"]
   },
   "include": ["src"]

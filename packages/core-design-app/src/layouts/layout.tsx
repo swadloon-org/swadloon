@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import { title } from 'case';
 
+import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import {
   Center,
   Cluster,
@@ -20,10 +21,9 @@ import {
 } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { LazyComponentLoader } from './component';
-import { lazyComponentImports } from './context-require';
-
-import * as styles from './layout.css';
+import { LazyComponentLoader } from './component.js';
+import { lazyComponentImports } from './context-require.js';
+import * as styles from './layout.css.js';
 
 type Props = {};
 
@@ -80,11 +80,12 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
             <InputWrapper>
               <Stack gap={[sizeVars.x3]}>
                 <InputLabel htmlFor={'select-components-code'}>Select Component</InputLabel>
-                <Cluster gap={[sizeVars.x1]} wrap={true}>
+                <Stack gap={[sizeVars.x1]}>
                   {lazyComponentImports.map((lazyImport, lazyImportIndex) => {
                     return (
                       <Link
                         key={lazyImportIndex}
+                        size={PARAGRAPH_SIZE.small}
                         AsElement={
                           <RouterLink
                             key={lazyImport.slug}
@@ -92,11 +93,11 @@ export const Layout: React.FC<Props> = React.memo(function Layout(props) {
                           ></RouterLink>
                         }
                       >
-                        {title(lazyImport.slug)}
+                        {title(lazyImport.slug.replace(/-?code/gi, ''))}
                       </Link>
                     );
                   })}
-                </Cluster>
+                </Stack>
               </Stack>
             </InputWrapper>
 

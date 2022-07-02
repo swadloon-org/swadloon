@@ -1,4 +1,4 @@
-import { stats } from './stats.conf';
+import { stats } from './stats.conf.js';
 
 export const devServerConfig = {
   disableHostCheck: true,

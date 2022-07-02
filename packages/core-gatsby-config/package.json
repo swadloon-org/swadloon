@@ -10,22 +10,15 @@
     "/config"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist && yarn build:config",
     "build:config": "tsc --project tsconfig.config.json",
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist && yarn clean:config",
     "clean:config": "rimraf -rf config/dist/**",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
-    "start": "yarn clean && nr prepare-exports && concurrently \"yarn build:dist -w\" \"yarn build:config -w\"",
-    "start:tsc": "yarn build:dist -w && yarn build:config -w && nr prepare-exports"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "config/index.ts"
-    ]
+    "start": "yarn clean && concurrently \"yarn build:dist -w\" \"yarn build:config -w\"",
+    "start:tsc": "yarn build:dist -w && yarn build:config -w"
   },
   "sideEffects": false,
   "dependencies": {

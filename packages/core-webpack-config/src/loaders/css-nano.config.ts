@@ -1,6 +1,6 @@
-import cssnano from 'cssnano';
+import { CssNanoOptionsExtended } from 'css-minimizer-webpack-plugin';
 
-import { svgoConfig } from './svgo.conf';
+import { svgoConfig } from './svgo.conf.js';
 
 /**
  * CSS Nano Config
@@ -10,7 +10,7 @@ import { svgoConfig } from './svgo.conf';
  *
  * To know the config option for each plugin, refer to each package: https://github.com/cssnano/cssnano/tree/master/packages
  */
-export const cssNanoConfig: cssnano.CssNanoOptions = {
+export const cssNanoConfig: CssNanoOptionsExtended = {
   configFile: undefined,
   preset: [
     'default',

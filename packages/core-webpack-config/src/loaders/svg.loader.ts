@@ -1,6 +1,6 @@
 import { RuleSetRule } from 'webpack';
 
-import { svgoConfig } from './svgo.conf';
+import { svgoConfig } from './svgo.conf.js';
 
 /**
  * @see https://github.com/gregberge/svgr

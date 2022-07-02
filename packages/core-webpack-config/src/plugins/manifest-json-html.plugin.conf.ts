@@ -1,9 +1,9 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { WebpackPluginInstance } from 'webpack';
 
-export const getManifestJsonHtmlPlugin: (options: { template: string }) => WebpackPluginInstance = (
-  options
-) =>
+export const getManifestJsonHtmlPlugin: (
+  options: HtmlWebpackPlugin.Options
+) => WebpackPluginInstance = (options) =>
   new HtmlWebpackPlugin({
     template: options.template,
     chunks: [],
@@ -15,4 +15,5 @@ export const getManifestJsonHtmlPlugin: (options: { template: string }) => Webpa
     cspPlugin: {
       enabled: false,
     },
+    ...options,
   });

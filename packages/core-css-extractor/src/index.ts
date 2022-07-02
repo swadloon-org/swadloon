@@ -1,1 +1,1 @@
-export * from '../types/dot-env';
+export * from './dot-env.js';

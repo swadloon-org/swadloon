@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- INLINE STYLES -->
+    <%= htmlWebpackPlugin.files.css
+    .map(css => `<style>${compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source()}</style>`).join('')
+    %>
+  </head>
+  <body>
+    <div id="figma-plugin"></div>
+
+    <!-- INLINE SCRIPT -->
+    <%= htmlWebpackPlugin.files.js
+      .map(js => `<script defer>${compilation.assets[js.substr(htmlWebpackPlugin.files.publicPath.length)].source()}</script>`).join('')
+    %>
+  </body>
+</html>

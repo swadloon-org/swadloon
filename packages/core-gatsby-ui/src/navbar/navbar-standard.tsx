@@ -24,10 +24,10 @@ import {
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 
-import { useI18next } from '../i18next/use-i18next.hook';
-import { LinkRenderer } from '../links/link-renderer';
+import { useI18next } from '../i18next/use-i18next.hook.js';
+import { LinkRenderer } from '../links/link-renderer.js';
 
-import * as styles from './navbar-standard.css';
+import * as styles from './navbar-standard.css.js';
 
 type Props = NavbarProps;
 

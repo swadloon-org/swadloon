@@ -7,10 +7,10 @@ import {
   TextShadows,
 } from '@newrade/core-design-system';
 
-import { CSSEffects } from '../design-system';
-import { keys } from '../utilities-iso/utilities';
+import { CSSEffects } from '../css-design-system/design-system.js';
+import { keys } from '../utilities-iso/utilities.js';
 
-import { getCSSColor } from './colors.utilities';
+import { getCSSColor } from './colors.utilities.js';
 
 /**
  * Transform the Effects object into a CSS compatible one.

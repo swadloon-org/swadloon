@@ -1,9 +1,15 @@
 import debug from 'debug';
 
 /**
+ *
+ * Debug
+ *
+ */
+
+/**
  * CLI debug namespace
  */
-export const NS = 'nr:core-cli';
+export const NS = 'nr:cli';
 
 export const debugInstance = debug;
 
@@ -11,7 +17,7 @@ export const debugInstance = debug;
 // always enable logging for the cli tools
 export function enableDebug() {
   if (!process.env.DEBUG) {
-    debugInstance.enable('nr:core-cli*');
+    debugInstance.enable('nr:cli*');
   }
 
   /**
@@ -20,4 +26,28 @@ export function enableDebug() {
   if (process.env.DEBUG) {
     debugInstance.enable(process.env.DEBUG);
   }
+}
+
+/**
+ *
+ * Normal logging
+ *
+ */
+
+export function logCommand(message?: string, ...args: any[]) {
+  process.stdout.write(`－  ${message}\n`);
+}
+
+export function log(message?: string, ...args: any[]) {
+  process.stdout.write(`👾  ${message}\n`);
+}
+
+export function logWarn(input: string | Error): string | Error {
+  if (input instanceof Error) {
+    process.stdout.write(`👾  ${input}\n`);
+    return input;
+  }
+
+  process.stdout.write(`👾  ${input}\n`);
+  return input;
 }

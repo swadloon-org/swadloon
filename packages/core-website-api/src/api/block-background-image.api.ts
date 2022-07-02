@@ -1,7 +1,7 @@
-import { PartialOrNull } from '../utilities';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { BlockAPI, BlockType } from './block.api';
-import { MediaAPI } from './media.api';
+import { BlockAPI, BlockType } from './block.api.js';
+import { MediaAPI } from './media.api.js';
 
 export type BlockBackgroundImageAPI = BlockAPI &
   PartialOrNull<{

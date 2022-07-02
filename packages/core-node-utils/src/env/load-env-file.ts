@@ -7,10 +7,10 @@ import * as t from 'io-ts';
 
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 
-import { PathReporter } from '../io-ts/reporter';
+import { PathReporter } from '../io-ts/reporter.js';
 
-import { CommonEnvType } from './common-env';
-import { logEnvVariables } from './log-env-variables';
+import { CommonEnvType } from './common-env.js';
+import { logEnvVariables } from './log-env-variables.js';
 
 const log = debug('nr:env');
 
@@ -83,8 +83,8 @@ export function loadDotEnv<ENV = CommonEnvType>({
 
   if (report && report.length && !report[0].includes('No errors')) {
     if (logging) {
-      report.map((reason) => {
-        logEnvError(`${reason}`);
+      report.map((reason: string) => {
+        console.error(`${reason}`);
       });
     }
 

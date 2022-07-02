@@ -1,13 +1,12 @@
 import path from 'path';
 
-import { Command, flags } from '@oclif/command';
-import debug from 'debug';
+import { Config, Flags } from '@oclif/core';
 import * as t from 'io-ts';
 
 import { extract } from '@newrade/core-figma-extractor';
 import { loadDotEnv } from '@newrade/core-node-utils';
 
-import { NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -18,25 +17,25 @@ export const Env = t.intersection([
   }),
 ]);
 
-export default class FigmaSync extends Command {
-  log = debug(`${NS}:figma-sync`);
-  logWarn = debug(`${NS}:figma-sync:warn`);
-  logError = debug(`${NS}:figma-sync:error`);
-
+export default class FigmaSync extends BaseCommand {
   static description = 'sync design tokens from figma file';
 
   static examples = [`$ nr figma-sync`];
 
   static flags = {
-    test: flags.boolean({
+    test: Flags.boolean({
       char: 't',
       description:
         'the test flag is used in integration tests, it will not output versions or dates',
     }),
-    help: flags.help({ char: 'h' }),
+    help: Flags.help({ char: 'h' }),
   };
 
   static args = [{ name: 'path', description: 'relative output path' }];
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'figma-sync' });
+  }
 
   async init() {}
 
@@ -47,11 +46,13 @@ export default class FigmaSync extends Command {
       packageName: 'core-cli',
     });
 
-    const { args, flags } = this.parse(FigmaSync);
+    const { args, flags } = await this.parse(FigmaSync);
 
     this.log(`running: extract command`);
 
     await extract({
+      extractorName: '',
+      version: '',
       figmaFile: env.FIGMA_FILE,
       figmaToken: env.FIGMA_TOKEN,
       outputDir: path.resolve(process.cwd(), args && args.path ? args.path : 'figma-export'),

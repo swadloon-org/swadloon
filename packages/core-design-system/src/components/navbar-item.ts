@@ -1,8 +1,8 @@
-import { ICON } from '../foundations/iconography';
-import { ColorType } from '../types';
+import { ICON } from '../foundations/iconography.js';
+import { ColorType } from '../types.js';
 
-import { BoxStyle } from './box';
-import { Variant } from './components';
+import { BoxStyle } from './box.js';
+import { Variant } from './components.js';
 
 export enum NavbarItemAs {
   button = 'button',

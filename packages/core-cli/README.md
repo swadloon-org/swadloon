@@ -26,8 +26,8 @@ https://oclif.io/docs/releasing
 $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
-$ nr (-v|--version|version)
-@newrade/core-cli/1.16.0 darwin-arm64 node-v16.14.0
+$ nr (--version)
+@newrade/core-cli/1.16.0 darwin-arm64 node-v16.15.1
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -42,24 +42,18 @@ USAGE
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr css-extract`](#nr-css-extract)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
-<<<<<<< HEAD
-=======
-* [`nr ds-compile`](#nr-ds-compile)
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
 * [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
 * [`nr globby [ARGS]`](#nr-globby-args)
-* [`nr hello [FILE]`](#nr-hello-file)
+* [`nr hello [WORD]`](#nr-hello-word)
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
 * [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
 * [`nr lerna-version [ARGS]`](#nr-lerna-version-args)
 * [`nr local-ip [ARGS]`](#nr-local-ip-args)
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
-* [`nr prepare-dev`](#nr-prepare-dev)
-* [`nr prepare-exports`](#nr-prepare-exports)
 * [`nr vercel-deploy`](#nr-vercel-deploy)
 * [`nr webpack [COMMAND]`](#nr-webpack-command)
 
@@ -71,11 +65,14 @@ call the commit script in the repo root
 USAGE
   $ nr commit
 
-EXAMPLE
+DESCRIPTION
+  call the commit script in the repo root
+
+EXAMPLES
   $ nr commit
 ```
 
-_See code: [lib/commands/commit.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/commit.js)_
+_See code: [dist/commands/commit.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/commit.js)_
 
 ## `nr contentful-migrate [FILE]`
 
@@ -83,37 +80,39 @@ execute migration with the contentful CLI
 
 ```
 USAGE
-  $ nr contentful-migrate [FILE]
+  $ nr contentful-migrate [FILE] [-h]
 
 ARGUMENTS
   FILE  figma file id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
 
-EXAMPLE
-  $ nr figma-sync
+DESCRIPTION
+  execute migration with the contentful CLI
+
+EXAMPLES
+  $ nr contentful-migrate
 ```
 
-_See code: [lib/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/contentful-migrate.js)_
+_See code: [dist/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/contentful-migrate.js)_
 
 ## `nr css-extract`
 
-<<<<<<< HEAD
-Create CSS tokens from Vanilla-extract styles definition files (*.css.ts)
-=======
 Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
 
 ```
 USAGE
   $ nr css-extract
 
-EXAMPLE
+DESCRIPTION
+  Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)
+
+EXAMPLES
   $ nr css-extract
 ```
 
-_See code: [lib/commands/css-extract.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/css-extract.js)_
+_See code: [dist/commands/css-extract.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/css-extract.js)_
 
 ## `nr depcheck [ARGS]`
 
@@ -123,25 +122,14 @@ Shortcut to run depcheck
 USAGE
   $ nr depcheck [ARGS]
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run depcheck
+
+EXAMPLES
   $ nr depcheck
 ```
 
-_See code: [lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/depcheck.js)_
-
-## `nr ds-compile`
-
-Compile figma tokens (from figma-sync) into {Color} objects compatible with core-design-system
-
-```
-USAGE
-  $ nr ds-compile
-
-EXAMPLE
-  $ nr ds-compile
-```
-
-_See code: [lib/commands/ds-compile.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/ds-compile.js)_
+_See code: [dist/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/depcheck.js)_
 
 ## `nr figma-sync [PATH]`
 
@@ -149,20 +137,23 @@ sync design tokens from figma file
 
 ```
 USAGE
-  $ nr figma-sync [PATH]
+  $ nr figma-sync [PATH] [-t] [-h]
 
 ARGUMENTS
   PATH  relative output path
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
   -t, --test  the test flag is used in integration tests, it will not output versions or dates
 
-EXAMPLE
+DESCRIPTION
+  sync design tokens from figma file
+
+EXAMPLES
   $ nr figma-sync
 ```
 
-_See code: [lib/commands/figma-sync.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/figma-sync.js)_
+_See code: [dist/commands/figma-sync.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/figma-sync.js)_
 
 ## `nr gatsby [COMMAND]`
 
@@ -170,20 +161,23 @@ Shortcut to run Gatsby with typescript (ts-node)
 
 ```
 USAGE
-  $ nr gatsby [COMMAND]
+  $ nr gatsby [COMMAND] [--no-uglify] [--verbose] [--inspect] [-p <value>] [-H <value>]
 
-OPTIONS
-  -H, --host=host  gatsby host option
-  -p, --port=port  gatsby port option
-  --inspect        gatsby inspect command
-  --no-uglify      gatsby --no-uglify flag
-  --verbose        gatsby verbose command
+FLAGS
+  -H, --host=<value>  gatsby host option
+  -p, --port=<value>  gatsby port option
+  --inspect           gatsby inspect command
+  --no-uglify         gatsby --no-uglify flag
+  --verbose           gatsby verbose command
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run Gatsby with typescript (ts-node)
+
+EXAMPLES
   $ nr gatsby build
 ```
 
-_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/gatsby.js)_
+_See code: [dist/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/gatsby.js)_
 
 ## `nr git-clean-branches`
 
@@ -191,16 +185,19 @@ delete local branches that are already merged on origin
 
 ```
 USAGE
-  $ nr git-clean-branches
+  $ nr git-clean-branches [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
 
-EXAMPLE
+DESCRIPTION
+  delete local branches that are already merged on origin
+
+EXAMPLES
   $ nr git-clean-branches
 ```
 
-_See code: [lib/commands/git-clean-branches.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-clean-branches.js)_
+_See code: [dist/commands/git-clean-branches.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/git-clean-branches.js)_
 
 ## `nr git-copy-labels SOURCE DESTINATION`
 
@@ -208,20 +205,23 @@ copy labels from a repo to another
 
 ```
 USAGE
-  $ nr git-copy-labels SOURCE DESTINATION
+  $ nr git-copy-labels [SOURCE] [DESTINATION] [-h]
 
 ARGUMENTS
   SOURCE       source repo <org-name>/<repo-name>
   DESTINATION  destination repo <org-name>/<repo-name>
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
 
-EXAMPLE
+DESCRIPTION
+  copy labels from a repo to another
+
+EXAMPLES
   $ nr git-copy-labels
 ```
 
-_See code: [lib/commands/git-copy-labels.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/git-copy-labels.js)_
+_See code: [dist/commands/git-copy-labels.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/git-copy-labels.js)_
 
 ## `nr globby [ARGS]`
 
@@ -231,31 +231,31 @@ Execute globby as CLI
 USAGE
   $ nr globby [ARGS]
 
-EXAMPLE
+DESCRIPTION
+  Execute globby as CLI
+
+EXAMPLES
   $ nr globby
 ```
 
-_See code: [lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/globby.js)_
+_See code: [dist/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/globby.js)_
 
-## `nr hello [FILE]`
+## `nr hello [WORD]`
 
-describe the command here
+Test command to verify that the CLI build is valid.
 
 ```
 USAGE
-  $ nr hello [FILE]
+  $ nr hello [WORD]
 
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+DESCRIPTION
+  Test command to verify that the CLI build is valid.
 
-EXAMPLE
-  $ nr hello
-     hello world from ./src/hello.ts!
+EXAMPLES
+  $ condohub hello world
 ```
 
-_See code: [lib/commands/hello.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/hello.js)_
+_See code: [dist/commands/hello.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/hello.js)_
 
 ## `nr help [COMMAND]`
 
@@ -263,16 +263,19 @@ display help for nr
 
 ```
 USAGE
-  $ nr help [COMMAND]
+  $ nr help [COMMAND] [--all]
 
 ARGUMENTS
   COMMAND  command to show help for
 
-OPTIONS
+FLAGS
   --all  see all commands in CLI
+
+DESCRIPTION
+  display help for nr
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.3.1/src/commands/help.ts)_
 
 ## `nr jest [ARGS]`
 
@@ -280,16 +283,19 @@ Shortcut to run jest with typescript (ts-node)
 
 ```
 USAGE
-  $ nr jest [ARGS]
+  $ nr jest [ARGS] [--config <value>]
 
-OPTIONS
-  --config=config  [default: jest.config.ts] path to jest config file
+FLAGS
+  --config=<value>  [default: jest.config.ts] path to jest config file
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run jest with typescript (ts-node)
+
+EXAMPLES
   $ nr jest
 ```
 
-_See code: [lib/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest.js)_
+_See code: [dist/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/jest.js)_
 
 ## `nr jest-watch [ARGS]`
 
@@ -297,16 +303,19 @@ Shortcut to run jest with typescript (ts-node)
 
 ```
 USAGE
-  $ nr jest-watch [ARGS]
+  $ nr jest-watch [ARGS] [--config <value>]
 
-OPTIONS
-  --config=config  [default: jest.config.ts] path to jest config file
+FLAGS
+  --config=<value>  [default: jest.config.ts] path to jest config file
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run jest with typescript (ts-node)
+
+EXAMPLES
   $ nr jest
 ```
 
-_See code: [lib/commands/jest-watch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/jest-watch.js)_
+_See code: [dist/commands/jest-watch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/jest-watch.js)_
 
 ## `nr lerna-version [ARGS]`
 
@@ -314,16 +323,19 @@ Wrapper for lerna version command, allowing to run version on specific packages
 
 ```
 USAGE
-  $ nr lerna-version [ARGS]
+  $ nr lerna-version [ARGS] --packages <value>
 
-OPTIONS
-  --packages=packages  (required) packages glob to be included in lerna version bump, e.g. --packages=packages/*
+FLAGS
+  --packages=<value>  (required) packages glob to be included in lerna version bump, e.g. --packages=packages/*
 
-EXAMPLE
+DESCRIPTION
+  Wrapper for lerna version command, allowing to run version on specific packages
+
+EXAMPLES
   $ nr lerna-version
 ```
 
-_See code: [lib/commands/lerna-version.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/lerna-version.js)_
+_See code: [dist/commands/lerna-version.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/lerna-version.js)_
 
 ## `nr local-ip [ARGS]`
 
@@ -333,11 +345,14 @@ Print out local machine ip on the connected network
 USAGE
   $ nr local-ip [ARGS]
 
-EXAMPLE
+DESCRIPTION
+  Print out local machine ip on the connected network
+
+EXAMPLES
   $ nr local-ip
 ```
 
-_See code: [lib/commands/local-ip.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/local-ip.js)_
+_See code: [dist/commands/local-ip.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/local-ip.js)_
 
 ## `nr micromatch [PATH] [PATTERN]`
 
@@ -347,39 +362,14 @@ Execute micromatch as CLI
 USAGE
   $ nr micromatch [PATH] [PATTERN]
 
-EXAMPLE
+DESCRIPTION
+  Execute micromatch as CLI
+
+EXAMPLES
   $ nr micromatch
 ```
 
-_See code: [lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/micromatch.js)_
-
-## `nr prepare-dev`
-
-execute preconstruct dev
-
-```
-USAGE
-  $ nr prepare-dev
-
-EXAMPLE
-  $ nr prepare-dev
-```
-
-_See code: [lib/commands/prepare-dev.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/prepare-dev.js)_
-
-## `nr prepare-exports`
-
-create export stubs for published packages
-
-```
-USAGE
-  $ nr prepare-exports
-
-EXAMPLE
-  $ nr prepare-exports
-```
-
-_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/prepare-exports.js)_
+_See code: [dist/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/micromatch.js)_
 
 ## `nr vercel-deploy`
 
@@ -387,16 +377,19 @@ deploy site with vercel using env variables
 
 ```
 USAGE
-  $ nr vercel-deploy
+  $ nr vercel-deploy [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
 
-EXAMPLE
+DESCRIPTION
+  deploy site with vercel using env variables
+
+EXAMPLES
   $ nr vercel-deploy
 ```
 
-_See code: [lib/commands/vercel-deploy.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/vercel-deploy.js)_
+_See code: [dist/commands/vercel-deploy.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/vercel-deploy.js)_
 
 ## `nr webpack [COMMAND]`
 
@@ -404,19 +397,19 @@ Shortcut to run webpack with typescript (ts-node)
 
 ```
 USAGE
-  $ nr webpack [COMMAND]
+  $ nr webpack [COMMAND] [-c <value>] [--no-client-overlay] [--inspect-brk]
 
-OPTIONS
-  -c, --config=config  path to config file (.ts)
-  --inspect-brk        enable node --inspect-brk flag
-  --no-client-overlay  disable the full-screen overlay in the browser when there are compiler errors or warnings
+FLAGS
+  -c, --config=<value>  path to config file (.ts)
+  --inspect-brk         enable node --inspect-brk flag
+  --no-client-overlay   disable the full-screen overlay in the browser when there are compiler errors or warnings
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run webpack with typescript (ts-node)
+
+EXAMPLES
   $ nr webpack serve --config webpack.dev.config.ts
 ```
-<<<<<<< HEAD
-=======
 
-_See code: [lib/commands/webpack.js](https://github.com/newrade/newrade-core/blob/v1.16.0/lib/commands/webpack.js)_
->>>>>>> e04cffc6 (fix(core): update lmdb dependency and fix imports)
+_See code: [dist/commands/webpack.js](https://github.com/newrade/newrade-core/blob/v1.16.0/dist/commands/webpack.js)_
 <!-- commandsstop -->

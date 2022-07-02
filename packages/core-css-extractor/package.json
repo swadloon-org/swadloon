@@ -3,31 +3,60 @@
   "version": "1.2.0",
   "description": "Generate global CSS vars and classes for non-js applications.",
   "license": "MIT",
-  "main": "dist/newrade-core-css-extractor.cjs.js",
-  "module": "dist/newrade-core-css-extractor.esm.js",
   "files": [
-    "/dist"
+    "dist",
+    "src",
+    "types"
   ],
   "scripts": {
-    "build": "yarn webpack:prod",
-    "clean": "rm -rf dist/** ./node_modules/.cache && rm -f *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
+    "build": "yarn build:lib",
+    "build:extract": "yarn webpack:prod",
+    "build:lib": "yarn tsc:types && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
+    "clean": "yarn clean:lib",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:extract": "rm -rf dist/** ./node_modules/.cache && rm -f *.tsbuildinfo",
+    "clean:lib": "yarn clean:dist && yarn clean:tsc",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "rename:commonjs": "renamer --chain ../core-node-utils/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
+    "rename:watch": "nodemon --delay 1000ms --watch dist/cjs --ext js --exec \"yarn rename:commonjs\"",
     "serve": ". ./.env && http-server --port $APP_PORT --gzip",
-    "start": "yarn webpack:dev",
-    "test-disabled": "echo ok",
-    "typecheck": "tsc --noEmit --composite false --incremental false",
+    "prestart": "yarn build",
+    "start": "yarn start:lib",
+    "start:extract": "yarn webpack:dev",
+    "start:lib": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
+    "swc:build": "swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
+    "swc:build:watch": "yarn swc:build --watch",
+    "test": "yarn test:lib",
+    "test:lib": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput",
     "webpack:dev": "nr webpack serve --config webpack.dev.config.ts",
     "webpack:prod": "nr webpack --config webpack.prod.config.ts"
   },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "type": "module",
+  "types": "./dist/index.types.d.ts",
   "dependencies": {
     "@newrade/core-common": "*",
-    "@newrade/core-design-system": "*",
     "@newrade/core-jest-config": "*",
     "@newrade/core-node-utils": "*",
-    "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@newrade/core-webpack-config": "*",
-    "@newrade/ze-design-system": "*",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@vanilla-extract/css": "^1.6.8",
     "fp-ts": "^2",

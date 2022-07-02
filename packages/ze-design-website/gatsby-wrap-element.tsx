@@ -22,11 +22,13 @@ import {
 } from '@newrade/core-website-api';
 import { cssThemeConfig } from '@newrade/ze-design-system/css';
 
-import { companyInfo } from './src/data/company-info';
-import { locales } from './src/i18n/locales';
-import { Layout } from './src/layout/layout';
-import { ProvidersDocs } from './src/providers/providers-docs';
-import { ProvidersSite } from './src/providers/providers-site';
+import { companyInfo } from './src/data/company-info.js';
+import { locales } from './src/i18n/locales.js';
+import { Layout } from './src/layout/layout.js';
+import { ProvidersDocs } from './src/providers/providers-docs.js';
+import { ProvidersSite } from './src/providers/providers-site.js';
+
+import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 
@@ -60,22 +62,230 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
   const pageProps = props as Props;
 
   /**
+   *
    * Translation
+   *
    */
 
   const { language } = useI18next();
 
   /**
+   *
    * Navigation
+   *
    */
 
   const pagePathname = pageProps.path;
   const version = `v${pageProps.pageContext.siteMetadata?.siteVersion}`;
 
-  const navigation = useNavigationAPI({
+  const designSystemNavigation = useNavigationAPI({
+    navigationName: 'Design System',
+    navigationComponent: NavComponent.navbar,
+    locale: language,
+    includedPaths: [/^\/design-system\//],
+    sortOrderDirectories: [
+      /overview/i,
+      /accessibility/i,
+      /tech/i,
+      /theming/i,
+      /where to start/i,
+      /get started/i,
+      /development process/i,
+      /tutorials/i,
+      /guides/i,
+      /packages/i,
+      /reference/i,
+
+      /brand/i,
+      /logos/i,
+      /principles/i,
+      /design philosophy/i,
+      /identity/i,
+      /gallery/i,
+
+      /foundations/i,
+      /colors/i,
+      /typography/i,
+      /sizing/i,
+      /iconography/i,
+      /illustration/i,
+      /photography/i,
+      /animations/i,
+
+      /templates/i,
+
+      /data viz/i,
+      /data visualization/i,
+
+      /guidelines/i,
+      /components/i,
+      /print/i,
+
+      /guidelines/i,
+
+      /assets/i,
+      /design tokens/i,
+      /tools/i,
+
+      /website api/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
+    sortOrderItems: [
+      /overview/i,
+      /accessibility/i,
+      /where to start/i,
+      /get started/i,
+      /tech/i,
+      /theming/i,
+      /demos/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
+  });
+
+  const docsNavigation = useNavigationAPI({
+    navigationName: 'Design System',
+    navigationComponent: NavComponent.navbar,
+    locale: language,
+    includedPaths: [/^\/design-system\//],
+    sortOrderDirectories: [
+      /overview/i,
+      /accessibility/i,
+      /tech/i,
+      /theming/i,
+      /where to start/i,
+      /get started/i,
+      /development process/i,
+      /tutorials/i,
+      /guides/i,
+      /packages/i,
+      /reference/i,
+
+      /brand/i,
+      /logos/i,
+      /principles/i,
+      /design philosophy/i,
+      /identity/i,
+      /gallery/i,
+
+      /foundations/i,
+      /colors/i,
+      /typography/i,
+      /sizing/i,
+      /iconography/i,
+      /illustration/i,
+      /photography/i,
+      /animations/i,
+
+      /templates/i,
+
+      /data viz/i,
+      /data visualization/i,
+
+      /guidelines/i,
+      /components/i,
+      /print/i,
+
+      /guidelines/i,
+
+      /assets/i,
+      /design tokens/i,
+      /tools/i,
+
+      /website api/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
+    sortOrderItems: [
+      /overview/i,
+      /accessibility/i,
+      /where to start/i,
+      /get started/i,
+      /tech/i,
+      /theming/i,
+      /demos/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
+  });
+
+  const websiteNavigation = useNavigationAPI({
     navigationName: 'Website',
     navigationComponent: NavComponent.navbar,
     locale: language,
+    includedPaths: [/^\/$/, /^\/design-system\/$/, /^\/core-docs\/$/],
+    sortOrderDirectories: [
+      /overview/i,
+      /accessibility/i,
+      /tech/i,
+      /theming/i,
+      /where to start/i,
+      /get started/i,
+      /development process/i,
+      /tutorials/i,
+      /guides/i,
+      /packages/i,
+      /reference/i,
+
+      /brand/i,
+      /logos/i,
+      /principles/i,
+      /design philosophy/i,
+      /identity/i,
+      /gallery/i,
+
+      /foundations/i,
+      /colors/i,
+      /typography/i,
+      /sizing/i,
+      /iconography/i,
+      /illustration/i,
+      /photography/i,
+      /animations/i,
+
+      /templates/i,
+
+      /data viz/i,
+      /data visualization/i,
+
+      /guidelines/i,
+      /components/i,
+      /print/i,
+
+      /guidelines/i,
+
+      /assets/i,
+      /design tokens/i,
+      /tools/i,
+
+      /website api/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
+    sortOrderItems: [
+      /overview/i,
+      /accessibility/i,
+      /where to start/i,
+      /get started/i,
+      /tech/i,
+      /theming/i,
+      /demos/i,
+
+      /pages/i,
+      /sections/i,
+      /blocks/i,
+    ],
   });
 
   const navbar: NavbarAPI = {
@@ -85,13 +295,13 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
     layout: NavbarLayout.standard,
     navigation: {
       component: NavComponent.navbar,
-      links: getLinksFromTopSubNavigation(navigation.subNavigation),
+      links: getLinksFromTopSubNavigation(designSystemNavigation.subNavigation),
     },
   };
 
   const sidebarNavigationForCurrentpage = getSubNavigationForPath({
     path: pagePathname,
-    navigations: navigation.subNavigation,
+    navigations: designSystemNavigation.subNavigation,
   });
 
   const sidebarDocs: SidebarAPI = {
@@ -108,7 +318,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
     name: 'Sidebar website',
     layout: SidebarLayout.standard,
     navigation: {
-      ...navigation,
+      ...designSystemNavigation,
       component: NavComponent.sidebar,
     },
     version,
@@ -120,7 +330,7 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
     name: 'Footer',
     layout: FooterLayout.docs,
     navigation: {
-      ...navigation,
+      ...designSystemNavigation,
       component: NavComponent.footer,
     },
     version,
@@ -128,6 +338,9 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
   };
 
   switch (pageProps.pageContext.layout) {
+    /**
+     * Layout for the design system documentation
+     */
     case 'designSystem':
     case 'docs': {
       return (
@@ -145,6 +358,9 @@ export const WrapElementI18n: React.FC<WrapPageElementBrowserArgs> = function Wr
         </ProvidersDocs>
       );
     }
+    /**
+     * Layout for the website / landing page
+     */
     case 'default':
     default: {
       return (

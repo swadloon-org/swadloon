@@ -3,9 +3,9 @@ import * as Migration from 'contentful-migration';
 
 import { CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
 
-import { COMMON_FIELD } from './common-fields.contentful';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 export const createCompanyInfo: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(CONTENT_TYPE.COMPANY_INFO, {

@@ -8,5 +8,5 @@
     "noEmit": true, // to prevent unwanted or accidental output files
     "types": []
   },
-  "exclude": ["node_modules", "lib", "built", "dist", "public"]
+  "exclude": ["**/node_modules", "**/lib", "**/built", "**/dist", "**/public"]
 }

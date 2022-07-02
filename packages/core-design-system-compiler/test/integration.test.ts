@@ -4,7 +4,7 @@ import path from 'path';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { compile } from '../src/compile';
+import { compile } from '../src/compile.js';
 
 describe(`${compile} command`, () => {
   it('should produce the correct color objects from reference figma tokens', () => {

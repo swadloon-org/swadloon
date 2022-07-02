@@ -16,7 +16,7 @@ import {
   stats,
 } from '@newrade/core-webpack-config';
 
-import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options.js';
 
 /**
  * Replacement config for Gatsby's default config

@@ -1,7 +1,7 @@
-import { defaultExtractOptions } from '../..';
-import { FigmaColor } from '../../models/figma-colors.model';
-import { formatOutput } from '../../utilities/formatting.utilities';
-import { exportCssColorTokens } from '../colors-css-exporter';
+import { defaultExtractOptions } from '../../extract.js';
+import { FigmaColor } from '../../models/figma-colors.model.js';
+import { formatOutput } from '../../utilities/formatting.utilities.js';
+import { exportCssColorTokens } from '../colors-css-exporter.js';
 
 describe('colors scss', () => {
   const testColor: { [name: string]: FigmaColor } = {

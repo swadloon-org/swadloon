@@ -4,10 +4,10 @@ import * as Migration from 'contentful-migration';
 import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
 import { CONTENT_TYPE, LinkComponent, LinkType } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys, values } from '../utilities';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
+import { keys, values } from '../utilities.js';
 
-import { COMMON_FIELD, urlField } from './common-fields.contentful';
+import { COMMON_FIELD, urlField } from './common-fields.contentful.js';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(CONTENT_TYPE.LINK, {

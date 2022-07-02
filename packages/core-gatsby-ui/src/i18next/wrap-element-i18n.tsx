@@ -10,7 +10,7 @@ import i18next, { InitOptions } from 'i18next';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 
-import { I18nextContext } from './i18next-context';
+import { I18nextContext } from './i18next-context.js';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
 

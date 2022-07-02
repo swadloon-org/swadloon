@@ -1,4 +1,4 @@
-import { sortColorNames } from '../sorting.utilities';
+import { sortColorNames } from '../sorting.utilities.js';
 
 describe('sorting utilities', () => {
   describe(`${sortColorNames.name}`, () => {

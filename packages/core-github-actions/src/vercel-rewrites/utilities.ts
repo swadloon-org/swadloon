@@ -2,7 +2,7 @@ import { promises as fsp } from 'fs';
 
 import * as core from '@actions/core';
 
-import { VercelConfig } from './vercel';
+import { VercelConfig } from './vercel.js';
 
 export function readVercelConfigFile(path: string) {
   core.info(`reading vercel.json file: ${path}`);

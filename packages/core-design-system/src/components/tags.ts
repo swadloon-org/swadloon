@@ -1,7 +1,7 @@
-import { ColorType } from '../types';
+import { ColorType } from '../types.js';
 
-import { BoxStyle } from './box';
-import { Variant } from './components';
+import { BoxStyle } from './box.js';
+import { Variant } from './components.js';
 
 export enum TagAs {
   div = 'div',

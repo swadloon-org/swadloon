@@ -5,10 +5,9 @@ import { Switcher, useCommonProps } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
-import { SectionProps } from './section.props';
-import { SectionBase } from './section-base';
-
-import * as styles from './section-switcher.css';
+import { SectionProps } from './section.props.js';
+import { SectionBase } from './section-base.js';
+import * as styles from './section-switcher.css.js';
 
 type Props = SectionProps & {
   RightBlock?: React.ReactNode | null;

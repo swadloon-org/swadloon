@@ -6,9 +6,9 @@ import {
   DocumentationJSComponentDescriptionFragmentFragment,
   DocumentationJsExample,
   DocumentationJsFragmentFragment,
-} from './site-documentationjs';
-import { MdxFrontmatter } from './site-mdx-frontmatter';
-import { GatsbySiteMetadata } from './site-metadata';
+} from './site-documentationjs.js';
+import { MdxFrontmatter } from './site-mdx-frontmatter.js';
+import { GatsbySiteMetadata } from './site-metadata.js';
 
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };

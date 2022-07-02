@@ -1,6 +1,6 @@
 import { GatsbyNode } from 'gatsby';
 
-import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options.js';
 
 export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'] = (
   { actions },

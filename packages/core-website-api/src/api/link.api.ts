@@ -1,10 +1,9 @@
 import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { PartialOrNull } from '../utilities';
-
-import { ColorModeAPI } from './color-mode.api';
-import { PageAPI } from './page.api';
-import { SectionAPI } from './section.api';
+import { ColorModeAPI } from './color-mode.api.js';
+import { PageAPI } from './page.api.js';
+import { SectionAPI } from './section.api.js';
 
 export enum LinkType {
   externalUrl = 'externalUrl',

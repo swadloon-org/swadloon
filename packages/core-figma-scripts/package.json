@@ -1,0 +1,31 @@
+{
+  "name": "@newrade/core-figma-scripts",
+  "version": "1.2.4",
+  "description": "Useful Figma scripts (Figma Plugin API)",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": {
+    "directory": "packages/core-figma-scripts",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "yarn build:lib",
+    "build:lib": "yarn tsc:typecheck",
+    "clean": "yarn clean:lib",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:lib": "yarn clean:tsc && yarn clean:dist",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@figma/plugin-typings": "^1"
+  }
+}

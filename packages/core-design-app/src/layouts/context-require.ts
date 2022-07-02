@@ -56,7 +56,7 @@ export const lazyComponentImports = importComponentsLazy(
   require.context(
     '@newrade/core-design-system-docs/src/code/',
     true,
-    /(titles|headings|labels|paragraphs-?|list|links|buttons|icon-sizes)(.*)\.code\.tsx$/i,
+    /(titles|headings|labels|paragraphs-?|list|links|buttons|icon-sizes|sections|blocks)(.*)\.code\.tsx$/i,
     'lazy'
   )
 );

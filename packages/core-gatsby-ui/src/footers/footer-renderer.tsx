@@ -7,8 +7,8 @@ import { useCommonProps } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { FooterLayout } from '@newrade/core-website-api';
 
-import { FooterProps, FooterRendererProps } from './footer.props';
-import { FooterStandard } from './footer-standard';
+import { FooterProps, FooterRendererProps } from './footer.props.js';
+import { FooterStandard } from './footer-standard.js';
 
 const log = debug('nr:core-gatsby-ui:footer-renderer');
 const logWarn = log.extend('warn');

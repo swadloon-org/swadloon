@@ -8,7 +8,7 @@ import {
 import { colorVars } from '@newrade/core-react-ui/theme';
 import { getCSSColorsV2 } from '@newrade/core-react-ui/utilities-theme';
 
-import { darkThemeConfig, lightThemeConfig } from './theme-config';
+import { darkThemeConfig, lightThemeConfig } from './theme-config.js';
 
 /**
  *

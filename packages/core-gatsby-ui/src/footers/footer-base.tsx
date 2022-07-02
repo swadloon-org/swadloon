@@ -4,9 +4,8 @@ import { Variant } from '@newrade/core-design-system';
 import { Center, Primitive } from '@newrade/core-react-ui';
 import { layoutCSS } from '@newrade/core-react-ui/theme';
 
-import { FooterProps } from './footer.props';
-
-import * as styles from './footer-base.css';
+import { FooterProps } from './footer.props.js';
+import * as styles from './footer-base.css.js';
 
 type Props = FooterProps;
 

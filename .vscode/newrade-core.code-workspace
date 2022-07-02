@@ -61,7 +61,7 @@
     // typescript
     //
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "newrade-core/node_modules/typescript/lib",
     "[typescript]": {
       "editor.formatOnSave": false,
       "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -120,30 +120,32 @@
       "typescriptreact"
     ],
     "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#95fe98",
-      "activityBar.activeBorder": "#8481fe",
-      "activityBar.background": "#95fe98",
-      "activityBar.foreground": "#15202b",
-      "activityBar.inactiveForeground": "#15202b99",
-      "activityBarBadge.background": "#8481fe",
-      "activityBarBadge.foreground": "#15202b",
-      "sash.hoverBorder": "#95fe98",
-      "statusBar.background": "#63fd67",
-      "statusBar.foreground": "#15202b",
-      "statusBarItem.hoverBackground": "#31fc36",
-      "statusBarItem.remoteBackground": "#63fd67",
-      "statusBarItem.remoteForeground": "#15202b",
-      "titleBar.activeBackground": "#63fd67",
-      "titleBar.activeForeground": "#15202b",
-      "titleBar.inactiveBackground": "#63fd6799",
-      "titleBar.inactiveForeground": "#15202b99"
+      "activityBar.activeBackground": "#023e73",
+      "activityBar.activeBorder": "#db0476",
+      "activityBar.background": "#023e73",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#db0476",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#023e73",
+      "statusBar.background": "#012341",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#023e73",
+      "statusBarItem.remoteBackground": "#012341",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#012341",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#01234199",
+      "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#63fd67"
+    "peacock.color": "#012341",
+    "[prisma]": {
+      "editor.defaultFormatter": "Prisma.prisma"
+    }
   },
   "extensions": {
     "recommendations": [
       "bierner.markdown-yaml-preamble",
-      "cschleiden.vscode-github-actions",
       "cssho.vscode-svgviewer",
       "dbaeumer.vscode-eslint",
       "deepscan.vscode-deepscan",
@@ -160,7 +162,6 @@
       "jock.svg",
       "mikestead.dotenv",
       "ms-vscode-remote.vscode-remote-extensionpack",
-      "msjsdiag.debugger-for-chrome",
       "paulmolluzzo.convert-css-in-js",
       "silvenon.mdx",
       "svsool.markdown-memo",
@@ -182,13 +183,23 @@
       "name": "docs",
       "path": "../docs"
     },
+    // cli
     {
       "name": "core-cli",
       "path": "../packages/core-cli"
     },
+    // core libs
+    {
+      "name": "core-common",
+      "path": "../packages/core-common"
+    },
     {
       "name": "core-contentful-lib",
       "path": "../packages/core-contentful-lib"
+    },
+    {
+      "name": "core-css-extractor",
+      "path": "../packages/core-css-extractor"
     },
     {
       "name": "core-design-system",
@@ -207,16 +218,16 @@
       "path": "../packages/core-dev-config"
     },
     {
-      "name": "core-common",
-      "path": "../packages/core-common"
+      "name": "core-figma-design-plugin",
+      "path": "../packages/core-figma-design-plugin"
     },
     {
       "name": "core-figma-extractor",
       "path": "../packages/core-figma-extractor"
     },
     {
-      "name": "core-figma-plugins",
-      "path": "../packages/core-figma-plugins"
+      "name": "core-figma-scripts",
+      "path": "../packages/core-figma-scripts"
     },
     {
       "name": "core-gatsby-config",
@@ -239,24 +250,24 @@
       "path": "../packages/core-jest-config"
     },
     {
-      "name": "core-css-extractor",
-      "path": "../packages/core-css-extractor"
+      "name": "core-node-utils",
+      "path": "../packages/core-node-utils"
+    },
+    {
+      "name": "core-platform",
+      "path": "../packages/core-platform"
     },
     {
       "name": "core-react-ui",
       "path": "../packages/core-react-ui"
     },
     {
-      "name": "core-graphql-ui",
-      "path": "../packages/core-graphql-ui"
+      "name": "core-react-ui-components",
+      "path": "../packages/core-react-ui/src"
     },
     {
       "name": "core-types",
       "path": "../packages/core-types"
-    },
-    {
-      "name": "core-node-utils",
-      "path": "../packages/core-node-utils"
     },
     {
       "name": "core-webpack-config",
@@ -267,13 +278,10 @@
       "path": "../packages/core-website-api"
     },
     {
-      "name": "core-yo-generator",
-      "path": "../packages/core-yo-generator"
-    },
-    {
       "name": "core-design-app",
       "path": "../packages/core-design-app"
     },
+    // apps
     {
       "name": "ze-design-system",
       "path": "../packages/ze-design-system"

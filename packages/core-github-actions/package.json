@@ -24,7 +24,7 @@
     "start": "tsc --noEmit --watch --preserveWatchOutput",
     "test": "nr jest",
     "test:watch": "nr jest-watch",
-    "typecheck": "tsc --noEmit --composite false --incremental false",
+    "typecheck": "tsc --noEmit",
     "webpack": "nr webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",
@@ -37,6 +37,6 @@
     "@newrade/core-webpack-config": "*",
     "fp-ts": "^2.11.1",
     "io-ts": "^2",
-    "node-fetch": "^2"
+    "node-fetch": "^3"
   }
 }

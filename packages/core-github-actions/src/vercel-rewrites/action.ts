@@ -1,10 +1,10 @@
 import * as core from '@actions/core';
 import { Context } from '@actions/github/lib/context';
 
-import { ENV } from '../../types/dot-env';
+import { ENV } from '../../types/dot-env.js';
 
-import { readVercelConfigFile, updateVercelConfigFile } from './utilities';
-import { VercelConfig } from './vercel';
+import { readVercelConfigFile, updateVercelConfigFile } from './utilities.js';
+import { VercelConfig } from './vercel.js';
 
 type ActionEnv = Partial<ENV>;
 

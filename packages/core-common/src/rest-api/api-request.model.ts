@@ -1,10 +1,13 @@
-import { AppError } from '../errors/error.model';
+import { AppError } from '../errors/error.model.js';
 
 export enum API_RESPONSE_STATUS {
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR',
 }
 
+/**
+ * Standard API request object
+ */
 export type APIRequestBody<Payload> = {
   /**
    * Name of the API
@@ -17,6 +20,9 @@ export type APIRequestBody<Payload> = {
   payload: Payload;
 };
 
+/**
+ * Standard API response object
+ */
 export type APIResponseBody<Payload> = {
   /**
    * Name of the API

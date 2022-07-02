@@ -1,4 +1,4 @@
-import { COLOR_MODE, COLOR_SCHEME } from '../foundations/color-scheme';
+import { COLOR_MODE, COLOR_SCHEME } from '../foundations/color-scheme.js';
 
 /**
  * Most components can be rendered in different variants or level of importance

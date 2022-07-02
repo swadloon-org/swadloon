@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsb-config/config';
 
-import { Navigation } from '../navigation/navigation.model';
-import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
+import { Navigation } from '../navigation/navigation.model.js';
+import { getNavigationFromPageNodes } from '../utilities/navigation.utilities.js';
 
 const query = graphql`
   query DocsPages {

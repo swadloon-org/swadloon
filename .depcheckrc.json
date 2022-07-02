@@ -1,10 +1,9 @@
 {
-  "ignorePatterns": ["/built", "/lib", "/dist", ".git", "node_modules"],
+  "ignorePatterns": ["/built", "/lib", "/dist", ".git", "node_modules", "**/jest*.config.js"],
   "ignores": [
     "@babel/*",
     "@loadable/*",
     "@newrade/core-types",
-    "@oclif/*",
     "@testing-library/dom",
     "@testing-library/jest-dom",
     "@testing-library/react",
@@ -22,6 +21,7 @@
     "graphql",
     "graphql-*",
     "jest",
+    "@jest/*",
     "puppeteer",
     "react-dom",
     "react",

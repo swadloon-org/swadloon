@@ -6,17 +6,17 @@ import {
   ButtonVariants,
 } from '@newrade/core-design-system';
 
-import { CSSButtons } from '../design-system';
-import { keys, px } from '../utilities-iso/utilities';
+import { CSSButtons } from '../css-design-system/design-system.js';
+import { keys, px } from '../utilities-iso/utilities.js';
 
 import {
   getCSSBorderStyles,
   getCSSBoxMargin,
   getCSSBoxPadding,
   getCSSOutlineStyles,
-} from './box.utilities';
-import { getCSSColor } from './colors.utilities';
-import { setVarsValuesToStyleObject } from './component.utilities';
+} from './box.utilities.js';
+import { getCSSColor } from './colors.utilities.js';
+import { setVarsValuesToStyleObject } from './component.utilities.js';
 
 export function getCSSButtons(buttons: Buttons): CSSButtons {
   //

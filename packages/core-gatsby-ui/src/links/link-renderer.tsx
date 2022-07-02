@@ -13,10 +13,9 @@ import {
 import { Button, IconComp, Link, useCommonProps, useIsSSR } from '@newrade/core-react-ui';
 import { LinkAPI, LinkComponent, LinkType } from '@newrade/core-website-api';
 
-import { GatsbyLink } from './gatsby-link';
-import { LinkRendererProps } from './link.props';
-
-import * as styles from './link-renderer.css';
+import { GatsbyLink } from './gatsby-link.js';
+import { LinkRendererProps } from './link.props.js';
+import * as styles from './link-renderer.css.js';
 
 const log = debug('nr:core-gatsby-ui:link-renderer');
 const logWarn = log.extend('warn');

@@ -1,8 +1,8 @@
-import { ColorPalette, ColorShades5, ColorShadesGrey } from '../primitives/color-palette';
-import { ColorType, DeepPartial } from '../types';
+import { ColorPalette, ColorShades5, ColorShadesGrey } from '../primitives/color-palette.js';
+import { ColorType, DeepPartial } from '../types.js';
 
-import { CodeColors } from './code-colors';
-import { DataVizColors } from './data-viz-colors';
+import { CodeColors } from './code-colors.js';
+import { DataVizColors } from './data-viz-colors.js';
 
 export type ColorsColors<Override extends undefined | string = undefined> = {
   /**

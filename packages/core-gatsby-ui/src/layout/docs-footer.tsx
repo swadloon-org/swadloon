@@ -3,7 +3,7 @@ import React from 'react';
 import { ICON, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { Button, Link, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 
-import * as styles from './docs-footer.css';
+import * as styles from './docs-footer.css.js';
 
 type Props = PrimitiveProps & {
   editPageUrl?: string;

@@ -12,22 +12,13 @@
     "/figma-tokens"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build": "yarn clean && yarn build:dist",
     "build:dist": "tsc --build tsconfig.json",
     "build:postinstall": "yarn clean && yarn dev",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev",
     "typecheck": "tsc --noEmit --composite false --incremental false"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "css.ts",
-      "css-tokens.ts",
-      "figma-tokens.ts"
-    ]
   },
   "sideEffects": [
     "*.css",
@@ -40,7 +31,6 @@
     "@newrade/core-figma-extractor": "*",
     "@newrade/core-node-utils": "*",
     "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@vanilla-extract/css": "^1.6.8"
   }
 }

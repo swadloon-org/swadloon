@@ -4,11 +4,11 @@ import * as Migration from 'contentful-migration';
 import { Variant } from '@newrade/core-design-system';
 import { BlockAlignment, BlockType, CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys, values } from '../utilities';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
+import { keys, values } from '../utilities.js';
 
-import { createColorProps } from './color-props.contentful';
-import { COMMON_FIELD } from './common-fields.contentful';
+import { createColorProps } from './color-props.contentful.js';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 const baseBlockOptions: Migration.IContentTypeOptions = {
   name: CONTENT_TYPE.BLOCK,

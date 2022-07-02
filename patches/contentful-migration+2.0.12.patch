@@ -1,0 +1,12 @@
+diff --git a/node_modules/contentful-migration/package.json b/node_modules/contentful-migration/package.json
+index b3c1ead..9d1c8a7 100644
+--- a/node_modules/contentful-migration/package.json
++++ b/node_modules/contentful-migration/package.json
+@@ -64,6 +64,7 @@
+     "lodash": "^4.17.15",
+     "yargs": "^15.3.1"
+   },
++  "types": "index.d.ts",
+   "devDependencies": {
+     "@contentful/eslint-config-backend": "^7.0.0",
+     "@semantic-release/changelog": "^5.0.1",

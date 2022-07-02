@@ -5,7 +5,7 @@ import { Marker } from '@react-google-maps/api';
 import { GoogleMaps, GoogleMapsInfoWindow } from '@newrade/core-react-ui';
 import { BlockGoogleMapAPI } from '@newrade/core-website-api';
 
-import { BlockProps } from './block.props';
+import { BlockProps } from './block.props.js';
 
 export type BlockGoogleMapsProps = BlockProps & {
   blockGoogleMaps?: BlockGoogleMapAPI;

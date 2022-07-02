@@ -5,7 +5,7 @@
  */
 import { TEST_ENV } from '@newrade/core-common';
 
-import { ENV } from '../types/dot-env';
+import { ENV } from '../types/dot-env.js';
 
 jest.mock('@actions/github');
 jest.mock('@actions/core');

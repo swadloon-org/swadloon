@@ -5,7 +5,7 @@ import { GatsbyNode } from 'gatsby';
 
 import { Configuration } from 'webpack';
 
-import { GatsbyPluginTsCacheOptions } from '../gatsby-plugin-options';
+import { GatsbyPluginTsCacheOptions } from '../gatsby-plugin-options.js';
 
 /**
  * @see 'node_modules/gatsby/dist/utils/webpack.config.js'

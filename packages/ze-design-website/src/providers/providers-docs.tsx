@@ -16,7 +16,7 @@ import { cssThemeConfig } from '@newrade/ze-design-system/css';
 /**
  * Provide context over /docs/ and /design-system/ pages
  */
-export const ProvidersDocs: React.FC = (props) => {
+export const ProvidersDocs: React.FC<React.PropsWithChildren<{}>> = (props) => {
   return (
     <CSSThemeProvider
       value={{

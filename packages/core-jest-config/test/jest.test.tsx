@@ -1,10 +1,12 @@
-/// <reference types="@newrade/core-types/src/mdx" />
+/// <reference path="../../core-types/src/mdx.d.ts" />
 
 import { spawnSync } from 'child_process';
 
 import React from 'react';
 
 import { render } from '@testing-library/react';
+
+import * as importedModule from './jest-setup.js';
 
 /**
  * @description Test Jest setup itself, e.g. if the Jest test can compile from TypeScript
@@ -23,18 +25,21 @@ describe('jest', () => {
   });
 
   it('should compile dynamic import with .then', () => {
-    const lazyImport = import('./jest-setup').then((module) => {
+    const lazyImport = import('./jest-setup.js').then((module) => {
       expect(module.jestSetup).toEqual('jestSetup');
     });
   });
 
   it('should compile dynamic import with await keyword', async () => {
-    const lazyImport = await import('./jest-setup');
+    const lazyImport = await import('./jest-setup.js');
     expect(lazyImport.jestSetup).toEqual('jestSetup');
   });
 
-  // TODO
-  // it('should compile .mdx files', async () => {
+  it('should correctly import a .js import', () => {
+    expect(importedModule.jestSetup).toEqual('jestSetup');
+  });
+
+  // it('should compile .md (mdx) files', async () => {
   //   const lazyImport = await import('./test-mdx.md');
   //   expect(lazyImport.default).toEqual('jestSetup');
   // });

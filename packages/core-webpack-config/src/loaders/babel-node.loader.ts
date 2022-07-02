@@ -2,7 +2,7 @@ import path from 'path';
 
 import { RuleSetRule, RuleSetUseItem } from 'webpack';
 
-import { babelNodePresetConf } from '../babel/babel-preset.conf';
+import { babelNodePresetConf } from '../babel/babel-preset.conf.js';
 
 /**
  * Babel loader for NodeJS >v14

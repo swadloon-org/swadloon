@@ -7,7 +7,7 @@
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "homepage": "https://github.com/https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
+  "homepage": "https://github.com/newrade/newrade-core",
   "repository": {
     "directory": "packages/core-cli",
     "type": "git",
@@ -18,60 +18,100 @@
   "bin": {
     "nr": "./bin/run"
   },
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "files": [
     "/bin",
-    "/lib",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/src"
   ],
   "scripts": {
-    "build": "yarn prepack",
-    "clean": "rimraf -rf lib/** && yarn postpack && rimraf -f *.tsbuildinfo",
-    "postpack": "rimraf -f oclif.manifest.json",
-    "prepack": "rimraf -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "typecheck": "tsc --noEmit --composite false --incremental false",
-    "version": "oclif-dev readme && git add README.md"
+    "build": "yarn build:cli",
+    "build:cli": "yarn swc:build:commonjs",
+    "clean": "yarn clean:cli",
+    "clean:cli": "yarn clean:dist && yarn clean:tsc && yarn clean:oclif",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:oclif": "rimraf -f oclif.manifest.json",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "cli": "env-cmd -x ./bin/run",
+    "oclif:manifest": "oclif manifest",
+    "oclif:readme": "oclif readme",
+    "oclif:version": "oclif readme && git add README.md",
+    "postpack": "clean:oclif",
+    "prepack": "yarn clean && yarn build && yarn oclif:manifest && yarn oclif:readme",
+    "prestart": "yarn build",
+    "start": "yarn start:cli",
+    "start:cli": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:commonjs:watch\"",
+    "swc:build": "swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
+    "test": "jest --passWithNoTests",
+    "test:clean": "jest --clearCache",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "tsc:types": "tsc --noEmit",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+  },
+  "exports": {
+    "./package.json": "./package.json"
   },
   "oclif": {
     "bin": "nr",
-    "commands": "./lib/commands",
-    "dirname": ".cache/oclif",
+    "commands": "./dist/commands",
+    "flexibleTaxonomy": true,
+    "hooks": {
+      "command_incomplete": "./dist/hooks/command-incomplete",
+      "command_not_found": "./dist/hooks/command-not-found",
+      "init": "./dist/hooks/init",
+      "postrun": "./dist/hooks/postrun",
+      "prerun": "./dist/hooks/prerun"
+    },
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "auth": {
+        "description": "Manage authentication to your CondoHub account and your Google Workspace"
+      },
+      "building": {
+        "description": "Add edit or remove buildings."
+      },
+      "config": {
+        "description": "Manage local user config"
+      }
+    }
   },
-  "types": "lib/index.d.ts",
+  "type": "commonjs",
   "dependencies": {
     "@contentful-tools/cli": "^0.7.3",
     "@contentful-tools/store": "^0.7.3",
+    "@newrade/core-common": "*",
     "@newrade/core-css-extractor": "*",
     "@newrade/core-figma-extractor": "*",
     "@newrade/core-node-utils": "*",
-    "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@oclif/core": "^1",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^3",
-    "@oclif/test": "^1",
+    "@oclif/test": "^2",
     "@types/micromatch": "^4",
     "@types/mocha": "^8",
     "case": "^1",
     "chai": "^4",
     "chalk": "^4",
     "contentful-migration": "^2.0.4",
-    "eslint": "^5.13",
-    "eslint-config-oclif": "^3.1",
-    "eslint-config-oclif-typescript": "^0.2",
     "fp-ts": "^2",
     "glob": "^7",
+    "inquirer": "^8",
     "io-ts": "^2",
+    "listr2": "^4",
     "micromatch": "^4.0.4",
     "mocha": "^5",
     "nyc": "^14",
+    "oclif": "^3",
     "octokit": "^1",
     "prettier": "^2",
     "simple-git": "^2",
-    "ts-node": "^9",
-    "typescript": "4.6.2"
+    "typescript": "4.7.2"
   }
 }

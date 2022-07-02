@@ -1,9 +1,9 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
 
-import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
-import { GatsbyNodeSiteMetadataFragment, MarkdownChildMdx, Mdx } from './site-graphql-types';
-import { MdxFrontmatter } from './site-mdx-frontmatter';
+import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances.js';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props.js';
+import { GatsbyNodeSiteMetadataFragment, MarkdownChildMdx, Mdx } from './site-graphql-types.js';
+import { MdxFrontmatter } from './site-mdx-frontmatter.js';
 
 /**
  * Common page context that all page should receive.

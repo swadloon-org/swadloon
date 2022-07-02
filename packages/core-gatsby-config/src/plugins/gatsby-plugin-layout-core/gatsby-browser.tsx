@@ -1,4 +1,4 @@
-import { wrapPageElementFunction, wrapRootElementFunction } from './src/wrap-page';
+import { wrapPageElementFunction, wrapRootElementFunction } from './src/wrap-page.js';
 
 /**
  * Gatsby Browser APIs

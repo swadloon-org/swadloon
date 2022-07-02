@@ -1,16 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo } from 'react';
 
+import type { PartialOrNull } from '@newrade/core-types';
 import { LinkAPI, LinkComponent, LinkType, NavigationAPI } from '@newrade/core-website-api';
-import { PartialOrNull } from '@newrade/core-website-api/utilities';
 
-import { useI18next } from '../i18next/use-i18next.hook';
-import { GatsbyPageNode } from '../utilities/gatsby-page-node';
+import { useI18next } from '../i18next/use-i18next.hook.js';
+import { GatsbyPageNode } from '../utilities/gatsby-page-node.js';
 import {
   getNavigationAPIFromPageNodes,
   GetNavigationAPIOptions,
   getPathParts,
-} from '../utilities/navigation-api.utilities';
+} from '../utilities/navigation-api.utilities.js';
 
 type NavigationQuery = PartialOrNull<{
   pages: {
@@ -67,7 +67,8 @@ const query = graphql`
 /**
  * Returns a NavigationAPI object based on current Gatsby SitePages
  *
- * This hooks has support for i18n translation and localization and must be used within a I18nextContext Context
+ * This hooks has support for i18n translation and localization
+ * and must be used within a I18nextContext Context
  */
 export function useNavigationAPI(options: GetNavigationAPIOptions): NavigationAPI {
   const data = useStaticQuery<NavigationQuery>(query);

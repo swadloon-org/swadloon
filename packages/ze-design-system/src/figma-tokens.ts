@@ -4,4 +4,4 @@
  *
  */
 
-export * from './figma-tokens/figma-colors';
+export * from './figma-tokens/figma-colors.js';

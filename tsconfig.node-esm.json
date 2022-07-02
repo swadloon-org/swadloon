@@ -5,10 +5,14 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
-    "incremental": true,
-    "composite": true,
-    "target": "ES2018",
-    "lib": ["ES2018"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
+    "emitDeclarationOnly": true,
+    "module": "node16",
+    //
+    // should be set according to choosen NodeJS version and
+    // its support of recent features https://node.green/
+    //
+    "target": "es2021",
+    "lib": ["es2021"],
     "types": ["node", "jest"]
   }
 }

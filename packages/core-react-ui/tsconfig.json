@@ -4,7 +4,10 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "dist",
-    "types": ["react", "react-dom", "jest", "googlemaps"]
+    "types": ["react", "react-dom", "jest", "googlemaps"],
+    "emitDeclarationOnly": false,
+    "declaration": false,
+    "noEmit": true
   },
   "include": ["src", "types"]
 }

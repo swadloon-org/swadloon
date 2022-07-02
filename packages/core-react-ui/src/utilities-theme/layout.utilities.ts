@@ -13,10 +13,10 @@ import {
   PartialLayout,
 } from '@newrade/core-design-system';
 
-import { defaultPartialLayout } from '../default-theme/default-layout';
-import { CSSLayoutV2, LayoutVarNames, LayoutVars } from '../design-system';
-import { cssVar } from '../utilities-iso/css-variables.utilities';
-import { keys, px } from '../utilities-iso/utilities';
+import { CSSLayoutV2, LayoutVarNames, LayoutVars } from '../css-design-system/design-system.js';
+import { defaultPartialLayout } from '../default-theme/default-layout.js';
+import { cssVar } from '../utilities-iso/css-variables.utilities.js';
+import { keys, px } from '../utilities-iso/utilities.js';
 
 export const defaultLayoutVarNames: LayoutVarNames = getCSSVarNamesForLayout({
   layout: defaultPartialLayout,

@@ -1,44 +1,24 @@
-import { Command, flags } from '@oclif/command';
-import { IConfig } from '@oclif/config';
-import debug from 'debug';
+import { Config } from '@oclif/core';
 
-import { NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
 
-export default class Hello extends Command {
-  log = debug(`${NS}:hello`);
-  logWarn = debug(`${NS}:hello:warn`);
-  logError = debug(`${NS}:hello:error`);
+export default class Hello extends BaseCommand {
+  static description = 'Test command to verify that the CLI build is valid.';
+  static examples = [`$ condohub hello world`];
+  static args = [{ name: 'word' }];
 
-  constructor(argv: string[], config: IConfig) {
-    super(argv, config);
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'hello' });
   }
 
-  static description = 'describe the command here';
-
-  static examples = [
-    `$ nr hello
-  hello world from ./src/hello.ts!
-  `,
-  ];
-
-  static flags = {
-    help: flags.help({ char: 'h' }),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({ char: 'n', description: 'name to print' }),
-    // flag with no value (-f, --force)
-    force: flags.boolean({ char: 'f' }),
-  };
-
-  static args = [{ name: 'file' }];
-
-  async init() {}
-
   async run() {
-    const { args, flags } = this.parse(Hello);
-    const name = flags.name ?? 'world';
-    console.log(`hello ${name} from ./src/commands/hello.ts`);
-    if (args.file && flags.force) {
-      console.log(`you input --force and --file: ${args.file}`);
+    this.logDebug('starting run method');
+
+    const { args } = await this.parse<any, { word: any }>(Hello);
+    if (args.word) {
+      this.logCommand(`hello ${args.word}`);
+      return;
     }
+    this.logCommand(`hello`);
   }
 }

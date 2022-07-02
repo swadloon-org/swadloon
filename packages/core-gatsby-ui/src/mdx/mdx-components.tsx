@@ -45,19 +45,19 @@ import { Code, CodeBlockLazy } from '@newrade/core-react-ui/code';
 import { IconBox, Placeholder, PlaceholderMarkdown } from '@newrade/core-react-ui/doc-components';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
-import { BlockMarkdown } from '../blocks/block-markdown';
-import { DocHeader } from '../context/doc-header';
-import { DocPropsTable } from '../context/doc-props-table';
-import { SectionBase } from '../sections/section-base';
-import { SectionDivider } from '../sections/section-divider';
-import { SectionSwitcher } from '../sections/section-switcher';
+import { BlockMarkdown } from '../blocks/block-markdown.js';
+import { DocHeader } from '../context/doc-header.js';
+import { DocPropsTable } from '../context/doc-props-table.js';
+import { SectionBase } from '../sections/section-base.js';
+import { SectionDivider } from '../sections/section-divider.js';
+import { SectionSwitcher } from '../sections/section-switcher.js';
 
 export type MDXComponents = Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & {
-    pragmaFrag: React.ReactNode;
-    inlineCode: React.ReactNode;
+  Record<keyof React.ReactHTML, any> & {
+    pragmaFrag: any;
+    inlineCode: any;
   } & {
-    [key: string]: React.ReactNode;
+    [key: string]: any; // React.ReactNode
   }
 >;
 

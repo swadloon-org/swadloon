@@ -15,7 +15,7 @@ import {
 } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 
-import * as styles from './docs.css';
+import * as styles from './docs.css.js';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 

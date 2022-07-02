@@ -16,7 +16,7 @@ import {
 } from '@newrade/core-react-ui';
 import { colorVars, sizeVars } from '@newrade/core-react-ui/theme';
 
-import * as styles from './navbar-docs.css';
+import * as styles from './navbar-docs.css.js';
 
 export type NavBarDocsRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;

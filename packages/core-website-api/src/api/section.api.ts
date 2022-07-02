@@ -1,11 +1,10 @@
 import { Variant } from '@newrade/core-design-system';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { PartialOrNull } from '../utilities';
-
-import { BlockAPI } from './block.api';
-import { BlockGoogleMapAPI } from './block-google-map.api';
-import { BlockImageAPIV1, BlockImageAPIV2 } from './block-image.api';
-import { ColorModeAPI } from './color-mode.api';
+import { BlockAPI } from './block.api.js';
+import { BlockGoogleMapAPI } from './block-google-map.api.js';
+import { BlockImageAPIV1, BlockImageAPIV2 } from './block-image.api.js';
+import { ColorModeAPI } from './color-mode.api.js';
 
 export enum SectionBaseLayout {
   /**

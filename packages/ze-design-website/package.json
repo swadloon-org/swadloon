@@ -39,7 +39,6 @@
     "@newrade/core-gatsby-ui": "*",
     "@newrade/core-node-utils": "*",
     "@newrade/core-react-ui": "*",
-    "@newrade/core-types": "*",
     "@newrade/core-website-api": "*",
     "@newrade/ze-design-system": "^1.8.0",
     "@vanilla-extract/css": "^1.6.8",

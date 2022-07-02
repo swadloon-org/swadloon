@@ -1,11 +1,9 @@
 {
-  "extends": "../../tsconfig.node-commonjs.json",
+  "extends": "../../tsconfig.node-cli.json",
   "compilerOptions": {
     "declaration": false,
-    "esModuleInterop": true, // oclif does not use extends
-    "baseUrl": ".",
-    "outDir": "lib",
-    "rootDir": "src"
+    "rootDir": "src",
+    "outDir": "./dist"
   },
-  "include": ["src", "../../package.json"]
+  "include": ["src", "jest.config.mjs"]
 }

@@ -1,15 +1,10 @@
-import { Command } from '@oclif/command';
+import { Config } from '@oclif/core';
 import chalk from 'chalk';
-import debug from 'debug';
 import micromatch from 'micromatch';
 
-import { NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
 
-export default class Micromatch extends Command {
-  log = debug(`${NS}:micromatch`);
-  logWarn = debug(`${NS}:micromatch:warn`);
-  logError = debug(`${NS}:micromatch:error`);
-
+export default class Micromatch extends BaseCommand {
   static description = 'Execute micromatch as CLI';
 
   static examples = [`$ nr micromatch`];
@@ -18,8 +13,12 @@ export default class Micromatch extends Command {
 
   static flags = {};
 
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'micromatch' });
+  }
+
   async run() {
-    const { args, flags } = this.parse(Micromatch);
+    const { args, flags } = await this.parse(Micromatch);
 
     this.log(`path: ${chalk.blueBright(args.path)}, pattern: ${chalk.bgBlue(args.pattern)}`);
 

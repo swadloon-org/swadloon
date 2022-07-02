@@ -3,11 +3,11 @@ import { ModuleKind } from 'typescript';
 import { Configuration } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 
-import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
-import { htmlLoader } from '../loaders/html.loader';
-import { svgLoader } from '../loaders/svg.loader';
-import { stats } from '../other/stats.conf';
-import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
+import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader.js';
+import { htmlLoader } from '../loaders/html.loader.js';
+import { svgLoader } from '../loaders/svg.loader.js';
+import { stats } from '../other/stats.conf.js';
+import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin.js';
 
 /**
  * Config to bundle libs to a single bundle (CommonJS)

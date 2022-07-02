@@ -1,7 +1,5 @@
-# specific to oclif
-/.nyc_output
-/dist
-/lib
-/tmp
-!/bin
-/bin/nr
+# oclif
+# include prebuilts bin and lib files
+!/bin/
+!/dist/
+bin/nr

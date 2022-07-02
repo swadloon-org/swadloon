@@ -5,18 +5,18 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
 
-import { getBabelReactLoader } from '../loaders/babel-react.loader';
-import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader';
-import { fileLoader } from '../loaders/file.loader';
-import { htmlLoader } from '../loaders/html.loader';
-import { svgLoader } from '../loaders/svg.loader';
-import { txtLoader } from '../loaders/txt.loader';
-import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader';
-import { urlLoader } from '../loaders/url.loader';
-import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
-import { compressionPlugin } from '../plugins/compression.plugin.conf';
-import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
-import { mdxLoader } from '..';
+import { getBabelReactLoader } from '../loaders/babel-react.loader.js';
+import { extractCssLoader, extractVanillaCssLibLoader } from '../loaders/extract-css.loader.js';
+import { fileLoader } from '../loaders/file.loader.js';
+import { htmlLoader } from '../loaders/html.loader.js';
+import { mdxLoader } from '../loaders/mdx.loader.js';
+import { svgLoader } from '../loaders/svg.loader.js';
+import { txtLoader } from '../loaders/txt.loader.js';
+import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader.js';
+import { urlLoader } from '../loaders/url.loader.js';
+import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin.js';
+import { compressionPlugin } from '../plugins/compression.plugin.conf.js';
+import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf.js';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps

@@ -1,0 +1,9 @@
+{
+  "extends": "../../../../tsconfig.browser-ui-lib.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src", "types"]
+}

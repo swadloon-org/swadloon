@@ -5,12 +5,11 @@ import { Variant } from '@newrade/core-design-system';
 import { CONTENT_TYPE } from '@newrade/core-website-api';
 import { SectionLayout } from '@newrade/core-website-api';
 
-import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
-import { keys } from '../utilities';
-import { values } from '..';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids.js';
+import { keys, values } from '../utilities.js';
 
-import { createColorProps } from './color-props.contentful';
-import { COMMON_FIELD } from './common-fields.contentful';
+import { createColorProps } from './color-props.contentful.js';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 export function createSection(migration: Migration.default) {
   const content = migration.createContentType(CONTENT_TYPE.SECTION, {

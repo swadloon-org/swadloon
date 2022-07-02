@@ -1,4 +1,4 @@
-import { svgoConfig } from './svgo.conf';
+import { svgoConfig } from './svgo.conf.js';
 
 /**
  * @see https://react-svgr.com/docs/options/

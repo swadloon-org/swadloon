@@ -2,7 +2,7 @@ import path from 'path';
 
 import { PluginRef } from 'gatsby';
 
-import { GatsbyPluginCoreDllOptions } from '../plugins/gatsby-plugin-core-dll/gatsby-plugin-options';
+import { GatsbyPluginCoreDllOptions } from '../plugins/gatsby-plugin-core-dll/gatsby-plugin-options.js';
 
 const defaultOptions: Required<GatsbyPluginCoreDllOptions> = {
   packageName: 'package',

@@ -85,8 +85,12 @@ jobs:
       - name: Lint source files
         run: yarn eslint ./packages/core-figma-extractor/src/ --ext "ts,tsx"
 
+      - name: Build package
+        run: yarn lerna:build:lib --scope @newrade/core-figma-extractor
+
+      - name: Run extract command
+        run: yarn nr figma-sync --test
+        working-directory: packages/core-figma-extractor
+
       - name: Run unit tests
         run: yarn lerna:test --scope @newrade/core-figma-extractor
-
-      - name: Build package
-        run: yarn lerna:build --scope @newrade/core-figma-extractor

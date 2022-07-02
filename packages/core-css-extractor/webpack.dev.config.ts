@@ -11,7 +11,7 @@ import merge from 'webpack-merge';
 
 import * as core from '@newrade/core-webpack-config';
 
-import { commonConfig, env } from './webpack.common.config';
+import { commonConfig, env } from './webpack.common.config.js';
 
 const devConfig: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',

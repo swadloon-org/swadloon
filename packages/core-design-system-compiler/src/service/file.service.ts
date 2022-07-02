@@ -3,9 +3,9 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-import { ExtractOptions } from '../compile';
+import { ExtractOptions } from '../compile.js';
 
-import { log, logError } from './logging.service';
+import { log, logError } from './logging.service.js';
 
 const projectJson = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8')

@@ -1,14 +1,13 @@
-import { Env, ENV } from '@newrade/core-css-extractor';
-import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
-import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
-export default class CssExtract extends Command {
-  log = debugInstance(`${NS}:css-extract`);
-  logWarn = debugInstance(`${NS}:css-extract:warn`);
-  logError = debugInstance(`${NS}:css-extract:error`);
+import { Config } from '@oclif/core';
 
+import { ENV, Env } from '@newrade/core-css-extractor';
+import { getShellForPlatform, loadDotEnv } from '@newrade/core-node-utils';
+
+import { BaseCommand } from '../base-command.js';
+
+export default class CssExtract extends BaseCommand {
   static description =
     'Create CSS tokens (plain .css files) from Vanilla-extract styles definition files (*.css.ts)';
 
@@ -18,8 +17,11 @@ export default class CssExtract extends Command {
 
   static flags = {};
 
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'css-extract' });
+  }
+
   async run() {
-    enableDebug();
     this.log(`loading .env in ${process.cwd()}`);
 
     const env = loadDotEnv<ENV>({
@@ -31,9 +33,9 @@ export default class CssExtract extends Command {
     this.log(`CSS_EXTRACTOR_ENTRIES_GLOB: ${env.CSS_EXTRACTOR_ENTRIES_GLOB}`);
     this.log(`CSS_EXTRACTOR_OUTPUT_PATH: ${env.CSS_EXTRACTOR_OUTPUT_PATH}`);
 
-    const { args, flags } = this.parse(CssExtract);
+    const { args, flags } = await this.parse(CssExtract);
 
-    const command = `TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config ../core-css-extractor/webpack.prod.config.ts`;
+    const command = `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config ../core-css-extractor/webpack.prod.config.ts`;
 
     this.log(`running: ${command}`);
 

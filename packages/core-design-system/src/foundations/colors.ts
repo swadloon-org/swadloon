@@ -1,7 +1,7 @@
-import { ColorGradients } from './color-gradients';
-import { ColorIntents } from './color-intents';
-import { COLOR_SCHEME } from './color-scheme';
-import { ColorsColors } from './colors-colors';
+import { ColorGradients } from './color-gradients.js';
+import { ColorIntents } from './color-intents.js';
+import { COLOR_SCHEME } from './color-scheme.js';
+import { ColorsColors } from './colors-colors.js';
 
 /**
  * Every color defined in the system.

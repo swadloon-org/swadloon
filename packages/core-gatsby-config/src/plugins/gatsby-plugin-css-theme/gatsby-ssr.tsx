@@ -6,7 +6,7 @@ import type {
   LOCAL_STORAGE_CSS_THEME_SCHEME_PROP,
 } from '@newrade/core-react-ui/global';
 
-import type { GatsbyPluginCSSThemeOptions } from './gatsby-plugin-options';
+import type { GatsbyPluginCSSThemeOptions } from './gatsby-plugin-options.js';
 
 // @ts-ignore
 import detectCssColorScheme from '!!raw-loader!babel-loader!ts-loader!./detect-color-scheme.ts';

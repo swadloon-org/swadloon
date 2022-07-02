@@ -10,6 +10,7 @@ package-lock.json
 *.yml
 *.yaml
 *.ejs
+*.json.ejs
 
 # source maps
 *.js.map

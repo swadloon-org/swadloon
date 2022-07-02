@@ -1,0 +1,45 @@
+diff --git a/node_modules/fp-ts/package.json b/node_modules/fp-ts/package.json
+index 080cdb8..4323ed6 100644
+--- a/node_modules/fp-ts/package.json
++++ b/node_modules/fp-ts/package.json
+@@ -15,6 +15,40 @@
+   "bugs": {
+     "url": "https://github.com/gcanti/fp-ts/issues"
+   },
++  "exports": {
++    ".": {
++      "import": {
++        "types": "./es6/index.d.ts",
++        "default": "./es6/index.js"
++      },
++      "require": {
++        "types": "./lib/index.d.ts",
++        "default": "./lib/index.js"
++      }
++    },
++    "./*": {
++      "import": {
++        "types": "./es6/*.d.ts",
++        "default": "./es6/*.js"
++      },
++      "require": {
++        "types": "./lib/*.d.ts",
++        "default": "./lib/*.js"
++      }
++    },
++    "./es6/*": {
++      "import": {
++        "types": "./es6/*.d.ts",
++        "default": "./es6/*.js"
++      }
++    },
++    "./lib/*": {
++      "require": {
++        "types": "./lib/*.d.ts",
++        "default": "./lib/*.js"
++      }
++    }
++  },
+   "homepage": "https://github.com/gcanti/fp-ts",
+   "tags": [
+     "typescript",

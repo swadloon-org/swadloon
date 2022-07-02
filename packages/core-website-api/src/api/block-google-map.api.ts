@@ -1,6 +1,6 @@
-import { PartialOrNull } from '../utilities';
+import type { PartialOrNull } from '@newrade/core-types';
 
-import { BlockAPI, BlockType } from './block.api';
+import { BlockAPI, BlockType } from './block.api.js';
 
 export type BlockGoogleMapAPI = BlockAPI &
   PartialOrNull<{

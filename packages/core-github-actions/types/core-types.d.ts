@@ -1,7 +1,6 @@
 /**
  * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-
  */
-/// <reference types="@newrade/core-types/src/morgan" />
+/// <reference path="../../core-types/src/morgan.d.ts" />
 
-/// <reference types="@newrade/core-types/src/webpack-copy-plugin" />
-/// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />
+/// <reference path="../../core-types/src/copy-webpack-plugin.d.ts" />

@@ -6,5 +6,5 @@ safari >=12
 not IE 11
 
 # nodejs
-node >= 14
+node >= 16
 

@@ -1,12 +1,11 @@
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import {
+import CssMinimizerPlugin, {
   BasePluginOptions,
   CssNanoOptionsExtended,
   DefinedDefaultMinimizerAndOptions,
-} from 'css-minimizer-webpack-plugin/types/index';
+} from 'css-minimizer-webpack-plugin';
 import { WebpackPluginInstance } from 'webpack';
 
-import { cssNanoConfig } from '../loaders/css-nano.config';
+import { cssNanoConfig } from '../loaders/css-nano.config.js';
 
 type CssMinimizerPluginOptions =
   | (BasePluginOptions & DefinedDefaultMinimizerAndOptions<CssNanoOptionsExtended>)

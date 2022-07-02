@@ -3,7 +3,7 @@ import React from 'react';
 import { Center, Paragraph, Stack } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 
-import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template.js';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (

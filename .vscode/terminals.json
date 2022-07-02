@@ -27,8 +27,32 @@
       "execute": false
     },
     {
+      "name": "core-common",
+      "cwd": "./packages/core-common",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-contentful-lib",
       "cwd": "./packages/core-contentful-lib",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-css-extractor",
+      "cwd": "./packages/core-css-extractor",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-design-app",
+      "cwd": "./packages/core-design-app",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -51,8 +75,8 @@
       "execute": false
     },
     {
-      "name": "core-common",
-      "cwd": "./packages/core-common",
+      "name": "core-figma-design-plugin",
+      "cwd": "./packages/core-figma-design-plugin",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -67,8 +91,8 @@
       "execute": false
     },
     {
-      "name": "core-figma-plugins",
-      "cwd": "./packages/core-figma-plugins",
+      "name": "core-figma-scripts",
+      "cwd": "./packages/core-figma-scripts",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -107,6 +131,22 @@
       "execute": false
     },
     {
+      "name": "core-node-utils",
+      "cwd": "./packages/core-node-utils",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "core-platform",
+      "cwd": "./packages/core-platform",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-jest-config",
       "cwd": "./packages/core-jest-config",
       "open": true,
@@ -123,24 +163,8 @@
       "execute": false
     },
     {
-      "name": "core-graphql-ui",
-      "cwd": "./packages/core-graphql-ui",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
       "name": "core-types",
       "cwd": "./packages/core-types",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
-      "name": "core-node-utils",
-      "cwd": "./packages/core-node-utils",
       "open": true,
       "focus": false,
       "command": "yarn start",
@@ -157,22 +181,6 @@
     {
       "name": "core-website-api",
       "cwd": "./packages/core-website-api",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
-      "name": "core-yo-generator",
-      "cwd": "./packages/core-yo-generator",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
-      "name": "core-design-app",
-      "cwd": "./packages/core-design-app",
       "open": true,
       "focus": false,
       "command": "yarn start",

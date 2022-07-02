@@ -1,7 +1,6 @@
 import { createVar, globalStyle, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { resetButtonStyle } from '@newrade/core-react-ui';
 import { colorVars, layoutVars, sizeVars } from '@newrade/core-react-ui/theme';
 
 /**
@@ -27,7 +26,6 @@ const padding = createVar();
  */
 
 export const base = style([
-  resetButtonStyle,
   {
     vars: {
       [padding]: `16px`,
@@ -41,6 +39,11 @@ export const base = style([
     },
 
     position: 'relative',
+
+    cursor: 'pointer',
+    appearance: 'none',
+    userSelect: 'none',
+    WebkitAppearance: 'none',
 
     display: 'flex',
     justifyContent: 'center',

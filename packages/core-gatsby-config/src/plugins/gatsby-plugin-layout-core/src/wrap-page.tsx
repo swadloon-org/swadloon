@@ -1,7 +1,7 @@
 import { GatsbyBrowser, GatsbySSR } from 'gatsby';
 import React from 'react';
 
-import { PLUGIN_CONSTANTS } from './constants';
+import { PLUGIN_CONSTANTS } from './constants.js';
 
 let LayoutComponent: any;
 let ProvidersComponent: any;

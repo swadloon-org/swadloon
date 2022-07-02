@@ -1,7 +1,7 @@
 import { locales as gatsbyUILocales } from '@newrade/core-gatsby-ui/src/i18next/locales';
 
-import { enTranslation } from './en.locales';
-import { frTranslation } from './fr.locales';
+import { enTranslation } from './en.locales.js';
+import { frTranslation } from './fr.locales.js';
 
 export type Locales = 'en' | 'fr';
 

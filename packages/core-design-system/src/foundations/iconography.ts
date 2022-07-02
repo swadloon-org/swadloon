@@ -1,6 +1,6 @@
-import { SizingType } from '../types';
+import { SizingType } from '../types.js';
 
-import { VIEWPORT } from './layout';
+import { VIEWPORT } from './layout.js';
 
 /**
  * All icon available in the design system

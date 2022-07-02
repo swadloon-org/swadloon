@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-common",
   "version": "1.4.3",
-  "description": "Commone utilities shared across packages.",
+  "description": "Common utilities shared across packages (for NodeJS and the browser).",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
@@ -13,17 +13,47 @@
     "url": "https://github.com/newrade/newrade-core.git"
   },
   "license": "MIT",
-  "main": "dist/newrade-core-common.cjs.js",
-  "module": "dist/newrade-core-common.esm.js",
   "files": [
-    "/dist"
+    "dist",
+    "src",
+    "types"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist && nr prepare-exports",
-    "build:dist": "tsc --project tsconfig.json",
-    "clean": "yarn clean:tsc && yarn clean:dist",
-    "clean:dist": "rimraf -rf dist/** lib/**",
+    "build": "yarn build:lib",
+    "build:lib": "yarn tsc:types && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
+    "clean": "yarn clean:lib",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:lib": "yarn clean:dist && yarn clean:tsc",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "dev": "yarn clean && yarn preconstruct dev"
-  }
+    "rename:commonjs": "renamer --chain ../core-node-utils/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
+    "rename:watch": "nodemon --delay 1000ms --watch dist/cjs --ext js --exec \"yarn rename:commonjs\"",
+    "prestart": "yarn build",
+    "start": "yarn start:lib",
+    "start:lib": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
+    "swc:build": "swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
+    "swc:build:watch": "yarn swc:build --watch",
+    "test": "yarn test:lib",
+    "test:lib": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
+    "tsc:typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "type": "module",
+  "types": "./dist/index.types.d.ts"
 }

@@ -1,16 +1,13 @@
-import { spawn, spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 
-import { Command, flags } from '@oclif/command';
+import { Config, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@newrade/core-node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { BaseCommand } from '../base-command.js';
+import { enableDebug } from '../utilities/log.utilities.js';
 
-export default class Webpack extends Command {
-  log = debugInstance(`${NS}:webpack`);
-  logWarn = debugInstance(`${NS}:webpack:warn`);
-  logError = debugInstance(`${NS}:webpack:error`);
-
+export default class Webpack extends BaseCommand {
   static description = 'Shortcut to run webpack with typescript (ts-node)';
 
   static examples = [`$ nr webpack serve --config webpack.dev.config.ts`];
@@ -18,27 +15,29 @@ export default class Webpack extends Command {
   static args = [{ name: 'command' }];
 
   static flags = {
-    config: flags.string({ char: 'c', description: 'path to config file (.ts)' }),
+    config: Flags.string({ char: 'c', description: 'path to config file (.ts)' }),
     /**
      * @since webpack-dev-server@v4
      * @see https://webpack.js.org/configuration/dev-server/#overlay
      */
-    ['no-client-overlay']: flags.boolean({
+    ['no-client-overlay']: Flags.boolean({
       description:
         'disable the full-screen overlay in the browser when there are compiler errors or warnings',
     }),
     /**
      * debugging
      */
-    ['inspect-brk']: flags.boolean({
+    ['inspect-brk']: Flags.boolean({
       description: 'enable node --inspect-brk flag',
     }),
   };
 
-  async run() {
-    enableDebug();
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'webpack' });
+  }
 
-    const { args, flags } = this.parse(Webpack);
+  async run() {
+    const { args, flags } = await this.parse(Webpack);
 
     const command = [
       `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node ${

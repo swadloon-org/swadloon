@@ -4,12 +4,12 @@
  *
  */
 
-export * from './css/buttons.css';
-export * from './css/colors.css';
-export * from './css/effects.css';
-export * from './css/fonts.css';
-export * from './css/iconography.css';
-export * from './css/layout.css';
-export * from './css/sizing.css';
-export * from './css/theme-config';
-export * from './css/typography.css';
+export * from './css/buttons.css.js';
+export * from './css/colors.css.js';
+export * from './css/effects.css.js';
+export * from './css/fonts.css.js';
+export * from './css/iconography.css.js';
+export * from './css/layout.css.js';
+export * from './css/sizing.css.js';
+export * from './css/theme-config.js';
+export * from './css/typography.css.js';

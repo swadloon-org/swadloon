@@ -5,10 +5,9 @@ import { BoxV2, Center, useCommonProps } from '@newrade/core-react-ui';
 import { sizeVars } from '@newrade/core-react-ui/theme';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 
-import { SectionProps } from './section.props';
-import { SectionBase } from './section-base';
-
-import * as styles from './section-callout.css';
+import { SectionProps } from './section.props.js';
+import { SectionBase } from './section-base.js';
+import * as styles from './section-callout.css.js';
 
 type Props = SectionProps & {
   BackgroundBlock?: React.ReactNode;

@@ -1,4 +1,4 @@
-import { ColorType, RadiusType, SizeType } from '../types';
+import { ColorType, RadiusType, SizeType } from '../types.js';
 
 export type Margin<Override extends undefined | string = undefined> = {
   top: SizeType<Override>;

@@ -72,5 +72,5 @@ jobs:
       - name: Lint source files
         run: yarn eslint ./packages/core-node-utils/src/ --ext "ts,tsx"
 
-      - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/core-node-utils
+      - name: Build package
+        run: yarn lerna:build:lib --scope @newrade/core-node-utils

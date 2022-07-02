@@ -1,5 +1,5 @@
-/// <reference types="@newrade/core-types/src/svg" />
-/// <reference types="@newrade/core-types/src/github-slugger" />
+/// <reference path="../../core-types/src/svg.d.ts" />
+/// <reference path="../../core-types/src/github-slugger.d.ts" />
 
 /**
  *
@@ -7,8 +7,8 @@
  *
  */
 
-export * from './design-system/colors';
-export * from './design-system/effects';
-export * from './design-system/layout';
-export * from './design-system/logos';
-export * from './design-system/typography';
+export * from './design-system/colors.js';
+export * from './design-system/effects.js';
+export * from './design-system/layout.js';
+export * from './design-system/logos.js';
+export * from './design-system/typography.js';

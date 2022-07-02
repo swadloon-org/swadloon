@@ -1,4 +1,4 @@
-import { kebab } from 'case';
+import Case from 'case';
 import prettier, { Options } from 'prettier';
 
 const prettierConfig: Options = {
@@ -19,7 +19,7 @@ export function formatOutput(textContent: string, options: prettier.Options) {
  * @example info900 => info-900
  */
 export function formatNameNumberKebabCase(text: string) {
-  const kebabText = kebab(text);
+  const kebabText = Case.kebab(text);
   const match = /[a-z](\d+)/gi.exec(kebabText);
 
   if (!match) {

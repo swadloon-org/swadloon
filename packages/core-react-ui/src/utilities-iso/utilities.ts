@@ -15,6 +15,13 @@ export function keys<T extends object | undefined>(object: T) {
 }
 
 /**
+ * Wrapper for Objects.values
+ */
+export function values<T extends object>(object: T) {
+  return Object.values(object) as T[keyof T][];
+}
+
+/**
  * Convert a number into a px string.
  * @param px value in pixel
  */
@@ -26,6 +33,20 @@ export function px({ value }: { value?: number }): string {
     return '';
   }
   return `${value}px`;
+}
+
+/**
+ * Convert a number into a em string.
+ * @param em value in pixel
+ */
+export function em({ value }: { value?: number }): string {
+  if (!value) {
+    return '';
+  }
+  if (isNaN(value as number)) {
+    return '';
+  }
+  return `${value}em`;
 }
 
 /**
@@ -79,7 +100,7 @@ export function pxStringToRem({
  * Convert px value (e.g. '15px') into a number value.
  * @param px value in string px value
  */
-export function pxStringToNumber({ value }: { value: string }): number | undefined {
+export function pxStringToNumber({ value }: { value?: string }): number | undefined {
   if (!value?.length) {
     return undefined;
   }

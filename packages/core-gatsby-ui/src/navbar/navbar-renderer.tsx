@@ -7,8 +7,8 @@ import { NavbarProps, useCommonProps } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/utilities-iso';
 import { NavbarLayout } from '@newrade/core-website-api';
 
-import { NavbarRendererProps } from './navbar.props';
-import { NavbarStandard } from './navbar-standard';
+import { NavbarRendererProps } from './navbar.props.js';
+import { NavbarStandard } from './navbar-standard.js';
 
 const log = debug('nr:core-gatsby-ui:navbar-renderer');
 const logWarn = log.extend('warn');

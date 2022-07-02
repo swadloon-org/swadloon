@@ -4,11 +4,10 @@ import { useCommonProps } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { BlockAlignment, BlockAPI } from '@newrade/core-website-api';
 
-import { MarkdownRenderer } from '../markdown/markdown-renderer';
+import { MarkdownRenderer } from '../markdown/markdown-renderer.js';
 
-import { BlockProps } from './block.props';
-
-import * as styles from './block-markdown.css';
+import { BlockProps } from './block.props.js';
+import * as styles from './block-markdown.css.js';
 
 type Props = BlockProps & { block?: BlockAPI } & {
   children?: string | null | React.ReactNode;

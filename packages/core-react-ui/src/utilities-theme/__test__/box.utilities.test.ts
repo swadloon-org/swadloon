@@ -6,7 +6,7 @@ import {
   getCSSBoxPadding,
   getCSSBoxRadius,
   getCSSOutlineStyles,
-} from '../box.utilities';
+} from '../box.utilities.js';
 
 describe('box utilities', () => {
   /**

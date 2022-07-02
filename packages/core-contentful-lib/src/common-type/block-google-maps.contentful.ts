@@ -3,8 +3,8 @@ import * as Migration from 'contentful-migration';
 
 import { CONTENT_TYPE } from '@newrade/core-website-api';
 
-import { createBlock } from './block.contentful';
-import { COMMON_FIELD } from './common-fields.contentful';
+import { createBlock } from './block.contentful.js';
+import { COMMON_FIELD } from './common-fields.contentful.js';
 
 export function createGoogleMapsBlock(migration: Migration.default) {
   const content = createBlock(migration, CONTENT_TYPE.BLOCK_GOOGLE_MAPS, {

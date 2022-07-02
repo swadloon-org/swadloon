@@ -5,10 +5,10 @@ import chalk from 'chalk';
 import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
 
-import { ExtractOptions } from '../compile';
-import { ColorTokens, FigmaColor } from '../models/figma-colors.model';
-import { fetchObjectById } from '../service/figma-api.service';
-import { createExportJSONFile } from '../service/file.service';
+import { ExtractOptions } from '../compile.js';
+import { ColorTokens, FigmaColor } from '../models/figma-colors.model.js';
+import { fetchObjectById } from '../service/figma-api.service.js';
+import { createExportJSONFile } from '../service/file.service.js';
 
 const log = debug('nr:core-design-system-compiler:extract:color');
 const logWarn = log.extend('warn');

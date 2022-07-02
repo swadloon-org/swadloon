@@ -1,7 +1,7 @@
-import { NumberType, SizeType } from '../types';
+import { NumberType, SizeType } from '../types.js';
 
-import { ContentMargins, ContentWidths } from './content-width';
-import { MediaQueries } from './media-queries';
+import { ContentMargins, ContentWidths } from './content-width.js';
+import { MediaQueries } from './media-queries.js';
 
 /**
  * Viewport names.

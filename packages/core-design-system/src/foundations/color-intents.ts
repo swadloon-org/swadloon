@@ -1,4 +1,4 @@
-import { ColorType, DeepPartial } from '../types';
+import { ColorType, DeepPartial } from '../types.js';
 
 /**
  * Contextual use of certain colors (text, action, state, etc).
